@@ -1,5 +1,51 @@
-# Listado Exhaustivo de Requerimientos Funcionales
-*Basado estrictamente en el estándar IEEE 830. Lista plana, atómica y lineal.*
+# Actores del Sistema y Requerimientos Funcionales por Módulo
+## Sistema: EspaciGo — Marketplace SaaS B2B2C de Espacios Comerciales
+
+> **Convención de ID:** `RQF-###` (Requerimiento Funcional).  
+> Se usa `RQF` para distinguirlos inequívocamente de los Requerimientos No Funcionales (`RNQF`).
+
+---
+
+## 1. 🎭 Identificación de Actores
+
+### 1.1 Actores Primarios (humanos que interactúan directamente con el sistema)
+
+| Actor | Alias UML | Descripción | Estado requerido |
+|---|---|---|---|
+| **Visitante** | `Visitante` | Usuario anónimo, sin cuenta registrada. Puede navegar y explorar publicaciones públicas, pero no puede interactuar transaccionalmente. | Sin cuenta |
+| **Usuario Registrado** | `Usuario` | Posee cuenta con correo verificado pero aún sin validación de identidad (KYC/KYB). Puede iniciar sesión, gestionar su perfil y visualizar publicaciones. | Correo verificado |
+| **Arrendador** | `Arrendador` | Usuario con identidad verificada (KYC o KYB) que publica y gestiona espacios comerciales. Aprueba o rechaza reservas. | KYC/KYB aprobado |
+| **Arrendatario** | `Arrendatario` | Usuario con identidad verificada (KYC o KYB) que busca, reserva y paga por espacios comerciales. | KYC/KYB aprobado |
+| **Administrador** | `Administrador` | Operador interno de EspaciGo. Revisa validaciones fallidas, arbitra disputas y consulta auditorías. Acceso especial al panel de administración. | Rol especial de plataforma |
+
+> **Nota:** Un mismo usuario puede actuar como **Arrendador** y **Arrendatario** simultáneamente; los roles no son excluyentes.  
+> **Jerarquía de herencia (UML):**  
+> `Visitante` → `Usuario Registrado` → `Arrendador / Arrendatario`
+
+---
+
+### 1.2 Actores Secundarios (sistemas externos que interactúan con EspaciGo)
+
+| Actor Externo | Tipo | Rol en el sistema |
+|---|---|---|
+| **Registro Civil** | Sistema externo (API) | Valida la vigencia de la cédula de identidad en el proceso KYC |
+| **SII** (Servicio de Impuestos Internos) | Sistema externo (API) | Valida el inicio de actividades y giro comercial en el proceso KYB |
+| **Mercado Pago** | Sistema externo (Pasarela de pagos) | Procesa pagos con tarjeta, gestiona el Escrow, ejecuta reembolsos, pre-autorizaciones de garantía y transferencias de Payout |
+| **FirmaVirtual** | Sistema externo (API) | Recibe el contrato PDF generado y distribuye los enlaces de firma electrónica a las partes |
+| **BigQuery / Data Warehouse** | Sistema externo (Repositorio) | Almacena de forma inmutable los registros de auditoría de todas las acciones transaccionales |
+
+---
+
+## 2. 📦 Módulos del Sistema y Requerimientos Funcionales
+
+> Los RF están renumerados con la notación `RQF-###`.  
+> La numeración es correlativa dentro de cada módulo para facilitar la referencia en fichas de casos de uso.
+
+---
+
+### 📌 Módulo M01 — Autenticación y Gestión de Cuenta
+
+**Actores involucrados:** Visitante, Usuario Registrado, Administrador
 
 | ID | Descripción del Requerimiento Funcional |
 |---|---|
@@ -28,6 +74,15 @@
 | **RQF-023** | El sistema debe expirar el enlace de recuperación de contraseña tras 15 minutos de su emisión. |
 | **RQF-024** | El sistema debe permitir actualizar la contraseña desde el enlace de recuperación. |
 | **RQF-025** | El sistema debe permitir cerrar la sesión activa invalidando la credencial temporal. |
+
+---
+
+### 📌 Módulo M02 — Gestión de Perfil de Usuario
+
+**Actores involucrados:** Usuario Registrado, Arrendador, Arrendatario
+
+| ID | Descripción del Requerimiento Funcional |
+|---|---|
 | **RQF-026** | El sistema debe permitir consultar los datos del perfil de usuario. |
 | **RQF-027** | El sistema debe permitir modificar el nombre de perfil del usuario. |
 | **RQF-028** | El sistema debe validar que el nombre de perfil contenga únicamente caracteres alfabéticos. |
@@ -37,35 +92,53 @@
 | **RQF-032** | El sistema debe validar que la fotografía de perfil no supere los 2MB de tamaño. |
 | **RQF-033** | El sistema debe comprimir la fotografía de perfil antes de almacenarla. |
 | **RQF-034** | El sistema debe permitir eliminar la fotografía de perfil. |
-| **RQF-035** | El sistema debe permitir solicitar la validación de identidad KYC (Persona Natural). |
-| **RQF-036** | El sistema debe permitir cargar una fotografía del anverso de la Cédula de Identidad. |
-| **RQF-037** | El sistema debe permitir cargar una fotografía del reverso de la Cédula de Identidad. |
-| **RQF-038** | El sistema debe validar que las imágenes de la cédula posean un formato de archivo compatible. |
-| **RQF-039** | El sistema debe extraer el RUT desde la fotografía del anverso mediante OCR. |
-| **RQF-040** | El sistema debe extraer el número de serie desde la fotografía mediante OCR. |
-| **RQF-041** | El sistema debe validar la vigencia de la cédula consultando la API del Registro Civil. |
-| **RQF-042** | El sistema debe cambiar el estado del perfil a "Verificado_KYC" si la consulta al Registro Civil es exitosa. |
-| **RQF-043** | El sistema debe rechazar la solicitud KYC si el documento se encuentra vencido. |
-| **RQF-044** | El sistema debe enviar una notificación push al usuario al finalizar la validación KYC. |
-| **RQF-045** | El sistema debe permitir solicitar la validación de identidad KYB (Empresa). |
-| **RQF-046** | El sistema debe permitir ingresar el RUT de la empresa. |
-| **RQF-047** | El sistema debe validar el dígito verificador del RUT ingresado. |
-| **RQF-048** | El sistema debe consultar el giro comercial de la empresa mediante la API del SII. |
-| **RQF-049** | El sistema debe rechazar la validación KYB si la empresa no posee inicio de actividades vigente. |
-| **RQF-050** | El sistema debe cambiar el estado del perfil a "Verificado_KYB" tras una consulta exitosa al SII. |
-| **RQF-051** | El sistema debe listar las validaciones KYC/KYB fallidas en un panel de administración. |
-| **RQF-052** | El sistema debe permitir a un administrador aprobar manualmente una validación de identidad. |
-| **RQF-053** | El sistema debe permitir a un administrador rechazar manualmente una validación de identidad. |
-| **RQF-054** | El sistema debe requerir que el administrador ingrese un motivo en texto al rechazar una validación. |
-| **RQF-055** | El sistema debe permitir registrar una cuenta bancaria asociada al perfil. |
-| **RQF-056** | El sistema debe validar que el RUT de la cuenta bancaria coincida con el RUT verificado del usuario. |
-| **RQF-057** | El sistema debe permitir solicitar la eliminación permanente de la cuenta de usuario. |
-| **RQF-058** | El sistema debe consultar la existencia de reservas activas al solicitar la eliminación de la cuenta. |
-| **RQF-059** | El sistema debe consultar la existencia de pagos pendientes al solicitar la eliminación de la cuenta. |
-| **RQF-060** | El sistema debe consultar la existencia de disputas abiertas al solicitar la eliminación de la cuenta. |
-| **RQF-061** | El sistema debe bloquear la eliminación de la cuenta si existe al menos un proceso (reserva, pago, disputa) activo. |
-| **RQF-062** | El sistema debe anonimizar los datos transaccionales del usuario tras aprobar su eliminación. |
-| **RQF-063** | El sistema debe eliminar los datos personales (nombre, teléfono, RUT) de la base de datos de manera irreversible. |
+| **RQF-035** | El sistema debe permitir registrar una cuenta bancaria asociada al perfil. |
+| **RQF-036** | El sistema debe validar que el RUT de la cuenta bancaria coincida con el RUT verificado del usuario. |
+| **RQF-037** | El sistema debe permitir solicitar la eliminación permanente de la cuenta de usuario. |
+| **RQF-038** | El sistema debe consultar la existencia de reservas activas al solicitar la eliminación de la cuenta. |
+| **RQF-039** | El sistema debe consultar la existencia de pagos pendientes al solicitar la eliminación de la cuenta. |
+| **RQF-040** | El sistema debe consultar la existencia de disputas abiertas al solicitar la eliminación de la cuenta. |
+| **RQF-041** | El sistema debe bloquear la eliminación de la cuenta si existe al menos un proceso (reserva, pago, disputa) activo. |
+| **RQF-042** | El sistema debe anonimizar los datos transaccionales del usuario tras aprobar su eliminación. |
+| **RQF-043** | El sistema debe eliminar los datos personales (nombre, teléfono, RUT) de la base de datos de manera irreversible. |
+
+---
+
+### 📌 Módulo M03 — Verificación de Identidad (KYC / KYB)
+
+**Actores involucrados:** Usuario Registrado, Administrador, Registro Civil (externo), SII (externo)
+
+| ID | Descripción del Requerimiento Funcional |
+|---|---|
+| **RQF-044** | El sistema debe permitir solicitar la validación de identidad KYC (Persona Natural). |
+| **RQF-045** | El sistema debe permitir cargar una fotografía del anverso de la Cédula de Identidad. |
+| **RQF-046** | El sistema debe permitir cargar una fotografía del reverso de la Cédula de Identidad. |
+| **RQF-047** | El sistema debe validar que las imágenes de la cédula posean un formato de archivo compatible. |
+| **RQF-048** | El sistema debe extraer el RUT desde la fotografía del anverso mediante OCR. |
+| **RQF-049** | El sistema debe extraer el número de serie desde la fotografía mediante OCR. |
+| **RQF-050** | El sistema debe validar la vigencia de la cédula consultando la API del Registro Civil. |
+| **RQF-051** | El sistema debe cambiar el estado del perfil a "Verificado_KYC" si la consulta al Registro Civil es exitosa. |
+| **RQF-052** | El sistema debe rechazar la solicitud KYC si el documento se encuentra vencido. |
+| **RQF-053** | El sistema debe enviar una notificación push al usuario al finalizar la validación KYC. |
+| **RQF-054** | El sistema debe permitir solicitar la validación de identidad KYB (Empresa). |
+| **RQF-055** | El sistema debe permitir ingresar el RUT de la empresa. |
+| **RQF-056** | El sistema debe validar el dígito verificador del RUT ingresado. |
+| **RQF-057** | El sistema debe consultar el giro comercial de la empresa mediante la API del SII. |
+| **RQF-058** | El sistema debe rechazar la validación KYB si la empresa no posee inicio de actividades vigente. |
+| **RQF-059** | El sistema debe cambiar el estado del perfil a "Verificado_KYB" tras una consulta exitosa al SII. |
+| **RQF-060** | El sistema debe listar las validaciones KYC/KYB fallidas en un panel de administración. |
+| **RQF-061** | El sistema debe permitir a un administrador aprobar manualmente una validación de identidad. |
+| **RQF-062** | El sistema debe permitir a un administrador rechazar manualmente una validación de identidad. |
+| **RQF-063** | El sistema debe requerir que el administrador ingrese un motivo en texto al rechazar una validación. |
+
+---
+
+### 📌 Módulo M04 — Gestión de Publicaciones
+
+**Actores involucrados:** Arrendador, Visitante, Usuario Registrado
+
+| ID | Descripción del Requerimiento Funcional |
+|---|---|
 | **RQF-064** | El sistema debe permitir acceder al panel de creación de publicaciones. |
 | **RQF-065** | El sistema debe bloquear el acceso al panel de creación de publicaciones a usuarios no verificados. |
 | **RQF-066** | El sistema debe permitir ingresar un título para la publicación. |
@@ -99,6 +172,15 @@
 | **RQF-094** | El sistema debe permitir eliminar permanentemente una publicación. |
 | **RQF-095** | El sistema debe rechazar la eliminación de una publicación si posee reservas futuras pendientes. |
 | **RQF-096** | El sistema debe permitir consultar la lista de todas las publicaciones del usuario (Mis Inmuebles). |
+
+---
+
+### 📌 Módulo M05 — Búsqueda y Exploración de Espacios
+
+**Actores involucrados:** Visitante, Usuario Registrado, Arrendatario
+
+| ID | Descripción del Requerimiento Funcional |
+|---|---|
 | **RQF-097** | El sistema debe renderizar un mapa interactivo en la vista de búsqueda de espacios. |
 | **RQF-098** | El sistema debe desplegar pines en el mapa utilizando las coordenadas de las publicaciones activas. |
 | **RQF-099** | El sistema debe mostrar una cuadrícula de tarjetas con el resumen de las publicaciones disponibles. |
@@ -115,6 +197,15 @@
 | **RQF-110** | El sistema debe calcular el monto de la comisión de servicio (Fee) sobre el costo total de la estadía. |
 | **RQF-111** | El sistema debe calcular el monto de la garantía exigida (porcentaje definido por el arrendador) sobre el costo total. |
 | **RQF-112** | El sistema debe mostrar el desglose de cobro (Estadía + Comisión + Garantía) en el panel de cotización. |
+
+---
+
+### 📌 Módulo M06 — Reservas y Pagos (Escrow)
+
+**Actores involucrados:** Arrendatario, Arrendador, Mercado Pago (externo)
+
+| ID | Descripción del Requerimiento Funcional |
+|---|---|
 | **RQF-113** | El sistema debe permitir seleccionar las fechas de reserva dentro del detalle de la publicación. |
 | **RQF-114** | El sistema debe validar que la fecha de inicio seleccionada sea mayor a la fecha actual. |
 | **RQF-115** | El sistema debe validar que la fecha de fin sea mayor a la fecha de inicio. |
@@ -140,6 +231,15 @@
 | **RQF-135** | El sistema debe exigir al arrendador seleccionar un motivo de rechazo desde una lista predefinida. |
 | **RQF-136** | El sistema debe ejecutar automáticamente el reembolso total a la tarjeta del arrendatario tras el rechazo. |
 | **RQF-137** | El sistema debe cancelar automáticamente las solicitudes de reserva no respondidas por el arrendador en 24 horas. |
+
+---
+
+### 📌 Módulo M07 — Generación y Firma de Contratos
+
+**Actores involucrados:** Arrendador, Arrendatario, FirmaVirtual (externo)
+
+| ID | Descripción del Requerimiento Funcional |
+|---|---|
 | **RQF-138** | El sistema debe iniciar el proceso de generación de contrato tras la aprobación de la reserva por el arrendador. |
 | **RQF-139** | El sistema debe consultar los datos legales del arrendador (Nombre, RUT, Dirección) desde la base de datos. |
 | **RQF-140** | El sistema debe consultar los datos legales del arrendatario (Nombre, RUT, Dirección) desde la base de datos. |
@@ -161,6 +261,15 @@
 | **RQF-156** | El sistema debe cancelar automáticamente las reservas detectadas sin contrato firmado. |
 | **RQF-157** | El sistema debe reembolsar el pago retenido al arrendatario en caso de cancelación por falta de firmas. |
 | **RQF-158** | El sistema debe permitir al arrendatario consultar el contrato PDF descargándolo mediante una URL firmada temporal. |
+
+---
+
+### 📌 Módulo M08 — Check-in y Check-out
+
+**Actores involucrados:** Arrendatario, Arrendador
+
+| ID | Descripción del Requerimiento Funcional |
+|---|---|
 | **RQF-159** | El sistema debe habilitar el botón de "Check-in" en el panel del arrendatario únicamente el día de inicio de la reserva. |
 | **RQF-160** | El sistema debe requerir la carga de al menos una fotografía del inmueble para procesar el Check-in. |
 | **RQF-161** | El sistema debe registrar la fecha, hora y ubicación GPS del dispositivo al momento de procesar el Check-in. |
@@ -170,6 +279,15 @@
 | **RQF-165** | El sistema debe validar que las fotografías de Check-in tengan una resolución mínima de 720p. |
 | **RQF-166** | El sistema debe rechazar la carga de imágenes corruptas en el formulario de Check-in. |
 | **RQF-167** | El sistema debe permitir al arrendatario adjuntar comentarios de texto junto a cada foto de Check-in. |
+
+---
+
+### 📌 Módulo M09 — Resolución de Disputas
+
+**Actores involucrados:** Arrendador, Arrendatario, Administrador, Mercado Pago (externo)
+
+| ID | Descripción del Requerimiento Funcional |
+|---|---|
 | **RQF-168** | El sistema debe ejecutar un temporizador de 24 horas a partir del fin de la estadía para el cobro o disputa. |
 | **RQF-169** | El sistema debe permitir al arrendador registrar un reclamo de daños ingresando texto descriptivo. |
 | **RQF-170** | El sistema debe exigir al arrendador cargar fotografías de evidencia para validar el reclamo. |
@@ -187,6 +305,15 @@
 | **RQF-182** | El sistema debe cambiar el estado de la disputa a "Resuelta" tras el registro del fallo del administrador. |
 | **RQF-183** | El sistema debe consumir la API de la pasarela para hacer efectivo el cobro parcial sobre la pre-autorización de la garantía. |
 | **RQF-184** | El sistema debe consumir la API de la pasarela para liberar el saldo sobrante de la pre-autorización de la garantía. |
+
+---
+
+### 📌 Módulo M10 — Payout y Facturación
+
+**Actores involucrados:** Arrendador, Arrendatario, Mercado Pago (externo)
+
+| ID | Descripción del Requerimiento Funcional |
+|---|---|
 | **RQF-185** | El sistema debe ejecutar el proceso de Payout automáticamente si transcurren las 24 horas de gracia sin reclamos. |
 | **RQF-186** | El sistema debe calcular el monto a transferir al arrendador (Monto total estadía - Comisión EspaciGo). |
 | **RQF-187** | El sistema debe consumir la API de transferencia para enviar el dinero a la cuenta bancaria del arrendador. |
@@ -195,6 +322,15 @@
 | **RQF-190** | El sistema debe generar la boleta electrónica correspondiente a la comisión cobrada por EspaciGo. |
 | **RQF-191** | El sistema debe enviar la boleta electrónica en formato PDF al correo del arrendatario. |
 | **RQF-192** | El sistema debe cambiar el estado de la reserva a "Cerrada" tras la ejecución exitosa del Payout. |
+
+---
+
+### 📌 Módulo M11 — Auditoría y Trazabilidad
+
+**Actores involucrados:** Administrador, BigQuery / Data Warehouse (externo)
+
+| ID | Descripción del Requerimiento Funcional |
+|---|---|
 | **RQF-193** | El sistema debe capturar cada acción transaccional (login, reserva, pago, firma, eliminación) generada en la plataforma. |
 | **RQF-194** | El sistema debe empaquetar los datos transaccionales en una estructura de datos estandarizada. |
 | **RQF-195** | El sistema debe enviar la estructura de datos a una cola de mensajes asíncrona para auditoría. |
@@ -203,3 +339,34 @@
 | **RQF-198** | El sistema debe denegar cualquier petición de eliminación sobre los registros de auditoría. |
 | **RQF-199** | El sistema debe permitir al administrador consultar el historial inmutable de un usuario filtrando por su RUT. |
 | **RQF-200** | El sistema debe exportar los resultados de la consulta de auditoría en un formato de hoja de cálculo estructurado para reportes legales. |
+
+---
+
+## 3. 🗺️ Resumen: Actores por Módulo
+
+| Módulo | Actores Primarios | Actores Externos |
+|---|---|---|
+| M01 — Autenticación y Gestión de Cuenta | Visitante, Usuario Registrado, Administrador | — |
+| M02 — Gestión de Perfil | Usuario Registrado, Arrendador, Arrendatario | — |
+| M03 — Verificación de Identidad (KYC/KYB) | Usuario Registrado, Administrador | Registro Civil, SII |
+| M04 — Gestión de Publicaciones | Arrendador | — |
+| M05 — Búsqueda y Exploración | Visitante, Usuario Registrado, Arrendatario | — |
+| M06 — Reservas y Pagos (Escrow) | Arrendatario, Arrendador | Mercado Pago |
+| M07 — Generación y Firma de Contratos | Arrendador, Arrendatario | FirmaVirtual |
+| M08 — Check-in y Check-out | Arrendatario, Arrendador | — |
+| M09 — Resolución de Disputas | Arrendador, Arrendatario, Administrador | Mercado Pago |
+| M10 — Payout y Facturación | Arrendador, Arrendatario | Mercado Pago |
+| M11 — Auditoría y Trazabilidad | Administrador | BigQuery |
+
+---
+
+## 4. 📊 Estadísticas del Catálogo
+
+| Métrica | Valor |
+|---|---|
+| Total de Requerimientos Funcionales | **200** |
+| Total de Módulos | **11** |
+| Actores Primarios | **5** (Visitante, Usuario Registrado, Arrendador, Arrendatario, Administrador) |
+| Actores Externos (Sistemas) | **5** (Registro Civil, SII, Mercado Pago, FirmaVirtual, BigQuery) |
+| Módulo con más RQF | M06 — Reservas y Pagos (25 RQF) |
+| Módulo con menos RQF | M08 — Check-in / Check-out (9 RQF) |
