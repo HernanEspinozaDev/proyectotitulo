@@ -203,3 +203,23 @@
 | **RQF-198** | El sistema debe denegar cualquier petición de eliminación sobre los registros de auditoría. |
 | **RQF-199** | El sistema debe permitir al administrador consultar el historial inmutable de un usuario filtrando por su RUT. |
 | **RQF-200** | El sistema debe exportar los resultados de la consulta de auditoría en un formato de hoja de cálculo estructurado para reportes legales. |
+| **RQF-201** | El sistema debe permitir al arrendatario registrar una reseña y una calificación numérica sobre un espacio después de completar una reserva. |
+| **RQF-202** | El sistema debe mostrar las reseñas y calificaciones publicadas de un espacio en su vista de detalle. |
+| **RQF-203** | El sistema debe permitir al administrador ocultar una reseña reportada cuando incumpla las reglas de publicación, registrando el motivo de la acción. |
+| **RQF-204** | El sistema debe permitir al arrendador configurar una tarifa por hora, día o mes para cada publicación activa. |
+| **RQF-205** | El sistema debe calcular el precio de una reserva según la modalidad tarifaria seleccionada y la unidad de tiempo solicitada. |
+| **RQF-206** | El sistema debe permitir seleccionar la hora de inicio y término cuando la modalidad de reserva sea por hora. |
+| **RQF-207** | El sistema debe impedir la creación de reservas cuyos intervalos de tiempo se superpongan con reservas confirmadas o bloqueos existentes. |
+| **RQF-208** | El sistema debe permitir al arrendatario registrar el check-out indicando la fecha, hora, observaciones y fotografías del estado final del espacio. |
+| **RQF-209** | El sistema debe cambiar el estado de la reserva a "Finalizada" cuando el check-out sea registrado correctamente. |
+| **RQF-210** | El sistema debe permitir al arrendatario y al arrendador enviar y consultar mensajes asociados a una reserva mediante un chat interno. |
+| **RQF-211** | El sistema debe conservar el historial de mensajes del chat asociado a la reserva mientras exista una disputa abierta o durante el periodo de auditoría definido. |
+| **RQF-212** | El sistema debe notificar al arrendatario y al arrendador los cambios de estado de una reserva mediante los canales configurados. |
+| **RQF-213** | El sistema debe notificar al arrendatario cuando el pago sea rechazado, quede pendiente o requiera una nueva acción. |
+| **RQF-214** | El sistema debe notificar a los participantes cuando el contrato esté pendiente de firma, haya sido firmado parcialmente o esté completamente firmado. |
+| **RQF-215** | El sistema debe permitir al arrendatario solicitar un reembolso cuando una reserva sea cancelada conforme a las políticas configuradas. |
+| **RQF-216** | El sistema debe registrar y mostrar el resultado de cada intento de reembolso, incluyendo estado, fecha, monto y código de operación de la pasarela. |
+| **RQF-217** | El sistema debe permitir al usuario corregir los antecedentes rechazados en una validación KYC o KYB y solicitar un nuevo intento de validación. |
+| **RQF-218** | El sistema debe permitir al administrador consultar y cambiar el estado de los reclamos, registrando resolución, fecha, responsable y observaciones. |
+| **RQF-219** | El sistema debe permitir al administrador bloquear, desbloquear y consultar el motivo de bloqueo de una cuenta de usuario. |
+| **RQF-220** | El sistema debe permitir al administrador generar reportes de reservas, pagos, reembolsos y disputas filtrados por periodo y estado. |
