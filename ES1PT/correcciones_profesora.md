@@ -3,7 +3,7 @@
 > Resumen estructurado basado en las transcripciones de audio de retroalimentación.
 
 ---
-
+** HECHO POR ANITA, LISTO!*
 ## 1. 📐 Metodología del Proyecto
 
 ### ❌ Error principal
@@ -240,8 +240,8 @@ Todos los grupos están usando **PMBOK (PINBO) como metodología única**, lo cu
 
 ## ✅ Checklist de Correcciones Pendientes
 
-- [ ] **Metodología**: Cambiar a metodología híbrida (iterativo-incremental + PMBOK), agregar cuadro comparativo y justificación
-- [ ] **Cronograma**: Reflejar las iteraciones y las etapas correctas del modelo híbrido
+- [✅] **Metodología**: Cambiar a metodología híbrida (iterativo-incremental + PMBOK), agregar cuadro comparativo y justificación
+- [ ✅] **Cronograma**: Reflejar las iteraciones y las etapas correctas del modelo híbrido
 - [ ] **Requerimientos funcionales**: Reescribir con verbo atómico, un verbo por requerimiento, aumentar cantidad (~200)
 - [ ] **Requerimientos no funcionales**: Reescribir en formato "El sistema debe...", con ejemplos y subcategorías
 - [ ] **Historias de usuario**: Completar criterios de aceptación con comportamiento esperado del sistema
