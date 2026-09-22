@@ -1,0 +1,28 @@
+@startuml
+top to bottom direction
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+skinparam nodesep 12
+skinparam ranksep 18
+skinparam component {
+  BackgroundColor #FFFFFF
+  BorderColor #2F5597
+  FontColor #1F3864
+}
+
+component "**Acciones de los actores**\n· registro e identidad\n· publicación y reserva\n· pago y contrato\n· check-in, check-out y reseñas" as A1 #EAF1F8
+component "**API Go**\nemite el evento de auditoría\ncon usuario, recurso, acción\ny marca de tiempo" as A2 #EAF1F8
+component "**Inyección asíncrona**\nel registro no bloquea\na la operación del usuario" as A3 #FDF3E7
+database "**BigQuery**\nrepositorio analítico inmutable:\nno admite modificación\nni eliminación de registros" as A4 #EDF6ED
+component "**Consulta y exportación**\nel administrador reconstruye\nla línea de tiempo de una reserva" as A5 #EAF1F8
+component "**Resolución de disputas**\nel expediente se resuelve con\nla evidencia registrada" as A6 #EDF6ED
+
+A1 --> A2
+A2 --> A3
+A3 --> A4
+A4 --> A5
+A5 --> A6
+A4 -[hidden]right-> A1
+@enduml

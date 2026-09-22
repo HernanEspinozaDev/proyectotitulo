@@ -1,6 +1,10 @@
 # Catálogo Consolidado de Requerimientos Funcionales (RQF)
 
-## Sistema EspaciGo
+## Sistema: EspaciGo — Marketplace SaaS B2B2C de Espacios Comerciales
+
+El catálogo reúne los **236 requerimientos funcionales** de EspaciGo (RQF-001 a RQF-236), redactados con la estructura «El sistema debe…» y distribuidos en los 11 módulos descritos en el Anexo A. Cada requerimiento tiene un identificador único y estable: los complementarios se incorporaron al final del catálogo, sin renumerar los anteriores, de modo que todas las referencias del informe, de los módulos, de los casos de uso y de las historias de usuario siguen siendo válidas.
+
+*Tabla. Requerimientos funcionales base (RQF-001 a RQF-185)*
 
 | ID | Descripción del Requerimiento Funcional |
 | :--- | :--- |
@@ -190,13 +194,9 @@
 | RQF-184 | El sistema debe permitir al administrador consultar el historial de auditoría de un usuario filtrando por RUT. |
 | RQF-185 | El sistema debe permitir al administrador exportar los registros de auditoría consultados. |
 
----
+## Requerimientos funcionales complementarios (RQF-186 a RQF-212)
 
-## Requerimientos funcionales complementarios (revisión de completitud)
-
-> Estos **27 requerimientos (RQF-186 a RQF-212)** se incorporaron en la revisión de completitud del catálogo para cerrar brechas detectadas entre los RF originales (RQF-001 a RQF-185), el contexto narrativo, las Historias de Usuario aprobadas y los casos de uso.
->
-> **Regla de trazabilidad aplicada:** se agregan con IDs nuevos **al final** del catálogo. Ningún requerimiento anterior fue renumerado, reescrito ni eliminado, por lo que todas las referencias existentes (informe, módulos, casos de uso, HU) siguen siendo válidas.
+> Los 27 requerimientos complementarios (RQF-186 a RQF-212) completan el catálogo base en los aspectos que no estaban cubiertos: aceptación de términos y condiciones, operaciones faltantes sobre entidades ya existentes, notificaciones y evidencias de los flujos alternativos. Se incorporan con identificadores nuevos al final del catálogo, sin renumerar ni modificar ningún requerimiento anterior.
 
 | ID | Descripción del Requerimiento Funcional |
 | :--- | :--- |
@@ -228,11 +228,11 @@
 | RQF-211 | El sistema debe enviar la boleta electrónica al correo del arrendador. |
 | RQF-212 | El sistema debe permitir al administrador buscar una cuenta de usuario. |
 
-### Brechas cerradas y módulo al que se incorpora cada RF
+### Origen de los requerimientos complementarios (RQF-186 a RQF-212)
 
-| Brecha detectada | RF agregados | Módulo |
+| Necesidad detectada | RF agregados | Módulo |
 | :--- | :--- | :--- |
-| No existía requerimiento de aceptación de términos y condiciones (ejemplo explícito señalado en la retroalimentación). | RQF-186, RQF-187 | M01 |
+| No existía requerimiento de aceptación de términos y condiciones. | RQF-186, RQF-187 | M01 |
 | El flujo alternativo "reenviar token de verificación" (CU-02) no tenía RF que lo respaldara. | RQF-188 | M01 |
 | La entidad "cuenta bancaria" solo tenía la operación de registro (RQF-032, RQF-033): faltaban consultar, modificar y eliminar. | RQF-189, RQF-190, RQF-191 | M02 |
 | La HU04 contempla la captura de selfie de validación facial, sin RF asociado. | RQF-192 | M03 |
@@ -244,7 +244,7 @@
 | El rechazo del pago cambiaba de estado (RQF-119) sin notificar al arrendatario. | RQF-201 | M06 |
 | El escenario "una parte no firma" (CU-30) no tenía RF que registrara el rechazo notificado por el proveedor. | RQF-202 | M07 |
 | La obligatoriedad de evidencia fotográfica en Check-in y Check-out había quedado fuera del catálogo. | RQF-203, RQF-204 | M08 |
-| **El arrendador no tenía ninguna acción al término de la reserva** (brecha reportada en la revisión). | RQF-205, RQF-206 | M08 |
+| **El arrendador no tenía ninguna acción al término de la reserva.** | RQF-205, RQF-206 | M08 |
 | RQF-181 presupone reseñas reportadas, pero no existía RF que permitiera reportar una reseña. | RQF-207 | M09 |
 | **No existía RF de liberación de la garantía en el flujo sin reclamos** (solo RQF-175 "saldo restante tras deducciones"). | RQF-208 | M10 |
 | El administrador no tenía RF para consultar la evidencia de recepción del arrendador al arbitrar (simetría con RQF-167). | RQF-209 | M10 |
@@ -252,15 +252,9 @@
 | La boleta electrónica solo se generaba (RQF-176); no se enviaba al arrendador. | RQF-211 | M10 |
 | Bloquear/desbloquear una cuenta (RQF-178 a RQF-180) requiere localizarla previamente. | RQF-212 | M11 |
 
-**Catálogo total resultante: 212 requerimientos funcionales (RQF-001 a RQF-212).**
+## Requerimientos funcionales complementarios (RQF-213 a RQF-236)
 
----
-
-## Requerimientos funcionales complementarios — Segunda revisión (Historias de Usuario)
-
-> Estos **24 requerimientos (RQF-213 a RQF-236)** se incorporaron al revisar íntegramente las 30 Historias de Usuario. Su objetivo es que **ninguna HU quede con criterios de aceptación sin respaldo funcional**, y al mismo tiempo se corrigieron en las HU todas las contradicciones numéricas y de alcance detectadas.
->
-> Se mantiene la regla de trazabilidad: **IDs nuevos al final**, sin renumerar ni modificar los requerimientos anteriores.
+> Los 24 requerimientos complementarios (RQF-213 a RQF-236) respaldan los criterios de aceptación de las historias de usuario que no tenían un requerimiento funcional asociado: preferencia de uso, cambio de contraseña con sesión iniciada, límites y validaciones de los documentos de identidad, edición de publicaciones, política de cancelación, cancelación de la reserva por el arrendatario, reputación recíproca y supervisión de las publicaciones por el administrador. Se incorporan con identificadores nuevos al final del catálogo, sin renumerar ni modificar los requerimientos anteriores.
 
 | ID | Descripción del Requerimiento Funcional |
 | :--- | :--- |
@@ -289,9 +283,9 @@
 | RQF-235 | El sistema debe calcular el promedio de calificaciones del espacio. |
 | RQF-236 | El sistema debe permitir al administrador consultar el listado de espacios publicados. |
 
-### Brechas cerradas en la revisión de las HU
+### Origen de los requerimientos complementarios (RQF-213 a RQF-236)
 
-| HU que lo exigía | Brecha detectada | RF agregados | Módulo |
+| Historia de usuario | Necesidad detectada | RF agregados | Módulo |
 | :--- | :--- | :--- | :--- |
 | HU01 | La HU pedía seleccionar el perfil principal (Arrendador/Arrendatario) y no existía RF. Se redefine como **preferencia de uso no excluyente**. | RQF-213 | M01 |
 | HU03 | La HU describía el **cambio de contraseña con sesión iniciada**, que no existía en el catálogo (solo la recuperación), junto con sus validaciones (contraseña actual, no repetir la anterior, no reutilizar en 3 meses) y la notificación del cambio. | RQF-214 a RQF-218 | M01 |
@@ -304,4 +298,4 @@
 | HU25 | La HU pedía **calificación y reseña recíproca** (arrendador hacia arrendatario), el bloqueo de una segunda reseña por reserva y el recálculo del promedio de calificaciones. | RQF-232 a RQF-235 | M09 |
 | HU26 | La HU requería que el administrador pudiera **consultar el listado de espacios publicados** para su supervisión. | RQF-236 | M11 |
 
-**Catálogo total resultante: 236 requerimientos funcionales (RQF-001 a RQF-236).**
+El catálogo queda consolidado en **236 requerimientos funcionales (RQF-001 a RQF-236)**, distribuidos en los 11 módulos descritos en el Anexo A.

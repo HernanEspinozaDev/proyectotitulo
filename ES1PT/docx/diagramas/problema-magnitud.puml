@@ -1,0 +1,21 @@
+@startuml
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+skinparam rectangle {
+  BackgroundColor #FBFCFE
+  BorderColor #2F5597
+  FontColor #1F3864
+}
+
+rectangle "**Vacancia de oficinas en Santiago — primer trimestre de 2026**\nCada bloque █ representa 0,5 puntos porcentuales de vacancia\n\n**Oficinas clase A** · 9,22% (CBRE, la más baja en cinco años)\n██████████████████ ░░\n\n**Oficinas clases A y B** · 9,64% (CBRE)\n███████████████████ ░\n\n**Vacancia general** · 9,9%, cerca de 255.000 m² sin arrendar (Colliers)\n████████████████████\n\n**Cierre del año 2025** · 10,1% (Colliers)\n████████████████████" as G #EDF6ED
+
+note bottom of G
+  En términos prácticos, alrededor de uno de cada diez metros
+  cuadrados de oficina de Santiago permanece sin generar ingresos.
+  Los segmentos de bodegaje y de locales en ejes secundarios se
+  describen de forma cualitativa porque no se identificó un informe
+  público con una cifra verificable en la misma fecha de referencia.
+end note
+@enduml

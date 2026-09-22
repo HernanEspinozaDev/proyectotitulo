@@ -1,0 +1,29 @@
+@startmindmap
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+skinparam nodesep 8
+skinparam ranksep 24
+skinparam mindmapDiagram {
+  BackgroundColor #FBFCFE
+  BorderColor #2F5597
+  FontColor #1F3864
+}
+
+* **Informe de formulación\ndel proyecto EspaciGo**
+** **Fundamentación**
+*** 1. Introducción
+*** 2. Identificación del problema
+*** 3. Levantamiento de requerimientos
+*** 4. Marco teórico
+** **Propuesta**
+*** 5. Objetivos del proyecto
+*** 6. Metodología de trabajo
+*** 7. Definición de arquitectura TI
+*** 8. Reconocimiento de arquitectura empresarial
+** **Cierre**
+*** 9. Conclusiones
+*** 10. Referencias bibliográficas
+*** 11. Anexos A a E\n(documentos independientes adjuntos)
+@endmindmap

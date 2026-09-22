@@ -1,0 +1,30 @@
+@startuml
+top to bottom direction
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+skinparam nodesep 12
+skinparam ranksep 24
+skinparam rectangle {
+  BackgroundColor #FBFCFE
+  BorderColor #2F5597
+  FontColor #1F3864
+}
+
+rectangle "**Arrendadores**\nParticulares y empresas\ncon espacio ocioso" as ARR #EAF1F8
+rectangle "**EspaciGo**\nPlataforma de dos lados\n\n· identidad verificada (KYC/KYB)\n· disponibilidad y motor de reservas\n· pago con retención de fondos (Escrow)\n· contrato con firma electrónica\n· reputación, disputas y liquidación\n· comisión por reserva efectiva" as PLAT #FDF3E7
+rectangle "**Arrendatarios**\nPymes, comercio electrónico,\nactividades creativas y eventos" as ART #EAF1F8
+
+ARR --> PLAT : publican el espacio
+PLAT --> ART : entregan el catálogo\ncon disponibilidad real
+ART --> PLAT : solicitan y pagan la reserva
+PLAT --> ARR : liquidan el arriendo\nmenos la comisión de servicio
+
+note right of PLAT
+  El valor de la plataforma está en la
+  <b>confianza transaccional</b>: identidad
+  verificada, fondos en custodia y
+  evidencia digital de la operación.
+end note
+@enduml

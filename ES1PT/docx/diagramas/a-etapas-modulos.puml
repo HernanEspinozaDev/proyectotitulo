@@ -1,0 +1,35 @@
+@startuml
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam defaultFontName Calibri
+skinparam defaultFontSize 12
+skinparam roundcorner 10
+skinparam ranksep 14
+skinparam nodesep 8
+skinparam padding 4
+skinparam rectangleBorderColor #4A7EBB
+skinparam rectangleBackgroundColor #EAF1FA
+skinparam arrowColor #4A7EBB
+skinparam noteBackgroundColor #FDF6E3
+skinparam noteBorderColor #C89B3C
+top to bottom direction
+
+rectangle "**1. Identidad y acceso** — 76 RF\nM01 Autenticación y gestión de cuenta (32)\nM02 Perfil y privacidad (17)\nM03 Verificación de identidad (27)" as S1
+rectangle "**2. Oferta de espacios** — 58 RF\nM04 Gestión de publicaciones (44)\nM05 Búsqueda y cotización (14)" as S2
+rectangle "**3. Reserva y pago** — 30 RF\nM06 Reservas y pagos con retención (30)" as S3
+rectangle "**4. Contratación** — 14 RF\nM07 Contratos y firma electrónica (14)" as S4
+rectangle "**5. Operación del arriendo** — 14 RF\nM08 Check-in y check-out (14)" as S5
+rectangle "**6. Post-servicio** — 11 RF\nM09 Comunicación y reputación (11)" as S6
+rectangle "**7. Gobierno y cierre** — 33 RF\nM10 Disputas, pagos y facturación (23)\nM11 Administración y auditoría (10)" as S7
+
+S1 --> S2
+S2 --> S3
+S3 --> S4
+S4 --> S5
+S5 --> S6
+S6 --> S7
+
+note bottom of S7
+  11 módulos · 236 RF (185 base + 51 complementarios)
+end note
+@enduml

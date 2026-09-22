@@ -1,0 +1,29 @@
+@startuml
+autonumber
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+skinparam sequenceMessageAlign left
+skinparam participant {
+  BackgroundColor #EAF1F8
+  BorderColor #2F5597
+  FontColor #1F3864
+}
+
+participant "Arrendatario A" as A
+participant "Arrendatario B" as B
+participant "API Go" as API
+database "PostgreSQL" as DB
+
+A -> API : solicita el bloque 10:00-12:00
+B -> API : solicita el bloque 11:00-13:00
+API -> DB : inicia transacción y bloquea\nlos rangos consultados
+note over API, DB : la validación de solapamiento y el bloqueo\ndel intervalo ocurren <b>dentro de la misma\ntransacción ACID</b>, con control de concurrencia
+DB --> API : rango libre para A\nrango ocupado para B
+API --> A : reserva registrada\n"Pendiente de Pago"
+API --> B : respuesta de no disponibilidad
+note over B : la plataforma ofrece el siguiente\nbloque disponible del espacio
+A -> API : confirma el pago
+API -> DB : confirma la reserva y bloquea\ndefinitivamente el intervalo
+@enduml

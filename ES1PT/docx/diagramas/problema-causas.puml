@@ -1,0 +1,35 @@
+@startmindmap
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+skinparam nodesep 8
+skinparam ranksep 22
+skinparam mindmapDiagram {
+  BackgroundColor #FBFCFE
+  BorderColor #2F5597
+  FontColor #1F3864
+}
+
+* **Vacancia y exclusión\nde pymes**
+** **Oferta rígida**
+*** contratos de 12 a 24 meses
+*** garantías y avales exigentes
+*** corretaje y trámites presenciales
+** **Costo fijo sin ingreso**
+*** gastos comunes y contribuciones
+*** mantenimiento de espacios vacíos
+*** activos sin rentabilizar
+** **Sin trazabilidad**
+*** contratos en papel y fuera de plazo
+*** sin evidencia del estado del espacio
+*** disputas sin antecedentes
+** **Brecha tecnológica**
+*** clasificados sin disponibilidad real
+*** ausencia de cobro por uso
+*** sin identidad verificada de los usuarios
+** **Barreras de demanda**
+*** necesidad de espacio por horas o días
+*** falta de garantías accesibles
+*** desconfianza entre las partes
+@endmindmap

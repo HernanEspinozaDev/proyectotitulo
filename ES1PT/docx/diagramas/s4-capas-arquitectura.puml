@@ -1,0 +1,54 @@
+@startuml
+top to bottom direction
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+skinparam nodesep 10
+skinparam ranksep 14
+skinparam component {
+  BackgroundColor #FFFFFF
+  BorderColor #2F5597
+  FontColor #1F3864
+}
+
+package "Capa de presentación" as L1 #EAF1F8 {
+  component "Aplicación web Next.js (SSR)\ncatálogo, reservas y paneles" as A1
+}
+package "Capa de negocio (backend Go, 11 módulos)" as L2 #FDF3E7 {
+  component "Identidad y verificación\nM01, M02, M03" as B1
+  component "Oferta y búsqueda\nM04, M05" as B2
+  component "Reservas y pagos (Escrow)\nM06" as B3
+  component "Contratos y operación\nM07, M08" as B4
+  component "Reputación, disputas y administración\nM09, M10, M11" as B5
+}
+package "Capa de datos" as L3 #EDF6ED {
+  database "PostgreSQL + PostGIS\n(OLTP transaccional)" as C1
+  node "Cloud Storage\n(documentos y evidencias)" as C2
+  database "BigQuery\n(OLAP de auditoría)" as C3
+}
+package "Capa de integración" as L4 #F2F2F2 {
+  component "Mercado Pago" as D1
+  component "FirmaVirtual" as D2
+  component "Registro Civil y SII" as D3
+}
+package "Capa de infraestructura" as L5 #F2F2F2 {
+  node "Contenedores Docker\nsobre GCP Cloud Run" as E1
+  node "CI/CD y Artifact Registry" as E2
+}
+
+A1 --> B1
+A1 --> B2
+A1 --> B3
+A1 --> B4
+A1 --> B5
+B1 --> D3
+B3 --> D1
+B4 --> D2
+B1 --> C1
+B2 --> C1
+B3 --> C1
+B5 --> C3
+B4 --> C2
+L3 -[hidden]down-> L5
+@enduml

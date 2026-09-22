@@ -1,0 +1,33 @@
+@startuml
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+skinparam state {
+  BackgroundColor #EAF1F8
+  BorderColor #2F5597
+  FontColor #1F3864
+}
+
+[*] --> NoVerificada : registro de la cuenta
+
+state "No Verificada" as NoVerificada
+state "Pendiente de Verificación" as Pendiente
+state "Verificada_KYC" as KYC
+state "Verificado_KYB" as KYB
+state "Rechazada" as Rechazada
+
+NoVerificada --> Pendiente : carga cédula (KYC)\no documentos de la empresa (KYB)
+Pendiente --> KYC : Registro Civil confirma\nla vigencia de la cédula
+Pendiente --> KYB : SII confirma\nel inicio de actividades
+Pendiente --> Rechazada : validación negativa
+Rechazada --> Pendiente : nuevo intento\nde validación
+KYC --> [*] : puede publicar\ny reservar
+KYB --> [*] : puede publicar\ny reservar
+
+note right of Pendiente
+  Mientras el perfil no esté verificado,
+  el usuario no puede publicar espacios
+  ni pagar una reserva.
+end note
+@enduml

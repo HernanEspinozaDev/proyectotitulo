@@ -1,0 +1,42 @@
+@startuml
+top to bottom direction
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+skinparam nodesep 10
+skinparam ranksep 14
+skinparam rectangle {
+  BackgroundColor #FBFCFE
+  BorderColor #2F5597
+  BorderThickness 1.2
+  FontColor #1F3864
+}
+
+rectangle "**SOCIOS CLAVE**\n· Mercado Pago\n· FirmaVirtual\n· Registro Civil y SII\n· Corredores y\n  administradores\n· Operadores logísticos\n· GCP (nube)" as SOC #EAF1F8
+rectangle "**ACTIVIDADES CLAVE**\n· Operar y evolucionar\n  la plataforma\n· Verificar identidad\n  (KYC/KYB)\n· Gestionar pagos y\n  fondos retenidos\n· Moderar, arbitrar\n  y liquidar" as ACT #EAF1F8
+rectangle "**PROPUESTA DE VALOR**\nPara arrendadores:\n· monetizar metros\n  cuadrados ociosos\n· cobro y garantía\n  con respaldo digital\nPara arrendatarios:\n· espacio flexible por\n  horas, días o meses\n· reserva, contrato y\n  pago en línea\n· identidad verificada\n  y evidencia digital" as PROP #FDF3E7
+rectangle "**RELACIÓN CON CLIENTES**\n· Autoservicio en la\n  plataforma\n· Reputación y reseñas\n· Mediación de disputas\n· Notificaciones del\n  ciclo de la reserva" as REL #EAF1F8
+rectangle "**SEGMENTOS DE CLIENTES**\n· Arrendadores\n  particulares y empresas\n· Pymes y comercio\n  electrónico\n· Productoras y\n  actividades creativas\n· Organizadores de eventos\n· Bodegaje y talleres" as SEG #EAF1F8
+
+rectangle "**RECURSOS CLAVE**\n· Plataforma\n  (Next.js + Go)\n· PostgreSQL/PostGIS\n· Inventario de espacios\n  publicados\n· Auditoría inmutable\n  (BigQuery)\n· Equipo de tres roles" as REC #EAF1F8
+rectangle "**CANALES**\n· Sitio web de la\n  plataforma\n· Backoffice de\n  administración\n· Integraciones por API\n· Redes y alianzas con\n  corredores" as CAN #EAF1F8
+
+rectangle "**ESTRUCTURA DE COSTOS**\n· Horas de desarrollo (3 roles × 16 semanas)\n· Infraestructura cloud y dominios (pago por uso)\n· Comisiones de la pasarela de pagos y de firma electrónica\n· Soporte, moderación y cumplimiento normativo" as COST #EDF6ED
+rectangle "**FUENTES DE INGRESO**\n· Comisión de servicio por reserva efectiva\n· Boleta de comisión timbrada ante el SII\n· Fuera del alcance de la ES1:\n  suscripción de arrendador y destacados" as INC #EDF6ED
+
+rectangle " " as VACIO
+hide VACIO
+
+SOC -[hidden]right-> ACT
+ACT -[hidden]right-> PROP
+PROP -[hidden]right-> REL
+REL -[hidden]right-> SEG
+
+ACT -[hidden]down-> REC
+REL -[hidden]down-> CAN
+
+PROP -[hidden]down-> VACIO
+VACIO -[hidden]down-> COST
+COST -[hidden]right-> INC
+@enduml

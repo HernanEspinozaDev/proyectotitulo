@@ -1,0 +1,30 @@
+@startuml
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam defaultFontName Calibri
+skinparam defaultFontSize 12
+skinparam roundcorner 8
+skinparam arrowColor #4A4A4A
+skinparam rectangle<<secundario>> {
+  BackgroundColor #FDF3E3
+  BorderColor #C89B3C
+  FontStyle italic
+}
+left to right direction
+
+rectangle "Registro Civil" as ACT6 <<secundario>>
+rectangle "Servicio de\nImpuestos Internos" as ACT7 <<secundario>>
+rectangle "Mercado Pago" as ACT8 <<secundario>>
+rectangle "FirmaVirtual" as ACT9 <<secundario>>
+
+rectangle "M03 Verificación de identidad\n(KYC / KYB)" as M03
+rectangle "M06 Reservas y pagos\n(Escrow)" as M06
+rectangle "M07 Contratos y firma\nelectrónica" as M07
+rectangle "M10 Disputas, pagos\ny facturación" as M10
+
+ACT6 -- M03
+ACT7 -- M03
+ACT8 -- M06
+ACT8 -- M10
+ACT9 -- M07
+@enduml

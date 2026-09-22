@@ -1,16 +1,14 @@
 # Anexo: Requerimientos No Funcionales (RNF) — Sistema EspaciGo
 
-> **Versión corregida (19-09-2026).** Catálogo de **43 requerimientos no funcionales (RNF-001 a RNF-043)**, clasificados según categorías y subcategorías del estándar **ISO/IEC 25010** y del modelo de Sommerville.
+> Catálogo de **43 requerimientos no funcionales (RNF-001 a RNF-043)**, clasificados según las categorías y subcategorías de calidad del estándar **ISO/IEC 25010** y del modelo de Sommerville.
 
 **Convenciones aplicadas**
 
-1. **Redacción estándar:** todos los RNF se redactan como **"El sistema debe [condición de calidad]"**, evitando verbos de acción funcional (los verbos de función pertenecen al catálogo de RF). Excepción controlada: los RNF de *Implementación / Gestión de configuración*, redactados como *"El código fuente debe almacenarse..."*, siguiendo el formato de referencia entregado en la retroalimentación.
+1. **Redacción estándar:** todos los RNF se redactan como **"El sistema debe [condición de calidad]"**, evitando verbos de acción funcional (los verbos de función pertenecen al catálogo de RF). Excepción controlada: los RNF de *Implementación / Gestión de configuración*, redactados como *"El código fuente debe almacenarse..."*, conforme al formato de referencia del catálogo.
 2. **Categoría y subcategoría:** cada RNF declara su categoría principal (en negrita en la sección de resumen) y su subcategoría específica.
 3. **Mínimo 3 ejemplos por categoría:** todas las categorías declaradas tienen al menos 3 requerimientos (ver sección de resumen).
-4. **Separación RF/RNF:** los RNF describen *condiciones de calidad, restricciones o cumplimiento*. Las acciones del sistema (registrar, generar, ejecutar, notificar, etc.) están exclusivamente en el catálogo de RF. Se corrigieron los RNF que contenían acciones funcionales (RNF-002, RNF-003, RNF-004 y RNF-027) y se separaron los que mezclaban dos condiciones distintas (RNF-012 y RNF-018).
+4. **Separación RF/RNF:** los RNF describen *condiciones de calidad, restricciones o cumplimiento*. Las acciones del sistema (registrar, generar, ejecutar, notificar, etc.) pertenecen exclusivamente al catálogo de RF (Anexo B), y cada RNF expresa una única condición de calidad.
 5. **Sin duplicación de RF:** ningún RNF reemplaza a un requerimiento funcional; cuando un RNF se apoya en una función, esta existe además como RF (por ejemplo: boleta electrónica → RQF-176 y RQF-211).
-
----
 
 ## 1. Catálogo de Requerimientos No Funcionales
 
@@ -60,8 +58,6 @@
 | RNF-042 | Retención de contratos y evidencias | Almacenamiento / Retención | El sistema debe conservar los contratos firmados y la evidencia fotográfica de las reservas por un plazo mínimo de 5 años. |
 | RNF-043 | Retención de los registros de auditoría | Almacenamiento / Retención | El sistema debe conservar los registros de auditoría por un plazo mínimo de 5 años, conforme a los requisitos de trazabilidad del proyecto. |
 
----
-
 ## 2. Resumen por categoría (mínimo 3 RNF por categoría)
 
 | Categoría | Subcategorías incluidas | Cantidad | RNF |
@@ -78,8 +74,6 @@
 | **Almacenamiento** | Capacidad, Retención | 3 | 041, 042, 043 |
 | **Requerimientos Externos** | Estándares (PCI-DSS), Legislativos (Ley 21.719, SII) | 3 | 025, 026, 027 |
 | **Total** | — | **43** | RNF-001 – RNF-043 |
-
----
 
 ## 3. Trazabilidad con los requerimientos funcionales y los módulos
 
@@ -104,19 +98,3 @@
 | RNF-027 | RQF-176, RQF-211 | M10 (CU-42) |
 | RNF-034 a RNF-039 | — | Transversal (infraestructura y arquitectura TI) |
 | RNF-042 | RQF-137, RQF-167, RQF-205 | M07 (CU-30), M08 (CU-33, CU-48), M10 (CU-41) |
-
----
-
-## 4. Cambios aplicados respecto de la versión anterior (27 RNF)
-
-| RNF | Cambio aplicado | Motivo |
-| :--- | :--- | :--- |
-| RNF-002 | Se reescribió para eliminar el verbo funcional "completar el ciclo": ahora expresa la condición de tiempo (*"debe garantizar que el ciclo de pago se complete en..."*). | Evitar contenido funcional en un RNF. |
-| RNF-003 | Se reescribió para eliminar los verbos "compilar y exportar". | Ídem anterior. |
-| RNF-004 | Se reescribió para eliminar el verbo funcional "comprimir". | Ídem anterior. |
-| RNF-012 | Se dividió en **RNF-012** (idempotencia) y **RNF-028** (conciliación), porque un requerimiento no debe contener dos condiciones distintas. | Regla de atomicidad también aplicada a los RNF. |
-| RNF-018 | Se dividió en **RNF-018** (eliminación irreversible) y **RNF-029** (anonimización de la información transaccional). | Ídem anterior. |
-| RNF-027 | Se reescribió para eliminar las acciones funcionales "generar la boleta" y "entregarla" (ya cubiertas por RQF-176 y RQF-211); ahora expresa el cumplimiento normativo. | Separación RF/RNF. |
-| RNF-007 | Se ajustó el nombre y la redacción ("presentar sus interfaces" en lugar de "renderizar"). | Evitar lenguaje técnico de implementación. |
-| RNF-017 | Se ajustó "almacenar log" por **"preservar los logs"**, manteniendo el foco en la integridad y no en una acción funcional. | Evitar duplicidad con el catálogo de RF. |
-| Nuevos | Se agregaron **RNF-030 a RNF-043** (14 requerimientos) para completar las categorías exigidas por la retroalimentación: **Implementación** (contenedores Docker, motor de base de datos relacional, repositorio de código, CI/CD), **Almacenamiento** (capacidad y retención), **Portabilidad** (despliegue agnóstico, entorno local, reemplazabilidad) y completar **Flexibilidad**, **Mantenibilidad** y **Rendimiento**. | Cada categoría debe tener al menos 3 ejemplos. |

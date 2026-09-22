@@ -1,1 +1,25 @@
+# Directorios y artefactos del proyecto
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+
+# Entornos virtuales de Python
+.venv/
+venv/
+env/
+ENV/
+.venv*/
+venv*/
+
+# Salidas generadas por el pipeline de ES1PT
+ES1PT/docx/build/
+ES1PT/docx/calibracion/
+ES1PT/docx/__pycache__/
+ES1PT/**/__pycache__/
+
+
 espaciGo/
+

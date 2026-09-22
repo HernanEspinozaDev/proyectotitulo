@@ -1,0 +1,71 @@
+@startuml
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam defaultFontName Calibri
+skinparam defaultFontSize 11
+skinparam roundcorner 8
+skinparam ranksep 30
+skinparam nodesep 8
+skinparam padding 4
+skinparam rectangleBorderColor #6E6E6E
+skinparam arrowColor #4A4A4A
+skinparam packageBorderColor #8A8A8A
+skinparam packageBackgroundColor #FAFAFA
+skinparam packageFontStyle bold
+left to right direction
+
+skinparam rectangle<<primario>> {
+  BackgroundColor #E8F0FA
+  BorderColor #4A7EBB
+}
+skinparam rectangle<<secundario>> {
+  BackgroundColor #FDF3E3
+  BorderColor #C89B3C
+  FontStyle italic
+}
+
+rectangle "Visitante" as ACT1 <<primario>>
+rectangle "Usuario registrado" as ACT2 <<primario>>
+rectangle "Arrendador\n(propietario o\nadministrador)" as ACT3 <<primario>>
+rectangle "Arrendatario\n(empresa o\npersona)" as ACT4 <<primario>>
+rectangle "Administrador\nde plataforma" as ACT5 <<primario>>
+
+rectangle "M01 Autenticación" as M01
+rectangle "M02 Perfil y privacidad" as M02
+rectangle "M03 Verificación (KYC/KYB)" as M03
+rectangle "M04 Publicaciones" as M04
+rectangle "M05 Búsqueda y cotización" as M05
+rectangle "M06 Reservas y pagos" as M06
+rectangle "M07 Contratos y firma" as M07
+rectangle "M08 Check-in y check-out" as M08
+rectangle "M09 Reputación" as M09
+rectangle "M10 Disputas y payout" as M10
+rectangle "M11 Administración y auditoría" as M11
+
+ACT1 -- M01
+ACT1 -- M05
+ACT1 -- M09
+ACT2 -- M01
+ACT2 -- M02
+ACT2 -- M03
+ACT3 -- M04
+ACT3 -- M06
+ACT3 -- M07
+ACT3 -- M08
+ACT3 -- M09
+ACT3 -- M10
+ACT4 -- M05
+ACT4 -- M06
+ACT4 -- M07
+ACT4 -- M08
+ACT4 -- M09
+ACT4 -- M10
+ACT5 -- M03
+ACT5 -- M10
+ACT5 -- M11
+
+note bottom of M11
+  Cada actor hereda las capacidades del actor general (§1.3),
+  por lo que también participa en los módulos de aquel.
+end note
+@enduml

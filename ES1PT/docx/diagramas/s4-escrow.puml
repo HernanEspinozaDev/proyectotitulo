@@ -1,0 +1,36 @@
+@startuml
+autonumber
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+skinparam sequenceMessageAlign left
+skinparam participant {
+  BackgroundColor #EAF1F8
+  BorderColor #2F5597
+  FontColor #1F3864
+}
+
+participant "Arrendatario" as ART
+participant "EspaciGo\n(API Go)" as P
+participant "Mercado Pago\n(retención de fondos)" as MP
+participant "Arrendador" as ARR
+
+ART -> P : paga la reserva
+P -> MP : cobro con tokenización
+MP --> P : pago capturado y retenido
+P -> MP : pre-autoriza la garantía\n(sin capturar el monto)
+note over P, MP : el arrendador <b>no</b> recibe los fondos\ntodavía: permanecen en custodia
+P -> ARR : notifica la reserva
+
+alt Cierre sin reclamos (dentro de 24 horas)
+  P -> MP : libera la estadía y la comisión
+  MP -> ARR : acredita el arriendo neto
+  P -> MP : libera la pre-autorización de garantía
+  P -> ART : cierra la reserva
+else Reclamo por daños registrado
+  P -> MP : mantiene la retención de fondos
+  P -> P : arbitraje del administrador\ny fallo del caso
+  P -> MP : ejecuta la garantía o la libera\nsegún el fallo
+end
+@enduml

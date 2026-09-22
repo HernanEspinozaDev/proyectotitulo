@@ -1,0 +1,26 @@
+@startuml
+top to bottom direction
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+skinparam nodesep 12
+skinparam ranksep 18
+skinparam rectangle {
+  BackgroundColor #FBFCFE
+  BorderColor #2F5597
+  FontColor #1F3864
+}
+
+rectangle "**35 Historias de usuario**\nagrupadas en 9 épicas" as HU #EAF1F8
+rectangle "**236 Requerimientos funcionales**\nagrupados en 11 módulos funcionales (M01–M11)" as RF #FDF3E7
+rectangle "**52 Casos de uso**\n11 diagramas UML y fichas completas" as CU #EAF1F8
+rectangle "**43 Requerimientos no funcionales**\n11 categorías del estándar ISO/IEC 25010" as RNF #F2F2F2
+rectangle "**Componentes de la arquitectura**\nNext.js, API Go, PostgreSQL/PostGIS, Cloud Storage, BigQuery,\nMercado Pago y FirmaVirtual" as COMP #EDF6ED
+
+HU --> RF : se implementan en
+RF --> CU : se especifican en
+CU --> COMP : se materializan en
+RNF --> RF : condicionan
+RNF --> CU : condicionan
+@enduml

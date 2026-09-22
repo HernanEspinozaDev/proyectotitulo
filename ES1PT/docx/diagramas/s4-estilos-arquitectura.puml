@@ -1,0 +1,21 @@
+@startuml
+top to bottom direction
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+skinparam nodesep 12
+skinparam ranksep 16
+skinparam rectangle {
+  BackgroundColor #FBFCFE
+  BorderColor #2F5597
+  FontColor #1F3864
+}
+
+rectangle "**Monolito tradicional**\nUna sola unidad de despliegue\ncon todos los dominios acoplados\n\n<i>Descartado: dificulta la evolución\ny el trabajo paralelo del equipo</i>" as M1 #F2F2F2
+rectangle "**Arquitectura modular\n(adoptada por EspaciGo)**\nNext.js + API Go con 11 módulos\nfuncionales desplegados como\n<b>una unidad contenerizada</b>\n\n<i>Dominios separados en el código,\nun solo ciclo de despliegue</i>" as M2 #EDF6ED
+rectangle "**Microservicios**\nServicios autónomos con datos\ny despliegue independientes\n\n<i>Descartado: el costo operativo\nno se justifica con el tamaño\ndel equipo ni del alcance de la ES1</i>" as M3 #F2F2F2
+
+M1 -[hidden]right-> M2
+M2 -[hidden]right-> M3
+@enduml

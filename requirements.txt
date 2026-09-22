@@ -1,0 +1,18 @@
+# No hay dependencias de Python para los scripts actuales del pipeline de ES1PT.
+# Los archivos .py usan la librería estándar de Python 3.10+.
+#
+# Requisitos del sistema externos a Python:
+# - Python 3.10 o superior
+# - Pandoc 3.x instalado y disponible en PATH
+# - Java Runtime/Development Kit
+# - plantuml.jar accesible para los diagramas del informe
+#
+# Para instalar y ejecutar con entorno virtual:
+#   python -m venv .venv
+#   .\.venv\Scripts\Activate.ps1   # PowerShell
+#   python --version
+#   python -m pip install --upgrade pip
+#   pip install -r requirements.txt
+#
+# Este archivo queda vacío intencionalmente porque no se requieren paquetes PyPI
+# para los scripts de ES1PT/docx.

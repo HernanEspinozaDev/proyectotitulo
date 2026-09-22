@@ -1,0 +1,22 @@
+@startuml
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+skinparam ActivityBackgroundColor #EAF1F8
+skinparam ActivityBorderColor #2F5597
+skinparam ActivityFontColor #1F3864
+
+start
+:definición del alcance del proyecto\ny del backlog por módulos;
+repeat
+  :planificación del incremento\n(alcance, riesgos e interesados según PMBOK);
+  :construcción del bloque de módulos\n(backend Go y frontend Next.js);
+  :pruebas del incremento\ny corrección de hallazgos;
+  :entregable incremental verificable;
+repeat while (¿quedan incrementos planificados?) is (sí)
+->no;
+:pruebas de aceptación con el usuario\n(UAT) y ajuste final;
+:entrega y documentación del proyecto;
+stop
+@enduml

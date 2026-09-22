@@ -1,0 +1,46 @@
+@startuml
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+skinparam ActivityBackgroundColor #EAF1F8
+skinparam ActivityBorderColor #2F5597
+skinparam ActivityFontColor #1F3864
+skinparam swimlaneTitleBackgroundColor #FDF3E7
+
+|Arrendador|
+start
+:registra el espacio, sus tarifas, reglas y política de cancelación;
+:configura el calendario de disponibilidad;
+
+|Arrendatario|
+:busca, filtra y cotiza\n(estadía + comisión + garantía);
+:solicita la reserva;
+:paga mediante la pasarela integrada;
+
+|Plataforma|
+:valida la disponibilidad\ny bloquea el intervalo (evita la doble reserva);
+:retiene los fondos y pre-autoriza la garantía;
+:genera el contrato y lo envía a firma;
+
+|Terceros|
+:Registro Civil y SII validan la identidad;
+:FirmaVirtual confirma la firma de las partes;
+
+|Arrendatario|
+:realiza el check-in con evidencia fotográfica;
+:realiza el check-out;
+
+|Arrendador|
+:confirma la recepción del espacio;
+
+|Plataforma|
+:inicia el plazo de 24 horas para reclamos;
+if (¿se registra un reclamo?) then (sí)
+  :arbitra el caso y resuelve la garantía;
+else (no)
+  :libera la garantía al arrendatario;
+endif
+:libera el arriendo al arrendador\ny emite la boleta de comisión;
+stop
+@enduml

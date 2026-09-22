@@ -1,13 +1,13 @@
 # Anexo: Historias de Usuario — Sistema EspaciGo
 
-> **Versión revisada (19-09-2026).** 35 historias de usuario (**HU01–HU35**) organizadas en **9 épicas**, cada una con su rol, los requerimientos funcionales (RF) que la implementan, los casos de uso (CU) donde se especifica y criterios de aceptación redactados como **comportamiento esperado del sistema**.
+> El anexo reúne las **35 historias de usuario (HU01–HU35)** del sistema, organizadas en **9 épicas**. Cada historia declara su rol, los requerimientos funcionales (RF) que la implementan, los casos de uso (CU) donde se especifica y sus criterios de aceptación, redactados como **comportamiento esperado del sistema**.
 >
-> **Cobertura completa de módulos:** los 11 módulos funcionales quedan cubiertos por al menos una historia de usuario (ver tabla de cobertura al final). En esta versión se agregaron **HU31 a HU35** para cubrir los procesos que no tenían historia: gestión del perfil y cuenta bancaria, eliminación de cuenta (Ley 21.719), contratos y firma electrónica, mensajería entre las partes y operación del arriendo (check-in, check-out y confirmación de recepción).
+> **Cobertura de módulos:** los 11 módulos funcionales quedan cubiertos por al menos una historia de usuario (ver la tabla de cobertura al final) e incluyen los procesos de gestión del perfil y cuenta bancaria, eliminación de cuenta (Ley 21.719), contratos y firma electrónica, mensajería entre las partes y operación del arriendo (check-in, check-out y confirmación de recepción).
 
-**Convenciones aplicadas en esta revisión**
+**Convenciones aplicadas**
 
 1. **Nomenclatura de actores:** se usa **Arrendador** (nombre oficial del actor) en lugar de "Propietario"/"anfitrión", y **Arrendatario** en lugar de "cliente", para que las HU, los RF y los casos de uso compartan la misma terminología.
-2. **Sin contradicciones numéricas:** todos los plazos, límites y umbrales fueron alineados al catálogo de RF (236 en total). Se corrigieron: intentos de bloqueo de sesión, vigencia del enlace de contraseña, largo del título, tarifa mínima, cantidad de fotografías, tamaño de archivos y estados de la cuenta.
+2. **Coherencia numérica:** todos los plazos, límites y umbrales de las historias coinciden con los del catálogo de RF (236 en total): intentos de bloqueo de sesión, vigencia del enlace de contraseña, largo del título, tarifa mínima, cantidad de fotografías, tamaño de archivos y estados de la cuenta.
 3. **Trazabilidad:** cada HU declara `RF` (requerimientos que la implementan) y `CU` (casos de uso donde está especificada).
 4. **Criterios de interfaz:** las validaciones y comportamientos que ocurren solo en la interfaz se indican como *(criterio de interfaz)* cuando no requieren un RF propio.
 5. **Alcance:** los criterios que describen funcionalidad fuera del alcance declarado de la Evaluación Sumativa 1 se listan en el bloque **Fuera del alcance de la ES1**, de modo que ninguna HU quede con criterios sin respaldo documental.
@@ -25,8 +25,6 @@
 | E7 | Administración y Moderación | HU26–HU28 | M03, M10, M11 |
 | E8 | Soporte y Notificaciones | HU29–HU30 | Transversal |
 | E9 | Operación del Arriendo | HU35 | M08 |
-
----
 
 # Épica E1 — Identidad y Acceso
 
@@ -52,8 +50,6 @@
 
 > **Fuera del alcance de la ES1:** registro con proveedores externos (login social) y captcha para el registro.
 
----
-
 ## HU02 - Inicio de sesión en la plataforma
 
 **Épica:** E1 · **Rol (Como):** Usuario Registrado · **Prioridad:** Alta
@@ -75,8 +71,6 @@
 > *(criterio de interfaz)* El formulario debe bloquear el botón de envío mientras se valida la respuesta del servidor y mostrar el aviso de bloqueo con el tiempo restante.
 
 > **Fuera del alcance de la ES1:** autenticación de doble factor (2FA) para usuarios finales y bloqueo por dirección IP.
-
----
 
 ## HU03 - Cambiar y recuperar la contraseña
 
@@ -105,8 +99,6 @@
 > *(criterio de interfaz)* El correo de notificación debe incluir un enlace "¿No fue usted?" que redirija al flujo de recuperación de contraseña y a los canales de soporte.
 
 > **Fuera del alcance de la ES1:** bloqueo automático de la cuenta ante el aviso "¿No fue usted?" (la acción se deriva a soporte) y autenticación de doble factor para confirmar el cambio.
-
----
 
 ## HU04 - Verificación de identidad (KYC / KYB)
 
@@ -138,8 +130,6 @@
 
 > **Fuera del alcance de la ES1:** validación de Pasaporte u otros documentos distintos de la Cédula de Identidad, y validación biométrica presencial.
 
----
-
 ## HU31 - Administrar mi perfil y mi cuenta bancaria
 
 **Épica:** E1 · **Rol (Como):** Usuario Registrado · **Prioridad:** Media
@@ -160,8 +150,6 @@
 
 > **Fuera del alcance de la ES1:** validación bancaria mediante micro-depósitos y registro de múltiples cuentas bancarias simultáneas.
 
----
-
 ## HU32 - Ejercer el derecho de eliminación de mi cuenta
 
 **Épica:** E1 · **Rol (Como):** Usuario Registrado · **Prioridad:** Media
@@ -180,8 +168,6 @@
 - La solicitud y su resolución deben quedar registradas en la auditoría del sistema.
 
 > **Fuera del alcance de la ES1:** eliminación selectiva de datos individuales (por ejemplo, solo el teléfono) y portabilidad de datos a otro prestador.
-
----
 
 # Épica E2 — Gestión de Espacios
 
@@ -210,8 +196,6 @@
 
 > **Fuera del alcance de la ES1:** publicación asistida con migración automática de anuncios desde otras plataformas.
 
----
-
 ## HU06 - Editar y actualizar información de un espacio
 
 **Épica:** E2 · **Rol (Como):** Arrendador · **Prioridad:** Alta
@@ -231,8 +215,6 @@
 
 > **Fuera del alcance de la ES1:** edición masiva de múltiples publicaciones simultáneas y versionado histórico de cada cambio de la publicación.
 
----
-
 ## HU07 - Establecer reglas de uso y políticas del espacio
 
 **Épica:** E2 · **Rol (Como):** Arrendador · **Prioridad:** Media
@@ -250,8 +232,6 @@
 - El sistema debe mostrar las reglas de uso y la política de cancelación en la vista de detalle de la publicación, de modo que el arrendatario las conozca antes de iniciar la reserva.
 
 > **Fuera del alcance de la ES1:** reglas con validación automática por sensores o accesos físicos, y penalizaciones automáticas por incumplimiento distinto a la garantía.
-
----
 
 ## HU08 - Pausar o reactivar un espacio
 
@@ -271,8 +251,6 @@
 
 > *(criterio de interfaz)* La acción de ocultar debe solicitar confirmación mediante un modal (*"¿Desea ocultar este espacio del marketplace?"*).
 
----
-
 ## HU09 - Describir el equipamiento y las condiciones del espacio
 
 **Épica:** E2 · **Rol (Como):** Arrendador · **Prioridad:** Baja
@@ -288,8 +266,6 @@
 - El sistema debe mostrar el equipamiento y las condiciones descritas en la vista de detalle del espacio, junto con las fotografías de la galería.
 
 > **Fuera del alcance de la ES1:** **adicionales o equipamiento extra con tarifa propia** (ítems seleccionables con costo adicional que se sumen al desglose de cobro). Si el equipo decide incorporarlos, requieren nuevos RF, un caso de uso de gestión de adicionales y la actualización del desglose de cobro (RQF-107).
-
----
 
 # Épica E3 — Búsqueda y Selección
 
@@ -313,8 +289,6 @@
 
 > **Fuera del alcance de la ES1:** buscador con indexación semántica o recomendaciones personalizadas por historial.
 
----
-
 ## HU11 - Filtrado avanzado de espacios
 
 **Épica:** E3 · **Rol (Como):** Arrendatario · **Prioridad:** Alta
@@ -332,8 +306,6 @@
 
 > *(criterio de interfaz)* Si el usuario define un precio mínimo mayor al máximo, se debe mostrar la validación *"El precio mínimo no puede superar al precio máximo"* y deshabilitar la aplicación de filtros.
 
----
-
 ## HU12 - Visualización de espacios en mapa interactivo
 
 **Épica:** E3 · **Rol (Como):** Arrendatario · **Prioridad:** Media
@@ -348,8 +320,6 @@
 - Cada pin debe desplegar una tarjeta resumen con la fotografía de portada, el título y el precio base del espacio, con acceso directo a su detalle.
 - Al desplazar o ampliar el mapa, los pines visibles deben actualizarse según el área mostrada.
 - Seleccionar un pin o una tarjeta debe llevar a la vista de detalle de la publicación.
-
----
 
 ## HU13 - Visualización del detalle de un espacio
 
@@ -368,8 +338,6 @@
 
 > *(criterio de interfaz)* La galería debe permitir abrir las imágenes en un visor ampliado y la información de precio debe permanecer visible durante el desplazamiento.
 
----
-
 ## HU14 - Consultar el historial de reservas propias
 
 **Épica:** E3 · **Rol (Como):** Arrendatario / Arrendador · **Prioridad:** Alta
@@ -386,8 +354,6 @@
 - Si la cuenta no registra reservas, el sistema debe mostrar el estado vacío del historial.
 
 > **Fuera del alcance de la ES1:** el reemplazo del panel de favoritos. **"Guardar espacios en favoritos"** no forma parte del alcance: el catálogo y la búsqueda con filtros cubren la necesidad de volver a encontrar un espacio; si el equipo lo incorpora, requiere nuevos RF y un caso de uso de favoritos.
-
----
 
 # Épica E4 — Reservas, Pagos y Contratos
 
@@ -407,8 +373,6 @@
 - El sistema debe validar la disponibilidad del intervalo contra la base de datos al confirmar la reserva y rechazar la solicitud si detecta una colisión de último minuto.
 - Al completar una selección válida, el sistema debe calcular la cantidad total de horas o días seleccionados y mostrar el resumen previo a la reserva.
 
----
-
 ## HU16 - Cálculo automático de tarifas, comisiones y garantía
 
 **Épica:** E4 · **Rol (Como):** Arrendatario · **Prioridad:** Alta
@@ -426,8 +390,6 @@
 - Si el usuario modifica el rango de tiempo seleccionado, el sistema debe recalcular el desglose antes de continuar.
 
 > *(criterio de interfaz)* Si ocurre un error al calcular los costos, el sistema debe mostrar *"Error al calcular los costos de la reserva, por favor intente nuevamente"* y bloquear el avance al pago.
-
----
 
 ## HU17 - Pago de la reserva mediante pasarela integrada
 
@@ -450,8 +412,6 @@
 
 > **Fuera del alcance de la ES1:** pago con transferencia bancaria manual, pago en cuotas y emisión de documentos tributarios distintos de la boleta de comisión de la plataforma.
 
----
-
 ## HU18 - Confirmación de reserva y bloqueo de calendario
 
 **Épica:** E4 · **Rol (Como):** Sistema (automatización) · **Prioridad:** Alta
@@ -469,8 +429,6 @@
 - El sistema debe dejar la reserva visible en el historial del usuario, con las acciones habilitadas según su estado.
 
 > **Fuera del alcance de la ES1:** comprobante de reserva en PDF independiente del contrato. La constancia formal de la reserva es el contrato electrónico firmado por las partes (CU-29, CU-30).
-
----
 
 ## HU19 - Cancelación de reserva y gestión de devolución
 
@@ -491,8 +449,6 @@
 - Los montos retenidos que no correspondan a devolución según la política deben mantenerse en custodia hasta el cierre de la reserva.
 
 > **Fuera del alcance de la ES1:** cancelación con reasignación automática a otro espacio, y seguros o reembolsos por causas de fuerza mayor.
-
----
 
 ## HU33 - Generar y firmar el contrato de arriendo
 
@@ -516,8 +472,6 @@
 
 > **Fuera del alcance de la ES1:** firma notarial presencial, cláusulas personalizadas por el arrendador y versionado de contratos con anexos.
 
----
-
 # Épica E5 — Disponibilidad y Calendario
 
 ## HU20 - Gestión del calendario de disponibilidad
@@ -540,8 +494,6 @@
 
 > **Fuera del alcance de la ES1:** sincronización con calendarios externos en formato iCal y exportación del calendario.
 
----
-
 ## HU21 - Bloqueo manual de fechas por mantenimiento o uso personal
 
 **Épica:** E5 · **Rol (Como):** Arrendador · **Prioridad:** Media
@@ -560,8 +512,6 @@
 - El sistema debe permitir desbloquear un período previamente bloqueado de forma manual.
 - El registro del bloqueo debe quedar asociado a la publicación para efectos de trazabilidad y auditoría.
 
----
-
 ## HU22 - Consultar la actividad y las reservas del espacio
 
 **Épica:** E5 · **Rol (Como):** Arrendador · **Prioridad:** Media
@@ -577,8 +527,6 @@
 - El sistema debe permitir al arrendador consultar únicamente las reservas de sus propias publicaciones.
 
 > **Fuera del alcance de la ES1:** **panel de estadísticas de ocupación y rentabilidad** (KPIs, gráficos por período y exportación de reportes del arrendador). El seguimiento operativo queda cubierto por el historial de reservas (CU-47). Si el equipo incorpora el panel de estadísticas, requiere nuevos RF y un caso de uso de reportes para el arrendador.
-
----
 
 ## HU23 - Sincronización automática de estados en el calendario
 
@@ -599,8 +547,6 @@
 
 > **Fuera del alcance de la ES1:** motor de sincronización bidireccional con canales externos de venta.
 
----
-
 ## HU24 - Configuración de disponibilidad recurrente
 
 **Épica:** E5 · **Rol (Como):** Arrendador · **Prioridad:** Baja
@@ -615,8 +561,6 @@
 - Si el equipo incorpora la recurrencia, debe definir: días de la semana operativos, rango horario de apertura y cierre por día, validación de hora de cierre posterior a la de apertura, aplicación masiva de bloqueos fuera del patrón, y detección de colisión con reservas confirmadas.
 
 > **Fuera del alcance de la ES1:** horarios recurrentes, plantillas de disponibilidad por temporada y reglas automáticas de precio por demanda.
-
----
 
 # Épica E6 — Reputación y Comunicación
 
@@ -641,8 +585,6 @@
 
 > **Fuera del alcance de la ES1:** ventana de calificación recíproca con plazo de 14 días, límite de 500 caracteres por comentario y perfiles públicos con historial de evaluaciones del usuario.
 
----
-
 ## HU34 - Comunicarme con la contraparte durante la reserva
 
 **Épica:** E6 · **Rol (Como):** Arrendatario / Arrendador · **Prioridad:** Baja
@@ -661,8 +603,6 @@
 - El chat solo se habilita cuando existe una reserva entre las partes.
 
 > **Fuera del alcance de la ES1:** adjuntar archivos en el chat, indicadores de conexión en tiempo real, y notificaciones push por cada mensaje recibido.
-
----
 
 # Épica E7 — Administración y Moderación
 
@@ -685,8 +625,6 @@
 
 > **Fuera del alcance de la ES1:** autenticación de doble factor para administradores y tablero de métricas globales en tiempo real (usuarios activos, volumen transaccionado).
 
----
-
 ## HU27 - Moderación de contenido reportado
 
 **Épica:** E7 · **Rol (Como):** Administrador · **Prioridad:** Media
@@ -704,8 +642,6 @@
 - La acción de moderación debe quedar registrada en la auditoría con el administrador responsable y la fecha.
 
 > **Fuera del alcance de la ES1:** moderación y suspensión de **anuncios** reportados (publicaciones), bandeja de denuncias con estados y apelaciones, y notificación automática al propietario por suspensión de anuncio.
-
----
 
 ## HU28 - Resolución de disputas e incidencias de reservas
 
@@ -725,8 +661,6 @@
 - El sistema debe cambiar la disputa a estado "Resuelta" y notificar a ambas partes el resultado.
 - El sistema debe impedir la apertura de una nueva disputa sobre una reserva ya cerrada.
 
----
-
 # Épica E8 — Soporte y Notificaciones
 
 ## HU29 - Centro de ayuda y soporte
@@ -744,8 +678,6 @@
 
 > **Fuera del alcance de la ES1:** centro de ayuda con FAQ, formulario de tickets, códigos de seguimiento y bandeja de soporte con estados.
 
----
-
 ## HU30 - Notificaciones y alertas de la plataforma
 
 **Épica:** E8 · **Rol (Como):** Usuario Registrado · **Prioridad:** Media
@@ -762,8 +694,6 @@
 - El sistema debe informar al usuario en la interfaz el resultado de las operaciones críticas que generan notificación (pago, firma, disputa, cancelación).
 
 > **Fuera del alcance de la ES1:** centro de notificaciones dentro de la aplicación (campana con contador, marcado de leídas, historial en pantalla), notificaciones push en navegador y preferencias de notificación configurables por el usuario.
-
----
 
 # Épica E9 — Operación del Arriendo
 
@@ -787,8 +717,6 @@
 - Si el arrendador detecta daños al recibir el espacio, debe registrar el reclamo dentro de las 24 horas (HU28).
 
 > **Fuera del alcance de la ES1:** gestión domótica de accesos físicos (cerraduras inteligentes), validación biométrica de ingreso y check-in asistido por el arrendador.
-
----
 
 ## Resumen de trazabilidad de las Historias de Usuario
 
@@ -849,35 +777,3 @@
 | M11 — Administración y Auditoría | HU26, HU27, HU28 | Cubierto |
 
 **Resultado: 11/11 módulos cubiertos por al menos una historia de usuario.**
-
-## Correcciones aplicadas respecto de la versión anterior
-
-| HU | Corrección aplicada |
-|---|---|
-| HU01 | El estado de la cuenta al registrarse se corrige de "activo" a **"No Verificado"**; la selección de rol pasa a **preferencia de uso no excluyente** (RQF-213); se agrega la aceptación de términos y condiciones (RQF-186, RQF-187) y el reenvío del token (RQF-188). |
-| HU02 | El bloqueo se corrige de **3 intentos / 5 minutos** a **5 intentos / 30 minutos** (RQF-015, RQF-017); se agrega el cierre de sesión (RQF-023) y el bloqueo por cuenta no verificada (RQF-010). |
-| HU03 | El enlace de recuperación se corrige de **10 a 15 minutos** (RQF-021); se separa el escenario de cambio autenticado del de recuperación y se agregan sus RF (RQF-214 a RQF-218). |
-| HU04 | Se elimina el **Pasaporte** (el catálogo valida la Cédula ante el Registro Civil) y se incorpora el escenario **KYB (empresa)**, que no existía en ninguna HU; el peso máximo de archivo se fija en 10 MB (RQF-219) y se agrega el estado "Pendiente de Verificación" (RQF-220). |
-| HU05 | Título máximo corregido de **100 a 70 caracteres** (RQF-063); precio mínimo corregido de **"> 0" a "> $5.000 CLP"** (RQF-073); se elimina el mínimo de 3 imágenes y se mantiene el máximo de 10 (RQF-075); se incorporan las validaciones de superficie, descripción y estados Borrador/Activa. |
-| HU06 | Se agrega la validación del precio modificado (RQF-221) y se alinean los campos editables con RQF-195 a RQF-198. |
-| HU07 | Se incorpora la política de cancelación (RQF-223, RQF-224) y la validación de 250 caracteres (RQF-222). |
-| HU08 | Se corrige la regla: ocultar una publicación **no** se bloquea por reservas vigentes; solo se bloquea la **eliminación permanente** con reservas futuras (RQF-092). |
-| HU09 | Se reescribe como descripción de equipamiento incluido. Los **adicionales con tarifa propia** quedan declarados fuera de alcance (requerirían nuevos RF y un caso de uso, además de modificar el desglose de cobro RQF-107). |
-| HU14 | Se reemplaza "favoritos" por **consulta del historial de reservas** (RQF-199, CU-47), que sí está en el alcance y cubre la necesidad operativa; se documentó "favoritos" como fuera de alcance. |
-| HU17 | Se elimina **Transbank** como alternativa: la pasarela del proyecto es **Mercado Pago**; se agrega la exigencia de identidad verificada antes de pagar (RQF-227) y la notificación de pago rechazado (RQF-201). |
-| HU18 | Se elimina el comprobante PDF independiente (fuera de alcance: la constancia es el contrato firmado) y se corrige "ingresos acreditados" por **fondos retenidos en custodia** (RQF-117). |
-| HU19 | Se alinea la cancelación a la **política de cancelación configurada** y se agregan los RF de cancelación, cálculo de devolución, reembolso y notificación (RQF-226 a RQF-231). |
-| HU20 | Se elimina la sincronización iCal (fuera de alcance) y se mantiene el control de disponibilidad con bloqueo/desbloqueo (RQF-084, RQF-085). |
-| HU21 | Se agregan el motivo obligatorio del bloqueo (RQF-225) y la validación de fechas (RQF-226). |
-| HU22 | Se convierte en **consulta del historial de reservas del arrendador** (RQF-199, CU-47); el panel de estadísticas de ocupación queda fuera de alcance. |
-| HU25 | Se incorpora la **calificación y reseña recíproca** del arrendador hacia el arrendatario (RQF-232, RQF-233), el bloqueo de una segunda reseña (RQF-234) y el cálculo del promedio (RQF-235); el plazo de 14 días y el límite de 500 caracteres quedan fuera de alcance. |
-| HU26 | Se alinean las funciones al catálogo: búsqueda y bloqueo de cuentas (RQF-212, RQF-178–180), reportes (RQF-183), auditoría (RQF-184, RQF-185) y listado de espacios (RQF-236); 2FA y tablero de métricas quedan fuera de alcance. |
-| HU27 | Se acota a la moderación de **reseñas reportadas** (RQF-181, RQF-182, RQF-207); la suspensión de anuncios reportados queda fuera de alcance. |
-| HU28 | Se agrega el uso de la confirmación de recepción como evidencia (RQF-209) y la notificación del resultado a las partes (RQF-210). |
-| HU29 | Se declara fuera del alcance de la ES1. |
-| HU30 | Se reescribe sobre las notificaciones que el sistema efectivamente emite por correo (RF de notificación del catálogo); el centro de notificaciones en la aplicación y las preferencias de alerta quedan fuera de alcance. |
-| Todas | Se reemplaza "Propietario"/"anfitrión" por **Arrendador** y "cliente" por **Arrendatario**; se agrega épica, prioridad, RF y CU a cada HU. |
-| HU31, HU32 (nuevas) | Se crearon para cubrir el módulo **M02 (Perfil y Privacidad)**, que no tenía ninguna historia: gestión del perfil, fotografía y cuenta bancaria (HU31) y ejercicio del derecho de eliminación de la cuenta (HU32, Ley 21.719). |
-| HU33 (nueva) | Se creó para cubrir el módulo **M07 (Contratos y Firma Electrónica)**, que no tenía historia: generación automática del contrato, firma electrónica por ambas partes, rechazo de firma y cancelación por falta de firma. |
-| HU34 (nueva) | Se creó para cubrir la mensajería entre las partes del módulo **M09 (Comunicación y Reputación)**, que no estaba reflejada en ninguna historia. |
-| HU35 (nueva) | Se creó para cubrir el módulo **M08 (Check-in y Check-out)**, que no tenía historia: check-in con evidencia, check-out y confirmación de recepción por el arrendador. |

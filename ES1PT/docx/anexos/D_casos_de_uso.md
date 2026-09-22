@@ -1,13 +1,6 @@
 # Anexo: Especificación de Casos de Uso — Sistema EspaciGo
 
-> **Versión sincronizada con `actores_y_modulos.md` (11 módulos) y con el catálogo vigente de 236 requerimientos funcionales (RQF-001 – RQF-236 = 185 base + 51 complementarios).**
-> Los casos de uso se renumeraron de forma correlativa **CU-01 a CU-52**. Los casos complementarios (**CU-47 a CU-52**) se anexan al final del módulo correspondiente para no renumerar los casos existentes.
-
-**Sistema:** EspaciGo — Marketplace SaaS B2B2C de espacios comerciales
-**Notación:** UML 2.5 — diagramas de casos de uso
-**Total de casos de uso:** 52 | **Total de módulos:** 11 | **Cobertura:** 236/236 RF | **RNF relacionados:** 43
-
----
+Este anexo especifica los **52 casos de uso** del sistema, agrupados en los **11 módulos** descritos en el Anexo A. Los casos complementarios (CU-47 a CU-52) se presentan al final del módulo al que pertenecen, para no renumerar los casos definidos previamente. Cada caso de uso declara sus actores, precondiciones, flujo principal, flujos alternativos, postcondiciones y sus referencias cruzadas con los requerimientos funcionales (Anexo B) y las historias de usuario (Anexo E). Los diagramas se expresan en notaciуn UML 2.5.
 
 ## 1. Convenciones de modelado aplicadas
 
@@ -32,8 +25,6 @@
 | Tokenización de tarjetas (PCI-DSS) | `RNF-025` | Restricción externa de cumplimiento. |
 | Envío asíncrono de eventos a BigQuery | Detalle de implementación | No existe RF que lo observe un actor; se cubre con RNF-017. |
 | Google BigQuery / Data Warehouse | Repositorio interno | No es actor: no hay interacción iniciada por él con un objetivo observable. |
-
----
 
 ## 2. Modelo de Actores
 
@@ -88,11 +79,7 @@ end note
 | `Arrendatario --\|> UsuarioRegistrado` | Además de las capacidades del usuario registrado, reserva, paga, firma, hace check-in/out y reseña. |
 | `Administrador` | Sin generalización: no es usuario del marketplace ni ejecuta los flujos comerciales de arrendador/arrendatario. |
 
----
-
 ## 3. Casos de Uso por Módulo
-
----
 
 ## Módulo M01 — Autenticación y Gestión de Cuenta
 
@@ -251,8 +238,6 @@ end note
 | **Post-condiciones** | Credencial de acceso actualizada y usuario notificado del cambio. |
 | **Referencias Cruzadas** | RQF-214 al RQF-218 · CU-05 (recuperación de contraseña) · HU03 |
 
----
-
 ## Módulo M02 — Perfil y Privacidad del Usuario
 
 **RF cubiertos:** RQF-024 a RQF-037 + RQF-189 a RQF-191 (17 RF)
@@ -330,8 +315,6 @@ USR -- CU09
 | **Flujos Alternativos** | **A1. Procesos activos (Pasos 2 a 4):**<br>1. El sistema detecta reservas, pagos o disputas vigentes.<br>2. El sistema rechaza la eliminación e informa el motivo y las condiciones para reintentar. |
 | **Post-condiciones** | Datos personales eliminados y data transaccional anonimizada (plazo administrativo conforme a RNF-026). |
 | **Referencias Cruzadas** | RQF-034 al RQF-037 · RNF-018, RNF-026, RNF-029 · HU32 |
-
----
 
 ## Módulo M03 — Verificación de Identidad (KYC / KYB)
 
@@ -460,8 +443,6 @@ end note
 | **Post-condiciones** | Solicitud de validación reingresada para evaluación. |
 | **Referencias Cruzadas** | RQF-058, RQF-059 · RQF-193 · CU-13 (origen del rechazo) |
 
----
-
 ## Módulo M04 — Gestión de Publicaciones
 
 **RF cubiertos:** RQF-060 a RQF-093 + RQF-195 a RQF-198 + RQF-221 a RQF-226 (44 RF)
@@ -557,8 +538,6 @@ ARR -- CU18
 | **Post-condiciones** | Publicación modificada, con reglas y política de cancelación publicadas, o bien oculta, reactivada o eliminada según la acción ejecutada. |
 | **Referencias Cruzadas** | RQF-086 al RQF-093 · RQF-195 al RQF-198 · RQF-221 al RQF-224 · HU06, HU07, HU08 |
 
----
-
 ## Módulo M05 — Búsqueda y Cotización de Espacios
 
 **RF cubiertos:** RQF-094 a RQF-107 (14 RF)
@@ -642,8 +621,6 @@ ARREN -- CU21
 | **Flujos Alternativos** | **A1. Cambio del rango de tiempo (Paso 2):**<br>1. El arrendatario modifica el rango y el sistema recalcula el desglose antes de continuar. |
 | **Post-condiciones** | Desglose de cobro disponible para iniciar el proceso de reserva. |
 | **Referencias Cruzadas** | RQF-104 al RQF-107 · CU-22 (reserva) · HU15 |
-
----
 
 ## Módulo M06 — Reservas y Pagos (Escrow)
 
@@ -812,7 +789,7 @@ end note
 | **Post-condiciones** | Solicitud cancelada y disponibilidad liberada. |
 | **Referencias Cruzadas** | RQF-129 · extiende CU-26 · CU-24 (fondos retenidos) · CU-27 (liberación de fechas) |
 
-> **Caso de uso complementario (revisión de completitud):** CU-47 se incorpora al módulo M06 sin alterar la numeración de los casos de uso existentes.
+> **Caso de uso complementario:** CU-47 se incorpora al módulo M06 sin alterar la numeración de los casos de uso existentes.
 
 ### CU-47: Consultar Historial de Reservas
 
@@ -843,8 +820,6 @@ end note
 | **Flujos Alternativos** | **A1. Cancelación fuera del plazo permitido:**<br>1. El sistema rechaza la cancelación e informa que se encuentra fuera del plazo de la política de cancelación.<br><br>**A2. Rechazo del reembolso por la pasarela:**<br>1. El sistema registra el fallo, reintenta conforme a las políticas de conciliación (RNF-028) y mantiene la reserva cancelada con la devolución pendiente.<br><br>**A3. Reserva con disputa abierta:**<br>1. El sistema no habilita la cancelación y deriva el caso al flujo de resolución de disputas (CU-41). |
 | **Post-condiciones** | Reserva cancelada, fechas liberadas, reembolso ejecutado o en proceso y partes notificadas del estado de devolución. |
 | **Referencias Cruzadas** | RQF-228 al RQF-231 · CU-18 (política de cancelación) · CU-27 (liberación de fechas) · CU-24 (fondos retenidos en custodia) · CU-47 (acceso a la reserva) · HU19 |
-
----
 
 ## Módulo M07 — Contratos y Firma Electrónica
 
@@ -957,8 +932,6 @@ end note
 | **Post-condiciones** | Reserva cancelada y pago reembolsado al arrendatario. |
 | **Referencias Cruzadas** | RQF-140, RQF-141 · extiende CU-30 · HU33 |
 
----
-
 ## Módulo M08 — Check-in y Check-out
 
 **RF cubiertos:** RQF-143 a RQF-152 + RQF-203 a RQF-206 (14 RF)
@@ -1027,7 +1000,7 @@ ARR -- CU48
 | **Post-condiciones** | Reserva finalizada y período de gracia iniciado. |
 | **Referencias Cruzadas** | RQF-150 al RQF-152 · RQF-204 · CU-39 (habilita el período de reclamos) · CU-48 (confirmación de recepción) · HU35 |
 
-> **Caso de uso complementario (revisión de completitud):** CU-48 se incorpora al módulo M08 sin alterar la numeración de los casos de uso existentes.
+> **Caso de uso complementario:** CU-48 se incorpora al módulo M08 sin alterar la numeración de los casos de uso existentes.
 
 ### CU-48: Confirmar Recepción del Espacio
 
@@ -1042,8 +1015,6 @@ ARR -- CU48
 | **Flujos Alternativos** | **A1. Daños detectados al recibir el espacio (Paso 3):**<br>1. El arrendador no registra la conformidad y presenta el reclamo por daños dentro de las 24 horas posteriores al término (CU-39).<br><br>**A2. Reserva no finalizada (Paso 1):**<br>1. El sistema no habilita la confirmación mientras la reserva no esté finalizada. |
 | **Post-condiciones** | Recepción del espacio confirmada y registrada como evidencia. La confirmación **no altera** el período de gracia de 24 horas que rige la liquidación (CU-42). |
 | **Referencias Cruzadas** | RQF-205, RQF-206 · CU-34 (pre-condición) · CU-39 (reclamo), CU-41 (evidencia en el arbitraje), CU-42 (cierre), CU-47 (acceso a la reserva) |
-
----
 
 ## Módulo M09 — Comunicación y Reputación
 
@@ -1149,7 +1120,7 @@ ARR -- CU49
 | **Post-condiciones** | Historial de mensajes consultado por la parte solicitante. |
 | **Referencias Cruzadas** | RQF-158 · CU-37 (origen de los mensajes) · HU34 |
 
-> **Caso de uso complementario (revisión de completitud):** CU-49 se incorpora al módulo M09 sin alterar la numeración de los casos de uso existentes.
+> **Caso de uso complementario:** CU-49 se incorpora al módulo M09 sin alterar la numeración de los casos de uso existentes.
 
 ### CU-49: Reportar Reseña
 
@@ -1164,8 +1135,6 @@ ARR -- CU49
 | **Flujos Alternativos** | **A1. Reseña ya reportada (Paso 3):**<br>1. El sistema informa que la reseña se encuentra en revisión y no duplica el reporte. |
 | **Post-condiciones** | Reseña reportada y disponible para la moderación del administrador. |
 | **Referencias Cruzadas** | RQF-207 · CU-36 (visualización), CU-44 (moderación) |
-
----
 
 ## Módulo M10 — Disputas, Payout y Facturación
 
@@ -1275,8 +1244,6 @@ end note
 | **Flujos Alternativos** | **A1. Reclamo registrado dentro del plazo (Paso 1):**<br>1. Se ejecuta la extensión CU-39: la liquidación no se ejecuta y los fondos quedan bloqueados.<br><br>**A2. Rechazo de la transferencia por la pasarela (Paso 2):**<br>1. El sistema registra el fallo de la operación y reintenta conforme a las políticas de conciliación (RNF-012). |
 | **Post-condiciones** | Fondos liquidados al arrendador, garantía liberada y reserva cerrada. |
 | **Referencias Cruzadas** | RQF-172, RQF-173 · RQF-175 al RQF-177 · RQF-208, RQF-211 · RNF-027, RNF-028 · extendido por CU-39 · CU-41 (post-fallo) |
-
----
 
 ## Módulo M11 — Administración y Auditoría
 
@@ -1390,11 +1357,9 @@ ADMIN -- CU52
 | **Post-condiciones** | Publicaciones de la plataforma consultadas por el administrador. |
 | **Referencias Cruzadas** | RQF-236 · CU-44 (moderación), CU-45 (reportes), CU-46 (auditoría) · HU26 |
 
----
-
 ## 4. Trazabilidad y Cobertura
 
-### 4.1 Resumen módulo → casos de uso → requerimientos funcionales
+### 4.1 Resumen de módulos, casos de uso y requerimientos funcionales
 
 | Módulo | Casos de uso | RF base | RF complementarios | Total RF |
 |---|---|---|---|---|
@@ -1474,50 +1439,8 @@ ADMIN -- CU52
 | `<<include>>` CU-29 → CU-30 (firma tras el envío) | La firma la ejecutan las partes con un proveedor externo, de forma asíncrona; no es una ejecución obligatoria sincrónica del envío. |
 | `<<include>>` CU-19 → CU-21 / CU-20 → CU-36 (detalle y reseñas) | No existe obligatoriedad: se puede buscar sin cotizar, y consultar el detalle no exige ver reseñas. |
 | `<<extend>>` CU-13 → CU-11/CU-12 (revisión manual) | La revisión manual es un objetivo autónomo del Administrador, no un comportamiento opcional del caso base. Se documenta como flujo alternativo derivado. |
-| Caso de uso "Cifrar contraseña" | Es `RNF-013`, no un requerimiento funcional (corrección explícita de la profesora). |
+| Caso de uso "Cifrar contraseña" | Es `RNF-013`, no un requerimiento funcional: es una condición de calidad y no una funcionalidad solicitada por una entidad externa. |
 | Caso de uso "Transmitir logs a BigQuery" | Es `RNF-017`; no existe RF observable por un actor. |
 | Caso de uso "Consultar Mis Publicaciones" | El RQF-093 se integra como primer paso de CU-18 y no requiere ficha independiente. |
 | Generalización Administrador → Usuario Registrado | No hay especialización real: el administrador no ejecuta los flujos comerciales del marketplace. |
 | Relación entre los casos complementarios CU-47, CU-48 y CU-49 y los casos existentes | Se evaluó `<<extend>>` / `<<include>>` hacia casos del mismo módulo y se descartó: son objetivos autónomos (consultar, confirmar evidencia, reportar), no obligatorios para otro caso de uso; además CU-48 y CU-49 son iniciados por actores distintos a los del caso base. |
-
----
-
-## 5. Estado de las brechas y observaciones
-
-### 5.1 Brechas cerradas en la 1.ª revisión de completitud (RF y casos de uso)
-
-| Brecha detectada | Solución aplicada |
-|---|---|
-| Liberación de la garantía en el flujo sin reclamos (solo existía `RQF-175` "saldo restante tras deducciones") | Se agregó **RQF-208** y se actualizó **CU-42** |
-| El arrendador no tenía ninguna acción al término de la reserva | Se agregaron **RQF-205** y **RQF-206**, que dan origen a **CU-48** |
-| No existía forma de consultar las reservas del usuario (precondición de CU-24, CU-26, CU-33, CU-34 y CU-42) | Se agregó **RQF-199**, que da origen a **CU-47** |
-| No existía RF para reportar una reseña, aunque `RQF-181` presupone reseñas reportadas | Se agregó **RQF-207**, que da origen a **CU-49** |
-| No existía RF de aceptación de términos y condiciones (ejemplo explícito de la retroalimentación) | Se agregaron **RQF-186** y **RQF-187** en **CU-01** |
-| Ausencia de RF para reenviar el token de verificación | **RQF-188** integrado en **CU-02** |
-| CRUD incompleto sobre entidades (cuenta bancaria, campos editables de la publicación, estado de la validación) | **RQF-189 a RQF-193** y **RQF-195 a RQF-198**, integrados en CU-08, CU-11, CU-12, CU-14 y CU-18 |
-| Asimetría de notificación entre KYC y KYB | **RQF-194** integrado en **CU-12** |
-| Cancelaciones automáticas que liberaban fechas sin RF que lo declarara; rechazo de pago sin notificación; rechazo de firma sin registro | **RQF-200**, **RQF-201** y **RQF-202**, integrados en CU-27/CU-28, CU-24 y CU-30 |
-| Obligatoriedad de evidencia fotográfica en Check-in y Check-out no declarada | **RQF-203** y **RQF-204** integrados en CU-33 y CU-34 |
-| Evidencia de recepción no consultable por el administrador al arbitrar; resultado de la disputa sin notificación; boleta sin envío | **RQF-209**, **RQF-210** y **RQF-211**, integrados en CU-41 y CU-42 |
-| Imposibilidad de localizar una cuenta para bloquearla o desbloquearla | **RQF-212** integrado en **CU-43** |
-
-### 5.2 Brechas cerradas en la 2.ª revisión (Historias de Usuario)
-
-| Brecha detectada al revisar las HU | Solución aplicada |
-|---|---|
-| HU01 pedía seleccionar el rol principal en el registro sin RF que lo respaldara | **RQF-213** integrado en **CU-01** (como preferencia de uso no excluyente) |
-| HU03 describía el cambio de contraseña con sesión iniciada y sus validaciones, inexistentes en el catálogo | **RQF-214 a RQF-218** → nuevo **CU-50** |
-| HU04 definía un límite de 10 MB por documento y el estado "Pendiente de Verificación" | **RQF-219, RQF-220** integrados en **CU-11** |
-| HU06 y HU07 exigían validaciones al editar (precio), reglas de 250 caracteres y política de cancelación configurable y visible | **RQF-221 a RQF-224** integrados en **CU-18** |
-| HU21 exigía motivo obligatorio y validación de fechas en el bloqueo manual del calendario | **RQF-225, RQF-226** integrados en **CU-17** |
-| HU17 exigía identidad verificada antes de pagar (estaba solo como pre-condición del CU) | **RQF-227** integrado en **CU-22** |
-| HU19 describía la cancelación de la reserva por el arrendatario con devolución y notificación | **RQF-228 a RQF-231** → nuevo **CU-51** |
-| HU25 pedía reputación recíproca, una reseña por reserva y promedio de calificaciones | **RQF-232 a RQF-235** integrados en **CU-35** |
-| HU26 requería que el administrador pudiera consultar las publicaciones para supervisarlas | **RQF-236** → nuevo **CU-52** |
-
-### 5.3 Observaciones abiertas (no bloqueantes)
-
-1. **Solapamiento RF/RNF corregido:** `RNF-027` fue reformulado para expresar únicamente el cumplimiento normativo (timbrado del SII, formatos XML/PDF y plazo máximo de 24 horas), dejando la acción funcional en `RQF-176` y `RQF-211`. En la misma revisión se corrigieron los RNF con verbos funcionales (RNF-002, RNF-003, RNF-004) y se separaron los que mezclaban dos condiciones (RNF-012 y RNF-018). El catálogo de RNF quedó en **43 requerimientos**, con al menos 3 por categoría.
-2. **Alcance confirmado en las HU (requiere validación del equipo):** la segunda revisión declaró explícitamente fuera del alcance de la ES1 los siguientes criterios: disponibilidad recurrente (HU24), centro de ayuda y tickets (HU29), favoritos (HU14), adicionales o equipamiento extra con tarifa (HU09), panel de estadísticas de ocupación del arrendador (HU22), centro de notificaciones dentro de la aplicación (HU30), doble factor de administrador y tablero de métricas globales (HU26), y moderación/suspensión de anuncios reportados (HU27). Si el equipo desea incorporarlos, corresponden nuevos RF y casos de uso.
-3. **Contexto narrativo:** conviene agregar en `contexto_narrativo.md` una frase sobre la confirmación de recepción del arrendador (`RQF-205`, `RQF-206`) para mantener la coherencia del relato end-to-end.
-4. **Numeración de figuras del informe:** al pegar los 11 diagramas en el documento Word, verificar que la numeración de imágenes del índice coincida (actualizar campos con `Ctrl+A → F9`).

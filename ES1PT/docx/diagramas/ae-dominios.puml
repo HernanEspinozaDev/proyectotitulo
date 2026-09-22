@@ -1,0 +1,23 @@
+@startuml
+top to bottom direction
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+skinparam nodesep 12
+skinparam ranksep 16
+skinparam rectangle {
+  BackgroundColor #FBFCFE
+  BorderColor #2F5597
+  FontColor #1F3864
+}
+
+rectangle "**Dominio de negocio (Business Architecture)**\nProcesos de registro y verificación de identidad, publicación,\nreserva con retención de fondos, contratación digital,\ncheck-in y check-out, y resolución de disputas" as B #FDF3E7
+rectangle "**Dominio de aplicaciones (Application Architecture)**\nPlataforma web (Next.js), backoffice de administración,\nAPI REST en Go con 11 módulos funcionales\ne integraciones con proveedores externos" as A #EAF1F8
+rectangle "**Dominio de datos (Data Architecture)**\nBase relacional PostgreSQL con PostGIS (OLTP),\nalmacenamiento de archivos en Cloud Storage\ny almacén analítico inmutable en BigQuery (OLAP)" as D #EDF6ED
+rectangle "**Dominio tecnológico (Technology Architecture)**\nGCP (Cloud Run), contenedores Docker, Go y Next.js,\nintegración y despliegue continuos" as T #F2F2F2
+
+B --> A : se soportan con
+A --> D : leen y escriben en
+D --> T : se ejecutan sobre
+@enduml

@@ -1,0 +1,30 @@
+@startuml
+autonumber
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+skinparam sequenceMessageAlign left
+skinparam participant {
+  BackgroundColor #EAF1F8
+  BorderColor #2F5597
+  FontColor #1F3864
+}
+
+participant "EspaciGo\n(API Go)" as P
+participant "Generador\nde contratos" as G
+participant "FirmaVirtual\n(firma avanzada)" as FV
+participant "Arrendador\ny Arrendatario" as PARTES
+participant "Cloud Storage" as CS
+
+P -> G : solicita el contrato de la reserva
+G -> G : incorpora los datos de las partes,\ndel inmueble, del plazo y del monto
+G --> P : documento en PDF
+P -> FV : envía el documento a firma\n(orden de firma de las partes)
+FV -> PARTES : solicita la firma electrónica\navanzada de cada parte
+PARTES --> FV : firman el documento
+FV --> P : confirma la firma\nde todas las partes
+P -> CS : almacena el contrato firmado\ncon su metadata de firma
+P -> P : habilita el check-in\nde la reserva
+note over P, CS : el contrato firmado y su metadata quedan\nasociados a la reserva como constancia formal
+@enduml

@@ -1,0 +1,19 @@
+@startuml
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+skinparam rectangle {
+  BackgroundColor #FBFCFE
+  BorderColor #2F5597
+  FontColor #1F3864
+}
+
+rectangle "**Cronograma del proyecto: 16 semanas y seis incrementos funcionales**\n█ = semana con actividad de la etapa      ░ = semana sin actividad de la etapa\n\n**Iniciación — semanas 1 y 2**\nRequerimientos validados y arquitectura definida\n██ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░\n\n**Incremento 1 — semanas 3 y 4**\nM01, M02 y M03: identidad, perfil y verificación\n░░ ██ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░\n\n**Incremento 2 — semanas 5 a 7**\nM04 y M05: gestión de espacios, búsqueda y cotización\n░░ ░░ ░░ ░░ ██ ██ ██ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░\n\n**Incremento 3 — semanas 8 a 10**\nM06: reservas y pagos con retención de fondos (Escrow)\n░░ ░░ ░░ ░░ ░░ ░░ ░░ ██ ██ ██ ░░ ░░ ░░ ░░ ░░ ░░\n\n**Incremento 4 — semanas 11 y 12**\nM07 y M08: contratos, firma electrónica, check-in y check-out\n░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ██ ██ ░░ ░░ ░░ ░░\n\n**Incremento 5 — semanas 13 y 14**\nM09 y M10: reputación, disputas, liquidación y facturación\n░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ██ ██ ░░ ░░\n\n**Cierre — semanas 15 y 16**\nM11: administración y auditoría; pruebas de aceptación (UAT)\n░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ██ ██" as G #EDF6ED
+
+note bottom of G
+  Cada incremento cierra con un entregable funcional verificable.
+  El calendario definitivo se valida con la planificación
+  académica de la asignatura.
+end note
+@enduml

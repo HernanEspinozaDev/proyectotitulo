@@ -1,0 +1,30 @@
+@startuml
+autonumber
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+skinparam sequenceMessageAlign left
+skinparam participant {
+  BackgroundColor #EAF1F8
+  BorderColor #2F5597
+  FontColor #1F3864
+}
+
+participant "Arrendatario" as ART
+participant "EspaciGo\n(API Go)" as P
+participant "Mercado Pago\n(retención de fondos)" as MP
+participant "Arrendador" as ARR
+
+ART -> P : solicita la reserva\n(estadía + comisión + garantía)
+P -> MP : cobra con tokenización
+MP --> P : confirma el cobro
+note over P, MP : los fondos quedan <b>retenidos en custodia</b>;\nla garantía se pre-autoriza sin capturar
+P --> ART : reserva confirmada\n(estado "Pagada")
+P -> ARR : notifica la reserva\n(fondos retenidos, no acreditados)
+ART -> P : realiza check-out sin reclamos
+P -> MP : ordena la liberación
+MP -> ARR : acredita el arriendo\nmenos la comisión de servicio
+MP --> P : comisión de servicio retenida
+P -> ARR : emite la boleta de comisión\ntimbrada ante el SII
+@enduml

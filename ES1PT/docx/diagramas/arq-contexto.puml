@@ -1,0 +1,44 @@
+@startuml
+left to right direction
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+skinparam nodesep 14
+skinparam ranksep 40
+skinparam actorStyle awesome
+skinparam rectangle {
+  BackgroundColor #FBFCFE
+  BorderColor #2F5597
+  BorderThickness 1.2
+  FontColor #1F3864
+}
+
+actor "Visitante\n(sin cuenta)" as VIS
+actor "Usuario registrado" as USR
+actor "Arrendador\n(identidad verificada)" as ARR
+actor "Arrendatario\n(identidad verificada)" as ART
+actor "Administrador" as ADM
+
+rectangle "**EspaciGo**\nPlataforma SaaS y\nMarketplace B2B2C\n\nNext.js + Go sobre\nGCP Cloud Run" as SIS #FDF3E7
+
+rectangle "**Registro Civil**\nAPI de vigencia\nde cédula (KYC)" as RC #F2F2F2
+rectangle "**SII**\nAPI de inicio de\nactividades (KYB)\ny timbraje" as SII #F2F2F2
+rectangle "**Mercado Pago**\nPasarela con\ntokenización y\nretención (Escrow)" as MP #F2F2F2
+rectangle "**FirmaVirtual**\nFirma electrónica\navanzada remota" as FV #F2F2F2
+rectangle "**Cloud Storage**\nResguardo de\ncontratos y\nevidencia fotográfica" as CS #F2F2F2
+rectangle "**BigQuery**\nRepositorio de\nauditoría inmutable" as BQ #F2F2F2
+
+VIS --> SIS : busca espacios\nsin sesión
+USR --> SIS : gestiona perfil\ny credenciales
+ARR --> SIS : publica y\nadministra espacios
+ART --> SIS : busca, reserva\ny paga
+ADM --> SIS : administra,\nmodera y arbitra
+
+SIS --> RC : valida vigencia de cédula
+SIS --> SII : valida inicio de actividades
+SIS --> MP : cobra, retiene y libera fondos
+SIS --> FV : envía y recibe contratos firmados
+SIS --> CS : almacena documentos y evidencias
+SIS --> BQ : inyecta eventos de auditoría
+@enduml

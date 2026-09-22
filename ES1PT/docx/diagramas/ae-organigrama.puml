@@ -1,0 +1,21 @@
+@startwbs
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+skinparam nodesep 10
+skinparam ranksep 20
+skinparam wbsDiagram {
+  BackgroundColor #FBFCFE
+  BorderColor #2F5597
+  FontColor #1F3864
+}
+
+* **Rol de Gerencia / Dirección General**\nHernán Espinoza\n<i>Arquitectura cloud, base de datos, CI/CD</i>\n<i>y gestión de riesgos</i>\n(Líder de proyecto)
+** **Rol de Gestión de Personas y Análisis**\nErick Silva\n<i>Levantamiento de requerimientos,</i>\n<i>backend Go e integración de APIs</i>
+** **Rol de Desarrollo y Arquitectura**\nAnita Marchant\n<i>UX/UI, prototipado en Figma</i>\n<i>y frontend Next.js</i>
+** **Apoyo externo y contrapartes**
+*** **Académico guía**\nTeresa Jesús Tapia Soto\n<i>Evaluación del cumplimiento académico</i>
+*** **Proveedores de API**\nMercado Pago y FirmaVirtual\n<i>Integración por contrato</i>
+*** **Organismos públicos**\nRegistro Civil y SII\n<i>Validaciones de identidad y tributarias</i>
+@endwbs

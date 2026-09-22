@@ -1,0 +1,32 @@
+@startuml
+top to bottom direction
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+skinparam nodesep 10
+skinparam ranksep 16
+skinparam rectangle {
+  BackgroundColor #FBFCFE
+  BorderColor #2F5597
+  FontColor #1F3864
+}
+
+rectangle "**Modelo SaaS: adoptado por EspaciGo**" as SAAS #EDF6ED {
+  rectangle "**Proveedor cloud (GCP)**\nopera la infraestructura,\nel escalado y la disponibilidad" as S1
+  rectangle "**EspaciGo**\nuna sola instancia compartida\npara todos los clientes" as S2
+  rectangle "**Efectos para el proyecto**\n· costo inicial bajo y variable\n· actualizaciones centralizadas\n· disponibilidad gestionada por SLA\n· acceso web multiusuario" as S3
+  S1 --> S2
+  S2 --> S3
+}
+
+rectangle "**Modelo On-Premise: descartado**" as ONP #F2F2F2 {
+  rectangle "**Cliente A**\nservidor e instalación propios" as O1
+  rectangle "**Cliente B**\nservidor e instalación propios" as O2
+  rectangle "**Efectos descartados**\n· inversión inicial alta por cliente\n· actualizaciones manuales\n· disponibilidad dependiente del sitio\n· mantenimiento a cargo del cliente" as O3
+  O1 --> O3
+  O2 --> O3
+}
+
+SAAS -[hidden]right-> ONP
+@enduml

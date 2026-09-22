@@ -1,0 +1,23 @@
+@startmindmap
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+skinparam nodesep 8
+skinparam ranksep 24
+skinparam mindmapDiagram {
+  BackgroundColor #FBFCFE
+  BorderColor #2F5597
+  FontColor #1F3864
+}
+
+* **Objetivo general**\nDesarrollar e implementar la plataforma web\ntransaccional de arriendo flexible de espacios
+** **Objetivo específico 1**\nInfraestructura en contenedores\ncon despliegue continuo en GCP
+*** entorno reproducible y entrega automatizada
+** **Objetivo específico 2**\nNúcleo lógico: backend concurrente\nen Go y frontend en Next.js
+*** 11 módulos funcionales operativos
+** **Objetivo específico 3**\nIntegración de Mercado Pago (Escrow)\ny de FirmaVirtual
+*** retención de fondos y contratación digital
+** **Objetivo específico 4**\nAuditoría y bases bimodales\nPostgreSQL y BigQuery
+*** trazabilidad verificable de la operación
+@endmindmap

@@ -1,0 +1,54 @@
+@startuml
+top to bottom direction
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+skinparam nodesep 12
+skinparam ranksep 20
+skinparam ArrowThickness 1
+skinparam component {
+  BackgroundColor #FFFFFF
+  BorderColor #2F5597
+  FontColor #1F3864
+}
+skinparam node {
+  BackgroundColor #EAF1F8
+  BorderColor #2F5597
+  FontColor #1F3864
+}
+
+actor "Usuario\n(navegador web)" as USR
+
+node "Google Cloud Platform — proyecto EspaciGo" as GCP #EAF1F8 {
+  node "Cloud Run (sin servidor, escalado automático)" as CR #FFFFFF {
+    component "Frontend Next.js (SSR)\ncontenedor 1" as FE
+    component "API REST Go\n11 módulos funcionales\ncontenedor 2" as API
+  }
+  database "Cloud SQL\nPostgreSQL + PostGIS\n(OLTP: usuarios, publicaciones,\nreservas, pagos, contratos)" as PG
+  node "Cloud Storage\n(contratos y fotografías\nde check-in y check-out)" as GS
+  database "BigQuery\n(OLAP: auditoría inmutable)" as BQ
+  node "Artifact Registry\n(imágenes de contenedor)" as AR
+}
+
+node "Repositorio de código\ny pipeline CI/CD" as REPO #FFFFFF {
+  component "Pruebas, build\ny despliegue" as CICD
+}
+
+cloud "Servicios externos por API" as EXT #F2F2F2 {
+  component "Mercado Pago\n(pagos con retención)" as MP
+  component "FirmaVirtual\n(firma electrónica)" as FV
+  component "Registro Civil\n(validación de cédula)" as RC
+  component "SII\n(inicio de actividades\ny timbraje)" as SII
+}
+
+USR --> FE : HTTPS (TLS)
+FE --> API : JSON
+API --> PG : transacciones ACID
+API --> GS : archivos y evidencias
+API --> BQ : eventos de auditoría
+API --> EXT : REST + webhooks
+REPO --> CICD
+CICD --> AR : publica imagen
+AR --> CR : despliega revisión
+@enduml

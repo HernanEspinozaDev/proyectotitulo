@@ -1,0 +1,25 @@
+@startuml
+top to bottom direction
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+skinparam nodesep 10
+skinparam ranksep 12
+skinparam rectangle {
+  BackgroundColor #FBFCFE
+  BorderColor #2F5597
+  FontColor #1F3864
+}
+
+rectangle "**1. Borde e infraestructura**\n· TLS 1.2 o superior en todo el tráfico\n· contenedores aislados y con privilegios mínimos\n· escalado automático y límites de recursos" as C1 #EAF1F8
+rectangle "**2. Aplicación**\n· autenticación con hash bcrypt (12 rondas)\n· control de acceso por rol (RBAC)\n· validación de entrada y de disponibilidad\n· sesiones con expiración" as C2 #EAF1F8
+rectangle "**3. Datos**\n· tokenización de medios de pago (sin PAN ni CVV)\n· cifrado en reposo y en tránsito\n· minimización y finalidad del dato (Ley 21.719)\n· respaldo con RPO 4 h y RTO 6 h" as C3 #EAF1F8
+rectangle "**4. Auditoría y trazabilidad**\n· eventos inmutables en BigQuery\n· evidencia fotográfica de check-in y check-out\n· historial consultable y exportable" as C4 #EAF1F8
+rectangle "**Privacidad por diseño y por defecto**\n· consentimiento informado y registrado\n· derechos de acceso, rectificación y supresión (72 h)\n· retención de documentos por 5 años" as P #EDF6ED
+
+C1 --> C2
+C2 --> C3
+C3 --> C4
+P -[hidden]right-> C1
+@enduml
