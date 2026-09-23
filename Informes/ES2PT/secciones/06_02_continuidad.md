@@ -1,4 +1,21 @@
 ## Gestión de continuidad
 
-[[PENDIENTE: describir prevención, respaldos y procedimientos de recuperación ante pérdida de datos, caída de infraestructura y fallo de terceros. Definir activación, roles, restauración, validación y retorno; preparar un ensayo para comprobar RPO/RTO de RNF-010.]]
+RNF-010 fija **RPO máximo de 4 horas** y **RTO máximo de 6 horas** para la base de datos; el alcance exacto de archivos, contratos y proveedores se debe acordar. El punto de recuperación real se mide comparando el último dato confirmado con el último dato recuperado; el tiempo de recuperación termina cuando autenticación, búsqueda y reserva superan pruebas de humo, no cuando la base simplemente arranca [@es1anexoc]. El catálogo PT-11 del Anexo B establece el ensayo pendiente.
 
+### Medidas proactivas
+
+Se propone conservar copias de base y archivos en una ubicación protegida, con permisos restringidos y claves recuperables por roles autorizados. Si se elige PostgreSQL autogestionado, las copias base y el archivado continuo de WAL permiten restauración a un punto temporal; no recuperan por sí mismos archivos de configuración externos ni objetos adjuntos. Si se elige un servicio gestionado, habrá que documentar su política y límites de recuperación. La frecuencia y conservación se calcularán a partir del RPO, volumen, costo y riesgo, y se demostrarán restaurando una copia; una programación de copias sin ensayo no acredita RNF-010 [@es2pgpitr; @es2cloudsqlrestore].
+
+Se mantendrán versiones del esquema, aplicación, infraestructura y secretos bajo el control de 6.3; procedimientos de recreación y contactos autorizados deberán estar accesibles aun cuando el servicio principal caiga. Se propone un ensayo periódico de restauración con datos sintéticos y registro de duración, integridad y pérdida observada. NIST SP 800-34 Rev. 1 se usa como guía de planificación y prueba de contingencia, no como requisito de certificación de EspaciGo [@es2nist80034].
+
+*Tabla. Activación y recuperación propuesta por escenario.* <!--#tab:es2-continuidad-->
+
+| Escenario y disparador | Contención y pasos reactivos | Verificación y evidencia |
+| --- | --- | --- |
+| Corrupción o pérdida de datos confirmada; responsable de incidente activa recuperación | 1. Detener escrituras y preservar logs. 2. Identificar último estado sano y fuente de copia. 3. Restaurar en entorno aislado con esquema compatible; aplicar WAL/PITR si existe. 4. Comparar reservas, pagos y documentos con eventos externos antes de reabrir operaciones. 5. Autorizar retorno y vigilar reconciliación. | RPO/RTO medidos, manifiesto de copias, controles de integridad, PT-11 y conciliación sin duplicados. |
+| Caída de aplicación, base o región; sondeos críticos fallidos | 1. Confirmar alcance y hora. 2. Bloquear cambios concurrentes y comunicar estado. 3. Recuperar componente o desplegar revisión previa compatible; si la base falló, seguir el procedimiento de datos. 4. Comprobar autenticación, búsqueda y reserva sin pago real. 5. Reabrir tráfico y observar errores. | Línea de tiempo, revisión desplegada, humo, causa y decisión de reapertura. |
+| Pasarela, firma o verificación externa indisponible o respuesta incierta | 1. Deshabilitar temporalmente la operación dependiente sin afectar la consulta que pueda mantenerse. 2. Preservar identificadores y estados pendientes; no repetir cargos ni firmas por suposición. 3. Consultar estado al proveedor o conciliar cuando vuelva. 4. Reprocesar de forma idempotente y notificar resultado. | Estado de proveedor, eventos de conciliación, lista de operaciones pendientes y cierre individual. |
+
+El operador primario coordinará la activación y las evidencias; la persona suplente ejecutará pasos si el primario no está disponible; quien autoriza cambios decidirá la reapertura. **Esas asignaciones son roles propuestos.** Los recursos mínimos son acceso a copias, credenciales de emergencia, versiones previas, procedimiento fuera del entorno afectado y canal de comunicación. Las rutas concretas, custodios, permisos y contactos no están confirmados. Tras cualquier recuperación se documentará pérdida observada, tiempo transcurrido, operaciones financieras pendientes, acciones correctivas y decisión de retorno.
+
+[[PENDIENTE: seleccionar estrategia y almacenamiento de copias, definir frecuencia/retención y custodios, ensayar restauración aislada PT-11, medir RPO/RTO reales y probar caída de proveedor con entorno autorizado.]]

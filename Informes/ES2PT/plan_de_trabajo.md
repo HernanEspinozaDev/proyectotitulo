@@ -4,7 +4,7 @@ Este plan organiza la investigación y redacción de cada sección de ES2. Parte
 
 ## 1. Fuentes y reglas de trabajo
 
-**Avance al 23-09-2026:** se ejecutó el inventario inicial y se creó la [matriz de trazabilidad](investigacion/matriz_trazabilidad_es2.md). Las secciones están configuradas y 2.1–2.2 tienen un primer borrador investigado. La fecha informada por el usuario es el 03-11-2026; todavía no hay funcionalidades implementadas. El seguimiento vigente está en [pendientes](pendientes.md). Las actividades de cierre descritas abajo siguen abiertas.
+**Avance al 23-09-2026:** se ejecutó el inventario inicial y se creó la [matriz de trazabilidad](investigacion/matriz_trazabilidad_es2.md). Las secciones están configuradas; 2.1–2.2 tienen investigación inicial, 3.1–3.7 cuentan con modelos de análisis y un diccionario de datos parcial, IV contiene fichas propuestas de KPI/SLA, V incorpora el catálogo de pruebas sin ejecutar y la matriz normativa inicial, y VI contiene procedimientos operativos propuestos. La fecha informada por el usuario es el 03-11-2026; todavía no hay funcionalidades implementadas. El seguimiento vigente está en [pendientes](pendientes.md). Las actividades de cierre descritas abajo siguen abiertas.
 
 - **Base del proyecto:** [informe final ES1](../ES1PT/docx/build/Informe_Final.docx) y anexos finales A–E en su misma carpeta. Para consultar texto y trazabilidad, usar [informe fuente](../ES1PT/docx/informe.md) y [fuentes de los anexos](../ES1PT/docx/anexos/). Conservar todos los archivos de ES1.
 - **Estructura de ES2:** [plantilla transcrita](plantilla/plantilla_informe_ES2.md), contrastada con el DOCX institucional antes de cerrar la entrega.
@@ -82,7 +82,7 @@ Los archivos `XX_00` contendrán el título de capítulo con `#`; las subseccion
 
 **Criterio 2.1.2.5.** Derivar entidades, relaciones y reglas desde RF y casos de uso: usuarios, espacios, disponibilidad, reservas, pagos, contratos, evidencias y disputas, según el alcance confirmado. Diseñar claves, cardinalidades, restricciones, estados, información geográfica y relación entre datos operativos y analíticos.
 
-**Producto y cierre:** `03_04_datos.md`, modelo lógico y **diccionario de datos en anexo**. El diccionario incluirá significado, tipos, nulabilidad, claves, restricciones y reglas; debe corresponder con el modelo y permitir seguir los flujos críticos. Registrar decisiones de modelado en `INV-004_modelos_y_trazabilidad.md`.
+**Producto y cierre:** `03_04_datos.md`, modelo lógico y **diccionario de datos en anexo**. El diccionario incluirá significado, tipos, nulabilidad, claves, restricciones y reglas; debe corresponder con el modelo y permitir seguir los flujos críticos. Registrar decisiones de modelado en `INV-004_modelado_y_datos.md`.
 
 ### 3.5 Topología de comunicaciones
 
@@ -122,7 +122,7 @@ Los archivos `XX_00` contendrán el título de capítulo con `#`; las subseccion
 
 ### 5.2 Normas y estándares
 
-**Criterio 2.1.4.12.** Revisar normas y referencias de ES1, su edición, vigencia y aplicabilidad con fuentes primarias. Relacionar cada selección con controles, actividades o pruebas concretas de calidad, seguridad, accesibilidad y tratamiento de información. Investigar los instrumentos jurídicos aplicables sin inferir cumplimiento por mera mención.
+**Criterio 2.1.4.12.** Revisar normas y referencias de ES1, su edición, vigencia y aplicabilidad con fuentes primarias. Relacionar cada selección con controles, actividades o pruebas concretas de calidad, seguridad, accesibilidad y tratamiento de información. Adoptar la Ley 21.719 como criterio de diseño desde ES2, antes de su entrada en vigencia, y comprobar su traducción a la matriz de tratamientos del Anexo A y PT-16. Investigar los instrumentos jurídicos aplicables sin inferir cumplimiento por mera mención.
 
 **Producto y cierre:** `05_02_normas.md` e `INV-006_calidad_y_normativa.md`, con matriz norma/versión → motivo → alcance → aplicación → evidencia. Toda afirmación de conformidad requiere soporte; registrar las limitaciones de acceso a las fuentes.
 
@@ -182,7 +182,7 @@ En cada sección: investigar → registrar evidencia → redactar → revisar tr
 - Confirmar cobertura de los 17 criterios y todas las partes I–X de la plantilla.
 - Comprobar coherencia de nombres, identificadores, alcance, cifras, diagramas y metas entre secciones.
 - Resolver pendientes académicos, fuentes y contradicciones; registrar revisiones y retroalimentación reales.
-- Adaptar y revisar el perfil institucional de ES2: la plantilla ya existe, pero `perfil` sigue en `null`.
+- Adaptar y revisar el perfil institucional de ES2: la plantilla y un perfil preliminar existen, pero `aprobado` sigue en `false` hasta verificar páginas, portada, índices y anexos.
 - Generar el informe y los anexos en `ES2PT/build/`, actualizar campos con APA 7 y revisar visualmente portada, índices, tablas, diagramas, citas y anexos.
 - Mantener ES1 intacto y cerrar las tareas de `pendientes.md` solo con evidencia.
 
@@ -197,4 +197,6 @@ python Informes/generar.py actualizar-word ES2PT
 python Informes/generar.py validar ES2PT --final
 ```
 
-**Primera actividad al ejecutar este plan:** completar `INV-001_base_y_brechas.md` y la matriz de trazabilidad; después iniciar la investigación de 2.1 con las propuestas de ES1 y los requisitos que deben satisfacer.
+**Avance del 23-09-2026:** 5.2 cuenta con matriz normativa y jurídica inicial (INV-006), y 6.1–6.3 con procedimientos propuestos para disponibilidad, continuidad y mantención (INV-007). No hay conformidad, despliegue ni ensayo acreditado.
+
+**Próxima actividad:** completar el render y la revisión visual registrados en INV-008 para habilitar el perfil Word. En paralelo, contrastar costos y factibilidad de 2.1–2.2 cuando se disponga de capacidad del equipo y productos de integración concretos. Revisar los borradores III–VI con el equipo, definir roles y ejecutar las pruebas del producto a medida que se implemente.

@@ -11,8 +11,6 @@ entity "usuario" as usuario {
 }
 entity "reserva" as reserva {
   * id : uuid <<PK>>
-  * espacio_id : uuid <<FK>>
-  * arrendatario_id : uuid <<FK>>
 }
 entity "contrato" as contrato {
   * id : uuid <<PK>>
@@ -33,35 +31,9 @@ entity "disputa" as disputa {
   * reclamante_id : uuid <<FK>>
   resolutor_id : uuid <<FK>>
 }
-entity "documento" as documento {
-  * id : uuid <<PK>>
-  espacio_id : uuid <<FK>>
-  verificacion_id : uuid <<FK>>
-  contrato_id : uuid <<FK>>
-}
-entity "evento_auditoria" as evento_auditoria {
-  * id : uuid <<PK>>
-  actor_id : uuid <<FK>>
-  reserva_id : uuid <<FK>>
-}
-entity "espacio" as espacio {
-  * id : uuid <<PK>>
-  * arrendador_id : uuid <<FK>>
-}
-entity "verificacion" as verificacion {
-  * id : uuid <<PK>>
-  * usuario_id : uuid <<FK>>
-  revisor_id : uuid <<FK>>
-}
 reserva ||--o{ contrato
 contrato ||--o{ firma_contrato
 usuario ||--o{ firma_contrato
 reserva ||--o{ operacion_arriendo
 reserva ||--o{ disputa
-reserva |o--o{ documento
-contrato |o--o{ documento
-espacio |o--o{ documento
-verificacion |o--o{ documento
-usuario |o--o{ evento_auditoria
-reserva |o--o{ evento_auditoria
 @enduml

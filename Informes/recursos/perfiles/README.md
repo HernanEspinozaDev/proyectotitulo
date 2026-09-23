@@ -14,3 +14,5 @@
 La firma detecta cambios posteriores; no acredita por sí sola una revisión humana. El diagnóstico exige también los estilos y las partes OOXML del adaptador.
 
 `mapa_estilos`, `niveles_titulo`, `campos_portada`, `etiqueta_titulo`, `sin_etiqueta`, `toc`, `fuente` y tamaños son configurables. Las convenciones internas de tablas, rótulos y numeración permanecen en el adaptador institucional; si cambian, adaptar código y pruebas.
+
+Si la portada de una nueva plantilla reparte el título en varios párrafos, `conservar_titulo_plantilla_en_anexos: true` evita reemplazar solo uno de ellos al generar anexos. Esta opción no sustituye la revisión visual de las dos copias de portada ni la verificación de encabezados y pies.

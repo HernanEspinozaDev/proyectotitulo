@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "adaptador": "inacap_es1",
+  "aprobado": false,
+  "descripcion": "Perfil preliminar de ES2. Portada de anexos ajustada estructuralmente; faltan revisión de encabezados, pies y páginas renderizadas.",
+  "mapa_estilos": {
+    "Ttulo10": "Ttulo1",
+    "Ttulo2": "Subtitulo1",
+    "Ttulo3": "Subtitulo2",
+    "Ttulo4": "Prrafodelista",
+    "FirstParagraph": "PARRAFO",
+    "BodyText": "PARRAFO",
+    "Compact": "PARRAFO",
+    "BlockText": "DESTACADO",
+    "ImageCaption": "PIEDEFOTO",
+    "CaptionedFigure": "PARRAFO",
+    "Caption": "PIEDEFOTO",
+    "TableCaption": "TABLATTULO",
+    "SourceCode": "PARRAFO",
+    "Bibliography": "BIBLIOGRAFA1"
+  },
+  "niveles_titulo": {
+    "Ttulo1": 0,
+    "Subtitulo1": 1,
+    "Subtitulo2": 2,
+    "Prrafodelista": 3
+  },
+  "fuente": "Calibri",
+  "tamano_cuerpo": 22,
+  "tamano_titulo": 24,
+  "toc": " TOC \\h \\z \\t \"Título1;1;Subtitulo1;2;Subtitulo2;3\" ",
+  "insercion": "reemplazar_desde_indice_tdc",
+  "campos_portada": {
+    "Asignatura": "asignatura",
+    "Sección": "seccion",
+    "Académico guía": "academico",
+    "Integrantes del equipo": "integrantes",
+    "Fecha de entrega": "fecha",
+    "Nombre o título del proyecto": "proyecto"
+  },
+  "etiqueta_titulo": "DESARROLLO E IMPLEMENTACIÓN",
+  "conservar_titulo_plantilla_en_anexos": true,
+  "sin_etiqueta": [
+    "Nombre o título del proyecto",
+    "DESARROLLO E IMPLEMENTACIÓN"
+  ],
+  "estilos_requeridos": [
+    "TDC1",
+    "PARRAFO",
+    "Ttulo1",
+    "Subtitulo1",
+    "Subtitulo2",
+    "Prrafodelista",
+    "BIBLIOGRAFA1"
+  ],
+  "estilo_word": "APASeventhEdition.xsl",
+  "sha256_plantilla": "98bbe1396210e5efc8049fba7e3006a7a5bd254ba356c39b6c19404bc687b7e1"
+}

@@ -22,11 +22,19 @@ Las operaciones financieras distinguen pendiente, confirmado, rechazado y por co
 
 ### Contratos, operación y evidencia
 
-![Modelo inicial de contratos, uso y evidencia](imagenes/figura-datos_operacion.png){width=6.3in} <!--#fig:es2-datos-operacion--> <!--#fuente:elaboración propia a partir de los requisitos de ES1.-->
+![Modelo inicial de contratos, uso y disputas](imagenes/figura-datos_operacion.png){width=6.3in} <!--#fig:es2-datos-operacion--> <!--#fuente:elaboración propia a partir de los requisitos de ES1.-->
+
+![Modelo inicial de documentos y auditoría](imagenes/figura-datos_evidencias.png){width=6.3in} <!--#fig:es2-datos-evidencias--> <!--#fuente:elaboración propia a partir de los requisitos de ES1.-->
 
 Contrato conserva versiones; firma_contrato registra la respuesta de cada parte. Operación_arriendo distingue check-in, check-out y recepción. Disputa conserva el reclamo y su resolución. Documento contiene metadatos y una referencia restringida al archivo, mientras evento_auditoria registra el hecho y su correlación.
 
 En los diagramas se muestran claves seleccionadas para facilitar lectura; el diccionario contiene los atributos completos. Las relaciones opcionales de documento responden a un único propietario por registro, controlado mediante una restricción adicional. Los vínculos a reserva no bastan para distinguir múltiples reclamos o eventos: esa asociación detallada permanece como ampliación pendiente.
+
+### Privacidad incorporada al diseño
+
+Aunque la Ley 21.719 entra en vigencia después de la fecha de ES2, el proyecto la adopta **desde el primer incremento** como criterio de diseño. Para cada entidad o documento se definirá finalidad, dato mínimo, acceso, proveedor, conservación y acción al terminar el tratamiento. El **Anexo A de ES2** contiene una matriz inicial de tratamientos; todavía faltan fundamentos jurídicos, plazos por categoría y revisión del equipo [@ley21719; @es1anexoc].
+
+El esquema y las API deberán permitir identificar y tramitar solicitudes de titulares sin borrar indiscriminadamente reservas, pagos o evidencia. Se propone un registro de solicitud con tipo de derecho, identidad verificada, fecha, estado, decisión fundada, responsable y resultado; su entidad, permisos y mecanismo de exportación o bloqueo siguen por modelar. RNF-018/029 exigen eliminación o anonimización tras la baja, mientras RNF-042/043 prevén conservación por cinco años: la regla concreta depende del dato, finalidad y obligación aplicable. Hasta resolverla, no se ejecutará un borrado en cascada sobre hechos financieros ni documentos [@ley21719; @es1anexoc].
 
 ### Reglas y límites del diseño
 
@@ -34,6 +42,6 @@ En los diagramas se muestran claves seleccionadas para facilitar lectura; el dic
 - Habilitar check-in únicamente cuando estén confirmadas todas las firmas exigidas.
 - Impedir liquidación mientras haya disputa abierta y verificar su resultado antes de cerrar.
 - Diferenciar integridad del archivo mediante hash de la inmutabilidad de su almacenamiento.
-- Conciliar retención, anonimización y referencias a usuarios antes de diseñar borrados.
+- Aplicar minimización y acceso por rol desde el modelo inicial; conciliar retención, anonimización y referencias a usuarios antes de diseñar borrados.
 
-[[PENDIENTE: validar el modelo con el equipo, completar los dominios y asociaciones identificados en el Anexo A, definir estados y permisos, producir DDL y ejecutar pruebas de claves, restricciones, concurrencia y migración.]]
+[[PENDIENTE: validar el modelo con el equipo, completar los dominios y asociaciones identificados en el Anexo A, definir estados y permisos, incluir el registro de solicitudes de titulares, resolver la matriz de tratamiento, producir DDL y ejecutar pruebas de claves, restricciones, privacidad, concurrencia y migración.]]

@@ -249,6 +249,21 @@ Registro lógico de acciones; garantía física de inmutabilidad todavía pendie
 | correlacion | text | No | Identificador de solicitud/evento | Rastreo |
 | resumen | text | No | Sin contraseñas, tokens ni datos de tarjeta | Detalle minimizado |
 
+## Matriz inicial de tratamiento de datos
+
+Se adopta la Ley 21.719 como criterio de diseño desde ES2, aunque su entrada en vigencia sea posterior a esta entrega. Esta matriz **no es una política de retención aprobada**: clasifica datos del modelo y expone decisiones que deberán resolverse antes de implementar. El acceso se expresa por función propuesta, no como permiso ya configurado [@ley21719; @es1anexoc].
+
+| Flujo o categoría | Finalidad y acceso previsto | Acción al cierre o solicitud del titular | Decisión pendiente |
+| --- | --- | --- | --- |
+| Cuenta, perfil y verificación | Identificar y habilitar a las partes; titular y equipo autorizado según función | Evaluar rectificación, bloqueo o supresión tras verificar identidad y obligaciones activas | Campos mínimos, fundamento, tercero verificador, plazo y tratamiento de imágenes de identidad |
+| Cuenta bancaria | Liquidar pagos al destinatario autorizado; acceso muy restringido | Retirar acceso y suprimir o conservar según obligación aplicable | Entidad aún no modelada; cifrado RNF-014, proveedor y plazo |
+| Reservas, operaciones y pagos | Ejecutar contrato y conciliación; partes y operación según rol | Preservar hechos necesarios sin exponer datos superfluos; evaluar anonimización al cerrar cuenta | Fundamento y plazo por tipo de operación; vínculo con usuario y proveedor |
+| Contratos, firmas y fotografías | Acreditar acuerdo, uso y disputa; partes y personal autorizado | Conservar o suprimir por categoría conforme a política fundada; RNF-042 propone cinco años | Validez/obligación de conservación, permisos, ubicación y borrado de copias |
+| Auditoría y registros técnicos | Seguridad, trazabilidad e investigación de incidentes; operador autorizado | Minimizar identificadores y restringir consulta; RNF-043 propone cinco años | Mecanismo de inmutabilidad RNF-017, fundamento, plazos y anonimización |
+| Solicitudes de derechos | Gestionar acceso, rectificación, supresión, oposición, portabilidad y bloqueo | Registrar recepción, identidad verificada, decisión motivada, resultado y respuesta | Entidad/API y permisos aún no modelados; plazo de 72 h de RNF-026 es meta interna por revisar |
+
+La implementación debe comprobar que las vistas y exportaciones solo incluyan datos autorizados y que una solicitud no destruya evidencia sujeta a una conservación fundada. Las excepciones y plazos se resolverán con revisión jurídica y trazabilidad de decisión, sin atribuir cumplimiento al modelo documental.
+
 ## Reglas entre entidades
 
 1. El espacio de una ocupación de reserva debe coincidir con el de la reserva. Proponer FK compuesta o control transaccional equivalente; una FK simple a reserva no basta.
@@ -258,11 +273,11 @@ Registro lógico de acciones; garantía física de inmutabilidad todavía pendie
 5. No liquidar con disputas abiertas. Importe, comisión, deducción y garantía deberán conciliarse con las operaciones confirmadas.
 6. Documento debe tener exactamente un propietario entre espacio, verificación, contrato y reserva; la categoría y los permisos deben ser compatibles con ese propietario.
 7. Las claves y referencias externas tienen ámbito definido por proveedor. Los eventos sin firma válida no ingresan al procesamiento de negocio; registrar su rechazo sin almacenar secretos.
-8. No usar borrado en cascada sobre hechos financieros o evidencia. Conciliar privacidad, anonimización y retención mediante una política fundada; la FK a usuario no resuelve por sí sola esa política.
+8. No usar borrado en cascada sobre hechos financieros o evidencia. Conciliar privacidad, anonimización y retención por categoría mediante la matriz anterior; la FK a usuario no resuelve por sí sola esa política.
 9. Toda tarea que llama a un proveedor debe registrar su intención y resultado y tratar respuestas inciertas. Un rollback local no revierte automáticamente un efecto externo.
 
 ## Ampliaciones todavía necesarias
 
-[[PENDIENTE: completar perfil y cuenta bancaria, sesiones/tokens, tarifas y catálogos, mensajería, reseñas, detalle tributario, vínculo explícito entre cada evidencia y su evento/reclamo, notificaciones y reglas de privacidad. Revisar el tratamiento de autores automáticos de documentos. No afirmar cobertura total de los RF.]]
+[[PENDIENTE: completar perfil y cuenta bancaria, sesiones/tokens, tarifas y catálogos, mensajería, reseñas, detalle tributario, vínculo explícito entre cada evidencia y su evento/reclamo, notificaciones, registro de solicitudes de titulares y reglas de privacidad. Revisar el tratamiento de autores automáticos de documentos. No afirmar cobertura total de los RF.]]
 
 [[PENDIENTE: acordar los catálogos de estados, validar cardinalidades con el equipo, producir DDL y ejecutar pruebas de integridad, concurrencia y migración.]]

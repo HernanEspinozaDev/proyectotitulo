@@ -1,0 +1,25 @@
+@startuml
+skinparam dpi 180
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 18
+skinparam backgroundColor white
+skinparam componentStyle uml2
+top to bottom direction
+package "Backend Go modular · interfaces internas" {
+  component "M01–M11\nreglas de negocio" as MOD
+  component "Adaptadores\nde proveedores" as AD
+  component "Eventos y conciliación\nejecución por definir" as EVT
+}
+database "PostgreSQL / PostGIS\ndatos operativos" as DB
+component "Archivos\nservicio por definir" as FILE
+component "Analítica\nBigQuery propuesto" as BQ
+component "Pago, firma, identidad, SII\nacceso por verificar" as EXT
+MOD --> DB
+MOD --> FILE
+MOD --> BQ : control RNF-017 pendiente
+MOD --> AD
+EVT --> AD
+EVT --> DB
+AD --> EXT : contratos por verificar
+@enduml

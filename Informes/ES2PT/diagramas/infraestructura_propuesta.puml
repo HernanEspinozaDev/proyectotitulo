@@ -1,0 +1,26 @@
+@startuml
+skinparam dpi 180
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 18
+skinparam backgroundColor white
+skinparam componentStyle uml2
+top to bottom direction
+node "Dispositivo del usuario\nhardware por caracterizar" as DEVICE
+cloud "Nube propuesta · región por elegir" {
+  node "Entrada HTTPS\nred y dominio por definir" as EDGE
+  node "Cloud Run · contenedor web\nCPU/RAM por dimensionar" as FE
+  node "Cloud Run · contenedor API\nCPU/RAM por dimensionar" as API
+  database "PostgreSQL / PostGIS\nalojamiento y respaldo por elegir" as DB
+  component "Archivos\nservicio y retención por elegir" as FILE
+  component "Analítica\nBigQuery propuesto" as BQ
+}
+cloud "Servicios externos\nacceso por verificar" as EXT
+DEVICE --> EDGE
+EDGE --> FE
+FE --> API
+API --> DB
+API --> FILE
+API --> BQ
+API --> EXT
+@enduml

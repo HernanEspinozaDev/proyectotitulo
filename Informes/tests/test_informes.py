@@ -11,7 +11,7 @@ import generar
 from herramientas.configuracion import ErrorInforme, RAIZ, cargar
 from herramientas.ensamblado import reunir
 from herramientas.validacion import comprobar_fuentes, huella, inspeccionar_docx, validar
-from herramientas.word import perfil
+from herramientas.word import perfil, titulo_portada_anexo
 
 
 class InformesTest(unittest.TestCase):
@@ -70,6 +70,13 @@ class InformesTest(unittest.TestCase):
         self.texto("# Uno\n\nAfirmación [@ausente].")
         self.assertIn("Cita sin fuente: ausente", comprobar_fuentes(self.cfg())[0])
 
+    def test_intervalo_semiabierto_no_absorbe_cita_siguiente(self):
+        self.texto("# Uno\n\nIntervalo [inicio, fin) según [@fuente].")
+        (self.raiz / "referencias.bib").write_text(
+            "@misc{fuente, author={{Autor}}, title={Documento}, year={2026}}\n",
+            encoding="utf-8")
+        self.assertEqual(comprobar_fuentes(self.cfg())[0], [])
+
     def test_localizador_no_se_pierde_silenciosamente(self):
         self.texto("# Uno\n\nAfirmación [@fuente, p. 3].")
         self.assertTrue(any("pérdida" in e for e in comprobar_fuentes(self.cfg())[0]))
@@ -113,6 +120,13 @@ class InformesTest(unittest.TestCase):
         self.assertIn("Primer contenido", reunir(cfg))
         with self.assertRaisesRegex(ErrorInforme, "pendiente"):
             perfil(cfg)
+
+    def test_titulo_anexo_conserva_portada_multipartes_es2(self):
+        anexo = {"letra": "A"}
+        self.assertIsNone(titulo_portada_anexo(
+            {"conservar_titulo_plantilla_en_anexos": True}, "EspaciGo", anexo))
+        self.assertEqual(titulo_portada_anexo({}, "EspaciGo", anexo),
+                         "PROYECTO DE TÍTULO: EspaciGo")
 
     def test_validar_sin_generacion_falla(self):
         self.assertTrue(validar(self.cfg())[0])

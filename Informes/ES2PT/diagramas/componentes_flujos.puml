@@ -1,0 +1,20 @@
+@startuml
+skinparam dpi 180
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 18
+skinparam backgroundColor white
+skinparam componentStyle uml2
+top to bottom direction
+component "Interfaz web\nNext.js" as UI
+package "Backend Go modular · una unidad desplegable" {
+  component "API y autorización" as API
+  component "Cuentas, oferta y búsqueda\nM01–M05" as INICIO
+  component "Reserva, operación y cierre\nM06–M10" as CICLO
+  component "Administración y auditoría\nM11" as ADM
+}
+UI --> API : HTTPS / JSON
+API --> INICIO
+API --> CICLO
+API --> ADM
+@enduml

@@ -22,6 +22,8 @@ usecase "CU-30\nFirmar contrato" as C30
 T -- C22
 T -- C24
 H -- C26
+T -- C29
+H -- C29
 T -- C30
 H -- C30
 C22 ..> C23 : <<include>>

@@ -13,10 +13,11 @@ from .ensamblado import documentos, imagenes, leer, resolver_imagen, reunir, sin
 
 W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
 B = "{http://schemas.openxmlformats.org/officeDocument/2006/bibliography}"
+CITAS = r"\[[^\[\]]*@[^\[\]]*\]"
 
 
 def claves(texto):
-    return re.findall(r"@([\w:.-]+)", " ".join(re.findall(r"\[[^\]]*@[^\]]*\]", sin_codigo(texto))))
+    return re.findall(r"@([\w:.-]+)", " ".join(re.findall(CITAS, sin_codigo(texto))))
 
 
 def comprobar_fuentes(cfg, final=False):
@@ -41,10 +42,10 @@ def comprobar_fuentes(cfg, final=False):
             if ("tab" if tipo.lower() == "tabla" else "fig", clave) not in etiquetas:
                 errores.append(f"{nombre}: referencia sin destino {tipo}:{clave}")
         # El formato nativo heredado soporta citas parentéticas por claves, no localizadores.
-        for cita in re.findall(r"\[[^\]]*@[^\]]*\]", texto):
+        for cita in re.findall(CITAS, texto):
             if not re.fullmatch(r"\[\s*@[\w:.-]+(?:\s*;\s*@[\w:.-]+)*\s*\]", cita):
                 errores.append(f"{nombre}: cita no soportada sin pérdida de información: {cita}")
-        resto = re.sub(r"\[[^\]]*@[^\]]*\]", "", texto)
+        resto = re.sub(CITAS, "", texto)
         if re.search(r"(?<![\w/])@[\w:.-]+", resto):
             errores.append(f"{nombre}: usa citas parentéticas [@clave]; las citas narrativas no están implementadas.")
         if "[[PENDIENTE" in texto:

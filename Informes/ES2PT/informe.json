@@ -45,11 +45,18 @@
       "archivo": "anexos/A_diccionario_datos.md",
       "salida": "Anexo_A_Diccionario_de_datos.docx",
       "transformacion": "general"
+    },
+    {
+      "letra": "B",
+      "titulo": "Catálogo de casos de prueba de ES2",
+      "archivo": "anexos/B_casos_de_prueba.md",
+      "salida": "Anexo_B_Casos_de_prueba.docx",
+      "transformacion": "general"
     }
   ],
   "bibliografia": "referencias.bib",
   "plantilla": "plantilla/TIHI84_U2_ES2_Plantilla_informe_Guía_ABPro.docx",
-  "perfil": null,
+  "perfil": "plantilla/perfil_es2.json",
   "linea_base": {"entrega": "ES1PT", "estado": "congelada", "informe_final": "ES1PT/docx/build/Informe_Final.docx", "anexos_finales": "ES1PT/docx/build/Anexo_*.docx", "fuentes": ["ES1PT/docx/informe.md", "ES1PT/docx/anexos/"]},
   "investigacion": "investigacion",
   "agregar_referencias": true,

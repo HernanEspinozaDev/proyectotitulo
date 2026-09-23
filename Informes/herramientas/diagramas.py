@@ -1,4 +1,4 @@
-"""Render de PlantUML únicamente en build/, nunca sobre las fuentes."""
+"""Render de PlantUML y SVG editables en build/, nunca sobre las fuentes."""
 import os
 import re
 import shutil

@@ -40,6 +40,7 @@ def diagnostico(cfg):
     print(f"Entrega: {cfg.datos['id']}\nFuentes: {cfg.raiz}\nSalida: {cfg.build}")
     for programa in ("pandoc", "java"):
         print(f"{programa}: {shutil.which(programa) or 'NO DISPONIBLE'}")
+    print("inkscape: " + (os.environ.get("INKSCAPE_BIN") or shutil.which("inkscape") or "NO DISPONIBLE"))
     print("PLANTUML_JAR: " + (os.environ.get("PLANTUML_JAR") or "no configurado; también admite --plantuml"))
     try:
         plantilla, _ = perfil(cfg)

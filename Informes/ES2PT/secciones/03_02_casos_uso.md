@@ -19,6 +19,7 @@ CU-22 incluye obligatoriamente CU-23 y CU-24 incluye CU-25, conforme a la base. 
 ![Casos de uso de operación y cierre](imagenes/figura-cu_operacion.png){width=6.3in} <!--#fig:es2-cu-operacion--> <!--#fuente:elaboración propia a partir del anexo D de ES1.-->
 
 CU-33, CU-34 y CU-48 representan ingreso, salida y recepción como objetivos independientes. CU-39, CU-40 y CU-41 describen reclamo, descargos y resolución; CU-42 aborda liquidación y comprobante. La dependencia de proveedores financieros y tributarios se conserva como pendiente de verificación.
+Se conserva la relación `extend` de CU-39 hacia CU-42 indicada en el catálogo de ES1: el reclamo altera el cierre financiero previsto. Su semántica y punto de extensión se revisarán con el equipo antes de pasar a una especificación ejecutable.
 
 *Tabla. Trazabilidad de las vistas UML seleccionadas.* <!--#tab:es2-cu-trazabilidad-->
 

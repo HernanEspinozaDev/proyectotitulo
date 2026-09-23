@@ -12,11 +12,13 @@ The shared entry point is `Informes/generar.py`; reusable Python modules live in
 
 Read `Informes/contexto/README.md` and `decisiones.md`, then the active delivery's `contexto.md`, `pendientes.md`, `informe.json`, rubric, and relevant sections. Follow evidence links into ES1 when needed. Treat proposed architecture and integrations as proposals until implementation evidence is recorded.
 
+For ES2, apply Law 21.719 as a design criterion from the first development increment, using the treatment matrix in `Informes/ES2PT/anexos/A_diccionario_datos.md` and planned test PT-16. Its effective date is 1 December 2026; distinguish design work from legal applicability and proven compliance.
+
 Edit Markdown under each delivery's `secciones/` and `anexos/`. `informe.json` orders sections and declares annexes. Keep image paths relative to the delivery root. Never maintain edits in `build/` artifacts. Do not invent academic requirements, citations, dates, approvals, or results. Mark missing evidence with `[[PENDIENTE: ...]]`.
 
 ## Development and Validation
 
-Use Python 3.10+; `Informes/requirements.txt` lists external prerequisites without PyPI dependencies. Word generation requires Pandoc 3.x; diagrams require Java and `PLANTUML_JAR`. Recreate relocated virtual environments rather than trusting stale paths.
+Use Python 3.10+; `Informes/requirements.txt` lists external prerequisites without PyPI dependencies. Word generation requires Pandoc 3.x; PlantUML requires Java and `PLANTUML_JAR`, while SVG diagrams require Inkscape. Recreate relocated virtual environments rather than trusting stale paths.
 
 ```powershell
 python Informes/generar.py nuevo ES3PT
@@ -26,7 +28,7 @@ python Informes/generar.py validar ES2PT --final
 python -m unittest discover -s Informes/tests -v
 ```
 
-ES2 has an institutional template and an initial Markdown draft; its Word profile still needs adaptation. Follow `Informes/ES2PT/investigacion/matriz_trazabilidad_es2.md` for actual progress. Do not bypass missing or unreviewed Word profiles. Errors must return nonzero status. Test pipeline changes with focused `unittest` cases and the isolated ES1 compatibility configuration; review representative Word pages visually. Final validation blocks unresolved content and bibliography tasks; it does not replace rubric review.
+ES2 has an institutional template and an initial Markdown draft; its Word profile is preliminary and remains disabled pending visual review. Follow `Informes/ES2PT/investigacion/matriz_trazabilidad_es2.md` for actual progress. Do not bypass missing or unreviewed Word profiles. Errors must return nonzero status. Test pipeline changes with focused `unittest` cases and the isolated ES1 compatibility configuration; review representative Word pages visually. Final validation blocks unresolved content and bibliography tasks; it does not replace rubric review.
 
 ## Style and Contributions
 

@@ -33,10 +33,10 @@ entity "ocupacion" as ocupacion {
   reserva_id : uuid <<FK>>
 }
 usuario ||--o{ rol_usuario
-usuario ||--o{ verificacion : titular
-usuario ||--o{ espacio : arrendador
-usuario ||--o{ reserva : arrendatario
+usuario ||--o{ verificacion
+usuario ||--o{ espacio
+usuario ||--o{ reserva
 espacio ||--o{ reserva
 espacio ||--o{ ocupacion
-reserva |o--o| ocupacion : intervalo
+reserva |o--o| ocupacion
 @enduml

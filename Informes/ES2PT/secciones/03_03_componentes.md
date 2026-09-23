@@ -2,7 +2,9 @@
 
 El diseño inicial mantiene la unidad de despliegue modular definida en ES1. Los módulos del backend son responsabilidades de software, no microservicios independientes. Las llamadas a proveedores se concentran en adaptadores para que su contrato y sus fallos puedan tratarse de forma explícita [@es1formulacion; @es1anexoc].
 
-![Componentes lógicos y artefactos previstos](imagenes/figura-componentes.png){width=6.3in} <!--#fig:es2-componentes--> <!--#fuente:elaboración propia a partir de ES1.-->
+![Componentes lógicos del backend modular](imagenes/figura-componentes_flujos.png){width=6.3in} <!--#fig:es2-componentes-flujos--> <!--#fuente:elaboración propia a partir de ES1.-->
+
+![Interfaces de persistencia y proveedores previstas](imagenes/figura-componentes_integraciones.png){width=6.3in} <!--#fig:es2-componentes-integraciones--> <!--#fuente:elaboración propia a partir de ES1.-->
 
 *Tabla. Responsabilidades e interfaces previstas.* <!--#tab:es2-componentes-interfaces-->
 

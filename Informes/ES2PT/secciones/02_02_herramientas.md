@@ -23,6 +23,10 @@ Docker distingue la imagen de su instancia en ejecución y advierte que los camb
 
 La selección de hardware deberá contemplar las estaciones reales del equipo y los recursos de ejecución del prototipo: sistema operativo, CPU, memoria, almacenamiento y conectividad. Todavía no se dispone de ese inventario ni de mediciones para dimensionar la nube. Tampoco se fijan versiones a partir de la fecha de consulta de la documentación: se registrarán las efectivamente seleccionadas y probadas.
 
+La documentación pública de Mercado Pago describe una integración de pagos divididos 1:1 con autorización OAuth del vendedor. Esa función no verifica por sí sola la retención, liberación y garantía previstas por ES1; también faltan condiciones de acceso y una prueba controlada para Chile [@es2mpsplit]. FirmaVirtual publica una API y menciona un entorno de pruebas, pero el acceso del equipo, el tipo de firma requerido y el flujo contractual siguen sin demostrarse [@es2firmavirtualapi].
+
+El SII ofrece una consulta pública de situación tributaria de terceros; esa página no establece una API habilitada para el proyecto ni cubre toda la verificación KYB [@es2siiconsulta]. Un convenio de interoperabilidad entre organismos públicos muestra que existen mecanismos institucionales para verificar datos del Registro Civil, pero no acredita acceso de EspaciGo [@es2sii195]. Estas cuatro dependencias continúan como **propuestas** en [INV-003](../investigacion/INV-003_integraciones.md); no hay pruebas de integración ejecutadas.
+
 Para cada componente se completará una ficha con versión, licencia o términos de servicio, entorno, responsable, dependencia, costo y evidencia. Los servicios de integración requerirán además registrar la diferencia entre funcionamiento real y simulación de pruebas. Los secretos de acceso se gestionarán fuera del informe.
 
 [[PENDIENTE: completar fichas de versiones y licencias, hardware disponible, herramientas de desarrollo/pruebas/CI, alojamiento de PostgreSQL y almacenamiento; resolver las preguntas de acceso de INV-003.]]

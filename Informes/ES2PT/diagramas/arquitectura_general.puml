@@ -1,0 +1,34 @@
+@startuml
+skinparam dpi 180
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 18
+skinparam backgroundColor white
+skinparam componentStyle uml2
+top to bottom direction
+actor "Arrendatario / arrendador" as USER
+component "Web Next.js\ncontenedor propuesto" as WEB
+package "API Go · backend modular" {
+  component "API y autorización" as API
+  component "M01–M05\nidentidad y oferta" as INIT
+  component "M06–M07\nreserva y contrato" as CORE
+  component "M08–M11\noperación y control" as CLOSE
+  component "Adaptadores y conciliación" as AD
+}
+database "PostgreSQL / PostGIS\nestado y calendario" as DB
+component "Archivos y analítica\ncontroles por definir" as DATA
+cloud "Pago, firma, identidad y SII\ncondiciones por verificar" as EXT
+USER --> WEB : HTTPS
+WEB --> API : HTTPS / JSON
+API --> INIT
+API --> CORE
+API --> CLOSE
+INIT --> DB
+CORE --> DB
+CLOSE --> DB
+CORE --> AD
+AD --> EXT : solicitud / evento
+AD --> DB : correlación y conciliación
+CORE --> DATA
+CLOSE --> DATA
+@enduml

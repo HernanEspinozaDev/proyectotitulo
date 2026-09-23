@@ -17,7 +17,8 @@
 
 param(
     [Parameter(Mandatory=$true)][string]$Carpeta,
-    [string]$EstiloApa
+    [string]$EstiloApa,
+    [switch]$SoloIndices
 )
 
 $ErrorActionPreference = 'Stop'
@@ -32,20 +33,22 @@ foreach ($nombre in $nombres) {
 }
 $Ruta = @($manifest.documentos.PSObject.Properties.Name | ForEach-Object { Join-Path $carpeta $_ })
 
-# Revisar el estilo instalado ANTES de abrir o guardar cualquier documento.
-$candidatos = @()
-if ($EstiloApa) { $candidatos += $EstiloApa }
-$candidatos += (Join-Path $env:APPDATA 'Microsoft/Bibliography/Style/APASeventhEdition.xsl')
-foreach ($baseOffice in @($env:ProgramFiles, ${env:ProgramFiles(x86)})) {
-    if ($baseOffice) {
-        $candidatos += (Join-Path $baseOffice 'Microsoft Office/root/Office16/Bibliography/Style/APASeventhEdition.xsl')
+# Revisar el estilo instalado ANTES de abrir o guardar si se actualizarán citas.
+if (-not $SoloIndices) {
+    $candidatos = @()
+    if ($EstiloApa) { $candidatos += $EstiloApa }
+    $candidatos += (Join-Path $env:APPDATA 'Microsoft/Bibliography/Style/APASeventhEdition.xsl')
+    foreach ($baseOffice in @($env:ProgramFiles, ${env:ProgramFiles(x86)})) {
+        if ($baseOffice) {
+            $candidatos += (Join-Path $baseOffice 'Microsoft Office/root/Office16/Bibliography/Style/APASeventhEdition.xsl')
+        }
     }
+    $encontrado = @($candidatos | Where-Object { Test-Path -LiteralPath $_ -PathType Leaf })
+    if ($encontrado.Count -eq 0) { throw 'No se encontró APASeventhEdition.xsl instalado en Word. No se actualizaron campos.' }
+    $xmlEstilo = New-Object System.Xml.XmlDocument
+    $xmlEstilo.Load($encontrado[0])
+    if ($xmlEstilo.DocumentElement.NamespaceURI -ne 'http://www.w3.org/1999/XSL/Transform') { throw 'El estilo APA no es un XSL válido.' }
 }
-$encontrado = @($candidatos | Where-Object { Test-Path -LiteralPath $_ -PathType Leaf })
-if ($encontrado.Count -eq 0) { throw 'No se encontró APASeventhEdition.xsl instalado en Word. No se actualizaron campos.' }
-$xmlEstilo = New-Object System.Xml.XmlDocument
-$xmlEstilo.Load($encontrado[0])
-if ($xmlEstilo.DocumentElement.NamespaceURI -ne 'http://www.w3.org/1999/XSL/Transform') { throw 'El estilo APA no es un XSL válido.' }
 
 if (-not $Ruta) { throw 'El manifiesto no contiene documentos.' }
 
@@ -79,21 +82,26 @@ foreach ($archivo in $Ruta) {
 
         $doc = $word.Documents.Open($archivo, $false, $false)
         try {
-            $word.Bibliography.BibliographyStyle = $encontrado[0]
-            if ($word.Bibliography.BibliographyStyle -notmatch 'APASeventhEdition') {
-                throw 'Word no activó APA 7. No se guarda el documento.'
+            if (-not $SoloIndices) {
+                try { $word.Bibliography.BibliographyStyle = $encontrado[0] }
+                catch { throw "Word rechazó activar APA 7 mediante BibliographyStyle ($($_.Exception.Message)). No se actualizan las citas ni se guarda el documento." }
+                if ($word.Bibliography.BibliographyStyle -notmatch 'APASeventhEdition') {
+                    throw 'Word no activó APA 7. No se guarda el documento.'
+                }
             }
             # dos pasadas: el índice necesita la segunda para fijar las páginas
             foreach ($pasada in 1..2) {
                 foreach ($toc in $doc.TablesOfContents) { $toc.Update() | Out-Null }
-                foreach ($historia in $doc.StoryRanges) {
-                    $s = $historia
-                    while ($s -ne $null) {
-                        $s.Fields.Update() | Out-Null
-                        $s = $s.NextStoryRange
+                if (-not $SoloIndices) {
+                    foreach ($historia in $doc.StoryRanges) {
+                        $s = $historia
+                        while ($s -ne $null) {
+                            $s.Fields.Update() | Out-Null
+                            $s = $s.NextStoryRange
+                        }
                     }
+                    $doc.Fields.Update() | Out-Null
                 }
-                $doc.Fields.Update() | Out-Null
             }
 
             $entradas = 0

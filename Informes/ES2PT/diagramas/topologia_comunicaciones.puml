@@ -1,0 +1,28 @@
+@startuml
+skinparam dpi 180
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 18
+skinparam backgroundColor white
+skinparam componentStyle uml2
+top to bottom direction
+actor "Usuario / administrador" as USER
+rectangle "Borde público propuesto" {
+  component "Entrada HTTPS" as EDGE
+  component "Frontend Next.js" as FE
+  component "API Go" as API
+}
+rectangle "Red privada propuesta" {
+  database "PostgreSQL / PostGIS" as DB
+  component "Archivos y auditoría" as DATA
+}
+cloud "Pago, firma, identidad, SII\nacceso por verificar" as EXT
+USER --> EDGE : HTTPS / TLS 1.2+
+EDGE --> FE : solicitud web
+FE --> API : HTTPS / JSON
+EDGE --> API : webhook firmado
+API --> DB : protocolo BD / TLS por configurar
+API --> DATA : API interna / TLS por configurar
+API --> EXT : HTTPS / timeout y reintentos
+EXT --> EDGE : evento HTTPS
+@enduml

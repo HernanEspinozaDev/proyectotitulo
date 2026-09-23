@@ -21,6 +21,7 @@ usecase "CU-41\nResolver disputa" as C41
 usecase "CU-42\nLiquidar y emitir boleta" as C42
 }
 T -- C33
+H -- C33
 T -- C34
 T -- C40
 H -- C48
@@ -28,4 +29,5 @@ H -- C39
 A -- C41
 MP -- C42
 SII -- C42
+C39 ..> C42 : <<extend>>
 @enduml

@@ -13,15 +13,17 @@ from .ensamblado import leer, reunir, resolver_imagen
 from .validacion import claves, comprobar_fuentes, guardar_reporte, huella, inspeccionar_docx, validar
 
 
-def perfil(cfg):
-    if not cfg.datos["plantilla"] or not cfg.datos["perfil"]:
-        raise ErrorInforme("Plantilla institucional pendiente: configura plantilla y perfil después de revisarlos. Puedes seguir redactando y ensamblando Markdown.")
+def perfil(cfg, permitir_borrador=False):
+    if not cfg.datos["plantilla"]:
+        raise ErrorInforme("Plantilla institucional pendiente: incorpora y configura el DOCX. Puedes seguir redactando y ensamblando Markdown.")
+    if not cfg.datos["perfil"]:
+        raise ErrorInforme("Perfil institucional pendiente: adapta el perfil al DOCX incorporado. Puedes seguir redactando y ensamblando Markdown.")
     ruta = (cfg.recurso if cfg.datos.get("compatibilidad_es1") else cfg.entrada)(cfg.datos["perfil"])
     p = leer_json(ruta)
     plantilla = cfg.entrada(cfg.datos["plantilla"])
     if not plantilla.is_file():
         raise ErrorInforme(f"No existe la plantilla: {plantilla}")
-    if p.get("adaptador") != "inacap_es1" or not p.get("aprobado"):
+    if p.get("adaptador") != "inacap_es1" or (not p.get("aprobado") and not permitir_borrador):
         raise ErrorInforme("Perfil pendiente de adaptación y revisión. El adaptador disponible es inacap_es1.")
     if p.get("insercion") != "reemplazar_desde_indice_tdc":
         raise ErrorInforme("Regla de inserción no soportada por este adaptador.")
@@ -86,6 +88,13 @@ def configurar_motor(cfg, plantilla, p, carpeta):
         setattr(motor, variable, str(carpeta / archivo))
 
 
+def titulo_portada_anexo(p, proyecto, anexo):
+    """Conserva títulos institucionales multipartes cuando el perfil lo exige."""
+    if not anexo or p.get("conservar_titulo_plantilla_en_anexos", False):
+        return None
+    return "PROYECTO DE TÍTULO: " + proyecto
+
+
 def generar_documento(cfg, plantilla, p, texto, nombre, anexo=None):
     carpeta = cfg.salida("intermedios") / (anexo["letra"] if anexo else "informe")
     carpeta.mkdir(parents=True, exist_ok=True)
@@ -134,7 +143,7 @@ def generar_documento(cfg, plantilla, p, texto, nombre, anexo=None):
     temporal = carpeta / "resultado.docx"
     r = motor._ensamblar(motor.BODY_CITAS, str(temporal), meta=meta, con_portada=True,
         numerar=not bool(anexo), etiqueta=nombre, es_anexo=bool(anexo),
-        linea_titulo=("PROYECTO DE TÍTULO: " + cfg.datos["metadatos"].get("proyecto", "")) if anexo else None,
+        linea_titulo=titulo_portada_anexo(p, cfg.datos["metadatos"].get("proyecto", ""), anexo),
         ilustraciones=("**Tabla " in leer(motor.ENSAMBLADO), "**Figura " in leer(motor.ENSAMBLADO)))
     if not r.get("ok") or r.get("toc"):
         raise ErrorInforme(str(r))
