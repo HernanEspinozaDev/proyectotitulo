@@ -1,0 +1,35 @@
+@startuml
+skinparam dpi 180
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 16
+skinparam backgroundColor white
+skinparam wrapWidth 160
+left to right direction
+actor Visitante as V
+actor "Usuario Registrado" as U
+actor Administrador as A
+actor "Registro Civil\n(acceso pendiente)" as RC
+actor "SII\n(acceso pendiente)" as SII
+rectangle "EspaciGo · identidad y acceso" {
+usecase "CU-01\nRegistrar cuenta" as C1
+usecase "CU-02\nVerificar correo" as C2
+usecase "CU-03\nIniciar sesión" as C3
+usecase "CU-11\nValidar persona natural" as C11
+usecase "CU-12\nValidar empresa" as C12
+usecase "CU-13\nRevisar validación manual" as C13
+}
+V -- C1
+V -- C2
+V -- C3
+U -- C11
+U -- C12
+A -- C13
+RC -- C11
+SII -- C12
+note bottom of C13
+Derivación por fallo de validación.
+Esta vista no añade una relación
+UML include/extend a la base.
+end note
+@enduml

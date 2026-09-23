@@ -1,0 +1,31 @@
+@startuml
+skinparam dpi 180
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 16
+skinparam backgroundColor white
+skinparam wrapWidth 160
+left to right direction
+actor Arrendatario as T
+actor Arrendador as H
+actor Administrador as A
+actor "Mercado Pago\n(capacidad pendiente)" as MP
+actor "SII\n(servicio por definir)" as SII
+rectangle "EspaciGo · operación y cierre" {
+usecase "CU-33\nRegistrar check-in" as C33
+usecase "CU-34\nRegistrar check-out" as C34
+usecase "CU-48\nConfirmar recepción" as C48
+usecase "CU-39\nRegistrar reclamo" as C39
+usecase "CU-40\nPresentar descargos" as C40
+usecase "CU-41\nResolver disputa" as C41
+usecase "CU-42\nLiquidar y emitir boleta" as C42
+}
+T -- C33
+T -- C34
+T -- C40
+H -- C48
+H -- C39
+A -- C41
+MP -- C42
+SII -- C42
+@enduml

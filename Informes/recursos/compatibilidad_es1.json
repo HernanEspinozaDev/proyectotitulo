@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "id": "ES1PT",
+  "compatibilidad_es1": true,
+  "metadatos": {
+    "titulo": "FORMULACIÓN DEL PROYECTO DE TÍTULO: EspaciGo",
+    "proyecto": "EspaciGo",
+    "lang": "es-CL",
+    "institucion": "Inacap - Informática y Telecomunicaciones",
+    "asignatura": "Proyecto de Título - TIH184",
+    "seccion": "D-IEI-N8-P1-C2/D",
+    "academico": "Teresa Jesús Tapia Soto",
+    "integrantes": "Hernán Espinoza, Anita Marchant, Erick Silva",
+    "fecha": "15 de septiembre del 2026",
+    "carrera": ""
+  },
+  "secciones": [
+    "docx/informe.md"
+  ],
+  "anexos": [
+    {
+      "letra": "A",
+      "archivo": "docx/anexos/A_actores_y_modulos.md",
+      "titulo": "Actores y módulos del sistema",
+      "salida": "Anexo_A_Actores_y_modulos_del_sistema.docx",
+      "transformacion": "general"
+    },
+    {
+      "letra": "B",
+      "archivo": "docx/anexos/B_requerimientos_funcionales.md",
+      "titulo": "Catálogo de requerimientos funcionales",
+      "salida": "Anexo_B_Catalogo_de_requerimientos_funcionales.docx",
+      "transformacion": "general"
+    },
+    {
+      "letra": "C",
+      "archivo": "docx/anexos/C_requerimientos_no_funcionales.md",
+      "titulo": "Requerimientos no funcionales",
+      "salida": "Anexo_C_Requerimientos_no_funcionales.docx",
+      "transformacion": "general"
+    },
+    {
+      "letra": "D",
+      "archivo": "docx/anexos/D_casos_de_uso.md",
+      "titulo": "Especificación de casos de uso",
+      "salida": "Anexo_D_Especificacion_de_casos_de_uso.docx",
+      "transformacion": "casos_uso"
+    },
+    {
+      "letra": "E",
+      "archivo": "docx/anexos/E_historias_de_usuario.md",
+      "titulo": "Historias de usuario",
+      "salida": "Anexo_E_Historias_de_usuario.docx",
+      "transformacion": "historias_usuario"
+    }
+  ],
+  "bibliografia": "docx/referencias.bib",
+  "plantilla": "docx/plantilla.docx",
+  "perfil": "perfiles/inacap_es1.json",
+  "agregar_referencias": false,
+  "agregar_indice_anexos": false
+}

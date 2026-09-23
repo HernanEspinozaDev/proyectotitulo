@@ -1,0 +1,37 @@
+@startuml
+skinparam dpi 180
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 16
+skinparam backgroundColor white
+skinparam wrapWidth 160
+left to right direction
+actor Arrendatario as T
+actor Arrendador as H
+actor "Mercado Pago\n(capacidades por validar)" as MP
+actor "FirmaVirtual\n(acceso pendiente)" as FV
+rectangle "EspaciGo · reserva y contrato" {
+usecase "CU-22\nSolicitar reserva" as C22
+usecase "CU-23\nValidar disponibilidad" as C23
+usecase "CU-24\nPagar y retener fondos" as C24
+usecase "CU-25\nBloquear garantía" as C25
+usecase "CU-26\nGestionar solicitud" as C26
+usecase "CU-29\nGenerar y enviar contrato" as C29
+usecase "CU-30\nFirmar contrato" as C30
+}
+T -- C22
+T -- C24
+H -- C26
+T -- C30
+H -- C30
+C22 ..> C23 : <<include>>
+C24 ..> C25 : <<include>>
+MP -- C24
+FV -- C29
+FV -- C30
+note bottom of C29
+La secuencia temporal entre casos
+se describe en el BPMN, no mediante
+asociaciones include inventadas.
+end note
+@enduml

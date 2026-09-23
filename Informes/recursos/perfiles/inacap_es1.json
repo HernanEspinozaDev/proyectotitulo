@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "adaptador": "inacap_es1",
+  "aprobado": true,
+  "descripcion": "Perfil de la plantilla institucional usada en ES1. No aplicar sin revisar a otra plantilla.",
+  "mapa_estilos": {
+    "Ttulo10": "Ttulo1",
+    "Ttulo2": "Subtitulo1",
+    "Ttulo3": "Subtitulo2",
+    "Ttulo4": "Prrafodelista",
+    "FirstParagraph": "PARRAFO",
+    "BodyText": "PARRAFO",
+    "Compact": "PARRAFO",
+    "BlockText": "DESTACADO",
+    "ImageCaption": "PIEDEFOTO",
+    "CaptionedFigure": "PARRAFO",
+    "Caption": "PIEDEFOTO",
+    "TableCaption": "TABLATTULO",
+    "SourceCode": "PARRAFO",
+    "Bibliography": "BIBLIOGRAFA1"
+  },
+  "niveles_titulo": {
+    "Ttulo1": 0,
+    "Subtitulo1": 1,
+    "Subtitulo2": 2,
+    "Prrafodelista": 3
+  },
+  "fuente": "Calibri",
+  "tamano_cuerpo": 22,
+  "tamano_titulo": 24,
+  "toc": " TOC \\h \\z \\t \"Título1;1;Subtitulo1;2;Subtitulo2;3\" ",
+  "insercion": "reemplazar_desde_indice_tdc",
+  "campos_portada": {
+    "Asignatura": "asignatura",
+    "Sección": "seccion",
+    "Académico guía": "academico",
+    "Integrantes del equipo": "integrantes",
+    "Fecha de entrega": "fecha",
+    "Nombre o título del proyecto": "proyecto"
+  },
+  "etiqueta_titulo": "FORMULACIÓN DEL PROYECTO DE TÍTULO",
+  "sin_etiqueta": [
+    "Nombre o título del proyecto",
+    "FORMULACIÓN DEL PROYECTO DE TÍTULO"
+  ],
+  "estilos_requeridos": [
+    "TDC1",
+    "PARRAFO",
+    "Ttulo1",
+    "Subtitulo1",
+    "Subtitulo2",
+    "Prrafodelista",
+    "BIBLIOGRAFA1"
+  ],
+  "estilo_word": "APASeventhEdition.xsl",
+  "sha256_plantilla": "d525c1ebc0063e8b63084d164291505a6d75d97388733c7e8d6965cc9a4fb618"
+}

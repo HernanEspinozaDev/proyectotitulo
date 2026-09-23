@@ -23,3 +23,6 @@ ES1PT/**/__pycache__/
 
 espaciGo/
 
+# Motor compartido y entregas académicas
+Informes/**/build/
+Informes/**/calibracion/

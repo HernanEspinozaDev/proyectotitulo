@@ -24,7 +24,7 @@ import xml.etree.ElementTree as ET
 import zipfile
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import bibliografia   # noqa: E402  (módulo local del pipeline)
+import Informes.ES1PT.docx.bibliografia as bibliografia   # noqa: E402  (módulo local del pipeline)
 
 sys.stdout.reconfigure(encoding="utf-8")
 

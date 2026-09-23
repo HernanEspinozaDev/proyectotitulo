@@ -1,0 +1,42 @@
+@startuml
+skinparam dpi 180
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 17
+skinparam backgroundColor white
+hide circle
+skinparam linetype ortho
+entity "usuario" as usuario {
+  * id : uuid <<PK>>
+}
+entity "rol_usuario" as rol_usuario {
+  * usuario_id : uuid <<PK>>
+  * rol : text <<PK>>
+}
+entity "verificacion" as verificacion {
+  * id : uuid <<PK>>
+  * usuario_id : uuid <<FK>>
+  revisor_id : uuid <<FK>>
+}
+entity "espacio" as espacio {
+  * id : uuid <<PK>>
+  * arrendador_id : uuid <<FK>>
+}
+entity "reserva" as reserva {
+  * id : uuid <<PK>>
+  * espacio_id : uuid <<FK>>
+  * arrendatario_id : uuid <<FK>>
+}
+entity "ocupacion" as ocupacion {
+  * id : uuid <<PK>>
+  * espacio_id : uuid <<FK>>
+  reserva_id : uuid <<FK>>
+}
+usuario ||--o{ rol_usuario
+usuario ||--o{ verificacion : titular
+usuario ||--o{ espacio : arrendador
+usuario ||--o{ reserva : arrendatario
+espacio ||--o{ reserva
+espacio ||--o{ ocupacion
+reserva |o--o| ocupacion : intervalo
+@enduml

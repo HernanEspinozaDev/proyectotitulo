@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "id": "ES2PT",
+  "metadatos": {
+    "titulo": "Desarrollo del Proyecto de Título: EspaciGo",
+    "proyecto": "EspaciGo",
+    "institucion": "Inacap - Informática y Telecomunicaciones",
+    "asignatura": "Proyecto de Título - [[PENDIENTE: confirmar código TIH184/TIHI84]]",
+    "seccion": "D-IEI-N8-P1-C2/D",
+    "academico": "Teresa Jesús Tapia Soto",
+    "integrantes": "Hernán Espinoza, Anita Marchant, Erick Silva",
+    "fecha": "3 de noviembre de 2026"
+  },
+  "secciones": [
+    "secciones/01_introduccion.md",
+    "secciones/02_00_tecnologias.md",
+    "secciones/02_01_analisis.md",
+    "secciones/02_02_herramientas.md",
+    "secciones/03_00_arquitectura.md",
+    "secciones/03_01_bpmn.md",
+    "secciones/03_02_casos_uso.md",
+    "secciones/03_03_componentes.md",
+    "secciones/03_04_datos.md",
+    "secciones/03_05_comunicaciones.md",
+    "secciones/03_06_infraestructura.md",
+    "secciones/03_07_arquitectura.md",
+    "secciones/04_00_kpi_sla.md",
+    "secciones/04_01_kpi.md",
+    "secciones/04_02_sla.md",
+    "secciones/05_00_calidad.md",
+    "secciones/05_01_pruebas.md",
+    "secciones/05_02_normas.md",
+    "secciones/06_00_implementacion.md",
+    "secciones/06_01_disponibilidad.md",
+    "secciones/06_02_continuidad.md",
+    "secciones/06_03_mantencion.md",
+    "secciones/07_cronograma.md",
+    "secciones/08_conclusiones.md",
+    "secciones/09_referencias_bibliograficas.md"
+  ],
+  "anexos": [
+    {
+      "letra": "A",
+      "titulo": "Diccionario de datos de ES2",
+      "archivo": "anexos/A_diccionario_datos.md",
+      "salida": "Anexo_A_Diccionario_de_datos.docx",
+      "transformacion": "general"
+    }
+  ],
+  "bibliografia": "referencias.bib",
+  "plantilla": "plantilla/TIHI84_U2_ES2_Plantilla_informe_Guía_ABPro.docx",
+  "perfil": null,
+  "linea_base": {"entrega": "ES1PT", "estado": "congelada", "informe_final": "ES1PT/docx/build/Informe_Final.docx", "anexos_finales": "ES1PT/docx/build/Anexo_*.docx", "fuentes": ["ES1PT/docx/informe.md", "ES1PT/docx/anexos/"]},
+  "investigacion": "investigacion",
+  "agregar_referencias": true,
+  "agregar_indice_anexos": true
+}

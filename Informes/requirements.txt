@@ -1,0 +1,6 @@
+﻿# El motor usa solo la biblioteca estandar de Python 3.10+.
+# No se requieren paquetes PyPI.
+# Requisitos externos: Pandoc 3.x; Java + PLANTUML_JAR para diagramas.
+# Actualizacion de campos: Microsoft Word en Windows y APASeventhEdition.xsl.
+# Desde la raiz: python -m pip install -r Informes/requirements.txt
+# Proceso completo: Informes/README.md
