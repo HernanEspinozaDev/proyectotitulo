@@ -2,6 +2,8 @@
 
 Este plan organiza la investigación y redacción de cada sección de ES2. Parte del informe final de ES1 y sus anexos como **línea base congelada**, y sigue la estructura de la plantilla institucional. Los archivos y productos propuestos abajo se crearán al ejecutar cada actividad; este plan no acredita investigación, implementación ni pruebas realizadas.
 
+Para el estado actual de los bloqueos, responsables por definir y fechas objetivo hasta el 3 de noviembre, seguir el [plan de cierre de pendientes](plan_cierre_pendientes.md). Las tablas siguientes conservan el recorrido por sección y antecedentes del borrador; sus estados históricos no sustituyen la matriz de trazabilidad. El cierre documental del 24-09-2026 con supuestos trazables está en [INV-033](investigacion/INV-033_cierre_borrador.md).
+
 ## 1. Fuentes y reglas de trabajo
 
 **Avance al 23-09-2026:** se ejecutó el inventario inicial y se creó la [matriz de trazabilidad](investigacion/matriz_trazabilidad_es2.md). Las secciones están configuradas; 2.1–2.2 tienen investigación inicial, 3.1–3.7 cuentan con modelos de análisis y un diccionario de datos parcial, IV contiene fichas propuestas de KPI/SLA, V incorpora el catálogo de pruebas sin ejecutar y la matriz normativa inicial, y VI contiene procedimientos operativos propuestos. La fecha informada por el usuario es el 03-11-2026; todavía no hay funcionalidades implementadas. El seguimiento vigente está en [pendientes](pendientes.md). Las actividades de cierre descritas abajo siguen abiertas.
@@ -13,7 +15,13 @@ Este plan organiza la investigación y redacción de cada sección de ES2. Parte
 
 La cadena de evidencia será: **referencia de ES1 → pregunta de investigación → fuente o prueba → hallazgo → decisión de ES2 → sección y criterio evaluado**. Conservar identificadores `RQF`, `RNF`, `CU`, `HU` y módulos M01–M11. Cada cambio se explica en ES2, con su impacto; ES1 no se reescribe.
 
-## 2. Preparación antes de redactar
+## 2. Prioridad vigente y preparación
+
+**Decisión del usuario, 23-09-2026:** dedicar primero el trabajo a investigación, cuerpo y anexos. Dejar DOCX, render PDF/PNG, campos APA 7, índices y aprobación del perfil para cuando el contenido esté completo, salvo petición expresa posterior. No repetir comprobaciones Word por sección. El perfil quedó `aprobado` el 24-09-2026 por autorización expresa del usuario, tras generar y revisar el render (INV-020); INV-008 conserva los diagnósticos previos.
+
+Durante la redacción, comprobar fuentes, coherencia y cálculos cuando cambien; ensamblar Markdown al cerrar un bloque útil. No ejecutar pruebas del generador, compatibilidad ES1 ni diagnósticos Word por cambios de prosa. Los cálculos nuevos admiten comprobaciones numéricas enfocadas sin Word.
+
+### Preparación registrada
 
 1. Crear `investigacion/INV-001_base_y_brechas.md`: inventariar alcance, exclusiones, objetivos, actores, requisitos, arquitectura, KPI, SLA y cronograma de ES1. Registrar las referencias exactas y las contradicciones encontradas.
 2. Crear `investigacion/matriz_trazabilidad_es2.md` con columnas: criterio, sección ES2, referencia ES1, investigación, entregable, estado y evidencia de revisión. Usar los 17 criterios de la sección 4 de este plan.
@@ -52,7 +60,9 @@ Los archivos `XX_00` contendrán el título de capítulo con `#`; las subseccion
 
 **Criterio 2.1.1.1.** Leer «Definición de arquitectura TI», metodología y plan de recursos de ES1. Investigar alternativas por capa frente a las propuestas Next.js, Go, PostgreSQL/PostGIS, Docker y GCP, además de la metodología de desarrollo. Definir criterios, escala y pesos antes de puntuar; fundamentar factibilidad técnica, económica e implementativa con fuentes oficiales, costos fechados y supuestos explícitos. Si se comparan mediciones, documentar entorno y procedimiento.
 
-**Producto y cierre:** `02_01_analisis.md`, matriz comparativa y decisión justificada por capa y metodología. Distinguir puntuación valorativa de medición; no presentar estimaciones como resultados. Abrir `INV-002_tecnologias_y_factibilidad.md`.
+**Producto y cierre:** `02_01_analisis.md`, matriz comparativa y decisión justificada por capa y metodología. Distinguir puntuación valorativa de medición; no presentar estimaciones como resultados. Fuentes en `INV-002_tecnologias_y_factibilidad.md`.
+
+**Paquete económico vigente:** `INV-010_infraestructura_y_formalizacion.md`, `INV-011_muestra_precios_y_demanda.md`, `INV-012_pagos_firma_identidad.md`, `anexos/A_evaluacion_economica.md` e `investigacion/supuestos_bootstrap.json`, apoyados por la skill `$evaluacion-proyectos-chile`. INV-009 conserva el ejercicio pedagógico anterior con ventas inmediatas, ahora superado. Con orientación Sapag, separar mercado, ingeniería, inversión, operación, capital de trabajo, impuestos, flujo y riesgo. Aplicar 25 % de margen, IPC supuesto del 4 % e impuesto académico del 27 % sin atribuirlos a la rúbrica ni a toda SpA. Mantener 36 meses de caja, VAN, TIR, equilibrio y sensibilidad; sustituir supuestos por cotizaciones, demanda y costo de capital sustentados.
 
 ### 2.2 Herramientas, aplicaciones, lenguajes y componentes
 
@@ -122,7 +132,7 @@ Los archivos `XX_00` contendrán el título de capítulo con `#`; las subseccion
 
 ### 5.2 Normas y estándares
 
-**Criterio 2.1.4.12.** Revisar normas y referencias de ES1, su edición, vigencia y aplicabilidad con fuentes primarias. Relacionar cada selección con controles, actividades o pruebas concretas de calidad, seguridad, accesibilidad y tratamiento de información. Adoptar la Ley 21.719 como criterio de diseño desde ES2, antes de su entrada en vigencia, y comprobar su traducción a la matriz de tratamientos del Anexo A y PT-16. Investigar los instrumentos jurídicos aplicables sin inferir cumplimiento por mera mención.
+**Criterio 2.1.4.12.** Revisar normas y referencias de ES1, su edición, vigencia y aplicabilidad con fuentes primarias. Relacionar cada selección con controles, actividades o pruebas concretas de calidad, seguridad, accesibilidad y tratamiento de información. Adoptar la Ley 21.719 como criterio de diseño desde ES2, antes de su entrada en vigencia, y comprobar su traducción a la matriz de tratamientos del Anexo B y PT-16. Investigar los instrumentos jurídicos aplicables sin inferir cumplimiento por mera mención.
 
 **Producto y cierre:** `05_02_normas.md` e `INV-006_calidad_y_normativa.md`, con matriz norma/versión → motivo → alcance → aplicación → evidencia. Toda afirmación de conformidad requiere soporte; registrar las limitaciones de acceso a las fuentes.
 
@@ -156,7 +166,7 @@ Sintetizar las decisiones sustentadas, su contribución a los objetivos de Espac
 
 ### IX. Referencias bibliográficas
 
-Revisar la pertinencia de las fuentes heredadas en `referencias.bib`, conservar sus claves y agregar las nuevas verificadas. Usar `[@clave]`, registrar los datos bibliográficos y comprobar APA 7 durante la generación. **Cierre:** toda cita tiene fuente completa, las fuentes citadas aparecen en referencias y se eliminan los ejemplos ajenos de la plantilla.
+Revisar la pertinencia de las fuentes heredadas en `referencias.bib`, conservar sus claves y agregar las nuevas verificadas. Usar `[@clave]`, registrar los datos bibliográficos durante la investigación y comprobar la presentación APA 7 en el cierre final. **Cierre:** toda cita tiene fuente completa, las fuentes citadas aparecen en referencias y se eliminan los ejemplos ajenos de la plantilla.
 
 ### X. Anexos
 
@@ -167,13 +177,16 @@ El diccionario de datos es un anexo exigido. Otros candidatos son matrices compa
 | Etapa | Trabajo | Condición para pasar a la siguiente |
 | --- | --- | --- |
 | A. Base y alcance | Preparación, matriz y recuperación preliminar de RNF/KPI/SLA | Referencias ES1 y preguntas identificadas |
-| B. Investigación técnica | 2.1–2.2; iniciar revisión normativa y de integraciones | Comparaciones fundamentadas y dependencias explícitas |
+| B. Investigación técnica y económica | 2.1–2.2, INV-010 y Anexo A; completar normativa e integraciones | Supuestos trazables, flujo reproducible y cotizaciones comparables |
 | C. Diseño | 3.1–3.7 y diccionario de datos | Procesos, casos, componentes y datos consistentes |
 | D. Medición y calidad | Completar 4.1–4.2 y 5.1–5.2 | Metas, medios de medición y pruebas trazables |
 | E. Operación y planificación | 6.1–6.3 y ajuste de 7.1 | Procedimientos, recursos, hitos y restricciones documentados |
-| F. Cierre documental | Introducción, conclusiones, bibliografía, anexos y Word | Cobertura de rúbrica y revisión final con evidencia |
+| F. Cierre del contenido | Introducción, conclusiones, bibliografía y anexos terminados | Coherencia y cobertura documental de la rúbrica |
+| G. Cierre Word | Resolver APA/índices, renderizar informe y todos los anexos, revisar y decidir perfil | Solo después de F; evidencia visual real y validación final |
 
-Estas etapas fijan dependencias, no fechas ni aprobaciones. La adaptación del perfil Word puede avanzar desde A. Para el hito formativo, preparar los capítulos II–V según la guía; para ES2 sumar VI–VII e integrar la retroalimentación. La investigación o los SLA pueden exigir revisar decisiones técnicas anteriores dentro de ES2.
+Estas etapas fijan dependencias, no fechas ni aprobaciones. Las comprobaciones Word quedan exclusivamente en G; no condicionan el avance de investigación o redacción. Para el hito formativo, preparar los capítulos II–V según la guía; para ES2 sumar VI–VII e integrar la retroalimentación. La investigación o los SLA pueden exigir revisar decisiones técnicas anteriores dentro de ES2.
+
+Las investigaciones documentales de la etapa B pueden distribuirse entre agentes con el [tablero de coordinación](coordinacion/README.md): cada uno reserva una tarea, registra fuentes y límites en su INV asignado y deja un traspaso. La integración del cuerpo, anexos, referencias y pendientes espera esos registros; la bitácora muestra el agente activo y evita duplicar trabajo sobre archivos compartidos. Esta coordinación no reemplaza la revisión del equipo ni autoriza la etapa G de Word.
 
 En cada sección: investigar → registrar evidencia → redactar → revisar trazabilidad y citas → ensamblar → actualizar estado. Estados sugeridos: pendiente, investigación, borrador, revisión y cerrado. Registrar quién redacta y quién revisa cuando el equipo lo acuerde.
 
@@ -183,20 +196,32 @@ En cada sección: investigar → registrar evidencia → redactar → revisar tr
 - Comprobar coherencia de nombres, identificadores, alcance, cifras, diagramas y metas entre secciones.
 - Resolver pendientes académicos, fuentes y contradicciones; registrar revisiones y retroalimentación reales.
 - Adaptar y revisar el perfil institucional de ES2: la plantilla y un perfil preliminar existen, pero `aprobado` sigue en `false` hasta verificar páginas, portada, índices y anexos.
-- Generar el informe y los anexos en `ES2PT/build/`, actualizar campos con APA 7 y revisar visualmente portada, índices, tablas, diagramas, citas y anexos.
+- Generar el informe y los anexos en `ES2PT/build/`; actualizar los índices mediante `-SoloIndices` y revisar visualmente portada, índices, tablas, diagramas, citas en caché y anexos. No actualizar campos `CITATION`/`BIBLIOGRAPHY` mientras la prueba de Word siga alterando el formato.
 - Mantener ES1 intacto y cerrar las tareas de `pendientes.md` solo con evidencia.
 
-Comandos desde la raíz del repositorio, en el momento correspondiente:
+### Comandos durante investigación y redacción
 
 ```powershell
+python Informes/herramientas/simular_bootstrap.py Informes/ES2PT/investigacion/supuestos_bootstrap.json --salida Informes/ES2PT/build/simulacion_bootstrap.json
 python Informes/generar.py ensamblar ES2PT
-python Informes/generar.py diagnostico ES2PT
-# Después de adaptar el perfil y resolver los requisitos de generación:
-python Informes/generar.py generar ES2PT
-python Informes/generar.py actualizar-word ES2PT
-python Informes/generar.py validar ES2PT --final
 ```
 
-**Avance del 23-09-2026:** 5.2 cuenta con matriz normativa y jurídica inicial (INV-006), y 6.1–6.3 con procedimientos propuestos para disponibilidad, continuidad y mantención (INV-007). No hay conformidad, despliegue ni ensayo acreditado.
+Generación, actualización de Word, compatibilidad histórica y validación final se reservan para G. Antes de actualizar campos, recuperar INV-008 y verificar la solución APA en copia. No aprobar el perfil por haber generado un PDF o una muestra parcial.
 
-**Próxima actividad:** completar el render y la revisión visual registrados en INV-008 para habilitar el perfil Word. En paralelo, contrastar costos y factibilidad de 2.1–2.2 cuando se disponga de capacidad del equipo y productos de integración concretos. Revisar los borradores III–VI con el equipo, definir roles y ejecutar las pruebas del producto a medida que se implemente.
+## 7. Avance y siguiente bloque
+
+**Avance del 23-09-2026:** INV-009 registra el ejercicio inicial de Sapag como antecedente pedagógico; INV-010 y el Anexo A vigente incorporan el escenario sin ingresos durante el primer año, infraestructura, costos legales y municipales, SpA igualitaria, IVA, caja mensual y una evaluación negativa bajo las hipótesis actuales. Las dos calculadoras son reproducibles sin Word, pero solo `simular_bootstrap.py` alimenta el presupuesto vigente. Se distingue tarifa Iowa de cotización Santiago y 27 % académico de régimen tributario por definir.
+
+**Contraste de mercado documental:** INV-011 registra precios públicos de oficinas, salas, bodegas, estacionamientos, stands, locales flexibles y parcelas con quincho, con duraciones distintas. La muestra no valida un ticket medio uniforme. La sensibilidad del Anexo A de 30.000/50.000/150.000 CLP por reserva es una prueba matemática con volumen constante, no una proyección por categoría. La decisión del equipo es abarcar todos los tipos de arriendo: medir oferta, duración, conversión, capacidad y aceptación de comisión por cada modalidad, sin extrapolar vacancia a reservas.
+
+**Liquidación y terceros:** INV-012 documenta que Split 1:1 publica la deducción de su tarifa al vendedor antes de repartir la comisión; el presupuesto actual asigna ese costo a EspaciGo como hipótesis económica. La firma pública FES se tarifa por documento, mientras la API sigue sin cotización. El comparador KYC en USD tampoco equivale a un contrato ni a cumplimiento de privacidad. Antes de aceptar el VAN, definir precio final, quién soporta cada cargo, IVA, saldo de ambas partes y contingencia de devolución; después actualizar modelo, 2.2, 3.5 y Anexo A.
+
+**Monetización y adquisición:** INV-013 mantiene la comisión transaccional decidida en ES1 y propone estudiar destaques pagados, con ranking orgánico separado de un cupo «Patrocinado» sujeto a zona, categoría, disponibilidad y rotación. Meta Ads sería gasto de captación de EspaciGo; vender destaques sería ingreso propio distinto. El Anexo A muestra solo una sensibilidad unitaria y conserva **cero ingresos por destaques** en el VAN. Mercado Pago Split es candidato condicionado a prueba; varios medios de pago dentro de un checkout pueden dar elección al cliente sin integrar varias pasarelas. Stripe no lista Chile como país Payments y Haulmer/Flow requieren prueba documental de reparto 1:1. Para la SpA, el equipo propone 631200 como principal y 731001 como complementario, pendientes de revisión fiscal.
+
+**Siguiente bloque, en este orden:**
+
+1. Obtener para 2.1–2.2 y 3.6 un presupuesto verificable: seleccionar región, SKUs y carga para GCP/VM; solicitar condiciones de Split, firma y KYC; inventariar los equipos reales y los gastos no cubiertos (las versiones y licencias objetivo ya están documentadas en 2.2, SUP-20). Conservar fecha, impuestos, moneda y exclusiones de cada precio. Para Split pedir liquidación detallada y probar reembolso con vendedor sin saldo; para firma cotizar por documento y modalidad jurídica; para KYC separar usuarios nuevos de reservas repetidas.
+2. Contrastar con un asesor y el municipio la propuesta 631200/731001, régimen, IVA, domicilio Oficina Express y **una patente** para la SpA. Preguntar por separado si la comisión exige 682000 u otra actividad; verificar actuaciones DOM y aseo. Acordar entre los tres socios el capital realmente pagable, préstamos, reparto exacto, propiedad intelectual y poderes antes de preparar estatutos. No constituir ni contratar durante este estudio.
+3. Levantar muestras comparables de oferta y entrevistas separadas a arrendadores/arrendatarios para **todos los tipos de arriendo** declarados, desagregando categoría, modalidad, duración y comuna. Sustituir el ticket uniforme y las reservas supuestas por precios finales, cantidad de espacios, ocupación y conversión observadas en cada tipo. Alimentar la lista `segmentos` del simulador solo con evidencia identificada, reemplazando el reparto sintético ya calculado en INV-033; recalcular VAN, TIR, margen y déficit y revisar 2.1, 3.6 y Anexo A. Medir también tráfico y aceptación de destaques por zona/categoría antes de agregar esta segunda fuente al flujo; INV-011 e INV-013 son evidencia documental, no demanda validada.
+4. Completar coherencia del cuerpo III–VI y anexos A/B/C; contrastar datos, privacidad, procesos, contratos, medición y operación. Los ensayos del producto siguen pendientes hasta existir implementación.
+5. Ajustar cronograma con recursos y responsables reales; cerrar introducción, conclusiones y bibliografía. Al terminar el contenido, retomar G y las comprobaciones Word/APA/visuales, sin modificar ES1 ni anticipar aprobación del perfil.

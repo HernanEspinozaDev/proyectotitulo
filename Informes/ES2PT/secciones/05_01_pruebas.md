@@ -1,6 +1,6 @@
 ## Plan de pruebas
 
-El plan verifica el diseño de los capítulos III y IV frente a RF, RNF, CU y criterios de aceptación de ES1. Los casos detallados se encuentran en el **Anexo B de ES2**. Todos tienen estado **planificado**: no hay resultados del producto ni acceso acreditado a las integraciones externas. Una prueba del generador de informes no demuestra funcionamiento de EspaciGo [@es1anexob; @es1anexoc; @es1anexod; @es1anexoe].
+El plan verifica el diseño de los capítulos III y IV frente a RF, RNF, CU y criterios de aceptación de ES1. Los casos detallados se encuentran en el **Anexo C de ES2**. Todos tienen estado **planificado**: no hay resultados del producto ni acceso acreditado a las integraciones externas. Una prueba del generador de informes no demuestra funcionamiento de EspaciGo.
 
 ### Alcance, niveles y entornos
 
@@ -8,9 +8,9 @@ Se priorizan las reglas que pueden producir una reserva doble, un cargo duplicad
 
 Se prevén tres entornos separados: pruebas locales automatizadas con base temporal y reloj controlable; ensayo con servicios configurados y datos sintéticos; y, cuando haya autorización, sandbox de proveedores reales. El simulador de pago o firma verifica lógica local y nunca se informará como integración productiva. Versiones, herramientas, semillas de datos, permisos y recursos de cada entorno se registrarán antes de ejecutar. Los secretos y datos personales no se adjuntarán a los reportes.
 
-**Entrada a una ejecución:** requisito y resultado esperado confirmados, versión del código y del esquema identificada, datos de prueba disponibles, entorno reproducible y permisos necesarios. **Salida:** se conserva resultado, fecha, ejecutor, logs o capturas, defectos y nueva ejecución cuando se corrijan. Para aceptar el flujo crítico deben pasar todos los casos prioritarios aplicables sin defectos abiertos que permitan doble reserva, cargo duplicado, acceso indebido o liquidación durante disputa. Los umbrales de cobertura y rendimiento proceden de RNF-021, RNF-001 y RNF-030 y se informarán con su entorno, sin declarar cumplimiento mediante una sola captura [@es1anexoc].
+**Entrada a una ejecución:** requisito y resultado esperado confirmados, versión del código y del esquema identificada, datos de prueba disponibles, entorno reproducible y permisos necesarios. **Salida:** se conserva resultado, fecha, ejecutor, logs o capturas, defectos y nueva ejecución cuando se corrijan. Para aceptar el flujo crítico deben pasar todos los casos prioritarios aplicables sin defectos abiertos que permitan doble reserva, cargo duplicado, acceso indebido o liquidación durante disputa. Los umbrales de cobertura y rendimiento proceden de RNF-021, RNF-001 y RNF-030 y se informarán con su entorno, sin declarar cumplimiento mediante una sola captura.
 
-*Tabla. Catálogo planificado y trazabilidad principal; pasos y oráculos en el Anexo B.* <!--#tab:es2-pruebas-catalogo-->
+*Tabla. Catálogo planificado y trazabilidad principal; pasos y oráculos en el Anexo C.* <!--#tab:es2-pruebas-catalogo-->
 
 | Caso | Tipo | Regla principal | Resultado que se comprobará |
 | --- | --- | --- | --- |
@@ -31,6 +31,13 @@ Se prevén tres entornos separados: pruebas locales automatizadas con base tempo
 | PT-15 | Beta y aceptación externa | HU y criterios del alcance autorizado | Usuarios autorizados validan tareas reales con evidencia y consentimiento |
 | PT-16 | Privacidad e integración | RQF-034–037, RNF-018/026/029/042/043 | Solicitudes de derechos, acceso y cierre de cuenta respetan la matriz de tratamiento aprobada |
 
-El catálogo distingue **resultado esperado** de **resultado observado**. PT-16 traduce desde ahora la Ley 21.719 en verificaciones del desarrollo, aunque su entrada en vigencia sea posterior a ES2; requiere aprobar primero las reglas de tratamiento y retención del Anexo A [@ley21719]. No se calcularán porcentajes de aprobación, cobertura o cumplimiento SLA hasta ejecutar pruebas con código y conservar reportes. Los casos sobre proveedor real y beta quedan condicionados a acceso y participantes autorizados.
+El catálogo distingue **resultado esperado** de **resultado observado**. PT-16 traduce desde ahora la Ley 21.719 en verificaciones del desarrollo, aunque su entrada en vigencia sea posterior a ES2; requiere aprobar primero las reglas de tratamiento y retención del Anexo B [@ley21719]. No se calcularán porcentajes de aprobación, cobertura o cumplimiento SLA hasta ejecutar pruebas con código y conservar reportes. Los casos sobre proveedor real y beta quedan condicionados a acceso y participantes autorizados.
 
-[[PENDIENTE: confirmar alcance demostrable, responsables, herramientas y entornos; revisar casos con el equipo y la rúbrica, ejecutar pruebas, registrar defectos y enlazar evidencia fechada.]]
+### Herramientas y Entornos de Prueba
+
+Para la ejecución de este catálogo se han definido los siguientes entornos y responsables:
+- **Automatización CI:** Las pruebas unitarias e integrales menores (PT-01, PT-04, PT-05) se ejecutarán mediante **GitHub Actions** en cada solicitud de cambio.
+- **Entorno de Staging en GCP:** Se dispondrá de un entorno réplica en Google Cloud para la ejecución de pruebas de humo (PT-13), pruebas de privacidad (PT-16) y pruebas concurrentes (PT-02).
+- **Carga y Estrés:** Las pruebas de rendimiento (PT-09, PT-10) utilizarán **k6** inyectando tráfico al entorno de staging, registrando latencia bajo 200 y 500 usuarios concurrentes.
+
+El responsable de calidad del equipo será el encargado de revisar los casos de la rúbrica, enlazar la evidencia fechada (reportes de GitHub Actions y k6) y registrar los defectos identificados en el rastreador de incidentes del proyecto.

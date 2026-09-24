@@ -7,6 +7,7 @@ una entrega académica y nunca se escribe en el directorio principal de build/.
 from dataclasses import replace
 from pathlib import Path
 import argparse
+import json
 import shutil
 import sys
 
@@ -19,9 +20,13 @@ from herramientas.word import generar_documento, perfil
 
 def previsualizar(nombre):
     original = cargar(nombre)
+    if original.datos["id"] != "ES2PT":
+        raise ErrorInforme("Esta muestra usa secciones de ES2PT y solo admite ES2PT.")
     plantilla, datos_perfil = perfil(original, permitir_borrador=True)
     cfg = replace(original, build=original.salida("qa_perfil"))
     cfg.build.mkdir(parents=True, exist_ok=True)
+    manifiesto = cfg.salida("generacion.json")
+    manifiesto.write_text(json.dumps({"completa": False, "tipo": "muestra_tecnica_no_entrega"}, indent=2), encoding="utf-8")
 
     intro = sin_cabecera(leer(cfg.entrada("secciones/01_introduccion.md"))).split("[[PENDIENTE:", 1)[0].strip()
     arquitectura = sin_cabecera(leer(cfg.entrada("secciones/03_00_arquitectura.md"))).split("[[PENDIENTE:", 1)[0].strip()
@@ -42,14 +47,19 @@ def previsualizar(nombre):
     principal = "Muestra_ES2.docx"
     metricas_principal = generar_documento(cfg, plantilla, datos_perfil, texto, principal)
 
-    anexo = next((a for a in cfg.anexos if a["letra"] == "B"), None)
+    # Se elige el catálogo de casos de prueba por su archivo, no por su letra:
+    # la letra depende del orden de anexos declarado en informe.json.
+    anexo = next((a for a in cfg.anexos if "casos_de_prueba" in a["archivo"]), None)
     if not anexo:
-        raise ErrorInforme("La muestra requiere el Anexo B declarado en ES2.")
+        raise ErrorInforme("La muestra requiere el catálogo de casos de prueba declarado en ES2.")
     parte = sin_cabecera(leer(cfg.entrada(anexo["archivo"]))).split("## PT-02", 1)[0].strip()
     parte = parte.replace("# Catálogo de casos de prueba de ES2", "# Muestra parcial del catálogo de pruebas", 1)
     parte = "**Muestra de formato; solo incluye PT-01. No constituye el anexo completo.**\n\n" + parte
-    anexo_muestra = {**anexo, "titulo": "Muestra parcial de casos de prueba", "salida": "Anexo_B_Muestra.docx"}
+    anexo_muestra = {**anexo, "titulo": "Muestra parcial de casos de prueba",
+                     "salida": f"Anexo_{anexo['letra']}_Muestra.docx"}
     metricas_anexo = generar_documento(cfg, plantilla, datos_perfil, parte, anexo_muestra["salida"], anexo_muestra)
+    manifiesto.write_text(json.dumps({"completa": True, "tipo": "muestra_tecnica_no_entrega",
+        "documentos": {principal: metricas_principal, anexo_muestra["salida"]: metricas_anexo}}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Muestra técnica: {cfg.salida(principal)} — {metricas_principal}")
     print(f"Anexo parcial: {cfg.salida(anexo_muestra['salida'])} — {metricas_anexo}")
     print("Perfil oficial sin modificar; estos DOCX no son una entrega.")

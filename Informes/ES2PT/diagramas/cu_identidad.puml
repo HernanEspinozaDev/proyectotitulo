@@ -1,11 +1,10 @@
 @startuml
-skinparam dpi 180
+skinparam dpi 150
 skinparam shadowing false
 skinparam defaultFontName Arial
-skinparam defaultFontSize 16
+skinparam defaultFontSize 20
 skinparam backgroundColor white
-skinparam wrapWidth 160
-left to right direction
+skinparam wrapWidth 200
 actor Visitante as V
 actor "Usuario Registrado" as U
 actor Administrador as A

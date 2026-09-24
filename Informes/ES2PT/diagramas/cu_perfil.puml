@@ -1,0 +1,26 @@
+@startuml
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 20
+skinparam backgroundColor white
+skinparam wrapWidth 200
+actor "Usuario Registrado" as U
+rectangle "EspaciGo · perfil, privacidad y cuenta" {
+usecase "CU-07\nGestionar perfil" as C7
+usecase "CU-08\nGestionar cuenta bancaria" as C8
+usecase "CU-09\nSolicitar eliminación de cuenta" as C9
+usecase "CU-50\nCambiar contraseña" as C50
+}
+U -- C7
+U -- C8
+U -- C9
+U -- C50
+note bottom of C9
+La supresión de datos convive con la
+retención de hechos financieros: la regla
+de conservación y anonimización sigue sin
+aprobarse en ES2 (Ley 21.719 como criterio
+de diseño; PT-16 planificada).
+end note
+@enduml

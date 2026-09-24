@@ -26,3 +26,5 @@ espaciGo/
 # Motor compartido y entregas académicas
 Informes/**/build/
 Informes/**/calibracion/
+Informes/**/coordinacion/estado.sqlite3*
+Informes/**/coordinacion/.bitacora.*.tmp

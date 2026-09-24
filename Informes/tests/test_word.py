@@ -10,8 +10,8 @@ import zipfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from herramientas.configuracion import RAIZ, cargar
-from herramientas.word import generar
+from herramientas.configuracion import ErrorInforme, RAIZ, cargar
+from herramientas.word import generar, perfil
 from herramientas.validacion import validar
 
 
@@ -68,6 +68,22 @@ class WordTest(unittest.TestCase):
             self.assertIn("Tabla F.1", z.read("word/document.xml").decode())
         with zipfile.ZipFile(cfg.salida("Informe_Final.docx")) as z:
             self.assertIn("ejemplo_literal", z.read("word/document.xml").decode())
+
+    def test_muestra_no_habilita_perfil_oficial_ni_omite_firma(self):
+        perfil_ruta = self.raiz / "perfil.json"
+        datos = json.loads(perfil_ruta.read_text(encoding="utf-8"))
+        datos["aprobado"] = False
+        perfil_ruta.write_text(json.dumps(datos), encoding="utf-8")
+        ruta = self.raiz / "informe.json"
+        ruta.write_text(json.dumps(self.datos), encoding="utf-8")
+        cfg = cargar(ruta)
+        with self.assertRaisesRegex(ErrorInforme, "pendiente de adaptación"):
+            perfil(cfg)
+        self.assertEqual(perfil(cfg, permitir_borrador=True)[0], self.raiz / "plantilla.docx")
+        datos["sha256_plantilla"] = "0" * 64
+        perfil_ruta.write_text(json.dumps(datos), encoding="utf-8")
+        with self.assertRaisesRegex(ErrorInforme, "no coincide"):
+            perfil(cfg, permitir_borrador=True)
 
 
 if __name__ == "__main__":

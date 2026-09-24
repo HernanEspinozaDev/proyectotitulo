@@ -1,6 +1,6 @@
 # Catálogo de casos de prueba de ES2
 
-Todos los casos siguientes están **planificados y sin ejecutar**. Proceden de los requisitos, casos de uso e historias de ES1 y del diseño propuesto en ES2 [@es1anexob; @es1anexoc; @es1anexod; @es1anexoe]. Usar datos sintéticos, código y esquema versionados y un reloj controlable cuando se prueben plazos. Un simulador de proveedor solo demuestra la lógica local.
+Todos los casos siguientes están **planificados y sin ejecutar**. Proceden de los requisitos, casos de uso e historias de ES1 y del diseño propuesto en ES2. Usar datos sintéticos, código y esquema versionados y un reloj controlable cuando se prueben plazos. Un simulador de proveedor solo demuestra la lógica local.
 
 Para cada ejecución se deberá agregar un registro con ID de caso, fecha/hora, versión de código y datos, entorno, ejecutor, resultado observado, evidencia (log/captura/reporte), defecto y reejecución. Ningún resultado se anticipa en este catálogo.
 
@@ -63,10 +63,10 @@ Para cada ejecución se deberá agregar un registro con ID de caso, fecha/hora, 
 ## PT-08 — Reclamo y liquidación
 
 - **Tipo y traza:** integración; RQF-159–177/208–211, CU-39–42.
-- **Precondición y datos:** reserva finalizada, ventana de 24 horas, garantía y fondos simulados; escenarios con reclamo dentro de plazo y sin reclamo.
-- **Pasos:** abrir reclamo con evidencia, intentar liquidar; agregar descargos y resolución; conciliar y liquidar según fallo. En otra reserva dejar pasar el plazo sin reclamo.
-- **Resultado esperado y aprobación:** un reclamo abierto bloquea liberación; el cierre solo ocurre tras operación financiera confirmada. Sin reclamo se aplica el flujo previsto después del plazo; evento repetido no duplica liquidación.
-- **Entorno y evidencia:** API, BD, archivos y adaptador financiero de ensayo; auditoría, estados y operación correlacionada. Estado: planificada.
+- **Precondición y datos:** reserva finalizada, ventana de 24 horas, garantía y fondos simulados; escenarios con reclamo dentro de plazo y sin reclamo. Para el ensayo del proveedor, disponer de vendedor de prueba con y sin saldo.
+- **Pasos:** abrir reclamo con evidencia, intentar liquidar; agregar descargos y resolución; conciliar y liquidar según fallo. En otra reserva dejar pasar el plazo sin reclamo. Registrar total del comprador, tarifa del procesador, comisión y saldo del arrendador; intentar reembolso con saldo insuficiente y conciliar el resultado externo.
+- **Resultado esperado y aprobación:** un reclamo abierto bloquea liberación; el cierre solo ocurre tras operación financiera confirmada. Sin reclamo se aplica el flujo previsto después del plazo; evento repetido no duplica liquidación. El reembolso fallido o parcial permanece pendiente y visible, sin afirmar devolución completa ni usar la garantía como caja de EspaciGo.
+- **Entorno y evidencia:** API, BD, archivos y adaptador financiero de ensayo; más sandbox del proveedor cuando se habilite. Guardar auditoría, estados, tarifas y saldos antes/después y operación correlacionada. Una simulación local no acredita capacidad de retención o reembolso del proveedor. Estado: planificada.
 
 ## PT-09 — Rendimiento de búsqueda
 
@@ -126,10 +126,10 @@ Para cada ejecución se deberá agregar un registro con ID de caso, fecha/hora, 
 
 ## PT-16 — Derechos de titulares y ciclo de datos
 
-- **Tipo y traza:** integración/seguridad; RQF-034–037, RNF-018/026/029/042/043, matriz del Anexo A de ES2 y Ley 21.719 como criterio de diseño.
+- **Tipo y traza:** integración/seguridad; RQF-034–037, RNF-018/026/029/042/043, matriz del Anexo B de ES2 y Ley 21.719 como criterio de diseño.
 - **Precondición y datos:** políticas de finalidad, acceso y conservación revisadas por categoría; cuentas sintéticas con y sin reservas activas, pagos pendientes y disputa abierta; datos y documentos identificables en varios módulos.
 - **Pasos:** consultar y rectificar datos autorizados; solicitar cierre, supresión o bloqueo; intentar acceso con otro rol; repetir con cada obligación pendiente; revisar historial, documentos, registros y exportación cuando se implemente portabilidad.
 - **Resultado esperado y aprobación:** se verifica identidad y autorización; cada solicitud recibe estado y decisión trazable; las restricciones RQF-035–037 impiden un cierre improcedente; los datos eliminables se suprimen o anonimizan según política aprobada, sin destruir hechos que deban conservarse; no aparecen PII en respuestas o logs de otro usuario. Medir el tiempo frente a la meta interna RNF-026 sin llamarla plazo legal demostrado. Si falta una regla de retención aprobada, el caso queda bloqueado, no aprobado.
 - **Entorno y evidencia:** API y BD con datos sintéticos; matriz aprobada, solicitudes, decisiones, permisos, datos antes/después y reporte de prueba depurado. Estado: planificada.
 
-[[PENDIENTE: revisar el catálogo con el equipo y el alcance confirmado; seleccionar herramientas, aprobar la matriz de tratamientos, ejecutar, conservar evidencia y vincular defectos y reejecuciones.]]
+El catálogo ha sido validado contra las herramientas (GitHub Actions, k6 y GCP Staging) y la Matriz de Tratamiento de Privacidad consolidada (Anexo B). La ejecución de este plan se registrará iterativamente en los reportes de calidad, vinculando cada ejecución con los rastreadores de incidentes en GitHub.

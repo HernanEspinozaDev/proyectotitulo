@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "estado": "Ejemplo académico hipotético; no presupuesto aprobado ni cotización",
+  "fecha_base": "2026-09-23",
+  "moneda": "CLP nominales, importes netos de IVA",
+  "horizonte": "Tres años operativos completos hipotéticos, sin fecha de lanzamiento comprometida",
+  "unidades_referencia": 3600,
+  "unidades_anuales": [3600, 3600, 3600],
+  "ticket_arriendo_base": 100000,
+  "margen_sobre_ventas": 0.25,
+  "ipc_costos": 0.04,
+  "reajuste_precio": 0.04,
+  "impuesto": 0.27,
+  "tasa_descuento_nominal": 0.12,
+  "meses_capital_trabajo": 1,
+  "recuperar_capital_trabajo": true,
+  "valor_residual_neto": 0,
+  "depreciacion_anual": [0, 0, 0],
+  "reinversion_anual": [0, 0, 0],
+  "inversion_inicial": [
+    {"concepto": "Trabajo de desarrollo futuro valorizado", "clp": 14400000, "tipo": "oportunidad", "base": "ES1: 3 x 16 semanas x 20 h x 15000 CLP; reutilización hipotética, no desembolso ni esfuerzo ES2 confirmado"},
+    {"concepto": "Preparación, pruebas de servicios y lanzamiento", "clp": 1200000, "tipo": "efectivo", "base": "Supuesto nuevo: 400000 + 400000 + 400000 CLP, sin cotizar"}
+  ],
+  "costos_fijos_anuales": [
+    {"concepto": "Mantención técnica", "clp": 10800000, "base": "60 h/mes x 15000 CLP x 12; costo total supuesto"},
+    {"concepto": "Administración y soporte base", "clp": 3600000, "base": "20 h/mes x 15000 CLP x 12; costo total supuesto"},
+    {"concepto": "Servicios cloud base", "clp": 1440000, "base": "120000/mes x 12; provisión paramétrica, no cotización ni dimensionamiento"},
+    {"concepto": "Difusión y captación", "clp": 1440000, "base": "120000/mes x 12; sin evidencia de CAC o conversión"},
+    {"concepto": "Dominio, comunicaciones y administración externa", "clp": 720000, "base": "60000/mes x 12; sin cotizar"}
+  ],
+  "costos_variables_unitarios": [
+    {"concepto": "Procesamiento de pago", "clp": 1200, "base": "Supuesto por reserva; no tarifa de Mercado Pago"},
+    {"concepto": "Firma y verificación prorrateadas", "clp": 800, "base": "Supuesto por reserva; no tarifa ni acceso habilitado"},
+    {"concepto": "Atención y consumo incremental", "clp": 1000, "base": "Desembolso promedio supuesto por reserva, separado del soporte base"}
+  ],
+  "simplificaciones": [
+    "Sin deuda, intereses, impuestos personales ni PPM; impuesto pagado al cierre del mismo año",
+    "Base tributaria simplificada igual a resultado operativo positivo; sin devolución por pérdidas ni arrastre",
+    "Desarrollo valorizado y preparación sin escudo tributario; no se presume deducibilidad de trabajo no pagado",
+    "Sin compra incremental de equipos; activos existentes sin costo alternativo en este ejemplo; pendiente verificar",
+    "Comisión reajustada como arriendo medio por supuesto; no implica poder de negociación probado",
+    "Recuperación total del capital de trabajo al liquidar al fin del año 3; no pronóstico de cierre real",
+    "No se modela liquidación mensual de IVA ni desfases de cobro a proveedores; neto de IVA no significa exento"
+  ]
+}

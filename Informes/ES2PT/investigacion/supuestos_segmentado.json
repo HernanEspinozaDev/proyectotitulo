@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "fecha_consulta": "2026-09-24",
+  "estado": "Escenario segmentado EXPLÍCITAMENTE SINTÉTICO: conserva el volumen hipotético 0/720/1800 reservas/año del caso base y lo reparte en cinco categorías con precios de lista observados en INV-011 como arriendo unitario. No hay ventas, demanda ni capacidad medidas. No reemplaza al caso base agregado de supuestos_bootstrap.json",
+  "usd_clp": 1000,
+  "factor_prevision_regional": 1.0,
+  "iva": 0.19,
+  "ipc_clp": 0.04,
+  "idpc_academico": 0.27,
+  "ppm_provision": 0.0025,
+  "descuento_nominal": 0.12,
+  "colchon_caja": 0.20,
+  "fundadores": 3,
+  "capital_social_propuesto": 3000000,
+  "acciones_totales_propuestas": 3000,
+  "pasarela_sobre_cobro": 0.0319,
+  "firma_neta_unitaria": 1000,
+  "horas_semanales_por_fundador": [20, 10, 10],
+  "semanas_por_ano": 48,
+  "valor_hora_base": 15000,
+  "sueldos_totales_mensuales": [0, 0, 0],
+  "segmentos": [
+    {
+      "id": "oficina_hora",
+      "reservas": [0,0,0,0,0,0,0,0,0,0,0,0,4,6,8,8,10,12,12,14,16,16,18,20,20,22,24,26,28,30,30,32,34,36,38,40],
+      "arriendo_final_base": 7140,
+      "comision_neta": 0.12,
+      "firmas_por_reserva": 2,
+      "kyc_neto_por_reserva": 500,
+      "otros_variables_netos": 500,
+      "nota": "Lofwork Santiago Centro, 1 hora hasta 3 personas: 6000 CLP+IVA/h calculado a 7140 CLP finales por INV-011"
+    },
+    {
+      "id": "sala_bloque_2h",
+      "reservas": [0,0,0,0,0,0,0,0,0,0,0,0,4,6,8,8,10,12,12,14,16,16,18,20,20,22,24,26,28,30,30,32,34,36,38,40],
+      "arriendo_final_base": 42245,
+      "comision_neta": 0.12,
+      "firmas_por_reserva": 2,
+      "kyc_neto_por_reserva": 500,
+      "otros_variables_netos": 500,
+      "nota": "Cowork del Centro, bloque mínimo de 2 horas: 17750 CLP+IVA/h calculado a 42245 CLP por las dos horas según INV-011"
+    },
+    {
+      "id": "bodega_mes",
+      "reservas": [0,0,0,0,0,0,0,0,0,0,0,0,4,6,8,8,10,12,12,14,16,16,18,20,20,22,24,26,28,30,30,32,34,36,38,40],
+      "arriendo_final_base": 55000,
+      "comision_neta": 0.12,
+      "firmas_por_reserva": 2,
+      "kyc_neto_por_reserva": 500,
+      "otros_variables_netos": 500,
+      "nota": "BLT minibodega 2-4 m², mes, desde 55000 CLP; el aviso no aclara IVA, promoción ni renovación, se usa el valor sin conversión de INV-011"
+    },
+    {
+      "id": "estacionamiento_hora",
+      "reservas": [0,0,0,0,0,0,0,0,0,0,0,0,4,6,8,8,10,12,12,14,16,16,18,20,20,22,24,26,28,30,30,32,34,36,38,40],
+      "arriendo_final_base": 2940,
+      "comision_neta": 0.12,
+      "firmas_por_reserva": 2,
+      "kyc_neto_por_reserva": 500,
+      "otros_variables_netos": 500,
+      "nota": "Saba Santa Rosa, 1 hora en promoción: 2940 CLP anunciados según INV-011; tarifa del operador directo"
+    },
+    {
+      "id": "stand_bloque_4d",
+      "reservas": [0,0,0,0,0,0,0,0,0,0,0,0,4,6,8,8,10,12,12,14,16,16,18,20,20,22,24,26,28,30,30,32,34,36,38,40],
+      "arriendo_final_base": 83000,
+      "comision_neta": 0.12,
+      "firmas_por_reserva": 2,
+      "kyc_neto_por_reserva": 500,
+      "otros_variables_netos": 500,
+      "nota": "Busho Galería La Bota Italia, bloque mínimo publicado de 4 días: 83000 CLP según INV-011; impuestos y checkout por confirmar"
+    }
+  ],
+  "infraestructura": {
+    "region_tarifas": "southamerica-west1 (Santiago), tarifas publicadas en INV-021; decisión del usuario del 23-09-2026",
+    "perfil_por_ano": [["ensayo",6,"piloto",6],["piloto",12],["piloto",12]],
+    "partidas": [
+      {"id":"sql_cpu", "unidad":"vCPU-h", "tarifa_usd":0.05782, "ensayo":160, "piloto":1460, "ha":2920, "tipo":"tarifa zonal de Santiago; la HA se obtiene con dos instancias", "fuente":"es2cloudsqlpricing"},
+      {"id":"sql_ram", "unidad":"GiB-h", "tarifa_usd":0.0098, "ensayo":640, "piloto":5840, "ha":11680, "tipo":"tarifa zonal de Santiago; la HA se obtiene con dos instancias", "fuente":"es2cloudsqlpricing"},
+      {"id":"sql_ssd", "unidad":"GiB-h", "tarifa_usd":0.000326027, "ensayo":7300, "piloto":14600, "ha":29200, "tipo":"tarifa zonal de Santiago; HA supuesto doble", "fuente":"es2cloudsqlpricing"},
+      {"id":"sql_backup", "unidad":"GiB-h usados", "tarifa_usd":0.000153425, "ensayo":7300, "piloto":14600, "ha":29200, "tipo":"tarifa de respaldo de Santiago; el supuesto doble es conservador", "fuente":"es2cloudsqlpricing"},
+      {"id":"run_cpu", "unidad":"vCPU-s activos", "tarifa_usd":0.0000336, "ensayo":20000, "piloto":200000, "ha":1000000, "tipo":"tarifa de Santiago sin descuento gratuito", "fuente":"es2cloudrunpricing"},
+      {"id":"run_ram", "unidad":"GiB-s activos", "tarifa_usd":0.0000035, "ensayo":10000, "piloto":100000, "ha":500000, "tipo":"tarifa de Santiago sin descuento gratuito", "fuente":"es2cloudrunpricing"},
+      {"id":"run_solicitudes", "unidad":"millones de solicitudes", "tarifa_usd":0.4, "ensayo":0.1, "piloto":1, "ha":5, "tipo":"tarifa sin descuento gratuito", "fuente":"es2cloudrunpricing"},
+      {"id":"storage", "unidad":"GiB-h", "tarifa_usd":0.000052055, "ensayo":7300, "piloto":36500, "ha":146000, "tipo":"tarifa de almacenamiento de Santiago; operaciones en provisión auxiliar", "fuente":"es2gcspricing"},
+      {"id":"egress", "unidad":"GiB", "tarifa_usd":0.20, "ensayo":10, "piloto":100, "ha":300, "tipo":"supuesto, verificar origen/destino y producto", "fuente":"es2gcspricing"},
+      {"id":"balanceador", "unidad":"hora", "tarifa_usd":0.025, "ensayo":0, "piloto":730, "ha":730, "tipo":"tarifa regla global HTTPS", "fuente":"es2lbpricing"},
+      {"id":"lb_procesamiento", "unidad":"GiB", "tarifa_usd":0.008, "ensayo":0, "piloto":100, "ha":300, "tipo":"supuesto de procesamiento; confirmar SKU y bytes", "fuente":"es2lbpricing"},
+      {"id":"armor_politica", "unidad":"hora política estándar", "tarifa_usd":0.006849315, "ensayo":0, "piloto":730, "ha":730, "tipo":"tarifa", "fuente":"es2armorpricing"},
+      {"id":"armor_reglas", "unidad":"regla-hora", "tarifa_usd":0.001369863, "ensayo":0, "piloto":3650, "ha":3650, "tipo":"tarifa cinco reglas", "fuente":"es2armorpricing"},
+      {"id":"armor_solicitudes", "unidad":"millones", "tarifa_usd":0.75, "ensayo":0, "piloto":1, "ha":5, "tipo":"tarifa política global estándar", "fuente":"es2armorpricing"},
+      {"id":"logs_bigquery", "unidad":"bolsa mensual USD", "tarifa_usd":1, "ensayo":1, "piloto":5, "ha":15, "tipo":"provisión, no cuota ilimitada", "fuente":"INV-010"},
+      {"id":"build_registry", "unidad":"bolsa mensual USD", "tarifa_usd":1, "ensayo":1, "piloto":3, "ha":5, "tipo":"provisión", "fuente":"INV-010"},
+      {"id":"secretos_dns_scheduler", "unidad":"bolsa mensual USD", "tarifa_usd":1, "ensayo":0.5, "piloto":2, "ha":3, "tipo":"provisión", "fuente":"INV-010"},
+      {"id":"correo_transaccional", "unidad":"bolsa mensual USD", "tarifa_usd":1, "ensayo":0, "piloto":10, "ha":20, "tipo":"provisión, proveedor por seleccionar", "fuente":"INV-010"},
+      {"id":"staging_aislado", "unidad":"bolsa mensual USD", "tarifa_usd":1, "ensayo":0, "piloto":10, "ha":15, "tipo":"provisión: SQL 2vCPU/8GiB 40h, disco20GiB y ejecución breve", "fuente":"INV-010"}
+    ]
+  },
+  "inicio": [
+    {"id":"estatutos_pacto_ip", "neto":350000, "iva":true, "tipo":"provisión asesoría, no arancel"},
+    {"id":"terminos_privacidad_contratos", "neto":350000, "iva":true, "tipo":"provisión asesoría Ley 21719, no cotización"},
+    {"id":"habilitacion_contable", "neto":100000, "iva":true, "tipo":"provisión profesional; inicio SII no tarifado aquí"},
+    {"id":"firma_constitucion", "neto":15000, "iva":false, "tipo":"provisión; RES publica 0,26UF por acto ante mismo notario, extras posibles"},
+    {"id":"firma_domicilio", "neto":4201.680672268908, "iva":true, "tipo":"Oficina Express: FES por contrato 5000 CLP IVA incluido, oferta pública; DTE y crédito por confirmar"},
+    {"id":"documentos_traslados", "neto":50000, "iva":false, "tipo":"provisión privada, no derecho municipal de otorgamiento"}
+  ],
+  "mensual": [
+    {"id":"contabilidad", "neto":50000, "iva":true, "desde":1, "tipo":"provisión F29 y registros; no incluye cierre anual"},
+    {"id":"correo_corporativo", "neto":15000, "iva":true, "desde":1, "tipo":"provisión tres cuentas"},
+    {"id":"conectividad_incremental", "neto":12605.042016806723, "iva":true, "desde":1, "tipo":"supuesto 15000 CLP finales/mes; evitar duplicar gasto personal"},
+    {"id":"banco", "neto":5000, "iva":false, "desde":1, "tipo":"provisión tarifa final; podría ser cero según plan"},
+    {"id":"captacion", "neto":50000, "iva":true, "desde":7, "tipo":"provisión desde piloto; no acredita clientes"}
+  ],
+  "anual": [
+    {"id":"oficina_virtual", "neto":42016.80672268908, "iva":true, "mes":1, "tipo":"Oficina Express anual 50000 CLP IVA incluido, Ahumada 131; sin contratar; renovación se indexa solo como supuesto"},
+    {"id":"dominio_cl", "neto":9990, "iva":false, "mes":1, "tipo":"NIC Chile, un año exento"},
+    {"id":"certificado_tributario", "neto":20000, "iva":true, "mes":1, "tipo":"provisión sin proveedor adjudicado"},
+    {"id":"patente_anual", "neto":71721, "iva":false, "mes":1, "tipo":"mínimo anual 1UTM referencia septiembre2026; fecha/cálculo municipal pendientes"},
+    {"id":"aseo", "neto":120000, "iva":false, "mes":1, "tipo":"provisión municipal no verificada; puede variar o no corresponder"},
+    {"id":"cierre_renta", "neto":100000, "iva":true, "mes":12, "tipo":"provisión honorario anual independiente, no impuesto ni fecha legal de declaración"}
+  ],
+  "limites": [
+    "Escenario SINTÉTICO de sensibilidad por categoría: los volúmenes mensuales son un reparto aritmético (20 % por segmento) del mismo volumen hipotético 0/720/1800 del caso base. No son ventas, demanda, ocupación ni capacidad medidas",
+    "Los arriendos unitarios provienen de precios de LISTA publicados y transcriptos en INV-011 (una hora de oficina, dos horas de sala, un mes de minibodega, una hora de estacionamiento y un bloque de cuatro días de stand). Son productos y duraciones distintos; no se promedian ni se atribuyen a EspaciGo como precio propio",
+    "Se aplica a cada segmento el mismo cargo variable por reserva (dos firmas, KYC y otros) del caso base, aunque una reserva por hora y una bodega mensual no tienen por qué compartir firma, KYC ni garantía; el efecto es conservador y se documenta como límite, no como costo real de cada categoría",
+    "Parcela con quincho, local flexible y demás categorías de INV-011 quedan fuera de esta simulación porque su precio publicado exige cotización o contrato mínimo; no se inventa un arriendo unitario",
+    "Pasarela 3,19 % sobre cobro total asignada como costo económico a EspaciGo, no liquidación nativa confirmada; la caja sigue condicional al Split y al tratamiento tributario",
+    "USD/CLP 1000, IPC 4 %, IDPC 27 %, PPM 0,25 % y descuento nominal 12 % son los mismos supuestos académicos del caso base; ninguno es tasa confirmada",
+    "Los resultados son aritmética reproducible del motor simular_bootstrap.py; no acreditan rentabilidad, demanda ni aceptación de comisión"
+  ]
+}

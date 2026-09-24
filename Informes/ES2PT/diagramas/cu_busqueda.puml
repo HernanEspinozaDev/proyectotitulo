@@ -1,0 +1,28 @@
+@startuml
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 20
+skinparam backgroundColor white
+skinparam wrapWidth 200
+actor Visitante as V
+actor "Usuario Registrado" as U
+actor Arrendatario as T
+V <|-- U
+U <|-- T
+rectangle "EspaciGo · búsqueda y cotización" {
+usecase "CU-19\nBuscar espacios" as C19
+usecase "CU-20\nConsultar detalle" as C20
+usecase "CU-21\nCotizar estadía" as C21
+}
+V -- C19
+V -- C20
+T -- C21
+note bottom of C20
+La herencia de actores cubre la búsqueda
+del usuario registrado; la cotización
+corresponde al arrendatario (RQF-104).
+Buscar, consultar y cotizar son
+independientes entre sí.
+end note
+@enduml

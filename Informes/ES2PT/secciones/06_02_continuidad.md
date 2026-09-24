@@ -1,6 +1,6 @@
 ## Gestión de continuidad
 
-RNF-010 fija **RPO máximo de 4 horas** y **RTO máximo de 6 horas** para la base de datos; el alcance exacto de archivos, contratos y proveedores se debe acordar. El punto de recuperación real se mide comparando el último dato confirmado con el último dato recuperado; el tiempo de recuperación termina cuando autenticación, búsqueda y reserva superan pruebas de humo, no cuando la base simplemente arranca [@es1anexoc]. El catálogo PT-11 del Anexo B establece el ensayo pendiente.
+RNF-010 fija **RPO máximo de 4 horas** y **RTO máximo de 6 horas** para la base de datos; el alcance exacto de archivos, contratos y proveedores se debe acordar. El punto de recuperación real se mide comparando el último dato confirmado con el último dato recuperado; el tiempo de recuperación termina cuando autenticación, búsqueda y reserva superan pruebas de humo, no cuando la base simplemente arranca. El catálogo PT-11 del Anexo C establece el ensayo pendiente.
 
 ### Medidas proactivas
 
@@ -18,4 +18,4 @@ Se mantendrán versiones del esquema, aplicación, infraestructura y secretos ba
 
 El operador primario coordinará la activación y las evidencias; la persona suplente ejecutará pasos si el primario no está disponible; quien autoriza cambios decidirá la reapertura. **Esas asignaciones son roles propuestos.** Los recursos mínimos son acceso a copias, credenciales de emergencia, versiones previas, procedimiento fuera del entorno afectado y canal de comunicación. Las rutas concretas, custodios, permisos y contactos no están confirmados. Tras cualquier recuperación se documentará pérdida observada, tiempo transcurrido, operaciones financieras pendientes, acciones correctivas y decisión de retorno.
 
-[[PENDIENTE: seleccionar estrategia y almacenamiento de copias, definir frecuencia/retención y custodios, ensayar restauración aislada PT-11, medir RPO/RTO reales y probar caída de proveedor con entorno autorizado.]]
+Para asegurar el RPO (≤ 4 h) y RTO (≤ 6 h), se documenta el uso de **Cloud SQL Automated Backups** diarios con retención de 7 días y *Point-in-Time Recovery* (PITR) activado mediante el archivo WAL. Los adjuntos estáticos utilizan **Cloud Storage** con versionado de objetos activado. El ensayo de restauración y recuperación del servicio (PT-11) se realizará desplegando la copia en el proyecto de Staging semestralmente o ante actualizaciones críticas, comprobando el tiempo total levantado desde cero.

@@ -1,8 +1,8 @@
 {
   "version": 1,
   "adaptador": "inacap_es1",
-  "aprobado": false,
-  "descripcion": "Perfil preliminar de ES2. Portada de anexos ajustada estructuralmente; faltan revisión de encabezados, pies y páginas renderizadas.",
+  "aprobado": true,
+  "descripcion": "Revisión visual del 24-09-2026 registrada en INV-020: informe y anexos A/B/C regenerados tras la rotación de anexos y el cierre documental de INV-033. La aprobación cubre formato, portadas, índices, tablas, figuras y citas del render actual; no cierra el contenido pendiente, que mantiene 14 marcadores deliberados por terceros, equipo y producto.",
   "mapa_estilos": {
     "Ttulo10": "Ttulo1",
     "Ttulo2": "Subtitulo1",

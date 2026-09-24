@@ -5,7 +5,7 @@
     "titulo": "Desarrollo del Proyecto de Título: EspaciGo",
     "proyecto": "EspaciGo",
     "institucion": "Inacap - Informática y Telecomunicaciones",
-    "asignatura": "Proyecto de Título - [[PENDIENTE: confirmar código TIH184/TIHI84]]",
+    "asignatura": "Proyecto de Título",
     "seccion": "D-IEI-N8-P1-C2/D",
     "academico": "Teresa Jesús Tapia Soto",
     "integrantes": "Hernán Espinoza, Anita Marchant, Erick Silva",
@@ -41,16 +41,23 @@
   "anexos": [
     {
       "letra": "A",
-      "titulo": "Diccionario de datos de ES2",
-      "archivo": "anexos/A_diccionario_datos.md",
-      "salida": "Anexo_A_Diccionario_de_datos.docx",
+      "titulo": "Evaluación económica preliminar de EspaciGo",
+      "archivo": "anexos/A_evaluacion_economica.md",
+      "salida": "Anexo_A_Evaluacion_economica.docx",
       "transformacion": "general"
     },
     {
       "letra": "B",
+      "titulo": "Diccionario de datos de ES2",
+      "archivo": "anexos/B_diccionario_datos.md",
+      "salida": "Anexo_B_Diccionario_de_datos.docx",
+      "transformacion": "general"
+    },
+    {
+      "letra": "C",
       "titulo": "Catálogo de casos de prueba de ES2",
-      "archivo": "anexos/B_casos_de_prueba.md",
-      "salida": "Anexo_B_Casos_de_prueba.docx",
+      "archivo": "anexos/C_casos_de_prueba.md",
+      "salida": "Anexo_C_Casos_de_prueba.docx",
       "transformacion": "general"
     }
   ],

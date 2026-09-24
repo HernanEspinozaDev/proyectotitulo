@@ -3,7 +3,7 @@
 - Estado: propuesta de análisis en revisión; no hay implementación ni aprobación del equipo.
 - Fecha: 2026-09-23.
 - Base: informe final ES1 y anexos A–E, especialmente procesos, CU y requisitos RQF/RNF.
-- Secciones: 3.1–3.7; Anexo A de ES2.
+- Secciones: 3.1–3.7; Anexo B de ES2.
 
 ## Pregunta y fuentes
 
@@ -11,7 +11,7 @@
 
 ## Método y productos
 
-Se seleccionaron tres procesos que cubren identidad, reserva y cierre. Los diagramas BPMN de `diagramas/bpmn*.svg` contienen dos subprocesos expandidos por proceso; las vistas de CU, componentes y datos son PlantUML en la misma carpeta. Las imágenes se generan en `build/imagenes/`, para que las fuentes sigan editables. Los BPMN son modelos de análisis con una coordinación interna: faltan pools entre organizaciones, mensajes y temporizadores explícitos antes de darlos por cerrados. La referencia de notación es [OMG BPMN 2.0.2](https://www.omg.org/spec/BPMN/2.0.2).
+Se seleccionaron tres procesos que cubren identidad, reserva y cierre. Los diagramas BPMN de `diagramas/bpmn*.svg` contienen dos subprocesos expandidos por proceso; las vistas de CU, componentes y datos son PlantUML en la misma carpeta. Las imágenes se generan en `build/imagenes/`, para que las fuentes sigan editables. P01–P03 son modelos de análisis de coordinación interna; la vista P04, en `diagramas/bpmn04_colaboracion.svg`, añade los pools de los participantes, once flujos de mensaje (M1–M11), la reentrada R1 y los temporizadores T1–T4, con el detalle en 3.1. Sigue pendiente la revisión con el equipo y la validación de esos mensajes con proveedores reales, que ninguna fuente acredita todavía. La referencia de notación es [OMG BPMN 2.0.2](https://www.omg.org/spec/BPMN/2.0.2).
 
 Las vistas `topologia_comunicaciones`, `infraestructura_propuesta` y `arquitectura_general` extienden el diseño a 3.5–3.7. Su red, recursos virtuales y hardware del cliente están propuestos, sin despliegue acreditado. Cloud Run es la opción heredada de ES1; región, capacidades, servicios de datos y costos siguen por decidir. La portabilidad RNF-034–036 y la inmutabilidad RNF-017 son brechas explícitas.
 
@@ -28,7 +28,7 @@ Las vistas `topologia_comunicaciones`, `infraestructura_propuesta` y `arquitectu
 | Separar borde público de datos operativos y exigir controles en webhooks | RNF-015/023/024/028 y flujo de ES1 | Red, servicio de secretos, TLS interno, producto externo y ensayo de fallos |
 | Modelar web y API como dos contenedores propuestos | Topología de ES1 y [Cloud Run](https://docs.cloud.google.com/run/docs/overview/what-is-cloud-run) | Dimensionamiento, precio, despliegue local, segunda nube y recuperación |
 
-El Anexo A contiene un **primer modelo parcial de 16 entidades y 123 atributos**. Esa cifra describe campos documentados, no cobertura completa de los 236 RF de ES1. Las cuatro vistas de datos muestran claves seleccionadas y deben leerse junto con el diccionario.
+El Anexo B contiene un **primer modelo parcial de 16 entidades y 123 atributos**. Esa cifra describe campos documentados, no cobertura completa de los 236 RF de ES1. Las cuatro vistas de datos muestran claves seleccionadas y deben leerse junto con el diccionario.
 
 ## Invariantes para diseño y pruebas
 

@@ -1,0 +1,632 @@
+{
+  "version": 1,
+  "entrega": "ES2PT",
+  "tareas": [
+    {
+      "id": "ES2-TRIB",
+      "titulo": "Giro y tributación documental de destaques",
+      "objetivo": "Contrastar en fuentes oficiales SII el giro 731001, IVA, documentos y relación con 682000/631200. Separar lo verificable de lo que exige contador; no cerrar esa consulta externa.",
+      "archivos": [
+        "investigacion/INV-014_giro_publicidad.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/investigacion/INV-013_monetizacion_pagos_y_promocion.md",
+        "Informes/ES2PT/anexos/A_evaluacion_economica.md",
+        "Informes/ES2PT/pendientes.md"
+      ],
+      "depende": []
+    },
+    {
+      "id": "ES2-META",
+      "titulo": "Plan de captación medible con Meta Ads",
+      "objetivo": "Investigar documentación vigente de Meta para campañas de oferta y demanda, categorías aplicables, presupuesto y atribución; diseñar un experimento sin afirmar campañas ejecutadas ni retorno observado.",
+      "archivos": [
+        "investigacion/INV-015_captacion_meta.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/investigacion/INV-013_monetizacion_pagos_y_promocion.md",
+        "Informes/ES2PT/investigacion/INV-011_muestra_precios_y_demanda.md"
+      ],
+      "depende": []
+    },
+    {
+      "id": "ES2-DEMANDA",
+      "titulo": "Muestreo de oferta y protocolo de demanda por categoría",
+      "objetivo": "Ampliar evidencia pública comparable y preparar protocolo para medir oferta, duración, reservas y aceptación de comisión/destaques en todas las categorías; no inventar entrevistas ni ventas.",
+      "archivos": [
+        "investigacion/INV-016_metodologia_demanda.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/investigacion/INV-011_muestra_precios_y_demanda.md",
+        "Informes/ES2PT/investigacion/INV-013_monetizacion_pagos_y_promocion.md"
+      ],
+      "depende": []
+    },
+    {
+      "id": "ES2-CLOUD",
+      "titulo": "Comparación homogénea de costo Cloud Run y VM",
+      "objetivo": "Comparar TCO con la misma región, carga, respaldo, seguridad y disponibilidad, citando precios primarios y separando tarifa de cotización; no cambiar aún los números base sin conciliación.",
+      "archivos": [
+        "investigacion/INV-017_tco_nube.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/investigacion/INV-010_infraestructura_y_formalizacion.md",
+        "Informes/ES2PT/investigacion/supuestos_bootstrap.json"
+      ],
+      "depende": []
+    },
+    {
+      "id": "ES2-SPLIT",
+      "titulo": "Comparación de split y lista de pruebas de liquidación",
+      "objetivo": "Revisar documentación pública actual de Mercado Pago, Haulmer/TUU y Flow; distinguir métodos de pago, split, custodia y reversos. Preparar preguntas de cotización sin contactar proveedores por cuenta propia.",
+      "archivos": [
+        "investigacion/INV-018_comparacion_split.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/investigacion/INV-012_pagos_firma_identidad.md",
+        "Informes/ES2PT/investigacion/INV-013_monetizacion_pagos_y_promocion.md"
+      ],
+      "depende": []
+    },
+    {
+      "id": "ES2-INTEGRAR",
+      "titulo": "Integrar hallazgos revisados en el informe ES2",
+      "objetivo": "Contrastar INV-014 a INV-018, corregir contradicciones y actualizar cuerpo, Anexo A, referencias, matriz y pendientes sin convertir hipótesis en hechos ni modificar ES1.",
+      "archivos": [
+        "investigacion/INV-019_integracion_coherencia.md",
+        "secciones/02_01_analisis.md",
+        "secciones/02_02_herramientas.md",
+        "anexos/A_evaluacion_economica.md",
+        "referencias.bib",
+        "investigacion/matriz_trazabilidad_es2.md",
+        "pendientes.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/investigacion/INV-014_giro_publicidad.md",
+        "Informes/ES2PT/investigacion/INV-015_captacion_meta.md",
+        "Informes/ES2PT/investigacion/INV-016_metodologia_demanda.md",
+        "Informes/ES2PT/investigacion/INV-017_tco_nube.md",
+        "Informes/ES2PT/investigacion/INV-018_comparacion_split.md"
+      ],
+      "depende": [
+        "ES2-TRIB",
+        "ES2-META",
+        "ES2-DEMANDA",
+        "ES2-CLOUD",
+        "ES2-SPLIT"
+      ]
+    },
+    {
+      "id": "ES2-WORD",
+      "titulo": "Cierre Word institucional y revisión visual",
+      "objetivo": "Retomar APA, renderizado y perfil solo después de terminar contenido y anexos y de disponer de revisión real.",
+      "archivos": [
+        "investigacion/INV-020_revision_word_final.md",
+        "plantilla/perfil_es2.json",
+        "informe.json",
+        "diagramas/cu_identidad.puml",
+        "contexto.md",
+        "referencias.bib",
+        "investigacion/INV-019_integracion_coherencia.md",
+        "investigacion/INV-024_indice_investigacion.md",
+        "investigacion/INV-025_metadatos_y_rubrica.md",
+        "investigacion/README.md",
+        "investigacion/matriz_trazabilidad_es2.md",
+        "pendientes.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/investigacion/INV-008_plantilla_word.md",
+        "Informes/ES2PT/pendientes.md"
+      ],
+      "depende": []
+    },
+    {
+      "id": "ES2-CLOUD-SCL",
+      "titulo": "Cotización real GCP Santiago (southamerica-west1)",
+      "objetivo": "Obtener cotización de southamerica-west1 para CPU/RAM/SSD/backup/Storage/LB/Armor/red, facturación en CLP e IVA.",
+      "archivos": [
+        "investigacion/INV-021_gcp_santiago.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/investigacion/INV-017_tco_nube.md"
+      ],
+      "depende": [
+        "ES2-CLOUD"
+      ]
+    },
+    {
+      "id": "ES2-SEC-V",
+      "titulo": "Completar V: plan de pruebas y normas justificadas",
+      "objetivo": "Justificar normas, confirmar aplicabilidad jurídica de privacidad, revisar RNF-026 y documentar enfoque de pruebas.",
+      "archivos": [
+        "investigacion/INV-022_pruebas_y_privacidad.md",
+        "secciones/05_01_pruebas.md",
+        "secciones/05_02_normas.md",
+        "anexos/B_diccionario_datos.md",
+        "anexos/C_casos_de_prueba.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/pendientes.md"
+      ],
+      "depende": []
+    },
+    {
+      "id": "ES2-SEC-VI",
+      "titulo": "Completar VI: disponibilidad, continuidad y mantención",
+      "objetivo": "Seleccionar herramientas y responsables; desplegar monitoreo, acordar ventanas y políticas de continuidad.",
+      "archivos": [
+        "investigacion/INV-023_operacion_y_herramientas.md",
+        "secciones/06_01_disponibilidad.md",
+        "secciones/06_02_continuidad.md",
+        "secciones/06_03_mantencion.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/pendientes.md"
+      ],
+      "depende": []
+    },
+    {
+      "id": "ES2-CAP3-BPMN",
+      "titulo": "III: BPMN con colaboración, temporizadores y mensajes",
+      "objetivo": "Detallar los procesos de 3.1 con pools, carriles y flujos de mensaje entre EspaciGo, arrendador y servicios externos; desglosar los temporizadores de pago (15 min), decisión del arrendador (24 h) y firmas, y la reentrada desde conciliación. Conservar la fuente editable y dejar como pendiente explícito lo que requiera acuerdo del equipo o producto implementado.",
+      "archivos": [
+        "secciones/03_01_bpmn.md",
+        "diagramas/bpmn04_colaboracion.svg",
+        "investigacion/INV-004_modelado_y_datos.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/pendientes.md",
+        "Informes/ES2PT/investigacion/INV-004_modelado_y_datos.md",
+        "Informes/ES1PT/docx/anexos/D_casos_de_uso.md"
+      ],
+      "depende": []
+    },
+    {
+      "id": "ES2-CAP3-CU",
+      "titulo": "III: vistas de casos de uso de oferta, búsqueda, reputación y administración",
+      "objetivo": "Ampliar 3.2 con las vistas y descripciones que faltan para explicar el alcance de ES2, conservando RQF/CU/HU y marcando lo que quede fuera. Registrar qué casos se mantienen, amplían o se excluyen respecto de ES1.",
+      "archivos": [
+        "secciones/03_02_casos_uso.md",
+        "diagramas/cu_perfil.puml",
+        "diagramas/cu_oferta.puml",
+        "diagramas/cu_busqueda.puml",
+        "diagramas/cu_reputacion.puml",
+        "diagramas/cu_administracion.puml"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/pendientes.md",
+        "Informes/ES1PT/docx/anexos/D_casos_de_uso.md",
+        "Informes/ES1PT/docx/anexos/A_actores_y_modulos.md"
+      ],
+      "depende": []
+    },
+    {
+      "id": "ES2-CAP3-DATOS",
+      "titulo": "III: dominios, DDL y validación del modelo de datos",
+      "objetivo": "Completar 3.4 y el Anexo B: dominios, nulabilidad, restricciones, estados y permisos, registro de solicitudes de titulares y correspondencia con la matriz de tratamiento; producir el DDL propuesto como texto y enumerar las pruebas de claves, concurrencia y migración sin declararlas ejecutadas.",
+      "archivos": [
+        "secciones/03_04_datos.md",
+        "anexos/B_diccionario_datos.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/pendientes.md",
+        "Informes/ES2PT/investigacion/INV-004_modelado_y_datos.md",
+        "Informes/ES2PT/investigacion/INV-022_pruebas_y_privacidad.md"
+      ],
+      "depende": []
+    },
+    {
+      "id": "ES2-CAP3-VISTAS",
+      "titulo": "III: interfaces de componentes y vistas de comunicaciones, infraestructura y arquitectura",
+      "objetivo": "Cerrar la coherencia de 3.3 y 3.5–3.7: firmas de interfaces, ejecución de conciliación, protección de auditoría, puertos, secretos, segmentación, dimensionamiento e inventario de recursos; distinguir diseño propuesto de recurso desplegado y dejar pendientes los ensayos de portabilidad y fallo.",
+      "archivos": [
+        "secciones/03_00_arquitectura.md",
+        "secciones/03_03_componentes.md",
+        "secciones/03_05_comunicaciones.md",
+        "secciones/03_06_infraestructura.md",
+        "secciones/03_07_arquitectura.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/pendientes.md",
+        "Informes/ES2PT/investigacion/INV-017_tco_nube.md",
+        "Informes/ES2PT/investigacion/INV-021_gcp_santiago.md"
+      ],
+      "depende": []
+    },
+    {
+      "id": "ES2-CAP4-FICHAS",
+      "titulo": "IV: fichas KPI SMART y SLA con método de medición",
+      "objetivo": "Completar 4.1 y 4.2: método de verificación, ventana, entradas, exclusiones y evidencia prevista por indicador y servicio; justificar los KPI nuevos y distinguir meta heredada de medición inexistente. No asignar responsables ni metas sin acuerdo del equipo.",
+      "archivos": [
+        "secciones/04_01_kpi.md",
+        "secciones/04_02_sla.md",
+        "secciones/06_01_disponibilidad.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/pendientes.md",
+        "Informes/ES2PT/investigacion/INV-005_kpi_sla.md",
+        "Informes/ES2PT/secciones/06_01_disponibilidad.md"
+      ],
+      "depende": []
+    },
+    {
+      "id": "ES2-CAP7-PLAN",
+      "titulo": "VII: cronograma, capacidad e hitos hasta el 3 de noviembre",
+      "objetivo": "Ajustar 7.1 con dependencias, esfuerzo, hitos verificables y evidencia por fase; explicar la diferencia de incrementos de ES1 y registrar la validación docente solo si existe evidencia. Marcar como pendiente la capacidad del equipo y los hitos formativos.",
+      "archivos": [
+        "secciones/07_cronograma.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/pendientes.md",
+        "Informes/ES2PT/investigacion/INV-001_base_y_brechas.md"
+      ],
+      "depende": []
+    },
+    {
+      "id": "ES2-REGISTRO-INV",
+      "titulo": "Registro de investigación: preguntas, fuentes, hallazgos y decisiones",
+      "objetivo": "Crear el índice de investigación que relaciona cada pregunta con su INV, fuente fechada, hallazgo y decisión o pendiente, y actualizar la lista de registros vigentes de investigacion/README.md. No duplicar la matriz de trazabilidad ni editar los INV existentes.",
+      "archivos": [
+        "investigacion/INV-024_indice_investigacion.md",
+        "investigacion/README.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/pendientes.md",
+        "Informes/ES2PT/investigacion/README.md",
+        "Informes/ES2PT/investigacion/matriz_trazabilidad_es2.md"
+      ],
+      "depende": []
+    },
+    {
+      "id": "ES2-METADATOS",
+      "titulo": "Metadatos académicos y contraste guía/rúbrica",
+      "objetivo": "Registrar el estado de los metadatos (código TIH184/TIHI84, sección, académico, integrantes, fecha informada) y contrastar la tabla resumida de la guía con los 17 criterios de la rúbrica incorporada, dejando como pendiente la verificación con el instrumento oficial. No inventar código ni fechas formativas.",
+      "archivos": [
+        "investigacion/INV-025_metadatos_y_rubrica.md",
+        "investigacion/INV-024_indice_investigacion.md",
+        "investigacion/README.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/pendientes.md",
+        "Informes/ES2PT/plantilla/rubrica_de_calificacion.md",
+        "Informes/ES2PT/plantilla/guia_recomendaciones_ES2.md",
+        "Informes/ES2PT/informe.json"
+      ],
+      "depende": []
+    },
+    {
+      "id": "ES2-BIB-APA",
+      "titulo": "IX: referencias APA 7 y anexos citados",
+      "objetivo": "Completar referencias.bib con las fuentes efectivamente citadas, conservar las claves heredadas y comprobar que cada anexo se cita y sintetiza en una sección y que el orden de anexos coincide con su primera referencia. La comprobación visual APA 7 en Word queda para el cierre del contenido.",
+      "archivos": [
+        "referencias.bib",
+        "investigacion/INV-019_integracion_coherencia.md",
+        "investigacion/matriz_trazabilidad_es2.md",
+        "pendientes.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/investigacion/INV-024_indice_investigacion.md",
+        "Informes/ES2PT/informe.json"
+      ],
+      "depende": [
+        "ES2-INTEGRAR",
+        "ES2-REGISTRO-INV"
+      ]
+    },
+    {
+      "id": "ES2-CIERRE-CONTENIDO",
+      "titulo": "Cierre del contenido: introducción y conclusiones",
+      "objetivo": "Redactar 01_introduccion.md y 08_conclusiones.md a partir del cuerpo y los anexos terminados, resumiendo solo el alcance y los resultados documentados y sin anunciar implementación ni cumplimiento no acreditado.",
+      "archivos": [
+        "secciones/01_introduccion.md",
+        "secciones/08_conclusiones.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/contexto.md",
+        "Informes/ES2PT/pendientes.md"
+      ],
+      "depende": [
+        "ES2-INTEGRAR",
+        "ES2-CAP3-BPMN",
+        "ES2-CAP3-CU",
+        "ES2-CAP3-DATOS",
+        "ES2-CAP3-VISTAS",
+        "ES2-CAP4-FICHAS",
+        "ES2-CAP7-PLAN"
+      ]
+    },
+    {
+      "id": "ES2-DECISIONES",
+      "titulo": "Aplicar la región Santiago y las decisiones de cierre delegadas",
+      "objetivo": "Aplicar la decisión del usuario de operar en Santiago (INV-021) al presupuesto vigente, recalcular el flujo con el simulador del repositorio y registrar las decisiones sobre el perfil institucional y el borrador huérfano, sin declarar cumplimiento, mediciones ni despliegues inexistentes.",
+      "archivos": [
+        "investigacion/supuestos_bootstrap.json",
+        "anexos/A_evaluacion_economica.md",
+        "secciones/02_01_analisis.md",
+        "secciones/02_02_herramientas.md",
+        "secciones/03_00_arquitectura.md",
+        "secciones/03_06_infraestructura.md",
+        "plantilla/perfil_es2.json",
+        "contexto.md",
+        "investigacion/INV-019_integracion_coherencia.md",
+        "investigacion/INV-024_indice_investigacion.md",
+        "investigacion/matriz_trazabilidad_es2.md",
+        "pendientes.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/investigacion/INV-021_gcp_santiago.md",
+        "Informes/ES2PT/anexos/A_evaluacion_economica.md"
+      ],
+      "depende": []
+    },
+    {
+      "id": "ES2-CITAS",
+      "titulo": "Rehacer las citas del informe: fuentes primarias en lugar de registros internos",
+      "objetivo": "Sustituir en el cuerpo y los anexos las menciones a los registros internos INV por las fuentes primarias que los respaldan, y reemplazar la autocita de la línea base ES1 por las fuentes en que ES1 se apoyó, conservando la mención en prosa al material previo. Regenerar el Word y verificar el resultado.",
+      "archivos": [
+        "referencias.bib",
+        "pendientes.md",
+        "informe.json",
+        "contexto.md",
+        "investigacion/INV-019_integracion_coherencia.md",
+        "investigacion/matriz_trazabilidad_es2.md",
+        "secciones/01_introduccion.md",
+        "secciones/02_01_analisis.md",
+        "secciones/02_02_herramientas.md",
+        "secciones/03_00_arquitectura.md",
+        "secciones/03_01_bpmn.md",
+        "secciones/03_03_componentes.md",
+        "secciones/03_04_datos.md",
+        "secciones/03_05_comunicaciones.md",
+        "secciones/03_06_infraestructura.md",
+        "secciones/05_02_normas.md",
+        "secciones/06_02_continuidad.md",
+        "secciones/06_03_mantencion.md",
+        "secciones/07_cronograma.md",
+        "anexos/B_diccionario_datos.md",
+        "anexos/A_evaluacion_economica.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/investigacion/INV-024_indice_investigacion.md",
+        "Informes/ES2PT/pendientes.md"
+      ],
+      "depende": []
+    },
+    {
+      "id": "ES2-ANEXOS",
+      "titulo": "Corregir el orden de los anexos de ES2 segun el informe",
+      "objetivo": "Ordenar los anexos de ES2 por orden de primera cita en el cuerpo (A evaluacion economica, B diccionario de datos, C catalogo de casos de prueba), renombrar sus archivos, actualizar la letra en toda referencia del cuerpo, los anexos, los registros y los tableros, y dejar constancia de la convencion en AGENTS.md.",
+      "archivos": [
+        "informe.json",
+        "contexto.md",
+        "pendientes.md",
+        "plan_de_trabajo.md",
+        "investigacion/matriz_trazabilidad_es2.md",
+        "investigacion/INV-024_indice_investigacion.md",
+        "anexos/A_evaluacion_economica.md",
+        "anexos/B_diccionario_datos.md",
+        "anexos/C_casos_de_prueba.md",
+        "secciones/02_01_analisis.md",
+        "secciones/02_02_herramientas.md",
+        "secciones/03_00_arquitectura.md",
+        "secciones/03_02_casos_uso.md",
+        "secciones/03_03_componentes.md",
+        "secciones/03_04_datos.md",
+        "secciones/03_06_infraestructura.md",
+        "secciones/04_01_kpi.md",
+        "secciones/05_01_pruebas.md",
+        "secciones/05_02_normas.md",
+        "secciones/06_02_continuidad.md",
+        "secciones/07_cronograma.md",
+        "secciones/08_conclusiones.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/informe.json",
+        "Informes/ES2PT/pendientes.md"
+      ],
+      "depende": []
+    },
+    {
+      "id": "ES2-PAGOS-MP",
+      "titulo": "Confirmar Mercado Pago: reparto, tarifa, cuenta de empresa, entorno de pruebas y giros",
+      "objetivo": "Reunir y dejar por escrito la evidencia primaria de Mercado Pago y del SII sobre el cobro de la comision propia con reparto 1:1, quien soporta la tarifa, el entorno de pruebas de Mercado Pago y las actividades (giros) que la SpA necesita, para que el equipo decida.",
+      "archivos": [
+        "investigacion/INV-026_mercado_pago_split.md",
+        "investigacion/INV-024_indice_investigacion.md",
+        "pendientes.md",
+        "contexto.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/investigacion/INV-018_comparacion_split.md",
+        "Informes/ES2PT/investigacion/INV-014_giro_publicidad.md",
+        "Informes/ES2PT/pendientes.md"
+      ],
+      "depende": []
+    },
+    {
+      "id": "ES2-TERCEROS-DOC",
+      "titulo": "Preparar la gestión de evidencias de terceros",
+      "objetivo": "Revisar las diez filas de la sección 1 de pendientes, comprobar fuentes públicas y dejar consultas, evidencias de cierre y límites documentados sin simular contactos ni pruebas.",
+      "archivos": [
+        "investigacion/INV-027_gestion_terceros.md",
+        "investigacion/INV-026_mercado_pago_split.md",
+        "investigacion/INV-024_indice_investigacion.md",
+        "investigacion/README.md",
+        "pendientes.md",
+        "contexto.md",
+        "plan_cierre_pendientes.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/investigacion/INV-018_comparacion_split.md",
+        "Informes/ES2PT/investigacion/INV-012_pagos_firma_identidad.md",
+        "Informes/ES2PT/pendientes.md"
+      ],
+      "depende": [
+        "ES2-PAGOS-MP"
+      ]
+    },
+    {
+      "id": "ES2-COSTOS-TERCEROS",
+      "titulo": "Contrastar costos públicos de firma, identidad y formalización",
+      "objetivo": "Verificar fuentes públicas vigentes y calcular sensibilidades reproducibles sobre el escenario bootstrap, separando precio anunciado de cotización y evitando cambiar el presupuesto base sin evidencia contractual.",
+      "archivos": [
+        "investigacion/INV-028_sensibilidad_costos_terceros.md",
+        "investigacion/INV-024_indice_investigacion.md",
+        "investigacion/README.md",
+        "investigacion/INV-027_gestion_terceros.md",
+        "anexos/A_evaluacion_economica.md",
+        "pendientes.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/investigacion/supuestos_bootstrap.json",
+        "Informes/ES2PT/investigacion/INV-012_pagos_firma_identidad.md",
+        "Informes/ES2PT/anexos/A_evaluacion_economica.md"
+      ],
+      "depende": [
+        "ES2-TERCEROS-DOC"
+      ]
+    },
+    {
+      "id": "ES2-DOMICILIO-TRAMITES",
+      "titulo": "Evaluar Oficina Express, patente y posibles trámites DOM",
+      "objetivo": "Contrastar la oferta elegida de Oficina Express y afirmaciones del texto adjunto con fuentes primarias; actualizar el escenario económico de domicilio y documentar tarifas municipales condicionales sin asumir aprobaciones ni pagos no demostrados.",
+      "archivos": [
+        "investigacion/INV-029_domicilio_patente_y_dom.md",
+        "investigacion/INV-024_indice_investigacion.md",
+        "investigacion/README.md",
+        "investigacion/INV-027_gestion_terceros.md",
+        "investigacion/INV-026_mercado_pago_split.md",
+        "investigacion/INV-014_giro_publicidad.md",
+        "investigacion/matriz_trazabilidad_es2.md",
+        "investigacion/INV-019_integracion_coherencia.md",
+        "investigacion/INV-028_sensibilidad_costos_terceros.md",
+        "investigacion/supuestos_bootstrap.json",
+        "anexos/A_evaluacion_economica.md",
+        "secciones/02_01_analisis.md",
+        "contexto.md",
+        "plan_de_trabajo.md",
+        "plan_cierre_pendientes.md",
+        "referencias.bib",
+        "pendientes.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/investigacion/INV-028_sensibilidad_costos_terceros.md",
+        "Informes/ES2PT/investigacion/INV-014_giro_publicidad.md",
+        "Informes/ES2PT/anexos/A_evaluacion_economica.md"
+      ],
+      "depende": [
+        "ES2-COSTOS-TERCEROS"
+      ]
+    },
+    {
+      "id": "ES2-AUDITAR-CIERRE",
+      "titulo": "Auditar pendientes contra fuentes y r?brica",
+      "objetivo": "Revisar solo documentalmente pendientes, cuerpo, anexos y r?brica; entregar hallazgos y tabla de cierres sin editar archivos compartidos.",
+      "archivos": [
+        "investigacion/INV-030_auditoria_pendientes.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/pendientes.md",
+        "Informes/ES2PT/plan_cierre_pendientes.md"
+      ],
+      "depende": []
+    },
+    {
+      "id": "ES2-FUENTES-CIERRE",
+      "titulo": "Verificar fuentes externas para supuestos del borrador",
+      "objetivo": "Buscar fuentes primarias vigentes de pagos, firma, nube y tr?mites; sugerir decisiones provisionales y l?mites para un borrador completo.",
+      "archivos": [
+        "investigacion/INV-031_fuentes_cierre.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/pendientes.md",
+        "Informes/ES2PT/plan_cierre_pendientes.md"
+      ],
+      "depende": []
+    },
+    {
+      "id": "ES2-TECNOLOGIAS-CIERRE",
+      "titulo": "Completar propuesta de tecnolog?as e inventario",
+      "objetivo": "Proponer matriz ponderada, versiones objetivo, licencias y hardware supuesto con fuentes primarias; no afirmar instalaci?n ni benchmarks.",
+      "archivos": [
+        "investigacion/INV-032_tecnologias_cierre.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/pendientes.md",
+        "Informes/ES2PT/plan_cierre_pendientes.md"
+      ],
+      "depende": []
+    },
+    {
+      "id": "ES2-INTEGRAR-BORRADOR",
+      "titulo": "Integrar revisi?n y plan para borrador completo con supuestos",
+      "objetivo": "Aplicar instrucci?n del usuario: retirar trabajo resuelto de pendientes, planificar paso a paso y cerrar decisiones documentales mediante supuestos atribuibles al agente, sin falsificar evidencia.",
+      "archivos": [
+        "pendientes.md",
+        "plan_cierre_pendientes.md",
+        "plan_de_trabajo.md",
+        "contexto.md",
+        "supuestos_revision.md",
+        "investigacion/matriz_trazabilidad_es2.md",
+        "investigacion/README.md",
+        "investigacion/INV-024_indice_investigacion.md",
+        "investigacion/INV-033_cierre_borrador.md",
+        "referencias.bib",
+        "secciones/01_introduccion.md",
+        "secciones/02_00_tecnologias.md",
+        "secciones/02_01_analisis.md",
+        "secciones/02_02_herramientas.md",
+        "secciones/03_00_arquitectura.md",
+        "secciones/03_01_bpmn.md",
+        "secciones/03_02_casos_uso.md",
+        "secciones/03_03_componentes.md",
+        "secciones/03_04_datos.md",
+        "secciones/03_05_comunicaciones.md",
+        "secciones/03_06_infraestructura.md",
+        "secciones/03_07_arquitectura.md",
+        "secciones/04_00_kpi_sla.md",
+        "secciones/04_01_kpi.md",
+        "secciones/04_02_sla.md",
+        "secciones/05_00_calidad.md",
+        "secciones/05_01_pruebas.md",
+        "secciones/05_02_normas.md",
+        "secciones/06_00_implementacion.md",
+        "secciones/06_01_disponibilidad.md",
+        "secciones/06_02_continuidad.md",
+        "secciones/06_03_mantencion.md",
+        "secciones/07_cronograma.md",
+        "secciones/08_conclusiones.md",
+        "secciones/09_referencias_bibliograficas.md",
+        "anexos/A_evaluacion_economica.md",
+        "anexos/B_diccionario_datos.md",
+        "anexos/C_casos_de_prueba.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/pendientes.md",
+        "Informes/ES2PT/plan_cierre_pendientes.md"
+      ],
+      "depende": []
+    },
+    {
+      "id": "ES2-MANUAL-EQUIPO",
+      "titulo": "Carpeta de investigacion manual para la reunion del equipo",
+      "objetivo": "Reunir en investigacion/investigacionmanual/ todo lo que falta por investigar, confirmar o medir, las decisiones abiertas del equipo, los supuestos economicos por reemplazar, el mapa de los 14 marcadores y la tabla de reparto del trabajo. Material interno: no se cita en el informe ni modifica secciones ni anexos.",
+      "archivos": [
+        "investigacion/investigacionmanual/README.md",
+        "investigacion/investigacionmanual/01_estado_verificado.md",
+        "investigacion/investigacionmanual/02_decisiones_del_equipo.md",
+        "investigacion/investigacionmanual/03_pendientes_con_terceros.md",
+        "investigacion/investigacionmanual/04_trabajo_del_producto.md",
+        "investigacion/investigacionmanual/05_economia_a_confirmar.md",
+        "investigacion/investigacionmanual/06_mapa_de_marcadores.md",
+        "investigacion/investigacionmanual/07_orden_del_dia_y_reparto.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/pendientes.md",
+        "Informes/ES2PT/plan_cierre_pendientes.md",
+        "Informes/ES2PT/supuestos_revision.md"
+      ],
+      "depende": []
+    }
+  ]
+}
