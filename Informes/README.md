@@ -2,6 +2,32 @@
 
 Proceso común de redacción Markdown → Word institucional, basado en ES1. **ES1 está cerrado y se conserva sin modificaciones.** ES2 tiene plantilla, rúbrica, estructura por secciones y un borrador iniciado. Su [perfil Word preliminar](ES2PT/plantilla/perfil_es2.json) permanece desactivado hasta la revisión visual; ver [INV-008](ES2PT/investigacion/INV-008_plantilla_word.md). Consultar el [plan de ES2](ES2PT/plan_de_trabajo.md) y su [matriz de avance](ES2PT/investigacion/matriz_trazabilidad_es2.md).
 
+## Prioridad vigente de ES2
+
+Por instrucción del usuario, completar investigación, cuerpo y anexos antes de retomar Word, PDF/PNG, campos APA, índices o aprobación del perfil. No ejecutar esas comprobaciones tras cada tarea. Los comandos de Word descritos abajo quedan como referencia para el cierre, no como rutina de redacción. Mantener `aprobado: false` hasta la revisión final real.
+
+El presupuesto vigente se investiga en [INV-010](ES2PT/investigacion/INV-010_infraestructura_y_formalizacion.md) y se desarrolla en el [Anexo A](ES2PT/anexos/A_evaluacion_economica.md). [INV-009](ES2PT/investigacion/INV-009_evaluacion_economica.md) conserva un primer ejemplo pedagógico superado que suponía ventas inmediatas. La skill personal `$evaluacion-proyectos-chile` aporta el procedimiento; datos y calculadora quedan en el repositorio. Para recalcular sin Word:
+
+```powershell
+python Informes/herramientas/simular_bootstrap.py Informes/ES2PT/investigacion/supuestos_bootstrap.json --salida Informes/ES2PT/build/simulacion_bootstrap.json
+```
+
+El escenario fija un primer año sin ventas, tres fundadores sin sueldo pagado y costos legales/municipales provisionados. Son supuestos académicos: sustituir demanda, tarifas, tributación y elegibilidad de oficina/patente por evidencia antes de aprobar presupuesto o inversión.
+
+## Investigación en paralelo
+
+El [tablero de ES2](ES2PT/coordinacion/README.md) coordina agentes que comparten archivos. `tareas.json` define investigaciones independientes y dependencias; un registro SQLite local reserva cada tarea y [bitacora.md](ES2PT/coordinacion/bitacora.md) deja visible quién avanzó y qué falta. Antes de redactar, cada agente lee el contexto y toma una tarea libre. La integración de secciones y bibliografía espera los registros independientes.
+
+```powershell
+python Informes/coordinar.py contexto
+python Informes/coordinar.py tablero
+python Informes/coordinar.py tomar --agente codex-investigacion-1
+```
+
+El comando `tomar` entrega un identificador de reserva para registrar avances y cerrar o liberar la tarea. Los detalles y el caso de worktrees distintos están en la guía; las casillas de `pendientes.md` solo se cierran con evidencia, no por el estado del tablero.
+
+`nuevo ES3PT` incluye un tablero vacío en `coordinacion/`, para crear tareas desde su rúbrica sin copiar scripts ni la lista específica de ES2.
+
 ## Dónde trabajar
 
 - `contexto/`: continuidad del proyecto, decisiones y vínculos a evidencias.
@@ -29,6 +55,8 @@ Para Word: Pandoc 3.x en `PATH`. Para PlantUML: Java y un `plantuml.jar` local. 
 
 Para revisar visualmente un DOCX en Windows con Office 365, si PyMuPDF ya está disponible en el Python local, usar `python Informes/herramientas/render_docx_windows.py ruta/al/documento.docx --out Informes/ES2PT/build/qa_word`. El script copia el DOCX, exporta con Word mediante COM (45 s de límite por defecto) y genera `documento.pdf`, `paginas/page-001.png`, etc. en la carpeta de salida. No aprueba por sí mismo el perfil Word: hay que inspeccionar todas las páginas y anexos. Ver [diagnóstico ES2](ES2PT/investigacion/INV-008_plantilla_word.md).
 
+Para ensayar el perfil ES2 todavía desactivado: `python Informes/herramientas/previsualizar_perfil.py ES2PT`. Produce una muestra parcial en `ES2PT/build/qa_perfil/`, fuera de la generación oficial. Sus índices pueden actualizarse sin tocar citas mediante `powershell -NoProfile -STA -File Informes/herramientas/actualizar_campos.ps1 -Carpeta Informes/ES2PT/build/qa_perfil -SoloIndices`. En este entorno, la actualización completa de campos APA 7 falla en Word y no debe utilizarse para la entrega hasta resolver el problema registrado en INV-008.
+
 ```powershell
 $env:PLANTUML_JAR = 'C:\ruta\plantuml.jar'
 python Informes/generar.py diagnostico ES2PT
@@ -44,14 +72,15 @@ El diagnóstico de ES2 termina con código 1 mientras su perfil institucional te
 4. **Redactar con evidencia:** revisar el contexto, conservar identificadores y marcar `[[PENDIENTE: qué falta]]`. No inventar resultados, fechas, aprobaciones ni fuentes.
 5. **Agregar anexos y recursos:** declarar cada anexo en el JSON. Mantener imágenes propias en `imagenes/` y fuentes PlantUML o SVG en `diagramas/`. Consultar [ejemplos de autoría](recursos/ejemplos.md).
 6. **Gestionar bibliografía:** mantener `referencias.bib` propio. ES2 contiene una copia del catálogo de ES1; revisar pertinencia y vigencia. `nuevo` crea un catálogo vacío. Copiar las referencias necesarias de la entrega anterior conservando claves.
-7. **Generar y revisar:** actualizar campos y examinar visualmente portada, índices, referencias, tablas, imágenes y anexos. Cerrar pendientes con evidencia antes de validar como final.
+7. **Solo con el contenido terminado, generar y revisar:** actualizar solo índices mientras siga pendiente el problema APA 7 de Word; examinar portada, referencias en caché, tablas, imágenes y anexos. Cerrar pendientes con evidencia antes de validar como final.
 
 ```powershell
 python Informes/generar.py ensamblar ES2PT
 python Informes/generar.py diagramas ES2PT --plantuml C:/ruta/plantuml.jar
 python Informes/generar.py generar ES2PT
 python Informes/generar.py validar ES2PT
-python Informes/generar.py actualizar-word ES2PT
+# Mantiene intactos CITATION/BIBLIOGRAPHY hasta resolver INV-008
+powershell -NoProfile -STA -File Informes/herramientas/actualizar_campos.ps1 -Carpeta Informes/ES2PT/build -SoloIndices
 python Informes/generar.py validar ES2PT --final
 ```
 
@@ -73,7 +102,7 @@ Los anexos declaran letra, título, archivo, salida y transformación. `general`
 
 Usar `[@clave]` o `[@clave1; @clave2]`. El motor conserva el texto APA 7 de Pandoc y escribe campos nativos y únicamente las fuentes citadas en cada documento. Citas narrativas y localizadores como `[@clave, p. 3]` se rechazan para no perder información; requieren ampliar el motor.
 
-La actualización automática de campos al abrir Word está desactivada. `actualizar-word` verifica primero el XSL y selecciona APA 7. Para otra ubicación, usar `--estilo-apa C:/ruta/APASeventhEdition.xsl`. Word puede reformatear citas agrupadas: comprobarlas visualmente. Véase [BibliographyStyle de Microsoft](https://learn.microsoft.com/en-us/office/vba/api/word.bibliography.bibliographystyle).
+La actualización automática de campos al abrir Word está desactivada. El DOCX declara `SelectedStyle="\APASeventhEdition.xsl"` en sus fuentes, como ES1; el XSL se instaló manualmente en el perfil del usuario. `actualizar-word` comprueba su presencia, pero en este equipo la asignación COM del estilo falla y una prueba de actualización de citas sin esa asignación alteró el formato. Hasta resolverlo, usar `-SoloIndices` para revisar índices y conservar las citas APA 7 en caché; no presentar esa revisión parcial como validación final. El antecedente exacto está en [ES1](ES1PT/auditoria_final_ES1.md) (§6.4 y §7.1) y el fallo actual en [INV-008](ES2PT/investigacion/INV-008_plantilla_word.md).
 
 ## Comprobación del motor
 

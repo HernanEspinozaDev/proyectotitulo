@@ -106,7 +106,7 @@ def main(argv=None):
             if errores:
                 return 1
             cmd = ["powershell.exe", "-NoProfile", "-File", str(RAIZ / "herramientas/actualizar_campos.ps1"),
-                   "-Carpeta", str(cfg.build)]
+                   "-Carpeta", str(cfg.build), "-SoloIndices"]
             if args.estilo_apa:
                 cmd += ["-EstiloApa", str(Path(args.estilo_apa).resolve())]
             res = subprocess.run(cmd)

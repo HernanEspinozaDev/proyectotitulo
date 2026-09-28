@@ -147,6 +147,9 @@ class InformesTest(unittest.TestCase):
         with patch.object(generar, "RAIZ", self.raiz):
             creado = generar.nuevo("ES3PT")
             self.assertTrue((creado / "informe.json").is_file())
+            tablero = json.loads((creado / "coordinacion/tareas.json").read_text(encoding="utf-8"))
+            self.assertEqual(tablero["entrega"], "ES3PT")
+            self.assertEqual(tablero["tareas"], [])
             self.assertFalse(list(creado.rglob("*.py")))
             with self.assertRaises(ErrorInforme):
                 generar.nuevo("ES3PT")

@@ -9,6 +9,7 @@
 # Ejecutar DESPUÉS de generar y validar con el motor compartido:
 #
 #   python Informes/generar.py actualizar-word ES2PT
+# Para revisar solo índices sin tocar CITATION/BIBLIOGRAPHY, usar -SoloIndices.
 #
 # Recorre TODAS las historias del documento (StoryRanges) porque el índice vive
 # en un cuadro de texto y Fields.Update() por sí solo no lo alcanza.
@@ -115,7 +116,7 @@ foreach ($archivo in $Ruta) {
                 if ($r.Contains('Fuente especificada') -or $r.Contains('Error!')) { $malas++ }
             }
 
-            "=== $nombre"
+            "=== $nombre" + $(if ($SoloIndices) { ' (solo índices)' } else { '' })
             "    indices: " + $doc.TablesOfContents.Count + " | entradas: " + $entradas +
                 " | errores de campo: " + $malas
             if ($malas -gt 0) { throw 'Se detectaron campos con error; no se guarda el documento.' }

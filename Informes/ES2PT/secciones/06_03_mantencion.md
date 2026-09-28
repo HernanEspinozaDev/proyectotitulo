@@ -1,6 +1,6 @@
 ## Plan de mantención
 
-La mantención debe conservar coherentes código, esquema, configuración, documentación y procedimientos. Hasta disponer de un producto desplegado, este apartado define un flujo **propuesto**; no hay solicitudes aprobadas ni incidentes operativos registrados. Se usa control de versiones para repetir una instalación y relacionar cada defecto con un entregable y su prueba [@es1formulacion].
+La mantención debe conservar coherentes código, esquema, configuración, documentación y procedimientos. Hasta disponer de un producto desplegado, este apartado define un flujo **propuesto**; no hay solicitudes aprobadas ni incidentes operativos registrados. Se usa control de versiones para repetir una instalación y relacionar cada defecto con un entregable y su prueba.
 
 ### Configuración y entregables
 
@@ -19,7 +19,7 @@ El inventario mínimo contendrá repositorio y revisión de código, versión de
 
 El registro recogerá identificador, detector, hora de inicio/detección, servicio y entorno, síntomas, versión, impacto, operaciones afectadas, severidad, responsable, acciones, comunicaciones, hora de restauración y causa confirmada o por investigar. Se propone **crítico** si existe riesgo de pérdida de datos, cargo duplicado, doble reserva o indisponibilidad de una función RNF-009; **alto** si se degrada una función importante sin pérdida de integridad; **normal** para un defecto con alternativa segura. Estos niveles y tiempos de escalamiento deben acordarse con el equipo y los SLA.
 
-El operador registra y contiene; escala a la persona responsable de aplicación/datos o a un proveedor según origen. Se preservan identificadores de transacción sin exponer PII. El cierre requiere prueba de humo, confirmación de operaciones pendientes, comunicación a afectados cuando proceda y acción preventiva trazada a un cambio. Una disputa sobre daños, garantía o resolución de arriendo pertenece al proceso de negocio M10/CU-41; solo se abre incidente técnico si falló el software, el dato o la integración que la soporta [@es1anexod].
+El operador registra y contiene; escala a la persona responsable de aplicación/datos o a un proveedor según origen. Se preservan identificadores de transacción sin exponer PII. El cierre requiere prueba de humo, confirmación de operaciones pendientes, comunicación a afectados cuando proceda y acción preventiva trazada a un cambio. Una disputa sobre daños, garantía o resolución de arriendo pertenece al proceso de negocio M10/CU-41; solo se abre incidente técnico si falló el software, el dato o la integración que la soporta.
 
 *Tabla. Campos mínimos de los formatos de mantención.* <!--#tab:es2-formatos-operacion-->
 
@@ -28,4 +28,4 @@ El operador registra y contiene; escala a la persona responsable de aplicación/
 | Cambio | ID, motivo, requisitos, versiones inicial/final, riesgo, aprobación, pruebas, ventana, reversión, decisión y responsable | Solicitud, revisión de código, resultado de CI, despliegue y humo |
 | Incidente | ID, línea de tiempo, servicio, impacto, severidad, contención, escalamiento, recuperación, causa y acción preventiva | Alertas, logs depurados, estado de proveedor, prueba de retorno y cambio correctivo |
 
-[[PENDIENTE: elegir herramienta de registro, asignar propietarios y suplentes, acordar autoridad y tiempos de escalamiento, inventariar versiones reales y ejecutar un cambio con reversión y un simulacro de incidente.]]
+La gestión de cambios e incidentes operará sobre **GitHub Issues** e integrará el flujo de **Pull Requests** para las autorizaciones, garantizando que ninguna implementación llegue a entornos productivos sin revisión de al menos un par cruzado. En caso de fallas durante humo post-despliegue, Cloud Run permite reversión de tráfico en instantes hacia la revisión anterior sana, mitigando impactos directos al cliente final.

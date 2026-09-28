@@ -1,0 +1,32 @@
+@startuml
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 20
+skinparam backgroundColor white
+skinparam wrapWidth 200
+actor Visitante as V
+actor Arrendador as H
+actor Arrendatario as T
+rectangle "EspaciGo · reputación y comunicación" {
+usecase "CU-35\nRegistrar reseña" as C35
+usecase "CU-36\nConsultar reseñas" as C36
+usecase "CU-37\nEnviar mensajes" as C37
+usecase "CU-38\nConsultar historial de mensajes" as C38
+usecase "CU-49\nReportar reseña" as C49
+}
+T -- C35
+H -- C35
+V -- C36
+H -- C37
+T -- C37
+H -- C38
+T -- C38
+H -- C49
+note bottom of C49
+El reporte habilita la moderación del
+administrador (CU-44), que pertenece a la
+vista de administración: no se dibuja aquí
+ni se declara una relación nueva.
+end note
+@enduml

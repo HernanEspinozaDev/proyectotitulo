@@ -14,6 +14,7 @@ from .validacion import claves, comprobar_fuentes, guardar_reporte, huella, insp
 
 
 def perfil(cfg, permitir_borrador=False):
+    """Verifica estructura y firma; solo la muestra aislada admite un perfil sin aprobar."""
     if not cfg.datos["plantilla"]:
         raise ErrorInforme("Plantilla institucional pendiente: incorpora y configura el DOCX. Puedes seguir redactando y ensamblando Markdown.")
     if not cfg.datos["perfil"]:

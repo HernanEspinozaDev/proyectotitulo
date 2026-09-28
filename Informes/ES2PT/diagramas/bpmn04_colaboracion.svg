@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="1180" viewBox="0 0 1240 1180">
+  <title>P04 · Colaboración entre participantes, mensajes y temporizadores</title>
+  <desc>Vista resumida de análisis BPMN de EspaciGo: pools del Arrendatario, de EspaciGo con dos carriles, del proveedor de pago y del Arrendador, unidos por once flujos de mensaje identificados M1–M11, una reentrada R1 y cuatro temporizadores T1–T4. Propuesta de ES2; no acredita integración implementada ni verificada.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L9,3 L0,6 Z" fill="#233447"/>
+    </marker>
+    <marker id="msg" markerWidth="12" markerHeight="12" refX="10" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,4 L0,8" fill="none" stroke="#233447" stroke-width="1.6"/>
+    </marker>
+  </defs>
+  <rect width="1240" height="1180" fill="white"/>
+
+  <g font-family="Arial" fill="#152536">
+    <text x="620" y="46" font-size="30" text-anchor="middle">P04 · Colaboración entre participantes, mensajes y temporizadores</text>
+    <text x="620" y="80" font-size="18" text-anchor="middle" fill="#46586b">Vista resumida de análisis · propuesta de ES2, sin integración implementada ni verificada</text>
+  </g>
+
+  <!-- Pool Arrendatario -->
+  <g>
+    <rect x="30" y="150" width="40" height="790" fill="#eff5fa" stroke="#233447" stroke-width="2"/>
+    <rect x="70" y="150" width="230" height="790" fill="white" stroke="#233447" stroke-width="2"/>
+    <text x="50" y="545" font-family="Arial" font-size="20" fill="#152536" text-anchor="middle" transform="rotate(-90 50 545)">Arrendatario</text>
+    <circle cx="190" cy="190" r="13" fill="white" stroke="#233447" stroke-width="2"/>
+    <rect x="85" y="240" width="210" height="62" rx="10" fill="white" stroke="#233447" stroke-width="2"/>
+    <text x="190" y="266" font-family="Arial" font-size="18" fill="#152536" text-anchor="middle"><tspan x="190" dy="0">Solicitar reserva</tspan><tspan x="190" dy="21" font-size="15" fill="#46586b">(espacio y fechas)</tspan></text>
+    <rect x="85" y="585" width="210" height="62" rx="10" fill="white" stroke="#233447" stroke-width="2"/>
+    <text x="190" y="623" font-family="Arial" font-size="18" fill="#152536" text-anchor="middle">Firmar contrato</text>
+    <rect x="85" y="720" width="210" height="62" rx="10" fill="white" stroke="#233447" stroke-width="2"/>
+    <text x="190" y="746" font-family="Arial" font-size="18" fill="#152536" text-anchor="middle"><tspan x="190" dy="0">Ocupar el espacio</tspan><tspan x="190" dy="21" font-size="15" fill="#46586b">y confirmar recepción</tspan></text>
+    <circle cx="190" cy="845" r="14" fill="white" stroke="#233447" stroke-width="4"/>
+    <path d="M190,203 V238" fill="none" stroke="#233447" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M190,302 V583" fill="none" stroke="#233447" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M190,647 V718" fill="none" stroke="#233447" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M190,782 V829" fill="none" stroke="#233447" stroke-width="2" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- Pool EspaciGo con dos carriles -->
+  <g>
+    <rect x="340" y="150" width="40" height="790" fill="#eff5fa" stroke="#233447" stroke-width="2"/>
+    <rect x="380" y="150" width="470" height="790" fill="white" stroke="#233447" stroke-width="2"/>
+    <text x="360" y="545" font-family="Arial" font-size="20" fill="#152536" text-anchor="middle" transform="rotate(-90 360 545)">EspaciGo</text>
+    <line x1="600" y1="168" x2="600" y2="940" stroke="#b9c9d8" stroke-width="2" stroke-dasharray="6 6"/>
+    <text x="490" y="176" font-family="Arial" font-size="16" fill="#46586b" text-anchor="middle">Plataforma (web y API)</text>
+    <text x="725" y="176" font-family="Arial" font-size="16" fill="#46586b" text-anchor="middle">Operaciones y conciliación</text>
+    <circle cx="490" cy="198" r="13" fill="white" stroke="#233447" stroke-width="2"/>
+    <rect x="390" y="240" width="200" height="62" rx="10" fill="white" stroke="#233447" stroke-width="2"/>
+    <text x="490" y="266" font-family="Arial" font-size="17" fill="#152536" text-anchor="middle"><tspan x="490" dy="0">Validar solicitud</tspan><tspan x="490" dy="20" font-size="15" fill="#46586b">intervalo y disponibilidad</tspan></text>
+    <rect x="390" y="345" width="200" height="62" rx="10" fill="white" stroke="#233447" stroke-width="2"/>
+    <text x="490" y="371" font-family="Arial" font-size="17" fill="#152536" text-anchor="middle"><tspan x="490" dy="0">Gestionar pago</tspan><tspan x="490" dy="20" font-size="15" fill="#46586b">y garantía</tspan></text>
+    <rect x="390" y="465" width="200" height="62" rx="10" fill="white" stroke="#233447" stroke-width="2"/>
+    <text x="490" y="491" font-family="Arial" font-size="17" fill="#152536" text-anchor="middle"><tspan x="490" dy="0">Notificar al arrendador</tspan><tspan x="490" dy="20" font-size="15" fill="#46586b">y registrar la decisión</tspan></text>
+    <rect x="390" y="585" width="200" height="62" rx="10" fill="white" stroke="#233447" stroke-width="2"/>
+    <text x="490" y="611" font-family="Arial" font-size="17" fill="#152536" text-anchor="middle"><tspan x="490" dy="0">Formalizar contrato</tspan><tspan x="490" dy="20" font-size="15" fill="#46586b">y coordinar firmas</tspan></text>
+    <rect x="390" y="720" width="200" height="62" rx="10" fill="white" stroke="#233447" stroke-width="2"/>
+    <text x="490" y="746" font-family="Arial" font-size="17" fill="#152536" text-anchor="middle"><tspan x="490" dy="0">Habilitar check-in</tspan><tspan x="490" dy="20" font-size="15" fill="#46586b">y cierre de la reserva</tspan></text>
+    <circle cx="490" cy="845" r="14" fill="white" stroke="#233447" stroke-width="4"/>
+    <path d="M490,211 V238" fill="none" stroke="#233447" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M490,302 V343" fill="none" stroke="#233447" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M490,407 V463" fill="none" stroke="#233447" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M490,527 V583" fill="none" stroke="#233447" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M490,647 V718" fill="none" stroke="#233447" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M490,782 V829" fill="none" stroke="#233447" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="630" y="380" width="190" height="62" rx="10" fill="white" stroke="#233447" stroke-width="2"/>
+    <text x="725" y="406" font-family="Arial" font-size="17" fill="#152536" text-anchor="middle"><tspan x="725" dy="0">Conciliar respuesta</tspan><tspan x="725" dy="20" font-size="15" fill="#46586b">financiera incierta</tspan></text>
+    <rect x="630" y="585" width="190" height="62" rx="10" fill="white" stroke="#233447" stroke-width="2"/>
+    <text x="725" y="611" font-family="Arial" font-size="17" fill="#152536" text-anchor="middle"><tspan x="725" dy="0">Ajustar estado</tspan><tspan x="725" dy="20" font-size="15" fill="#46586b">y notificar el ajuste</tspan></text>
+    <path d="M725,442 V583" fill="none" stroke="#233447" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M630,616 H608 V500 H592" fill="none" stroke="#233447" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="640" y="692" font-family="Arial" font-size="13" fill="#233447" text-anchor="start">R1 · reentrada</text>
+  </g>
+
+  <!-- Pool proveedor de pago -->
+  <g>
+    <rect x="890" y="190" width="40" height="250" fill="#eff5fa" stroke="#233447" stroke-width="2"/>
+    <rect x="930" y="190" width="230" height="250" fill="white" stroke="#233447" stroke-width="2"/>
+    <text x="910" y="315" font-family="Arial" font-size="18" fill="#152536" text-anchor="middle" transform="rotate(-90 910 315)"><tspan x="910" dy="0">Proveedor de pago</tspan><tspan x="910" dy="20" font-size="14" fill="#46586b">(por verificar)</tspan></text>
+    <circle cx="1045" cy="228" r="13" fill="white" stroke="#233447" stroke-width="2"/>
+    <rect x="940" y="258" width="210" height="62" rx="10" fill="white" stroke="#233447" stroke-width="2"/>
+    <text x="1045" y="284" font-family="Arial" font-size="17" fill="#152536" text-anchor="middle"><tspan x="1045" dy="0">Procesar intención</tspan><tspan x="1045" dy="20" font-size="15" fill="#46586b">de cobro</tspan></text>
+    <rect x="940" y="350" width="210" height="62" rx="10" fill="white" stroke="#233447" stroke-width="2"/>
+    <text x="1045" y="376" font-family="Arial" font-size="17" fill="#152536" text-anchor="middle"><tspan x="1045" dy="0">Emitir evento y</tspan><tspan x="1045" dy="20" font-size="15" fill="#46586b">estado de liquidación</tspan></text>
+    <circle cx="1045" cy="445" r="14" fill="white" stroke="#233447" stroke-width="4"/>
+    <path d="M1045,241 V256" fill="none" stroke="#233447" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M1045,320 V348" fill="none" stroke="#233447" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M1045,412 V429" fill="none" stroke="#233447" stroke-width="2" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- Pool Arrendador -->
+  <g>
+    <rect x="30" y="1000" width="40" height="140" fill="#eff5fa" stroke="#233447" stroke-width="2"/>
+    <rect x="70" y="1000" width="1090" height="140" fill="white" stroke="#233447" stroke-width="2"/>
+    <text x="50" y="1070" font-family="Arial" font-size="20" fill="#152536" text-anchor="middle" transform="rotate(-90 50 1070)">Arrendador</text>
+    <circle cx="370" cy="1071" r="13" fill="white" stroke="#233447" stroke-width="2"/>
+    <rect x="420" y="1040" width="250" height="62" rx="10" fill="white" stroke="#233447" stroke-width="2"/>
+    <text x="545" y="1066" font-family="Arial" font-size="17" fill="#152536" text-anchor="middle"><tspan x="545" dy="0">Evaluar la solicitud</tspan><tspan x="545" dy="20" font-size="15" fill="#46586b">y responder</tspan></text>
+    <rect x="760" y="1040" width="250" height="62" rx="10" fill="white" stroke="#233447" stroke-width="2"/>
+    <text x="885" y="1078" font-family="Arial" font-size="17" fill="#152536" text-anchor="middle">Firmar contrato</text>
+    <circle cx="1055" cy="1071" r="14" fill="white" stroke="#233447" stroke-width="4"/>
+    <path d="M383,1071 H418" fill="none" stroke="#233447" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M670,1071 H758" fill="none" stroke="#233447" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M1010,1071 H1039" fill="none" stroke="#233447" stroke-width="2" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- Flujos de mensaje -->
+  <g fill="none" stroke="#233447" stroke-width="2" stroke-dasharray="9 7">
+    <path d="M295,268 H386" marker-end="url(#msg)"/>
+    <path d="M590,362 L936,281" marker-end="url(#msg)"/>
+    <path d="M1045,412 V460 H840 V411 H824" marker-end="url(#msg)"/>
+    <path d="M390,510 H320 V985 H458 V1036" marker-end="url(#msg)"/>
+    <path d="M592,1040 V1025 H608 V500 H594" marker-end="url(#msg)"/>
+    <path d="M390,601 H299" marker-end="url(#msg)"/>
+    <path d="M295,631 H388" marker-end="url(#msg)"/>
+    <path d="M590,616 H622 V1015 H843 V1036" marker-end="url(#msg)"/>
+    <path d="M800,1040 V950 H334 V616 H388" marker-end="url(#msg)"/>
+    <path d="M390,736 H299" marker-end="url(#msg)"/>
+    <path d="M295,766 H388" marker-end="url(#msg)"/>
+  </g>
+
+  <!-- Etiquetas de los flujos de mensaje -->
+  <g fill="#eff5fa">
+    <rect x="326" y="584" width="72" height="16"/>
+    <rect x="326" y="637" width="72" height="16"/>
+    <rect x="326" y="718" width="78" height="16"/>
+    <rect x="326" y="761" width="78" height="16"/>
+  </g>
+  <g font-family="Arial" font-size="12" fill="#233447">
+    <text x="342" y="261" text-anchor="middle">M1 · solicitud</text>
+    <text x="748" y="303" text-anchor="middle" transform="rotate(-13 748 303)">M2 · intención de cobro</text>
+    <text x="900" y="486" text-anchor="start">M3 · resultado del cobro y eventos</text>
+    <text x="389" y="971" text-anchor="middle">M4 · notificación de la solicitud</text>
+    <text x="715" y="1049" text-anchor="middle">M5 · decisión del arrendador</text>
+    <text x="362" y="596" text-anchor="middle">M6 · firma</text>
+    <text x="362" y="649" text-anchor="middle">M7 · firma</text>
+    <text x="700" y="973" text-anchor="middle">M8 · solicitud de firma al arrendador</text>
+    <text x="700" y="906" text-anchor="middle">M9 · firma del arrendador</text>
+    <text x="364" y="730" text-anchor="middle">M10 · check-in</text>
+    <text x="364" y="773" text-anchor="middle">M11 · cierre</text>
+  </g>
+
+  <!-- Temporizadores sobre los flujos -->
+  <g stroke="#233447" stroke-width="2" fill="white">
+    <circle cx="765" cy="321" r="12"/>
+    <circle cx="320" cy="860" r="12"/>
+    <circle cx="815" cy="985" r="12"/>
+    <circle cx="880" cy="460" r="12"/>
+  </g>
+  <g stroke="#233447" stroke-width="2" fill="none">
+    <path d="M765,321 V313 M765,321 L772,325"/>
+    <path d="M320,860 V852 M320,860 L327,864"/>
+    <path d="M815,985 V977 M815,985 L822,989"/>
+    <path d="M880,460 V452 M880,460 L887,464"/>
+  </g>
+  <g font-family="Arial" font-size="16" fill="#152536" font-weight="bold">
+    <text x="745" y="344" text-anchor="middle">T1</text>
+    <text x="336" y="866">T2</text>
+    <text x="831" y="991">T3</text>
+    <text x="896" y="466">T4</text>
+  </g>
+
+  <!-- Nota de temporizadores -->
+  <rect x="860" y="500" width="330" height="490" rx="12" fill="#f8fafc" stroke="#9fb3c8" stroke-width="2" stroke-dasharray="8 6"/>
+  <g font-family="Arial" fill="#152536">
+    <text x="1025" y="534" font-size="17" text-anchor="middle">Temporizadores del flujo</text>
+    <text x="882" y="578" font-size="15" font-weight="bold">T1 · 15 minutos</text>
+    <text x="882" y="600" font-size="13" fill="#46586b">Pago pendiente: cancelar la reserva</text>
+    <text x="882" y="618" font-size="13" fill="#46586b">y liberar la ocupación. CU-27; RQF-120/200.</text>
+    <text x="882" y="688" font-size="15" font-weight="bold">T2 · 24 horas</text>
+    <text x="882" y="710" font-size="13" fill="#46586b">Sin decisión del arrendador: rechazo por</text>
+    <text x="882" y="728" font-size="13" fill="#46586b">vencimiento y liberación de fondos.</text>
+    <text x="882" y="746" font-size="13" fill="#46586b">CU-26/28; RQF-123–129.</text>
+    <text x="882" y="816" font-size="15" font-weight="bold">T3 · vencimiento de firmas</text>
+    <text x="882" y="838" font-size="13" fill="#46586b">Todas las firmas antes del inicio; si vence,</text>
+    <text x="882" y="856" font-size="13" fill="#46586b">cancelar y reembolsar según la base.</text>
+    <text x="882" y="874" font-size="13" fill="#46586b">CU-29–32; RQF-130–142.</text>
+    <text x="882" y="912" font-size="15" font-weight="bold">T4 · reintento programado</text>
+    <text x="882" y="934" font-size="13" fill="#46586b">Respuesta incierta: conservar correlación</text>
+    <text x="882" y="952" font-size="13" fill="#46586b">y conciliar antes de un segundo intento.</text>
+    <text x="882" y="970" font-size="13" fill="#46586b">RNF-012/024/028.</text>
+  </g>
+
+  <text x="620" y="1168" font-family="Arial" font-size="14" fill="#46586b" text-anchor="middle">Vista resumida de colaboración: los identificadores M1–M11, R1 y T1–T4 se detallan en las tablas de la sección. No acredita integración ni producto implementado.</text>
+</svg>

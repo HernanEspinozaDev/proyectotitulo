@@ -1,4 +1,24 @@
-% Referencias bibliográficas del informe EspaciGo (TIH184)
+% Referencias bibliográficas del informe EspaciGo (TIH184).
+%
+% Auditoría del 23-09-2026 (tarea ES2-BIB-APA, registrada en INV-019):
+%   - 115 entradas; 90 usadas por las citas del cuerpo y de los anexos; 25 heredadas sin cita vigente.
+%   - Ninguna cita del informe queda sin entrada y ninguna entrada usada carece de los campos
+%     obligatorios de su tipo: la auditoría de herramientas/bibliografia.py no reporta fuentes
+%     incompletas ni con datos por verificar.
+%   - Las entradas sin cita no aparecen en la lista de referencias del Word, que se genera desde las
+%     citas; se conservan por ser claves heredadas de ES1 y por si el cierre las vuelve a usar.
+%   - El informe cita solo fuentes primarias: los registros internos INV-*.md y la línea base ES1 no se
+%     citan como fuentes. Las claves es1* se conservan aquí como documentación de la entrega anterior,
+%     pero quedan sin cita en el informe; si se vuelven a usar, corresponde citar la fuente de origen.
+%   - 63 de las 90 fuentes citadas no declaran año: son páginas sin fecha editorial identificada y llevan
+%     urldate con la fecha de consulta. Se verificó en el render de Word que el estilo del repositorio emite
+%     «s. f.» en esos casos, de modo que la lista de referencias cumple APA 7; registrar un año solo si se
+%     identifica la fecha real de la fuente (INV-020).
+%   - El código de la asignatura figura como TIH184, el mismo de ES1; la guía transcrita dice TIHI84
+%     y el contraste queda en INV-025.
+%   - INV-020 documenta una revisión Word anterior. Tras la rotación de anexos, la comprobación visual
+%     de la salida actual queda para el cierre del contenido por instrucción del usuario.
+%   - Los anexos vigentes siguen el orden de primera referencia: A económico, B datos y C pruebas.
 % Fuente única de datos para Pandoc (--citeproc) y para el sistema de fuentes de Word.
 %
 % Estado de verificación (20-09-2026): los datos de normas, estándares e informes de
@@ -371,6 +391,13 @@
   urldate = {2026-09-23}
 }
 
+@misc{es2cloudsqlpricing,
+  author = {{Google Cloud}},
+  title = {Cloud SQL pricing},
+  url = {https://cloud.google.com/sql/pricing?hl=es-419},
+  urldate = {2026-09-23}
+}
+
 @misc{es2bigquerydml,
   author = {{Google Cloud}},
   title = {Data manipulation language (DML) statements in GoogleSQL},
@@ -517,9 +544,455 @@
   urldate = {2026-09-23}
 }
 
+@book{es2sapag2014,
+  author = {Sapag Chain, Nassir and Sapag Chain, Reynaldo and Sapag Puelma, José Manuel},
+  title = {Preparación y evaluación de proyectos},
+  edition = {6},
+  year = {2014},
+  publisher = {McGraw-Hill Education},
+  isbn = {9786071511447},
+  url = {https://www.mheducation.com.co/preparacion-y-evaluacion-de-proyectos-9786071511447-col},
+  urldate = {2026-09-23}
+}
+
+@misc{es2sapagmetodo,
+  author = {{Sapag}},
+  title = {Preparación y evaluación de proyectos},
+  url = {https://sapag.cl/preparacion-y-evaluacion-de-proyectos/},
+  urldate = {2026-09-23}
+}
+
+@misc{es2ineipc202608,
+  author = {{Instituto Nacional de Estadísticas}},
+  title = {Índice de Precios al Consumidor (IPC) de agosto presentó una variación mensual de 0,6 por ciento},
+  date = {2026-09-08},
+  year = {2026},
+  url = {https://www.ine.gob.cl/sala-de-prensa/prensa/general/noticia/2026/09/08/índice-de-precios-al-consumidor-(ipc)-de-agosto-presentó-una-variación-mensual-de-0-6},
+  urldate = {2026-09-23}
+}
+
+@misc{es2bcmetainflacion,
+  author = {{Banco Central de Chile}},
+  title = {Política monetaria},
+  url = {https://www.bcentral.cl/es/areas/politica-monetaria},
+  urldate = {2026-09-23}
+}
+
+@misc{es2siiregimenes,
+  author = {{Servicio de Impuestos Internos}},
+  title = {Tipos de regímenes},
+  url = {https://www.sii.cl/destacados/modernizacion/tipos_regimenes_mt.html},
+  urldate = {2026-09-23}
+}
+
+@misc{es2siitasas,
+  author = {{Servicio de Impuestos Internos}},
+  title = {¿Qué tasas de Impuesto de Primera Categoría se aplican desde el año 1977 en adelante?},
+  date = {2026-05-25},
+  year = {2026},
+  url = {https://www.sii.cl/preguntas_frecuentes/declaracion_renta/001_140_4708.htm},
+  urldate = {2026-09-23}
+}
+
 @misc{es2cloudrunrollback,
   author = {{Google Cloud}},
   title = {Rollbacks, gradual rollouts, and traffic migration},
   url = {https://cloud.google.com/run/docs/rollouts-rollbacks-traffic-migration},
+  urldate = {2026-09-23}
+}
+
+@misc{es2gcspricing,
+  author = {{Google Cloud}},
+  title = {Cloud Storage pricing},
+  url = {https://cloud.google.com/storage/pricing},
+  urldate = {2026-09-23}
+}
+@misc{es2lbpricing,
+  author = {{Google Cloud}},
+  title = {Cloud Load Balancing pricing},
+  url = {https://cloud.google.com/load-balancing/pricing},
+  urldate = {2026-09-23}
+}
+@misc{es2armorpricing,
+  author = {{Google Cloud}},
+  title = {Google Cloud Armor pricing},
+  url = {https://cloud.google.com/armor/pricing},
+  urldate = {2026-09-23}
+}
+@misc{es2mptarifas,
+  author = {{Mercado Pago}},
+  title = {Cobra con la pasarela de pago de Mercado Pago},
+  url = {https://www.mercadopago.cl/herramientas-para-vender/check-out},
+  urldate = {2026-09-23}
+}
+@misc{es2resacciones,
+  author = {{Registro de Empresas y Sociedades}},
+  title = {Preguntas frecuentes: Sociedad por Acciones},
+  url = {https://www.registrodeempresasysociedades.cl/FAQ.aspx?seccion=5},
+  urldate = {2026-09-23}
+}
+@misc{es2rescostos,
+  author = {{Registro de Empresas y Sociedades}},
+  title = {Ayuda: Registro electrónico de empresas y sociedades},
+  url = {https://www.registrodeempresasysociedades.cl/AyudaRegistro.aspx},
+  urldate = {2026-09-23}
+}
+@misc{es2siiactividades,
+  author = {{Servicio de Impuestos Internos}},
+  title = {Códigos de actividad económica},
+  url = {https://www.sii.cl/ayudas/ayudas_por_servicios/1956-codigos-1959.html},
+  urldate = {2026-09-23}
+}
+@misc{es2ineciiu,
+  author = {{Instituto Nacional de Estadísticas}},
+  title = {Clasificador chileno de actividades económicas CIIU4.CL 2012},
+  url = {https://www.ine.gob.cl/docs/default-source/buenas-practicas/clasificaciones/ciiu/clasificador/ciiu4-cl-2012.pdf},
+  urldate = {2026-09-23}
+}
+@misc{es2siiivaservicios,
+  author = {{Servicio de Impuestos Internos}},
+  title = {IVA en la prestación de servicios},
+  url = {https://www.sii.cl/destacados/iva_prestacion_servicios/},
+  urldate = {2026-09-23}
+}
+@misc{es2siipro_pyme,
+  author = {{Servicio de Impuestos Internos}},
+  title = {¿En qué consiste el Régimen Pro Pyme General?},
+  date = {2026-08-07},
+  year = {2026},
+  url = {https://www.sii.cl/preguntas_frecuentes/declaracion_renta/001_140_7529.htm},
+  urldate = {2026-09-23}
+}
+@misc{es2siif29,
+  author = {{Servicio de Impuestos Internos}},
+  title = {¿Quiénes deben presentar el Formulario 29 sin movimiento?},
+  url = {https://www.sii.cl/preguntas_frecuentes/impuestos_mensuales/001_130_1259.htm},
+  urldate = {2026-09-23}
+}
+@misc{es2lofvirtual,
+  author = {{LOF}},
+  title = {Oficina virtual y domicilio tributario en Santiago Centro},
+  url = {https://www.oficinavirtuallof.cl/oficina-virtual-santiago-centro/},
+  urldate = {2026-09-23}
+}
+@misc{es2oficinaexpress,
+  author = {{Oficina Express}},
+  title = {Oficina virtual en Santiago: planes y condiciones},
+  url = {https://oficinaexpress.cl/},
+  urldate = {2026-09-23}
+}
+@misc{es2dvirtual,
+  author = {{DVirtual}},
+  title = {Oficina virtual en Santiago Centro},
+  url = {https://dvirtual.cl/},
+  urldate = {2026-09-23}
+}
+@misc{es2rentasmunicipales,
+  author = {{Biblioteca del Congreso Nacional de Chile}},
+  title = {Decreto 2385: Ley de Rentas Municipales},
+  url = {https://www.bcn.cl/leychile/navegar?idNorma=18967},
+  urldate = {2026-09-23}
+}
+@misc{es2patentesstgo,
+  author = {{Municipalidad de Santiago}},
+  title = {Solicitud de patente},
+  url = {https://tramites.munistgo.cl/solicitudpatente/},
+  urldate = {2026-09-23}
+}
+@misc{es2ordenanza94,
+  author = {{Municipalidad de Santiago}},
+  title = {Ordenanza número 94 sobre derechos por permisos y servicios municipales, año 2026},
+  date = {2025-10-29},
+  year = {2025},
+  url = {https://documentos.munistgo.cl/wp-content/uploads/2025/12/Ordenanza-No-94-2026-V2.pdf},
+  urldate = {2026-09-23}
+}
+@misc{es2patenteagil,
+  author = {{Municipalidad de Santiago}},
+  title = {Patente Ágil: nuevo sistema con IA permite trámite en horas y sin papeleo en Santiago},
+  date = {2026-04-09},
+  year = {2026},
+  url = {https://www.munistgo.cl/patente-agil-nuevo-sistema-con-ia-permite-tramite-en-horas-y-sin-papeleo-en-santiago/},
+  urldate = {2026-09-23}
+}
+@misc{es2utm2026,
+  author = {{Servicio de Impuestos Internos}},
+  title = {UTM, UTA e IPC 2026},
+  url = {https://www.sii.cl/valores_y_fechas/utm/utm2026.htm},
+  urldate = {2026-09-23}
+}
+@misc{es2nictarifas,
+  author = {{NIC Chile}},
+  title = {Tarifas vigentes para dominios punto CL},
+  url = {https://www.nic.cl/dominios/tarifas.html},
+  urldate = {2026-09-23}
+}
+@misc{es2inapitasas,
+  author = {{Instituto Nacional de Propiedad Industrial}},
+  title = {Marcas: para informarse},
+  url = {https://www.inapi.cl/marcas/para-informarse},
+  urldate = {2026-09-23}
+}
+
+@misc{es2lofespacios,
+  author = {{Lofwork}},
+  title = {Salas de reuniones y oficinas privadas en Santiago Centro},
+  url = {https://www.lofwork.cl/salas-y-oficinas-en-santiago/},
+  urldate = {2026-09-23}
+}
+@misc{es2coworkcentro,
+  author = {{Cowork del Centro}},
+  title = {Arriendo de salas de reuniones y oficinas privadas por hora en Santiago Centro},
+  url = {https://coworkdelcentro.cl/},
+  urldate = {2026-09-23}
+}
+@misc{es2bltprecios,
+  author = {{BLT Minibodegas}},
+  title = {Encuentra tu bodega en Santiago},
+  url = {https://www.bltminibodegas.cl/bodegas?bussines=true},
+  urldate = {2026-09-23}
+}
+
+@misc{es2saba,
+  author = {{Saba Chile}},
+  title = {Estacionamiento Saba Santa Rosa, Santiago},
+  url = {https://www.saba-chile.cl/es/parking-santiago/parking-saba-santa-rosa},
+  urldate = {2026-09-23}
+}
+@misc{es2busho,
+  author = {{Busho}},
+  title = {Stand 7 en Galería La Bota Italia},
+  url = {https://busho.cl/stand-7-en-galeria-la-bota-italia-tu-espacio-emprendedor-en-barrio-italia-560},
+  urldate = {2026-09-23}
+}
+@misc{es2espaciotemporal,
+  author = {{Espacio Temporal}},
+  title = {Oficinas y coworking flexible en Santiago},
+  url = {https://www.espaciotemporal.cl/},
+  urldate = {2026-09-23}
+}
+@misc{es2palmas,
+  author = {{Palmas de Malloco}},
+  title = {Precios de arriendo de parcela para eventos},
+  url = {https://www.palmasdemalloco.cl/precios-arriendo-parcela-eventos/},
+  urldate = {2026-09-23}
+}
+
+@misc{es2mpsplitflujo,
+  author = {{Mercado Pago Developers}},
+  title = {Integrar el checkout en Split de Pagos 1:1},
+  url = {https://www.mercadopago.cl/developers/es/docs/split-payments/split-1-1/integration-configuration/integrate-marketplace},
+  urldate = {2026-09-23}
+}
+@misc{es2firmavirtualprecios,
+  author = {{FirmaVirtual}},
+  title = {Planes y precios de firma digital en Chile},
+  url = {https://firmavirtual.legal/servicios/precios},
+  urldate = {2026-09-23}
+}
+@misc{es2diditchile,
+  author = {{Didit}},
+  title = {Verificación KYC en Chile},
+  url = {https://didit.me/es/solutions/countries/chile/},
+  urldate = {2026-09-23}
+}
+
+@misc{es2stripeglobal,
+  author = {{Stripe}},
+  title = {Disponibilidad internacional de Stripe Payments},
+  url = {https://stripe.com/es/global},
+  urldate = {2026-09-23}
+}
+@misc{es2haulmerterminos,
+  author = {{Haulmer}},
+  title = {Términos y condiciones TUU Pago},
+  url = {https://www.haulmer.com/legal/terminos-y-condiciones-haulmer-pagos/},
+  urldate = {2026-09-23}
+}
+@misc{es2flowmetodos,
+  author = {{Flow}},
+  title = {Métodos de pago},
+  url = {https://developers.flow.cl/docs/payment-methods},
+  urldate = {2026-09-23}
+}
+@misc{es2metasubasta,
+  author = {{Meta}},
+  title = {Toward fairness in personalized ads},
+  url = {https://about.fb.com/wp-content/uploads/2023/01/Toward_fairness_in_personalized_ads.pdf},
+  urldate = {2026-09-23}
+}
+@misc{es2mercadoads,
+  author = {{Mercado Libre Chile}},
+  title = {Cómo mejorar la visibilidad y el posicionamiento de mis publicaciones},
+  url = {https://vendedores.mercadolibre.cl/aprender/nota/como-mejorar-la-visibilidad-y-el-posicionamiento-de-mis-pub},
+  urldate = {2026-09-23}
+}
+@misc{es2sernacpublicidad,
+  author = {{Servicio Nacional del Consumidor}},
+  title = {Circular interpretativa sobre publicidad nativa e influencers},
+  url = {https://www.sernac.cl/portal/618/articles-65742_archivo_01.pdf},
+  urldate = {2026-09-23}
+}
+
+% Contrastes documentales INV-014 a INV-018, consultados el 2026-09-23.
+@misc{es2siicatalogo,
+  author = {{Servicio de Impuestos Internos}},
+  title = {Códigos de actividades económicas},
+  url = {https://www.sii.cl/catastro/codigos.htm},
+  urldate = {2026-09-23}
+}
+@misc{es2siipublicidadapp,
+  author = {{Servicio de Impuestos Internos}},
+  title = {Oficio N.º 2729 de 2022: ingresos por publicidad en aplicación móvil},
+  year = {2022},
+  url = {https://www4.sii.cl/gabineteAdmInternet/descargaArchivo?acc=download&extension=pdf&id=9efad582-3209-4485-b03e-b793626bb76c&mediaType=application%2Fpdf&nombreDocumento=2729-07%2F09%2F2022.pdf},
+  urldate = {2026-09-23}
+}
+@misc{es2metaobjetivos,
+  author = {{Meta Blueprint}},
+  title = {Selecting the right campaign objective},
+  url = {https://www.facebookblueprint.com/student/path/219699-selecting-objectives-course},
+  urldate = {2026-09-23}
+}
+@misc{es2metapresupuesto,
+  author = {{Meta Blueprint}},
+  title = {Plan your Meta advertising budget},
+  url = {https://www.facebookblueprint.com/student/collection/238520/path/551361},
+  urldate = {2026-09-23}
+}
+@misc{es2metavivienda,
+  author = {{Meta}},
+  title = {An update on our ads fairness efforts},
+  year = {2023},
+  url = {https://about.fb.com/news/2023/01/an-update-on-our-ads-fairness-efforts/},
+  urldate = {2026-09-23}
+}
+@misc{es2siiestadisticas,
+  author = {{Servicio de Impuestos Internos}},
+  title = {Estadísticas de empresas},
+  url = {https://www.sii.cl/sobre_el_sii/estadisticas_de_empresas.html},
+  urldate = {2026-09-23}
+}
+@misc{es2ele7,
+  author = {{Ministerio de Economía, Fomento y Turismo}},
+  title = {Séptima Encuesta Longitudinal de Empresas},
+  year = {2024},
+  url = {https://www.economia.gob.cl/2024/12/27/septima-encuesta-longitudinal-de-empresas-ele-7.htm},
+  urldate = {2026-09-23}
+}
+@misc{es2censo2024,
+  author = {{Instituto Nacional de Estadísticas}},
+  title = {Resultados del Censo de Población y Vivienda 2024},
+  url = {https://censo2024.ine.gob.cl/resultados/},
+  urldate = {2026-09-23}
+}
+@misc{es2aaporpracticas,
+  author = {{American Association for Public Opinion Research}},
+  title = {Best practices for survey research},
+  url = {https://aapor.org/standards-and-ethics/best-practices/},
+  urldate = {2026-09-23}
+}
+@misc{es2computeprecios,
+  author = {{Google Cloud}},
+  title = {Compute Engine general-purpose machine pricing},
+  url = {https://cloud.google.com/products/compute/pricing/general-purpose},
+  urldate = {2026-09-23}
+}
+
+% Selección, versiones, licencias e inmutabilidad; INV-032 y INV-031, consultados el 2026-09-24.
+@misc{es2nextsupport,
+  author = {{Vercel}},
+  title = {Support Policy},
+  url = {https://nextjs.org/support-policy},
+  urldate = {2026-09-24}
+}
+@misc{es2nextlicense,
+  author = {{Vercel}},
+  title = {Next.js license (MIT)},
+  url = {https://github.com/vercel/next.js/blob/canary/license.md},
+  urldate = {2026-09-24}
+}
+@misc{es2nodereleases,
+  author = {{Node.js}},
+  title = {Releases and LTS schedule},
+  url = {https://nodejs.org/en/about/previous-releases},
+  urldate = {2026-09-24}
+}
+@misc{es2nodelicense,
+  author = {{Node.js}},
+  title = {Node.js LICENSE},
+  url = {https://raw.githubusercontent.com/nodejs/node/main/LICENSE},
+  urldate = {2026-09-24}
+}
+@misc{es2gorelease26,
+  author = {{The Go Authors}},
+  title = {Go 1.26 Release Notes},
+  url = {https://go.dev/doc/go1.26},
+  urldate = {2026-09-24}
+}
+@misc{es2golicense,
+  author = {{The Go Authors}},
+  title = {Go LICENSE},
+  url = {https://go.dev/LICENSE},
+  urldate = {2026-09-24}
+}
+@misc{es2pgversions,
+  author = {{PostgreSQL Global Development Group}},
+  title = {PostgreSQL Versioning Policy},
+  url = {https://www.postgresql.org/support/versioning/},
+  urldate = {2026-09-24}
+}
+@misc{es2pglicense,
+  author = {{PostgreSQL Global Development Group}},
+  title = {PostgreSQL License},
+  url = {https://www.postgresql.org/about/licence/},
+  urldate = {2026-09-24}
+}
+@misc{es2cloudsqlextensions,
+  author = {{Google Cloud}},
+  title = {Extensions in Cloud SQL for PostgreSQL},
+  url = {https://docs.cloud.google.com/sql/docs/postgres/extensions},
+  urldate = {2026-09-24}
+}
+@misc{es2postgislicense,
+  author = {{PostGIS Project}},
+  title = {PostGIS FAQ: GPL license},
+  url = {https://postgis.net/documentation/faq/gpl-license/},
+  urldate = {2026-09-24}
+}
+@misc{es2dockerlegal,
+  author = {{Docker}},
+  title = {Docker Subscription Service Agreement},
+  url = {https://www.docker.com/legal/docker-subscription-service-agreement/},
+  urldate = {2026-09-24}
+}
+@misc{es2bucketlock,
+  author = {{Google Cloud}},
+  title = {Bucket Lock},
+  url = {https://docs.cloud.google.com/storage/docs/bucket-lock},
+  urldate = {2026-09-24}
+}
+@misc{es2gcpvat,
+  author = {{Google Cloud}},
+  title = {VAT overview},
+  url = {https://docs.cloud.google.com/billing/docs/resources/vat-overview},
+  urldate = {2026-09-24}
+}
+@misc{es2siifacturacompra,
+  author = {{Servicio de Impuestos Internos}},
+  title = {Factura de compra},
+  url = {https://www.sii.cl/preguntas_frecuentes/iva_serv_digitales/001_200_7773.htm},
+  urldate = {2026-09-24}
+}
+@misc{es2flowapi,
+  author = {{Flow}},
+  title = {Flow API: payments, settlements and associated merchants},
+  url = {https://developers.flow.cl/api},
+  urldate = {2026-09-23}
+}
+@misc{es2mpreporte,
+  author = {{Mercado Pago Developers}},
+  title = {Reporte de ventas con split de pagos},
+  url = {https://www.mercadopago.cl/developers/es/docs/reports/sales-report/introduction},
   urldate = {2026-09-23}
 }

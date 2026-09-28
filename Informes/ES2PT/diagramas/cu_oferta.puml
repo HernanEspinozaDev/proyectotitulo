@@ -1,0 +1,25 @@
+@startuml
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 20
+skinparam backgroundColor white
+skinparam wrapWidth 200
+actor Arrendador as H
+rectangle "EspaciGo · oferta de espacios" {
+usecase "CU-15\nRegistrar publicación" as C15
+usecase "CU-16\nGestionar galería fotográfica" as C16
+usecase "CU-17\nConfigurar disponibilidad" as C17
+usecase "CU-18\nModificar o dar de baja" as C18
+}
+H -- C15
+H -- C16
+H -- C17
+H -- C18
+note bottom of C15
+La galería no es obligatoria para registrar
+la publicación (RQF-081): no corresponde
+include. CU-17 alimenta la disponibilidad
+que consume la búsqueda (CU-19).
+end note
+@enduml

@@ -1,0 +1,28 @@
+@startuml
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 20
+skinparam backgroundColor white
+skinparam wrapWidth 200
+actor Administrador as A
+rectangle "EspaciGo · administración y auditoría" {
+usecase "CU-43\nBloquear cuentas de usuario" as C43
+usecase "CU-44\nModerar reseñas reportadas" as C44
+usecase "CU-45\nGenerar reportes de gestión" as C45
+usecase "CU-46\nConsultar y exportar auditoría" as C46
+usecase "CU-52\nConsultar publicaciones" as C52
+}
+A -- C43
+A -- C44
+A -- C45
+A -- C46
+A -- C52
+note bottom of C46
+La inmutabilidad del repositorio de
+auditoría es un RNF (RNF-017), no un caso
+de uso, y su implementación sigue abierta.
+El Administrador no hereda del Usuario
+Registrado en la base.
+end note
+@enduml
