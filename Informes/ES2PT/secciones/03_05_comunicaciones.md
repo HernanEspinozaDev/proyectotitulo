@@ -11,13 +11,13 @@ La topología propuesta separa un borde accesible por Internet de los datos oper
 | Navegador → entrada pública → web | Páginas y acciones por HTTPS; TLS 1.2 o superior según RNF-015 | Autenticación y sesión para acciones privadas; tokens fuera de URL; dominio y terminación TLS por configurar |
 | Frontend → API | JSON por HTTPS; contrato documentado con OpenAPI, RNF-032 | Validación de identidad, permisos y entradas en la API; origen permitido por definir |
 | API → PostgreSQL/PostGIS | Consultas y transacciones sobre conexión de BD | Solo desde componentes autorizados; cifrado del enlace, cuentas y puertos según servicio elegido |
-| API → archivos y analítica | Objetos y eventos mediante interfaz del servicio seleccionado | Acceso por rol, cifrado y retención; BigQuery no asegura por sí mismo RNF-017 |
+| API/worker → archivos y analítica | Objetos a Cloud Storage; eventos durables PostgreSQL Outbox → Pub/Sub → BigQuery | Acceso por rol, cifrado y retención; BigQuery no asegura por sí mismo RNF-017 |
 | API → proveedores | Solicitudes HTTPS para pago, firma e identidad previstos | Credenciales fuera de URL y código; timeout de 5 segundos y hasta dos reintentos separados por 2 segundos en RNF-023, sujetos a la semántica de cada operación |
 | Proveedor → entrada pública → API | Webhook HTTPS firmado, RNF-024 | Validar firma antes de procesar, deduplicar, conservar evento y aplicar hasta cinco reintentos de procesamiento con retroceso exponencial según la base |
 
-El flujo de un webhook no se confunde con una respuesta síncrona de pago. La firma valida procedencia e integridad según el contrato del proveedor; la clave de idempotencia de RNF-012 evita duplicar una operación. Si una respuesta queda incierta, la conciliación de RNF-028 consulta el estado y conserva evidencia antes de cambiar la reserva. La fuente de verdad financiera externa y el estado local deben correlacionarse.
+El flujo de un webhook no se confunde con una respuesta síncrona de pago. La firma valida procedencia e integridad según el contrato del proveedor; la clave de idempotencia de RNF-012 evita duplicar una operación. Si una respuesta queda incierta, la conciliación de RNF-028 consulta el estado y conserva evidencia antes de cambiar la reserva. La fuente de verdad financiera externa y el estado local deben correlacionarse. Para eventos de dominio, la escritura del registro Outbox se confirma junto con la transacción de negocio; el publicador interno de Go los entrega a Pub/Sub con reintentos, mientras BigQuery consume la suscripción analítica. La telemetría de impresiones/clics de mayor volumen entra por un endpoint controlado hacia Pub/Sub y no bloquea la reserva.
 
-La integración financiera también requiere conciliar **cuatro importes distintos**: total pagado por el arrendatario, tarifa del procesador, comisión de EspaciGo y monto efectivamente recibido por el arrendador. La guía de Split 1:1 describe la tarifa del procesador descontada primero al vendedor y reembolsos limitados si su cuenta carece de saldo. Por tanto, confirmar el pago no basta para marcar como cumplida una devolución o una garantía. El adaptador propuesto guardará identificadores externos y estados separados para cobro, reparto y reverso; su funcionamiento real permanece sin ensayo [@es2mpsplitflujo].
+El adaptador de pagos mantiene un contrato independiente del proveedor: crear operación idempotente, consultar estado, recibir notificación autenticada y solicitar reverso cuando la política lo autorice. La API registra importes y estados separados, y deja las diferencias inciertas en conciliación. La selección, liquidación, reparto, costos, requisitos de cuenta y comportamiento de reembolsos de Mercado Pago se analizan en una investigación técnica independiente; no se fijan en esta topología general.
 
 ### Decisiones de red propuestas
 
@@ -35,6 +35,6 @@ La integración financiera también requiere conciliar **cuatro importes distint
 | Origen permitido | Lista explícita de orígenes para la API y CORS restringido | Propuesta; los dominios de prueba y producción están por fijar |
 | Correo saliente | Servicio de correo transaccional con dominio autenticado | Propuesta; sin proveedor elegido |
 
-Ninguna de estas decisiones está implementada ni contratada, y el ensayo de saldos, reparto, reverso y garantía sigue requiriendo un entorno autorizado del proveedor.
+Ninguna de estas decisiones está implementada ni contratada. Los detalles, costos y ensayos de cada proveedor se documentan por separado; el contrato de integración debe conservar idempotencia, autenticación y conciliación.
 
 [[PENDIENTE: aprobar dominio, proveedor de red, segmentación, puertos y servicio de secretos; validar la autenticación de cada integración con su contrato real y ensayar saldos, reparto, reverso y garantía en un entorno autorizado.]]
