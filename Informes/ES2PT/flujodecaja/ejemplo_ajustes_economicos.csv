@@ -1,0 +1,10 @@
+Seccion,Descripcion,Valor,Unidad
+PARAMETROS,Variacion IPC 2020-2026 (%),"45,2",Porcentaje
+PARAMETROS,Tipo de Cambio USD,972,CLP
+PARAMETROS,Ano Base Evaluacion,2026,Ano
+,,,
+AJUSTE IPC,Costo Base Historico,1000,CLP Antiguo
+AJUSTE IPC,Costo Ajustado a Hoy,=C6*(1+(C2/100)),CLP Actualizado
+,,,
+CONVERSION USD,Costo Mensual Cloud,50,USD
+CONVERSION USD,Costo Mensual CLP,=C9*C3,CLP Actualizado
