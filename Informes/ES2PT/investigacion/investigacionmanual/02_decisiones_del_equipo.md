@@ -69,11 +69,11 @@ Para cada decisión: **qué se decide**, **opciones sobre la mesa**, **qué pasa
 - **Abierto:** si la comisión transaccional queda cubierta por 631200 o exige **682000 u otra actividad**; esa es consulta al contador/SII (ver `03_pendientes_con_terceros.md`, fila 5), no decisión interna.
 - **Se registra:** en `02_01_analisis.md` y el Anexo A cuando el contador responda.
 
-## D-11. Metadatos académicos
+## D-11. Metadatos académicos restantes
 
-- **Qué se decide:** **código de asignatura (TIH184 o TIHI84)**, sección, académico guía y fechas formativas.
-- **Estado:** la portada mantiene los datos actuales y omite el código a propósito (SUP-18) para no inventar un dato académico.
-- **Si no se decide:** no se puede afirmar que la entrega cumple el instrumento.
+- **Resuelto:** el usuario confirmó **TIH184** el 29-09-2026 y `informe.json` lo incorpora en la portada.
+- **Qué queda por contrastar:** sección, académico guía, fechas formativas y denominación institucional con el instrumento del curso.
+- **Si no se contrasta:** esos campos se presentan con su procedencia actual, sin afirmar aprobación institucional.
 
 ## D-12. Revisión docente
 

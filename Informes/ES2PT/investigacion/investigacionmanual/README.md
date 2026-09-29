@@ -2,8 +2,8 @@
 
 Carpeta de trabajo **interna del equipo**. No forma parte del informe, no se cita en él y no reemplaza a `pendientes.md` ni a la matriz de trazabilidad. Su propósito es uno: reunir en un solo lugar **todo lo que todavía hay que investigar, confirmar, decidir o medir** antes de cerrar ES2, para discutirlo en reunión y repartir el trabajo.
 
-- Corte: **24-09-2026**. Entrega informada: **03-11-2026**.
-- Estado del informe: contenido redactado de punta a punta; Word generado y revisado (`Informe_Final.docx`, 91 páginas, más anexos A/B/C). `validar ES2PT` = **0 errores**; `validar ES2PT --final` = **1** porque quedan **14 marcadores** y tareas abiertas.
+- Corte vigente de auditoría: **29-09-2026**. Entrega informada: **03-11-2026**.
+- Estado del informe: contenido redactado de punta a punta y **17 criterios con borrador localizable**, sin aprobación docente ni producto probado. Quedan **13 marcadores** en secciones/anexos, más un marcador de coordinación en `contexto.md`. El Word de 91 páginas revisado el 24-09 es histórico; la [copia Word para el equipo](../../revision_equipo/2026-09-29/README.md) se generó el 29-09 con TIH184 para **lectura de borrador**. Los índices deben actualizarse en Word y la revisión visual final sigue pendiente.
 - El bloqueo que queda es **de contenido, no de formato**.
 
 ## Reglas de trabajo
@@ -22,16 +22,18 @@ Carpeta de trabajo **interna del equipo**. No forma parte del informe, no se cit
 | [03_pendientes_con_terceros.md](03_pendientes_con_terceros.md) | Todo lo que exige cotización, credencial, contrato, respuesta escrita o entrevista |
 | [04_trabajo_del_producto.md](04_trabajo_del_producto.md) | Todo lo que exige producto desplegado, entorno y medición |
 | [05_economia_a_confirmar.md](05_economia_a_confirmar.md) | Cada supuesto económico vigente y con qué evidencia se reemplaza |
-| [06_mapa_de_marcadores.md](06_mapa_de_marcadores.md) | Los 14 marcadores del informe uno por uno, con qué los cierra y quién |
-| [07_orden_del_dia_y_reparto.md](07_orden_del_dia_y_reparto.md) | Guion de la reunión y tabla de asignación de trabajo |
+| [06_mapa_de_marcadores.md](06_mapa_de_marcadores.md) | Mapa **histórico** de 14 marcadores previo al diccionario de 43 tablas |
+| [07_orden_del_dia_y_reparto.md](07_orden_del_dia_y_reparto.md) | Plantilla de reunión del corte anterior; conserva casillas para el acta real |
+| [08_auditoria_avance_es2_2026_09_29.md](08_auditoria_avance_es2_2026_09_29.md) | Auditoría vigente de los 17 criterios, 13 marcadores, backend/datos y aporte de Shiva |
+| [09_reparto_equipo_es2_2026_09_29.md](09_reparto_equipo_es2_2026_09_29.md) | Encargos propuestos para el usuario, Shiva y Tajamon, con evidencia y fechas objetivo |
 
 ## Cómo se cierra una tarea de esta carpeta
 
 1. Se consigue la **evidencia** (documento, cotización, medición, acta, captura).
 2. Se registra en un archivo `INV-0xx` nuevo o se actualiza `../../supuestos_revision.md`.
 3. Se corrige la sección o anexo que dependía del supuesto.
-4. Se retira el marcador `[[PENDIENTE: ...]]` del informe (ver `06_mapa_de_marcadores.md`).
-5. Se regenera y valida el Word.
+4. Se retira el marcador `[[PENDIENTE: ...]]` del informe solo con evidencia (ver `08_auditoria_avance_es2_2026_09_29.md`).
+5. Se regenera y valida el Word; una copia intermedia para lectura no constituye cierre visual final.
 
 ```powershell
 $env:PLANTUML_JAR="$env:TEMP\plantuml.jar"

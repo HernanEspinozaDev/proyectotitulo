@@ -26,7 +26,7 @@ Durante la redacción, comprobar fuentes, coherencia y cálculos cuando cambien;
 1. Crear `investigacion/INV-001_base_y_brechas.md`: inventariar alcance, exclusiones, objetivos, actores, requisitos, arquitectura, KPI, SLA y cronograma de ES1. Registrar las referencias exactas y las contradicciones encontradas.
 2. Crear `investigacion/matriz_trazabilidad_es2.md` con columnas: criterio, sección ES2, referencia ES1, investigación, entregable, estado y evidencia de revisión. Usar los 17 criterios de la sección 4 de este plan.
 3. Confirmar con el equipo el alcance que se diseñará y demostrará, la capacidad disponible, los responsables y la rotación de jefatura indicada por la guía. Los roles de ES1 son antecedentes; no acreditan asignaciones actuales.
-4. Verificar en el calendario oficial la fecha de ES2 y los hitos formativos. La guía menciona semanas académicas 12, 13 y 14; no convertirlas a fechas sin ese calendario. Revisar también el código de asignatura: el JSON contiene `TIH184` y la guía transcrita `TIHI84`.
+4. Verificar en el calendario oficial la fecha de ES2 y los hitos formativos. La guía menciona semanas académicas 12, 13 y 14; no convertirlas a fechas sin ese calendario. El usuario confirmó **TIH184** para la asignatura y el JSON lo incorpora en la portada; la grafía `TIHI84` permanece en la guía incorporada como discrepancia histórica.
 5. Crear los Markdown del mapa siguiente con sus encabezados y marcadores `[[PENDIENTE: ...]]`, y luego registrar su orden en `informe.json`, sustituyendo la referencia a `00_borrador.md` cuando corresponda.
 
 **Salida de preparación:** alcance de trabajo registrado, matriz inicial, preguntas abiertas y esquema ensamblable. Las consultas pendientes no impiden investigar ni redactar borradores.

@@ -4,7 +4,7 @@
 
 **Estado:** antecedente metodológico preliminar, no modelo financiero aprobado. Sus cuadros suponen 3.600 reservas anuales, comisión del 25 %, costos e impuestos hipotéticos y un VAN positivo. Esos parámetros y resultados no coinciden con el escenario vigente del Anexo A, que usa volúmenes hipotéticos de 720 y 1.800 reservas, comisión neta del **3 %**, tarifa del proveedor descontada al vendedor e instancia API mínima. El VAN de caja simulado vigente es **−15.140.998 CLP** y la TIR no está definida. El ejercicio posterior de 12 % de comisión también queda como histórico. Por tanto, las cifras y la conclusión de rentabilidad de este aporte se conservan por su procedencia y método, sin tratarlas como resultados actuales del proyecto.
 
-Este documento sintetiza los conceptos teóricos fundamentales extraídos de los apuntes y los contextualiza con la investigación del proyecto (basado en el directorio `investigacion`, como `INV-009_evaluacion_economica.md`, `INV-011`, etc.) para afinar el estudio financiero y construir un flujo de caja final robusto y fundamentado.
+Este aporte del equipo organiza conceptos de mercado, inversión, operación y financiamiento para orientar la evaluación económica. Las cifras que aparecen a continuación pertenecen a un **ejercicio preliminar** y se contrastan con la simulación vigente del Anexo A; no sustituyen precios finales ni demanda medida.
 
 ## 1. Estudio de Mercado (Capítulo 4)
 El estudio de mercado es la base para cuantificar los ingresos y egresos vinculados a la comercialización. Define la cuantía de la demanda, los ingresos de operación y gran parte de los costos e inversiones.
@@ -17,19 +17,19 @@ El estudio de mercado es la base para cuantificar los ingresos y egresos vincula
     *   *Distribuidor/Canales:* Intermediarios y condiciones.
 *   **Etapas Cronológicas de la Evolución del Mercado:**
     1.  Análisis Histórico.
-    2.  Análisis de la Situación Vigente (precios y demandas actuales - ref. `INV-011`).
+    2.  Análisis de la situación actual con precios de lista diferenciados por categoría; la demanda de EspaciGo aún no está medida.
     3.  Análisis de la Situación Proyectada.
 *   **Estrategia Comercial (Tangibilización de la estrategia competitiva):**
     *   *Producto:* Atributos tangibles e intangibles de la plataforma SaaS (EspaciGo).
     *   *Precio:* Determinación de ingresos basados en la demanda, costos (como la pasarela de pagos), competencia y el valor percibido (modelo de comisión, *split* de pagos).
-    *   *Promoción y Publicidad:* Medios y contenido (gastos de marketing para captación de *hosts* y usuarios - ref. `INV-014`).
+    *   *Promoción y publicidad:* Medios y contenido; la captación de arrendadores y arrendatarios es un gasto distinto de los ingresos por destaque.
     *   *Distribución:* Selección de canales para llegar al usuario (App/Web).
 
 *Nota sobre la Elasticidad de la Demanda:* Considerar cómo cambiará la cantidad demandada de reservas de espacios ante variaciones en la comisión o tarifa de servicio cobrada.
 
 ## 2. Análisis del Medio
 Variables macroeconómicas y del entorno que influyen en el flujo:
-*   **Económicas:** Política fiscal, inflación (ajuste de la UF para precios y costos), tipo de cambio (para servicios cloud facturados en USD, como GCP - ref. `INV-017`).
+*   **Económicas:** Política fiscal, inflación, UF y tipo de cambio para servicios de nube facturados en USD; se estiman por separado en el Anexo A.
 *   **Socioculturales:** Cambios de estilo de vida (tendencia al trabajo remoto, eventos flexibles).
 *   **Tecnológicos, Ambientales, Regulatorios y Político-legales:** Aplicación de normativas como la Ley 21.719 que afecta el diseño y potencialmente costos legales y de compliance a partir de diciembre 2026.
 
@@ -40,7 +40,7 @@ Tiene como objetivo principal proveer la información necesaria para cuantificar
 *   **Balance de Maquinaria / Tecnología:** Servidores, licencias, infraestructura Cloud (GCP).
 *   **Balance de Obras Físicas / Infraestructura:** Espacios de oficina si el equipo lo requiere.
 *   **Balance de Personal:** Equipo de desarrollo, soporte, marketing y administración.
-*   **Balance de Insumos:** Servicios de terceros, APIs (identidad, pagos - ref. `INV-012`).
+*   **Balance de insumos:** Servicios de terceros y API de identidad, pago y firma, sujetos a cotización e integración.
 
 **Interdependencia de los Mercados en el Estudio Técnico:**
 *   *Con el Mercado:* La demanda proyectada condiciona el tamaño de la infraestructura tecnológica necesaria (autoescalado en GCP).
@@ -73,24 +73,24 @@ El diseño del modelo de negocios debe ser *anterior* a la evaluación económic
 
 **Etapas del Proyecto y su impacto en el Flujo de Caja:**
 1.  **Preinversión:** (Idea -> Diagnóstico -> Innovación). Perfil, prefactibilidad, factibilidad. Define la estrategia competitiva y el Modelo de Negocios. (*Da forma al flujo de caja*).
-2.  **Inversión:** Ejecución y puesta en marcha. Gastos de puesta en marcha (reclutamiento, licencias, capacitación de personal, formalización legal - ref. `INV-010`).
+2.  **Inversión:** Ejecución y puesta en marcha. Incluye, si corresponden, formalización legal, licencias, capacitación y equipamiento, con desglose vigente en el Anexo A.
 3.  **Operación:** Gestión de recursos, generación de ingresos y reinversión constante (retroalimentación y crecimiento).
 
----
+***
 **Siguientes pasos para el Flujo de Caja (Accionables):**
-1.  **Ingresos:** Extraer de `INV-011` y `INV-016` la demanda proyectada y el *pricing* de comisiones para poblar la línea de ingresos operativos.
-2.  **Inversiones (CAPEX):** Considerar constitución legal (`INV-010`), desarrollo inicial (horas hombre preinversión), y equipamiento organizacional.
+1.  **Ingresos:** Medir demanda, precios finales por categoría y aceptación de la comisión antes de poblar una proyección de ingresos operativos.
+2.  **Inversiones (CAPEX):** Considerar constitución legal, desarrollo inicial y equipamiento, distinguiendo desembolsos de trabajo fundador valorizado.
 3.  **Costos (OPEX):** 
-    *   Infraestructura y Nube (`INV-017` TCO GCP).
-    *   Costos de Transacción y Terceros (`INV-026` Mercado Pago, `INV-027`).
-    *   Marketing y Publicidad (`INV-014`, `INV-015`).
+    *   Infraestructura y nube en la región elegida.
+    *   Costos de transacción y terceros sujetos a condiciones de proveedor.
+    *   Marketing y publicidad diferenciados de los ingresos por destaque.
     *   Personal y Administrativos (internalización vs externalización).
 4.  **Amortizaciones y Depreciaciones:** Calcular la amortización del software (activo intangible) y depreciación de equipos para el beneficio tributario.
 5.  **Capital de Trabajo:** Calcular en base al desfase entre pagos de clientes y pagos a *hosts*/proveedores.
 
 ## 6. Cuadros Matemáticos para la Construcción del Flujo de Caja (EspaciGo)
 
-A continuación, se presentan los cálculos y cuadros derivados de los apuntes (lógica financiera) cruzados con los valores reales del proyecto extraídos de `supuestos_economicos.json` (escenario de evaluación inicial de 3.600 reservas anuales).
+A continuación se presenta el **escenario didáctico original** de 3.600 reservas anuales y comisión hipotética del 25 %. Sus valores no proceden de ventas, contratos ni costos observados de EspaciGo. El Anexo A contiene el modelo económico vigente y separa fondos de terceros de ingresos propios.
 
 **Supuestos Básicos aplicados:**
 *   **Ticket arriendo base:** $100.000 CLP.
@@ -126,13 +126,13 @@ Suma de mantención, administración, servicios cloud, difusión y otros externo
 | 3 | **$ 19.468.800** |
 
 ### 4. Inversión Inicial y Depreciación / Amortización
-Basado en `supuestos_economicos.json`:
+En este ejercicio histórico se suponía:
 *   Desarrollo valorizado (costo de oportunidad): $ 14.400.000
 *   Preparación y lanzamiento (efectivo): $ 1.200.000
 *   **Total Inversión Inicial:** **$ 15.600.000**
 
 **Depreciación / Amortización (Ejemplo Teórico Lineal):**
-Aunque el modelo actual (`supuestos_economicos.json`) marca `0` para simplificar, la lógica de amortización de activos intangibles (el desarrollo de software de $14.4M) a 3 años sería:
+Aunque este ejercicio preliminar marcaba `0` para simplificar, una amortización teórica del supuesto desarrollo de software de 14,4 millones de CLP a tres años sería:
 *   `Amortización Lineal = (Inversión Intangible - Valor Residual) / Vida Útil`
 *   `Amortización Lineal = (14.400.000 - 0) / 3` = **$ 4.800.000 por año.** *(Este valor iría antes de impuestos para reducir la base tributaria)*.
 
@@ -164,7 +164,7 @@ $K_o = K_d \cdot \frac{D}{D+C} \cdot (1 - t_c) + K_e \cdot \frac{C}{D+C}$
 *   $K_e$: Costo de capital propio (calculado vía CAPM: $R_f + \beta(R_m - R_f)$).
 *   $D, C$: Proporción de Deuda y Capital Propio.
 
----
+***
 
 ## 7. Flujo de Caja Final (Del Inversionista / Financiado)
 
@@ -194,7 +194,7 @@ A partir de los cuadros anteriores, estructuramos el flujo de caja final conside
 
 *(Nota: Este flujo proyectado refleja el escenario supuesto de 3.600 reservas anuales. Se consideró la recuperación total del capital de trabajo al finalizar el año 3).*
 
----
+***
 
 ### 8. Indicadores de Rentabilidad (Evaluación Económica)
 
@@ -209,4 +209,4 @@ $VAN = \sum \frac{FC_t}{(1 + k)^t} - I_0$
 *   **VAN = $ 98.675.660 CLP**
 
 **Conclusión Financiera (Ejemplo):**
-Dado que el **VAN > 0**, bajo el escenario hipotético de 3.600 reservas anuales y con una comisión del 25%, el proyecto genera un valor presente positivo y la inversión sería financieramente viable y altamente atractiva (cubriendo ampliamente el costo de oportunidad del desarrollo inicial de $14,4M). La **TIR (Tasa Interna de Retorno)** resultante es significativamente alta (mayor al 400%), lo cual es común en proyectos de software tipo SaaS donde la inversión de capital físico inicial es baja comparada con los ingresos operativos escalables.
+Dado que el **VAN > 0** en este ejercicio hipotético de 3.600 reservas anuales y comisión del 25 %, el cálculo aislado muestra valor presente positivo **solo bajo esos supuestos**. No constituye evidencia de viabilidad de EspaciGo: el escenario oficial posterior del Anexo A usa 3 % neto, no acredita esa demanda y obtiene VAN negativo. La TIR superior al 400 % atribuida al ejercicio anterior tampoco se traslada al escenario vigente.

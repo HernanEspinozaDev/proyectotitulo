@@ -1,12 +1,14 @@
 # 07. Orden del día de la reunión y reparto del trabajo
 
+**Plantilla histórica del 24-09-2026.** El reparto propuesto entre el usuario, Shiva y Tajamon, con el avance del backend/datos y los **13 marcadores vigentes**, está en [09_reparto_equipo_es2_2026_09_29.md](09_reparto_equipo_es2_2026_09_29.md). Esta plantilla conserva casillas en blanco para registrar el acuerdo real del equipo.
+
 Objetivo de la reunión: **decidir lo que solo el equipo puede decidir** y **repartir lo que falta**. Duración sugerida: 90 minutos. Al terminar, esta carpeta debe quedar con responsables y fechas escritos.
 
 ## Orden del día
 
 ### Bloque 1 — Puesta al día (10 min)
 
-- Estado del informe: contenido redactado de punta a punta; Word generado y revisado (91 páginas + anexos A/B/C); `validar` en 0 errores y `validar --final` en 1 por los 14 marcadores.
+- Estado del informe en aquel corte: contenido redactado de punta a punta; Word generado y revisado (91 páginas + anexos A/B/C); después se amplió el diccionario y el conteo vigente pasó a 13 marcadores. La generación solicitada ahora es un **borrador de lectura**, no un cierre final.
 - Lo que ya está resuelto y **no se vuelve a discutir**: ver [`01_estado_verificado.md`](01_estado_verificado.md), sección A.
 - Acordar que **nadie borra un marcador** sin evidencia registrada.
 
@@ -18,7 +20,7 @@ Resolver en este orden, porque desbloquean lo demás:
 | --- | --- | --- |
 | **D-01** | ¿Cuántas horas por semana y quién responde por cada bloque? | |
 | **D-02** | ¿Qué exactamente existirá el 3 de noviembre y qué queda fuera? | |
-| **D-11** | ¿TIH184 o TIHI84? ¿Sección, académico y fechas correctos? | |
+| **D-11** | TIH184 confirmado por el usuario; ¿sección, académico y fechas formativas correctos? | |
 | **D-08** | ¿Qué plazos de conservación y qué regla de anonimización adoptamos? | |
 | **D-07** | ¿Ratificamos la retención bloqueada y con qué plazo? (es irreversible) | |
 
@@ -75,7 +77,7 @@ Sugerencia de frente por integrante según SUP-03 (backend/datos/integración; i
 | Tarea | Qué hay que hacer | Responsable | Depende de | Fecha objetivo |
 | --- | --- | --- | --- | --- |
 | P-01 | Aplicar el DDL en ensayo | | T-3 (entorno) | |
-| P-02 | Ejecutar MD-01 a MD-12 | | P-01 | |
+| P-02 | Ejecutar MD-01 a MD-13 | | P-01 | |
 | P-03 | Ejecutar PT-01 a PT-16 | | P-01 | |
 | P-04 | Medir KPI y SLA | | P-01 | |
 | P-05 | Ensayar respaldo y restauración | | P-01, D-15 | |

@@ -1,8 +1,8 @@
-# 06. Mapa de los 14 marcadores `[[PENDIENTE: ...]]`
+# 06. Mapa histórico de los 14 marcadores `[[PENDIENTE: ...]]`
 
-Estos marcadores son texto visible en el informe y son lo que bloquea `validar ES2PT --final`. **No se borran por corrección editorial**: cada uno se retira cuando llega la evidencia o cuando el equipo decide y lo registra. Al retirar uno hay que regenerar el Word.
+**Corte histórico: 24-09-2026.** Este mapa describe la versión anterior al diccionario de 43 tablas. El estado vigente de **13 marcadores** se audita en [08_auditoria_avance_es2_2026_09_29.md](08_auditoria_avance_es2_2026_09_29.md) y en [`pendientes.md`](../../pendientes.md). **No se borran por corrección editorial**: cada uno se retira cuando llega la evidencia o cuando el equipo decide y lo registra.
 
-Situación: quedan **14** (11 en secciones, 1 en el Anexo A y 2 en el Anexo B). El 24-09-2026 se cerraron tres decisiones documentales —comparación técnica, fichas de herramientas e inmutabilidad de RNF-017— y se redujeron otros dos a su parte empírica; ver [`INV-033_cierre_borrador.md`](../INV-033_cierre_borrador.md).
+Situación de ese corte: quedaban **14** (11 en secciones, 1 en el Anexo A y 2 en el Anexo B). El 24-09-2026 se cerraron tres decisiones documentales —comparación técnica, fichas de herramientas e inmutabilidad de RNF-017— y se redujeron otros dos a su parte empírica; ver [`INV-033_cierre_borrador.md`](../INV-033_cierre_borrador.md). Las filas siguientes se conservan para explicar la evolución y no deben usarse como tablero vigente.
 
 | # | Archivo | Qué exige | Origen | Lo cierra | Sección de esta carpeta |
 | --- | --- | --- | --- | --- | --- |

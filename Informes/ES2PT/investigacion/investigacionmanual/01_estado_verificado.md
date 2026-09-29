@@ -15,6 +15,7 @@ Sirve para **no volver a decidir** lo que ya está resuelto ni re-investigar lo 
 | **Mecanismo de inmutabilidad de RNF-017**: Cloud Storage con retención bloqueada + hash por lote; BigQuery solo analítica | Propuesta del agente (SUP-13) | 3.0, 3.3, 3.6 |
 | **Arquitectura de diseño**: Next.js, monolito Go con workers internos, PostgreSQL 18/PostGIS 3.6, contenedores y Cloud Run en Santiago | Decisión del proyecto; despliegue pendiente | 2.1, 2.2, 3.0, 3.6, Anexos A/B |
 | **Comisión propia de 3 % neto**, más IVA de la comisión si corresponde; Split 1:1 vendedor/marketplace y reparto societario fuera del checkout | Usuario, 29-09-2026 | 2.1, Anexos A/B, propuesta backend |
+| **Asignatura TIH184** | Usuario, 29-09-2026 | `informe.json` y portada del Word de lectura del 29-09 |
 | **Destaques pagados fuera** de la demostración ES2 y con cero ingresos en el flujo | Propuesta del agente (SUP-10) | 2.1, 3.3, Anexo A |
 | **Perfil Word aprobado** y render revisado (91 páginas + anexos A/B/C) | Usuario, 24-09-2026 | `plantilla/perfil_es2.json`, INV-020 |
 
@@ -30,7 +31,7 @@ Estos datos ya están contrastados contra documentación oficial o precios publi
 | Licencias: Next.js **MIT**, Go **BSD de 3 cláusulas**, PostgreSQL **licencia PostgreSQL**, PostGIS **GPLv2** para la extensión, Node.js licencia del proyecto con bibliotecas de terceros; Docker sin gratuidad contractual confirmada para tres integrantes | Documentación oficial de cada proyecto (INV-032) | Los parches e imágenes efectivamente instalados |
 | El comparador público original estimó **USD 237,82/mes** para un piloto anterior; el escenario actualizado del Anexo A estima **USD 307,724/mes** con una instancia mínima de Cloud Run y supuestos explícitos | Calculador público original (INV-021) y modelo académico actualizado | Cotización, factura, elegibilidad de descuentos ni precio contractual de cada SKU |
 | Precios de **lista** por categoría (oficina 7.140/h, sala 42.245 por 2 h, minibodega 55.000/mes, estacionamiento 2.940/h, stand 83.000 por 4 días) | Avisos publicados (INV-011) | Demanda, ocupación, conversión ni aceptación de la comisión |
-| La rúbrica incorporada suma 60 puntos con 17 criterios; la guía omite el criterio 2.1.5.15 | Instrumentos del curso (INV-025) | El código de asignatura (TIH184 vs TIHI84) |
+| La rúbrica incorporada suma 60 puntos con 17 criterios; la guía omite el criterio 2.1.5.15 | Instrumentos del curso (INV-025) | La grafía de la guía no sustituye el código TIH184 confirmado por el usuario |
 
 ## C. Supuestos de trabajo que el equipo debe ratificar o cambiar
 
@@ -51,11 +52,11 @@ Todos están en [`supuestos_revision.md`](../../supuestos_revision.md) con su mo
 | SUP-14 y SUP-15 | Conciliación periódica dentro del monolito Go con persistencia y coordinación en PostgreSQL; instancia mínima presupuestada en Cloud Run; Cloud SQL/PostGIS, Cloud Storage y Secret Manager | 3.3, 3.5, 3.6, Anexo A |
 | SUP-16 | SLA internos, zona America/Santiago, mantención contada como indisponibilidad mientras no haya acuerdo de exclusión | IV–VI |
 | SUP-17 | Mantener las siete vistas de casos de uso y las justificaciones de CU-14/31/47/51 | III |
-| SUP-18 | Mantener los metadatos actuales y omitir el código de asignatura en portada hasta verificarlo | VII |
+| SUP-18 | Código TIH184 incorporado; sección, académico y fechas formativas siguen pendientes de contraste institucional | VII |
 
 ## D. Qué NO hay que rehacer
 
-- El perfil Word y una versión anterior ya fueron revisados; la actualización de contenido del 29-09-2026 queda pendiente de render y cierre visual cuando termine la redacción.
+- El perfil Word y una versión anterior ya fueron revisados. El 29-09-2026 se generó una copia actualizada de lectura del informe y anexos; quedan los índices y el cierre visual cuando termine la redacción.
 - El orden de los anexos y sus letras ya están corregidos y verificados.
 - Los precios publicados, las licencias y las capacidades documentadas **no** necesitan otra búsqueda: lo que falta es la confirmación particular (contrato, cuenta, factura o medición).
 - ES1 está congelado: no se toca ni se regenera.

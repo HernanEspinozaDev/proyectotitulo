@@ -702,6 +702,61 @@
         "Informes/herramientas/simular_bootstrap.py",
         "Informes/tests/test_simular_bootstrap.py"
       ]
+    },
+    {
+      "id": "ES2-AUDITORIA-EQUIPO-WORD",
+      "titulo": "Auditar avance ES2, repartir pendientes y generar Word de lectura",
+      "objetivo": "Confirmar TIH184 por declaración del usuario, contrastar ES2 con la rúbrica y el aporte de Shiva, producir tablero de tareas para equipo y Word completo de lectura sin afirmar cierre final.",
+      "archivos": [
+        "informe.json",
+        "contexto.md",
+        "pendientes.md",
+        "plan_cierre_pendientes.md",
+        "supuestos_revision.md",
+        "investigacion/investigacionmanual/README.md",
+        "investigacion/investigacionmanual/01_estado_verificado.md",
+        "investigacion/investigacionmanual/02_decisiones_del_equipo.md",
+        "investigacion/investigacionmanual/07_orden_del_dia_y_reparto.md",
+        "investigacion/investigacionmanual/08_auditoria_avance_es2_2026_09_29.md",
+        "investigacion/investigacionmanual/09_reparto_equipo_es2_2026_09_29.md",
+        "plan_de_trabajo.md",
+        "investigacion/investigacionmanual/04_trabajo_del_producto.md",
+        "investigacion/investigacionmanual/06_mapa_de_marcadores.md",
+        "flujodecaja/estudios.md"
+      ],
+      "lecturas": [
+        "plantilla/rubrica_de_calificacion.md",
+        "investigacion/matriz_trazabilidad_es2.md",
+        "flujodecaja/estudios.md",
+        "anexos/A_evaluacion_economica.md",
+        "anexos/B_diccionario_datos.md",
+        "anexos/C_casos_de_prueba.md"
+      ],
+      "depende": [],
+      "recursos": [
+        "Informes/generar.py"
+      ]
+    },
+    {
+      "id": "ES2-PUBLICAR-AUDITORIA-WORD",
+      "titulo": "Publicar auditoría y Word de lectura para el equipo",
+      "objetivo": "Subir a GitHub las fuentes de la auditoría y una copia versionada de los DOCX de lectura, conservando build como salida ignorada y sin afirmar cierre final del informe.",
+      "archivos": [
+        "revision_equipo/2026-09-29/README.md",
+        "revision_equipo/2026-09-29/Informe_Final.docx",
+        "revision_equipo/2026-09-29/Anexo_A_Evaluacion_economica.docx",
+        "revision_equipo/2026-09-29/Anexo_B_Diccionario_de_datos.docx",
+        "revision_equipo/2026-09-29/Anexo_C_Casos_de_prueba.docx",
+        "investigacion/investigacionmanual/README.md",
+        "investigacion/investigacionmanual/08_auditoria_avance_es2_2026_09_29.md"
+      ],
+      "lecturas": [
+        "build/Informe_Final.docx",
+        "investigacion/investigacionmanual/09_reparto_equipo_es2_2026_09_29.md"
+      ],
+      "depende": [
+        "ES2-AUDITORIA-EQUIPO-WORD"
+      ]
     }
   ]
 }
