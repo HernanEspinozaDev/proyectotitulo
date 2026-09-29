@@ -1,7 +1,7 @@
 {
-  "version": 1,
-  "fecha_consulta": "2026-09-23",
-  "estado": "Simulación revisada: sin ingresos actuales, SpA propuesta, trabajo fundador no pagado, GCP Santiago y Oficina Express como domicilio presupuestado según oferta pública; contratación y aceptación municipal pendientes",
+  "version": 2,
+  "fecha_consulta": "2026-09-29",
+  "estado": "Escenario de diseño ES2: comisión 3 % neta, pasarela descontada al vendedor conforme flujo público de Split 1:1 y API Cloud Run mínima. Son supuestos de presupuesto, no cobros ni despliegue acreditados.",
   "usd_clp": 1000,
   "factor_prevision_regional": 1.0,
   "iva": 0.19,
@@ -14,7 +14,7 @@
   "capital_social_propuesto": 3000000,
   "acciones_totales_propuestas": 3000,
   "arriendo_final_base": 100000,
-  "comision_neta": 0.12,
+  "comision_neta": 0.03,
   "pasarela_sobre_cobro": 0.0319,
   "firmas_por_reserva": 2,
   "firma_neta_unitaria": 1000,
@@ -33,9 +33,11 @@
       {"id":"sql_ram", "unidad":"GiB-h", "tarifa_usd":0.0098, "ensayo":640, "piloto":5840, "ha":11680, "tipo":"tarifa zonal de Santiago; la HA se obtiene con dos instancias", "fuente":"es2cloudsqlpricing"},
       {"id":"sql_ssd", "unidad":"GiB-h", "tarifa_usd":0.000326027, "ensayo":7300, "piloto":14600, "ha":29200, "tipo":"tarifa zonal de Santiago; HA supuesto doble", "fuente":"es2cloudsqlpricing"},
       {"id":"sql_backup", "unidad":"GiB-h usados", "tarifa_usd":0.000153425, "ensayo":7300, "piloto":14600, "ha":29200, "tipo":"tarifa de respaldo de Santiago; el supuesto doble es conservador", "fuente":"es2cloudsqlpricing"},
-      {"id":"run_cpu", "unidad":"vCPU-s activos", "tarifa_usd":0.0000336, "ensayo":20000, "piloto":200000, "ha":1000000, "tipo":"tarifa de Santiago sin descuento gratuito", "fuente":"es2cloudrunpricing"},
-      {"id":"run_ram", "unidad":"GiB-s activos", "tarifa_usd":0.0000035, "ensayo":10000, "piloto":100000, "ha":500000, "tipo":"tarifa de Santiago sin descuento gratuito", "fuente":"es2cloudrunpricing"},
-      {"id":"run_solicitudes", "unidad":"millones de solicitudes", "tarifa_usd":0.4, "ensayo":0.1, "piloto":1, "ha":5, "tipo":"tarifa sin descuento gratuito", "fuente":"es2cloudrunpricing"},
+      {"id":"run_cpu", "unidad":"vCPU-s activos", "tarifa_usd":3.36e-05, "ensayo":20000, "piloto":200000, "ha":1000000, "tipo":"provisión de actividad adicional del frontend y desbordes fuera de la instancia API mínima; no mide demanda ni concurrencia reales", "fuente":"es2cloudrunpricing"},
+      {"id":"run_ram", "unidad":"GiB-s activos", "tarifa_usd":3.5e-06, "ensayo":10000, "piloto":100000, "ha":500000, "tipo":"provisión de actividad adicional del frontend y desbordes fuera de la instancia API mínima; no duplica memoria de la instancia base", "fuente":"es2cloudrunpricing"},
+      {"id":"run_solicitudes", "unidad":"millones de solicitudes", "tarifa_usd":0.4, "ensayo":0.1, "piloto":1, "ha":5, "tipo":"provisión de solicitudes del frontend bajo facturación por solicitud; la API mínima usa facturación por instancia", "fuente":"es2cloudrunpricing"},
+      {"id":"run_api_min_cpu", "unidad":"vCPU-s facturados", "tarifa_usd":2.52e-05, "ensayo":0, "piloto":2628000, "ha":2628000, "tipo":"API Go 1 vCPU, una instancia mínima 730 h/mes con facturación por instancia; tasa tier 2 de Santiago derivada de tarifa pública 0.000018 x 1.4; sin créditos gratuitos", "fuente":"es2cloudrunpricing"},
+      {"id":"run_api_min_ram", "unidad":"GiB-s facturados", "tarifa_usd":2.8e-06, "ensayo":0, "piloto":1314000, "ha":1314000, "tipo":"API Go 0.5 GiB, una instancia mínima 730 h/mes; tasa tier 2 derivada de 0.000002 x 1.4; sin créditos gratuitos", "fuente":"es2cloudrunpricing"},
       {"id":"storage", "unidad":"GiB-h", "tarifa_usd":0.000052055, "ensayo":7300, "piloto":36500, "ha":146000, "tipo":"tarifa de almacenamiento de Santiago; operaciones en provisión auxiliar", "fuente":"es2gcspricing"},
       {"id":"egress", "unidad":"GiB", "tarifa_usd":0.20, "ensayo":10, "piloto":100, "ha":300, "tipo":"supuesto, verificar origen/destino y producto", "fuente":"es2gcspricing"},
       {"id":"balanceador", "unidad":"hora", "tarifa_usd":0.025, "ensayo":0, "piloto":730, "ha":730, "tipo":"tarifa regla global HTTPS", "fuente":"es2lbpricing"},
@@ -76,8 +78,8 @@
   "limites": [
     "Sin ingresos actuales confirmado; doce meses sin ventas es escenario conservador, no pronóstico",
     "Ticket final 100000 y reservas 0/720/1800 son supuestos sin ventas observadas; INV-011 documenta precios heterogéneos, no un promedio de mercado",
-    "Pasarela 3,19% sobre cobro total asignada como costo económico a EspaciGo, no liquidación nativa confirmada: Split 1:1 publica descuento primero al vendedor; ver INV-012",
-    "El IVA crédito de la pasarela y su compensación al vendedor no están demostrados para el flujo Split; la caja es condicional al tratamiento tributario y contractual",
+    "Tarifa pública referencial de Checkout 3,19 % neto + IVA sobre el cobro del comprador; Split 1:1 la descuenta primero al vendedor. No es tarifa contractual verificada para la operación exacta.",
+    "El IVA de la tarifa del proveedor corresponde a quien reciba su documento tributario; no se acredita como crédito de EspaciGo en este flujo. Comisión y su IVA se registran separados.",
     "Firma 1000 netos por firmante es provisión, no tarifa API; FirmaVirtual publica precio por documento FES distinto. KYC 500 por reserva depende de nuevos usuarios y revalidaciones",
     "Oficina Express 50000 anuales y FES 5000 únicos son ofertas públicas IVA incluido, no contrato; el crédito fiscal simulado exige DTE válido y criterio contable; domicilio, giro y patente requieren aceptación municipal",
     "La provisión anual de aseo 120000 no es tarifa municipal confirmada; la ordenanza 2026 publica 2,88 UTM para actividad económica diurna, pero falta saber si se cobra a la SpA en la oficina virtual o al titular del inmueble. DOM tampoco se carga automáticamente",
@@ -88,6 +90,8 @@
     "PPM0,25% es provisión de liquidez, no tasa asignada al régimen real; regularización anual sin duplicarlo",
     "IDPC27% académico constante, sin arrastre de pérdidas y sin deducción del trabajo gratuito",
     "Primer presupuesto antes de medir carga; no demuestra SLA, RPO/RTO ni capacidad",
-    "Sin terminal, rescate ni recuperación automática del dinero gastado; colchón no es gasto"
-  ]
+    "Sin terminal, rescate ni recuperación automática del dinero gastado; colchón no es gasto",
+    "El piloto y HA suman una instancia API mínima de 1 vCPU/0,5 GiB por 730 h al mes para workers internos; el ensayo es ejecución restringida sin servicio permanente. Se conservan las bolsas de frontend/desborde como provisión, sin medir carga ni aplicar nivel gratuito."
+  ],
+  "incidencia_pasarela": "arrendador"
 }

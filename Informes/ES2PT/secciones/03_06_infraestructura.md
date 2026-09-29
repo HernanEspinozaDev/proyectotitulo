@@ -29,21 +29,21 @@ RNF-034–036 exige portabilidad; adoptar servicios específicos de GCP requiere
 
 ### Perfil presupuestario propuesto
 
-El Anexo A conserva perfiles de caja previos a la decisión de workers en instancia mínima; por tanto, no debe leerse como costo definitivo de la arquitectura consolidada. Su piloto supone SQL Enterprise General Purpose con 2 vCPU/8 GiB durante 730 horas, 20 GiB SSD y 20 GiB de copias; los servicios Cloud Run se estiman con mínimo cero. Incluye balanceador, cinco reglas WAF, logs, compilación, secretos, correo y staging. La base zonal no es HA ni demuestra RNF-009/010 [@es2cloudsqlpricing; @es2cloudrunpricing].
+El Anexo A ya incorpora una instancia mínima de API Go con facturación por instancia para los workers internos. El piloto supone SQL Enterprise General Purpose con 2 vCPU/8 GiB durante 730 horas, 20 GiB SSD y 20 GiB de copias, más API Go de 1 vCPU/0,5 GiB durante 730 horas. La actividad variable de Cloud Run se reserva para frontend/desbordes; incluye además balanceador, cinco reglas WAF, logs, compilación, secretos, correo y staging. La base zonal y una única instancia API mínima no constituyen HA ni demuestran RNF-009/010 [@es2cloudsqlpricing; @es2cloudrunpricing].
 
 *Tabla. Escenarios de costo mensual de infraestructura en tarifas de Santiago.* <!--#tab:es2-infra-costos-->
 
 | Entorno simulado | Tarifas de Santiago, USD | Presupuesto neto CLP | Necesidad de caja CLP con IVA supuesto |
 | --- | ---: | ---: | ---: |
 | Ensayo restringido | 24,65 | 24.650 | 29.334 |
-| Piloto público | 237,82 | 237.819 | 283.005 |
-| HA de referencia | 494,65 | 494.648 | 588.632 |
+| Piloto público | 307,72 | 307.724 | 366.192 |
+| HA de referencia | 564,55 | 564.553 | 671.818 |
 
-**Nota.** Elaboración propia: conversión supuesta de 1.000 CLP/USD sobre las tarifas públicas usadas para `southamerica-west1`, **sin provisión regional**. Cada tarifa y cantidad requiere auditoría por SKU. El 19 % adicional es reserva de caja, cuya facturación y crédito fiscal deben verificarse. Cada mes usa un perfil; no se suman las tres filas. La fila HA y el comparador documental son configuraciones distintas de carga, almacenamiento y respaldos; ninguna demuestra una capacidad operativa contratada. El perfil de piloto con Cloud Run mínimo cero no contempla la instancia mínima necesaria para las goroutines persistentes. Falta recalcularlo y sustituirlo antes de tratarlo como presupuesto de la arquitectura consolidada [@es2gcspricing; @es2lbpricing; @es2armorpricing].
+**Nota.** Elaboración propia: conversión supuesta de 1.000 CLP/USD sobre las tarifas públicas usadas para `southamerica-west1`, **sin provisión regional**. Cada tarifa y cantidad requiere auditoría por SKU. El 19 % adicional es reserva de caja, cuya facturación y crédito fiscal deben verificarse. Cada mes usa un perfil; no se suman las tres filas. La fila HA y el comparador documental son configuraciones distintas de carga, almacenamiento y respaldos; ninguna demuestra una capacidad operativa contratada. El piloto presupone una instancia API mínima de 1 vCPU/0,5 GiB por 730 horas; la facturación por instancia y la tasa de nivel regional 2 se verifican con SKU antes de aprobar gasto [@es2gcspricing; @es2lbpricing; @es2armorpricing].
 
 La decisión del usuario del 23-09-2026 fija **Santiago** como región de operación. El ejercicio comparativo propio conserva precios de Iowa como control documental de la comparación entre Cloud Run y máquinas virtuales, no como presupuesto vigente [@es2cloudrunpricing].
 
-Durante el primer año sin ventas se estiman seis meses de ensayo y seis de piloto, con **1.874.031 CLP de salida cloud** bajo el IVA supuesto. Se requiere confirmar los servicios de datos administrados, levantar el inventario físico y ejecutar las pruebas de carga y restauración en la región decidida; el diferencial frente a Compute Engine también debe incorporar operación, respaldo y seguridad comparables.
+Durante el primer año sin ventas se estiman seis meses de ensayo y seis de piloto, con **2.373.152 CLP de salida cloud** bajo el IVA supuesto. Se requiere confirmar los servicios de datos administrados, levantar el inventario físico y ejecutar las pruebas de carga y restauración en la región decidida; el diferencial frente a Compute Engine también debe incorporar operación, respaldo y seguridad comparables.
 
 ### Dimensionamiento propuesto
 
@@ -51,12 +51,12 @@ Durante el primer año sin ventas se estiman seis meses de ensayo y seis de pilo
 
 | Perfil | Ejecución | Datos y archivos | Supuesto que lo respalda | Estado |
 | --- | --- | --- | --- | --- |
-| Ensayo | API Cloud Run con workers internos, facturación por instancia y mínimo 1; el cliente web futuro no se incluye aquí | PostgreSQL zonal y Cloud Storage privados | Tráfico interno y datos sintéticos | Arquitectura decidida; sin desplegar |
-| Piloto | Una API Cloud Run con concurrencia y máximo de instancias acotados; mínimo 1 para sostener las tareas internas | PostgreSQL de 2 vCPU y 8 GiB con 20 GiB de SSD/respaldos y objetos según demanda | Perfil presupuestario por recalcular con la configuración final | Arquitectura decidida; capacidad y costo por medir |
+| Ensayo | API/worker del mismo monolito en ejecución restringida o local, sin servicio permanente; el cliente web futuro no se incluye aquí | PostgreSQL zonal y Cloud Storage privados | Tráfico interno y datos sintéticos | Arquitectura decidida; sin desplegar |
+| Piloto | Una API Cloud Run con facturación por instancia, mínimo 1 de 1 vCPU/0,5 GiB para tareas internas y máximo de instancias acotado | PostgreSQL de 2 vCPU y 8 GiB con 20 GiB de SSD/respaldos y objetos según demanda | Perfil presupuestario recalculado; capacidad por medir | Arquitectura decidida; capacidad y costo por medir |
 | Alta disponibilidad | Servicios con instancias mínimas y base con conmutación | Base HA con respaldos continuos | RNF-009/010 | Escenario comparativo; no es un diseño probado |
 
 El dimensionamiento no se deduce de los objetivos. RNF-001 exige 200 usuarios concurrentes con búsqueda bajo 2 segundos y RNF-030 fija 500 usuarios concurrentes y 100 escrituras por segundo: solo una prueba de carga puede contrastar esas cifras. Hasta entonces, CPU, memoria, instancias mínimas y tamaño de base son **parámetros de escenario**, no capacidades contratadas. PT-09 y PT-10 describen esos ensayos.
 
-Las tarifas públicas usadas para **Santiago** se aplicaron como **supuestos del presupuesto vigente**; falta cotejar SKU, volúmenes y condiciones de facturación. Con Cloud SQL HA, 20 GiB de SSD, 20 GiB de respaldo, 50 GiB de objetos y Cloud Run con mínimo 0, el comparador aritmético alcanza USD 384,23 al mes frente a USD 297,01 de una configuración comparable en Iowa. El piloto de la tabla cuesta USD 237,82 porque usa SQL zonal; la fila HA de USD 494,65 tiene otra carga y mayores cantidades de almacenamiento y respaldo, por lo que no es directamente comparable. El presupuesto dejó de usar la provisión regional del 35 %; su efecto está cuantificado en el Anexo A. La conversión a CLP conserva el supuesto de 1.000 CLP/USD y el tratamiento de IVA sigue sin verificar con comprobantes. El inventario físico del equipo —CPU, memoria, sistema operativo, conexión y navegadores de trabajo— todavía no se ha levantado.
+Las tarifas públicas usadas para **Santiago** se aplicaron como **supuestos del presupuesto vigente**; falta cotejar SKU, volúmenes y condiciones de facturación. El comparador aritmético anterior, con Cloud SQL HA y Cloud Run mínimo 0, alcanzaba USD 384,23 en Santiago frente a USD 297,01 de otra configuración comparable en Iowa; queda como antecedente de un servicio sin worker persistente. El piloto de la tabla cuesta USD 307,72 porque usa SQL zonal y suma la instancia API mínima; la fila HA de USD 564,55 tiene otra carga y mayores cantidades de almacenamiento y respaldo, por lo que no es directamente comparable. El presupuesto dejó de usar la provisión regional del 35 %; su efecto está cuantificado en el Anexo A. La conversión a CLP conserva el supuesto de 1.000 CLP/USD y el tratamiento de IVA sigue sin verificar con comprobantes. El inventario físico del equipo —CPU, memoria, sistema operativo, conexión y navegadores de trabajo— todavía no se ha levantado.
 
 [[PENDIENTE: confirmar los servicios de datos administrados y el inventario físico del equipo, y probar despliegue, escalado, respaldo y recuperación con evidencia fechada en la región decidida.]]

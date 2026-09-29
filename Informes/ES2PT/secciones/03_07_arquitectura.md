@@ -17,7 +17,7 @@ La vista integrada conecta presentación, módulos, persistencia e integraciones
 ### Recorrido de una reserva y fallos
 
 1. La web inicia una solicitud autenticada; M01–M03 aportan estado de identidad y M04–M05 la oferta. M06 valida el intervalo con el calendario `ocupacion` de 3.4. Reserva y ocupación deben confirmarse en una misma transacción para impedir doble reserva; la restricción y la prueba concurrente están pendientes.
-2. M06 ejecuta el pago simulado del recorrido de demostración mediante un adaptador con clave idempotente; integraciones externas permanecen aisladas en sandbox. La respuesta se registra y se correlaciona con webhooks. Un timeout produce un estado por conciliar y no autoriza repetir el cargo con otra clave. La capacidad concreta del proveedor sigue sin verificar.
+2. M06 invoca un adaptador de pago con clave idempotente. El simulador se limita a pruebas aisladas y las integraciones externas de desarrollo permanecen en sandbox. La respuesta se registra y se correlaciona con webhooks. Un timeout produce un estado por conciliar y no autoriza repetir el cargo con otra clave. La capacidad concreta del proveedor sigue sin verificar.
 3. La decisión del arrendador condiciona M07. Solo una aprobación permite formalizar el contrato; ambas firmas exigidas habilitan el ingreso. Los plazos y excepciones siguen el proceso de 3.1 y las fichas de ES1.
 4. M08–M10 registran uso, reclamo, resolución y liquidación. Una disputa abierta bloquea el cierre financiero; M11 conserva trazas de acciones críticas. El control físico de inmutabilidad de RNF-017 sigue sin resolver.
 

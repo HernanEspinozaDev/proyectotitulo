@@ -1,0 +1,34 @@
+@startuml
+title ES2 - Estados de reserva del producto completo (propuesta)
+skinparam shadowing false
+[*] --> pendiente_de_pago : reservar y retener intervalo
+pendiente_de_pago --> pagada : pago verificado o conciliado
+pendiente_de_pago --> cancelada_por_pago : rechazo o vencimiento 15 min
+pagada --> aprobada_host : aprueba arrendador
+pagada --> rechazada_arrendador : rechazo fundado
+pagada --> cancelada_por_vencimiento : 24 h sin respuesta
+aprobada_host --> firma_parcial : primera firma
+aprobada_host --> lista_para_checkin : todas las firmas
+firma_parcial --> lista_para_checkin : todas las firmas
+aprobada_host --> cancelada_por_firma : firma incompleta al inicio
+firma_parcial --> cancelada_por_firma : rechazo o vencimiento
+lista_para_checkin --> en_curso : check-in con evidencia
+en_curso --> finalizada : check-out con evidencia
+finalizada --> en_disputa : reclamo en ventana
+en_disputa --> finalizada : fallo administrativo
+finalizada --> cerrada : liquidacion conciliada
+pendiente_de_pago --> cancelada_arrendatario : politica aplicable
+pagada --> cancelada_arrendatario : politica y reembolso
+aprobada_host --> cancelada_arrendatario : politica y reembolso
+lista_para_checkin --> cancelada_arrendatario : politica y reembolso
+cancelada_por_pago --> [*]
+rechazada_arrendador --> [*]
+cancelada_por_vencimiento --> [*]
+cancelada_por_firma --> [*]
+cancelada_arrendatario --> [*]
+cerrada --> [*]
+note right of en_disputa
+  Disputa es una entidad separada;
+  este estado bloquea la liquidacion.
+end note
+@enduml

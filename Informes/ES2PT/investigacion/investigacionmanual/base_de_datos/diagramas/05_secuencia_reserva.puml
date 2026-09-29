@@ -1,0 +1,31 @@
+@startuml
+title ES2 - Reserva concurrente y limite de la transaccion
+autonumber
+actor Arrendatario
+participant "API Go" as api
+database "PostgreSQL" as db
+participant "Pago simulado / sandbox" as pay
+Arrendatario -> api : reservar(intervalo, cotizacion, clave)
+api -> api : validar actor, categoria, tarifa y duracion
+api -> db : BEGIN
+api -> db : INSERT reserva pendiente + snapshot
+api -> db : INSERT ocupacion activa con rango [)
+alt exclusion de solapamiento
+  db --> api : conflicto de exclusion
+  api -> db : ROLLBACK
+  api --> Arrendatario : intervalo no disponible
+else intervalo disponible
+  api -> db : INSERT outbox_evento
+  api -> db : COMMIT
+  db --> api : reserva_id
+  api -> pay : operacion idempotente fuera de BEGIN
+  alt respuesta confirmada
+    pay --> api : confirmacion
+    api -> db : registrar pago y transicion autorizada
+  else resultado ambiguo
+    pay --> api : timeout / sin certeza
+    api -> db : marcar por_conciliar
+  end
+  api --> Arrendatario : estado actual
+end
+@enduml

@@ -13,12 +13,11 @@ Para cada decisión: **qué se decide**, **opciones sobre la mesa**, **qué pasa
 - **Si no se decide:** el cronograma de la sección 7 sigue con esfuerzo relativo y sin responsables, y no se puede prometer ninguna fecha interna.
 - **Se registra:** en `07_cronograma.md` y en `../../supuestos_revision.md` (reemplaza SUP-02/SUP-03). **Bloquea:** VII, KPI, pruebas.
 
-## D-02. Alcance de la demostración del 3 de noviembre
+## D-02. Evidencia ejecutable del producto completo al 3 de noviembre
 
-- **Qué se decide:** qué existirá exactamente y qué no.
-- **Opción sobre la mesa:** SUP-01 — registro con datos sintéticos, publicación y búsqueda en todas las categorías, consulta de disponibilidad, reserva sin solapamiento, pago y firma **simulados** y una consulta administrativa. Sin dinero real ni credenciales de terceros.
-- **Alternativas:** recortar a solo catálogo y búsqueda; o ampliar con pago real si algún proveedor habilita cuentas de prueba.
-- **Si no se decide:** los capítulos III, V y VII describen un alcance condicionado, y la demostración no se puede preparar ni ensayar.
+- **Definido:** la arquitectura, el modelo de datos y el alcance de producto incluyen todas las categorías y el flujo completo de arriendo; una muestra ejecutable no restringe esa definición.
+- **Qué queda por decidir:** qué casos estarán implementados y qué evidencia reproducible podrá mostrarse en la fecha académica. Las integraciones de desarrollo se ensayan en sandbox y ningún flujo de dinero real se presume habilitado.
+- **Si no se decide:** los capítulos V y VII mantendrán hitos y resultados de pruebas como pendientes de evidencia.
 - **Se registra:** en `01_introduccion.md`, `03_02_casos_uso.md`, `05_01_pruebas.md` y `07_cronograma.md`.
 
 ## D-03. Revisión de los cuatro diagramas BPMN
@@ -35,7 +34,8 @@ Para cada decisión: **qué se decide**, **opciones sobre la mesa**, **qué pasa
 
 ## D-05. Interfaces entre componentes y conciliación
 
-- **Qué se decide:** conformidad con las interfaces de 3.3, la ejecución de la conciliación cada 15 minutos (SUP-14) y su costo dentro de la provisión.
+- **Definido:** la conciliación y la expiración se ejecutan en workers internos del monolito Go, con estado persistido en PostgreSQL y una instancia mínima contemplada en el Anexo A.
+- **Qué se decide:** periodicidad operativa, interfaces definitivas de 3.3 y presupuesto contrastado con despliegue y facturación reales.
 - **Si no se decide:** la conciliación sigue como propuesta y RNF-028 no se puede declarar cubierto.
 - **Se registra:** acta técnica; sostiene el marcador de `03_03_componentes.md`.
 
@@ -60,7 +60,7 @@ Para cada decisión: **qué se decide**, **opciones sobre la mesa**, **qué pasa
 ## D-09. Aportes, pacto de socios, propiedad intelectual y poderes
 
 - **Qué se decide:** cuánto aporta cada fundador y cómo; qué se pacta sobre propiedad intelectual y decisiones de gasto; con qué poderes se firmará.
-- **Opción sobre la mesa:** SUP-12 — financiamiento ilustrativo de 5.778.891 CLP para el primer año (≈ 1.926.297 por fundador), 3.000 acciones iguales y dos revisores para compromisos de gasto.
+- **Base ilustrativa actual:** SUP-12 — necesidad del primer año de **5.314.863 CLP**; con holgura del 20 %, **6.377.835 CLP** (≈ **2.125.945 CLP** por fundador si los aportes son iguales). Las 3.000 acciones y los dos revisores siguen como supuestos de pacto, no como sociedad constituida.
 - **Importante:** nada de esto constituye la sociedad ni otorga poderes; se acuerda **antes** de los estatutos y no se contrata durante el estudio.
 
 ## D-10. Reparto de giros y capital pagable
@@ -80,10 +80,10 @@ Para cada decisión: **qué se decide**, **opciones sobre la mesa**, **qué pasa
 - **Qué se decide:** cuándo se envía la versión de contenido al docente y quién registra la retroalimentación de los **17 criterios** y del cronograma.
 - **Regla:** la revisión docente **solo** se registra con evidencia real recibida.
 
-## D-13. Ratificación técnica
+## D-13. Registro de la arquitectura decidida
 
-- **Qué se decide:** ratificar la continuidad de Next.js, Go, PostgreSQL/PostGIS, contenedores y Cloud Run, y aceptar que la valoración ponderada es **ilustrativa** (SUP-04/SUP-19), sin declarar superioridad de rendimiento ni de costo.
-- **Alternativa real:** cambiar de base exigiría modificar **RNF-038** y justificarlo, cosa que hoy no se propone.
+- **Definido:** Next.js, monolito Go con workers internos, PostgreSQL 18/PostGIS 3.6, contenedores y Cloud Run. La valoración ponderada de SUP-04/SUP-19 continúa siendo **ilustrativa**; no prueba rendimiento ni costo.
+- **Qué se registra:** decisiones de configuración, versiones desplegadas y mediciones cuando existan, sin alterar RNF-038 por hipótesis.
 
 ## D-14. Alcance del destaque pagado
 

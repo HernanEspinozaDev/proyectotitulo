@@ -1,0 +1,22 @@
+@startuml
+title ES2 - Entorno local de datos propuesto (sin desplegar)
+skinparam shadowing false
+node "Equipo Linux del desarrollador" {
+  node "Docker Compose" {
+    node "Contenedor API Go" as api
+    database "Contenedor PostgreSQL 18\ncon PostGIS y btree_gist" as pg
+    artifact "Migraciones SQL\nversionadas" as mig
+  }
+  folder "Volumen persistente\nde desarrollo" as vol
+  artifact "Datos sinteticos\nde ensayo" as seed
+}
+api --> pg : pgx / SQL parametrizado
+mig --> pg : aplicar en orden
+seed --> pg : carga controlada
+pg --> vol : datos
+note bottom of pg
+  Imagen y digest por fijar;
+  verificar version/extension real.
+  Sin datos productivos.
+end note
+@enduml

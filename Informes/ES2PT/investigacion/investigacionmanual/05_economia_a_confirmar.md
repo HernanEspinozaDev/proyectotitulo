@@ -8,12 +8,12 @@ Los valores vigentes están en [`supuestos_bootstrap.json`](../supuestos_bootstr
 
 | Indicador | Caso base, ticket único | Segmentado **sintético** |
 | --- | ---: | ---: |
-| Contribución del año 3 | 10.424.507 CLP | 350.688 CLP |
-| VAN de caja a 36 meses | −1.791.437 CLP | −12.771.812 CLP |
-| Déficit máximo en 36 meses | 6.246.529 CLP | 15.891.086 CLP |
-| TIR de caja | −9,20 % | No definida |
+| Contribución del año 3 | 0 CLP | −3.617.400 CLP |
+| VAN de caja a 36 meses | −15.140.998 CLP | −19.515.672 CLP |
+| Déficit máximo en 36 meses | 18.953.948 CLP | 24.901.789 CLP |
+| TIR de caja | No definida | No definida |
 
-Lectura que ya está en el informe: **el ticket medio de 100.000 CLP oculta categorías que no cubren sus costos variables**. Bajo 35.909 CLP de arriendo, una reserva no paga pasarela, firmas, KYC y otros cargos. El margen operativo modelado del año 3 es 23,35 %, inferior a la meta declarada de 25 %. El punto de equilibrio anual es ≈ 858 reservas sin remunerar el tiempo y ≈ 4.892 si se reconoce todo el esfuerzo valorizado.
+Lectura vigente: **el ticket uniforme de 100.000 CLP solo cubre los costos variables propios** con comisión del 3 % neto; ninguna de las cinco categorías de la sensibilidad cubre esos costos. La tarifa pública de pasarela se descuenta al vendedor, no de los ingresos de EspaciGo. A ticket y costo unitario base no existe volumen finito que pague los fijos. El piloto cloud incorpora ahora una instancia API mínima de USD 69,90/mes para workers internos.
 
 ## Supuestos por reemplazar
 
@@ -22,9 +22,9 @@ Lectura que ya está en el informe: **el ticket medio de 100.000 CLP oculta cate
 | E-01 | Arriendo final por reserva | 100.000 CLP | Precio final medido por `categoría × modalidad`, con duración y unidad de tiempo | Trabajo de campo (fila 7 de terceros) |
 | E-02 | Volumen de reservas | 0 / 720 / 1.800 al año | Reservas pagadas observadas, con rechazos y cancelaciones por cohorte | Producto en operación |
 | E-03 | Reparto del volumen por categoría | 20 % por segmento, **sintético** | Participación real por categoría, medida | Trabajo de campo |
-| E-04 | Comisión neta | 12 % del arriendo | Tasa aceptada por los arrendadores, contrastada con competencia | Entrevistas + prueba con clientes piloto |
+| E-04 | Comisión neta | 3 % del arriendo decidido para diseño | Aceptación medida por arrendadores y eventual decisión de cambio versionada | Entrevistas + prueba con clientes piloto |
 | E-05 | Tarifa de pasarela | 3,19 % sobre el cobro total | Tarifa contractual de Split del proveedor | Cotización (fila 2 de terceros) |
-| E-06 | Incidencia económica de esa tarifa | La absorbe EspaciGo, con compensación hipotética al vendedor | Liquidación real: quién la paga y cómo se documenta | Cotización + contador |
+| E-06 | Incidencia económica de esa tarifa | Descuento al vendedor conforme a la guía pública de Split 1:1; no costo de EspaciGo | Liquidación real, documento y tratamiento del IVA | Cotización + contador |
 | E-07 | Firma electrónica | 1.000 CLP netos por firmante, dos por reserva | Cotización por documento y tipo jurídico | Cotización (fila 3) |
 | E-08 | Verificación de identidad (KYC) | 500 CLP por reserva, prorrateado | Tarifa por usuario nuevo y por revalidación | Cotización (fila 3) |
 | E-09 | Otros cargos variables | 500 CLP por reserva | Cargos reales por operación | Cotización |
@@ -36,15 +36,16 @@ Lectura que ya está en el informe: **el ticket medio de 100.000 CLP oculta cate
 | E-15 | Tasa de descuento | 12 % nominal supuesto | Tasa justificada del proyecto | Equipo, con el contador |
 | E-16 | Colchón de caja | 20 % sobre el déficit del año 1 | Política de liquidez acordada | Equipo (D-09) |
 | E-17 | Capital social propuesto | 3.000.000 CLP en 3.000 acciones | Capital realmente suscrito y pagado | Equipo (D-09/D-10) |
-| E-18 | Financiamiento ilustrativo del año 1 | 5.778.891 CLP (≈ 1.926.297 por fundador) | Aporte acordado y efectivo | Equipo (D-09) |
+| E-18 | Financiamiento ilustrativo del año 1 | 6.377.835 CLP (≈ 2.125.945 por fundador) | Aporte acordado y efectivo | Equipo (D-09) |
 | E-19 | Provisión de captación con Meta Ads | 357.000 CLP en seis meses | Costo por publicación y por reserva medido en campaña | Campaña (fila 9) |
-| E-20 | Asco municipal | 120.000 CLP de provisión | Liquidación municipal | Municipio (fila 6) |
+| E-20 | Aseo municipal | 120.000 CLP de provisión | Liquidación municipal | Municipio (fila 6) |
 | E-21 | Patente comercial | 1 UTM anual ilustrativa (71.721 CLP) | Liquidación de la patente única de la SpA | Municipio (fila 6) |
 | E-22 | Oficina virtual | 50.000 CLP/año + 5.000 CLP de firma, IVA incluido | Contrato firmado y DTE válido | Oficina Express (fila 6) |
 | E-23 | Honorarios profesionales de inicio | 800.000 CLP netos en tres partidas | Presupuestos o contratos | Profesionales (fila 6) |
 | E-24 | Valor hora del trabajo fundador | 15.000 CLP/h | Criterio acordado y documentado | Equipo |
 | E-25 | Horas por fundador | 20 / 10 / 10 h semanales, 48 semanas | Disponibilidad real declarada | Equipo (D-01) |
 | E-26 | Costo de oportunidad del año 1 | 43.200.000 CLP, informado aparte | Igual criterio, actualizado con E-24 y E-25 | Equipo |
+| E-27 | API Go mínima para workers internos | 1 vCPU/0,5 GiB durante 730 h/mes en piloto y perfil HA; USD 69,90 netos/mes derivados de tarifa pública regional | SKU de Santiago, configuración desplegada, consumo y factura | Operación GCP |
 
 ## Cómo se mide el mercado (resumen operativo)
 

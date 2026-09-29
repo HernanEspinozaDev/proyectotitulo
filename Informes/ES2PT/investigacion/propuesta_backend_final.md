@@ -1,10 +1,10 @@
 # Propuesta final de backend e infraestructura para EspaciGo
 
-**Versión:** 1.1 — 28-09-2026  
+**Versión:** 1.2 — 29-09-2026
 **Estado:** propuesta oficial y documento base único de arquitectura backend ES2; decisiones consolidadas para iniciar la implementación. No indica que exista código, despliegue, acceso a proveedores o cumplimiento probado.  
 **Alcance:** backend, infraestructura GCP y almacenamiento/analítica necesarios para él. El frontend se diseña después y queda fuera de este documento.
 
-Esta versión incorpora las decisiones cerradas posteriores a la v1.0 y reemplaza sus recomendaciones alternativas sobre Datastream, workers separados y alcance todavía por acordar.
+Esta versión sincroniza el backend con el [diccionario oficial de diseño del Anexo B](../anexos/B_diccionario_datos.md). Por decisión posterior del usuario, la planificación cubre el producto completo y todas las categorías desde el esquema inicial; la construcción sigue siendo incremental. La Ley 21.719 se incorpora desde el primer incremento como criterio de diseño, independientemente de su fecha de vigencia. Mercado Pago conserva una investigación de integración separada.
 
 ## 1. Decisión ejecutiva
 
@@ -12,9 +12,7 @@ Construir **un monolito modular en Go**, con módulos internos por dominio y una
 
 Usar **PostgreSQL/PostGIS en Cloud SQL como fuente de verdad transaccional** para el estado de la plataforma. Usar **Cloud Storage privado** para imágenes, contratos y evidencias. Administrar recursos con **Terraform** y estado remoto en GCS con versionado/locking. Usar **Cloud Logging** para logs técnicos y correlación, un registro durable de auditoría de negocio para acciones críticas, y **BigQuery** para análisis de eventos/agregados autorizados. Implementar outbox en PostgreSQL y publicarlo a Pub/Sub para ingesta a BigQuery; **Datastream queda descartado para esta fase**. Configurar presupuesto y alertas de facturación desde el primer despliegue GCP, junto con límites operativos por servicio.
 
-La demostración ejecutable de ES2 abarca **una categoría de espacio** y un recorrido lineal de búsqueda, reserva, pago simulado y check-in. El esquema conserva un atributo genérico de categoría (`tipo` en el modelo inicial), validado contra un catálogo extensible, para admitir las categorías del producto sin restringir el modelo al piloto. Los pagos externos se prueban únicamente en sandbox; el recorrido de la demostración no mueve dinero real.
-
-La demostración no realiza firma electrónica real ni afirma validez jurídica del contrato. Si el check-in necesita una condición contractual para el escenario mostrado, se usará un estado simulado claramente identificado; la integración de firma con proveedor se mantiene fuera de este recorrido.
+El alcance de diseño es **el producto completo**: todas las categorías de espacios de la entrega anterior y los flujos de identidad, publicación, búsqueda, cotización, reserva, pago, firma, uso, disputa, liquidación, comunicación, promoción, analítica y derechos de titulares. `categoria_espacio` es catálogo referenciado por `espacio`; cada publicación representa una unidad reservable exclusiva. La entrega de funciones puede organizarse por incrementos, sin reducir el modelo a una categoría ni declarar implementadas integraciones externas. Desarrollo, integración y staging invocan Mercado Pago exclusivamente en sandbox; un simulador local sirve para pruebas aisladas y no acredita cobro real.
 
 Para acceso a datos, usar **pgx/pgxpool + sqlc** en operaciones SQL definidas y transaccionales. Permitir `pgx` con consultas parametrizadas y filtros explícitamente permitidos para la búsqueda dinámica. Las transacciones ACID cubren escrituras de PostgreSQL; no revierten una operación que un proveedor externo ya realizó.
 
@@ -55,7 +53,6 @@ El diagrama es una dirección propuesta, no un despliegue existente. Los servici
 
 ```text
 cmd/api/                     servidor HTTP principal
-cmd/worker/                  procesos de fondo cuando se incorporen
 internal/
   identity/                  cuenta, roles, perfil y verificación
   catalog/                   espacios, categorías, tarifas y publicaciones
@@ -65,10 +62,11 @@ internal/
   contracts/                 versiones de contrato y firmas
   operations/                check-in/out y evidencias
   disputes/                  reclamos, descargos y resolución
-  communications/            notificaciones, chat/reseñas si se priorizan
-  promotions/                 campañas y permisos de métricas si se aprueban
+  communications/            notificaciones, mensajes de reserva y reseñas
+  promotions/                 campañas, órdenes y permisos de métricas
   audit/                     trazas de acciones críticas y consultas autorizadas
   analytics/                 esquemas/eventos, agregados y acceso a reportes
+  worker/                    ejecución de tareas durables dentro de cmd/api
   platform/
     authz/ database/ config/ observability/
   adapters/
@@ -119,14 +117,14 @@ Las goroutines de fondo viven dentro de cada instancia del servicio API. Se conf
 PostgreSQL registra y decide:
 
 - Usuarios, roles, estado de cuenta, perfiles y verificaciones.
-- Espacios, categoría extensible validada contra catálogo, capacidad, tarifas y condiciones publicadas. Todas las categorías del producto se modelan desde el inicio; la demostración ejercita solo una.
+- Espacios de todas las categorías mediante FK a catálogo, capacidad, tarifas y condiciones versionadas; una publicación es una unidad exclusiva.
 - Ocupación, bloqueos, reservas y snapshots de precio/condiciones.
 - Intentos de cobro/reembolso, referencias de proveedor, liquidaciones y disputas.
 - Contratos versionados, estado por firmante, documentos y evidencias.
-- Campañas/promociones pagadas y entitlement de consulta de métricas cuando se aprueben.
-- Solicitudes de titulares, auditoría operacional y respuestas NPS necesarias al producto.
+- Campañas/promociones pagadas, órdenes y derecho de consulta de métricas, con activación comercial posterior a precio/política aprobados.
+- Mensajes, reseñas, notificaciones, solicitudes de titulares, auditoría operacional y respuestas NPS voluntarias.
 
-El Anexo B plantea un núcleo parcial de 17 entidades de negocio y 137 atributos, más `outbox_evento` como tabla técnica; falta validar cardinalidades, reglas y cobertura antes de considerarlo modelo final. Quedan por evaluar historial de estados, reembolsos parciales/contracargos, perfiles/sesiones, tarifas por categoría y duración, y mensajería/reseñas/notificaciones según priorización.
+El [Anexo B](../anexos/B_diccionario_datos.md) fija el contrato lógico completo con 43 entidades/tablas de diseño, campos, nulabilidad, claves, finalidades, cardinalidades y estados. Incluye perfiles/sesiones, tarifas y comisiones versionadas, historia de estados, movimientos financieros, comunicación, promoción y derechos. Su implementación en migraciones PG18/PostGIS y los ensayos MD/PT siguen pendientes; el conteo anterior de 17+1 describía solo el núcleo preliminar y ya no define el alcance.
 
 ### Transacción local y pagos externos
 
@@ -140,7 +138,7 @@ Una transacción puede crear reserva+ocupación+outbox y confirmar esos cambios 
 6. Si el pago se confirmó y después falla un paso de negocio, ejecutar compensación/reembolso conforme a política y proveedor. Registrar la compensación como nueva operación, no borrar el cobro original.
 7. Generar contrato/versionado y habilitar firmas/check-in según estados y reglas aprobados.
 
-Conciliar cuatro valores distintos: importe comprador, cargo proveedor, comisión EspaciGo y neto arrendador. Split 1:1 no prueba custodia, escrow ni liberación condicionada. Antes de dinero real hacen falta contrato, cuenta/KYC y ensayos de cobro, reparto, reverso, saldo insuficiente y contracargo en sandbox.
+Conciliar cuatro valores distintos: importe comprador, cargo proveedor, comisión EspaciGo y neto arrendador. El escenario económico vigente usa `regla_comision` inicial de **3 % neto** del arriendo publicado; IVA de la comisión separado si corresponde. La tarifa del proveedor se descuenta primero al vendedor según la documentación pública de Split 1:1 y se registra separada del ingreso de la plataforma. El comprador paga el precio final publicado en el caso base; cualquier cargo adicional requiere cotización aceptada. El Anexo A recalcula caja y margen con este contrato y con una instancia API mínima para las goroutines. Split 1:1 no prueba custodia, escrow ni liberación condicionada. Antes de dinero real hacen falta contrato, cuenta/KYC y ensayos de cobro, reparto, reverso, saldo insuficiente y contracargo en sandbox.
 
 La exclusividad de sandbox se aplica a toda prueba que invoque Mercado Pago: integración continua, pruebas manuales y staging usan credenciales y medios de pago de prueba. Las pruebas unitarias pueden usar un simulador local sin conectar al proveedor. Credenciales productivas no estarán disponibles en desarrollo/staging; habilitarlas después requiere decisión separada y controles de acceso.
 
@@ -160,16 +158,16 @@ Las URLs firmadas son bearer credentials: quien las tiene puede ejecutar esa acc
 
 ## 7. Estados y módulos funcionales
 
-### Máquina de estados para la demostración
+### Máquina de estados del producto completo
 
 ```text
-PENDIENTE ──pago simulado aprobado──> CONFIRMADA ──check-in──> EN_CURSO ──check-out──> FINALIZADA
-    │                                      │                       │
-    ├──cancelación/vencimiento──> CANCELADA/EXPIRADA               └──reclamo autorizado──> DISPUTA
-                                           └──reclamo autorizado───────────────> DISPUTA
+pendiente_de_pago → pagada → aprobada_host → firma_parcial → lista_para_checkin
+                                                          → en_curso → finalizada → cerrada
+                                                                            ↕
+                                                                        en_disputa
 ```
 
-`DISPUTA` queda activa mientras se resuelve el reclamo. Su resultado se registra en el dominio de disputa; al cerrar, la reserva vuelve a `CONFIRMADA` si el arriendo no comenzó o pasa a `FINALIZADA` si ya se completó. La transición solo ocurre mediante el caso de uso autorizado, con actor, fecha y motivo. Los estados y transiciones se implementan en una única capa de dominio y se prueban; ni el cliente ni un webhook pueden asignar arbitrariamente el estado.
+El flujo agrega cancelaciones por pago, rechazo/vencimiento del anfitrión, falta de firma y cancelación del arrendatario conforme a política. Si ambas firmas llegan juntas, `aprobada_host` puede pasar a `lista_para_checkin` mediante transición explícita. `disputa` y `pago` conservan estados propios; una disputa abierta bloquea liquidación. Cada salto registra actor o proceso, motivo, tiempo, versión y correlación en `reserva_transicion` durante el mismo commit. El cliente y un webhook no asignan estados arbitrariamente. Los arcos y literales completos están en Anexo B.
 
 | Dominio | Primera responsabilidad backend |
 | --- | --- |
@@ -184,7 +182,7 @@ PENDIENTE ──pago simulado aprobado──> CONFIRMADA ──check-in──> E
 | Auditoría | Registrar quién hizo qué sobre qué recurso, cuándo, resultado, motivo/correlación y origen técnico permitido |
 | Campaña/métricas | Futuro opcional: configuración y entitlement operacional, informes agregados, medición válida de cada campaña |
 
-Todos los tipos de espacio se mantienen en el dominio. El alcance de la primera demo puede seleccionar un recorrido y casos concretos, pero la arquitectura de categorías/unidades no debe codificarse como categoría única sin decisión expresa.
+Todos los tipos de espacio se mantienen en el dominio desde el diseño. Cada incremento construye funciones verificables sin convertir una categoría de ejemplo o un pago simulado en el alcance oficial del producto.
 
 ## 8. Observabilidad, auditoría y privacidad
 
@@ -258,12 +256,12 @@ Objetivos heredados de ES1 (disponibilidad, latencia, capacidad, RPO/RTO) siguen
 
 | Etapa | Construir | Evidencia para pasar a la siguiente |
 | --- | --- | --- |
-| 0. Base de ejecución | Fijar categoría que se mostrará, estados y permisos para el flujo seleccionado, API inicial, clases de datos/retención y provider interfaces | Contrato de API, estados de demo y categoría seleccionada documentados |
+| 0. Base de ejecución | Fijar catálogo de todas las categorías, estados, permisos, API inicial, clases de datos/retención y provider interfaces | Contrato de API y diccionario del producto completo documentados |
 | 1. Base de repositorio/backend | Go skeleton, monolito modular, `slog`, OpenAPI inicial, error envelope, health/readiness, Docker local, PostgreSQL/PostGIS, migraciones y sqlc | CI y API local reproducibles; DB migrable desde cero |
 | 2. Terraform y GCP dev | Bootstrap state GCS versionado/locking, proyecto/env dev, IAM, Artifact Registry, Secret Manager, Cloud SQL, Cloud Run, logging técnico, presupuesto/alertas y límites operativos | Terraform plan/apply repetible, endpoint dev y alertas comprobadas |
-| 3. Identidad y catálogo | Usuarios/roles, autorización por propietario, catálogo con tabla de categorías y flujo ejecutable sobre una categoría; Cloud Storage y búsqueda geográfica | Pruebas de permisos, validación de objetos, migraciones y búsqueda del recorrido |
+| 3. Identidad y catálogo | Usuarios/roles, autorización por propietario, catálogo de todas las categorías y reglas de tarifa por unidad; Cloud Storage y búsqueda geográfica | Pruebas de permisos, validación de objetos, migraciones y búsqueda por categoría |
 | 4. Reserva | Cotización snapshot, ocupación, exclusión, expiración, outbox; workers goroutine con reclamo durable y concurrencia | PT-01/PT-02 pasan; worker retoma tras reinicio sin duplicar efectos |
-| 5. Pago y contrato | Pago simulado en demo; Mercado Pago solo sandbox; idempotencia, webhooks, conciliación, contrato versionado, firmas y disputa | Evidencia diferencia simulador y sandbox; sin credenciales productivas ni efectos duplicados |
+| 5. Pago y contrato | Adaptador simulado para pruebas aisladas; Mercado Pago solo sandbox durante integración; idempotencia, webhooks, conciliación, contrato versionado, firmas y disputa | Evidencia distingue simulador y sandbox; sin credenciales productivas ni efectos duplicados |
 | 6. Operación segura | Check-in, evidencia, administración, auditoría, derechos titulares, backups/restauración y alertas | PT aplicables, ensayo de recuperación y privacidad con fecha |
 | 7. Analítica inicial | Outbox→Pub/Sub→BQ para eventos de dominio, Pub/Sub→BQ para impresiones/clics de todas las publicaciones; métricas premium, Looker Studio para vendedores de prueba y NPS | Esquema/deduplicación comprobados, aislamiento entre vendedores y costo revisado |
 | 8. Recomendaciones | Reglas baseline y evaluación offline; BigQuery ML solo con datos suficientes y reserva presupuestada | Mejora medida frente al baseline y privacidad/costo aprobados |
@@ -286,22 +284,23 @@ Una falla se puede localizar en el monolito con `service`, `module`, `operation`
 
 | Decisión | Definición de implementación |
 | --- | --- |
-| Alcance demo ES2 | Una categoría de espacio y recorrido búsqueda → reserva → pago simulado → check-in. El modelo mantiene soporte para múltiples categorías |
-| Estados demo | `PENDIENTE → CONFIRMADA → EN_CURSO → FINALIZADA`; `DISPUTA` es salida excepcional durante la resolución. Se permite `PENDIENTE → CANCELADA/EXPIRADA` para rechazo, cancelación o vencimiento de retención |
-| Pagos | Mercado Pago exclusivamente sandbox en desarrollo, CI, pruebas manuales y staging. La demostración usa adaptador simulado; no hay credenciales productivas |
+| Alcance de producto | Todas las categorías y flujos de ES1 modelados; construcción incremental sin demo de categoría única como definición de arquitectura |
+| Estados de reserva | Máquina completa del Anexo B: pago, aprobación, firmas, uso, disputa, cierre y cancelaciones; pago y disputa tienen estados independientes |
+| Datos y privacidad | Diccionario completo del Anexo B como contrato lógico; Ley 21.719 aplicada como criterio de diseño desde el primer incremento y PT-16 previsto |
+| Pagos | Mercado Pago exclusivamente sandbox en desarrollo, CI, pruebas manuales y staging. El simulador es solo una herramienta de prueba aislada; no hay credenciales productivas |
 | Analítica/CDC | Outbox PostgreSQL → Pub/Sub → BigQuery. Datastream descartado en esta fase |
 | Métricas de publicaciones | Registrar impresiones y clics de todas las publicaciones desde la etapa analítica; mostrar alcance, vistas y CTR solo con ticket premium vigente y autorización del arrendador |
 | Panel temprano | Looker Studio (Data Studio) conectado a vistas autorizadas, limitado a vendedores de prueba y con aislamiento validado; no se usa como sustituto de una futura API de reportes |
 | Procesos de fondo | Goroutines del mismo servicio Cloud Run; PostgreSQL durable con leases/reclamo transaccional; facturación por instancia y mínimo una instancia; sin Cloud Run Job independiente |
 | Costos | Budget por ambiente y alertas al 50 %, 80 % y 100 % del presupuesto desde el primer despliegue, además de cotas operativas por servicio |
 
-Los permisos finos por rol, la política de tratamiento/retención y el plazo de RNF-017 siguen requiriendo evidencia/acuerdo competente; no se fijan por inferencia. Las alertas de Billing Budget notifican umbrales, pero por sí solas no cortan consumo. Terraform establece máximo de instancias, pool de DB y límites de consulta/cuota cuando estén disponibles; para un corte duro se necesita control aparte y los recursos persistentes pueden seguir generando costo.
+El Anexo B fija roles y controles de acceso de diseño, matriz de finalidades y procedimiento de derechos desde el primer incremento. La base jurídica concreta, los plazos exactos por clase, el bloqueo irreversible de RNF-017 y la tributación de cada cargo requieren revisión competente antes de automatizar reglas productivas. Las alertas de Billing Budget notifican umbrales, pero por sí solas no cortan consumo. Terraform establece máximo de instancias, pool de DB y límites de consulta/cuota cuando estén disponibles; para un corte duro se necesita control aparte y los recursos persistentes pueden seguir generando costo.
 
 ## 14. Trazabilidad de la propuesta oficial
 
 Este documento es la única propuesta base vigente del backend. Sus decisiones se incorporan al capítulo III, especialmente en 3.3–3.6, y se reflejan en el Anexo B para el modelo de datos y el mecanismo Outbox. La investigación de Mercado Pago permanece independiente ([INV-026](INV-026_mercado_pago_split.md)) y podrá incorporarse como anexo técnico cuando se cierre su evidencia; no constituye una segunda propuesta de arquitectura. Las fuentes PlantUML editables de la vista de componentes, secuencia reserva/pago, estados, ciclo de worker y Outbox/analítica se mantienen en `../diagramas/` y se insertan en la sección 3.3 del informe.
 - [ES2, arquitectura general](../secciones/03_00_arquitectura.md), [componentes](../secciones/03_03_componentes.md), [datos](../secciones/03_04_datos.md), [comunicaciones](../secciones/03_05_comunicaciones.md), [infraestructura](../secciones/03_06_infraestructura.md)
-- [Anexo B: diccionario y DDL propuesto](../anexos/B_diccionario_datos.md); [Anexo C: pruebas previstas](../anexos/C_casos_de_prueba.md); [pendientes ES2](../pendientes.md)
+- [Anexo B: diccionario oficial de diseño](../anexos/B_diccionario_datos.md); [Anexo C: pruebas previstas](../anexos/C_casos_de_prueba.md); [pendientes ES2](../pendientes.md)
 - Documento comparado: `/home/nandev/Descargas/arquitectura_y_roadmap_del_marketplace.md`
 - Conversación analizada: archivo adjunto `Texto pegado.txt` (la mención a agentes se entiende como reglas de desarrollo tipo `AGENTS.md`; no se está proponiendo un agente de producto).
 

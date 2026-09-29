@@ -1,0 +1,44 @@
+@startuml
+title ES2 - Vista conceptual de datos (propuesta, 29-09-2026)
+skinparam shadowing false
+skinparam linetype ortho
+hide methods
+legend bottom
+  Blanco: entidad del núcleo de Anexo B
+  Azul: extensión propuesta sujeta a decisión
+  Cardinalidades conceptuales; restricciones exactas en DDL y diccionario
+endlegend
+class Usuario
+class Espacio
+class Reserva
+class Ocupacion
+class Pago
+class Contrato
+class Documento
+class EventoProveedor
+class OutboxEvento
+class CategoriaEspacio #DCEBFA
+class ReglaTarifa #DCEBFA
+class UnidadReservable #DCEBFA
+class ReservaTransicion #DCEBFA
+Usuario "1" -- "0..*" Espacio : publica
+Usuario "1" -- "0..*" Reserva : solicita
+Espacio "1" -- "0..*" Reserva : oferta
+Espacio "1" -- "0..*" Ocupacion : calendario actual
+Reserva "1" -- "0..1" Ocupacion : retiene
+Reserva "1" -- "0..*" Pago : intentos
+Reserva "1" -- "0..*" Contrato : versiones
+Reserva "1" -- "0..*" ReservaTransicion : historia opcional
+CategoriaEspacio "1" -- "0..*" Espacio : clasifica
+Espacio "1" -- "0..*" ReglaTarifa : cotiza
+Espacio "1" -- "0..*" UnidadReservable : si hay multiples
+UnidadReservable "1" -- "0..*" Ocupacion : alternativa a espacio_id
+Reserva ..> OutboxEvento : emite en transaccion
+EventoProveedor ..> Pago : reconcilia
+Documento ..> Reserva : propietario posible
+note right of UnidadReservable
+  Introducir solo si una publicacion
+  admite unidades simultaneas.
+  La exclusion cambiaria a unidad_id.
+end note
+@enduml

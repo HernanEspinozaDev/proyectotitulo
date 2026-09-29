@@ -1,682 +1,667 @@
-# Diccionario de datos de ES2
+# Anexo B. Diccionario de datos y contrato lógico de ES2
 
-Este Anexo B describe el **modelo lógico inicial propuesto**, derivado del núcleo transaccional de ES1. No es un esquema implementado ni cubre aún todo el catálogo de 236 RF. El núcleo contiene 17 entidades de negocio; se añade `outbox_evento` como entidad técnica de integración, por lo que el DDL contiene 18 tablas. Los tipos orientan la posterior adaptación a PostgreSQL/PostGIS, exigida por RNF-038.
+**Versión de diseño:** 2.0, 29-09-2026. **Estado:** definición arquitectónica para construir el producto completo; ninguna tabla, migración, instancia o ensayo se declara implementado. Sustituye el núcleo preliminar de 17 entidades y 137 atributos como especificación de diseño. El SQL ilustrativo anterior queda como antecedente en el historial de Git y no debe ejecutarse como migración vigente. La fuente ejecutable futura será `db/migrations/` del backend Go; este diccionario será su contrato académico. PostgreSQL 18 + PostGIS + `btree_gist` es el objetivo, sujeto a verificación local y en Cloud SQL.
 
-## Convenciones y alcance
+La Ley 21.719 se aplica **como criterio de diseño desde el primer incremento ES2**, por decisión del usuario. Su entrada en vigencia, prevista para el 1 de diciembre de 2026, no retrasa minimización, permisos, inventario de tratamientos, derechos de titulares ni controles de seguridad del desarrollo. Tampoco se declara cumplimiento probado sin implementación y evidencia [@ley21719].
 
-- PK: clave primaria; FK: clave foránea. “No” en nulo implica obligatoriedad; “Sí” exige aplicar la condición indicada.
-- Los UUID son identificadores internos propuestos. Fechas con zona se conservarán como instantes y se mostrarán en la zona del servicio, por confirmar.
-- Los montos usan decimal exacto; moneda y reglas de redondeo deben validarse antes del DDL.
-- Los campos sin valor inicial indicado no reciben un valor predeterminado implícito.
-- Los estados nuevos se identifican como propuesta. El contrato de estados definitivo deberá mapear los nombres de ES1.
-- Los roles de negocio coexisten. Una preferencia de uso no otorga privilegios administrativos.
-- Relaciones y tipos constituyen decisiones de diseño ES2; sus cambios quedan registrados en el análisis de esta entrega.
+## B.1 Convenciones y decisiones vinculantes de diseño
 
-## Entidades del núcleo
+- Cada `espacio` es una **unidad reservable exclusiva**. Todas las categorías de la entrega anterior están representadas en `categoria_espacio`; agregar una categoría es un cambio de datos y reglas, no una migración de tabla. El aforo limita asistentes y no permite reservas simultáneas.
+- `uuid` identifica hechos y recursos internos; `timestamptz` registra instantes; `tstzrange` con límites `[)` representa ocupación. La zona IANA del espacio interpreta días, meses, horarios y cambios de hora. Un intervalo de ocupación es finito y no vacío.
+- CLP se almacena en pesos enteros `numeric(14,0)`; porcentajes/cálculos intermedios en `numeric` de escala declarada, nunca `float`. Toda operación financiera lleva `moneda char(3)`. El redondeo aritmético de importes se versiona y se reconcilia con documentos/proveedor; la regla legal chilena de redondeo de efectivo no se aplica automáticamente a pagos electrónicos.
+- `!` significa `NOT NULL`; `?` significa nullable. Toda FK de hechos históricos usa `ON DELETE RESTRICT` o `NO ACTION`; no hay borrado en cascada de reservas, pagos, contratos, evidencias, auditoría ni solicitudes de derechos. PK/UK/CHECK/EXCLUDE se materializan en migraciones; autorización y transiciones se validan además en casos de uso.
+- Clases de dato: **P** personal vinculable, **R** restringido (identidad, finanzas, geolocalización precisa, texto privado), **O** operacional, **T** técnico, **A** analítico minimizado. Una clase no define por sí sola base jurídica ni plazo. La tabla B.5 establece tratamiento por finalidad. `uuid` puede seguir siendo dato personal vinculable.
+- Los campos `*_ref` son identificadores externos, no secretos; tokens de proveedor se guardan mediante referencia a Secret Manager. Fotografías, PDF y documentos KYC residen en Cloud Storage privado; PostgreSQL conserva metadatos, FK, hash y generación del objeto, nunca URLs firmadas persistentes.
+- La comisión de EspaciGo queda como regla versionada inicial de **3 % neto** del arriendo publicado y, en el escenario vigente, se descuenta al arrendador por Split 1:1 junto con el IVA de esa comisión cuando corresponda. La tarifa del proveedor y su IVA se descuentan primero al vendedor según el flujo público; no se registran como costo/crédito fiscal de EspaciGo sin documento y acuerdo distintos. El comprador paga el precio final publicado en la simulación; un cargo adicional exige cotización y aceptación separadas. Tarifa, comisión, IVA, precio y neto observado tienen campos distintos. La cifra aproximada de 7 % no es constante de datos. El reparto entre socios de la SpA ocurre fuera del Split 1:1 y de la reserva.
+- Los módulos Go son dueños lógicos de las tablas; la API usa `pgx/pgxpool` y SQL revisable con `sqlc`. Los workers son goroutines del mismo monolito y reclaman trabajo durable. `outbox_evento` se publica a Pub/Sub/BigQuery; BigQuery no decide estados operativos. La telemetría de impresiones/clics de alto volumen viaja a Pub/Sub y no crea una fila PostgreSQL por vista.
 
-### usuario
+**Notación del diccionario:** en las tablas siguientes, `PK`, `FK→tabla.campo` y `UK` indican claves; `CHECK` indica dominio o relación local. Cada campo tiene tipo y nulabilidad. Los valores de catálogo se fijan aquí como contrato de diseño; cambiar su semántica exige migración o versión de API. Los campos de clase P/R quedan sujetos al acceso del titular, participante autorizado o rol administrativo con finalidad documentada; los T/A no admiten payload libre con PII.
 
-Identidad de cuenta; perfil detallado y sesiones se ampliarán en otra iteración. Referencias de la base: RQF-001–018; RNF-013.
+## B.2 Identidad, consentimiento y habilitación de vendedores (M01–M03)
 
-| Atributo | Tipo propuesto | Nulo | Claves, valores y reglas | Significado |
-| --- | --- | --- | --- | --- |
-| id | uuid | No | PK; generado al crear | Identificador interno |
-| correo | text | No | Único sin distinguir mayúsculas; validar formato | Acceso y notificaciones |
-| nombre | text | No | Sin valor por defecto | Identificación visible |
-| hash_clave | text | No | Nunca contraseña plana; RNF-013 | Credencial derivada |
-| estado | text | No | Inicial: correo pendiente; catálogo por validar | Situación de cuenta |
-| creado_en | timestamptz | No | Instante de registro | Trazabilidad |
+### `usuario` — cuenta y credencial (P/R; RQF-001–023)
 
-### rol_usuario
-
-Permite coexistencia de Arrendador y Arrendatario, sin imponer roles excluyentes. Referencias de la base: RQF-213; anexo A.
-
-| Atributo | Tipo propuesto | Nulo | Claves, valores y reglas | Significado |
-| --- | --- | --- | --- | --- |
-| usuario_id | uuid | No | FK usuario.id; parte de PK | Cuenta |
-| rol | text | No | Parte de PK; catálogo de roles; privilegios administrativos restringidos | Rol autorizado |
-
-### verificacion
-
-Solicitud KYC/KYB y decisión automática o manual. Referencias de la base: RQF-038–060, 219–220; CU-11–14.
-
-| Atributo | Tipo propuesto | Nulo | Claves, valores y reglas | Significado |
-| --- | --- | --- | --- | --- |
-| id | uuid | No | PK | Solicitud |
-| usuario_id | uuid | No | FK usuario.id | Titular |
-| tipo | text | No | KYC o KYB | Vía de verificación |
-| estado | text | No | Pendiente, aprobada o rechazada; mapear estados ES1 | Estado de la solicitud |
-| proveedor_ref | text | Sí | Identificador externo sin secretos | Correlación |
-| revisor_id | uuid | Sí | FK usuario.id; requerir rol administrador si revisión manual | Decisor |
-| motivo | text | Sí | Obligatorio en rechazo | Fundamento |
-| resuelto_en | timestamptz | Sí | Obligatorio si finalizada | Fecha de decisión |
-
-### espacio
-
-Oferta del arrendador; unidad de publicación de la línea base. Referencias de la base: RQF-068–093, 221–224; CU-15–18.
-
-| Atributo | Tipo propuesto | Nulo | Claves, valores y reglas | Significado |
-| --- | --- | --- | --- | --- |
-| id | uuid | No | PK | Publicación |
-| arrendador_id | uuid | No | FK usuario.id; comprobar rol | Titular |
-| titulo | text | No | Límites según catálogo RF | Título público |
-| ubicacion | geography(Point,4326) | No | Índice espacial propuesto | Localización |
-| tipo | text | No | Catálogo por definir | Tipo de inmueble |
-| superficie_m2 | numeric(12,2) | No | Mayor que cero | Superficie |
-| precio_base | numeric(14,2) | No | Regla de importe según RF; no float | Tarifa |
-| unidad_tarifa | text | No | Hora, día o mes; reglas de cálculo por cerrar | Unidad |
-| politica_cancelacion | text | No | Referencia/versionado por diseñar | Condiciones publicadas |
-| estado | text | No | Borrador, Activa u Oculta; mapa a ES1 | Visibilidad |
-
-### reserva
-
-Solicitud transaccional con instantánea del precio aceptado. Referencias de la base: RQF-104–129, 140–152, 177, 227–231.
-
-| Atributo | Tipo propuesto | Nulo | Claves, valores y reglas | Significado |
-| --- | --- | --- | --- | --- |
-| id | uuid | No | PK | Reserva |
-| espacio_id | uuid | No | FK espacio.id | Espacio |
-| arrendatario_id | uuid | No | FK usuario.id; identidad aprobada antes de reservar | Solicitante |
-| inicio | timestamptz | No | Menor que fin; futuro al crear | Inicio |
-| fin | timestamptz | No | Mayor que inicio | Término |
-| estado | text | No | Inicial: Pendiente de Pago; transición validada | Situación del negocio |
-| estadia | numeric(14,2) | No | Mayor o igual que cero | Precio acordado |
-| comision | numeric(14,2) | No | Mayor o igual que cero | Comisión acordada |
-| garantia_monto | numeric(14,2) | No | Mayor o igual que cero; no confundir con cobro efectivo | Garantía requerida |
-| moneda | char(3) | No | Inicial CLP; sin conversión implícita | Moneda |
-| politica_snapshot | text | No | Conservar condiciones aceptadas | Cancelación acordada |
-| creada_en | timestamptz | No | Base del plazo de pago | Registro |
-| version | integer | No | Inicial 1; control de actualización concurrente propuesto | Versión lógica |
-
-### ocupacion
-
-Calendario único para reservas y bloqueos manuales; propuesta de control de concurrencia. Referencias de la base: RQF-083–085, 111–112, 120, 200, 225–226.
-
-| Atributo | Tipo propuesto | Nulo | Claves, valores y reglas | Significado |
-| --- | --- | --- | --- | --- |
-| id | uuid | No | PK | Intervalo |
-| espacio_id | uuid | No | FK espacio.id | Espacio afectado |
-| reserva_id | uuid | Sí | FK reserva.id; único cuando exista | Reserva causante |
-| intervalo | tstzrange | No | Límites [inicio, fin); fin mayor que inicio | Período ocupado |
-| tipo | text | No | Reserva o bloqueo manual | Origen |
-| activo | boolean | No | Inicial true; requiere actualización transaccional | Participa en exclusión |
-| expira_en | timestamptz | Sí | Retención temporal pendiente de pago | Vencimiento |
-| motivo | text | Sí | Obligatorio para bloqueo manual | Justificación |
-
-### pago
-
-Intentos y resultados de cobro/reembolso, separados del estado de la reserva. Referencias de la base: RQF-114–119, 128, 230; RNF-012/028.
-
-| Atributo | Tipo propuesto | Nulo | Claves, valores y reglas | Significado |
-| --- | --- | --- | --- | --- |
-| id | uuid | No | PK | Operación de pago |
-| reserva_id | uuid | No | FK reserva.id | Reserva |
-| proveedor | text | No | Producto por confirmar con el proveedor | Proveedor |
-| tipo | text | No | Cobro o reembolso | Operación |
-| clave_idempotencia | text | No | Única por proveedor y tipo | Evitar doble efecto |
-| referencia_externa | text | Sí | Única por proveedor cuando exista | Operación remota |
-| monto | numeric(14,2) | No | Mayor o igual que cero; moneda desde reserva | Importe |
-| estado | text | No | Pendiente, confirmado, rechazado o por conciliar; propuesta | Resultado |
-| creado_en | timestamptz | No | Registrar instante | Inicio |
-
-### garantia
-
-Autorización financiera diferenciada del pago de estadía. Referencias de la base: RQF-118, 174–175; CU-25/41/42.
-
-| Atributo | Tipo propuesto | Nulo | Claves, valores y reglas | Significado |
-| --- | --- | --- | --- | --- |
-| id | uuid | No | PK | Intento de garantía |
-| reserva_id | uuid | No | FK reserva.id | Reserva |
-| referencia_externa | text | Sí | Proveedor y ámbito de unicidad por definir | Autorización |
-| monto_autorizado | numeric(14,2) | No | Mayor o igual que cero | Cupo autorizado |
-| monto_capturado | numeric(14,2) | No | Inicial 0; no superar autorizado | Compensación aplicada |
-| estado | text | No | Pendiente, autorizada, capturada, liberada o vencida; propuesta | Situación |
-| vence_en | timestamptz | Sí | Debe provenir del servicio real | Caducidad |
-
-### evento_proveedor
-
-Bandeja de eventos autenticados, con deduplicación y seguimiento. Referencias de la base: RNF-012/024/028; RQF-116, 136–139.
-
-| Atributo | Tipo propuesto | Nulo | Claves, valores y reglas | Significado |
-| --- | --- | --- | --- | --- |
-| id | uuid | No | PK | Evento recibido |
-| proveedor | text | No | Catálogo de adaptadores | Origen |
-| evento_externo | text | No | Único junto con proveedor | Deduplicación |
-| reserva_id | uuid | Sí | FK reserva.id; puede requerir conciliación | Correlación |
-| hash_contenido | text | No | Digest; no reemplaza validación de firma | Integridad de evidencia |
-| recibido_en | timestamptz | No | Instante de recepción | Fecha |
-| estado | text | No | Recibido, procesado o error; propuesta | Procesamiento |
-| intentos | integer | No | Inicial 0; no negativo | Control de reintentos |
-
-### contrato
-
-Versiones del contrato generado para la reserva. Referencias de la base: RQF-130–142; CU-29–32.
-
-| Atributo | Tipo propuesto | Nulo | Claves, valores y reglas | Significado |
-| --- | --- | --- | --- | --- |
-| id | uuid | No | PK | Contrato |
-| reserva_id | uuid | No | FK reserva.id | Reserva |
-| version | integer | No | Única junto con reserva_id; mayor que cero | Versión |
-| proveedor_ref | text | Sí | Correlación; sin credenciales ni enlace secreto | Servicio de firma |
-| estado | text | No | Generado, Firma_Parcial o firmado; mapear ES1 | Estado |
-| generado_en | timestamptz | No | Registrar generación | Fecha |
-
-### firma_contrato
-
-Participación y confirmación de cada firmante. Referencias de la base: RQF-134–139; CU-30.
-
-| Atributo | Tipo propuesto | Nulo | Claves, valores y reglas | Significado |
-| --- | --- | --- | --- | --- |
-| contrato_id | uuid | No | FK contrato.id; parte de PK | Contrato |
-| usuario_id | uuid | No | FK usuario.id; parte de PK; parte habilitada de la reserva | Firmante |
-| estado | text | No | Pendiente, firmada o rechazada; propuesta | Respuesta |
-| firmado_en | timestamptz | Sí | Solo tras confirmación verificada | Fecha |
-| referencia_externa | text | Sí | Correlación con evento del proveedor | Evidencia |
-
-### operacion_arriendo
-
-Eventos de ingreso, salida y recepción del espacio. Referencias de la base: RQF-143–152, 203–206; CU-33/34/48.
-
-| Atributo | Tipo propuesto | Nulo | Claves, valores y reglas | Significado |
-| --- | --- | --- | --- | --- |
-| id | uuid | No | PK | Evento de uso |
-| reserva_id | uuid | No | FK reserva.id; único junto con tipo | Reserva |
-| actor_id | uuid | No | FK usuario.id; validar participación | Autor |
-| tipo | text | No | Check-in, check-out o recepción | Acción |
-| fecha | timestamptz | No | Validar orden temporal y fecha de inicio | Instante |
-| ubicacion | geography(Point,4326) | Sí | Obligatoria donde lo exige el RF | Localización |
-| observaciones | text | Sí | Aplicar límite de negocio por definir | Descripción |
-
-### disputa
-
-Reclamo y resolución administrativa; detalle documental en documento. Referencias de la base: RQF-159–171, 209–210; CU-39–41.
-
-| Atributo | Tipo propuesto | Nulo | Claves, valores y reglas | Significado |
-| --- | --- | --- | --- | --- |
-| id | uuid | No | PK | Disputa |
-| reserva_id | uuid | No | FK reserva.id | Reserva |
-| reclamante_id | uuid | No | FK usuario.id; arrendador de la reserva | Reclamante |
-| descripcion | text | No | Obligatoria | Motivo |
-| estado | text | No | Abierta o Resuelta; estados intermedios por definir | Situación |
-| abierta_en | timestamptz | No | Validar ventana de 24 h | Fecha |
-| resolutor_id | uuid | Sí | FK usuario.id; rol administrador | Responsable del fallo |
-| fallo | text | Sí | Obligatorio al resolver; conservar motivo | Decisión |
-| deduccion | numeric(14,2) | Sí | Entre 0 y garantía; obligatoria si corresponde | Compensación |
-
-### liquidacion
-
-Cierre financiero sujeto a ausencia de disputa pendiente. Referencias de la base: RQF-172–177, 208, 211; CU-42.
-
-| Atributo | Tipo propuesto | Nulo | Claves, valores y reglas | Significado |
-| --- | --- | --- | --- | --- |
-| id | uuid | No | PK | Liquidación |
-| reserva_id | uuid | No | FK reserva.id; único | Reserva |
-| clave_idempotencia | text | No | Única; alcance del proveedor por verificar | Evitar doble pago |
-| neto_arrendador | numeric(14,2) | No | Derivado de importes y decisión; no negativo | Transferencia |
-| estado | text | No | Pendiente, confirmada o por conciliar; propuesta | Resultado |
-| referencia_externa | text | Sí | Operación remota | Correlación |
-| confirmada_en | timestamptz | Sí | Solo tras evidencia de éxito | Fecha |
-
-### documento
-
-Metadatos y vínculo a archivo restringido; nunca contenido binario en el informe. Referencias de la base: RQF-074–076, 137, 145, 151, 161, 165, 211; RNF-014/041–043.
-
-| Atributo | Tipo propuesto | Nulo | Claves, valores y reglas | Significado |
-| --- | --- | --- | --- | --- |
-| id | uuid | No | PK | Archivo |
-| espacio_id | uuid | Sí | FK espacio.id; uno de los seis propietarios | Galería |
-| verificacion_id | uuid | Sí | FK verificacion.id; uno de los seis propietarios | Antecedente de identidad |
-| contrato_id | uuid | Sí | FK contrato.id; uno de los seis propietarios | Contrato generado/firmado |
-| reserva_id | uuid | Sí | FK reserva.id; uno de los seis propietarios | Evidencia o comprobante |
-| disputa_id | uuid | Sí | FK disputa.id; uno de los seis propietarios | Reclamo o descargo concreto |
-| operacion_arriendo_id | uuid | Sí | FK operacion_arriendo.id; uno de los seis propietarios | Evidencia de ingreso, salida o recepción |
-| categoria | text | No | Galería, identidad, contrato, check-in, check-out, reclamo, descargo o boleta | Propósito |
-| clave_objeto | text | No | Única; referencia interna sin URL pública | Almacenamiento |
-| hash_sha256 | char(64) | No | Validar formato; digest no garantiza inmutabilidad | Integridad |
-| bytes | bigint | No | Positivo; límites por categoría | Tamaño |
-| autor_id | uuid | No | FK usuario.id; cuenta de servicio por definir si automático | Origen |
-| creado_en | timestamptz | No | Fecha del archivo | Trazabilidad |
-
-### evento_auditoria
-
-Registro lógico de acciones; garantía física de inmutabilidad todavía pendiente. Referencias de la base: RQF-184–185; RNF-017/043.
-
-| Atributo | Tipo propuesto | Nulo | Claves, valores y reglas | Significado |
-| --- | --- | --- | --- | --- |
-| id | uuid | No | PK | Evento |
-| actor_id | uuid | Sí | FK usuario.id; nullable para eventos del sistema | Autor |
-| reserva_id | uuid | Sí | FK reserva.id; opcional para otras acciones | Contexto |
-| solicitud_titular_id | uuid | Sí | FK solicitud_titular.id; vincula la tramitación de derechos | Cumplimiento |
-| accion | text | No | Catálogo de eventos por definir | Hecho |
-| fecha | timestamptz | No | Instante del servidor | Momento |
-| correlacion | text | No | Identificador de solicitud/evento | Rastreo |
-| resumen | text | No | Sin contraseñas, tokens ni datos de tarjeta | Detalle minimizado |
-
-### solicitud_titular
-
-Registro de solicitudes de derechos sobre datos personales y de su respuesta. Corresponde a la fila de solicitudes de derechos de la matriz de tratamiento y permite conciliar la supresión con la conservación obligatoria sin borrar hechos financieros. El registro conserva la solicitud y su decisión, nunca el dato suprimido. Referencias de la base: RQF-034–037; RNF-018/026/029; Ley 21.719.
-
-| Atributo | Tipo propuesto | Nulo | Claves, valores y reglas | Significado |
-| --- | --- | --- | --- | --- |
-| id | uuid | No | PK | Solicitud |
-| usuario_id | uuid | No | FK usuario.id; titular identificado | Solicitante |
-| tipo | text | No | Acceso, rectificación, supresión, oposición o portabilidad | Derecho ejercido |
-| canal | text | No | Catálogo por definir (formulario o correo) | Vía de ingreso |
-| identidad_verificada | boolean | No | Inicial false; obligatoria antes de resolver | Control antifraude |
-| solicitada_en | timestamptz | No | Instante de recepción; base del plazo de respuesta | Plazo |
-| estado | text | No | Recibida, en revisión, resuelta o rechazada; propuesta | Situación |
-| responsable_id | uuid | Sí | FK usuario.id; rol administrador o encargado de privacidad | Tramitación |
-| resultado | text | Sí | Entregado, rectificado, anonimizado, bloqueado o denegado por conservación | Decisión aplicada |
-| motivo | text | Sí | Obligatorio al cerrar; fundamenta el rechazo o la conservación | Fundamento |
-| resuelta_en | timestamptz | Sí | Obligatorio al cerrar | Fecha de cierre |
-
-## Matriz de tratamiento de datos (Ley 21.719 y Ley 19.628)
-
-Conforme a las leyes 21.719 y 19.628, esta matriz establece la **política de tratamiento y retención** aprobada para EspaciGo. Las obligaciones legales (como las tributarias) prevalecen sobre el borrado automático de RNF-026.
-
-| Flujo o categoría | Base Legal y Finalidad | Acción al cierre o solicitud de Supresión (Derecho al Olvido) |
+| Campo | Tipo | Regla y significado |
 | --- | --- | --- |
-| **Cuenta, perfil de usuario** | *Consentimiento*. Identificar al usuario, enviar notificaciones. | Supresión en ≤ 72 horas. Eliminación física de PII. |
-| **Verificación externa de identidad** | *Ejecución de contrato*. Validar identidad para reducir fraude. | Supresión en ≤ 72 horas o al expirar la obligación legal vinculada. |
-| **Cuenta bancaria / Medio de pago** | *Ejecución de contrato*. Liquidar o cobrar operaciones. | Supresión del medio de pago en 72 horas; registros de transacciones previas se conservan. |
-| **Reservas, comisiones y pagos** | *Obligación legal (Tributaria)*. Registro contable. | **Conservación por 5 años**. Los registros se anonimizan (se borra el vínculo con PII del usuario) pero la transacción permanece inmutable. |
-| **Contratos y firmas** | *Obligación legal (Civil/Comercial)*. Acreditar acuerdo y resolución de disputas. | **Conservación por 5 años** (RNF-042). |
-| **Auditoría y registros técnicos** | *Interés legítimo*. Seguridad de la plataforma e incidentes. | Conservación minimizada por 5 años (RNF-043); no incluye datos personales directos (solo UUID). |
-| **Solicitudes de derechos (ARCO)** | *Obligación legal (Ley 21.719)*. Trazabilidad de cumplimiento. | Conservación del registro de la solicitud y su respuesta, sin el dato original. |
+| `id` | uuid ! | PK, identificador interno estable. |
+| `correo_normalizado` | text ! | UK sobre normalización/casefold; acceso y avisos; P. |
+| `hash_clave` | text ! | Hash de contraseña con algoritmo y parámetros versionados; R; nunca contraseña. |
+| `estado` | text ! | CHECK `correo_pendiente`, `activo`, `bloqueado`, `baja_solicitada`, `desidentificado`. |
+| `creado_en` | timestamptz ! | Alta de cuenta. |
+| `actualizado_en` | timestamptz ! | Último cambio de cuenta. |
+| `baja_solicitada_en` | timestamptz ? | Inicio de trámite, no dispara borrado indiscriminado. |
 
-La implementación debe comprobar que las vistas y exportaciones solo incluyan datos autorizados y que una solicitud no destruya evidencia financiera sujeta a conservación tributaria de 5 años, utilizando anonimización para conciliar la supresión de la identidad con la inmutabilidad transaccional. La solicitud y su respuesta se registran en `solicitud_titular`, que guarda la decisión y su fundamento sin conservar el dato suprimido.
+### `rol_usuario` — roles coexistentes (O; RQF-213)
 
-### outbox_evento (entidad técnica de integración)
+| Campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `usuario_id` | uuid ! | PK compuesta, FK→`usuario.id`. |
+| `rol` | text ! | PK compuesta; CHECK `arrendatario`, `arrendador`, `administrador`; administración se concede por proceso auditado. |
+| `concedido_en` | timestamptz ! | Trazabilidad de habilitación. |
+| `concedido_por` | uuid ? | FK→`usuario.id`; nulo para rol básico automático. |
 
-Registro transaccional de eventos de dominio que deben publicarse después del commit. El publicador en Go reclama filas pendientes con lease, registra intentos y confirma la entrega; un evento puede llegar más de una vez, por lo que consumidores y efectos posteriores deben deduplicar por su identificador. El contenido se minimiza, versiona y no se usa como auditoría inmutable.
+### `perfil_usuario` — presentación e identidad mínima (P; RQF-024–031)
 
-| Atributo | Tipo propuesto | Nulo | Claves, valores y reglas | Significado |
-| --- | --- | --- | --- | --- |
-| id | uuid | No | PK; identificador estable del evento | Deduplicación |
-| tipo_evento | text | No | Nombre del evento de dominio | Contrato |
-| version_esquema | integer | No | Mayor que cero; cambios compatibles/versionados | Versión de payload |
-| agregado_tipo | text | No | Tipo de agregado de negocio | Clasificación |
-| agregado_id | uuid | No | Identificador del agregado | Correlación |
-| payload | jsonb | No | Campos mínimos y sin secretos | Datos publicados |
-| creado_en | timestamptz | No | Instante de commit lógico | Orden temporal |
-| disponible_en | timestamptz | No | Próxima elegibilidad de reintento | Programación |
-| intentos | integer | No | Inicial 0; no negativo | Reintentos |
-| publicado_en | timestamptz | Sí | Se establece tras confirmar publicación | Resultado |
-| lease_hasta | timestamptz | Sí | Vencimiento del reclamo temporal | Recuperación ante reinicio |
-| ultimo_error | text | Sí | Mensaje saneado, sin datos sensibles | Diagnóstico |
+| Campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `usuario_id` | uuid ! | PK/FK→`usuario.id`; relación 1:1. |
+| `nombre_visible` | text ! | Nombre mostrado, límite de longitud en API y DDL. |
+| `telefono_normalizado` | text ? | Teléfono de contacto verificado si se usa; P. |
+| `razon_social` | text ? | Solo arrendador persona jurídica. |
+| `identificador_fiscal_cifrado` | bytea ? | Solo cuando el flujo tributario lo exige; acceso restringido, índice por huella separada si se requiere. |
+| `actualizado_en` | timestamptz ! | Control de vigencia del perfil. |
 
-## Reglas entre entidades
+### `sesion` — autenticación revocable (R/T; RQF-018/023)
 
-1. El espacio de una ocupación de reserva debe coincidir con el de la reserva. Proponer FK compuesta o control transaccional equivalente; una FK simple a reserva no basta.
-2. Cada intervalo activo de ocupación debe excluir superposición para el mismo espacio. Usar un único calendario para bloqueos manuales y reservas. El vencimiento cambia explícitamente el estado activo; no se presupone un índice cuyo predicado dependa de la hora actual.
-3. Una reserva pagada no equivale a contrato firmado. Habilitar ingreso solo al confirmar las firmas requeridas.
-4. El usuario que firma debe ser parte de la reserva. La combinación contrato/usuario no demuestra por sí sola que estén todos los firmantes requeridos.
-5. No liquidar con disputas abiertas. Importe, comisión, deducción y garantía deberán conciliarse con las operaciones confirmadas.
-6. Documento debe tener exactamente un propietario entre espacio, verificación, contrato, reserva, disputa y operación de arriendo; la categoría y los permisos deben ser compatibles con ese propietario. Los dos últimos vínculos resuelven la asociación que faltaba entre una evidencia y su reclamo o su evento de uso.
-7. Las claves y referencias externas tienen ámbito definido por proveedor. Los eventos sin firma válida no ingresan al procesamiento de negocio; registrar su rechazo sin almacenar secretos.
-8. No usar borrado en cascada sobre hechos financieros o evidencia. Conciliar privacidad, anonimización y retención por categoría mediante la matriz anterior; la FK a usuario no resuelve por sí sola esa política.
-9. Toda tarea que llama a un proveedor debe registrar su intención y resultado y tratar respuestas inciertas. Un rollback local no revierte automáticamente un efecto externo.
-10. Una solicitud de titular se resuelve con decisión fundada y no borra hechos financieros ni documentos sujetos a conservación: la identidad se anonimiza y el registro de la solicitud y su respuesta se conserva según la matriz de tratamiento. El registro no almacena el dato suprimido.
-11. El DDL propuesto no reemplaza la validación de negocio: las transiciones de estado, los permisos, la minimización y la política de conservación se aplican en la aplicación y en los procesos programados, no en las restricciones declaradas.
+| Campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `id` | uuid ! | PK; identificador de sesión. |
+| `usuario_id` | uuid ! | FK→`usuario.id`. |
+| `token_hash` | char(64) ! | UK; nunca token en claro. |
+| `creada_en` | timestamptz ! | Inicio. |
+| `expira_en` | timestamptz ! | Mayor que `creada_en`. |
+| `revocada_en` | timestamptz ? | Cierre o revocación. |
+| `cliente_resumen` | text ? | Huella técnica mínima sin agente/IP completos persistentes por defecto. |
 
-## Catálogo de estados y transiciones
+### `token_accion` — correo y recuperación de cuenta (R/T; RQF-008/019–022)
 
-Los literales de ES1 se conservan tal como aparecen en su anexo B. Los estados marcados como propuestos todavía no tienen literal en la base y deben acordarse antes de implementar; el DDL solo delimita los valores admitidos, no la legalidad de cada transición.
+| Campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `id` | uuid ! | PK. |
+| `usuario_id` | uuid ! | FK→`usuario.id`. |
+| `proposito` | text ! | CHECK `verificar_correo`, `recuperar_clave`, `cambiar_correo`. |
+| `token_hash` | char(64) ! | UK; token de un solo uso. |
+| `creado_en` | timestamptz ! | Emisión. |
+| `expira_en` | timestamptz ! | Mayor que `creado_en`. |
+| `consumido_en` | timestamptz ? | Impide reutilización. |
+| `intentos` | integer ! | CHECK `>=0`; límite en caso de uso. |
 
-*Tabla. Estados por entidad.* <!--#tab:es2-datos-estados-->
+### `version_terminos` y `aceptacion_terminos` — texto aceptado (O/P; RQF-186–187)
 
-| Entidad | Literales verificados en ES1 | Estados propuestos de ES2 | Referencia |
+| Tabla.campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `version_terminos.id` | uuid ! | PK. |
+| `version_terminos.codigo` | text ! | UK; versión pública. |
+| `version_terminos.tipo` | text ! | CHECK `terminos`, `privacidad`, `politica_arrendador`. |
+| `version_terminos.hash_sha256` | char(64) ! | Digest del texto exacto publicado. |
+| `version_terminos.publicada_en` | timestamptz ! | Inicio de disponibilidad. |
+| `aceptacion_terminos.id` | uuid ! | PK. |
+| `aceptacion_terminos.usuario_id` | uuid ! | FK→`usuario.id`. |
+| `aceptacion_terminos.version_id` | uuid ! | FK→`version_terminos.id`; UK con usuario si solo una aceptación por versión. |
+| `aceptacion_terminos.aceptada_en` | timestamptz ! | Acto afirmativo/contractual registrado. |
+| `aceptacion_terminos.canal` | text ! | CHECK `web`, `api`, `administrado`; evidencia de origen. |
+
+### `verificacion` — KYC/KYB y revisión (R; RQF-038–060/192–194)
+
+| Campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `id` | uuid ! | PK. |
+| `usuario_id` | uuid ! | FK→`usuario.id`; titular. |
+| `tipo` | text ! | CHECK `kyc`, `kyb`. |
+| `estado` | text ! | CHECK `pendiente`, `en_revision`, `aprobada`, `rechazada`, `vencida`. |
+| `proveedor_ref` | text ? | Referencia externa, no credencial. |
+| `revisor_id` | uuid ? | FK→`usuario.id`; administrador cuando revisión manual. |
+| `motivo_codigo` | text ? | Obligatorio en rechazo. |
+| `creada_en` | timestamptz ! | Solicitud. |
+| `resuelta_en` | timestamptz ? | Obligatoria en estado final. |
+
+### `cuenta_cobro` y `vinculo_proveedor_vendedor` — recepción del arrendador (R; RQF-032–033/189–191)
+
+| Tabla.campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `cuenta_cobro.id` | uuid ! | PK. |
+| `cuenta_cobro.arrendador_id` | uuid ! | FK→`usuario.id`; rol validado. |
+| `cuenta_cobro.proveedor` | text ! | Adaptador usado. |
+| `cuenta_cobro.cuenta_token_ref` | text ? | Token/referencia externa, nunca número bancario completo en claro. |
+| `cuenta_cobro.estado` | text ! | CHECK `pendiente`, `validada`, `suspendida`, `revocada`. |
+| `cuenta_cobro.validada_en` | timestamptz ? | Evidencia de verificación. |
+| `vinculo_proveedor_vendedor.id` | uuid ! | PK. |
+| `vinculo_proveedor_vendedor.arrendador_id` | uuid ! | FK→`usuario.id`. |
+| `vinculo_proveedor_vendedor.proveedor` | text ! | UK por arrendador/proveedor. |
+| `vinculo_proveedor_vendedor.vendedor_ref` | text ! | Identificador externo; UK con proveedor. |
+| `vinculo_proveedor_vendedor.secreto_ref` | text ! | Ruta/version de secreto en Secret Manager, sin token en BD. |
+| `vinculo_proveedor_vendedor.estado` | text ! | CHECK `pendiente`, `activo`, `vencido`, `revocado`. |
+| `vinculo_proveedor_vendedor.actualizado_en` | timestamptz ! | Última autorización/verificación. |
+
+## B.3 Oferta, precio, reserva y calendario (M04–M06)
+
+### `categoria_espacio` — catálogo de todos los tipos del producto (O; RQF-068/098)
+
+| Campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `codigo` | text ! | PK estable; se cargan oficinas, salas/multipropósito, bodegas, estacionamientos, locales/stands, quinchos y parcelas/eventos; la lista exacta de etiquetas se conserva en datos versionados. |
+| `nombre` | text ! | Etiqueta pública. |
+| `descripcion` | text ! | Alcance de la categoría. |
+| `activa` | boolean ! | Desactivar no elimina espacios históricos. |
+| `version_definicion` | integer ! | CHECK `>0`; seguimiento de reglas de categoría. |
+| `orden` | integer ! | Orden de presentación; sin semántica financiera. |
+
+### `espacio` — una publicación, una unidad exclusiva (P/O; RQF-060–093/195–198/221–224)
+
+| Campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `id` | uuid ! | PK. |
+| `arrendador_id` | uuid ! | FK→`usuario.id`; dueño autorizado. |
+| `categoria_codigo` | text ! | FK→`categoria_espacio.codigo`. |
+| `titulo` | text ! | Nombre público. |
+| `descripcion` | text ! | Texto moderado. |
+| `direccion_privada` | text ! | Dirección exacta; R, no exposición en búsqueda general. |
+| `ubicacion` | geography(Point,4326) ! | Coordenada precisa restringida; búsqueda pública puede devolver zona general. |
+| `zona_horaria` | text ! | Nombre IANA validado, sin asumir Santiago para todas las publicaciones. |
+| `superficie_m2` | numeric(12,2) ? | CHECK `>0` cuando aplica. |
+| `aforo_personas` | integer ? | CHECK `>0` cuando aplica; no es cupo de reservas. |
+| `reglas_uso` | text ! | Condiciones publicadas; versión aceptada se congela en reserva. |
+| `estado` | text ! | CHECK `borrador`, `activa`, `oculta`, `suspendida`. |
+| `creado_en` | timestamptz ! | Alta. |
+| `actualizado_en` | timestamptz ! | Última edición. |
+
+### `politica_cancelacion` — condiciones versionadas (O; RQF-223/228–231)
+
+| Campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `id` | uuid ! | PK. |
+| `codigo` | text ! | Familia de política. |
+| `version` | integer ! | UK con `codigo`; CHECK `>0`. |
+| `texto_publicado` | text ! | Texto exacto mostrado. |
+| `vigente_desde` | timestamptz ! | Inicio. |
+| `vigente_hasta` | timestamptz ? | Fin exclusivo; no sobrescribir versión aceptada. |
+
+### `tramo_cancelacion` — reglas estructuradas de devolución (O; RQF-228–230)
+
+| Campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `id` | uuid ! | PK. |
+| `politica_id` | uuid ! | FK→`politica_cancelacion.id`. |
+| `anticipacion_min_horas` | integer ! | CHECK `>=0`; inicio inclusivo de la ventana previa al arriendo. |
+| `anticipacion_max_horas` | integer ? | Fin exclusivo, mayor que mínimo; nulo para tramo superior abierto. |
+| `porcentaje_reembolso` | numeric(5,4) ! | CHECK entre 0 y 1; aplicado a conceptos definidos en la política. |
+| `orden` | integer ! | UK con `politica_id`; ventana/precedencia documentada. |
+
+Los tramos de una versión publicada no se solapan y cubren los momentos cancelables definidos por la política. Se congelan el texto y la versión aceptados en la reserva; el cálculo se realiza sobre esos tramos, no sobre la política vigente al pedir la devolución.
+
+### `regla_tarifa` — precio publicado por unidad temporal (O; RQF-071–073/104)
+
+| Campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `id` | uuid ! | PK. |
+| `espacio_id` | uuid ! | FK→`espacio.id`. |
+| `version` | integer ! | UK con `espacio_id`; CHECK `>0`. |
+| `unidad` | text ! | CHECK `hora`, `dia`, `semana`, `mes`, `anio`, `bloque`; cada una tiene cálculo civil documentado. |
+| `precio_clp` | numeric(14,0) ! | CHECK `>5000` conforme RQF-073 mientras ese requisito rija. |
+| `duracion_minima` | integer ! | CHECK `>0`; unidades de la regla, no conversión tácita de meses a horas. |
+| `duracion_maxima` | integer ? | CHECK `>= duracion_minima`. |
+| `politica_id` | uuid ! | FK→`politica_cancelacion.id`. |
+| `vigencia` | tstzrange ! | Inicio finito, `[)`; fin abierto permitido hasta reemplazo, sin solape para el mismo espacio/ámbito; versión inmutable. |
+| `estado` | text ! | CHECK `borrador`, `publicada`, `retirada`. |
+| `publicada_en` | timestamptz ? | Obligatoria cuando publicada. |
+
+### `regla_comision` — parámetro comercial versionado (O; RQF-105; RNF-020)
+
+| Campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `id` | uuid ! | PK. |
+| `version` | integer ! | UK por ámbito, CHECK `>0`. |
+| `categoria_codigo` | text ? | FK→`categoria_espacio.codigo`; nulo significa regla general. |
+| `porcentaje_neto` | numeric(7,5) ! | Inicial `0.03000`; CHECK entre 0 y 1; es hipótesis comercial versionada, no tasa de proveedor. |
+| `base_calculo` | text ! | CHECK `precio_arriendo`; no incluye garantía. |
+| `vigencia` | tstzrange ! | Inicio finito, `[)`; fin abierto permitido; una regla aplicable por categoría/fecha según prioridad explícita. |
+| `motivo` | text ! | Justificación del cambio. |
+| `aprobador_id` | uuid ? | FK→`usuario.id`; cambio administrativo auditado. |
+
+### `cotizacion` — cálculo reproducible, sin reservar inventario (P/O; RQF-104–110)
+
+| Campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `id` | uuid ! | PK. |
+| `espacio_id` | uuid ! | FK→`espacio.id`. |
+| `arrendatario_id` | uuid ? | FK→`usuario.id`; nulo para cotización pública sin PII adicional. |
+| `tarifa_id` | uuid ! | FK→`regla_tarifa.id`; mismo espacio validado por FK compuesta o caso de uso. |
+| `comision_id` | uuid ! | FK→`regla_comision.id`. |
+| `intervalo` | tstzrange ! | Futuro, finito, `[)` y compatible con modalidad. |
+| `precio_arriendo_clp` | numeric(14,0) ! | Precio final de arriendo publicado y aceptado; no negativo. La posible fracción tributaria del arrendador se identifica aparte, sin sumarla dos veces. |
+| `iva_arriendo_clp` | numeric(14,0) ! | Cero o porción de IVA contenida en el precio final cuando corresponda al arrendador; documento/emisor se validan aparte. |
+| `comision_neta_clp` | numeric(14,0) ! | Comisión según regla/snapshot; inicialmente descontada al vendedor. |
+| `iva_comision_clp` | numeric(14,0) ! | Cero o IVA de esa comisión, también descontado al vendedor en el escenario vigente. |
+| `cargo_proveedor_comprador_clp` | numeric(14,0) ! | Cero o cargo trasladado al comprador si el checkout/precio lo admite y lo muestra. |
+| `iva_cargo_proveedor_comprador_clp` | numeric(14,0) ! | IVA del cargo anterior si corresponde; no se infiere de la tarifa neta. |
+| `garantia_prevista_clp` | numeric(14,0) ! | Separada del cobro efectivo; no negativa. |
+| `total_comprador_clp` | numeric(14,0) ! | Importe exigible al comprador según la incidencia de cargos mostrada; no incorpora por defecto comisión deducida al vendedor ni garantía solo prevista. |
+| `calculo_version` | text ! | Versión de algoritmo y redondeo usada en la cotización. |
+| `moneda` | char(3) ! | `CLP` en fase inicial. |
+| `creada_en` | timestamptz ! | Inicio de validez. |
+| `expira_en` | timestamptz ! | Mayor que `creada_en`; consulta posterior recalcula si cambió regla. |
+
+### `reserva` — acuerdo y estado de negocio (P/R; RQF-104–129/228–231)
+
+| Campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `id` | uuid ! | PK. |
+| `espacio_id` | uuid ! | FK→`espacio.id`; UK auxiliar `(id,espacio_id)` para coherencia de ocupación. |
+| `arrendatario_id` | uuid ! | FK→`usuario.id`; no se borra el hecho contractual por baja de cuenta. |
+| `cotizacion_id` | uuid ! | FK→`cotizacion.id`; UK para impedir uso duplicado. |
+| `tarifa_id` | uuid ! | FK→`regla_tarifa.id`; versión aceptada. |
+| `comision_id` | uuid ! | FK→`regla_comision.id`; versión aceptada. |
+| `intervalo` | tstzrange ! | Finito, `[)`; igual al de su ocupación al crear. |
+| `estado` | text ! | Catálogo B.6; inicial `pendiente_de_pago`. |
+| `precio_arriendo_clp` | numeric(14,0) ! | Snapshot inmutable del precio final publicado. |
+| `iva_arriendo_clp` | numeric(14,0) ! | Porción tributaria del arriendo contenida en el precio final si aplica; separada del IVA de servicio. |
+| `comision_neta_clp` | numeric(14,0) ! | Snapshot de comisión EspaciGo. |
+| `iva_comision_clp` | numeric(14,0) ! | Snapshot separado, según afectación confirmada. |
+| `cargo_proveedor_comprador_clp` | numeric(14,0) ! | Snapshot de cargo trasladado al comprador si existe. |
+| `iva_cargo_proveedor_comprador_clp` | numeric(14,0) ! | Snapshot de IVA del cargo trasladado si existe. |
+| `garantia_prevista_clp` | numeric(14,0) ! | No es captura ni ingreso. |
+| `total_comprador_clp` | numeric(14,0) ! | Snapshot del importe exigible al comprador; garantía prevista y descuentos al vendedor se concilian aparte. |
+| `calculo_version` | text ! | Versión de algoritmo y redondeo usada al aceptar. |
+| `moneda` | char(3) ! | Igual en cotización/pago; inicial CLP. |
+| `condiciones_snapshot` | text ! | Política de cancelación y reglas de uso aceptadas; hash/versión si se almacena objeto. |
+| `creada_en` | timestamptz ! | Alta. |
+| `expira_pago_en` | timestamptz ! | Plazo de retención, inicialmente 15 min según RQF-120. |
+| `version` | integer ! | Control optimista; aumenta con cada transición. |
+
+### `ocupacion` — calendario único (O; RQF-083–085/111–112/120)
+
+| Campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `id` | uuid ! | PK. |
+| `espacio_id` | uuid ! | FK→`espacio.id`. |
+| `reserva_id` | uuid ? | FK compuesta `(reserva_id,espacio_id)`→`reserva(id,espacio_id)`; UK para ocupación de reserva. Nulo para bloqueo manual. |
+| `intervalo` | tstzrange ! | Finito, no vacío y `[)`; inicio anterior a fin. |
+| `tipo` | text ! | CHECK `retencion`, `reserva`, `bloqueo_manual`; coherente con nulabilidad de reserva. |
+| `activo` | boolean ! | Participa en `EXCLUDE USING gist (espacio_id WITH =, intervalo WITH &&) WHERE (activo)`. |
+| `expira_en` | timestamptz ? | Obligatoria para `retencion`; sin `now()` en predicado de índice. |
+| `motivo` | text ? | Obligatorio para bloqueo manual. |
+| `creada_en` | timestamptz ! | Trazabilidad. |
+| `desactivada_en` | timestamptz ? | Transición de liberación; consistente con `activo=false`. |
+
+### `reserva_transicion` — historia de estados (P/O; RQF-113–177)
+
+| Campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `id` | uuid ! | PK. |
+| `reserva_id` | uuid ! | FK→`reserva.id`. |
+| `version_anterior` | integer ! | CHECK `>=0`. |
+| `version_nueva` | integer ! | UK con `reserva_id`; debe ser `version_anterior+1`. |
+| `desde` | text ? | Nulo solo para creación. |
+| `hacia` | text ! | Estado B.6. |
+| `actor_id` | uuid ? | FK→`usuario.id`; nulo para worker/proveedor. |
+| `actor_tipo` | text ! | CHECK `usuario`, `worker`, `proveedor`, `administrador`. |
+| `motivo_codigo` | text ! | Causa trazable, sin texto PII libre. |
+| `ocurrio_en` | timestamptz ! | Instante del cambio. |
+| `correlacion_id` | uuid ! | Une petición, pago, evento y auditoría. |
+
+## B.4 Pagos, contratos, operación y comunicación (M06–M10)
+
+### `pago` — intento idempotente de cobro o reverso (R; RQF-114–120/128/230)
+
+| Campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `id` | uuid ! | PK. |
+| `reserva_id` | uuid ? | FK→`reserva.id`; uno entre reserva y orden de promoción. |
+| `orden_promocion_id` | uuid ? | FK→`orden_promocion.id`; XOR con `reserva_id`. |
+| `proveedor` | text ! | Adaptador; `simulador` solo en entorno de prueba. |
+| `tipo` | text ! | CHECK `cobro`, `reembolso`, `contracargo`, `ajuste`. |
+| `clave_idempotencia` | text ! | UK `(proveedor,tipo,clave_idempotencia)`; estable entre reintentos. |
+| `referencia_externa` | text ? | UK `(proveedor,referencia_externa)` cuando exista. |
+| `operacion_origen_id` | uuid ? | FK→`pago.id` para reembolso/contracargo. |
+| `monto_clp` | numeric(14,0) ! | CHECK `>0` para intento; no asume dinero recibido. |
+| `moneda` | char(3) ! | Igual al recurso asociado. |
+| `estado` | text ! | CHECK `pendiente`, `confirmado`, `rechazado`, `por_conciliar`, `revertido`. |
+| `creado_en` | timestamptz ! | Intento local. |
+| `confirmado_en` | timestamptz ? | Solo ante evidencia verificada/conciliada. |
+
+### `evento_proveedor` — inbox de webhooks y conciliación (R/T; RQF-116/136–139)
+
+| Campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `id` | uuid ! | PK. |
+| `proveedor` | text ! | Origen. |
+| `evento_externo` | text ! | UK con `proveedor`; deduplicación. |
+| `tipo` | text ! | Tipo declarado por adaptador. |
+| `pago_id` | uuid ? | FK→`pago.id`; nulo mientras se correlaciona. |
+| `reserva_id` | uuid ? | FK→`reserva.id`; opcional. |
+| `hash_contenido` | char(64) ! | Evidencia mínima; no almacena cuerpo completo por defecto. |
+| `verificado_en` | timestamptz ? | Solo tras autenticar origen/firma con regla del proveedor. |
+| `recibido_en` | timestamptz ! | Recepción. |
+| `estado` | text ! | CHECK `recibido`, `procesado`, `rechazado`, `por_conciliar`, `error`. |
+| `intentos` | integer ! | CHECK `>=0`. |
+| `ultimo_error_codigo` | text ? | Código saneado, sin secreto. |
+
+### `movimiento_financiero` — hecho económico inmutable (R; RQF-105–107/172–177)
+
+| Campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `id` | uuid ! | PK. |
+| `reserva_id` | uuid ? | FK→`reserva.id`; XOR con orden de promoción si aplica. |
+| `orden_promocion_id` | uuid ? | FK→`orden_promocion.id`; XOR con reserva. |
+| `pago_id` | uuid ? | FK→`pago.id`; hecho externo origen. |
+| `tipo` | text ! | CHECK `cobro_comprador`, `tarifa_proveedor`, `iva_tarifa_proveedor`, `comision_plataforma`, `iva_comision`, `iva_arriendo`, `garantia`, `reembolso`, `contracargo`, `neto_arrendador`, `ajuste`. |
+| `sentido` | text ! | CHECK `a_favor`, `en_contra` del beneficiario indicado; no es libro mayor de partida doble. |
+| `monto_clp` | numeric(14,0) ! | CHECK `>0`; corrección = nueva fila inversa/ajuste, no UPDATE del hecho. |
+| `moneda` | char(3) ! | Inicial CLP. |
+| `beneficiario_tipo` | text ! | CHECK `arrendatario`, `arrendador`, `plataforma`, `proveedor`. |
+| `proveedor_ref` | text ? | Referencia para conciliación. |
+| `fuente_importe` | text ! | CHECK `cotizacion`, `webhook`, `reporte_proveedor`, `documento`, `ajuste_manual`. |
+| `ocurrio_en` | timestamptz ! | Instante del hecho confirmado. |
+| `registrado_en` | timestamptz ! | Inserción local; puede diferir de ocurrencia. |
+
+### `garantia` y `liquidacion` — obligaciones y resultados observados (R; RQF-117–118/172–175/208)
+
+| Tabla.campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `garantia.id` | uuid ! | PK. |
+| `garantia.reserva_id` | uuid ! | FK→`reserva.id`. |
+| `garantia.monto_previsto_clp` | numeric(14,0) ! | No negativo; snapshot de reserva. |
+| `garantia.monto_autorizado_clp` | numeric(14,0) ? | Solo si proveedor confirma autorización real. |
+| `garantia.monto_capturado_clp` | numeric(14,0) ? | Solo si proveedor confirma captura; `<= autorizado` cuando proceda. |
+| `garantia.estado` | text ! | CHECK `prevista`, `solicitada`, `autorizada`, `capturada`, `liberada`, `no_disponible`, `por_conciliar`. |
+| `garantia.proveedor_ref` | text ? | Correlación sin prometer escrow. |
+| `garantia.actualizada_en` | timestamptz ! | Último resultado. |
+| `liquidacion.id` | uuid ! | PK. |
+| `liquidacion.reserva_id` | uuid ! | FK→`reserva.id`; UK por reserva, reintentos conservan misma intención. |
+| `liquidacion.estado` | text ! | CHECK `pendiente`, `bloqueada_disputa`, `por_conciliar`, `confirmada`, `fallida`. |
+| `liquidacion.neto_arrendador_clp` | numeric(14,0) ? | Resultado observado; no inferido del precio publicado. |
+| `liquidacion.tarifa_proveedor_clp` | numeric(14,0) ? | Importe observado, separado del IVA del proveedor. |
+| `liquidacion.iva_tarifa_proveedor_clp` | numeric(14,0) ? | IVA observado/documentado del cargo del proveedor. |
+| `liquidacion.proveedor_ref` | text ? | Identificador externo. |
+| `liquidacion.confirmada_en` | timestamptz ? | Requiere reporte/confirmación externa y ausencia de disputa abierta. |
+
+### `documento_tributario` — respaldo de operación gravada (R; RQF-176/211)
+
+| Campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `id` | uuid ! | PK. |
+| `reserva_id` | uuid ? | FK→`reserva.id`; según documento. |
+| `orden_promocion_id` | uuid ? | FK→`orden_promocion.id`; según documento. |
+| `tipo` | text ! | Boleta/factura/nota según emisor y criterio fiscal confirmado. |
+| `emisor_ref` | text ! | Identidad fiscal protegida/referencia. |
+| `receptor_ref` | text ? | Identidad fiscal protegida/referencia, solo si necesaria. |
+| `folio` | text ? | UK con emisor/tipo si existe. |
+| `base_clp` | numeric(14,0) ! | Base documentada. |
+| `iva_clp` | numeric(14,0) ! | IVA documentado, puede ser cero. |
+| `total_clp` | numeric(14,0) ! | CHECK suma de componentes aplicables. |
+| `estado` | text ! | CHECK `pendiente`, `emitido`, `anulado`, `por_conciliar`. |
+| `emitido_en` | timestamptz ? | Solo con evidencia de emisión. |
+
+### `contrato` y `firma_contrato` — documento final y participantes (R; RQF-130–142/202)
+
+| Tabla.campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `contrato.id` | uuid ! | PK. |
+| `contrato.reserva_id` | uuid ! | FK→`reserva.id`. |
+| `contrato.version` | integer ! | UK con `reserva_id`; CHECK `>0`. |
+| `contrato.plantilla_version` | text ! | Plantilla exacta usada. |
+| `contrato.hash_final` | char(64) ? | Obligatorio para documento final. |
+| `contrato.estado` | text ! | CHECK `generado`, `firma_parcial`, `firmado`, `anulado`, `por_conciliar`. |
+| `contrato.proveedor_ref` | text ? | Sin credenciales. |
+| `contrato.generado_en` | timestamptz ! | Creación. |
+| `contrato.firmado_en` | timestamptz ? | Tras todas las firmas exigidas. |
+| `firma_contrato.contrato_id` | uuid ! | PK compuesta, FK→`contrato.id`. |
+| `firma_contrato.usuario_id` | uuid ! | PK compuesta, FK→`usuario.id`; debe ser parte de la reserva. |
+| `firma_contrato.estado` | text ! | CHECK `pendiente`, `firmada`, `rechazada`, `por_conciliar`. |
+| `firma_contrato.proveedor_ref` | text ? | Referencia externa de firma. |
+| `firma_contrato.firmado_en` | timestamptz ? | Solo con verificación. |
+
+### `operacion_arriendo` y `disputa` — uso y reclamación (P/R; RQF-143–171/203–210)
+
+| Tabla.campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `operacion_arriendo.id` | uuid ! | PK. |
+| `operacion_arriendo.reserva_id` | uuid ! | FK→`reserva.id`; UK por `tipo` cuando acto único. |
+| `operacion_arriendo.actor_id` | uuid ! | FK→`usuario.id`; participante autorizado. |
+| `operacion_arriendo.tipo` | text ! | CHECK `checkin`, `checkout`, `recepcion`. |
+| `operacion_arriendo.ocurrio_en` | timestamptz ! | Instante real; no generado por worker solo por reloj. |
+| `operacion_arriendo.ubicacion` | geography(Point,4326) ? | Precisa y R; solo si RF/permiso del acto la exige. |
+| `operacion_arriendo.observacion` | text ? | Texto libre restringido. |
+| `disputa.id` | uuid ! | PK. |
+| `disputa.reserva_id` | uuid ! | FK→`reserva.id`; UK parcial para una disputa abierta por reserva. |
+| `disputa.reclamante_id` | uuid ! | FK→`usuario.id`; cualquiera de las partes autorizadas. |
+| `disputa.motivo` | text ! | Fundamento privado. |
+| `disputa.estado` | text ! | CHECK `abierta`, `en_descargos`, `resuelta`, `cerrada`. |
+| `disputa.abierta_en` | timestamptz ! | Ventana de reclamo según RF. |
+| `disputa.resolutor_id` | uuid ? | FK→`usuario.id`; administrador. |
+| `disputa.fallo` | text ? | Obligatorio al resolver. |
+| `disputa.deduccion_clp` | numeric(14,0) ? | Entre cero y garantía capturada si aplica. |
+| `disputa.resuelta_en` | timestamptz ? | Trazabilidad de decisión. |
+
+### `documento` — objeto binario privado y dueño verificable (R/O; RQF-074–078/137/145/151/161/165/211)
+
+| Campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `id` | uuid ! | PK. |
+| `espacio_id` | uuid ? | FK→`espacio.id`; galería. |
+| `perfil_usuario_id` | uuid ? | FK→`perfil_usuario.usuario_id`; fotografía de perfil. |
+| `verificacion_id` | uuid ? | FK→`verificacion.id`; identidad. |
+| `contrato_id` | uuid ? | FK→`contrato.id`; contrato. |
+| `reserva_id` | uuid ? | FK→`reserva.id`; comprobante/evidencia general. |
+| `operacion_arriendo_id` | uuid ? | FK→`operacion_arriendo.id`; foto de uso. |
+| `disputa_id` | uuid ? | FK→`disputa.id`; reclamo/descargo. |
+| `version_terminos_id` | uuid ? | FK→`version_terminos.id`; texto de condiciones publicado. |
+| `documento_tributario_id` | uuid ? | FK→`documento_tributario.id`; respaldo fiscal emitido. |
+| `categoria` | text ! | Catálogo coherente con dueño; exactamente una FK dueña no nula. |
+| `bucket` | text ! | Bucket privado permitido por ambiente. |
+| `clave_objeto` | text ! | UK con bucket/generación; nunca URL firmada. |
+| `generacion_objeto` | text ! | Versión GCS validada. |
+| `mime_detectado` | text ! | Tipo real validado, no solo declarado. |
+| `bytes` | bigint ! | CHECK `>0`; límites por categoría. |
+| `hash_sha256` | char(64) ! | Integridad del contenido; no prueba por sí solo inmutabilidad. |
+| `retencion_clase` | text ! | Clase de la matriz B.7; no fija por sí sola el plazo legal. |
+| `estado` | text ! | CHECK `pendiente`, `validado`, `rechazado`, `retirado`. |
+| `autor_id` | uuid ? | FK→`usuario.id`; nulo solo para generación de sistema auditada. |
+| `creado_en` | timestamptz ! | Carga/alta. |
+
+### `mensaje_reserva`, `resena` y `reporte_resena` — comunicación y reputación (P/R; RQF-153–158/181–182/207)
+
+| Tabla.campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `mensaje_reserva.id` | uuid ! | PK. |
+| `mensaje_reserva.reserva_id` | uuid ! | FK→`reserva.id`; solo participantes acceden. |
+| `mensaje_reserva.autor_id` | uuid ! | FK→`usuario.id`; participante autorizado. |
+| `mensaje_reserva.cuerpo` | text ! | Contenido privado minimizado/moderable. |
+| `mensaje_reserva.estado` | text ! | CHECK `visible`, `oculto`, `retirado`. |
+| `mensaje_reserva.creado_en` | timestamptz ! | Envío. |
+| `resena.id` | uuid ! | PK. |
+| `resena.reserva_id` | uuid ! | FK→`reserva.id`; UK con `autor_id` para una reseña por parte autorizada. |
+| `resena.espacio_id` | uuid ! | FK→`espacio.id`; debe coincidir con reserva. |
+| `resena.autor_id` | uuid ! | FK→`usuario.id`; parte de reserva. |
+| `resena.nota` | smallint ! | CHECK `BETWEEN 1 AND 5`. |
+| `resena.texto` | text ? | Público tras moderación; P si identifica persona. |
+| `resena.estado` | text ! | CHECK `pendiente`, `publicada`, `oculta`. |
+| `resena.creada_en` | timestamptz ! | Solo tras uso elegible. |
+| `reporte_resena.id` | uuid ! | PK. |
+| `reporte_resena.resena_id` | uuid ! | FK→`resena.id`. |
+| `reporte_resena.denunciante_id` | uuid ! | FK→`usuario.id`. |
+| `reporte_resena.motivo` | text ! | Fundamento privado. |
+| `reporte_resena.estado` | text ! | CHECK `pendiente`, `resuelto`, `rechazado`. |
+| `reporte_resena.decisor_id` | uuid ? | FK→`usuario.id`; administrador. |
+| `reporte_resena.resuelto_en` | timestamptz ? | Fecha de decisión. |
+
+### `notificacion` y `entrega_notificacion` — intención y canal (P/T; avisos RQF-008/116/129/139/152/171/231)
+
+| Tabla.campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `notificacion.id` | uuid ! | PK. |
+| `notificacion.destinatario_id` | uuid ! | FK→`usuario.id`. |
+| `notificacion.tipo` | text ! | Catálogo de aviso de cuenta/reserva/pago/contrato/uso/disputa. |
+| `notificacion.plantilla_version` | text ! | Contenido reproducible; no copiar PII al outbox. |
+| `notificacion.recurso_tipo` | text ! | Tipo permitido; validación de propietario en caso de uso. |
+| `notificacion.recurso_id` | uuid ! | Referencia lógica; alternativa FK tipada al implementar si se consulta/depura por recurso. |
+| `notificacion.creada_en` | timestamptz ! | Intención durable. |
+| `entrega_notificacion.id` | uuid ! | PK. |
+| `entrega_notificacion.notificacion_id` | uuid ! | FK→`notificacion.id`. |
+| `entrega_notificacion.canal` | text ! | CHECK `correo`, `interno`; proveedor no se infiere. |
+| `entrega_notificacion.estado` | text ! | CHECK `pendiente`, `enviada`, `fallida`, `reintento`. |
+| `entrega_notificacion.intentos` | integer ! | CHECK `>=0`. |
+| `entrega_notificacion.disponible_en` | timestamptz ! | Programación durable. |
+| `entrega_notificacion.enviada_en` | timestamptz ? | Solo tras confirmación del adaptador. |
+| `entrega_notificacion.ultimo_error_codigo` | text ? | Saneado, sin dirección ni cuerpo. |
+
+## B.5 Auditoría, derechos, analítica y promoción (M02/M09/M11)
+
+### `evento_auditoria` — acciones críticas y correlación (P/T; RQF-178–185/212; RNF-017/043)
+
+| Campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `id` | uuid ! | PK. |
+| `actor_id` | uuid ? | FK→`usuario.id`; nulo para proceso técnico identificado en `actor_tipo`. |
+| `actor_tipo` | text ! | CHECK `usuario`, `administrador`, `servicio`, `proveedor`. |
+| `recurso_tipo` | text ! | Catálogo de recursos auditables. |
+| `recurso_id` | uuid ? | Identificador mínimo; FK tipada si la consulta operativa lo necesita. |
+| `accion` | text ! | Código estable: acceso, cambio, decisión, exportación o intento fallido. |
+| `resultado` | text ! | CHECK `aceptado`, `rechazado`, `error`. |
+| `motivo_codigo` | text ? | Obligatorio en decisiones administrativas y rechazo. |
+| `correlacion_id` | uuid ! | Une solicitud y evento de dominio. |
+| `ocurrio_en` | timestamptz ! | Instante. |
+| `resumen_minimo` | jsonb ! | Esquema permitido sin credenciales, PII directa ni cuerpo completo. |
+
+La tabla soporta consulta operacional. El mecanismo propuesto para RNF-017 exporta lotes minimizados a Cloud Storage con retención bloqueada y hash por lote **solo después de definir plazo y alcance compatibles con la matriz**; un hash aislado o BigQuery no acreditan inmutabilidad. La prueba de alteración está pendiente.
+
+### `solicitud_titular` — ejercicio de derechos desde el primer incremento (P/R; RQF-034–037; RNF-018/026/029; PT-16)
+
+| Campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `id` | uuid ! | PK. |
+| `usuario_id` | uuid ? | FK→`usuario.id`; nulo solo si titular aún no tiene cuenta o ya fue desidentificado. |
+| `identidad_reclamante_cifrada` | bytea ? | Obligatoria si `usuario_id` es nulo; dato mínimo para verificar y responder, con acceso restringido. |
+| `contacto_respuesta_cifrado` | bytea ? | Obligatorio cuando no hay cuenta activa; canal de respuesta protegido que se elimina al cerrar según política validada. |
+| `tipo` | text ! | CHECK `acceso`, `rectificacion`, `supresion`, `oposicion`, `portabilidad`, `bloqueo`. |
+| `canal` | text ! | CHECK `web`, `correo`, `administrado`. |
+| `identidad_verificada_en` | timestamptz ? | Requisito antes de entregar/cambiar datos. |
+| `solicitada_en` | timestamptz ! | Inicio del plazo administrativo interno. |
+| `estado` | text ! | CHECK `recibida`, `identidad_pendiente`, `en_revision`, `resuelta`, `denegada_fundada`. |
+| `responsable_id` | uuid ? | FK→`usuario.id`; administrador/encargado designado. |
+| `decision_codigo` | text ? | Fundamento estructurado de supresión, bloqueo, excepción o denegación. |
+| `resultado_ref` | text ? | Referencia privada a exportación/evidencia de ejecución, sin dato suprimido. |
+| `resuelta_en` | timestamptz ? | Obligatoria al cerrar. |
+
+RNF-026 fija una meta interna de 72 horas; no se atribuye ese plazo a la Ley 21.719 sin análisis jurídico. La solicitud registra también acciones en GCS, BigQuery, backups y encargados cuando correspondan. Borrar PII de `usuario` sin revisar referencias, derivados y copias no resuelve el derecho.
+
+### `outbox_evento` — evento transaccional publicable (T/A; RNF-012/024/028)
+
+| Campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `id` | uuid ! | PK; identificador de deduplicación. |
+| `tipo_evento` | text ! | Contrato versionado. |
+| `version_esquema` | integer ! | CHECK `>0`. |
+| `agregado_tipo` | text ! | Reserva, espacio, pago u otro agregado permitido. |
+| `agregado_id` | uuid ! | Recurso de origen. |
+| `payload` | jsonb ! | Esquema mínimo validado, sin secretos ni PII directa. |
+| `creado_en` | timestamptz ! | Misma transacción que hecho de dominio. |
+| `disponible_en` | timestamptz ! | Próximo intento. |
+| `intentos` | integer ! | CHECK `>=0`. |
+| `lease_token` | uuid ? | Reclamo del worker. |
+| `lease_hasta` | timestamptz ? | Permite recuperación tras reinicio. |
+| `publicado_en` | timestamptz ? | Confirmación local de publicación; consumidor deduplica. |
+| `ultimo_error_codigo` | text ? | Diagnóstico saneado. |
+
+### `campana`, `orden_promocion` y `derecho_reporte` — promoción y acceso a métricas (O/R; monetización planificada)
+
+| Tabla.campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `campana.id` | uuid ! | PK. |
+| `campana.espacio_id` | uuid ! | FK→`espacio.id`; titular arrendador del espacio. |
+| `campana.arrendador_id` | uuid ! | FK→`usuario.id`; coherencia con dueño del espacio. |
+| `campana.nombre` | text ! | Etiqueta privada de campaña. |
+| `campana.inicio` | timestamptz ! | Inicio de vigencia. |
+| `campana.fin` | timestamptz ! | CHECK `fin>inicio`. |
+| `campana.estado` | text ! | CHECK `borrador`, `pendiente_pago`, `activa`, `pausada`, `terminada`, `cancelada`. |
+| `campana.creada_en` | timestamptz ! | Alta. |
+| `orden_promocion.id` | uuid ! | PK. |
+| `orden_promocion.campana_id` | uuid ! | FK→`campana.id`; términos/versiones aceptadas. |
+| `orden_promocion.precio_clp` | numeric(14,0) ! | Precio pactado, separado de comisión por arriendo. |
+| `orden_promocion.iva_clp` | numeric(14,0) ! | Según documento tributario aplicable. |
+| `orden_promocion.total_clp` | numeric(14,0) ! | CHECK suma. |
+| `orden_promocion.moneda` | char(3) ! | Inicial CLP. |
+| `orden_promocion.estado` | text ! | CHECK `pendiente`, `pagada`, `cancelada`, `reembolsada`. |
+| `orden_promocion.creada_en` | timestamptz ! | Alta. |
+| `derecho_reporte.id` | uuid ! | PK. |
+| `derecho_reporte.espacio_id` | uuid ! | FK→`espacio.id`. |
+| `derecho_reporte.arrendador_id` | uuid ! | FK→`usuario.id`; dueño autorizado. |
+| `derecho_reporte.orden_promocion_id` | uuid ! | FK→`orden_promocion.id`; acceso solo si pago/estado válido. |
+| `derecho_reporte.vigencia` | tstzrange ! | Finita, `[)`; período de métricas autorizado. |
+| `derecho_reporte.estado` | text ! | CHECK `activo`, `suspendido`, `vencido`. |
+
+La campaña y el derecho se diseñan ahora para el producto completo; su activación comercial se condiciona a política/precio aprobados. Impresiones, clics y CTR viven en BigQuery; PostgreSQL verifica titular y derecho antes de devolver agregados. Los reportes de prueba en Looker Studio usan vistas y acceso segregado por vendedor.
+
+### `respuesta_nps` — evaluación voluntaria y minimizada (P/A; capacidad Customer Success)
+
+| Campo | Tipo | Regla y significado |
+| --- | --- | --- |
+| `id` | uuid ! | PK. |
+| `usuario_id` | uuid ? | FK→`usuario.id` solo si seguimiento autorizado; encuesta anónima no guarda vínculo. |
+| `reserva_id` | uuid ? | FK→`reserva.id` solo si finalidad comunicada. |
+| `puntuacion` | smallint ! | CHECK `BETWEEN 0 AND 10`. |
+| `comentario` | text ? | Texto libre separado y restringido; no sale íntegro a BigQuery. |
+| `finalidad_version` | text ! | Texto informado/consentimiento cuando corresponda. |
+| `respondida_en` | timestamptz ! | Instante. |
+
+## B.6 Cardinalidades, estados y restricciones de integridad
+
+| Relación/regla | Contrato para migración y caso de uso |
+| --- | --- |
+| Cuenta y oferta | `usuario` 1:N `rol_usuario`, `sesion`, `verificacion`, `espacio`; `usuario` 1:1 `perfil_usuario`; `espacio` N:1 `categoria_espacio`. |
+| Precio | `espacio` 1:N `regla_tarifa`; `politica_cancelacion` 1:N `regla_tarifa`; regla publicada inmutable y sin vigencias solapadas para el mismo ámbito. `cotizacion` referencia regla de tarifa y comisión vigentes; `reserva` congela aceptación. |
+| Calendario | `espacio` 1:N `ocupacion`; `reserva` 0..1 `ocupacion`; bloqueo manual sin reserva. `EXCLUDE USING gist (espacio_id WITH =, intervalo WITH &&) WHERE (activo)` y FK compuesta impiden solape y cruce de espacios. La aplicación captura conflicto SQLSTATE `23P01` como indisponibilidad. |
+| Pago | `reserva` 1:N `pago` y `movimiento_financiero`; `evento_proveedor` puede llegar sin correlación; `pago` apunta a reserva **o** orden de promoción. Nunca se llama a un proveedor dentro de una transacción PostgreSQL abierta. |
+| Contrato y uso | `reserva` 1:N `contrato`, `operacion_arriendo`, `disputa`; `contrato` 1:N `firma_contrato`. Solo firmantes de la reserva; check-in requiere contrato final y firmas exigidas, salvo entorno de simulación explícitamente identificado. |
+| Liquidación | `reserva` 0..1 `liquidacion`; disputa abierta bloquea confirmación. Reembolso/contracargo se registran como hechos nuevos; no reescribir pago confirmado. |
+| Documento | Exactamente una FK propietaria entre espacio, perfil, verificación, contrato, reserva, operación, disputa, versión de términos y documento tributario; categoría y rol de acceso coherentes. Los objetos privados no se exponen por clave o URL permanente. |
+| Privacidad | Ninguna FK personal se borra en cascada; la solicitud funda acción por dato/finalidad, incluyendo derivados y respaldos. Un UUID conservado no demuestra anonimización. |
+| Analítica | Cambio de dominio y `outbox_evento` comparten commit; entrega a Pub/Sub al menos una vez, consumidor deduplica; impresiones/clics no llenan PostgreSQL. |
+
+**Estados de `reserva` para el producto completo:** `pendiente_de_pago`, `pagada`, `aprobada_host`, `firma_parcial`, `lista_para_checkin`, `en_curso`, `finalizada`, `en_disputa`, `cerrada`, `cancelada_por_pago`, `rechazada_arrendador`, `cancelada_por_vencimiento`, `cancelada_por_firma`, `cancelada_arrendatario`. Los literales técnicos normalizan nombres de la entrega anterior sin cambiar su significado. `pago.estado` y `disputa.estado` son máquinas distintas; no se confunden con la reserva.
+
+| Transición permitida | Actor/condición y efecto |
+| --- | --- |
+| creación → `pendiente_de_pago` | Arrendatario autorizado; cotización vigente; insertar reserva, ocupación y outbox en una transacción. |
+| `pendiente_de_pago` → `pagada`/`cancelada_por_pago` | Pago confirmado por evento/consulta verificada; rechazo o vencimiento de 15 min. Resultado ambiguo va a conciliación antes de liberar ocupación. |
+| `pagada` → `aprobada_host`/`rechazada_arrendador`/`cancelada_por_vencimiento` | Arrendador decide o vence plazo de 24 h; reembolso es operación separada. |
+| `aprobada_host` → `firma_parcial` → `lista_para_checkin` | Firma verificada de partes y documento final; se admite salto directo si ambas firmas llegan juntas. |
+| `aprobada_host`/`firma_parcial` → `cancelada_por_firma` | Vence plazo o firma rechazada; compensación según política. |
+| `lista_para_checkin` → `en_curso` → `finalizada` | Actos autorizados de check-in y check-out con evidencia requerida; el worker no fabrica uso por reloj. |
+| `finalizada` → `en_disputa` → `finalizada` | Reclamo dentro de plazo y resolución motivada; liquidación bloqueada mientras abierta. |
+| `finalizada` → `cerrada` | Plazo de reclamo concluido y liquidación conciliada. |
+| estado cancelable → `cancelada_arrendatario` | Política snapshot, reembolso e información a partes; estados cancelables definidos por la política aceptada. |
+
+Cada transición incrementa `reserva.version` y escribe `reserva_transicion` en el mismo commit. Los `CHECK` delimitan literales; el caso de uso valida el arco, actor, estado financiero y evidencia. Un webhook tardío tras expiración no reactiva una ocupación ya liberada: se concilia y se resuelve devolución o intervención.
+
+## B.7 Tratamiento de datos desde el primer incremento
+
+La Ley 21.719 es **criterio de construcción desde ahora**, sin esperar su vigencia. Cada migración y endpoint identifica finalidad, mínimo de datos, rol autorizado, receptor/encargado, ubicación, control de acceso, ciclo de vida y evidencia de supresión o excepción. La Ley 19.628 vigente y las obligaciones sectoriales se consideran simultáneamente. La matriz siguiente es un contrato de clasificación y trabajo; base jurídica y plazo exacto por finalidad requieren validación competente antes de automatizar retención definitiva [@ley21719].
+
+| Clase/finalidad | Tablas y objetos | Acceso y salida | Evento de cierre y acción diseñada |
 | --- | --- | --- | --- |
-| usuario | — | Correo pendiente, activo, bloqueado, baja solicitada y anonimizado | RQF-001–018; CU-09/43 |
-| verificacion | Pendiente, aprobada y rechazada | — | RQF-060, 219–220; CU-11–14 |
-| espacio | Borrador, Activa y Oculta | — | RQF-082, 089; CU-18 |
-| reserva | Pendiente de Pago, Pagada, Aprobada_Host, Firma_Parcial, Lista_Para_Checkin, En_Curso, Finalizada y Cancelada_Por_Pago | Rechazada por el arrendador, cancelada por vencimiento, cancelada por falta de firma y cancelación solicitada por el arrendatario, sin literal en la base | RQF-113–152; CU-51 |
-| pago | — | Pendiente, confirmado, rechazado y por conciliar | RNF-012/028 |
-| garantia | — | Pendiente, autorizada, capturada, liberada y vencida | RQF-118, 174–175 |
-| contrato | Firma_Parcial (compartido con la reserva en la base) | Generado y anulado | RQF-130–139 |
-| firma_contrato | — | Pendiente, firmada y rechazada | RQF-134–139 |
-| operacion_arriendo | — | Check-in, check-out y recepción | RQF-143–152, 203–205 |
-| disputa | — | Abierta, en descargos y resuelta | RQF-159–171 |
-| liquidacion | — | Pendiente, confirmada y por conciliar | RQF-172–177 |
-| evento_proveedor | — | Recibido, procesado, error y rechazado | RNF-012/024/028 |
-| solicitud_titular | — | Recibida, en revisión, resuelta y rechazada | Ley 21.719; RNF-018/029 |
+| Cuenta y autenticación | `usuario`, `perfil_usuario`, `sesion`, `token_accion`, aceptaciones | Titular y servicio de identidad; hash/token fuera de logs/analítica | Revocar sesiones al cerrar; suprimir/minimizar perfil y credencial tras resolver solicitud, preservando solo hechos con fundamento. |
+| Verificación e identidad | `verificacion`, documentos KYC/KYB, `cuenta_cobro`, vínculo vendedor | Personal habilitado y proveedor encargado; cifrado/referencia externa | Vencimiento/revocación del propósito; borrar objeto y referencias conforme a excepción y plazo aprobados. |
+| Oferta y localización | `espacio`, galería, ubicación | Público solo contenido autorizado y ubicación gruesa; exacta a participantes habilitados | Retirar publicación sin borrar reservas/contratos históricos; purgar medios conforme a finalidad. |
+| Reserva y comunicación | `cotizacion`, `reserva`, `ocupacion`, `mensaje_reserva`, notificaciones, reseñas | Participantes; administrador motivado; sin mensajes completos en BigQuery | Vencimiento, cierre y solicitud; separar borrado de conversación/perfil de conservación de hechos contractuales. |
+| Pago y tributación | `pago`, `evento_proveedor`, movimientos, liquidación, DTE | Finanzas/administración autorizada; solo referencias mínimas a proveedor | Conservar comprobantes durante plazo tributario aplicable; disociar datos no exigidos. [[PENDIENTE: validar con contador el plazo y documento exacto por operación.]] |
+| Contrato y evidencia | `contrato`, firmas, operación, disputa, `documento` | Participantes y resolución autorizada; objetos privados | RNF-042 exige al menos cinco años para contratos/evidencia; confirmar inicio, excepciones y plazo legal efectivo antes de bloqueo irreversible. |
+| Auditoría y derechos | `evento_auditoria`, `solicitud_titular` | Administrador/privacidad con motivo; exportación mínima protegida | RNF-043 exige al menos cinco años de auditoría; no guardar PII directa en lote inmutable. Resolver derechos con decisión fundada y trazabilidad PT-16. |
+| Analítica y promoción | `outbox_evento`, campañas, derechos, NPS, datasets BigQuery | Agregados autorizados por titular del espacio; seudónimo no equivale a anonimato | Retención y desidentificación propias por evento/dataset; suprimir derivados según solicitud y finalidad. |
 
-*Tabla. Transiciones previstas de la reserva.* <!--#tab:es2-datos-transiciones-->
+El plazo interno de 72 horas de RNF-026 se trata como objetivo operacional a instrumentar y medir. No se afirma que ese número sea un plazo legal de la Ley 21.719. Tampoco se aplica un plazo único de cinco o seis años a toda fila. Toda excepción a supresión debe guardar fundamento y fecha de revisión; no se sustituye por hashes del nombre/correo mientras las FK permitan reidentificar.
 
-| Desde | Hacia | Disparador o condición | Referencia |
-| --- | --- | --- | --- |
-| Pendiente de Pago | Pagada | Confirmación del proveedor de pago | RQF-116 |
-| Pendiente de Pago | Cancelada_Por_Pago | Rechazo del cobro o 15 minutos sin pago (T1) | RQF-119/120 |
-| Pagada | Aprobada_Host | Aprobación del arrendador | RQF-124/125 |
-| Pagada | Rechazada por el arrendador | Rechazo fundado con reembolso total | RQF-126–128 |
-| Pagada | Cancelada por vencimiento | 24 horas sin respuesta del arrendador (T2) | RQF-129 |
-| Aprobada_Host | Firma_Parcial | Primera firma confirmada | RQF-136 |
-| Firma_Parcial | Lista_Para_Checkin | Todas las firmas confirmadas y contrato almacenado | RQF-137/138 |
-| Firma_Parcial | Cancelada por falta de firma | Fecha de inicio alcanzada sin firmas completas (T3) | RQF-140/141 |
-| Lista_Para_Checkin | En_Curso | Check-in registrado | RQF-148 |
-| En_Curso | Finalizada | Check-out registrado | RQF-152 |
-| Cualquier estado previo a En_Curso | Cancelación solicitada por el arrendatario | Cancelación de una reserva vigente | CU-51 |
+### B.7.1 Matriz de acceso de la API
 
-Las transiciones anteriores se validan en la aplicación: una restricción de dominio no impide un salto de estado. Tampoco se declara que el proveedor financiero permita revertir un cobro confirmado; ese efecto se trata por conciliación.
+| Sujeto | Lectura/escritura autorizada | Denegación o condición verificable |
+| --- | --- | --- |
+| Visitante | Publicaciones activas, precio publicado y reseñas moderadas | Sin dirección exacta, perfil privado, mensajería, reserva ni métricas de vendedor. |
+| Usuario registrado | Su perfil, sesiones y solicitudes de derechos | No ve PII de otras cuentas; cierre revoca sesiones. |
+| Arrendatario | Sus cotizaciones/reservas, pagos propios, contratos, mensajes y actos de uso | No resuelve disputas ni accede a cuenta de cobro del arrendador; cancelación según snapshot. |
+| Arrendador | Sus espacios, tarifas, calendario, solicitudes, contratos y agregados de métricas con derecho vigente | No ve token de pago, documento KYC o conversaciones ajenas; dirección exacta de otro anuncio sujeta a autorización. |
+| Administrador | Moderación, verificaciones, disputa, soporte y auditoría necesaria | Cada acceso sensible exige motivo/correlación; roles comerciales no se heredan automáticamente. |
+| Worker del monolito | Filas pendientes de expiración, notificación, outbox y conciliación | Cuenta de servicio sin sesión humana; lease e idempotencia; consultas limitadas a su finalidad. |
+| Consumidor analítico | Eventos minimizados y agregados autorizados | Sin secretos, PAN/CVV, KYC, mensajes completos ni capacidad de modificar hechos operativos. |
 
-## Permisos y accesos por rol
+El backend comprueba rol, titularidad y finalidad **por recurso y en cada consulta/comando**; los filtros visuales y el `usuario_id` enviado por el cliente no son autoridad. Los roles PostgreSQL separan migración, API y operación, pero no sustituyen esta autorización de negocio.
 
-*Tabla. Permisos propuestos por rol.* <!--#tab:es2-datos-permisos-->
+## B.8 Seguridad, migración y evidencias requeridas
 
-| Rol | Alcance | Operaciones permitidas | Restricciones propuestas |
-| --- | --- | --- | --- |
-| Visitante sin sesión | Catálogo público | Buscar, consultar detalle y leer reseñas | Sin chat, reservas ni datos de terceros |
-| Usuario Registrado | Cuenta propia | Perfil, cuenta bancaria, contraseña y baja de cuenta | Solo sus propios registros |
-| Arrendatario | Reservas propias | Reservar, pagar, firmar, chatear, reseñar, registrar check-in y check-out, cancelar y reclamar | Sin acceso a la resolución de disputas ni a publicaciones ajenas |
-| Arrendador | Espacios y solicitudes propias | Publicar, galería, calendario, resolver solicitudes, firmar, confirmar recepción, reportar reseña y reclamar | Sin acceso a los datos de pago completos del arrendatario |
-| Administrador | Plataforma | Revisión manual, bloqueo de cuentas, moderación, resolución de disputas, reportes y auditoría | Sin rol comercial; cada acción exige motivo registrado |
-| Cuenta de servicio (propuesta) | Procesos automáticos | Generar contrato, registrar eventos, ejecutar temporizadores y anonimización | Sin credenciales interactivas; su diseño sigue pendiente |
+- **Roles DB:** credencial de migración con DDL separada de `app_rw`; cuentas de lectura/operación con permisos mínimos. La API aplica autorización por recurso/rol y consultas filtradas. Secret Manager custodia secretos; no guardar PAN/CVV ni tokens OAuth en PostgreSQL.
+- **Migraciones:** SQL numerado y versionado en `db/migrations/`, checksum, ejecución serial y registro de versión; patrón expandir–migrar datos–contraer. Comprobar PostgreSQL 18/PostGIS/`btree_gist` en local y Cloud SQL antes de afirmar portabilidad. No convertir el ejemplo del anexo previo en la primera migración.
+- **Dinero:** igualdad de moneda y conciliación entre cotización, reserva, intento, reporte externo, movimiento, documento y liquidación. `comision_neta`, `iva_comision`, `tarifa_proveedor` y `neto_arrendador` son conceptos separados. Tarifa y distribución real de Split se verifican en sandbox y con proveedor/contador.
+- **Concurrencia:** exclusión GiST para reservas/bloqueos, idempotencia y unicidad externa para pagos/webhooks, leases para worker/outbox. Una transacción local no revierte una operación externa confirmada.
+- **Continuidad:** respaldos/PITR y restauración aislada, incluidas referencias de GCS y secretos; RPO/RTO RNF-010 se acreditan solo con ensayo fechado. HA se decide con costo/disponibilidad medidos; activar una opción no demuestra RTO.
+- **Rastreo académico:** RQF/RNF/CU anteriores se conservan; PT-16 cubre derechos. Las pruebas MD-01–MD-13 del diseño preliminar siguen como criterios planificados: integridad referencial, exclusión y concurrencia, estados, documentos, pagos/webhooks, worker/outbox, privacidad, migración y restauración. Se actualizarán sus entradas y resultados al existir migraciones, ambiente y producto.
 
-Los permisos se aplican en la API y en las vistas de consulta; el DDL propuesto no define roles de base de datos ni políticas de fila. La consulta de auditoría de CU-46 queda restringida al Administrador, y la minimización de RNF-018/029 debe comprobarse en cada exportación. Si el equipo adopta seguridad a nivel de fila, su alcance se decidirá antes de implementar.
-
-## DDL propuesto
-
-El siguiente texto es una **propuesta no ejecutada** para PostgreSQL 16 o superior con PostGIS y `btree_gist`, según RNF-038. No crea datos, no reemplaza la validación del equipo y no se ha aplicado en ningún servidor. Su revisión fue textual y de coherencia: 17 tablas corresponden a las entidades de negocio y `outbox_evento` es la tabla técnica adicional; toda clave foránea apunta a una tabla declarada y los paréntesis y terminadores están equilibrados.
-
-```sql
-CREATE EXTENSION IF NOT EXISTS postgis;
-CREATE EXTENSION IF NOT EXISTS btree_gist;
-
-CREATE DOMAIN monto AS numeric(14,2) CHECK (VALUE >= 0);
-CREATE DOMAIN monto_estricto AS numeric(14,2) CHECK (VALUE > 0);
-CREATE DOMAIN hash_hex AS char(64) CHECK (VALUE ~ '^[0-9a-f]{64}$');
-
-CREATE TABLE usuario (
-    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-    correo text NOT NULL,
-    nombre text NOT NULL,
-    hash_clave text NOT NULL,
-    estado text NOT NULL DEFAULT 'correo_pendiente'
-        CHECK (estado IN ('correo_pendiente','activo','bloqueado','baja_solicitada','anonimizado')),
-    creado_en timestamptz NOT NULL DEFAULT now()
-);
-CREATE UNIQUE INDEX usuario_correo_unico ON usuario (lower(correo));
-
-CREATE TABLE rol_usuario (
-    usuario_id uuid NOT NULL REFERENCES usuario(id),
-    rol text NOT NULL CHECK (rol IN ('arrendador','arrendatario','administrador')),
-    PRIMARY KEY (usuario_id, rol)
-);
-
-CREATE TABLE verificacion (
-    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-    usuario_id uuid NOT NULL REFERENCES usuario(id),
-    tipo text NOT NULL CHECK (tipo IN ('KYC','KYB')),
-    estado text NOT NULL CHECK (estado IN ('pendiente','aprobada','rechazada')),
-    proveedor_ref text,
-    revisor_id uuid REFERENCES usuario(id),
-    motivo text,
-    creada_en timestamptz NOT NULL DEFAULT now(),
-    resuelto_en timestamptz,
-    CONSTRAINT verificacion_rechazo_fundado CHECK (estado <> 'rechazada' OR motivo IS NOT NULL),
-    CONSTRAINT verificacion_cierre_coherente CHECK ((estado = 'pendiente') = (resuelto_en IS NULL))
-);
-
-CREATE TABLE espacio (
-    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-    arrendador_id uuid NOT NULL REFERENCES usuario(id),
-    titulo text NOT NULL,
-    ubicacion geography(Point,4326) NOT NULL,
-    tipo text NOT NULL,
-    superficie_m2 numeric(12,2) NOT NULL CHECK (superficie_m2 > 0),
-    precio_base monto_estricto NOT NULL,
-    unidad_tarifa text NOT NULL CHECK (unidad_tarifa IN ('hora','dia','mes')),
-    politica_cancelacion text NOT NULL,
-    estado text NOT NULL DEFAULT 'borrador' CHECK (estado IN ('borrador','activa','oculta')),
-    creado_en timestamptz NOT NULL DEFAULT now()
-);
-CREATE INDEX espacio_ubicacion_gix ON espacio USING gist (ubicacion);
-
-CREATE TABLE reserva (
-    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-    espacio_id uuid NOT NULL REFERENCES espacio(id),
-    arrendatario_id uuid NOT NULL REFERENCES usuario(id),
-    inicio timestamptz NOT NULL,
-    fin timestamptz NOT NULL,
-    estado text NOT NULL DEFAULT 'pendiente_de_pago'
-        CHECK (estado IN ('pendiente_de_pago','pagada','aprobada_host','rechazada_arrendador',
-                          'cancelada_por_pago','cancelada_por_vencimiento','cancelada_por_firma',
-                          'firma_parcial','lista_para_checkin','en_curso','finalizada')),
-    estadia monto NOT NULL,
-    comision monto NOT NULL,
-    garantia_monto monto NOT NULL,
-    moneda char(3) NOT NULL DEFAULT 'CLP',
-    politica_snapshot text NOT NULL,
-    creada_en timestamptz NOT NULL DEFAULT now(),
-    version integer NOT NULL DEFAULT 1 CHECK (version > 0),
-    CONSTRAINT reserva_intervalo_valido CHECK (fin > inicio),
-    CONSTRAINT reserva_id_espacio_unico UNIQUE (id, espacio_id)
-);
-
-CREATE TABLE ocupacion (
-    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-    espacio_id uuid NOT NULL REFERENCES espacio(id),
-    reserva_id uuid,
-    intervalo tstzrange NOT NULL,
-    tipo text NOT NULL CHECK (tipo IN ('reserva','bloqueo_manual')),
-    activo boolean NOT NULL DEFAULT true,
-    expira_en timestamptz,
-    motivo text,
-    CONSTRAINT ocupacion_reserva_espacio_coherente
-        FOREIGN KEY (reserva_id, espacio_id) REFERENCES reserva (id, espacio_id),
-    CONSTRAINT ocupacion_intervalo_no_vacio CHECK (NOT isempty(intervalo)),
-    CONSTRAINT ocupacion_motivo_bloqueo CHECK (tipo <> 'bloqueo_manual' OR motivo IS NOT NULL),
-    CONSTRAINT ocupacion_reserva_coherente CHECK ((tipo = 'reserva') = (reserva_id IS NOT NULL)),
-    CONSTRAINT ocupacion_sin_solape EXCLUDE USING gist (espacio_id WITH =, intervalo WITH &&) WHERE (activo)
-);
-CREATE UNIQUE INDEX ocupacion_reserva_unica ON ocupacion (reserva_id) WHERE (reserva_id IS NOT NULL);
-
-CREATE TABLE pago (
-    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-    reserva_id uuid NOT NULL REFERENCES reserva(id),
-    proveedor text NOT NULL,
-    tipo text NOT NULL CHECK (tipo IN ('cobro','reembolso')),
-    clave_idempotencia text NOT NULL,
-    referencia_externa text,
-    monto monto NOT NULL,
-    estado text NOT NULL CHECK (estado IN ('pendiente','confirmado','rechazado','por_conciliar')),
-    creado_en timestamptz NOT NULL DEFAULT now(),
-    CONSTRAINT pago_idempotencia_unica UNIQUE (proveedor, tipo, clave_idempotencia),
-    CONSTRAINT pago_referencia_unica UNIQUE (proveedor, referencia_externa)
-);
-
-CREATE TABLE garantia (
-    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-    reserva_id uuid NOT NULL REFERENCES reserva(id),
-    referencia_externa text,
-    monto_autorizado monto NOT NULL,
-    monto_capturado monto NOT NULL DEFAULT 0,
-    estado text NOT NULL CHECK (estado IN ('pendiente','autorizada','capturada','liberada','vencida')),
-    vence_en timestamptz,
-    CONSTRAINT garantia_captura_tope CHECK (monto_capturado <= monto_autorizado)
-);
-
-CREATE TABLE outbox_evento (
-    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-    tipo_evento text NOT NULL,
-    version_esquema integer NOT NULL CHECK (version_esquema > 0),
-    agregado_tipo text NOT NULL,
-    agregado_id uuid NOT NULL,
-    payload jsonb NOT NULL,
-    creado_en timestamptz NOT NULL DEFAULT now(),
-    disponible_en timestamptz NOT NULL DEFAULT now(),
-    intentos integer NOT NULL DEFAULT 0 CHECK (intentos >= 0),
-    publicado_en timestamptz,
-    lease_hasta timestamptz,
-    ultimo_error text,
-    CONSTRAINT outbox_publicacion_lease CHECK (publicado_en IS NULL OR lease_hasta IS NULL)
-);
-CREATE INDEX outbox_pendiente_idx ON outbox_evento (disponible_en, creado_en)
-    WHERE publicado_en IS NULL;
-
-CREATE TABLE evento_proveedor (
-    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-    proveedor text NOT NULL,
-    evento_externo text NOT NULL,
-    reserva_id uuid REFERENCES reserva(id),
-    hash_contenido hash_hex NOT NULL,
-    recibido_en timestamptz NOT NULL DEFAULT now(),
-    estado text NOT NULL DEFAULT 'recibido'
-        CHECK (estado IN ('recibido','procesado','error','rechazado')),
-    intentos integer NOT NULL DEFAULT 0 CHECK (intentos >= 0),
-    CONSTRAINT evento_proveedor_unico UNIQUE (proveedor, evento_externo)
-);
-
-CREATE TABLE contrato (
-    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-    reserva_id uuid NOT NULL REFERENCES reserva(id),
-    version integer NOT NULL CHECK (version > 0),
-    proveedor_ref text,
-    estado text NOT NULL CHECK (estado IN ('generado','firma_parcial','firmado','anulado')),
-    generado_en timestamptz NOT NULL DEFAULT now(),
-    CONSTRAINT contrato_version_unica UNIQUE (reserva_id, version)
-);
-
-CREATE TABLE firma_contrato (
-    contrato_id uuid NOT NULL REFERENCES contrato(id),
-    usuario_id uuid NOT NULL REFERENCES usuario(id),
-    estado text NOT NULL CHECK (estado IN ('pendiente','firmada','rechazada')),
-    firmado_en timestamptz,
-    referencia_externa text,
-    PRIMARY KEY (contrato_id, usuario_id),
-    CONSTRAINT firma_fecha_coherente CHECK ((estado = 'firmada') = (firmado_en IS NOT NULL))
-);
-
-CREATE TABLE operacion_arriendo (
-    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-    reserva_id uuid NOT NULL REFERENCES reserva(id),
-    actor_id uuid NOT NULL REFERENCES usuario(id),
-    tipo text NOT NULL CHECK (tipo IN ('check_in','check_out','recepcion')),
-    fecha timestamptz NOT NULL DEFAULT now(),
-    ubicacion geography(Point,4326),
-    observaciones text,
-    CONSTRAINT operacion_arriendo_unica UNIQUE (reserva_id, tipo)
-);
-
-CREATE TABLE disputa (
-    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-    reserva_id uuid NOT NULL REFERENCES reserva(id),
-    reclamante_id uuid NOT NULL REFERENCES usuario(id),
-    descripcion text NOT NULL,
-    estado text NOT NULL DEFAULT 'abierta' CHECK (estado IN ('abierta','en_descargos','resuelta')),
-    abierta_en timestamptz NOT NULL DEFAULT now(),
-    resolutor_id uuid REFERENCES usuario(id),
-    fallo text,
-    deduccion monto,
-    resuelta_en timestamptz,
-    CONSTRAINT disputa_resolucion_fundada
-        CHECK (estado <> 'resuelta' OR (fallo IS NOT NULL AND resolutor_id IS NOT NULL))
-);
-
-CREATE TABLE liquidacion (
-    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-    reserva_id uuid NOT NULL REFERENCES reserva(id) UNIQUE,
-    clave_idempotencia text NOT NULL UNIQUE,
-    neto_arrendador monto NOT NULL,
-    estado text NOT NULL CHECK (estado IN ('pendiente','confirmada','por_conciliar')),
-    referencia_externa text,
-    confirmada_en timestamptz,
-    CONSTRAINT liquidacion_confirmacion CHECK ((estado = 'confirmada') = (confirmada_en IS NOT NULL))
-);
-
-CREATE TABLE solicitud_titular (
-    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-    usuario_id uuid NOT NULL REFERENCES usuario(id),
-    tipo text NOT NULL CHECK (tipo IN ('acceso','rectificacion','supresion','oposicion','portabilidad')),
-    canal text NOT NULL,
-    identidad_verificada boolean NOT NULL DEFAULT false,
-    solicitada_en timestamptz NOT NULL DEFAULT now(),
-    estado text NOT NULL DEFAULT 'recibida'
-        CHECK (estado IN ('recibida','en_revision','resuelta','rechazada')),
-    responsable_id uuid REFERENCES usuario(id),
-    resultado text CHECK (resultado IN ('entregado','rectificado','anonimizado','bloqueado','denegado_conservacion')),
-    motivo text,
-    resuelta_en timestamptz,
-    CONSTRAINT solicitud_cierre_fundado
-        CHECK (estado IN ('recibida','en_revision') OR (motivo IS NOT NULL AND resuelta_en IS NOT NULL)),
-    CONSTRAINT solicitud_supresion_resultado
-        CHECK (tipo <> 'supresion' OR estado <> 'resuelta'
-               OR resultado IN ('anonimizado','bloqueado','denegado_conservacion'))
-);
-
-CREATE TABLE documento (
-    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-    espacio_id uuid REFERENCES espacio(id),
-    verificacion_id uuid REFERENCES verificacion(id),
-    contrato_id uuid REFERENCES contrato(id),
-    reserva_id uuid REFERENCES reserva(id),
-    disputa_id uuid REFERENCES disputa(id),
-    operacion_arriendo_id uuid REFERENCES operacion_arriendo(id),
-    categoria text NOT NULL CHECK (categoria IN ('galeria','identidad','contrato','check_in','check_out','reclamo','descargo','boleta')),
-    clave_objeto text NOT NULL UNIQUE,
-    hash_sha256 hash_hex NOT NULL,
-    bytes bigint NOT NULL CHECK (bytes > 0),
-    autor_id uuid NOT NULL REFERENCES usuario(id),
-    creado_en timestamptz NOT NULL DEFAULT now(),
-    CONSTRAINT documento_un_propietario CHECK (
-        (espacio_id IS NOT NULL)::int + (verificacion_id IS NOT NULL)::int + (contrato_id IS NOT NULL)::int
-      + (reserva_id IS NOT NULL)::int + (disputa_id IS NOT NULL)::int + (operacion_arriendo_id IS NOT NULL)::int = 1),
-    CONSTRAINT documento_categoria_coherente CHECK (CASE categoria
-        WHEN 'galeria' THEN espacio_id IS NOT NULL
-        WHEN 'identidad' THEN verificacion_id IS NOT NULL
-        WHEN 'contrato' THEN contrato_id IS NOT NULL
-        WHEN 'reclamo' THEN disputa_id IS NOT NULL
-        WHEN 'descargo' THEN disputa_id IS NOT NULL
-        WHEN 'check_in' THEN operacion_arriendo_id IS NOT NULL
-        WHEN 'check_out' THEN operacion_arriendo_id IS NOT NULL
-        WHEN 'boleta' THEN reserva_id IS NOT NULL
-        END)
-);
-
-CREATE TABLE evento_auditoria (
-    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-    actor_id uuid REFERENCES usuario(id),
-    reserva_id uuid REFERENCES reserva(id),
-    solicitud_titular_id uuid REFERENCES solicitud_titular(id),
-    accion text NOT NULL,
-    fecha timestamptz NOT NULL DEFAULT now(),
-    correlacion text NOT NULL,
-    resumen text NOT NULL
-);
-```
-
-**Qué declara este DDL.** Claves primarias y foráneas, la coherencia entre el espacio de una reserva y el de su ocupación mediante clave foránea compuesta, la exclusión de solapamiento por espacio con `EXCLUDE USING gist` sobre el rango semiabierto, la unicidad de idempotencia por proveedor, la deduplicación de eventos externos, los topes de monto y la coherencia entre categoría de documento y propietario.
-
-**Qué no declara.** Las transiciones de estado entre tablas, los permisos por rol, la minimización de datos, la política de conservación y anonimización, la inmutabilidad del repositorio de auditoría de RNF-017 y la emisión de la boleta. Todo ello requiere lógica de aplicación o procesos programados, y no se acredita por existir el esquema.
-
-## Pruebas previstas del modelo
-
-Los ensayos siguientes comprueban el diccionario y su DDL. **Ninguno se ha ejecutado**: requieren base desplegada, producto y entorno autorizado. Se mantienen separados de los dieciséis casos del Anexo C; los que correspondan se incorporarán allí si el equipo lo decide.
-
-*Tabla. Ensayos previstos del modelo de datos.* <!--#tab:es2-datos-ensayos-->
-
-| Código | Ensayo | Qué comprueba | Caso del Anexo C relacionado |
-| --- | --- | --- | --- |
-| MD-01 | Unicidad de correo y de claves idempotentes | Rechazo de duplicados con distinta capitalización y de reintentos repetidos | — |
-| MD-02 | Exclusión de solapamiento por espacio | Dos inserciones simultáneas con intervalos que se superponen | PT-01, PT-02 |
-| MD-03 | Coherencia espacio–reserva de la ocupación | Ocupación cuyo espacio difiere del de su reserva | PT-01 |
-| MD-04 | Documento con un único propietario | Registros con cero y con dos propietarios, y categoría incompatible | — |
-| MD-05 | Topes de monto y garantía | Valores negativos y captura superior al monto autorizado | PT-08 |
-| MD-06 | Deduplicación de eventos del proveedor | Reenvío del mismo evento externo y de una respuesta tardía | PT-04 |
-| MD-07 | Concurrencia entre reserva y bloqueo manual | Reserva creada mientras se bloquea el mismo rango | PT-01, PT-02 |
-| MD-08 | Vencimiento de la retención temporal | Expiración que libera la ocupación sin invocar la hora durante la búsqueda | PT-03 |
-| MD-09 | Derechos de titulares y ciclo de datos | Supresión con conservación obligatoria y registro de la solicitud | PT-16 |
-| MD-10 | Migración y reversión del esquema | Aplicar el DDL en una base vacía, migrar y revertir sin pérdida | — |
-| MD-11 | Retención y anonimización | Anonimización que preserva el hecho financiero y su trazabilidad | PT-16 |
-| MD-12 | Restauración del esquema | Restaurar un respaldo y verificar integridad referencial | PT-11 |
-| MD-13 | Atomicidad, reclamo y reintento del Outbox | Confirmar que rollback elimina el evento, que un commit crea un único evento y que un lease vencido permite reintentar sin duplicar el efecto del consumidor | — |
-
-## Ampliaciones todavía necesarias
-
-### Extensión propuesta de campañas patrocinadas
-
-No forma parte de las 16 entidades iniciales ni de los requisitos validados de ES1. Si el equipo aprueba el producto de destaque pagado, modelar al menos `campaña_destacada` (`id`, `espacio_id`, `arrendador_id`, `categoria`, `zona`, `inicio`, `fin`, `estado`, `precio_neto`, `iva`, `pago_id`, `condiciones_version`) y `exposicion_campaña` agregada (`campaña_id`, `fecha`, `zona`, `impresiones_validas`, `clics`, `reservas_atribuidas`). Las claves, retención, consentimiento/fundamento, protección antifraude y consistencia con el calendario se revisarán antes de DDL. No guardar ubicación precisa ni perfil personal del visitante en una métrica que pueda agregarse.
-
-[[PENDIENTE: completar perfil y cuenta bancaria, sesiones y tokens, tarifas y catálogos, mensajería, reseñas, detalle tributario y notificaciones; revisar el tratamiento de los autores automáticos de documentos. No afirmar cobertura total de los RF.]]
-
-[[PENDIENTE: mapear los literales de estado de ES1 a los propuestos y acordarlos con el equipo, validar cardinalidades, aplicar el DDL en un entorno autorizado y ejecutar los ensayos MD-01 a MD-13 con evidencia fechada.]]
+[[PENDIENTE: confirmar con contador y documentos reales la afectación/IVA, emisor y retención de cada componente financiero; con proveedor las capacidades efectivas de garantía, reembolso y Split; con responsable de privacidad las bases jurídicas/plazos por finalidad y el bloqueo de retención; ejecutar migraciones y MD/PT con evidencia fechada.]]

@@ -13,12 +13,12 @@ La arquitectura se desarrollará a partir de los módulos, requisitos y flujos d
 | Terraform para infraestructura GCP | Definición consolidada de backend ES2 | Decisión arquitectónica; state remoto GCS versionado y con locking | 3.6 |
 | Cloud Storage privado para imágenes, contratos y evidencias | Definición consolidada de backend ES2 | Decisión arquitectónica; autorización del backend y acceso temporal | 3.3, 3.6 |
 | Región southamerica-west1 (Santiago) para datos y ejecución | Decisión del usuario del 23-09-2026 | Vigente: tarifas publicadas aplicadas al presupuesto; +40 % en cómputo, base y Cloud Run, y +90 % en almacenamiento respecto de Iowa | 3.6; Anexo A |
-| Alcance ejecutable de la demostración | Decisión del usuario | Una categoría de espacio; recorrido búsqueda, reserva, pago simulado y check-in. El modelo mantiene las demás categorías | 3.3, 3.4, 3.7 |
-| Pagos externos durante desarrollo e integración | Decisión del usuario | Exclusivamente sandbox; la demostración usa un adaptador simulado y no procesa fondos reales | 3.3, 3.5 |
+| Alcance del producto y modelo | Decisión posterior del usuario | Todas las categorías y flujos de ES1 se diseñan desde ahora; construcción incremental sin limitar el producto a una demo de categoría única | 3.3, 3.4, 3.7; Anexo B |
+| Pagos externos durante desarrollo e integración | Decisión del usuario | Exclusivamente sandbox; el simulador local es solo para pruebas aisladas y no acredita cobros reales | 3.3, 3.5 |
 | Analítica de eventos de dominio | Definición consolidada de backend ES2 | Outbox PostgreSQL → Pub/Sub → BigQuery; Datastream descartado en esta fase | 3.3, 3.4, 3.5, 3.6 |
 | Workers asíncronos | Decisión del usuario | Goroutines dentro del mismo servicio Cloud Run, con tareas durables y reclamo idempotente en PostgreSQL; sin Cloud Run Job aparte | 3.3, 3.6 |
 | Presupuesto y alertas de GCP | Decisión del usuario | Configurados desde el primer despliegue junto con topes operativos; las alertas avisan y no cortan automáticamente el gasto | 3.6 |
-| Calendario común `ocupacion` con intervalos semiabiertos | Decisión nueva de ES2 | Propuesta; requiere DDL aplicado y prueba concurrente | 3.4; Anexo B |
+| Calendario común `ocupacion` con intervalos semiabiertos | Decisión de diseño ES2 | Contrato lógico fijado en el Anexo B; requiere migración aplicada y prueba concurrente | 3.4; Anexo B |
 | Separar la analítica de la garantía de inmutabilidad de RNF-017 | Decisión nueva de ES2 | Propuesta (SUP-13): retención bloqueada con hash por lote; sin ensayo de alteración ejecutado | 3.3, 3.6 |
 | Ley 21.719 como criterio de diseño desde el primer incremento | Decisión del usuario | Vigente; sin cumplimiento probado | Anexo B; PT-16 |
 | Métricas de publicaciones y acceso premium | Decisión consolidada de backend | Captura agregada de impresiones y clics para todas las publicaciones; el reporte requiere ticket premium vigente y autorización del arrendador | 3.3, 3.5 |

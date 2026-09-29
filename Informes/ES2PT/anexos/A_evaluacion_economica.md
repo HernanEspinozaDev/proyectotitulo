@@ -6,7 +6,7 @@ Esta versión reemplaza la conclusión económica preliminar del primer ejercici
 
 Se distinguen tres magnitudes: **gasto/costo neto**, **dinero que sale de caja**, que puede incluir IVA recuperable, y **costo de oportunidad del equipo**. El aporte de un socio financia caja; no es una venta. Un valor positivo de ventas simuladas no acredita clientes ni implementación.
 
-Como antecedente del equipo se conserva en el cuerpo de ES2 el [aporte de trabajo sobre estudios y flujo de caja](../flujodecaja/estudios.md), incorporado al repositorio por la identidad Git «Shiva» (commit `2030456`, 28-09-2026). Su esquema ayuda a identificar partidas de mercado, inversión, operación, organización y financiamiento. Sus cuadros numéricos son un ejercicio preliminar: suponen 3.600 reservas anuales y una comisión del 25 %, mientras que este anexo aplica el escenario vigente documentado en los supuestos de evaluación, con volúmenes hipotéticos distintos y comisión neta del 12 %. Por ello, el VAN positivo de aquel ejercicio no se traslada a esta evaluación; los resultados reproducibles y sus fuentes primarias se presentan en este anexo.
+Como antecedente del equipo se conserva en el cuerpo de ES2 el [aporte de trabajo sobre estudios y flujo de caja](../flujodecaja/estudios.md), incorporado al repositorio por la identidad Git «Shiva» (commit `2030456`, 28-09-2026). Su esquema ayuda a identificar partidas de mercado, inversión, operación, organización y financiamiento. Sus cuadros numéricos son un ejercicio preliminar: suponen 3.600 reservas anuales y una comisión del 25 %. El ejercicio posterior de este anexo usaba 12 %; ambos quedan como escenarios históricos. El **escenario vigente de diseño** usa la comisión neta del **3 %** decidida después, volúmenes aún hipotéticos y el contrato de datos del Anexo B. El 12 % continúa únicamente como tasa de descuento académica, no como comisión. Ningún VAN anterior se traslada a este escenario sin recálculo.
 
 La orientación de preparación y evaluación de proyectos de Sapag se aplica separando mercado, ingeniería, inversión, operación, liquidez y riesgo. Las referencias públicas del libro no sustituyen una lectura íntegra; el modelo numérico es elaboración propia [@es2sapag2014]. Las fuentes y cotizaciones pendientes están identificadas en el listado de partidas.
 
@@ -14,7 +14,7 @@ Para evitar anticipar ventas se adopta un primer año completo sin ingresos: mes
 
 ## Infraestructura planteada y costo mensual
 
-Se conservan Next.js, Go, PostgreSQL/PostGIS, Docker y GCP como candidatos de la base. Next.js y Go corresponden a **dos servicios**; la carga Cloud Run indicada es el agregado de ambos. PostgreSQL administrado se modela en Cloud SQL Enterprise General Purpose. La elección de recursos es una hipótesis de costos, no un dimensionamiento certificado.
+La arquitectura definida utiliza Next.js, Go, PostgreSQL/PostGIS, contenedores y GCP. El backend Go es **un servicio API modular** con workers internos; el cliente web, cuando se despliegue, será un servicio separado. La carga variable Cloud Run presupuestada para frontend/desborde es una provisión, mientras la API Go tiene una instancia mínima explícita en piloto y HA. PostgreSQL administrado se modela en Cloud SQL Enterprise General Purpose. La elección de recursos es una hipótesis de costos, no un dimensionamiento certificado.
 
 La referencia tarifaria vigente es **Santiago (`southamerica-west1`)**, adoptada por decisión del usuario del 23-09-2026 y respaldada con las tarifas publicadas por Google Cloud para esa región. Se presupuestan USD/CLP = 1.000 y un **19 % de IVA** adicional como antes, pero ya **no se aplica la provisión regional del 35 %** que usaba la referencia de Iowa: las partidas con tarifa publicada están expresadas directamente en precios de Santiago. Las únicas provisiones que se conservan son las bolsas sin cotización —registros, compilación, secretos, correo y staging— y los supuestos de salida, procesamiento y respaldo, identificados como tales. Elegir región obliga además a revisar latencia y transferencias internacionales de datos bajo los criterios de privacidad de ES2 [@es2cloudsqlpricing; @es2cloudrunpricing; @es2gcspricing].
 
@@ -25,10 +25,10 @@ La referencia tarifaria vigente es **Santiago (`southamerica-west1`)**, adoptada
 | Perfil | Configuración de costo | Uso y límite |
 | --- | --- | --- |
 | Ensayo | SQL 1 vCPU/4 GiB activo 160 h/mes; disco 10 GiB; copias 10 GiB; 100.000 solicitudes agregadas | Pruebas controladas con datos sintéticos, acceso restringido y desarrollo local; sin balanceador público/WAF. No es operación comercial ni acredita los RNF de producción |
-| Piloto | SQL 2 vCPU/8 GiB 730 h/mes; SSD 20 GiB; copias 20 GiB; 1 millón solicitudes; objetos 50 GiB; salida 100 GiB | Un entorno activo y bolsa para staging separado; balanceador HTTPS y cinco reglas WAF. SQL zonal, sin HA; no demuestra 99,9 % extremo a extremo |
-| HA de referencia | SQL con recursos de HA equivalentes a 2 vCPU/8 GiB primarios; almacenamiento facturado duplicado; copias 40 GiB; 5 millones solicitudes; objetos 200 GiB; salida 300 GiB | Mayor resiliencia presupuestada, sin afirmar capacidad, RPO/RTO o SLA comprobados |
+| Piloto | SQL 2 vCPU/8 GiB 730 h/mes; SSD 20 GiB; copias 20 GiB; API Go mínima 1 vCPU/0,5 GiB durante 730 h; 1 millón solicitudes de frontend/desborde; objetos 50 GiB; salida 100 GiB | Un entorno activo y bolsa para staging separado; balanceador HTTPS y cinco reglas WAF. SQL zonal, sin HA; no demuestra 99,9 % extremo a extremo |
+| HA de referencia | SQL con recursos de HA equivalentes a 2 vCPU/8 GiB primarios; almacenamiento facturado duplicado; copias 40 GiB; API Go mínima de 1 vCPU/0,5 GiB; 5 millones solicitudes de frontend/desborde; objetos 200 GiB; salida 300 GiB | Mayor resiliencia presupuestada, sin afirmar capacidad, RPO/RTO o SLA comprobados; una instancia API mínima no acredita HA de aplicación |
 
-El perfil piloto computa 200.000 vCPU-s y 100.000 GiB-s activos por mes (supuesto agregado equivalente a 0,2 s y 0,5 GiB por solicitud, sin asumir ahorro por concurrencia). Cloud Run tiene mínimos en cero; no se modelan instancias permanentemente calientes. La base SQL sí funciona todo el mes. No se utiliza un conector VPC dedicado; su necesidad o la de NAT obligaría a agregar costos. El total se calcula sin descuentos gratuitos ni créditos promocionales [@es2cloudrunpricing].
+El perfil piloto conserva **200.000 vCPU-s y 100.000 GiB-s de actividad adicional** para frontend y desbordes, sin medir concurrencia real. Suma una instancia API Go de 1 vCPU/0,5 GiB durante 730 horas mensuales, con **facturación por instancia** para dar CPU a los workers fuera de las solicitudes. La tasa de Santiago de este componente se calcula como tarifa pública de nivel 1 multiplicada por 1,4 para el nivel regional 2: USD 0,0000252/vCPU-s y USD 0,0000028/GiB-s; el cargo fijo estimado es **USD 69,90/mes**. El ensayo restringido no mantiene ese servicio encendido permanentemente. Se excluyen créditos gratuitos y descuentos; la tarifa real debe cotejarse por SKU/factura [@es2cloudrunpricing; @es2cloudrunbilling].
 
 *Tabla. Desglose mensual del piloto, tarifas de Santiago en USD antes de IVA.* <!--#tab:es2-infra-desglose-->
 
@@ -38,7 +38,8 @@ El perfil piloto computa 200.000 vCPU-s y 100.000 GiB-s activos por mes (supuest
 | SQL RAM | 8 × 730 h × 0,0098 | 57,23 | Tarifa zonal de Santiago |
 | SQL SSD | 20 GiB × 730 h × 0,000326027 | 4,76 | Tarifa zonal de Santiago |
 | SQL copias utilizadas | 20 GiB × 730 h × 0,000153425 | 2,24 | Tarifa de Santiago; el supuesto doble de HA es conservador |
-| Cloud Run, dos servicios | CPU 6,72 + memoria 0,35 + solicitudes 0,40 | 7,47 | Tarifa de Santiago sin nivel gratuito |
+| Cloud Run, API Go mínima | 2.628.000 vCPU-s × 0,0000252 + 1.314.000 GiB-s × 0,0000028 | 69,90 | Una instancia de 1 vCPU/0,5 GiB, 730 h; tarifa de nivel regional 2, sin nivel gratuito |
+| Cloud Run, frontend/desborde | CPU 6,72 + memoria 0,35 + solicitudes 0,40 | 7,47 | Provisión de actividad adicional; no duplica la capacidad mínima de la API |
 | Archivos en Cloud Storage | 50 GiB × 730 h × 0,000052055 | 1,90 | Almacenamiento; operaciones aparte |
 | Salida de datos | 100 GiB × USD 0,20 | 20,00 | Supuesto; precio global igual en ambas regiones |
 | Balanceador y procesamiento | 730 h × 0,025 + provisión 0,80 | 19,05 | Precio global igual; procesamiento estimado |
@@ -49,21 +50,21 @@ El perfil piloto computa 200.000 vCPU-s y 100.000 GiB-s activos por mes (supuest
 | Correo transaccional | Bolsa mensual | 10,00 | Proveedor y volumen por cotizar |
 | Staging aislado | SQL 40 h + disco + ejecución breve | 10,00 | Provisión, no segundo ambiente 24/7 |
 
-**Total de referencia: USD 237,82/mes.** Fuentes tarifarias: precios publicados por Google Cloud para Cloud SQL, Cloud Run, Storage, Load Balancing y Armor; los supuestos están identificados y no se atribuyen al proveedor [@es2cloudsqlpricing; @es2cloudrunpricing; @es2gcspricing; @es2lbpricing; @es2armorpricing].
+**Total de referencia: USD 307,72/mes.** Fuentes tarifarias: precios publicados por Google Cloud para Cloud SQL, Cloud Run, Storage, Load Balancing y Armor; los supuestos están identificados y no se atribuyen al proveedor [@es2cloudsqlpricing; @es2cloudrunpricing; @es2gcspricing; @es2lbpricing; @es2armorpricing].
 
 *Tabla. Presupuesto mensual de caja por perfil.* <!--#tab:es2-infra-caja-->
 
 | Perfil | USD de referencia | CLP netos, tarifas de Santiago | CLP de caja, con 19 % adicional |
 | --- | --- | --- | --- |
 | ensayo | 24,65 | 24.650 | 29.334 |
-| piloto | 237,82 | 237.819 | 283.005 |
-| ha | 494,65 | 494.648 | 588.632 |
+| piloto | 307,72 | 307.724 | 366.192 |
+| ha | 564,55 | 564.553 | 671.818 |
 
-**Nota.** El 19 % se reserva como necesidad de caja bajo el supuesto de facturación afecta; el mecanismo real de IVA de servicios extranjeros y su crédito debe revisarse. El IVA es adicional a las tarifas y no reemplaza ninguna provisión. Cada fila de precio/cantidad está en `supuestos_bootstrap.json`. No se suman automáticamente los tres perfiles: se usa uno por mes. El perfil de alta disponibilidad de USD 494,65 y el comparador documental de USD 384,23 usan cargas, cantidades de almacenamiento y respaldos distintas; no se debe atribuir la diferencia a componentes que el comparador ya incluye.
+**Nota.** El 19 % se reserva como necesidad de caja bajo el supuesto de facturación afecta; el mecanismo real de IVA de servicios extranjeros y su crédito debe revisarse. El IVA es adicional a las tarifas y no reemplaza ninguna provisión. Cada fila de precio/cantidad está en `supuestos_bootstrap.json`. No se suman automáticamente los tres perfiles: se usa uno por mes. El perfil de alta disponibilidad de USD 564,55 y el comparador documental anterior de USD 384,23 usan cargas, cantidades de almacenamiento, respaldos y facturación de API distintas; no se atribuye su diferencia a una sola causa.
 
 Como control de ingeniería, se compara **otra configuración** con carga mensual común de 1 millón de solicitudes y Cloud SQL HA en Iowa: USD 297,01/mes para Cloud Run sin mínimos frente a USD 393,39/mes para dos VM E2, antes de IVA. Ese ejercicio conserva sus precios de Iowa como comparación documental y no se reescribe con la decisión regional. El piloto de esta tabla usa SQL zonal, de modo que la variante HA no forma parte del flujo base: cambiar a disponibilidad completa exige la diferencia presupuestaria correspondiente y una prueba de capacidad. Cloud Run con una o dos instancias mínimas, discos y operación de VM, salida de datos y costos de producción se detallan en el ejercicio comparativo; la equivalencia de rendimiento permanece sin prueba [@es2cloudrunpricing; @es2computeprecios; @es2cloudsqlpricing].
 
-La simulación de 6 meses ensayo + 6 piloto supone aproximadamente **1.874.031 CLP** de caja cloud durante el año 1. Doce meses completos de piloto elevan esa partida a **3.396.058 CLP**. SSL administrado, equipos existentes y herramientas sin suscripción adicional no reciben aquí un cobro inventado, pero falta validar licencias y disponibilidad real. No se incluye soporte enterprise, segunda región de recuperación, SMS masivo, penetración externa ni hardware nuevo; requieren presupuesto si el diseño los necesita. Backups, WAF o BigQuery no acreditan por sí solos restauración ni auditoría inmutable.
+La simulación de 6 meses ensayo + 6 piloto supone aproximadamente **2.373.152 CLP** de caja cloud durante el año 1. Doce meses completos de piloto elevarían esa partida a **4.394.298 CLP**. SSL administrado, equipos existentes y herramientas sin suscripción adicional no reciben aquí un cobro inventado, pero falta validar licencias y disponibilidad real. No se incluye soporte enterprise, segunda región de recuperación, SMS masivo, penetración externa ni hardware nuevo; requieren presupuesto si el diseño los necesita. Backups, WAF o BigQuery no acreditan por sí solos restauración ni auditoría inmutable.
 
 ## SpA de tres integrantes y reparto de acciones
 
@@ -144,9 +145,9 @@ El registro electrónico de constitución es gratuito; la firma y asesoría pued
 | patente anual | 1 año / reserva anual | 71.721 | mínimo anual 1UTM referencia septiembre2026; fecha/cálculo municipal pendientes |
 | aseo | 1 año / reserva anual | 120.000 | provisión municipal no verificada; puede variar o no corresponder |
 | cierre renta | 1 año / reserva anual | 119.000 | provisión honorario anual independiente, no impuesto ni fecha legal de declaración |
-| Infraestructura | 6 ensayo + 6 piloto | 1.874.031 | Tarifas de Santiago + provisiones auxiliares + IVA |
+| Infraestructura | 6 ensayo + 6 piloto | 2.373.152 | Tarifas de Santiago, API mínima desde piloto, provisiones auxiliares e IVA supuesto |
 
-**Operación año 1: 3.793.743 CLP. Con preparación inicial: 4.815.743 CLP.** El domicilio reduce 69.000 CLP de operación y su firma 5.000 CLP de preparación frente al escenario LOF anterior. El dominio usa precio NIC vigente; el cierre contable se reserva al mes 12 y se presupone fuera del honorario mensual, para evitar duplicarlo si una cotización lo incluye [@es2nictarifas; @es2oficinaexpress].
+**Operación año 1: 4.292.863 CLP. Con preparación inicial: 5.314.863 CLP.** El domicilio Oficina Express conserva las partidas elegidas; el aumento respecto del cálculo anterior proviene de la instancia API mínima durante seis meses de piloto. El dominio usa precio NIC publicado; el cierre contable se reserva al mes 12 y se presupone fuera del honorario mensual, para evitar duplicarlo si una cotización lo incluye [@es2nictarifas; @es2oficinaexpress].
 
 Como gasto opcional separado, registrar marca cuesta 3 UTM por clase en derechos INAPI (1 al inicio y 2 al aceptarse), más publicación. A la UTM usada son 215.163 CLP, más una provisión ilustrativa de 30.000 para publicación, sin honorarios: **245.163 CLP adicionales**. No se incluye en el total base porque faltan clases y decisión de tramitar; buscar nombre y pagar dominio no registra una marca [@es2inapitasas]. Tampoco se incluyen computadores nuevos ni gastos personales de subsistencia: inventariarlos y financiarlos por separado si son necesarios.
 
@@ -156,11 +157,11 @@ Como gasto opcional separado, registrar marca cuesta 3 UTM por clase en derechos
 
 Los gastos propios habituales, equipos ya disponibles y trabajo ya incurrido no se convierten automáticamente en nueva salida incremental. Si los fundadores deben dejar ingresos alternativos para dedicar esas horas, esa restricción personal puede impedir ejecutar el plan aunque la caja empresarial alcance.
 
-El primer año demanda **4.815.743 CLP**, sin sueldos. Con colchón de caja del 20 %, el fondo objetivo es **5.778.891 CLP**, o aproximadamente **1.926.297 por fundador** si aportan igual. El colchón es dinero disponible ante contingencias, no gasto realizado ni deducción tributaria.
+El primer año demanda **5.314.863 CLP**, sin sueldos. Con colchón de caja del 20 %, el fondo objetivo es **6.377.835 CLP**, o aproximadamente **2.125.945 por fundador** si aportan igual. El colchón es dinero disponible ante contingencias, no gasto realizado ni deducción tributaria.
 
-Con capital ilustrativo de 3.000.000 CLP, falta financiar **2.778.891 CLP** para alcanzar ese fondo (5.778.891 − 3.000.000). Puede revisarse un capital mayor o préstamos documentados de socios; el acuerdo debe distinguir titularidad de acciones, aporte pagado, deuda y condiciones de devolución. No se atribuyen intereses ni devolución en este flujo del proyecto anterior al financiamiento.
+Con capital ilustrativo de 3.000.000 CLP, falta financiar **3.377.835 CLP** para alcanzar ese fondo (6.377.835 − 3.000.000). Puede revisarse un capital mayor o préstamos documentados de socios; el acuerdo debe distinguir titularidad de acciones, aporte pagado, deuda y condiciones de devolución. No se atribuyen intereses ni devolución en este flujo del proyecto anterior al financiamiento.
 
-La caja alcanza su déficit máximo de **6.246.529 CLP en el mes 19**. Por tanto, financiar solo el primer año no basta para todo el arranque. Con 20 % de margen sobre ese déficit, la reserva para atravesar los 36 meses sería **7.495.835 CLP**, aproximadamente **2.498.612 por persona**, bajo las ventas simuladas. Si no llegan esas ventas, debe recalcularse antes de comprometer gastos.
+La caja alcanza su déficit máximo de **18.953.948 CLP en el mes 36**. Por tanto, financiar solo el primer año no basta para todo el horizonte. Con 20 % de margen sobre ese déficit, la reserva para atravesar los 36 meses sería **22.744.738 CLP**, aproximadamente **7.581.579 por persona**, bajo las ventas simuladas. Es una necesidad de liquidez de un escenario deficitario, no una recomendación de aporte ni una valorización de la sociedad.
 
 *Tabla. Calendario de caja del primer año sin ventas.* <!--#tab:es2-caja-mensual-->
 
@@ -173,24 +174,35 @@ La caja alcanza su déficit máximo de **6.246.529 CLP en el mes 19**. Por tanto
 | Mes 4 | 126.684 | 1.804.246 |
 | Mes 5 | 126.684 | 1.930.930 |
 | Mes 6 | 126.684 | 2.057.613 |
-| Mes 7 | 439.855 | 2.497.468 |
-| Mes 8 | 439.855 | 2.937.323 |
-| Mes 9 | 439.855 | 3.377.178 |
-| Mes 10 | 439.855 | 3.817.033 |
-| Mes 11 | 439.855 | 4.256.888 |
-| Mes 12 | 558.855 | 4.815.743 |
+| Mes 7 | 523.042 | 2.580.655 |
+| Mes 8 | 523.042 | 3.103.697 |
+| Mes 9 | 523.042 | 3.626.738 |
+| Mes 10 | 523.042 | 4.149.780 |
+| Mes 11 | 523.042 | 4.672.821 |
+| Mes 12 | 642.042 | 5.314.863 |
 
 ## Ingresos simulados, pagos y margen
 
-El escenario comercial mantiene el modelo de comisión de ES1: **12 % neto** sobre arriendo final supuesto de 100.000 CLP, no un porcentaje fijado por un contrato existente. Por reserva: comisión 12.000 + IVA 2.280 = 14.280 CLP; arriendo del propietario 100.000; cobro total a procesar 114.280. No se usa la garantía para financiar EspaciGo.
+El escenario comercial se sincroniza con el **Anexo B de ES2**: `regla_comision` parte de **3 % neto del arriendo publicado**, versiona cambios y la reserva conserva `comision_neta_clp` e `iva_comision_clp` por separado. El arriendo de **100.000 CLP finales** es un ticket provisional, no un promedio. Si la comisión está afecta a IVA del 19 %, son **3.000 CLP netos + 570 CLP de IVA = 3.570 CLP descontados al arrendador**. Por tanto, **3 % más IVA equivale a 3,57 % del arriendo**, no a 3,19 %. El comprador paga en este ejemplo 100.000 CLP; el IVA propio del arriendo y cualquier cargo trasladado al comprador quedan en cero hasta tener tratamiento y condiciones documentados. La garantía prevista no entra en el cobro ni en ingresos.
 
-Si EspaciGo **absorbe económicamente** la tarifa pública inmediata de Checkout, `114.280 × 3,19 % = 3.645,53` CLP netos y `4.338,18` con IVA. Esa comisión de pasarela **no es 3,19 % de nuestros 12.000**. La alternativa pública a diez días es 2,89 % + IVA, pero exige financiar plazos y confirmar que sea aplicable al producto elegido. El flujo predeterminado descrito por Split 1:1 descuenta la tarifa primero al **vendedor**, antes de la comisión del marketplace. Por tanto, el costo cargado a EspaciGo en esta simulación exige acuerdo comercial o compensación; el crédito fiscal y la caja reales de ese mecanismo aún no están acreditados. La conciliación ilustrativa y el riesgo de reembolso están desarrollados en el análisis de pagos. Checkout corriente no resuelve por sí solo custodia, garantía o liberación condicionada [@es2mptarifas; @es2mpsplitflujo].
+La documentación pública de Split 1:1 indica que **Mercado Pago descuenta primero su tarifa al vendedor** y luego la comisión del marketplace del saldo. Para visualizar el orden de magnitud se usa la tasa pública inmediata de Checkout **3,19 % neto + IVA**, aplicada al cobro de 100.000 CLP: **3.190 CLP + 606,10 CLP de IVA = 3.796,10 CLP**. No es una cotización de Split ni se presume que EspaciGo pueda tomar el crédito fiscal del proveedor. El saldo aritmético del vendedor sería **92.633,90 CLP**, una diferencia de **7,3661 %** respecto del precio publicado, bajo estas tasas y sin otros cargos. La comisión neta propia de EspaciGo es 3.000 CLP; los 570 CLP de IVA no son ingreso. El reporte real, comprobantes y regla de redondeo en pesos deberán conciliar `pago`, `movimiento_financiero`, `liquidacion` y `documento_tributario`. Split 1:1 no prueba custodia, garantía ni liberación condicionada [@es2mptarifas; @es2mpsplitflujo; @es2mpreporte].
+
+*Tabla. Conciliación unitaria ilustrativa del cobro de 100.000 CLP, sin garantía ni IVA del arriendo.* <!--#tab:es2-split-unitario-->
+
+| Concepto | CLP | Incidencia en el escenario |
+| --- | ---: | --- |
+| Cobro al comprador | 100.000,00 | Pago de arriendo final publicado; dinero del tercero |
+| Tarifa referencial del proveedor, neta | -3.190,00 | Descontada al vendedor, no costo de EspaciGo |
+| IVA referencial de tarifa del proveedor | -606,10 | Descontado al vendedor, sujeto a su documento |
+| Comisión EspaciGo, neta | -3.000,00 | Ingreso propio de la plataforma |
+| IVA supuesto de comisión EspaciGo | -570,00 | Débito tributario, no ingreso propio |
+| Neto ilustrativo del arrendador | 92.633,90 | Resultado a comprobar en sandbox y reporte contractual |
 
 Se agregan dos firmas a 1.000 CLP netos cada una, KYC prorrateado de 500 y consumo/atención incremental de 500: **3.000 CLP adicionales por reserva**, todos supuestos. FirmaVirtual publica FES al público por 4.490 CLP por documento con dos o más firmantes, pero no se obtuvo cotización numérica de **API**; además, su página resume de otra forma el precio «por parte». Prorratear KYC por reserva requiere comprobar recurrencia por usuario. Como comparador, Didit anuncia USD 0,33 para KYC y USD 0,20 adicional para consulta RUT chileno; no se han evaluado acceso, impuestos ni tratamiento de datos. Dos firmantes no implican necesariamente dos cargos si se factura por documento: se recalculará según contrato y modalidad jurídica [@es2firmavirtualapi; @es2firmavirtualprecios; @es2diditchile].
 
-Así, el variable neto es 6.645,53 y la contribución 5.354,47 CLP por reserva, antes de fijos y trabajo fundador. Una firma a 2.500 por persona cambia sustancialmente la economía; se incluye esa sensibilidad.
+Así, EspaciGo presupone **3.000 CLP de costos variables propios** y obtiene **0 CLP de contribución** por una reserva de 100.000 CLP, antes de fijos, PPM y trabajo fundador. La tarifa de Mercado Pago reduce el saldo del arrendador en este escenario; no se vuelve a restar de la utilidad de la plataforma. Una firma a 2.500 por persona empeora la contribución y se incluye como sensibilidad.
 
-El reparto nativo y la compensación económica a un vendedor **no son equivalentes contables**. Por ello, el cuadro de IVA y VAN siguiente expresa una hipótesis de costos soportados por la plataforma, no una liquidación comprobada de Split. Antes de usarlo para decidir inversión se deberán obtener comprobantes y condiciones tributarias del flujo exacto, más una prueba de cobro y devolución [@es2mpsplitflujo].
+El reparto nativo de Split 1:1 ocurre entre vendedor y marketplace; la distribución igualitaria de utilidades entre tres fundadores pertenece a la **SpA después del cierre contable** y no se programa como tres transferencias en el pago. Una compensación voluntaria al vendedor por tarifas sería un costo nuevo y exigiría otro escenario; no aparece en este flujo. El cuadro de IVA y VAN siguiente sigue condicionado a documentos válidos y a la prueba del cobro/devolución exactos en sandbox [@es2mpsplitflujo].
 
 La comparación documental añade una condición de selección: Mercado Pago documenta comisión 1:1 y reportes de liquidación, pero Flow solo acredita públicamente `merchantId` de comercios asociados y TUU no acredita en los términos consultados un split online equivalente. Ofrecer varios **medios de pago** mediante un checkout no obliga a integrar varias **pasarelas**. Ninguna de estas capacidades prueba custodia de la garantía. Antes de presupuestar el flujo definitivo se ensayarán dos cuentas, tarifa real por medio, abonos, reembolso con vendedor sin saldo y documentos por RUT [@es2flowapi; @es2mpsplitflujo; @es2mpreporte].
 
@@ -204,7 +216,7 @@ El ticket del modelo de **100.000 CLP finales por reserva** puede parecer cercan
 
 El protocolo de medición propuesto define fichas comparables por `categoría × modalidad × comuna`, seguidas de búsqueda asistida y, cuando exista producto y contrato, un piloto de pagos conciliados. La cuota inicial sugerida es **exploratoria**, no una muestra representativa. Las estadísticas SII, ELE-7 y Censo ayudan a contextualizar zonas, pero no revelan cuántas reservas podría cerrar EspaciGo. Cada `segmento` del simulador deberá registrar origen, periodo, capacidad, precio final, conversión y cancelaciones observadas; un contacto o intención no se contabiliza como venta [@es2siiestadisticas; @es2ele7; @es2censo2024; @es2aaporpracticas].
 
-Con la comisión y cargos **hipotéticos** del caso base, un arriendo final de 2.940 CLP arroja aproximadamente **-2.754 CLP de contribución variable** y uno de 21.420 CLP, **-1.210 CLP**; a 42.245 CLP queda solo **+529 CLP**, antes de fijos. La fórmula, las unidades y las fuentes están detalladas en este anexo. Esto revela por qué sumar reservas de estacionamiento, sala y bodega con el mismo ticket ocultaría pérdidas de transacciones pequeñas; también obliga a confirmar si firma y KYC ocurren en cada reserva, sin alterar los requisitos del proyecto [@es2saba; @es2lofespacios; @es2coworkcentro].
+Con la comisión del **3 %** y los cargos propios **hipotéticos** de 3.000 CLP por reserva, un arriendo final de 2.940 CLP arroja **−2.911,80 CLP de contribución variable**; uno de 21.420 CLP, **−2.357,40 CLP**; y uno de 42.245 CLP, **−1.732,65 CLP**, antes de fijos. La frontera unitaria es **100.000 CLP** de arriendo inicial (`3.000/0,03`); a ese ticket la contribución es cero, no hay margen para infraestructura. El aviso externo de 2.940 CLP queda además bajo el mínimo de publicación RQF-073, por lo que es una comparación de mercado, no una tarifa elegible del producto sin revisar ese requisito. Firma y KYC por reserva siguen como provisión que debe medirse por categoría [@es2saba; @es2lofespacios; @es2coworkcentro].
 
 ### Ingreso adicional propuesto: destaque de publicaciones
 
@@ -240,49 +252,49 @@ Se reajustan arriendo medio, partidas CLP y valor hora por IPC supuesto del 4 %;
 | Concepto | Año 1 | Año 2 | Año 3 |
 | --- | --- | --- | --- |
 | Reservas | 0 | 720 | 1.800 |
-| Ingresos propios netos | 0 | 8.985.600 | 23.362.560 |
-| Costos variables netos | 0 | 4.976.174 | 12.938.053 |
-| Fijos de operación netos | 3.229.805 | 4.887.018 | 4.968.346 |
+| Ingresos propios netos | 0 | 2.246.400 | 5.840.640 |
+| Costos variables propios netos | 0 | 2.246.400 | 5.840.640 |
+| Fijos de operación netos | 3.649.234 | 5.725.876 | 5.807.203 |
 | Sueldos desembolsados | 0 | 0 | 0 |
-| Resultado antes de impuesto, incluye preparación neta en año 1 | -4.099.006 | -877.593 | 5.456.161 |
-| IDPC calculado al 27 % | 0 | 0 | 1.473.163 |
-| PPM provisionados, a cuenta del IDPC | 0 | 22.464 | 58.406 |
-| IVA pagado después de créditos | 0 | 0 | 258.689 |
-| Remanente IVA al cierre, no efectivo | 716.736 | 831.765 | 0 |
-| Flujo de caja del año, excluye preparación inicial | -3.793.743 | -1.015.085 | 4.814.762 |
+| Resultado antes de impuesto, incluye preparación neta en año 1 | -4.518.435 | -5.725.876 | -5.807.203 |
+| IDPC calculado al 27 % | 0 | 0 | 0 |
+| PPM provisionados, a cuenta del IDPC | 0 | 5.616 | 14.602 |
+| IVA pagado después de créditos | 0 | 0 | 0 |
+| Remanente IVA al cierre, no efectivo | 796.428 | 1.832.630 | 2.882.216 |
+| Flujo de caja del año, excluye preparación inicial | -4.292.863 | -6.767.694 | -6.871.391 |
 | Trabajo fundador valorizado, separado | 43.200.000 | 22.464.000 | 23.362.560 |
 
 La preparación inicial es una salida adicional de **1.022.000 CLP en t0**. En el resultado del año 1 se reconocen aproximadamente **869.202 CLP netos** a efectos ilustrativos, sin volver a pagarlos. El flujo incluye compras con IVA, créditos compensados, PPM y saldo de IDPC; **no equivale a utilidad contable**. La regularización tributaria se reserva al cierre del mismo año operativo para presupuestar, no como fecha legal de pago. El exceso de PPM no se transforma en devolución anticipada. El crédito fiscal de la oficina elegida y su firma depende de recibir DTE válido y confirmación contable.
 
 No se agrega otra inversión genérica de capital de trabajo encima del déficit mensual: eso duplicaría el financiamiento. El máximo déficit constituye la necesidad calculada; el colchón agrega liquidez. No se reconoce valor terminal, devolución de capital gastado ni venta ficticia del software. Una evaluación de continuidad más larga necesita evidencia adicional.
 
-A tasa nominal **supuesta** del 12 %, el flujo anterior a aportes da **VAN de caja -1.791.437 CLP** y **TIR de caja -9,20 %**. Al descontar también el trabajo no remunerado, el **VAN económico es -74.900.038 CLP**; no hay TIR económica positiva que mostrar. La tasa aún debe justificarse y la capitalización societaria no corrige un VAN negativo.
+A tasa nominal de descuento **supuesta** del 12 %, el flujo anterior a aportes da **VAN de caja −15.140.998 CLP**. Como los cuatro flujos de la serie (`t0` y años 1–3) son negativos, la **TIR de caja no está definida**. Al descontar también el trabajo no remunerado, el **VAN económico es −88.249.599 CLP** y su TIR tampoco está definida. La tasa de descuento no es la comisión y aún debe justificarse; la capitalización societaria no corrige el déficit del proyecto.
 
 *Tabla. Sensibilidad, manteniendo explícitas las demás condiciones.* <!--#tab:es2-sensibilidad-bootstrap-->
 
 | Escenario | VAN caja, CLP | Déficit máximo 36 meses, CLP |
 | --- | --- | --- |
-| Base con Oficina Express y aseo provisional | -1.791.437 | 6.246.529 |
-| Asesoría y habilitación inicial −25 %, tres partidas netas | -1.580.485 | 6.008.529 |
-| Asesoría y habilitación inicial +25 %, tres partidas netas | -2.002.390 | 6.484.529 |
-| 105 ventas en año 1 | -1.272.926 | 5.580.638 |
-| Mitad de reservas previstas | -6.913.327 | 8.736.171 |
-| USD/CLP 1.100 | -2.317.886 | 6.644.781 |
-| Pagar 600.000 por fundador/mes desde año 3, a precios base | -17.413.450 | 22.963.869 |
-| Firma a 2.500 netos por firmante | -7.678.513 | 9.272.416 |
-| Arriendo inicial de 30.000 CLP por reserva | -14.356.751 | 18.045.981 |
-| Arriendo inicial de 50.000 CLP por reserva | -10.426.340 | 12.702.163 |
-| Arriendo inicial de 150.000 CLP por reserva | 4.512.103 | 5.407.050 |
-| IDPC 12,5 % estático, sin asignación legal de calendario | -1.228.317 | 6.246.529 |
-| Piloto cloud durante todo el año 1 | -2.977.418 | 7.768.556 |
-| Aseo completo de 2,88 UTM en vez de provisión de 120.000 | -1.989.127 | 6.423.104 |
-| Dos documentos DOM condicionales de 0,15 y 0,35 UTM | -1.827.298 | 6.282.390 |
+| Base con Oficina Express, API mínima y aseo provisional | -15.140.998 | 18.953.948 |
+| Asesoría y habilitación inicial −25 %, tres partidas netas | -14.902.998 | 18.715.948 |
+| Asesoría y habilitación inicial +25 %, tres partidas netas | -15.378.998 | 19.191.948 |
+| 105 ventas en año 1 | -15.141.701 | 18.954.736 |
+| Mitad de reservas previstas | -15.133.563 | 18.943.839 |
+| USD/CLP 1.100 | -16.015.975 | 20.070.123 |
+| Pagar 600.000 por fundador/mes desde año 3, a precios base | -31.770.007 | 42.316.508 |
+| Firma a 2.500 netos por firmante | -22.219.200 | 28.577.526 |
+| Arriendo inicial de 30.000 CLP por reserva | -20.085.330 | 25.676.300 |
+| Arriendo inicial de 50.000 CLP por reserva | -18.672.664 | 23.755.628 |
+| Arriendo inicial de 150.000 CLP por reserva | -11.609.332 | 14.152.268 |
+| IDPC 12,5 % estático, sin asignación legal de calendario | -15.140.998 | 18.953.948 |
+| Piloto cloud durante todo el año 1 | -16.945.594 | 20.975.095 |
+| Aseo completo de 2,88 UTM en vez de provisión de 120.000 | -15.356.680 | 19.224.143 |
+| Dos documentos DOM condicionales de 0,15 y 0,35 UTM | -15.176.859 | 18.989.809 |
 
-Las tres partidas profesionales de inicio suman 800.000 CLP netos; moverlas ±25 % cambia la salida de caja del año 1 en ±238.000 CLP con el IVA supuesto. El caso de firma a 2.500 netos **por firmante** conserva dos cargos por reserva: no representa una cotización API ni el precio público por documento. En ese estrés, los tres flujos anuales son negativos y la TIR no está definida. El KYC de 500 CLP **por reserva** es un prorrateo provisional: las ofertas públicas expresan el cobro por verificación de usuario y consulta, de modo que deben medirse altas y revalidaciones antes de reemplazarlo. La comparación, sus fuentes y los límites de cada unidad se registran en la investigación de costos de terceros; no modifica el caso base.
+Las tres partidas profesionales de inicio suman 800.000 CLP netos; moverlas ±25 % cambia la salida inicial de caja en ±238.000 CLP con el IVA supuesto. El caso de firma a 2.500 netos **por firmante** conserva dos cargos por reserva: no representa una cotización API ni el precio público por documento. El KYC de 500 CLP **por reserva** es un prorrateo provisional: las ofertas públicas expresan el cobro por verificación de usuario y consulta, de modo que deben medirse altas y revalidaciones antes de reemplazarlo. Como la contribución base por reserva es cero, vender más al mismo ticket no cubre fijos; pequeñas diferencias de VAN al cambiar volumen proceden de PPM y crédito IVA del modelo, no de una demanda demostrada.
 
 El escenario de sueldos usa **costo total empresarial** de 600.000 CLP por fundador al mes a precios base, indexado al 4 %; no es sueldo líquido ni liquidación laboral. No se aprueba pagarlo si la caja no lo soporta. El escenario del 12,5 % es comparación matemática; no asigna esa tasa a todos los años futuros.
 
-Los tres escenarios de ticket conservan las **mismas** 720/1.800 reservas, composición y costos. A 30.000 CLP iniciales, los cargos variables superan la comisión incluso antes de fijos; el VAN positivo a 150.000 CLP depende de conseguir ese ticket y volumen sin evidencia. La frontera inicial de contribución variable es aproximadamente **35.909 CLP** por reserva con 12 % de comisión, 3,19 % de pasarela sobre el cobro y 3.000 CLP de otros variables. No equivale a equilibrio del proyecto. En el año 3 se requieren 150 reservas por mes en promedio: 30 espacios activos implicarían cinco reservas mensuales cada uno, una hipótesis de capacidad que difiere entre sala por horas y bodega mensual.
+Los tres escenarios de ticket conservan las **mismas** 720/1.800 reservas, composición y costos. A 30.000 y 50.000 CLP iniciales, los cargos variables propios superan la comisión incluso antes de fijos; a 150.000 CLP el VAN sigue negativo con el volumen y costos supuestos. La frontera inicial de **contribución variable cero** es 100.000 CLP por reserva con 3 % de comisión y 3.000 CLP de costos propios. No equivale a equilibrio del proyecto. En el año 3 se requieren 150 reservas por mes en promedio: 30 espacios activos implicarían cinco reservas mensuales cada uno, una hipótesis de capacidad que difiere entre sala por horas y bodega mensual.
 
 ### Escenario segmentado sintético por categoría
 
@@ -292,26 +304,26 @@ El caso base usa un ticket único de 100.000 CLP. Para medir cuánto depende el 
 
 | Concepto | Caso base, ticket único de 100.000 | Segmentado sintético |
 | --- | ---: | ---: |
-| Contribución del año 3, ingresos propios menos costos variables | 10.424.507 | 350.688 |
-| VAN de caja a 36 meses, tasa nominal supuesta del 12 % | -1.791.437 | -12.771.812 |
-| Déficit máximo acumulado en 36 meses | 6.246.529 | 15.891.086 |
-| TIR del flujo de caja | -9,20 % | No definida: los tres flujos anuales son negativos |
+| Contribución del año 3, ingresos propios menos costos variables | 0 | -3.617.400 |
+| VAN de caja a 36 meses, tasa nominal supuesta del 12 % | -15.140.998 | -19.515.672 |
+| Déficit máximo acumulado en 36 meses | 18.953.948 | 24.901.789 |
+| TIR del flujo de caja | No definida | No definida; todos los flujos son negativos |
 
-**Nota.** Elaboración propia con el simulador del repositorio. La contribución del año 3 por categoría es **-935.862 CLP** en oficina por hora, **+206.114** en sala por dos horas, **+621.038** en bodega mensual, **-1.072.489** en estacionamiento por hora y **+1.531.886** en stand por bloque. Se aplica a cada categoría el mismo cargo variable por reserva del caso base —dos firmas, KYC y otros—, aunque una reserva por hora y una bodega mensual no tienen por qué compartir firma, KYC ni garantía; el efecto es conservador y constituye el límite principal del ejercicio.
+**Nota.** Elaboración propia con el simulador del repositorio. La contribución del año 3 por categoría es **−1.084.724 CLP** en oficina por hora, **−674.652** en sala por dos horas, **−525.658** en bodega mensual, **−1.133.785** en estacionamiento por hora y **−198.582** en stand por bloque; la suma de cifras redondeadas puede diferir en un peso del total no redondeado. Se aplica a cada categoría el mismo cargo variable por reserva del caso base —dos firmas, KYC y otros—, aunque una reserva por hora y una bodega mensual no tienen por qué compartir firma, KYC ni garantía; es una hipótesis homogénea para sensibilidad, no un costo validado por modalidad.
 
-El contraste no mide demanda ni reemplaza al caso base: solo cambia la composición del catálogo. Su lectura es que **el ticket medio de 100.000 CLP oculta categorías que no cubren sus propios costos variables** y que el resultado depende de la mezcla tanto como del volumen. Parcela con quincho, local flexible y las demás categorías de la muestra quedan fuera porque su precio publicado exige cotización o contrato mínimo, y no se les asignó un arriendo unitario inventado.
+El contraste no mide demanda ni reemplaza al caso base: solo cambia la composición del catálogo. Su lectura es que **el ticket uniforme de 100.000 CLP oculta pérdidas variables de cada categoría representada** bajo el costo por reserva supuesto. Parcela con quincho, local flexible y las demás categorías de la muestra quedan fuera porque su precio publicado exige cotización o contrato mínimo, y no se les asignó un arriendo unitario inventado. La arquitectura y el catálogo de base de datos sí cubren todas las categorías.
 
 ## Margen del 25 % y decisión
 
-El 25 % es **margen sobre ingresos de comisión**, no markup ni retorno del capital. Bajo el escenario base, el margen operativo de caja del año 3 es **23,35 %** antes del impuesto: no alcanza el objetivo. El punto de equilibrio anual, con costos y ticket del año 3, es de unas **858 reservas sin remunerar el tiempo**, y **4.892 si se reconoce todo el esfuerzo valorizado**, manteniendo costos lineales; esa capacidad no está probada.
+El **25 % de margen** se mantiene solo como meta académica de sensibilidad sobre ingresos propios de comisión; no es la comisión hipotética del 25 % del estudio preliminar de Shiva ni una tasa de descuento. Bajo el escenario base, el margen operativo del año 3 es **negativo**: la contribución de cada reserva es cero y los fijos son 5.807.203 CLP. Con ticket y costos unitarios constantes **no existe un número finito de reservas que cubra esos fijos**; sumar ventas sin cambiar precio o costo no alcanza el equilibrio.
 
-Para un objetivo de margen `m`, comisión neta `P`, arriendo final `T`, tasa de pasarela `a`, otros variables `K` y fijo anual `F`, con Q reservas:
+Para un objetivo de margen `m`, comisión neta unitaria `P`, arriendo final `T`, costos variables propios `K` y fijo anual `F`, con `Q` reservas, cuando el vendedor soporta la tarifa del proveedor:
 
-`P = (F/Q + K + a×T) / (1 - m - a×(1 + IVA))`.
+`P = (F/Q + K) / (1 - m)`.
 
-La fórmula incorpora que la pasarela aumenta cuando sube la propia comisión. Con 1.800 reservas en el año 3, m = 25 %, a = 3,19 %, IVA = 19 %, arriendo de **108.160 CLP** y otros variables de **3.244,80 CLP** por reserva (ambos indexados al 4 % durante dos años), más fijos netos de **4.968.346 CLP**, la comisión neta requerida es **13.279,18 CLP**, equivalente al **12,28 % del arriendo final**. Al agregar los **23.362.560 CLP** de trabajo fundador valorizado al costo económico, se requieren **31.507,40 CLP**, o **29,13 %** del arriendo. Son umbrales calculados y reproducibles con esos insumos; no se recomienda cobrar esas tasas sin investigar aceptación, competencia y posible reducción de costos por volumen.
+Con 1.800 reservas en el año 3, arriendo de **108.160 CLP** y costos variables propios de **3.244,80 CLP** por reserva (ambos indexados al 4 % durante dos años), más fijos netos de **5.807.203 CLP**, la comisión para **cubrir el costo operativo sin margen** sería **6.471,02 CLP** por reserva, o **5,98 %** del arriendo. Para el objetivo académico de margen del 25 % sería **8.628,03 CLP**, o **7,98 %**. Al agregar **23.362.560 CLP** de trabajo fundador valorizado al costo económico, el umbral del mismo margen sería **25.933,63 CLP**, o **23,98 %**. Son umbrales de sensibilidad calculados, no una decisión de subir la comisión del 3 % ni una prueba de aceptación comercial. Si EspaciGo compensara además la tarifa del vendedor, la fórmula y el umbral deberían incluir ese costo.
 
-**Conclusión:** el proyecto puede presupuestarse como esfuerzo autofinanciado, pero esta simulación **no demuestra rentabilidad a tres años**. El VAN sigue negativo aun sin pagar sueldos; recuperar y remunerar el tiempo exige más volumen, mejor contribución, menos costo de terceros o un horizonte mayor sustentado. La prioridad es cotizar pagos/firma, validar demanda y financiar el déficit; no usar ingresos de terceros ni garantías para taparlo.
+**Conclusión:** el proyecto puede presupuestarse como esfuerzo autofinanciado, pero este escenario **no demuestra rentabilidad a tres años**. Con comisión de 3 % y los costos unitarios elegidos, aumentar solo el volumen al ticket base no genera contribución para cubrir fijos. La decisión pendiente es reducir costos por operación, cambiar composición/ticket, financiar una etapa de validación o revisar la política comercial con evidencia; el 3 % permanece como regla de diseño mientras el equipo no decida otra cosa. Los fondos del arrendador, el IVA y las garantías no financian a EspaciGo.
 
 ## Reproducción y cierre pendiente
 
@@ -319,6 +331,6 @@ La fórmula incorpora que la pasarela aumenta cuando sube la propia comisión. C
 python Informes/herramientas/simular_bootstrap.py Informes/ES2PT/investigacion/supuestos_bootstrap.json --salida Informes/ES2PT/build/simulacion_bootstrap.json
 ```
 
-Los parámetros y etiquetas de calidad del dato son editables en `investigacion/supuestos_bootstrap.json`. Los resultados JSON conservan 36 meses y todos los escenarios. Ante un cambio, recalcular y actualizar este anexo y el resumen 2.1. El modelo anterior `supuestos_economicos.json` permanece como antecedente pedagógico y no describe ya el presupuesto vigente.
+Los parámetros y etiquetas de calidad del dato son editables en `investigacion/supuestos_bootstrap.json`. Los resultados JSON conservan 36 meses y todos los escenarios. El simulador académico opera con números de punto flotante y las tablas redondean su presentación; la liquidación productiva aplicará decimal exacto y regla contractual de redondeo al peso, conforme al Anexo B. Ante un cambio, recalcular y actualizar este anexo y el resumen 2.1. El modelo anterior `supuestos_economicos.json` permanece como antecedente pedagógico y no describe ya el presupuesto vigente.
 
 [[PENDIENTE: confirmar giro, régimen y domicilio con profesionales y municipio; cotizar honorarios, aseo, Split, firmas e identidad y confirmar si el crédito de IVA de servicios extranjeros es recuperable; acordar aportes, pacto de socios y horas; sustituir el escenario segmentado sintético por precio final, demanda, capacidad, ocupación y conversión medidos en cada tipo de arriendo; validar los impuestos según calendario y capacidad; e inventariar los activos y el costo de subsistencia personal por separado.]]

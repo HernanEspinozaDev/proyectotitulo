@@ -1,0 +1,25 @@
+@startuml
+title ES2 - Publicacion outbox con reintento y deduplicacion
+autonumber
+participant "Caso de uso Go" as app
+database "PostgreSQL" as db
+participant "Worker interno" as worker
+queue "Pub/Sub" as pub
+database "BigQuery / consumidor" as bq
+app -> db : BEGIN cambio de negocio + INSERT outbox(id estable)
+app -> db : COMMIT
+worker -> db : reclamar lote SKIP LOCKED
+db --> worker : id, payload, lease_token
+worker -> db : COMMIT del reclamo
+worker -> pub : publish(event_id, version, payload)
+alt confirmacion recibida
+  pub --> worker : ack
+  worker -> db : UPDATE publicado_en WHERE id y lease_token vigente
+else timeout o reinicio
+  pub --> worker : respuesta incierta
+  worker -> db : reintento futuro / lease expira
+  note right of worker : Se reenvia el mismo event_id.
+end
+pub -> bq : entrega al menos una vez
+bq -> bq : deduplicar por event_id y contrato
+@enduml

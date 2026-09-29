@@ -15,7 +15,8 @@ class BootstrapTests(unittest.TestCase):
     def test_presupuesto_infraestructura(self):
         p = infraestructura(self.datos, "piloto")
         self.assertAlmostEqual(p["partidas_usd"]["sql_cpu"], 2*730*.05782)
-        self.assertAlmostEqual(p["caja_con_iva"], 283004.85585399996)
+        self.assertAlmostEqual(p["caja_con_iva"], 366191.567854)
+        self.assertAlmostEqual(p["partidas_usd"]["run_api_min_cpu"], 2628000 * .0000252)
 
     def test_region_santiago_sin_provision_regional(self):
         self.assertTrue(self.datos["infraestructura"]["region_tarifas"].startswith("southamerica-west1"))
@@ -27,21 +28,25 @@ class BootstrapTests(unittest.TestCase):
         self.assertEqual((a["ingresos"], a["sueldos"], a["idpc"]), (0,0,0))
         self.assertAlmostEqual(a["trabajo"], 43200000)
         self.assertGreater(a["remanente_iva"], 0)
-        self.assertAlmostEqual(r["deficit_ano1"], 4815742.570978)
+        self.assertAlmostEqual(r["deficit_ano1"], 5314862.842978002)
 
-    def test_cobro_pasarela_no_es_solo_sobre_comision(self):
+    def test_split_descuenta_pasarela_y_comision_al_vendedor(self):
         d = copy.deepcopy(self.datos)
         d["reservas"][0] = 1
         f = simular(d)["meses"][0]
-        self.assertEqual(f["ingreso_neto"], 12000)
+        self.assertEqual(f["ingreso_neto"], 3000)
         self.assertEqual(f["cobro_terceros"], 100000)
-        self.assertAlmostEqual(f["pasarela_neta"], (100000+12000*1.19)*.0319)
+        self.assertAlmostEqual(f["pasarela_neta_vendedor"], 3190)
+        self.assertAlmostEqual(f["pasarela_iva_vendedor"], 606.1)
+        self.assertAlmostEqual(f["neto_arrendador_estimado"], 92633.9)
+        self.assertAlmostEqual(f["costo_variable"], 3000)
 
     def test_ppm_no_duplica_idpc_y_fondo_no_es_ingreso(self):
         r = simular(self.datos)
         a = r["anos"][2]
         ajustes = sum(f["ajuste_idpc"] for f in r["meses"][24:])
-        self.assertAlmostEqual(a["ppm"]+ajustes, a["idpc"])
+        self.assertAlmostEqual(ajustes, max(0, a["idpc"]-a["ppm"]))
+        self.assertAlmostEqual(a["ppm_sin_recuperar"], max(0, a["ppm"]-a["idpc"]))
         self.assertAlmostEqual(r["aporte_por_fundador"]*3, r["fondo_ano1_con_colchon"])
         self.assertGreater(r["deficit_maximo_36_meses"], r["fondo_ano1_con_colchon"])
 
@@ -69,7 +74,7 @@ class BootstrapTests(unittest.TestCase):
         self.assertLess(bajo["van_caja"], base["van_caja"])
         self.assertGreater(alto["van_caja"], base["van_caja"])
 
-    def test_un_segmento_reproduce_el_agregado_historico(self):
+    def test_un_segmento_reproduce_el_agregado_vigente(self):
         original = simular(self.datos)
         d = copy.deepcopy(self.datos)
         cantidades = d.pop("reservas")
@@ -88,7 +93,7 @@ class BootstrapTests(unittest.TestCase):
     def test_dos_tipos_suman_ventas_y_preservan_detalle(self):
         d = copy.deepcopy(self.datos)
         cantidades = d.pop("reservas")
-        comun = dict(comision_neta=.12, firmas_por_reserva=2,
+        comun = dict(comision_neta=.03, firmas_por_reserva=2,
                      kyc_neto_por_reserva=500, otros_variables_netos=500)
         d["segmentos"] = [
             dict(id="sala", reservas=[q/2 for q in cantidades],
@@ -98,7 +103,7 @@ class BootstrapTests(unittest.TestCase):
         ]
         f = simular(d)["meses"][12]
         self.assertEqual(f["reservas"], 20)
-        self.assertEqual(f["ingreso_neto"], 240000 * 1.04)
+        self.assertEqual(f["ingreso_neto"], 60000 * 1.04)
         self.assertEqual(f["cobro_terceros"], 2000000 * 1.04)
         self.assertEqual([s["id"] for s in f["detalle_segmentos"]], ["sala", "bodega"])
 
@@ -106,7 +111,7 @@ class BootstrapTests(unittest.TestCase):
         d = copy.deepcopy(self.datos)
         cantidades = d.pop("reservas")
         d["segmentos"] = [dict(id="sala", reservas=cantidades,
-                               arriendo_final_base=100000, comision_neta=.12,
+                               arriendo_final_base=100000, comision_neta=.03,
                                firmas_por_reserva=2, kyc_neto_por_reserva=500,
                                otros_variables_netos=500)]
         resultados = escenarios(d)
@@ -120,7 +125,7 @@ class BootstrapTests(unittest.TestCase):
         d = copy.deepcopy(self.datos)
         cantidades = d.pop("reservas")
         s = dict(id="sala", reservas=cantidades, arriendo_final_base=None,
-                 comision_neta=.12, firmas_por_reserva=2,
+                 comision_neta=.03, firmas_por_reserva=2,
                  kyc_neto_por_reserva=500, otros_variables_netos=500)
         d["segmentos"] = [s]
         with self.assertRaisesRegex(ValueError, "arriendo_final_base"):

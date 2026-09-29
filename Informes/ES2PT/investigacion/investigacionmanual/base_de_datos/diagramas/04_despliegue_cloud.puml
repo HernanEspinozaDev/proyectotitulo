@@ -1,0 +1,24 @@
+@startuml
+title ES2 - Persistencia en GCP propuesta (sin despliegue acreditado)
+skinparam shadowing false
+cloud "Proyecto GCP: ambiente aislado" {
+  node "Cloud Run\nmonolito Go + workers internos" as run
+  database "Cloud SQL\nPostgreSQL 18 / PostGIS" as sql
+  folder "Cloud Storage privado\nobjetos y evidencia" as gcs
+  queue "Pub/Sub" as pub
+  database "BigQuery\nanalitica autorizada" as bq
+  artifact "Secret Manager" as sec
+  artifact "Backups / PITR\nconfiguracion por validar" as bak
+}
+run --> sql : conexion acotada / pgxpool
+run --> gcs : metadatos y permisos en DB
+run --> sec : secretos por identidad de servicio
+run --> pub : publicar outbox tras commit
+pub --> bq : eventos seleccionados
+sql --> bak : continuidad
+note bottom of sql
+  Region Santiago propuesta;
+  edition, red, HA y costo por validar.
+  BigQuery no decide reservas ni pagos.
+end note
+@enduml

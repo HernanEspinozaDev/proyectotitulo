@@ -221,6 +221,7 @@
       "objetivo": "Cerrar la coherencia de 3.3 y 3.5–3.7: firmas de interfaces, ejecución de conciliación, protección de auditoría, puertos, secretos, segmentación, dimensionamiento e inventario de recursos; distinguir diseño propuesto de recurso desplegado y dejar pendientes los ensayos de portabilidad y fallo.",
       "archivos": [
         "secciones/03_00_arquitectura.md",
+        "secciones/03_02_casos_uso.md",
         "secciones/03_03_componentes.md",
         "secciones/03_05_comunicaciones.md",
         "secciones/03_06_infraestructura.md",
@@ -584,6 +585,7 @@
         "secciones/03_05_comunicaciones.md",
         "secciones/03_06_infraestructura.md",
         "secciones/03_07_arquitectura.md",
+        "diagramas/reserva_estados.puml",
         "secciones/04_00_kpi_sla.md",
         "secciones/04_01_kpi.md",
         "secciones/04_02_sla.md",
@@ -627,6 +629,79 @@
         "Informes/ES2PT/supuestos_revision.md"
       ],
       "depende": []
+    },
+    {
+      "id": "ES2-DATOS-BACKEND-OFICIAL",
+      "titulo": "Sincronizar backend y diccionario de datos del producto completo",
+      "objetivo": "Aplicar la decisión del usuario de planificar el producto completo y la Ley 21.719 desde el primer incremento; cerrar el diccionario lógico/campo por campo, sincronizar backend, capítulo 3.4 y Anexo B sin afirmar implementación o tarifas no verificadas.",
+      "archivos": [
+        "investigacion/propuesta_backend_final.md",
+        "secciones/02_01_analisis.md",
+        "secciones/03_00_arquitectura.md",
+        "secciones/03_03_componentes.md",
+        "secciones/03_04_datos.md",
+        "secciones/03_07_arquitectura.md",
+        "secciones/07_cronograma.md",
+        "secciones/08_conclusiones.md",
+        "anexos/B_diccionario_datos.md",
+        "contexto.md",
+        "pendientes.md",
+        "investigacion/investigacionmanual/base_de_datos/README.md",
+        "investigacion/investigacionmanual/base_de_datos/13_estados_reserva_producto.md",
+        "investigacion/investigacionmanual/base_de_datos/14_estado_y_siguiente_diseno.md",
+        "investigacion/investigacionmanual/base_de_datos/17_contrato_datos_backend.md",
+        "investigacion/investigacionmanual/base_de_datos/propuesta_final_arquitectura_y_datos.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/contexto.md",
+        "Informes/ES2PT/pendientes.md",
+        "Informes/ES2PT/investigacion/propuesta_backend_final.md",
+        "Informes/ES2PT/investigacion/investigacionmanual/base_de_datos/15_diccionario_logico_ampliado.md"
+      ],
+      "depende": []
+    },
+    {
+      "id": "ES2-ECONOMIA-SINCRONIZADA",
+      "titulo": "Recalcular Anexo A y alinear la economia con backend y diccionario",
+      "objetivo": "Recalcular el escenario comercial de 3 % neto, tarifa de Split del vendedor y costo de worker Cloud Run minimo; actualizar Anexo A, cuerpo y seguimiento, sin convertir tarifas publicas en cotizacion contractual ni afirmar implementacion.",
+      "archivos": [
+        "anexos/A_evaluacion_economica.md",
+        "anexos/B_diccionario_datos.md",
+        "secciones/02_01_analisis.md",
+        "secciones/02_02_herramientas.md",
+        "secciones/03_03_componentes.md",
+        "secciones/03_04_datos.md",
+        "secciones/03_06_infraestructura.md",
+        "secciones/08_conclusiones.md",
+        "flujodecaja/estudios.md",
+        "contexto.md",
+        "pendientes.md",
+        "plan_cierre_pendientes.md",
+        "supuestos_revision.md",
+        "investigacion/matriz_trazabilidad_es2.md",
+        "investigacion/supuestos_bootstrap.json",
+        "investigacion/supuestos_segmentado.json",
+        "investigacion/investigacionmanual/05_economia_a_confirmar.md",
+        "investigacion/investigacionmanual/base_de_datos/07_diagramas_e_integracion.md",
+        "investigacion/propuesta_backend_final.md",
+        "investigacion/investigacionmanual/01_estado_verificado.md",
+        "investigacion/investigacionmanual/02_decisiones_del_equipo.md",
+        "investigacion/investigacionmanual/base_de_datos/01_diagnostico_y_decisiones.md",
+        "investigacion/investigacionmanual/base_de_datos/10_revision_y_respuestas_para_cierre.md",
+        "investigacion/investigacionmanual/base_de_datos/12_comision_y_reparto_socios.md",
+        "investigacion/investigacionmanual/base_de_datos/propuesta_final_arquitectura_y_datos.md",
+        "plan_de_trabajo.md"
+      ],
+      "lecturas": [
+        "Informes/ES2PT/anexos/A_evaluacion_economica.md",
+        "Informes/ES2PT/anexos/B_diccionario_datos.md",
+        "Informes/ES2PT/investigacion/propuesta_backend_final.md"
+      ],
+      "depende": [],
+      "recursos": [
+        "Informes/herramientas/simular_bootstrap.py",
+        "Informes/tests/test_simular_bootstrap.py"
+      ]
     }
   ]
 }

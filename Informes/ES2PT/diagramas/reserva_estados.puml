@@ -2,18 +2,50 @@
 skinparam dpi 180
 skinparam shadowing false
 skinparam defaultFontName Arial
-skinparam defaultFontSize 18
+skinparam defaultFontSize 16
 skinparam backgroundColor white
 hide empty description
-[*] --> Pendiente : cotización aceptada / retención creada
-Pendiente --> Confirmada : pago aprobado (simulador en demo)
-Pendiente --> Cancelada : rechazo o vencimiento
-Confirmada --> EnCurso : check-in autorizado
-EnCurso --> Finalizada : check-out registrado
-Confirmada --> Disputa : reclamo autorizado
-EnCurso --> Disputa : reclamo autorizado
-Disputa --> Confirmada : resolución / uso aún no iniciado
-Disputa --> Finalizada : resolución / uso completado
-Finalizada --> [*]
-Cancelada --> [*]
+left to right direction
+
+state "Pendiente de pago" as Pendiente
+state "Pagada" as Pagada
+state "Aprobada por arrendador" as Aprobada
+state "Firma parcial" as FirmaParcial
+state "Lista para check-in" as Lista
+state "En curso" as EnCurso
+state "Finalizada" as Finalizada
+state "En disputa" as EnDisputa
+state "Cerrada" as Cerrada
+state "Cancelada por pago" as CanceladaPago
+state "Rechazada por arrendador" as RechazadaHost
+state "Cancelada por vencimiento" as CanceladaVencimiento
+state "Cancelada por firma" as CanceladaFirma
+state "Cancelada por arrendatario" as CanceladaArrendatario
+
+[*] --> Pendiente : cotización vigente / reserva+ocupación+outbox
+Pendiente --> Pagada : cobro verificado o conciliado
+Pendiente --> CanceladaPago : rechazo o 15 min sin pago\ntras conciliación si hay ambigüedad
+Pagada --> Aprobada : aprobación autorizada
+Pagada --> RechazadaHost : rechazo motivado / reembolso
+Pagada --> CanceladaVencimiento : 24 h sin respuesta / reembolso
+Aprobada --> FirmaParcial : primera firma válida
+Aprobada --> Lista : ambas firmas válidas juntas
+FirmaParcial --> Lista : firmas completas + documento final
+Aprobada --> CanceladaFirma : vencimiento o rechazo de firma
+FirmaParcial --> CanceladaFirma : vencimiento o rechazo de firma
+Lista --> EnCurso : check-in autorizado + evidencia
+EnCurso --> Finalizada : check-out autorizado + evidencia
+Finalizada --> EnDisputa : reclamo válido / bloquear liquidación
+EnDisputa --> Finalizada : fallo motivado / habilitar conciliación
+Finalizada --> Cerrada : liquidación confirmada
+Pagada --> CanceladaArrendatario : política aceptada / reembolso
+Aprobada --> CanceladaArrendatario : política aceptada / reembolso
+FirmaParcial --> CanceladaArrendatario : política aceptada / reembolso
+Lista --> CanceladaArrendatario : política aceptada / reembolso
+Cerrada --> [*]
+CanceladaPago --> [*]
+RechazadaHost --> [*]
+CanceladaVencimiento --> [*]
+CanceladaFirma --> [*]
+CanceladaArrendatario --> [*]
 @enduml

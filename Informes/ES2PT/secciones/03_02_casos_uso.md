@@ -77,4 +77,4 @@ CU-43 a CU-46 y CU-52 pertenecen al módulo M11 y los ejecuta el Administrador, 
 
 **Nota.** La trazabilidad detallada RF–CU permanece en el anexo D; estas agrupaciones no crean, renumeran ni excluyen requisitos. Ninguna vista acredita implementación ni prueba de integración.
 
-[[PENDIENTE: validar con el equipo la selección y las relaciones de estas siete vistas, decidir si CU-14, CU-31, CU-47 y CU-51 requieren vista propia, enlazar el alcance de demostración y revisar el tamaño y la paginación de las figuras en el cierre visual del contenido.]]
+[[PENDIENTE: validar con el equipo la selección y las relaciones de estas siete vistas, decidir si CU-14, CU-31, CU-47 y CU-51 requieren vista propia, trazar el producto completo al diccionario del Anexo B y revisar el tamaño y la paginación de las figuras en el cierre visual del contenido.]]

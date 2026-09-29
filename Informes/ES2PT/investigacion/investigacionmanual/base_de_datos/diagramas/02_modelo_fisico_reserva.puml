@@ -1,0 +1,51 @@
+@startuml
+title ES2 - Vista física seleccionada de reserva y calendario
+skinparam shadowing false
+skinparam linetype ortho
+hide methods
+class espacio <<tabla>> {
+  id: uuid <<PK>>
+  arrendador_id: uuid <<FK usuario>>
+  tipo: text <<catalogo por definir>>
+  ubicacion: geography(Point,4326) <<GiST>>
+}
+class reserva <<tabla>> {
+  id: uuid <<PK>>
+  espacio_id: uuid <<FK espacio>>
+  arrendatario_id: uuid <<FK usuario>>
+  inicio: timestamptz
+  fin: timestamptz
+  estado: text
+  estadia: numeric(14,2)
+  politica_snapshot: text
+  version: integer
+}
+class ocupacion <<tabla>> {
+  id: uuid <<PK>>
+  espacio_id: uuid <<FK espacio>>
+  reserva_id: uuid <<FK reserva, nullable>>
+  intervalo: tstzrange
+  tipo: text
+  activo: boolean
+  expira_en: timestamptz
+  --
+  EXCLUDE GiST (espacio_id =, intervalo &&) WHERE activo
+}
+class outbox_evento <<tabla tecnica>> {
+  id: uuid <<PK>>
+  agregado_id: uuid
+  version_esquema: integer
+  publicado_en: timestamptz
+  lease_hasta: timestamptz
+}
+espacio "1" -- "0..*" reserva
+espacio "1" -- "0..*" ocupacion
+reserva "1" -- "0..1" ocupacion
+reserva ..> outbox_evento : mismo commit
+note bottom of ocupacion
+  FK compuesta (reserva_id, espacio_id)
+  a reserva(id, espacio_id).
+  Rango [inicio, fin) y sin solapes activos.
+  El diagrama resume; DDL define semantica.
+end note
+@enduml

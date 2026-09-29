@@ -67,6 +67,8 @@ def simular(d):
     if d["fundadores"] <= 0 or d["usd_clp"] <= 0 or (
             "segmentos" not in d and not 0 < d["comision_neta"] < 1):
         raise ValueError("Fundadores, dólar o comisión inválidos")
+    if d.get("incidencia_pasarela") != "arrendador":
+        raise ValueError("El escenario vigente exige pasarela descontada al arrendador")
     perfiles = []
     for ano in d["infraestructura"]["perfil_por_ano"]:
         if len(ano) % 2:
@@ -93,19 +95,29 @@ def simular(d):
                 ticket_s = s["arriendo_final_base"] * factor
                 precio_s = ticket_s * s["comision_neta"]
                 ingreso_s = q_s * precio_s
-                cobro_s = q_s * (ticket_s + precio_s * (1 + iva))
+                # En Split 1:1 el comprador paga el arriendo publicado; las dos
+                # tarifas se descuentan al vendedor y no son ingreso de EspaciGo.
+                cobro_s = q_s * ticket_s
                 pasarela_s = cobro_s * d["pasarela_sobre_cobro"]
+                pasarela_iva_s = pasarela_s * iva
+                comision_iva_s = ingreso_s * iva
+                neto_arrendador_s = cobro_s - pasarela_s - pasarela_iva_s - ingreso_s - comision_iva_s
                 otros_s = q_s * factor * (s["firmas_por_reserva"] * d["firma_neta_unitaria"]
                                          + s["kyc_neto_por_reserva"] + s["otros_variables_netos"])
                 detalle.append(dict(id=s["id"], reservas=q_s, arriendo_final_unitario=ticket_s,
                                     ingreso_neto=ingreso_s, cobro_terceros=q_s * ticket_s,
-                                    pasarela_neta=pasarela_s, otros_variables=otros_s,
-                                    contribucion=ingreso_s - pasarela_s - otros_s))
+                                    pasarela_neta_vendedor=pasarela_s,
+                                    pasarela_iva_vendedor=pasarela_iva_s,
+                                    comision_iva=comision_iva_s,
+                                    neto_arrendador_estimado=neto_arrendador_s,
+                                    otros_variables=otros_s,
+                                    contribucion=ingreso_s - otros_s))
             q = sum(s["reservas"] for s in detalle)
             ingreso = sum(s["ingreso_neto"] for s in detalle)
-            pasarela = sum(s["pasarela_neta"] for s in detalle)
+            pasarela = sum(s["pasarela_neta_vendedor"] for s in detalle)
+            pasarela_iva = sum(s["pasarela_iva_vendedor"] for s in detalle)
             otros = sum(s["otros_variables"] for s in detalle)
-            cv = pasarela + otros
+            cv = otros
             seleccion = [p for p in d["mensual"] if indice + 1 >= p["desde"]]
             seleccion += [p for p in d["anual"] if p["mes"] == m + 1]
             fijo, iva_fijo = suma_partidas(seleccion, factor, iva)
@@ -124,7 +136,10 @@ def simular(d):
             filas.append(dict(mes=indice + 1, perfil=perfiles[indice], reservas=q,
                               detalle_segmentos=detalle, ingreso_neto=ingreso,
                               cobro_terceros=sum(s["cobro_terceros"] for s in detalle),
-                              pasarela_neta=pasarela, otros_variables=otros, costo_variable=cv,
+                              pasarela_neta_vendedor=pasarela,
+                              pasarela_iva_vendedor=pasarela_iva,
+                              neto_arrendador_estimado=sum(s["neto_arrendador_estimado"] for s in detalle),
+                              otros_variables=otros, costo_variable=cv,
                               fijo_neto=fijo + infra, sueldo_pagado=sueldo, costo_neto=costos,
                               iva_credito_mes=iva_compra, iva_debito=iva_debito, iva_pagado=pago_iva,
                               remanente_iva=credito_iva, ppm=ppm, ajuste_idpc=0,

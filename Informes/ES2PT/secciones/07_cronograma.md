@@ -11,11 +11,11 @@ La planificación de ES1 abarca 16 semanas y presenta una diferencia entre los s
 | Período de 2026 | Informe e investigación | Desarrollo paralelo propuesto | Evidencia al cierre |
 | --- | --- | --- | --- |
 | 23–29 de septiembre | Base, brechas, trazabilidad y análisis inicial de tecnologías | Acordar alcance y preparar entorno del prototipo | Inventario y decisiones iniciales; evidencia de entorno si se completa |
-| 30 de septiembre–6 de octubre | Comparativas, BPMN, casos y modelo de datos | Construir un recorrido acotado de catálogo y disponibilidad | Modelos revisados y demostración del alcance efectivamente construido |
+| 30 de septiembre–6 de octubre | Comparativas, BPMN, casos y modelo de datos | Construir catálogo multcategoría y disponibilidad como primer incremento | Modelos revisados y evidencia del incremento efectivamente construido |
 | 7–13 de octubre | Componentes, comunicaciones, infraestructura y KPI/SLA | Avanzar reserva y probar la integración habilitada de mayor riesgo | Diseño consistente y resultados de experimento o bloqueo documentado |
 | 14–20 de octubre | Pruebas, normas, disponibilidad y continuidad | Ejecutar pruebas sobre los flujos disponibles | Casos ejecutados, hallazgos y plan de corrección |
-| 21–27 de octubre | Mantención, ajuste del cronograma y revisión del cuerpo | Corregir defectos y estabilizar el alcance demostrable | Evidencias actualizadas y limitaciones identificadas |
-| 28 de octubre–2 de noviembre | Introducción, conclusiones, APA 7, anexos y revisión Word | Preparar versión y demostración con alcance declarado | Informe revisado y material de demostración existente |
+| 21–27 de octubre | Mantención, ajuste del cronograma y revisión del cuerpo | Corregir defectos y estabilizar los incrementos construidos | Evidencias actualizadas y limitaciones identificadas |
+| 28 de octubre–2 de noviembre | Introducción, conclusiones, APA 7, anexos y revisión Word | Preparar versión con funciones y limitaciones comprobadas | Informe revisado y evidencia disponible de construcción |
 | 3 de noviembre | Entrega ES2 | Presentar el avance real conforme a lo solicitado | Constancia de entrega cuando se realice |
 
 **Nota.** Propuesta de planificación elaborada para ES2. Las actividades de desarrollo son objetivos por acordar, no compromisos aceptados ni avances ejecutados. Las fases no implican implementar los 236 RF antes del vencimiento.
@@ -37,7 +37,7 @@ El informe de ES1 declara «seis incrementos funcionales más una etapa de inici
 | H3 Medición y calidad | 20 de octubre de 2026 | Fichas de KPI y SLA con método y catálogo de pruebas | Método definido; pruebas sin ejecutar |
 | H4 Operación y planificación | 27 de octubre de 2026 | Procedimientos de gestión y este cronograma ajustado | Redactados; falta el acuerdo del equipo |
 | H5 Cierre del contenido | 2 de noviembre de 2026 | Introducción, conclusiones, referencias y anexos sin pendientes de redacción | Pendiente |
-| H6 Entrega de ES2 | 3 de noviembre de 2026 | Constancia de entrega y material de demostración existente | Pendiente |
+| H6 Entrega de ES2 | 3 de noviembre de 2026 | Constancia de entrega y evidencia del avance realmente construido | Pendiente |
 | Revisión docente | Sin fecha registrada | Retroalimentación recibida y registrada | Pendiente; no hay evidencia de una revisión |
 
 El estado describe el avance documental, no una aceptación docente. Los hitos formativos del calendario académico no se incorporan porque no existe una fecha verificada, y la entrega del 3 de noviembre proviene de la comunicación del usuario, no del calendario de la asignatura.
@@ -73,5 +73,4 @@ El avance se revisa contra `pendientes.md`, que solo marca una tarea cuando exis
 | Preservación de la línea base | Pérdida o alteración de ES1 | Cotejar los hashes antes de entregar | Diferencia contra la instantánea de ES1 |
 | Indisponibilidad de un integrante | Retraso del bloque que llevaba | Traspaso por bitácora y pendientes acotados | Sin avance durante dos sesiones |
 
-[[PENDIENTE: confirmar con el equipo la capacidad semanal y los responsables, acordar el alcance de demostración, incorporar los hitos formativos cuando exista calendario y registrar la revisión docente solo con evidencia.]]
-
+[[PENDIENTE: confirmar con el equipo la capacidad semanal y los responsables, incorporar los hitos formativos cuando exista calendario y registrar la revisión docente solo con evidencia. El producto completo ya quedó fijado como alcance de diseño; el avance implementado de ES2 se declarará según evidencias.]]
