@@ -1,5 +1,9 @@
 # Integración de Estudios para el Flujo de Caja y Evaluación Económica (EspaciGo)
 
+**Procedencia:** aporte incorporado al repositorio por la identidad Git «Shiva» en el commit `2030456` del 28-09-2026. Git registra esa identidad como autora del contenido. Se conserva íntegro como aporte de trabajo de un integrante del equipo y forma parte del informe ES2 según `informe.json`.
+
+**Estado:** antecedente metodológico preliminar, no modelo financiero aprobado. Sus cuadros suponen 3.600 reservas anuales, comisión del 25 %, costos e impuestos hipotéticos y un VAN positivo. Esos parámetros y resultados no coinciden con el escenario vigente del Anexo A, que usa volúmenes hipotéticos de 720 y 1.800 reservas, comisión neta del 12 % y obtiene VAN de caja negativo. Por tanto, las cifras y la conclusión de rentabilidad de este aporte no se deben interpretar como resultados del proyecto; la evaluación económica vigente está en el Anexo A.
+
 Este documento sintetiza los conceptos teóricos fundamentales extraídos de los apuntes y los contextualiza con la investigación del proyecto (basado en el directorio `investigacion`, como `INV-009_evaluacion_economica.md`, `INV-011`, etc.) para afinar el estudio financiero y construir un flujo de caja final robusto y fundamentado.
 
 ## 1. Estudio de Mercado (Capítulo 4)
