@@ -46,7 +46,7 @@ Todo esto exige implementación y un entorno de pruebas.
 
 | Qué falta | Evidencia que lo cerraría |
 | --- | --- |
-| Aplicar el DDL propuesto y ejecutar los doce ensayos del modelo (MD-01 a MD-12) | Base desplegada y resultados fechados, incluida la prueba concurrente del calendario |
+| Aplicar el DDL propuesto y ejecutar los trece ensayos del modelo (MD-01 a MD-13), incluido atomicidad y recuperación del Outbox | Base desplegada y resultados fechados, incluida la prueba concurrente del calendario |
 | Ejecutar los dieciséis casos de prueba del Anexo C (PT-01 a PT-16) | Informe por caso con entorno, datos y resultado |
 | Ejecutar los ensayos comparativos de tecnologías: latencia y concurrencia del flujo seleccionado y costo de Cloud Run frente a VM con SKU comparables en Santiago | Registro de ensayo con entorno, versión, carga y resultados, más la ratificación del equipo ([INV-033](investigacion/INV-033_cierre_borrador.md)) |
 | Medir los once KPI y los cinco SLA y llenar el registro de mediciones | Serie de mediciones con fuente y responsable; hoy está vacío |
@@ -55,6 +55,7 @@ Todo esto exige implementación y un entorno de pruebas.
 | Demostrar la portabilidad de RNF-034–036 | Recorrido reproducido en contenedores locales y con un proveedor alternativo |
 | Ensayar la alteración de RNF-017 con retención bloqueada y acordar el plazo productivo con la matriz de tratamiento | Prueba de alteración fallida con evidencia fechada y política de retención aprobada (SUP-13) |
 | Levantar el inventario físico de las estaciones de trabajo y fijar los parches e imágenes efectivamente instalados | Inventario con sistema operativo, CPU, memoria, almacenamiento y conectividad, más el archivo de dependencias (SUP-20) |
+| Recalcular el presupuesto del piloto para Cloud Run con facturación por instancia y mínimo 1, máximo de instancias y pool de conexiones acotados | Perfil de costos actualizado para la arquitectura aprobada, con tarifas/SKU y supuestos fechados |
 | Desplegar monitoreo y alertas y acordar la ventana de mantención | Sondeos activos, umbral de dos fallos consecutivos y acuerdo de excluir la ventana |
 | Implementar los procedimientos de continuidad, cambios e incidentes | Simulacro ejecutado y registro del incidente |
 
@@ -75,7 +76,7 @@ Se resuelve al cerrar lo anterior; no requiere evidencia externa nueva.
 | --- | --- |
 | Línea base, brechas y trazabilidad | `INV-001` con las brechas B-01 a B-11 y la matriz de los 17 criterios |
 | Capítulo II: tecnologías, factibilidad y economía | `02_01` y `02_02` con investigación por capa, tarifas de Santiago aplicadas y simulación reproducible |
-| Capítulo III: diseño completo | Siete vistas de casos de uso (41 de 52 CU), cuatro BPMN con mensajes y temporizadores, modelo de 17 entidades y 137 atributos con DDL propuesto, interfaces, red, infraestructura y once fallos previstos (`INV-004`) |
+| Capítulo III: diseño completo | Siete vistas de casos de uso (41 de 52 CU), cuatro BPMN con mensajes y temporizadores, modelo de 17 entidades de negocio y 137 atributos, más Outbox técnico y DDL propuesto, interfaces, red, infraestructura y once fallos previstos (`INV-004`) |
 | Capítulo IV: KPI y SLA con método | Once fichas y cinco fichas con ventana, entradas, exclusiones y evidencia (`INV-005`) |
 | Capítulo V: pruebas y normas | Plan, dieciséis casos y matriz normativa con la Ley 21.719 como criterio de diseño (`INV-006`, `INV-022`) |
 | Capítulo VI: operación | Disponibilidad, continuidad y mantención con herramientas y umbrales propuestos (`INV-007`, `INV-023`) |

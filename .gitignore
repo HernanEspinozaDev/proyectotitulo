@@ -13,6 +13,11 @@ env/
 ENV/
 .venv*/
 venv*/
+**/.venv/
+**/venv/
+**/env/
+**/ENV/
+**/venv*/
 
 # Salidas generadas por el pipeline de ES1PT
 ES1PT/docx/build/
@@ -24,7 +29,11 @@ ES1PT/**/__pycache__/
 espaciGo/
 
 # Motor compartido y entregas académicas
+docskill/
 Informes/**/build/
 Informes/**/calibracion/
 Informes/**/coordinacion/estado.sqlite3*
 Informes/**/coordinacion/.bitacora.*.tmp
+
+# Configuración local del entorno Docker (sin credenciales)
+.env

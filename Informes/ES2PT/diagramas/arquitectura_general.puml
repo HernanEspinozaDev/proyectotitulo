@@ -2,33 +2,43 @@
 skinparam dpi 180
 skinparam shadowing false
 skinparam defaultFontName Arial
-skinparam defaultFontSize 18
+skinparam defaultFontSize 16
 skinparam backgroundColor white
 skinparam componentStyle uml2
 top to bottom direction
 actor "Arrendatario / arrendador" as USER
-component "Web Next.js\ncontenedor propuesto" as WEB
-package "API Go · backend modular" {
-  component "API y autorización" as API
-  component "M01–M05\nidentidad y oferta" as INIT
-  component "M06–M07\nreserva y contrato" as CORE
-  component "M08–M11\noperación y control" as CLOSE
-  component "Adaptadores y conciliación" as AD
+component "Cliente web futuro\nfuera del backend ES2" as WEB
+package "Cloud Run · una aplicación Go" {
+  component "API HTTPS / OpenAPI\nautorización" as API
+  package "Módulos internos" {
+    component "Identidad y oferta\nM01–M05" as INIT
+    component "Reserva y contrato\nM06–M07" as CORE
+    component "Operación y disputa\nM08–M10" as CLOSE
+    component "Administración\nM11" as ADMIN
+  }
+  component "Workers internos\nreclamos durables" as WORKER
+  component "Adaptadores\nservicios externos" as AD
 }
-database "PostgreSQL / PostGIS\nestado y calendario" as DB
-component "Archivos y analítica\ncontroles por definir" as DATA
-cloud "Pago, firma, identidad y SII\ncondiciones por verificar" as EXT
+database "Cloud SQL\nPostgreSQL / PostGIS" as DB
+component "Cloud Storage\nprivado" as STORAGE
+queue "Pub/Sub" as PUBSUB
+database "BigQuery\nanalítica" as BQ
+component "Pago / firma / identidad\nproveedores" as EXT
+
 USER --> WEB : HTTPS
 WEB --> API : HTTPS / JSON
 API --> INIT
 API --> CORE
 API --> CLOSE
+API --> ADMIN
 INIT --> DB
-CORE --> DB
+CORE --> DB : reserva + ocupación + outbox
 CLOSE --> DB
+ADMIN --> DB
+WORKER --> DB : leases / conciliación
+WORKER --> PUBSUB : publicación Outbox
 CORE --> AD
-AD --> EXT : solicitud / evento
-AD --> DB : correlación y conciliación
-CORE --> DATA
-CLOSE --> DATA
+AD --> EXT : llamadas externas / sandbox en pruebas
+API --> STORAGE : carga / lectura autorizadas
+PUBSUB --> BQ : suscripción de eventos
 @enduml

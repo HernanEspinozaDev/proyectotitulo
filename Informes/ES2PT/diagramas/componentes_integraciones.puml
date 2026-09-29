@@ -2,24 +2,31 @@
 skinparam dpi 180
 skinparam shadowing false
 skinparam defaultFontName Arial
-skinparam defaultFontSize 18
+skinparam defaultFontSize 16
 skinparam backgroundColor white
 skinparam componentStyle uml2
 top to bottom direction
-package "Backend Go modular · interfaces internas" {
-  component "M01–M11\nreglas de negocio" as MOD
-  component "Adaptadores\nde proveedores" as AD
-  component "Eventos y conciliación\nejecución por definir" as EVT
+actor "Cliente API futuro" as CLIENT
+component "API Go\nHTTPS / OpenAPI" as API
+package "Monolito modular Go · Cloud Run" {
+  component "Casos de uso\ny autorización" as USECASE
+  component "Reserva / pagos\npor interfaz" as DOMAIN
+  component "Workers goroutine\nleases durables" as WORKER
 }
-database "PostgreSQL / PostGIS\ndatos operativos" as DB
-component "Archivos\nservicio por definir" as FILE
-component "Analítica\nBigQuery propuesto" as BQ
-component "Pago, firma, identidad, SII\nacceso por verificar" as EXT
-MOD --> DB
-MOD --> FILE
-MOD --> BQ : control RNF-017 pendiente
-MOD --> AD
-EVT --> AD
-EVT --> DB
-AD --> EXT : contratos por verificar
+database "Cloud SQL\nPostgreSQL / PostGIS" as DB
+component "Cloud Storage\nprivado" as STORAGE
+queue "Pub/Sub" as PUBSUB
+database "BigQuery\nanalítica" as BQ
+component "Proveedor externo\npruebas en sandbox" as PROVIDER
+
+CLIENT --> API
+API --> USECASE
+USECASE --> DOMAIN
+USECASE --> DB : transacción
+DOMAIN --> PROVIDER : adaptador
+DOMAIN --> DB : intento/evento proveedor
+API --> STORAGE : objeto autorizado
+WORKER --> DB : reclamo + checkpoint
+WORKER --> PUBSUB : outbox
+PUBSUB --> BQ : suscripción BigQuery
 @enduml

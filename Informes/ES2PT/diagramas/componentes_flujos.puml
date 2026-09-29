@@ -2,19 +2,37 @@
 skinparam dpi 180
 skinparam shadowing false
 skinparam defaultFontName Arial
-skinparam defaultFontSize 18
+skinparam defaultFontSize 17
 skinparam backgroundColor white
 skinparam componentStyle uml2
 top to bottom direction
-component "Interfaz web\nNext.js" as UI
-package "Backend Go modular · una unidad desplegable" {
-  component "API y autorización" as API
-  component "Cuentas, oferta y búsqueda\nM01–M05" as INICIO
-  component "Reserva, operación y cierre\nM06–M10" as CICLO
-  component "Administración y auditoría\nM11" as ADM
+actor "Consumidor futuro\nde la API" as CLIENT
+node "Cloud Run · una aplicación Go" {
+  component "API HTTPS\nOpenAPI + autorización" as API
+  package "Módulos internos" {
+    component "Identidad, catálogo\ny búsqueda · M01–M05" as CATALOG
+    component "Reserva y contrato\nM06–M07" as BOOKING
+    component "Operación, disputa\ny liquidación · M08–M10" as OPS
+    component "Administración\ny auditoría · M11" as ADMIN
+  }
+  component "Workers goroutine\nexpiración / outbox / conciliación" as WORKER
 }
-UI --> API : HTTPS / JSON
-API --> INICIO
-API --> CICLO
-API --> ADM
+database "PostgreSQL / PostGIS\nfuente transaccional" as DB
+component "Cloud Storage\narchivos privados" as STORAGE
+queue "Pub/Sub\neventos seleccionados" as PUBSUB
+database "BigQuery\nconsultas analíticas" as BQ
+
+CLIENT --> API : HTTPS / JSON
+API --> CATALOG
+API --> BOOKING
+API --> OPS
+API --> ADMIN
+CATALOG --> DB
+BOOKING --> DB : transacción + outbox
+OPS --> DB
+ADMIN --> DB : lectura restringida
+WORKER --> DB : lease / checkpoint
+WORKER --> PUBSUB : entrega idempotente
+API --> STORAGE : autorización temporal
+PUBSUB --> BQ : suscripción analítica
 @enduml

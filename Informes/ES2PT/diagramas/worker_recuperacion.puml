@@ -1,0 +1,40 @@
+@startuml
+skinparam dpi 180
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 16
+skinparam backgroundColor white
+start
+:Cloud Run inicia instancia Go;
+:goroutine consulta trabajo elegible;
+:BEGIN + reclamar fila con lease;
+if (¿trabajo disponible?) then (sí)
+  :COMMIT del reclamo;
+  :ejecutar por tipo;
+  if (¿operación externa?) then (sí)
+    :usar sandbox en integración;
+    :aplicar clave idempotente;
+  endif
+  if (¿resultado correcto?) then (sí)
+    :guardar resultado/checkpoint;
+    :marcar completado;
+  else (no)
+    :incrementar intentos;
+    :programar retry con backoff;
+  endif
+else (no)
+  :espera acotada;
+endif
+if (¿recibe SIGTERM?) then (sí)
+  :dejar de reclamar;
+  :guardar checkpoint y salir;
+  note right
+    Si el proceso cae,
+    lease vence y otra goroutine
+    puede reclamar el trabajo.
+  end note
+else (no)
+  :continuar ciclo;
+endif
+stop
+@enduml

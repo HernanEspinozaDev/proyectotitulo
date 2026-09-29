@@ -1,0 +1,17 @@
+services:
+  informes:
+    image: espacigo-informes:local
+    build:
+      context: .
+      dockerfile: Informes/Dockerfile
+      args:
+        PYTHON_IMAGE: ${PYTHON_IMAGE:-python:3.12.14-slim-bookworm}
+        PANDOC_IMAGE: ${PANDOC_IMAGE:-pandoc/core:3.6.4}
+        PLANTUML_IMAGE: ${PLANTUML_IMAGE:-plantuml/plantuml:1.2026.8}
+    user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+    environment:
+      PLANTUML_JAR: /opt/plantuml.jar
+      INKSCAPE_BIN: /usr/bin/inkscape

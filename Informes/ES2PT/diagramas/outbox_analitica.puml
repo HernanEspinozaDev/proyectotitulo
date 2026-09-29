@@ -1,0 +1,43 @@
+@startuml
+skinparam dpi 180
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 17
+skinparam backgroundColor white
+start
+partition "Transacción API / PostgreSQL" {
+  :persistir cambio de negocio;
+  :insertar evento mínimo con event_id;
+  :COMMIT atómico;
+}
+partition "Worker Go" {
+  :reclamar fila pendiente;
+  :SKIP LOCKED + lease;
+  :publicar evento a Pub/Sub;
+}
+if (¿ACK de publicación?) then (sí)
+  partition "PostgreSQL" {
+    :marcar evento publicado;
+    :COMMIT;
+  }
+else (no / proceso reiniciado)
+  partition "PostgreSQL" {
+    :conservar pendiente;
+    :incrementar intentos y programar backoff;
+    :lease vence y permite nuevo reclamo;
+  }
+endif
+partition "Pub/Sub → BigQuery" {
+  :suscripción entrega evento;
+  :BigQuery subscription inserta fila;
+  :vista deduplica por event_id;
+  :reporte agregado con acceso autorizado;
+}
+note right
+Pub/Sub puede reentregar mensajes;
+el consumo tolera duplicados y desorden.
+Outbox no reemplaza auditoría de negocio
+ni replica tablas completas.
+end note
+stop
+@enduml

@@ -1,6 +1,6 @@
 ## Diagrama de infraestructura
 
-La infraestructura siguiente es un **diseño propuesto**, coherente con la alternativa Cloud Run de ES1 y con dos artefactos de contenedor descritos en 3.3. Cloud Run ejecuta servicios sobre infraestructura administrada, pero el equipo todavía debe elegir región, recursos, política de escalado, red y servicios de datos. No existe evidencia de despliegue de EspaciGo [@es2cloudrunoverview].
+La infraestructura siguiente es el diseño objetivo acordado para el backend ES2: Terraform administra los recursos de GCP y **una API modular Go** se despliega como un servicio Cloud Run. El cliente web, que se desarrollará en una fase posterior, será un consumidor separado de la API; su contenedor queda fuera del alcance del backend aquí definido. No existe evidencia de despliegue de EspaciGo [@es2cloudrunoverview; @es2terraformgcsbackend].
 
 ![Infraestructura virtual propuesta para EspaciGo](imagenes/figura-infraestructura_propuesta.png){width=6.3in} <!--#fig:es2-infraestructura--> <!--#fuente:elaboración propia a partir de la propuesta de ES1.-->
 
@@ -9,19 +9,27 @@ La infraestructura siguiente es un **diseño propuesto**, coherente con la alter
 | Recurso | Función prevista | Decisión o evidencia pendiente |
 | --- | --- | --- |
 | Dispositivos del equipo y usuarios | Desarrollo y uso web | Inventario real de CPU, RAM, sistema operativo, conexión y navegadores; soporte de RNF-007/022 |
-| Entrada HTTPS y dos servicios de contenedor | Acceso público, presentación y API modular | Dominio, certificados, región, CPU/RAM, límites, concurrencia, instancias mínimas/máximas y prueba de carga |
+| Entrada HTTPS y servicio API | Acceso HTTPS al backend Go; el frontend futuro consumirá el contrato API | Dominio/certificados, CPU/RAM, concurrencia, máximos de instancias y prueba de carga |
 | PostgreSQL con PostGIS | Transacciones, calendario y geodatos exigidos por RNF-038 | Servicio y versión, capacidad, acceso privado, índices, respaldos y prueba de recuperación |
-| Almacenamiento de archivos | Imágenes, contratos y evidencias | Servicio, volumen, cifrado, permisos, ciclo de vida y costo |
-| Analítica y registros de auditoría | Consulta y conservación de eventos | Destino analítico, protección efectiva contra modificación de RNF-017, retención y costo |
-| Adaptadores y ejecución de conciliación | Integraciones y revisión periódica RNF-028 | Mecanismo de ejecución, acceso autorizado, colas o agenda si se requieren, observabilidad y tratamiento de fallos |
+| Cloud Storage privado | Imágenes, contratos y evidencias binarias; metadatos y autorización permanecen en PostgreSQL/API | Ubicación, cifrado, permisos, retención, ciclo de vida y costo |
+| Outbox, Pub/Sub y BigQuery | Publicación analítica de eventos seleccionados y consulta agregada | Esquemas, duplicados, IAM, retención, costo y permisos de fila; Datastream no se usa en ES2 |
+| Cloud Logging y auditoría de dominio | Diagnóstico técnico correlacionado y trazabilidad de acciones críticas | Formato de logs, minimización, exportación y mecanismo RNF-017 por probar |
+| Workers goroutine | Expiración, publicación de outbox y conciliación dentro de la API Cloud Run | Facturación por instancia, mínimo 1, leases durables, reintentos idempotentes, límite de instancias/pool y pruebas de reinicio |
+| Terraform, Artifact Registry y Secret Manager | State IaC, artefactos versionados y credenciales fuera de código | Bootstrap y permisos del state, retención/versionado, CI y alertas de consumo |
 
 Los objetivos de **99,9 % mensual**, **RPO máximo de 4 horas** y **RTO máximo de 6 horas** proceden de RNF-009/010 de ES1. El diagrama no demuestra esos resultados: requieren arquitectura de respaldo, ventanas de medición, restauración ensayada y registro de incidentes. Asimismo, RNF-019 y RNF-030 fijan escalado y capacidad por verificar; sin escenarios de carga y costos no corresponde escoger CPU, memoria ni número de instancias.
 
-Se propone separar desarrollo, ensayo y entrega final por configuración y credenciales, con datos sintéticos en las pruebas. RNF-034–036 exige portabilidad; adoptar servicios específicos de GCP requiere documentar interfaces sustituidas y comprobar la reproducción local y otro proveedor. La comparación económica de 2.1 debe incluir cómputo, base, archivos, red, registros, copias y terceros [@es2cloudrunpricing].
+Terraform mantendrá configuración separada por ambiente y estado remoto en GCS con versionado y locking. El bucket de state se prepara durante el bootstrap y recibe IAM limitado, pues contiene datos de configuración que pueden ser sensibles. Los secretos se referencian desde Secret Manager, nunca se guardan en el repositorio, imágenes o valores literales del state. Las imágenes se construyen/publican en Artifact Registry con revisión/digest identificable; cada ambiente usa cuentas de servicio con privilegio mínimo [@es2terraformgcsbackend].
+
+Los workers internos requieren CPU fuera de la atención de solicitudes; Cloud Run permite facturación por instancia para ese patrón y mínimo de instancias, pero estas instancias tienen costo y pueden reiniciarse. Por ello el trabajo es durable en PostgreSQL, el máximo de instancias se limita y la cantidad de conexiones del pool por réplica se calcula contra el límite de Cloud SQL [@es2cloudrunbilling; @es2cloudsqlrunconnections].
+
+La decisión de presupuesto y alertas rige desde el primer despliegue. Se configura un presupuesto por ambiente con notificaciones de umbral al **50 %, 80 % y 100 %**, además de límites de instancias, pool de base y cuotas/bytes procesados cuando estén disponibles. Las alertas de facturación informan del consumo, pero no lo interrumpen automáticamente; el control operativo requiere topes y actuación del equipo [@es2gcpbudgets].
+
+RNF-034–036 exige portabilidad; adoptar servicios específicos de GCP requiere documentar interfaces sustituibles y comprobar la reproducción local y otro proveedor. La comparación económica de 2.1 debe incluir cómputo, base, archivos, red, registros, copias y terceros [@es2cloudrunpricing].
 
 ### Perfil presupuestario propuesto
 
-El Anexo A asigna cantidades para estimar caja sin declarar la infraestructura implementada. En el piloto se simulan SQL Enterprise General Purpose con 2 vCPU/8 GiB durante 730 horas, 20 GiB SSD y 20 GiB de copias; dos servicios Cloud Run suman un millón de solicitudes, 50 GiB de objetos y 100 GiB de salida mensual. Se agregan balanceador, cinco reglas WAF, logs, compilación, secretos, correo y una bolsa acotada para staging. El SQL zonal no es HA ni demuestra RNF-009/010 [@es2cloudsqlpricing; @es2cloudrunpricing].
+El Anexo A conserva perfiles de caja previos a la decisión de workers en instancia mínima; por tanto, no debe leerse como costo definitivo de la arquitectura consolidada. Su piloto supone SQL Enterprise General Purpose con 2 vCPU/8 GiB durante 730 horas, 20 GiB SSD y 20 GiB de copias; los servicios Cloud Run se estiman con mínimo cero. Incluye balanceador, cinco reglas WAF, logs, compilación, secretos, correo y staging. La base zonal no es HA ni demuestra RNF-009/010 [@es2cloudsqlpricing; @es2cloudrunpricing].
 
 *Tabla. Escenarios de costo mensual de infraestructura en tarifas de Santiago.* <!--#tab:es2-infra-costos-->
 
@@ -31,7 +39,7 @@ El Anexo A asigna cantidades para estimar caja sin declarar la infraestructura i
 | Piloto público | 237,82 | 237.819 | 283.005 |
 | HA de referencia | 494,65 | 494.648 | 588.632 |
 
-**Nota.** Elaboración propia: conversión supuesta de 1.000 CLP/USD sobre las tarifas públicas usadas para `southamerica-west1`, **sin provisión regional**. Cada tarifa y cantidad requiere auditoría por SKU. El 19 % adicional es reserva de caja, cuya facturación y crédito fiscal deben verificarse. Cada mes usa un perfil; no se suman las tres filas. La fila HA y el comparador documental son configuraciones distintas de carga, almacenamiento y respaldos; ninguna demuestra una capacidad operativa contratada [@es2gcspricing; @es2lbpricing; @es2armorpricing].
+**Nota.** Elaboración propia: conversión supuesta de 1.000 CLP/USD sobre las tarifas públicas usadas para `southamerica-west1`, **sin provisión regional**. Cada tarifa y cantidad requiere auditoría por SKU. El 19 % adicional es reserva de caja, cuya facturación y crédito fiscal deben verificarse. Cada mes usa un perfil; no se suman las tres filas. La fila HA y el comparador documental son configuraciones distintas de carga, almacenamiento y respaldos; ninguna demuestra una capacidad operativa contratada. El perfil de piloto con Cloud Run mínimo cero no contempla la instancia mínima necesaria para las goroutines persistentes. Falta recalcularlo y sustituirlo antes de tratarlo como presupuesto de la arquitectura consolidada [@es2gcspricing; @es2lbpricing; @es2armorpricing].
 
 La decisión del usuario del 23-09-2026 fija **Santiago** como región de operación. El ejercicio comparativo propio conserva precios de Iowa como control documental de la comparación entre Cloud Run y máquinas virtuales, no como presupuesto vigente [@es2cloudrunpricing].
 
@@ -43,8 +51,8 @@ Durante el primer año sin ventas se estiman seis meses de ensayo y seis de pilo
 
 | Perfil | Ejecución | Datos y archivos | Supuesto que lo respalda | Estado |
 | --- | --- | --- | --- | --- |
-| Ensayo | Web y API con mínimo 0 instancias y una tarea de conciliación | PostgreSQL zonal y 20 GiB de objetos | Tráfico interno y datos sintéticos | Propuesta; sin desplegar |
-| Piloto | Web y API con concurrencia limitada y mínimo 0 o 1 | PostgreSQL de 2 vCPU y 8 GiB con 20 GiB de SSD y 20 GiB de respaldos; 50 GiB de objetos; un millón de solicitudes mensuales | Perfil presupuestario del Anexo A | Propuesta; capacidad por medir |
+| Ensayo | API Cloud Run con workers internos, facturación por instancia y mínimo 1; el cliente web futuro no se incluye aquí | PostgreSQL zonal y Cloud Storage privados | Tráfico interno y datos sintéticos | Arquitectura decidida; sin desplegar |
+| Piloto | Una API Cloud Run con concurrencia y máximo de instancias acotados; mínimo 1 para sostener las tareas internas | PostgreSQL de 2 vCPU y 8 GiB con 20 GiB de SSD/respaldos y objetos según demanda | Perfil presupuestario por recalcular con la configuración final | Arquitectura decidida; capacidad y costo por medir |
 | Alta disponibilidad | Servicios con instancias mínimas y base con conmutación | Base HA con respaldos continuos | RNF-009/010 | Escenario comparativo; no es un diseño probado |
 
 El dimensionamiento no se deduce de los objetivos. RNF-001 exige 200 usuarios concurrentes con búsqueda bajo 2 segundos y RNF-030 fija 500 usuarios concurrentes y 100 escrituras por segundo: solo una prueba de carga puede contrastar esas cifras. Hasta entonces, CPU, memoria, instancias mínimas y tamaño de base son **parámetros de escenario**, no capacidades contratadas. PT-09 y PT-10 describen esos ensayos.

@@ -8,15 +8,22 @@ La arquitectura se desarrollará a partir de los módulos, requisitos y flujos d
 
 | Decisión | Origen | Estado | Dónde se detalla |
 | --- | --- | --- | --- |
-| Backend modular Go como unidad desplegable | ES1, conservada | Vigente | 3.3 |
-| PostgreSQL/PostGIS como persistencia operativa | RNF-038 de ES1 | Vigente | 3.4, 3.6 |
-| Cloud Run para los contenedores web y API | Propuesta de ES1 | Condicionada a costo y portabilidad | 3.6; Anexo A |
+| Backend modular Go en un servicio API Cloud Run | ES1 y definición consolidada de backend ES2 | Decisión arquitectónica; una aplicación desplegable con módulos internos, sin microservicios en esta fase | 3.3, 3.6 |
+| PostgreSQL/PostGIS como persistencia operacional | RNF-038 de ES1 y definición consolidada de backend ES2 | Decisión arquitectónica; fuente de verdad para el estado transaccional | 3.4, 3.6 |
+| Terraform para infraestructura GCP | Definición consolidada de backend ES2 | Decisión arquitectónica; state remoto GCS versionado y con locking | 3.6 |
+| Cloud Storage privado para imágenes, contratos y evidencias | Definición consolidada de backend ES2 | Decisión arquitectónica; autorización del backend y acceso temporal | 3.3, 3.6 |
 | Región southamerica-west1 (Santiago) para datos y ejecución | Decisión del usuario del 23-09-2026 | Vigente: tarifas publicadas aplicadas al presupuesto; +40 % en cómputo, base y Cloud Run, y +90 % en almacenamiento respecto de Iowa | 3.6; Anexo A |
+| Alcance ejecutable de la demostración | Decisión del usuario | Una categoría de espacio; recorrido búsqueda, reserva, pago simulado y check-in. El modelo mantiene las demás categorías | 3.3, 3.4, 3.7 |
+| Pagos externos durante desarrollo e integración | Decisión del usuario | Exclusivamente sandbox; la demostración usa un adaptador simulado y no procesa fondos reales | 3.3, 3.5 |
+| Analítica de eventos de dominio | Definición consolidada de backend ES2 | Outbox PostgreSQL → Pub/Sub → BigQuery; Datastream descartado en esta fase | 3.3, 3.4, 3.5, 3.6 |
+| Workers asíncronos | Decisión del usuario | Goroutines dentro del mismo servicio Cloud Run, con tareas durables y reclamo idempotente en PostgreSQL; sin Cloud Run Job aparte | 3.3, 3.6 |
+| Presupuesto y alertas de GCP | Decisión del usuario | Configurados desde el primer despliegue junto con topes operativos; las alertas avisan y no cortan automáticamente el gasto | 3.6 |
 | Calendario común `ocupacion` con intervalos semiabiertos | Decisión nueva de ES2 | Propuesta; requiere DDL aplicado y prueba concurrente | 3.4; Anexo B |
 | Separar la analítica de la garantía de inmutabilidad de RNF-017 | Decisión nueva de ES2 | Propuesta (SUP-13): retención bloqueada con hash por lote; sin ensayo de alteración ejecutado | 3.3, 3.6 |
 | Ley 21.719 como criterio de diseño desde el primer incremento | Decisión del usuario | Vigente; sin cumplimiento probado | Anexo B; PT-16 |
-| Destaques pagados dentro de la plataforma | Propuesta nueva de ES2 | No aprobada; fuera del alcance técnico actual | 3.3 |
-| Pago con reparto, firma electrónica y verificación de identidad por API | Propuesta de ES1 | Abierta; sin contrato ni cotización de API | 3.5; 2.2 |
+| Métricas de publicaciones y acceso premium | Decisión consolidada de backend | Captura agregada de impresiones y clics para todas las publicaciones; el reporte requiere ticket premium vigente y autorización del arrendador | 3.3, 3.5 |
+| Panel de métricas de prueba | Definición consolidada de backend ES2 | Looker Studio conectado a vistas BigQuery con identidad y acceso por fila verificados; limitado a vendedores de prueba | 3.3 |
+| Selección de proveedor de pagos/firma/identidad | Decisión de separación por alcance | Contratos neutrales en el backend; Mercado Pago y demás proveedores se documentan en investigaciones/anexos técnicos independientes | 3.3, 3.5 |
 
 ## Coherencia entre las vistas
 
@@ -32,7 +39,7 @@ La arquitectura se desarrollará a partir de los módulos, requisitos y flujos d
 | Proveedores externos | 3.2, 3.3, 3.5, 3.7 | Pago, firma e identidad siguen sin acceso ni contrato confirmado |
 | Presupuesto de infraestructura | 3.6 | Tarifas de Santiago aplicadas al Anexo A por decisión del usuario; el ejercicio de Iowa se conserva solo como control documental |
 
-Las vistas describen un mismo alcance, pero ninguna acredita despliegue, integración aprobada ni resultado de pruebas. Las diferencias anteriores se resuelven en el cierre del contenido, no modificando ES1.
+La propuesta única de backend, su alcance y decisiones se detalla en [03.3](03_03_componentes.md) y en la [propuesta base del backend](../investigacion/propuesta_backend_final.md). Las vistas describen una arquitectura acordada para construir; no acreditan despliegue, integración ni resultado de prueba. La investigación específica de Mercado Pago permanece separada y no altera el contrato proveedor-neutral.
 
 ## Mecanismo propuesto para la inmutabilidad de RNF-017
 

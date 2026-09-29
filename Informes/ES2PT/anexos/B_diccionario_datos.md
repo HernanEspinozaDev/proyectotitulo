@@ -1,6 +1,6 @@
 # Diccionario de datos de ES2
 
-Este Anexo B describe el **modelo lógico inicial propuesto**, derivado del núcleo transaccional de ES1. No es un esquema implementado ni cubre aún todo el catálogo de 236 RF. Los tipos orientan la posterior adaptación a PostgreSQL/PostGIS, exigida por RNF-038.
+Este Anexo B describe el **modelo lógico inicial propuesto**, derivado del núcleo transaccional de ES1. No es un esquema implementado ni cubre aún todo el catálogo de 236 RF. El núcleo contiene 17 entidades de negocio; se añade `outbox_evento` como entidad técnica de integración, por lo que el DDL contiene 18 tablas. Los tipos orientan la posterior adaptación a PostgreSQL/PostGIS, exigida por RNF-038.
 
 ## Convenciones y alcance
 
@@ -286,6 +286,25 @@ Conforme a las leyes 21.719 y 19.628, esta matriz establece la **política de tr
 
 La implementación debe comprobar que las vistas y exportaciones solo incluyan datos autorizados y que una solicitud no destruya evidencia financiera sujeta a conservación tributaria de 5 años, utilizando anonimización para conciliar la supresión de la identidad con la inmutabilidad transaccional. La solicitud y su respuesta se registran en `solicitud_titular`, que guarda la decisión y su fundamento sin conservar el dato suprimido.
 
+### outbox_evento (entidad técnica de integración)
+
+Registro transaccional de eventos de dominio que deben publicarse después del commit. El publicador en Go reclama filas pendientes con lease, registra intentos y confirma la entrega; un evento puede llegar más de una vez, por lo que consumidores y efectos posteriores deben deduplicar por su identificador. El contenido se minimiza, versiona y no se usa como auditoría inmutable.
+
+| Atributo | Tipo propuesto | Nulo | Claves, valores y reglas | Significado |
+| --- | --- | --- | --- | --- |
+| id | uuid | No | PK; identificador estable del evento | Deduplicación |
+| tipo_evento | text | No | Nombre del evento de dominio | Contrato |
+| version_esquema | integer | No | Mayor que cero; cambios compatibles/versionados | Versión de payload |
+| agregado_tipo | text | No | Tipo de agregado de negocio | Clasificación |
+| agregado_id | uuid | No | Identificador del agregado | Correlación |
+| payload | jsonb | No | Campos mínimos y sin secretos | Datos publicados |
+| creado_en | timestamptz | No | Instante de commit lógico | Orden temporal |
+| disponible_en | timestamptz | No | Próxima elegibilidad de reintento | Programación |
+| intentos | integer | No | Inicial 0; no negativo | Reintentos |
+| publicado_en | timestamptz | Sí | Se establece tras confirmar publicación | Resultado |
+| lease_hasta | timestamptz | Sí | Vencimiento del reclamo temporal | Recuperación ante reinicio |
+| ultimo_error | text | Sí | Mensaje saneado, sin datos sensibles | Diagnóstico |
+
 ## Reglas entre entidades
 
 1. El espacio de una ocupación de reserva debe coincidir con el de la reserva. Proponer FK compuesta o control transaccional equivalente; una FK simple a reserva no basta.
@@ -357,7 +376,7 @@ Los permisos se aplican en la API y en las vistas de consulta; el DDL propuesto 
 
 ## DDL propuesto
 
-El siguiente texto es una **propuesta no ejecutada** para PostgreSQL 16 o superior con PostGIS y `btree_gist`, según RNF-038. No crea datos, no reemplaza la validación del equipo y no se ha aplicado en ningún servidor. Su revisión fue textual y de coherencia: 17 tablas corresponden a las 17 entidades del diccionario, toda clave foránea apunta a una tabla declarada y los paréntesis y terminadores están equilibrados.
+El siguiente texto es una **propuesta no ejecutada** para PostgreSQL 16 o superior con PostGIS y `btree_gist`, según RNF-038. No crea datos, no reemplaza la validación del equipo y no se ha aplicado en ningún servidor. Su revisión fue textual y de coherencia: 17 tablas corresponden a las entidades de negocio y `outbox_evento` es la tabla técnica adicional; toda clave foránea apunta a una tabla declarada y los paréntesis y terminadores están equilibrados.
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS postgis;
@@ -476,6 +495,24 @@ CREATE TABLE garantia (
     vence_en timestamptz,
     CONSTRAINT garantia_captura_tope CHECK (monto_capturado <= monto_autorizado)
 );
+
+CREATE TABLE outbox_evento (
+    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+    tipo_evento text NOT NULL,
+    version_esquema integer NOT NULL CHECK (version_esquema > 0),
+    agregado_tipo text NOT NULL,
+    agregado_id uuid NOT NULL,
+    payload jsonb NOT NULL,
+    creado_en timestamptz NOT NULL DEFAULT now(),
+    disponible_en timestamptz NOT NULL DEFAULT now(),
+    intentos integer NOT NULL DEFAULT 0 CHECK (intentos >= 0),
+    publicado_en timestamptz,
+    lease_hasta timestamptz,
+    ultimo_error text,
+    CONSTRAINT outbox_publicacion_lease CHECK (publicado_en IS NULL OR lease_hasta IS NULL)
+);
+CREATE INDEX outbox_pendiente_idx ON outbox_evento (disponible_en, creado_en)
+    WHERE publicado_en IS NULL;
 
 CREATE TABLE evento_proveedor (
     id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -632,6 +669,7 @@ Los ensayos siguientes comprueban el diccionario y su DDL. **Ninguno se ha ejecu
 | MD-10 | Migración y reversión del esquema | Aplicar el DDL en una base vacía, migrar y revertir sin pérdida | — |
 | MD-11 | Retención y anonimización | Anonimización que preserva el hecho financiero y su trazabilidad | PT-16 |
 | MD-12 | Restauración del esquema | Restaurar un respaldo y verificar integridad referencial | PT-11 |
+| MD-13 | Atomicidad, reclamo y reintento del Outbox | Confirmar que rollback elimina el evento, que un commit crea un único evento y que un lease vencido permite reintentar sin duplicar el efecto del consumidor | — |
 
 ## Ampliaciones todavía necesarias
 
@@ -641,4 +679,4 @@ No forma parte de las 16 entidades iniciales ni de los requisitos validados de E
 
 [[PENDIENTE: completar perfil y cuenta bancaria, sesiones y tokens, tarifas y catálogos, mensajería, reseñas, detalle tributario y notificaciones; revisar el tratamiento de los autores automáticos de documentos. No afirmar cobertura total de los RF.]]
 
-[[PENDIENTE: mapear los literales de estado de ES1 a los propuestos y acordarlos con el equipo, validar cardinalidades, aplicar el DDL en un entorno autorizado y ejecutar los ensayos MD-01 a MD-12 con evidencia fechada.]]
+[[PENDIENTE: mapear los literales de estado de ES1 a los propuestos y acordarlos con el equipo, validar cardinalidades, aplicar el DDL en un entorno autorizado y ejecutar los ensayos MD-01 a MD-13 con evidencia fechada.]]

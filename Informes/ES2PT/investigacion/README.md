@@ -21,6 +21,10 @@ Crear un archivo por tema, por ejemplo `INV-001_nombre-del-tema.md`, con esta es
 
 Las fuentes deben conservar autor o entidad, título, enlace o identificador, fecha de publicación y fecha de consulta. Las afirmaciones que entren al informe deben enlazar este registro y su referencia bibliográfica.
 
+## Documento base de arquitectura del backend
+
+- [Propuesta oficial de backend ES2](propuesta_backend_final.md): decisiones de arquitectura y plan técnico consolidado. La investigación específica de Mercado Pago se conserva por separado en [INV-026](INV-026_mercado_pago_split.md) y podrá incorporarse como anexo técnico cuando se complete.
+
 El [índice INV-024](INV-024_indice_investigacion.md) resume, para cada registro, su pregunta, su hallazgo y su límite; esta lista solo mantiene los enlaces, y la [matriz de trazabilidad](matriz_trazabilidad_es2.md) relaciona los registros con los criterios de la rúbrica.
 
 - [INV-001, línea base y brechas](INV-001_base_y_brechas.md) · [INV-002, tecnologías y factibilidad](INV-002_tecnologias_y_factibilidad.md) · [INV-003, integraciones](INV-003_integraciones.md) · [INV-004, modelado y datos](INV-004_modelado_y_datos.md) · [INV-005, KPI y SLA](INV-005_kpi_sla.md)

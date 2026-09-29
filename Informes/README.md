@@ -53,6 +53,23 @@ No se necesitan paquetes PyPI. Al mover un entorno virtual pueden quedar rutas a
 
 Para Word: Pandoc 3.x en `PATH`. Para PlantUML: Java y un `plantuml.jar` local. Los SVG editables de BPMN se exportan con Inkscape en `PATH` o mediante `INKSCAPE_BIN`. Para actualizar campos: Windows, Microsoft Word y `APASeventhEdition.xsl` instalado. Estos programas no se instalan automáticamente.
 
+### Entorno completo con Docker
+
+El entorno reproducible del repositorio está definido en `Informes/Dockerfile` y `compose.informes.yaml`. Incluye Python 3.12, los requisitos de `Informes/requirements.txt`, Pandoc 3.6.4, Java 17, PlantUML 1.2026.8, Graphviz e Inkscape. El motor no requiere paquetes PyPI adicionales. Copia `.env.example` a `.env` para fijar las imágenes y el UID/GID del equipo local; ese archivo no contiene credenciales.
+
+Desde la raíz del repositorio:
+
+```sh
+cp .env.example .env
+docker compose -f compose.informes.yaml build
+docker compose -f compose.informes.yaml run --rm informes diagnostico ES2PT
+docker compose -f compose.informes.yaml run --rm informes diagramas ES2PT
+docker compose -f compose.informes.yaml run --rm informes generar ES2PT
+```
+
+Los resultados se escriben en `Informes/ES2PT/build/` y quedan disponibles en el equipo anfitrión. El contenedor monta el repositorio para leer las fuentes y mantiene las herramientas fuera del sistema anfitrión. La actualización de campos bibliográficos con Microsoft Word sigue siendo una operación separada para Windows.
+
+
 Para revisar visualmente un DOCX en Windows con Office 365, si PyMuPDF ya está disponible en el Python local, usar `python Informes/herramientas/render_docx_windows.py ruta/al/documento.docx --out Informes/ES2PT/build/qa_word`. El script copia el DOCX, exporta con Word mediante COM (45 s de límite por defecto) y genera `documento.pdf`, `paginas/page-001.png`, etc. en la carpeta de salida. No aprueba por sí mismo el perfil Word: hay que inspeccionar todas las páginas y anexos. Ver [diagnóstico ES2](ES2PT/investigacion/INV-008_plantilla_word.md).
 
 Para ensayar el perfil ES2 todavía desactivado: `python Informes/herramientas/previsualizar_perfil.py ES2PT`. Produce una muestra parcial en `ES2PT/build/qa_perfil/`, fuera de la generación oficial. Sus índices pueden actualizarse sin tocar citas mediante `powershell -NoProfile -STA -File Informes/herramientas/actualizar_campos.ps1 -Carpeta Informes/ES2PT/build/qa_perfil -SoloIndices`. En este entorno, la actualización completa de campos APA 7 falla en Word y no debe utilizarse para la entrega hasta resolver el problema registrado en INV-008.

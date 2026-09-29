@@ -1,0 +1,19 @@
+@startuml
+skinparam dpi 180
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 18
+skinparam backgroundColor white
+hide empty description
+[*] --> Pendiente : cotización aceptada / retención creada
+Pendiente --> Confirmada : pago aprobado (simulador en demo)
+Pendiente --> Cancelada : rechazo o vencimiento
+Confirmada --> EnCurso : check-in autorizado
+EnCurso --> Finalizada : check-out registrado
+Confirmada --> Disputa : reclamo autorizado
+EnCurso --> Disputa : reclamo autorizado
+Disputa --> Confirmada : resolución / uso aún no iniciado
+Disputa --> Finalizada : resolución / uso completado
+Finalizada --> [*]
+Cancelada --> [*]
+@enduml

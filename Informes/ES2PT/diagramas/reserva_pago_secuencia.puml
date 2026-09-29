@@ -1,0 +1,48 @@
+@startuml
+skinparam dpi 180
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 17
+skinparam backgroundColor white
+actor "Arrendatario" as User
+participant "API / caso de uso" as API
+database "PostgreSQL" as DB
+participant "Adaptador\nsimulador / sandbox" as Pay
+participant "Webhook\nprocesador" as Hook
+
+User -> API : solicitar reserva
+API -> API : validar permiso y cotización
+API -> DB : BEGIN
+API -> DB : insertar reserva + ocupación
+API -> DB : insertar evento Outbox
+API -> DB : COMMIT
+DB --> API : reserva pendiente
+
+alt Demostración ES2
+  API -> Pay : ejecutar pago simulado
+  Pay --> API : aprobación o rechazo
+else Prueba externa
+  API -> Pay : crear intento con clave idempotente
+  Pay --> API : resultado o estado incierto
+end
+
+alt Pago aprobado
+  API -> DB : pago confirmado + reserva CONFIRMADA + Outbox
+  API -> DB : COMMIT
+  API --> User : confirmar reserva
+else Rechazo / timeout
+  API -> DB : registrar rechazo o POR_CONCILIAR
+  API --> User : informar estado sin repetir el cargo
+end
+
+opt Evento tardío firmado (sandbox)
+  Pay -> Hook : notificar evento
+  Hook -> DB : deduplicar evento externo
+  Hook -> API : solicitar transición validada
+  API -> DB : actualizar estado + Outbox
+end
+note over API,DB
+La llamada externa ocurre después del commit local.
+El timeout conserva la misma clave idempotente.
+end note
+@enduml
