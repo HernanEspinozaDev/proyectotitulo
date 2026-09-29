@@ -35,5 +35,8 @@ Informes/**/calibracion/
 Informes/**/coordinacion/estado.sqlite3*
 Informes/**/coordinacion/.bitacora.*.tmp
 
+# Investigación local de Mercado Pago pendiente de revisar
+Informes/ES2PT/investigacion/investigacionmanual/mercadopago/
+
 # Configuración local del entorno Docker (sin credenciales)
 .env
