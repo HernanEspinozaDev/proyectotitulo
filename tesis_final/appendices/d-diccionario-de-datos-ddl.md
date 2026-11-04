@@ -4,7 +4,7 @@ Este catálogo se reconstruye aplicando en orden las migraciones SQL estructural
 
 El inventario derivado del DDL contiene **110 tablas de aplicación** y excluye el ledger `schema_migrations`. La versión de creación más alta registrada en las fichas es V000079. En la comparación por nombre con la captura local V000075 del 4 de noviembre de 2026, coinciden 104 tablas de aplicación. Las otras seis corresponden al dominio de verificación documental y se declaran en V000079. Esta comparación identifica relaciones por nombre. La comparación de esas 104 tablas con la captura V75 identifica 879 columnas coincidentes por nombre, tipo base y nulabilidad. La comparación normaliza los alias PostgreSQL y trata bigserial como bigint para comparar el tipo base. La comprobación de valores por defecto, restricciones y permisos requiere evidencia separada por versión y entorno.
 
-El modelo lógico objetivo se describe en la sección 9.3. El inventario físico registra las claves y relaciones declaradas en SQL. Las relaciones foráneas identifican las columnas de origen y destino declaradas en `REFERENCES`, y las claves compuestas se presentan como conjuntos.
+El modelo lógico objetivo se describe en la sección 9.3. La capacidad registrada describe el recurso y no acredita un inventario compartido ni la disponibilidad de una categoría en un entorno. El inventario físico registra las claves y relaciones declaradas en SQL. Las relaciones foráneas identifican las columnas de origen y destino declaradas en `REFERENCES`, y las claves compuestas se presentan como conjuntos.
 
 ## Correspondencia lógica y física
 

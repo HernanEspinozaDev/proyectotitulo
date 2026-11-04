@@ -8,6 +8,8 @@ La especificación utiliza actividades UML para los flujos de oferta y contratac
 
 El flujo objetivo valida la titularidad y las reglas del anuncio al publicar. La verificación de identidad de ambas partes corresponde a la emisión contractual.
 
+La Figura 8 separa las condiciones de publicación de la verificación contractual.
+
 **Figura 8**  
 *Actividad de publicación y control de titularidad*
 
@@ -16,6 +18,8 @@ El flujo objetivo valida la titularidad y las reglas del anuncio al publicar. La
 *Nota.* Elaboración propia. El diagrama UML representa las condiciones de publicación del ADR del 4 de noviembre de 2026.
 
 ### 9.1.2. Contratación, cobros y cierre
+
+La Figura 9 representa la secuencia objetivo. El Anexo E identifica rutas de ensayo y el Capítulo XI establece condiciones para habilitar proveedores.
 
 **Figura 9**  
 *Actividad de contratación, cobros y cierre de ocupación*
@@ -34,6 +38,8 @@ El vencimiento libera el bloqueo mediante una transición atómica. Un pago tard
 
 Si vence un aporte antes de abrir la solicitud de firma, la plataforma devuelve los aportes acreditados. Si la solicitud ya está abierta y vence sin ambas firmas, la política del piloto devuelve los aportes y contempla el cargo irrecuperable del proveedor según el presupuesto aprobado. Si ambas firmas se completan y vence la renta, se conserva el servicio de firma y su cargo según las condiciones informadas. Los errores de plataforma se tramitan por la ruta de devolución aplicable.
 
+La Figura 9.1 muestra los plazos de ensayo ratificados y el punto de inicio de cada etapa.
+
 **Figura 9.1**\
 *Ventanas de ensayo de contratación y cobros*
 
@@ -42,6 +48,8 @@ Si vence un aporte antes de abrir la solicitud de firma, la plataforma devuelve 
 *Nota.* Elaboración propia según el ADR del 4 de noviembre de 2026. Los 60 minutos comienzan al acreditar los aportes. En la ruta SimpleFirma, los 15 minutos para renta comienzan al completar ambas firmas. El plazo de garantía comienza al acreditar la renta. Cada etapa se sujeta al límite total del bloqueo y los reintentos conservan el vencimiento.
 
 ### 9.1.3. Gestión de una solicitud de privacidad
+
+La Figura 10 representa el tratamiento objetivo de una solicitud de privacidad.
 
 **Figura 10**\
 *Actividad de evaluación y tratamiento de una solicitud de privacidad*
@@ -60,13 +68,15 @@ La persistencia utiliza PostgreSQL 18 y PostGIS 3.6. El diseño distingue el mod
 
 ### 9.3.1. Modelo lógico objetivo
 
-El espacio representa una unidad reservable exclusiva con un titular vigente. La publicación, la titularidad y la ocupación tienen estados independientes. La galería administra hasta 30 posiciones, incluidas las cargas reservadas. El modelo separa los medios públicos de la evidencia documental privada y asigna a cada clase sus permisos y su ciclo de vida.
+El espacio representa una unidad reservable exclusiva con un titular vigente. Una casa completa o una habitación exclusiva puede modelarse como unidad si la categoría y las reglas del corte la admiten. El inventario compartido y la asignación de múltiples unidades requieren un modelo y pruebas específicos. La publicación, la titularidad y la ocupación tienen estados independientes. La galería administra hasta 30 posiciones, incluidas las cargas reservadas. El modelo separa los medios públicos de la evidencia documental privada y asigna a cada clase sus permisos y su ciclo de vida.
 
 La emisión contractual vincula la reserva con las identidades verificadas, las facultades de representación cuando corresponda, el horario y los importes acordados. Cada emisión conserva un identificador, una huella y sus condiciones. Un cambio de condiciones genera otra emisión. La aceptación de cada parte y la firma electrónica opcional mantienen registros independientes.
 
 El modelo separa los aportes de firma, la renta y la garantía en obligaciones identificables. El registro financiero distingue pagador, intento, evento externo y movimiento acreditado. La devolución referencia el pago y su pagador original. La confirmación de desocupación cierra el bloqueo de la reserva y conserva el vínculo histórico con el contrato y los demás intervalos vigentes.
 
 ### 9.3.2. Relación entre el modelo lógico y el esquema físico
+
+La Figura 13 relaciona las entidades lógicas que la Tabla D.1 vincula con el esquema físico.
 
 **Figura 13**\
 *Modelo lógico del núcleo transaccional*
