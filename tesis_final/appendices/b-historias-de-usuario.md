@@ -177,7 +177,7 @@ El anexo reúne 35 historias en nueve épicas. Cada ficha identifica actor, crit
 
 ## HU05 - Publicar un espacio físico
 
-**Épica:** E2 · **Rol (Como):** Arrendador · **Prioridad:** Alta
+**Épica:** E2 · **Rol (Como):** Titular vigente · **Prioridad:** Alta
 **RF:** RQF-060 a RQF-085 · **CU:** CU-15, CU-16, CU-17
 
 **Como** titular vigente,
