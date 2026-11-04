@@ -1142,8 +1142,8 @@ El reclamo y la conciliación conservan trazas independientes. La confirmación 
 | R-09 | CU-32 → CU-30 | `<<extend>>` | RQF-140 (cancelación condicional por falta de firma) |
 | R-10 | CU-39 y CU-42 | Autónomos | El reclamo aporta evidencia. La conciliación registra movimientos. |
 | R-11 | CU-30 → CU-29 | `<<extend>>` | RQF-133 (elección bilateral y aportes acreditados) |
-| R-13 | CU-22 → CU-26 | `<<include>>` | RQF-125 (acuerdo obligatorio antes de activar el bloqueo) |
 | R-12 | Visitante ◁— Usuario Registrado ◁— Arrendador / Arrendatario | Generalización de actores | Herencia de capacidades (ver sección 2.3) |
+| R-13 | CU-22 → CU-26 | `<<include>>` | RQF-125 (acuerdo obligatorio antes de activar el bloqueo) |
 
 ### 4.3 Relaciones evaluadas y descartadas (justificación)
 

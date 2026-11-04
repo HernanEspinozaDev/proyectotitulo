@@ -537,7 +537,7 @@ El anexo reúne 35 historias en nueve épicas. Cada ficha identifica actor, crit
 
 ### Criterios de Aceptación
 - El sistema debe permitir al arrendador consultar el historial de reservas de sus espacios con el estado vigente de cada una.
-- Al seleccionar una reserva, el sistema debe mostrar su detalle, las fechas comprometidas y las acciones disponibles según su estado (aprobar, rechazar, confirmar recepción, abrir reclamo).
+- Al seleccionar una reserva, el sistema debe mostrar su detalle, las fechas comprometidas y las acciones disponibles según la etapa, la modalidad y su papel en la reserva (acordar condiciones, aceptar el contrato, firmarlo cuando corresponda, confirmar la desocupación o registrar un reclamo).
 - El sistema debe permitir al arrendador consultar únicamente las reservas de sus propias publicaciones.
 
 > **Fuera del corte documentado:** **panel de estadísticas de ocupación y rentabilidad** (KPIs, gráficos por período y exportación de reportes del arrendador). El seguimiento operativo queda cubierto por el historial de reservas (CU-47). Si el equipo incorpora el panel de estadísticas, requiere nuevos RF y un caso de uso de reportes para el arrendador.

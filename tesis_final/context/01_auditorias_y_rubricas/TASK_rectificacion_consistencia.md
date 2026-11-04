@@ -60,3 +60,9 @@ Por cada corte se registra el estado, archivos y figuras corregidos, comandos y 
 - Maquetación transversal. `60689e0`.
 
 - Cierre transversal. PDF de 497 páginas y render de Word revisados por muestras. Se comprueban 24 fuentes, 22 destinos del índice, 14 figuras y 12 tablas del cuerpo, 208 tablas DOCX, 236 RQF, 43 RNF, 35 HU, 52 CU y 16 PT. Las cuatro áreas reservadas se verifican byte a byte. Los pendientes de desarrollo y proveedores quedan en XI y F.
+
+## Ajustes de la tercera revisión
+
+Se uniforman los separadores de las valoraciones y los totales de la Tabla 3 en las páginas 30 y 31. HU22 utiliza las acciones de la etapa, modalidad y papel del participante en la página 139. La tabla de relaciones UML presenta R-12 antes de R-13 en la página 232.
+
+La revisión visual de la página 70 confirma que la URL de la Ley 21.461 se muestra completa. El enlace del PDF y la relación del Word conservan el destino oficial. La grafía «SILVAJ» no aparece en el Capítulo XII ni en el PDF generado. Las cuatro áreas reservadas conservan sus fuentes.
