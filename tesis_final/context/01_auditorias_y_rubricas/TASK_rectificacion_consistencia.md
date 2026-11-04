@@ -1,6 +1,6 @@
 # Tarea de rectificación de la memoria de espaciGo
 
-**Estado:** R06 verificado. Siguiente ítem: R07.
+**Estado:** R07 verificado. Siguiente ítem: R08.
 
 La auditoría compara dos versiones del PDF. Esta tarea contrasta los hallazgos con los archivos que entran en `document.json` y conserva como controles de regresión el alcance amplio, la secuencia de 14 figuras del cuerpo, las 35 historias y los 52 casos de uso.
 
@@ -19,7 +19,7 @@ El flujo objetivo comienza con identidad verificada de ambas partes y acuerdo de
 - [x] **R04 · Capítulo V.** Sustituir la referencia a la pauta docente por el criterio metodológico aplicado. Corregir `tsrange` por `tstzrange` en la Tabla 5, riesgo R-01. Contrastar la mitigación con el Capítulo IX y el Anexo D. Verificar que la sección 5.3 y el Anexo G coincidan con el estado anterior.
 - [x] **R05 · Capítulo VIII y Anexo E.** Diferenciar el OpenAPI fijado a Git, el ajuste local `If-Match` y el alcance observado en la evidencia del asistente de publicación y la galería. Verificar el catálogo de nueve categorías, el máximo de 30 posiciones de galería y el control de portada contra los contratos y las fuentes correspondientes. Conservar la distinción entre el catálogo de un artefacto histórico y el vigente.
 - [x] **R06 · Capítulo IX y Anexo D.** Sustituir la referencia `f4bc7bd` como fuente única por la procedencia verificable del ADR y su actualización local. Contrastar Inmuebles y sus subtipos con V000067, y revisar ocupación exclusiva, titularidad, contrato inmutable, vencimientos, pagos y republicación en el cuerpo, figuras y mapeo físico. Usar 15 minutos para la ruta sin firma y 30/60/15 para aportes, firmas y renta en el ensayo con firma, con 15 adicionales para garantía habilitada. Identificar esos plazos como valores de ensayo. Regenerar cualquier figura incoherente desde su fuente editable.
-- [ ] **R07 · Capítulo X y Anexo F.** Contrastar las pruebas del recorrido con las correcciones del VII y IX. Distinguir check-in, checkout, confirmación, liberación del intervalo y pago tardío en casos trazables. Registrar como pendientes la habilitación de Mercado Pago para renta y comisión, SimpleFirma y la modalidad/proveedor de garantía monetaria según sus condiciones de validación. Mantener pendientes las pruebas integrales, de carga y de condiciones dependientes del código o del entorno objetivo. Conservar como evidencia acotada los ensayos locales que tengan resultados registrados.
+- [x] **R07 · Capítulo X y Anexo F.** Contrastar las pruebas del recorrido con las correcciones del VII y IX. Distinguir check-in, checkout, confirmación, liberación del intervalo y pago tardío en casos trazables. Registrar como pendientes la habilitación de Mercado Pago para renta y comisión, SimpleFirma y la modalidad/proveedor de garantía monetaria según sus condiciones de validación. Mantener pendientes las pruebas integrales, de carga y de condiciones dependientes del código o del entorno objetivo. Conservar como evidencia acotada los ensayos locales que tengan resultados registrados.
 - [ ] **R08 · Referencias.** Revisar `referencias.bib` y las anotaciones del PDF. La URL de Ley 21.461 ya contiene `idNorma=1178004` en el fuente, y la auditoría anterior comprobó el destino íntegro. Revisar su presentación. Validar el destino de Ley 21.719 y comprobar el cambio de `i=1209272` a `idNorma=1209272` en la salida.
 - [ ] **R09 · Verificación transversal final.** Recorrer en orden todos los capítulos y los anexos para verificar remisiones, términos, numeración, tablas y figuras. Si aparece una discrepancia fuera del corte actual, abrir un ítem para su capítulo. Compilar con DocSkill, verificar índice y enlaces en PDF y revisar visualmente las páginas afectadas. Comprobar que V §5.3, XII, G y H conservan el contenido reservado y sus alertas. Cualquier observación tipográfica en esas zonas se registra para sus autores.
 
@@ -34,3 +34,5 @@ Por cada corte se registra el estado, archivos y figuras corregidos, comandos y 
 - Capítulo VIII y Anexo E. Contrato fijado, requisito local de portada y evidencia observada cotejados con OpenAPI, código y registro del ensayo. Compilación DocSkill completada.
 
 - Capítulo IX y Anexo D. Contrastados V000067, las restricciones de ocupación, el ADR local y las ventanas del ensayo. Figura 8 regenerada desde PlantUML. Compilación DocSkill completada.
+
+- Capítulo X y Anexo F. PT-04 y PT-08 alineados con los requisitos y la evidencia disponible. Compilación DocSkill completada.

@@ -25,7 +25,7 @@ El ensayo sintético de PostgreSQL/PostGIS sobre migraciones V1–V61 supera las
 
 ## 10.3. Pruebas de aceptación del flujo objetivo
 
-El primer recorrido de aceptación cubre oferta por titularidad, búsqueda, contrato sin firma, pago simulado y cierre. Los casos PT-01 a PT-08 y PT-12 del Anexo F identifican las comprobaciones principales. La verificación incluye tercero no autorizado, intervalos concurrentes, expiración atómica, evento duplicado y pago tardío. La firma opcional y la garantía requieren escenarios de aceptación por proveedor, pagador y emisión.
+El primer recorrido de aceptación cubre oferta por titularidad, búsqueda, contrato sin firma, pago simulado y cierre. Los casos PT-01 a PT-08 y PT-12 del Anexo F identifican las comprobaciones principales. La verificación incluye tercero no autorizado, intervalos concurrentes, expiración atómica, evento duplicado y pago tardío. PT-08 cubre el ingreso, la entrega y la confirmación de desocupación según HU35. La matriz conserva por separado el criterio de cada etapa y su estado de ejecución. La firma opcional y la garantía requieren escenarios de aceptación por proveedor, pagador y emisión.
 
 ## 10.4. Rendimiento, seguridad y recuperación
 

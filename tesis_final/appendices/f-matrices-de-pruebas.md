@@ -12,11 +12,11 @@ Los casos conservan los identificadores PT del plan de pruebas. La matriz actual
 | PT-01 · RQF-110, RQF-111 | Solicitar intervalos inválidos, solapados y adyacentes sobre un espacio sintético. | Rechazo de intervalos inválidos y solapados. Admisión del adyacente conforme a límites semiabiertos. |
 | PT-02 · RQF-112, RQF-113 | Lanzar solicitudes simultáneas para el mismo intervalo en PostgreSQL. | Una ocupación activa. Los conflictos se registran y no generan un segundo bloqueo. |
 | PT-03 · RQF-116 a RQF-118 · CU-24, CU-25 | Aceptar una emisión sin firma y acreditar renta simulada. Repetir con garantía habilitada. | La renta se habilita tras ambas aceptaciones. La garantía se cobra después y por separado. |
-| PT-04 · RQF-128, RQF-129 · RNF-012 | Reenviar un evento acreditado e inyectar un evento posterior al vencimiento. | El duplicado conserva el estado y el vencimiento. El tardío entra a conciliación. |
+| PT-04 · RQF-128, RQF-129 · RNF-012 | Reenviar un evento acreditado e inyectar un evento posterior al vencimiento. | El duplicado conserva el estado y el vencimiento. El tardío entra a conciliación sin reactivar la reserva ni crear otra ocupación. |
 | PT-05 · RQF-120, RQF-140 | Agotar una ventana de pago con reloj controlado. | La plataforma libera el bloqueo atómicamente y conserva el historial. |
 | PT-06 · RQF-130, RQF-132, RQF-133 · CU-29, CU-30 | Emitir con identidades verificadas. Modificar condiciones y ensayar la ruta SimpleFirma. | Se genera otra emisión. Ambas aceptaciones se registran por emisión. Solo la ruta opcional habilita firmas tras acreditar aportes. |
 | PT-07 · CU-34 y reglas de autorización del ADR | Acceder a evidencias como titular, participante y tercero. | Cada actor accede según vínculo y capacidad. El acceso indebido se deniega. |
-| PT-08 · RQF-205, RQF-206 · HU35 | Completar entrega y confirmación con otro intervalo activo. | Se libera solo el bloqueo del arriendo que termina y se conserva el contrato. |
+| PT-08 · RQF-143 a RQF-152 y RQF-203 a RQF-206 · HU35 · CU-33, CU-34, CU-48 | Intentar check-in fuera de fecha y sin foto. Registrar check-in válido, entregar con foto y confirmar desocupación como titular mientras existe otro intervalo activo. | Se rechazan las entradas inválidas. El ingreso válido registra fecha y ubicación, inicia el arriendo y notifica al titular. La confirmación registra fecha y ubicación, libera solo su intervalo, conserva el contrato y permite republicar. |
 | PT-12 · RQF-130, RQF-132 | Recuperar documento y huella, cambiar condiciones y volver a emitir. | La emisión anterior conserva identidad y contenido. La nueva emisión tiene identificador distinto. |
 | PT-13 · RQF-011, RQF-023 · RNF-016 | Iniciar sesión, comprobar aislamiento y repetir acceso después del cierre. | La sesión permite solo las acciones autorizadas y queda invalidada al cerrar. |
 
@@ -63,9 +63,10 @@ El Capítulo X y la Tabla 10 identifican los resultados de LOCAL-1 y F5/F6. LOCA
 
 | Prueba o condición | Dependencia | Evidencia pendiente |
 |---|---|---|
+| Operación completa · PT-08 | Código de ingreso, entrega y confirmación disponible en el mismo corte. | Registro del recorrido con evidencias, actores autorizados y otro intervalo vigente. |
 | Mercado Pago · PT-03 y PT-04 | Adaptador de renta y comisión e integración de notificaciones. | Acreditación, duplicados, pago tardío, reembolso y conciliación con cuentas de ensayo. |
 | SimpleFirma · PT-06 | Flujo opcional de firma asociado a la emisión. | Solicitudes, firmas por parte, vencimientos y efectos sobre cobros y reversos. |
-| Garantía monetaria · PT-03 | Modalidad habilitada y mecanismo de garantía implementado. | Cobro separado, devolución total y parcial, reclamos y conciliación. |
+| Garantía monetaria · PT-03 | Modalidad habilitada y mecanismo o proveedor definido e implementado. | Cobro separado, devolución total y parcial, reclamos y conciliación. |
 | Catálogo de nueve categorías | Perfil de atributos, publicación y búsqueda de cada categoría en el corte evaluado. | Validaciones de publicación, búsqueda y disponibilidad, incluido el perfil Inmuebles. |
 | Carga de extremo a extremo · PT-09 y PT-10 | Flujo de búsqueda listo y entorno objetivo identificado. | Volumen, latencia y errores medidos según RNF-001 y el escenario del ensayo. |
 | Recuperación conjunta · PT-11 y PT-16 | Código y operación de base, objetos privados, permisos y retención listos para ensayo. | Restauración y comprobación de archivos, referencias y permisos. Medición de RPO y RTO. |
