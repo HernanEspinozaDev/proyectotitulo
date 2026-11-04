@@ -37,3 +37,5 @@ La [auditoría de tablas y anexos](auditoria_tablas_y_anexos.md) comprueba las 1
 ## Revisión por capítulos
 
 El [plan de revisión por capítulo](plan_revision_por_capitulo.md) registra la instrucción de alcance amplio, las auditorías separadas y la publicación de cada corte verificado en `main`.
+
+Las 16 auditorías de los chats terminaron. La [matriz de integración](matriz_integracion_auditorias.md) asigna propietario, dependencia y verificación de cierre a cada corrección. El siguiente corte es preliminares y manifiesto.
