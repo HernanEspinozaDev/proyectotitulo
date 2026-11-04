@@ -15,5 +15,6 @@
 ## Agradecimientos
 *(Agradecimientos institucionales y personales del equipo)*
 
-## Resumen Ejecutivo (Abstract)
-El presente proyecto de titulación expone el diseño, desarrollo e implementación de **espaciGo**, una plataforma web transaccional y multilateral orientada a resolver las fricciones de ineficiencia, opacidad y asimetría de información en el mercado de arriendo flexible de espacios comerciales e industriales en Chile (oficinas, bodegas, locales comerciales y estacionamientos). Mediante una arquitectura moderna desacoplada en Go y Next.js sobre Google Cloud Platform, persistencia geoespacial en PostgreSQL/PostGIS y mecanismos de retención en garantía (escrow), la solución optimiza la tasa de ocupación inmobiliaria y garantiza el cumplimiento de la Ley N° 21.719 de Protección de Datos Personales.
+## Resumen ejecutivo
+
+espaciGo es una plataforma web transaccional para el arriendo flexible de espacios comerciales e industriales en Chile. El proyecto aborda las fricciones de búsqueda, disponibilidad y coordinación entre las partes mediante una arquitectura modular en Go y Next.js y persistencia en PostgreSQL con PostGIS. El diseño objetivo define la publicación por titularidad, la contratación con firma electrónica opcional y la separación de los cobros. El corte local verifica recorridos con datos sintéticos y aporta evidencia de búsqueda, ocupación y controles documentales. La integración de proveedores, la validación de capacidad y la recuperación en el entorno objetivo se evalúan por corte.

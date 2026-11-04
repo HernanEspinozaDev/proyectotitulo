@@ -1,90 +1,42 @@
 # CAPÍTULO III: MARCO TEÓRICO Y ESTADO DEL ARTE
 
-## 3.1. Fundamentos Conceptuales de Plataformas Multilaterales y Prop-Tech
+## 3.1. Intermediación digital y ecosistema de plataforma
 
-El sector inmobiliario digital contemporáneo se sustenta en la convergencia de dos conceptos teóricos fundamentales: los **mercados de dos lados o plataformas multilaterales** (*two-sided markets*) y el paradigma tecnológico de las **Prop-Tech** (*Property Technology*).
+Una plataforma coordina interacciones mediante reglas e interfaces compartidas [@tiwana2014]. En espaciGo, la oferta especifica espacios y condiciones de uso, y la demanda busca disponibilidad por intervalo. El diseño conserva el vínculo entre anuncio, cotización y acuerdo para que ambas partes puedan identificar el recurso y las condiciones pactadas.
 
-De acuerdo con Rochet y Tirole (2003), una plataforma multilateral es una organización económica en la cual dos o más grupos diferenciados de usuarios interactúan a través de un intermediario central que reduce los costos de búsqueda, negociación y transacción. En estas plataformas, el valor percibido por un grupo de participantes depende directamente del tamaño y la actividad del grupo contraparte, fenómeno denominado **efecto de red cruzado o indirecto** (*cross-side network effects*) (Armstrong, 2006). En el contexto del arrendamiento inmobiliario flexible, la plataforma genera externalidades de red positivas: una mayor densidad y diversidad de espacios físicos disponibles atrae a un volumen superior de arrendatarios demandantes, lo cual, a su vez, incentiva a nuevos propietarios a listar metros cuadrados ociosos.
+El proyecto pertenece al ámbito de la tecnología aplicada a bienes raíces. El Capítulo II utiliza un escenario de intermediación por canales separados como punto de comparación. La evaluación contrasta comportamientos verificables, como detectar solapamientos y recuperar las condiciones aceptadas de una emisión.
 
-Por su parte, el movimiento *Prop-Tech* engloba el conjunto de soluciones de software, arquitecturas en la nube y modelos analíticos diseñados para digitalizar, optimizar y flexibilizar los procesos de comercialización, gestión, valoración y operación de bienes raíces (Baum, 2020). Tradicionalmente, la industria inmobiliaria operaba bajo una lógica de propiedad y arrendamiento pasivo de largo plazo. El paradigma *Prop-Tech* transforma el espacio físico en un **servicio dinámico bajo demanda** (*Space-as-a-Service* o *SPaaS*), permitiendo fraccionar la capacidad instalada en unidades mínimas de tiempo (horas o jornadas) y dimensiones modulares (escritorios, módulos de almacenamiento o locales transitorios) (Baum, 2020).
+## 3.2. Modularidad y arquitectura de puertos y adaptadores
 
----
+El monolito modular organiza el backend mediante límites internos de responsabilidad. Una distribución por servicios agrega coordinación operativa y requiere límites estables entre componentes [@fowler2015]. El proyecto adopta módulos internos para identidad, oferta, ocupación y contratación, con PostgreSQL como autoridad de los datos transaccionales correspondientes.
 
-## 3.2. Patrones Arquitectónicos Modernos: Monolito Modular vs. Arquitectura Hexagonal
+La arquitectura de puertos y adaptadores separa los casos de uso de la interfaz y de los servicios externos [@cockburn2005]. En el corte local, un adaptador de ensayo permite comprobar el flujo de aplicación y mantener explícito qué resultado requiere un proveedor real.
 
-El diseño de software empresarial para plataformas transaccionales exige seleccionar patrones arquitectónicos que equilibren desacoplamiento, mantenibilidad y rendimiento bajo condiciones de concurrencia:
+**Figura 2**\
+*Interacción entre un caso de uso y sus adaptadores*
 
-### 3.2.1. Arquitectura Hexagonal (Puertos y Adaptadores)
+![](assets/figuras/fig02_puertos_y_adaptadores.png)
 
-Propuesta formalmente por Alistair Cockburn (2005), la **Arquitectura Hexagonal** (*Ports and Adapters*) postula la separación estricta entre la lógica de negocio central (el dominio de la aplicación) y los mecanismos de entrada y salida externos (interfaces de usuario, bases de datos, pasarelas de pago y servicios de mensajería).
+*Nota.* Elaboración propia a partir del patrón de puertos y adaptadores [@cockburn2005].
 
-**Figura 2**  
-*Patrón de Arquitectura Hexagonal (Puertos y Adaptadores)*
+## 3.3. Persistencia relacional y concurrencia espaciotemporal
 
-![](assets/figuras/fig02_arquitectura_hexagonal.png)
+### 3.3.1. Búsqueda geoespacial
 
-*Nota.* Adaptado de Cockburn (2005) y Martin (2017).
+PostGIS aporta tipos espaciales y funciones de consulta por proximidad [@postgis; @es2postgiswithin]. En espaciGo, la búsqueda usa la distancia y los filtros del catálogo para seleccionar espacios candidatos. La disponibilidad se consulta por separado para el intervalo solicitado.
 
-En este patrón, el núcleo de dominio define **Puertos** (interfaces abstractas) para declarar las operaciones requeridas, mientras que los **Adaptadores** implementan dichas interfaces contra tecnologías concretas. Este diseño garantiza el principio de inversión de dependencias (*Dependency Inversion Principle* de SOLID), permitiendo que la lógica transaccional de arriendos, cálculos de comisiones y estados de reserva sea completamente agnóstica a los motores de persistencia o pasarelas financieras subyacentes (Martin, 2017).
+### 3.3.2. Rangos temporales y exclusión de solapamientos
 
-### 3.2.2. Monolito Modular vs. Microservicios Distribuidos
+PostgreSQL permite representar intervalos mediante tipos de rango y comprobar su superposición con el operador `&&` [@es2pgrangos]. El diseño utiliza un intervalo `tstzrange` por ocupación y una restricción de exclusión por espacio e intervalo activo. La sección 9.3 identifica la migración y los criterios de verificación.
 
-La literatura de ingeniería de software previene contra la adopción prematura de microservicios distribuidos en etapas iniciales de proyectos de software (Fowler, 2015; Newman, 2021). Si bien los microservicios ofrecen escalabilidad independiente por servicio, introducen una severa complejidad operativa: latencia de red en llamadas remotas (RPC/gRPC), fallas de transacciones distribuidas que exigen patrones de compensación complejos (*Sagas*) y dificultades de consistencia eventual.
+## 3.4. Intermediación de pagos y contratación
 
-Por el contrario, el **Monolito Modular** organiza el código fuente en módulos desacoplados con límites de contexto bien definidos (*Bounded Contexts* de *Domain-Driven Design*), compartiendo un mismo proceso de ejecución y un único motor transaccional relacional. Este enfoque preserva la integridad transaccional ACID en una sola base de datos y simplifica radicalmente los despliegues y pruebas unitarias, manteniendo la viabilidad de evolucionar hacia microservicios en fases avanzadas de madurez técnica (Newman, 2021).
+El reparto de pagos permite distinguir la renta del arrendador y la comisión de la plataforma. La documentación del proveedor establece los requisitos de la integración Split 1:1 [@es2mpsplit]. El diseño de espaciGo registra por separado los aportes de firma, la renta y la garantía. La habilitación de cada cobro depende de su secuencia, del estado de la emisión y de las pruebas de integración.
 
----
+La aceptación de condiciones se registra por parte y por emisión. La firma electrónica se ofrece como modalidad opcional de acuerdo con el ADR del 4 de noviembre de 2026. El Capítulo IX describe ambas rutas y el Capítulo X establece sus criterios de prueba.
 
-## 3.3. Motores de Persistencia Relacional y Manejo de Concurrencia Espaciotemporal (PostGIS)
+## 3.5. Marco normativo de referencia y decisiones de privacidad
 
-El desafío computacional distintivo de un *marketplace* inmobiliario flexible es la **gestión de concurrencia espaciotemporal**. A diferencia de los sistemas transaccionales convencionales que administran inventarios numéricos discretos (como unidades de productos en una tienda virtual), un espacio físico es indivisible en el tiempo y está anclado a una coordenada geográfica estricta.
+El análisis del proyecto incorpora como referencias la normativa chilena sobre protección de datos, documentos electrónicos y arrendamiento [@ley21719; @ley19799; @ley21461]. La arquitectura traduce el análisis a requisitos verificables de acceso por finalidad, minimización, evidencia de aceptación, retención y recuperación. La revisión de habilitación evalúa el alcance aplicable de cada modalidad de contratación y proveedor.
 
-### 3.3.1. Índices Espaciales y Tipos Geométricos (PostGIS)
-
-La extensión PostGIS para el motor relacional PostgreSQL proporciona soporte estandarizado por el *Open Geospatial Consortium* (OGC) para almacenar y consultar geometrías geográficas vectoriales (`GEOMETRY` y `GEOGRAPHY`) (Obe & Hsu, 2021). El uso de árboles de rectángulos delimitadores mínimos (*R-Tree*) indexados mediante estructuras **GiST** (*Generalized Search Tree*) permite realizar consultas de proximidad geoespacial (como el operador de distancia esférica `ST_DWithin` o la intersección `ST_Intersects`) con una complejidad temporal logarítmica $\mathcal{O}(\log N)$, posibilitando la búsqueda instantánea de inmuebles dentro de un radio de interés definido por el usuario (Obe & Hsu, 2021).
-
-### 3.3.2. Rangos Temporales e Índices de Exclusión para la Prevención de Sobre-Reserva
-
-Para erradicar de forma matemáticamente infalible el problema de la sobre-reserva (*double-booking*), la teoría de bases de datos relacionales ofrece el concepto de **restricciones de exclusión generalizadas** (*Exclusion Constraints*) (Hellerstein et al., 1995). 
-
-Mediante el tipo nativo de rango temporal `tsrange` (rango de marcas temporales con límites inclusivos/exclusivos) y el operador de superposición de intervalos `&&`, el motor de base de datos evalúa si dos reservas sobre un mismo inmueble coinciden en el tiempo:
-
-> **Condición Lógica de Colisión Concurrente:**  
-> `Colisión = (espacio_id_A == espacio_id_B) AND (intervalo_A && intervalo_B)`
-
-Al definir una restricción de exclusión indexada con `GiST` sobre la tupla `(espacio_id WITH =, duracion_intervalo WITH &&)`, el propio motor PostgreSQL rechaza a nivel de almacenamiento cualquier intento simultáneo de reserva concurrente que pretenda ocupar el mismo espacio en un intervalo superpuesto, garantizando consistencia transaccional serializable sin necesidad de bloqueos distribuidos costosos en la capa de aplicación (Obe & Hsu, 2021).
-
----
-
-## 3.4. Mecanismos Transaccionales de Custodia en Garantía (Escrow) y Pasarelas de Pago
-
-La mitigación del riesgo moral y la asimetría de información en plataformas entre pares (*peer-to-peer*) exige mecanismos de salvaguarda financiera. En el comercio tradicional, el arrendatario transfiere el pago directamente al propietario antes de ocupar el inmueble, quedando desprotegido ante fraudes o discrepancias entre la oferta y la realidad; a su vez, el arrendador queda expuesto a daños no indemnizados si la garantía no es verificable.
-
-El mecanismo de **Custodia en Garantía o Fideicomiso Digital (*Escrow*)** resuelve este dilema actuando como un intermediario tecnológico fiduciario neutral (Kauffman et al., 2010):
-
-**Figura 3**  
-*Diagrama de Secuencia de la Operatoria Transaccional en Custodia (Escrow)*
-
-![](assets/figuras/fig03_secuencia_escrow_garantia.png)
-
-*Nota.* Elaboración propia en base a estándares fiduciarios digitales y protocolos de pasarela de pago (Kauffman et al., 2010).
-
-Desde el punto de vista arquitectónico, la pasarela de pagos debe soportar **pagos divididos (*split payments*)**, donde el monto abonado por el usuario se fragmenta en el acto: una fracción corresponde a la comisión por servicio de la plataforma (*take rate*), mientras que el saldo restante queda retenido en una cuenta de custodia temporal hasta la finalización satisfactoria del servicio, momento en el cual se liquida hacia la cuenta bancaria del arrendador (*payout*) (Kauffman et al., 2010).
-
----
-
-## 3.5. Marco Regulatorio Chileno de Ciberseguridad y Protección de Datos Personales (Ley N° 21.719)
-
-El desarrollo de plataformas que intermedian contratos legales y procesan antecedentes comerciales debe ceñirse rigurosamente al marco normativo vigente en Chile:
-
-### 3.5.1. Ley N° 21.719 sobre Protección y Tratamiento de Datos Personales
-
-Promulgada para modernizar la legislación chilena homologándola a los estándares del Reglamento General de Protección de Datos de la Unión Europea (RGPD), la **Ley N° 21.719** establece exigencias estrictas para los responsables de bases de datos:
-1. **Principios de Licitud, Finalidad y Proporcionalidad:** Los datos recopilados (cédulas de identidad, escrituras societarias, fotografías de inmuebles) solo pueden utilizarse para los fines expresamente consentidos vinculados a la prestación del servicio.
-2. **Privacidad desde el Diseño y por Defecto (*Privacy by Design*):** Toda la infraestructura tecnológica debe incorporar mecanismos nativos de protección, cifrado de datos en reposo y en tránsito, y políticas de minimización de datos (Cavoukian, 2009).
-3. **Derechos ARCO:** El titular de los datos conserva la facultad inalienable de ejercer en cualquier momento los derechos de **Acceso, Rectificación, Cancelación y Oposición**.
-4. **Protocolo Anti-Restauración (*Anti-Replay Restoration*):** Un desafío de ingeniería crítico bajo la Ley N° 21.719 ocurre cuando un usuario ejerce su derecho de supresión y, con posterioridad, la infraestructura sufre un incidente de pérdida que obliga a restaurar una copia de seguridad histórica (*backup*). Si no existe un mecanismo compensatorio, la restauración del respaldo reviviría ilícitamente los datos personales que habían sido purgados formalmente. La arquitectura debe implementar un registro de auditoría inmutable de supresiones que aplique un script de reaplicación de purga inmediatamente después de cualquier evento de recuperación de base de datos.
-
-### 3.5.2. Ley N° 21.461 de Medidas Expeditas para el Arrendamiento de Inmuebles ("Devuélveme mi Casa")
-
-Esta ley agiliza los procedimientos de restitución de inmuebles ante situaciones de mora o deterioro. Para que un contrato de arrendamiento goce de mérito ejecutivo y facilite la restitución judicial expedita, la ley exige que el instrumento conste por escrito y cuente con firma autorizada o firma electrónica avanzada conforme a la Ley N° 19.799. Por consiguiente, la plataforma debe integrar servicios de firma electrónica remota con certificación de identidad para dotar a los contratos generados de plena validez jurídica probatoria en tribunales chilenos.
+En el diseño de continuidad, la restauración requiere comprobar el estado de los datos y sus objetos asociados. El procedimiento revisa los permisos, el historial de supresiones y el resultado de recuperación antes de restablecer la operación, según los criterios del Capítulo XI.

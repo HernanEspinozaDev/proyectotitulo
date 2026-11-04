@@ -1,35 +1,21 @@
 @startuml
-title EspaciGo — Módulo M07: Contratos y Firma Electrónica
-left to right direction
-skinparam packageStyle rectangle
-
-actor "Arrendador" as ARR
-actor "Arrendatario" as ARREN
-actor "FirmaVirtual\n(Proveedor de firma electrónica)" as FV
-
-rectangle "EspaciGo — Sistema de Marketplace SaaS B2B2C de Espacios Comerciales" {
-  package "M07 — Contratos y Firma Electrónica" {
-    usecase "CU-29 Generar y Enviar Contrato a Firma" as CU29
-    usecase "CU-30 Firmar Contrato Electrónicamente" as CU30
-    usecase "CU-31 Descargar Contrato Firmado" as CU31
-    usecase "CU-32 Cancelar Reserva por Falta de Firma" as CU32
-  }
+!pragma layout smetana
+skinparam shadowing false
+skinparam dpi 170
+actor "Arrendatario" as AR
+actor "Titular" as TI
+actor "SimpleFirma" as SF
+rectangle "espaciGo — M07 Contratación" {
+  usecase "CU-29 Emitir y aceptar contrato" as CU29
+  usecase "CU-30 Firmar opcionalmente" as CU30
+  usecase "CU-31 Consultar emisión" as CU31
+  usecase "CU-32 Procesar vencimiento de firma" as CU32
 }
-
-ARR -- CU29
-ARREN -- CU29
-ARR -- CU30
-ARREN -- CU30
-ARR -- CU31
-ARREN -- CU31
-FV -- CU29
-FV -- CU30
-
-CU32 ..> CU30 : <<extend>>
-
-note bottom of CU32
-  Caso de uso automático: se dispara si la fecha de
-  inicio se alcanza sin el contrato firmado (RQF-140).
-  Punto de extensión de CU-30.
-end note
+AR -- CU29
+TI -- CU29
+AR -- CU31
+TI -- CU31
+SF -- CU30
+CU30 ..> CU29 : <<extend>>\n[elección bilateral y aportes acreditados]
+CU32 ..> CU30 : <<extend>>\n[etapa vencida]
 @enduml

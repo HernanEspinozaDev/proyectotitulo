@@ -40,7 +40,7 @@
 **Para que** pueda acceder a las funcionalidades del sistema con mi propia cuenta.
 
 ### Criterios de Aceptación
-- El formulario de registro debe solicitar: nombre completo, correo electrónico, contraseña, teléfono de contacto y la intención de uso ("Quiero ofrecer espacios" / "Quiero arrendar espacios"). La intención de uso es una **preferencia de onboarding**: no excluye que la misma cuenta pueda publicar y arrendar posteriormente.
+- El registro solicita correo, contraseña y aceptación de las versiones de términos aplicables. Los datos de perfil se completan en su propio flujo. La cuenta puede ofrecer o arrendar según su vínculo con el recurso.
 - El sistema debe validar que el correo electrónico tenga un formato válido y que no exista previamente; si ya existe, debe mostrar *"El correo electrónico ya está registrado, por favor inicie sesión o recupere su contraseña"*.
 - La contraseña debe cumplir obligatoriamente: mínimo 8 caracteres, al menos una letra mayúscula, al menos un número y al menos un carácter especial. Si no cumple, el sistema debe indicar los requisitos faltantes.
 - El sistema debe exigir la aceptación de los términos y condiciones para completar el registro y debe registrar la fecha y la versión aceptadas.
@@ -124,11 +124,11 @@
 - El sistema debe permitir cargar la fotografía del **anverso y reverso de la Cédula de Identidad** en formatos de imagen compatibles y con un peso máximo de **10 MB por archivo**.
 - El sistema debe permitir (opcionalmente) capturar una **selfie de validación facial** para contrastarla con el documento cargado.
 - Al enviar los documentos, el sistema debe cambiar el estado del perfil a **"Pendiente de Verificación"** y mostrar *"Sus documentos han sido enviados con éxito y están siendo evaluados por nuestro sistema de seguridad"*.
-- El sistema debe extraer el RUT y el número de serie desde las fotografías y validar la vigencia de la cédula ante el Registro Civil.
+- El sistema registra el RUT y el nombre completo verificados antes de la emisión. La comprobación externa depende de la integración habilitada.
 - Si el documento está vencido, el sistema debe rechazar la validación y derivar el caso a revisión manual del administrador, notificando el motivo al usuario.
 
 **Escenario B — Empresa (KYB)**
-- El sistema debe permitir ingresar el RUT de la empresa, validar su dígito verificador y consultar el inicio de actividades ante el SII.
+- Cuando corresponde representación, el sistema conserva un expediente separado de la empresa y de la acreditación del representante.
 - Si la empresa no registra inicio de actividades vigente, el sistema debe rechazar la validación, derivar el caso a revisión manual y notificar el resultado.
 - Si la validación es exitosa, el sistema debe cambiar el estado del perfil a **"Verificado_KYB"** y notificar al usuario el resultado.
 
@@ -196,13 +196,13 @@
 
 ### Criterios de Aceptación
 - El formulario de publicación debe estar estructurado en secciones: Información General, Ubicación, Tarifas y Multimedia.
-- El sistema debe bloquear el acceso al panel de publicación a usuarios cuya identidad no esté verificada (KYC/KYB aprobado).
+- El sistema debe comprobar que la publicación la solicita el titular vigente y que el anuncio satisface sus reglas. La identidad contractual se verifica al emitir el contrato.
 - El título del espacio debe cumplir un máximo de **70 caracteres**; si lo excede, el sistema debe mostrar *"El título no puede exceder los 70 caracteres"*.
 - La descripción del espacio debe contener al menos 100 caracteres.
 - El sistema debe permitir seleccionar el tipo de inmueble desde una lista predefinida, ingresar la superficie en metros cuadrados (mayor a cero) y establecer la capacidad máxima de personas.
 - El sistema debe permitir configurar la modalidad tarifaria (por hora, día o mes) y el precio base, validando que sea superior a **$5.000 CLP**.
 - En la sección de ubicación, el sistema debe exigir la dirección completa y registrar la ubicación geográfica a partir de ella.
-- En multimedia, el sistema debe permitir cargar hasta **10 fotografías** en formatos de imagen válidos, cada una de máximo **5 MB**, y permitir seleccionar la portada y eliminar imágenes.
+- La galería admite 30 posiciones, incluidas las cargas reservadas, y permite ordenar las imágenes y definir la portada.
 - Si faltan campos obligatorios o algún valor no cumple las validaciones, el sistema debe resaltar los campos con error e impedir el guardado.
 - Al confirmar el formulario, el sistema debe guardar la publicación primero en estado "Borrador" y luego cambiarla a **"Activa"**, mostrar el mensaje *"Su espacio ha sido publicado con éxito"* y generar el calendario de disponibilidad asociado.
 
@@ -421,7 +421,7 @@
 ### Criterios de Aceptación
 - Al seleccionar el tiempo de uso, el sistema debe calcular el costo total multiplicando el precio base por el tiempo seleccionado.
 - El sistema debe calcular y mostrar la comisión de servicio aplicada por la plataforma.
-- El sistema debe calcular y mostrar el monto de la garantía definida para el espacio, indicando que es un monto retenido y no un cargo definitivo.
+- El sistema muestra la garantía únicamente cuando corresponde y está habilitada. La acredita por separado después de la renta.
 - El sistema debe mostrar el desglose de cobro con los ítems: Estadía, Comisión de servicio, Garantía y Total a pagar.
 - Si el usuario modifica el rango de tiempo seleccionado, el sistema debe recalcular el desglose antes de continuar.
 
@@ -429,48 +429,17 @@
 
 ---
 
-## HU17 - Pago de la reserva mediante pasarela integrada
+## HU17 - Pagar la renta mediante pasarela integrada
 
-**Épica:** E4 · **Rol (Como):** Arrendatario · **Prioridad:** Alta
-**RF:** RQF-113 a RQF-122, RQF-201, RQF-227 · **CU:** CU-22, CU-24, CU-25
+**Historia.** Como participante del arriendo, quiero completar la contratación para conocer el estado de la reserva.
 
-**Como** arrendatario,
-**Quiero** pagar la reserva a través de la pasarela de pago integrada (**Mercado Pago**),
-**Para que** la transacción se procese con tokenización y estándares de seguridad del sector financiero.
+**Criterios de aceptación.** La plataforma habilita la renta tras ambas aceptaciones, o tras ambas firmas en la modalidad SimpleFirma. Si aplica garantía habilitada, la plataforma abre su etapa después de acreditar la renta. El duplicado conserva el estado y el pago tardío ingresa a conciliación.
 
-### Criterios de Aceptación
-- Al iniciar el pago, el sistema debe registrar la reserva en estado "Pendiente de Pago" y validar que el usuario cuente con su identidad verificada; si no la tiene, debe interrumpir el flujo y dirigirlo a la validación de identidad.
-- El sistema debe permitir seleccionar el método de pago en la pasarela integrada e iniciar el cobro comunicándose con ella, sin capturar ni almacenar datos de tarjeta en la plataforma (tokenización).
-- Al recibir la aprobación de la pasarela, el sistema debe cambiar el estado de la reserva a "Pagada" y mantener los fondos retenidos en custodia (Escrow) hasta que se cumplan las condiciones de liberación.
-- El sistema debe ejecutar la pre-autorización por el monto de la garantía y registrar su resultado.
-- Si la pasarela rechaza la transacción, el sistema debe cambiar el estado a "Cancelada_Por_Pago", notificar al arrendatario el rechazo y permitir reintentar con otro medio de pago.
-- Si el pago no se completa dentro de **15 minutos**, el sistema debe cancelar automáticamente la reserva y liberar las fechas bloqueadas.
-- Si el usuario cancela el pago voluntariamente, el sistema debe informar *"El proceso de pago fue cancelado por el usuario, su reserva ha quedado pendiente"* y mantener la reserva en estado pendiente hasta su expiración.
-- Al procesar el pago, el sistema debe notificar al arrendatario y al arrendador sobre la nueva solicitud pagada con fondos retenidos.
+## HU18 - Confirmar la reserva y conservar la ocupación
 
-> **Fuera del alcance de la ES1:** pago con transferencia bancaria manual, pago en cuotas y emisión de documentos tributarios distintos de la boleta de comisión de la plataforma.
+**Historia.** Como participante del arriendo, quiero completar la contratación para conocer el estado de la reserva.
 
----
-
-## HU18 - Confirmación de reserva y bloqueo de calendario
-
-**Épica:** E4 · **Rol (Como):** Sistema (automatización) · **Prioridad:** Alta
-**RF:** RQF-113, RQF-116, RQF-117, RQF-121, RQF-122 · **CU:** CU-24, CU-26, CU-47
-
-**Como** sistema de la plataforma EspaciGo,
-**Quiero** procesar la respuesta exitosa de la pasarela de pago y bloquear las fechas reservadas,
-**Para que** la reserva quede formalmente confirmada sin riesgo de sobreventa y las partes sean notificadas.
-
-### Criterios de Aceptación
-- Al recibir la confirmación de pago de la pasarela, el sistema debe cambiar el estado de la reserva a "Pagada" de forma automática.
-- El sistema debe bloquear los bloques de fecha y hora correspondientes en el calendario del espacio, evitando superposiciones con otras reservas o bloqueos.
-- El sistema debe notificar por correo al arrendatario el resultado del pago y el estado de su reserva.
-- El sistema debe notificar al arrendador la recepción de una nueva solicitud pagada, indicando que los fondos permanecen **retenidos en custodia** (no acreditados) hasta que se cumplan las condiciones de liberación.
-- El sistema debe dejar la reserva visible en el historial del usuario, con las acciones habilitadas según su estado.
-
-> **Fuera del alcance de la ES1:** comprobante de reserva en PDF independiente del contrato. La constancia formal de la reserva es el contrato electrónico firmado por las partes (CU-29, CU-30).
-
----
+**Criterios de aceptación.** La plataforma activa un bloqueo cuando ambas partes verificadas acuerdan el horario y precio. Un intervalo activo solapado impide otro bloqueo. La plataforma confirma la reserva cuando cumple las condiciones contractuales y acredita los cobros exigibles. El vencimiento libera el bloqueo atómicamente.
 
 ## HU19 - Cancelación de reserva y gestión de devolución
 
@@ -488,35 +457,22 @@
 - Al confirmar, el sistema debe cambiar el estado de la reserva a "Cancelada", liberar las fechas bloqueadas y calcular el monto a reembolsar según la política configurada.
 - El sistema debe ejecutar el reembolso a través de la pasarela de pago y registrar el resultado de la operación.
 - El sistema debe notificar por correo a ambas partes la cancelación y el estado de la devolución de los fondos.
-- Los montos retenidos que no correspondan a devolución según la política deben mantenerse en custodia hasta el cierre de la reserva.
+- La plataforma registra la devolución aplicable contra el pago y pagador originales. El cierre de ocupación sigue su propia transición.
 
 > **Fuera del alcance de la ES1:** cancelación con reasignación automática a otro espacio, y seguros o reembolsos por causas de fuerza mayor.
 
 ---
 
-## HU33 - Generar y firmar el contrato de arriendo
+## HU33 - Aceptar el contrato de arriendo
 
-**Épica:** E4 · **Rol (Como):** Arrendatario / Arrendador · **Prioridad:** Alta
-**RF:** RQF-130 a RQF-142, RQF-202 · **RNF:** RNF-003, RNF-014, RNF-042 · **CU:** CU-29, CU-30, CU-31, CU-32
+Como participante de un arriendo, quiero revisar y aceptar la emisión contractual para conservar las condiciones acordadas.
 
-**Como** parte de una reserva aprobada (Arrendatario o Arrendador),
-**Quiero** que el contrato de arriendo se genere y se firme electrónicamente,
-**Para que** la relación quede formalizada por escrito antes de usar el espacio, conforme a los requisitos de seguridad jurídica del proyecto.
+**Criterios de aceptación**
 
-### Criterios de Aceptación
-- Al aprobarse la reserva, el sistema debe generar automáticamente el contrato con los datos legales de las partes y del inmueble.
-- El sistema debe enviar el documento al proveedor de firma electrónica y distribuir los enlaces de firma a ambas partes por correo electrónico.
-- Al confirmarse la primera firma, el estado del contrato debe pasar a "Firma_Parcial"; al completarse todas las firmas, el sistema debe almacenar el contrato final y dejar la reserva en estado "Lista_Para_Checkin".
-- El sistema debe notificar a ambas partes cuando el contrato esté completamente firmado.
-- Si una de las partes rechaza la firma, el sistema debe registrar el rechazo notificado por el proveedor y mantener el contrato en estado parcial hasta el cumplimiento del plazo.
-- Si la fecha de inicio de la reserva se alcanza sin el contrato firmado por todas las partes, el sistema debe cancelar la reserva y reembolsar el pago al arrendatario.
-- Cada parte debe poder descargar el contrato firmado asociado a su reserva.
-
-> *(criterio de interfaz)* El usuario debe poder revisar el contrato en pantalla antes de firmar.
-
-> **Fuera del alcance de la ES1:** firma notarial presencial, cláusulas personalizadas por el arrendador y versionado de contratos con anexos.
-
----
+- La plataforma exige identidad verificada de ambas partes antes de emitir.
+- La plataforma registra cada aceptación contra el identificador de la emisión. Un cambio de condiciones exige otra emisión y otra aceptación.
+- La ruta sin firma informa su modalidad y habilita la renta tras ambas aceptaciones.
+- Cuando ambas partes eligen SimpleFirma, la plataforma acredita los aportes antes de habilitar las firmas y habilita la renta tras ambas firmas.
 
 ## Épica E5 — Disponibilidad y Calendario
 
@@ -580,26 +536,11 @@
 
 ---
 
-## HU23 - Sincronización automática de estados en el calendario
+## HU23 - Mantener la disponibilidad del espacio
 
-**Épica:** E5 · **Rol (Como):** Sistema (automatización) · **Prioridad:** Alta
-**RF:** RQF-112, RQF-120, RQF-129, RQF-200 · **RNF:** RNF-002, RNF-006, RNF-009, RNF-011 · **CU:** CU-17, CU-22, CU-27, CU-28, CU-51
+**Como** titular, **quiero** consultar la ocupación del espacio **para** coordinar su uso sin solapamientos.
 
-**Como** sistema de la plataforma EspaciGo,
-**Quiero** actualizar automáticamente el calendario ante cada cambio del ciclo de vida de una reserva,
-**Para que** no existan discrepancias entre las reservas y la disponibilidad publicada.
-
-### Criterios de Aceptación
-- Cuando una reserva pase a estado "Pendiente de Pago" o "Pagada", el sistema debe mantener o marcar los bloques correspondientes como no disponibles.
-- Si una reserva "Pendiente de Pago" expira a los 15 minutos, el sistema debe cancelarla y liberar automáticamente las fechas.
-- Si el arrendador no responde una solicitud en 24 horas, el sistema debe cancelarla y liberar las fechas.
-- Ante la cancelación válida de una reserva, el sistema debe liberar las fechas y reflejarlo de inmediato en el calendario público.
-- Si dos usuarios intentan reservar el mismo bloque de forma simultánea, el sistema debe resolverlo de manera transaccional (atomicidad) adjudicando la reserva al primer pago validado y rechazando el segundo intento.
-- Cada actualización automática de disponibilidad debe quedar registrada para auditoría y reflejarse en el calendario en el menor tiempo posible (objetivo de propagación: máximo 2 segundos, conforme a RNF-001/RNF-009).
-
-> **Fuera del alcance de la ES1:** motor de sincronización bidireccional con canales externos de venta.
-
----
+**Criterios de aceptación.** El bloqueo inicia con ambas identidades verificadas y acuerdo de horario y precio. La autoridad de ocupación rechaza otro bloqueo solapado. La expiración o cancelación válida libera el intervalo correspondiente. El evento tardío ingresa a conciliación y los duplicados conservan el vencimiento.
 
 ## HU24 - Configuración de disponibilidad recurrente
 
@@ -611,7 +552,7 @@
 **Para que** el sistema mantenga el calendario configurado sin bloquear día por día.
 
 ### Criterios de Aceptación
-- **No implementado en la ES1.** El alcance actual cubre la disponibilidad mediante la modalidad tarifaria y el bloqueo/desbloqueo manual de fechas en el calendario (HU20, HU21).
+- El horario semanal y los bloqueos manuales describen disponibilidad del espacio. La recurrencia de reservas permanece diferida en el ADR vigente.
 - Si el equipo incorpora la recurrencia, debe definir: días de la semana operativos, rango horario de apertura y cierre por día, validación de hora de cierre posterior a la de apertura, aplicación masiva de bloqueos fuera del patrón, y detección de colisión con reservas confirmadas.
 
 > **Fuera del alcance de la ES1:** horarios recurrentes, plantillas de disponibilidad por temporada y reglas automáticas de precio por demanda.
@@ -721,7 +662,7 @@
 - Al abrir una disputa, el sistema debe mostrar el expediente con los antecedentes de la reserva, las fotografías del check-in y check-out, la confirmación de recepción del espacio (si existe) y los descargos presentados por el arrendatario.
 - El administrador debe poder emitir un fallo a favor del arrendatario (devolución de la garantía) o a favor del arrendador (retención parcial o total), indicando el monto a deducir en este último caso.
 - Si falta el monto en un fallo a favor del arrendador, el sistema debe exigir completarlo antes de cerrar el caso.
-- El sistema debe ejecutar el cobro de la pre-autorización de garantía cuando el fallo exija compensación, y liberar el saldo restante al arrendatario.
+- La plataforma registra el resultado de la disputa y remite a conciliación el ajuste aplicable de una garantía habilitada.
 - El sistema debe cambiar la disputa a estado "Resuelta" y notificar a ambas partes el resultado.
 - El sistema debe impedir la apertura de una nueva disputa sobre una reserva ya cerrada.
 
@@ -767,30 +708,15 @@
 
 ## Épica E9 — Operación del Arriendo
 
-## HU35 - Registrar check-in, check-out y confirmar la recepción
+## HU35 - Registrar entrega y confirmar desocupación
 
-**Épica:** E9 · **Rol (Como):** Arrendatario / Arrendador · **Prioridad:** Alta
-**RF:** RQF-143 a RQF-152, RQF-203 a RQF-206 · **RNF:** RNF-042 · **CU:** CU-33, CU-34, CU-48
+**Como** participante de un arriendo, **quiero** conservar evidencia de la entrega **para** cerrar el intervalo de uso.
 
-**Como** parte de una reserva con contrato firmado,
-**Quiero** registrar el check-in y el check-out del espacio con evidencia fotográfica, y confirmar la recepción al término del arriendo,
-**Para que** exista un registro verificable del estado del inmueble al inicio y al final del uso.
+**Criterios de aceptación.** El arrendatario registra la entrega y el titular confirma la desocupación. La confirmación libera solo el bloqueo de ese arriendo, conserva su contrato y habilita la republicación. El tratamiento de reclamos y garantías habilitadas se registra de forma separada.
 
-### Criterios de Aceptación
-- El sistema debe habilitar el check-in únicamente el día de inicio de la reserva y bloquearlo fuera de esa fecha.
-- El arrendatario debe poder registrar el check-in cargando al menos una fotografía del estado del espacio, junto con comentarios de texto.
-- El sistema debe registrar la fecha y la ubicación al procesar el check-in, cambiar la reserva al estado "En_Curso" y notificar al arrendador.
-- El arrendatario debe poder registrar el check-out con al menos una fotografía del estado final del espacio.
-- Al registrar el check-out, el sistema debe cambiar la reserva al estado "Finalizada" y habilitar el período de 24 horas para el registro de reclamos.
-- El arrendador debe poder confirmar la recepción del espacio tras el check-out, registrándose la fecha y la ubicación de la confirmación.
-- La confirmación de recepción no altera el período de gracia de 24 horas que rige la liquidación de los fondos.
-- Si el arrendador detecta daños al recibir el espacio, debe registrar el reclamo dentro de las 24 horas (HU28).
+**Traza.** RQF-205 y RQF-206 · CU-34 y CU-48 · PT-08.
 
-> **Fuera del alcance de la ES1:** gestión domótica de accesos físicos (cerraduras inteligentes), validación biométrica de ingreso y check-in asistido por el arrendador.
-
----
-
-## Resumen de trazabilidad de las Historias de Usuario
+## Resumen de trazabilidad de las historias de usuario
 
 | HU | Épica | RF que la implementan (resumen) | CU relacionados |
 |---|---|---|---|
@@ -841,7 +767,7 @@
 | M03 — Verificación de Identidad (KYC/KYB) | HU04 | Cubierto |
 | M04 — Gestión de Publicaciones | HU05, HU06, HU07, HU08, HU09 | Cubierto |
 | M05 — Búsqueda y Cotización de Espacios | HU10, HU11, HU12, HU13, HU15, HU16 | Cubierto |
-| M06 — Reservas y Pagos (Escrow) | HU15, HU16, HU17, HU18, HU19 | Cubierto |
+| M06 — Reservas y cobros | HU15, HU16, HU17, HU18, HU19 | Cubierto |
 | M07 — Contratos y Firma Electrónica | HU33 | Cubierto |
 | M08 — Check-in y Check-out | HU35 | Cubierto |
 | M09 — Comunicación y Reputación | HU25, HU34 | Cubierto |
@@ -850,7 +776,7 @@
 
 **Resultado: 11/11 módulos cubiertos por al menos una historia de usuario.**
 
-## Correcciones aplicadas respecto de la versión anterior
+## Correcciones aplicadas respecto de la versión anterior (antecedente histórico)
 
 | HU | Corrección aplicada |
 |---|---|

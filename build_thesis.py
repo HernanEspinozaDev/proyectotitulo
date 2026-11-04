@@ -78,24 +78,22 @@ def main():
 
     if not args.no_pdf:
         print("📄 [4/4] Exportando a PDF de alta fidelidad vía LibreOffice headless...")
-        build_dir = TESIS_DIR / "build"
-        res = subprocess.run(
-            ["libreoffice", "--headless", "--convert-to", "pdf", "--outdir", str(build_dir), str(docx_path)],
-            cwd=TESIS_DIR,
-            capture_output=True,
-            text=True
-        )
-        pdf_path = build_dir / "Tesis_Final_espaciGo.pdf"
-        if pdf_path.is_file():
-            print(f"✅ PDF exportado con éxito: {pdf_path} ({pdf_path.stat().st_size / (1024*1024):.2f} MB)")
-            # Informar páginas
-            pages_res = subprocess.run(["pdfinfo", str(pdf_path)], capture_output=True, text=True)
-            for line in pages_res.stdout.splitlines():
-                if "Pages:" in line:
-                    print(f"📄 Total de páginas: {line.split()[-1]}")
-        else:
-            print("⚠️ Advertencia: LibreOffice terminó pero no se generó el PDF:")
-            print(res.stderr)
+        pdf_path = docx_path.with_suffix(".pdf")
+        exporter = TESIS_DIR / "scripts" / "exportar_pdf_con_indice.py"
+        uno_python = os.environ.get("ESPACIGO_UNO_PYTHON", "/usr/bin/python3")
+        try:
+            subprocess.run(
+                [uno_python, str(exporter), str(docx_path), str(pdf_path)],
+                cwd=TESIS_DIR, check=True, timeout=360,
+            )
+        except (OSError, subprocess.SubprocessError) as error:
+            print(f"❌ Error al exportar el PDF. Se requiere LibreOffice y Python UNO: {error}")
+            return 1
+        print(f"✅ PDF exportado con éxito: {pdf_path} ({pdf_path.stat().st_size / (1024*1024):.2f} MB)")
+        pages_res = subprocess.run(["pdfinfo", str(pdf_path)], capture_output=True, text=True)
+        for line in pages_res.stdout.splitlines():
+            if line.startswith("Pages:"):
+                print(f"📄 Total de páginas: {line.split()[-1]}")
 
     print("\n🎉 Compilación completada con éxito.")
     return 0

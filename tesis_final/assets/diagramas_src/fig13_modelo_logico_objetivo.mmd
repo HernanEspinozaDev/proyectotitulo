@@ -1,0 +1,8 @@
+erDiagram
+    ESPACIO ||--o{ OCUPACION : registra
+    ESPACIO ||--o{ RESERVA : recibe
+    RESERVA o|--o{ OCUPACION : vincula
+    RESERVA ||--o{ EMISION : conserva
+    EMISION ||--o{ ACEPTACION : registra
+    EMISION ||--o{ OBLIGACION : origina
+    OBLIGACION ||--o{ MOVIMIENTO : concilia

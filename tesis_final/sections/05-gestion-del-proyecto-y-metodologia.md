@@ -2,7 +2,7 @@
 
 ## 5.1. Selección y Justificación Metodológica del Enfoque Híbrido
 
-En el ámbito de la Ingeniería de Software contemporánea, la gestión de proyectos no debe confundirse con el modelo de desarrollo de código. La literatura especializada y los estándares internacionales (Project Management Institute [PMI], 2021) recomiendan desacoplar la **gobernanza directiva del proyecto** del **ciclo de vida constructivo del producto informático**.
+En el ámbito de la Ingeniería de Software contemporánea, la gestión de proyectos no debe confundirse con el modelo de desarrollo de código. La literatura especializada y los estándares internacionales [@pmbok7] recomiendan desacoplar la **gobernanza directiva del proyecto** del **ciclo de vida constructivo del producto informático**.
 
 ### 5.1.1. Gobernanza (PMBOK) y Ciclo de Vida del Software (Iterativo-Incremental)
 
@@ -19,23 +19,23 @@ Para fundamentar técnicamente la selección del modelo Híbrido frente a paradi
 
 | Criterio de Selección | Ponderación | Cascada Tradicional | Scrum Puro | **Modelo Híbrido (PMBOK + Iterativo)** | Justificación Técnica |
 |---|:---:|:---:|:---:|:---:|---|
-| **Predictibilidad y Control del Alcance** | 25% | 4 / 5 | 2 / 5 | **5 / 5** | El proyecto cuenta con un alcance contractual cerrado (236 requerimientos funcionales aprobados). Scrum asume alcance volátil y dinámico; PMBOK gobierna el alcance mediante la EDT. |
+| **Predictibilidad y Control del Alcance** | 25% | 4 / 5 | 2 / 5 | **5 / 5** | El Anexo A fija una línea base de 236 requisitos funcionales. La EDT registra cambios de alcance por incremento. |
 | **Fijeza de Plazos Académicos Institucionales** | 25% | 3 / 5 | 2 / 5 | **5 / 5** | Las fechas de titulación universitaria son inflexibles. Scrum no ofrece garantías de fecha fija para un alcance cerrado sin recortar funcionalidad. |
 | **Mitigación Temprana de Riesgos Técnicos** | 20% | 1 / 5 | 5 / 5 | **4 / 5** | Cascada posterga las pruebas y despliegue al final del ciclo de vida (riesgo inaceptable). El modelo iterativo valida módulos de software en cada incremento. |
 | **Control Formal de EDT y Recursos** | 15% | 4 / 5 | 1 / 5 | **5 / 5** | La pauta de titulación y la auditoría docente exigen expresamente una EDT y asignación de esfuerzo por persona, artefactos nativos de PMBOK inexistentes en Scrum. |
 | **Trazabilidad de Pruebas y Calidad (QA)** | 15% | 2 / 5 | 4 / 5 | **5 / 5** | Permite vincular cada paquete de trabajo de la EDT con matrices de prueba unitarias, de integración y rendimiento. |
-| **Puntaje Ponderado Total** | **100%** | **2.95 / 5.0** | **2.65 / 5.0** | **4.75 / 5.0** | **Selección Ganadora: Modelo Híbrido** |
+| **Puntaje Ponderado Total** | **100%** | **2,85 / 5,00** | **2,75 / 5,00** | **4,80 / 5,00** | **Selección Ganadora: Modelo Híbrido** |
 
 *Nota.* Elaboración propia en base a directrices del estándar PMI (2021).
 
 ### 5.1.3. Modelo de Fases e Incrementos del Ciclo de Vida
 
-El ciclo de desarrollo se estructura en cinco fases continuas gobernadas por compuertas de decisión (*gates*), garantizando la coherencia terminológica exigida por la pauta docente:
+El ciclo de desarrollo se estructura en las etapas de planificación, análisis, diseño, construcción, pruebas e implementación, garantizando la coherencia terminológica exigida por la pauta docente:
 
 **Figura 4**  
 *Modelo de Proceso del Ciclo de Vida Híbrido por Fases e Incrementos*
 
-![](assets/figuras/fig04_ciclo_vida_hibrido_fases.png)
+![](assets/figuras/fig04_ciclo_vida_objetivo.png){height=11cm}
 
 *Nota.* Elaboración propia según estándares de gestión PMI (2021).
 
@@ -79,7 +79,7 @@ A continuación se presenta la descomposición jerárquica orientada a entregabl
 ├── 1.4. Construcción y Desarrollo Incremental
 │   ├── 1.4.1. Iteración 1: Núcleo de Autenticación, Usuarios y Control de Acceso (RBAC)
 │   ├── 1.4.2. Iteración 2: Catálogo de Inmuebles, Publicación y Búsqueda Geoespacial
-│   ├── 1.4.3. Iteración 3: Motor Transaccional de Arriendos y Pagos Escrow
+│   ├── 1.4.3. Iteración 3: Contratación y Cobros Diferenciados
 │   ├── 1.4.4. Iteración 4: Módulo de Contratos Digitales y Notificaciones
 │   └── 1.4.5. Iteración 5: Panel de Administración, Métricas y Auditoría
 ├── 1.5. Aseguramiento de Calidad y Pruebas (QA)
@@ -97,9 +97,9 @@ A continuación se presenta la descomposición jerárquica orientada a entregabl
 ### 5.2.3. Diccionario de la EDT y Entregables Principales
 
 Cada paquete de trabajo de nivel 3 cuenta con una ficha técnica que define su alcance y criterios de aceptación. A modo de síntesis ejecutiva:
-*   **Paquete 1.3.3 (Modelado de Datos Geoespacial):** Entrega el esquema DDL de 110 tablas en PostgreSQL con índices GiST para operadores espaciales y rangos `tsrange`. Criterio de aceptación: 100% de consultas espaciales ejecutadas en menos de 50 ms.
-*   **Paquete 1.4.3 (Motor Transaccional y Escrow):** Entrega la integración con pasarelas de pago y el circuito de congelamiento y liquidación de garantías. Criterio de aceptación: Cero discrepancias en conciliación de pagos en pruebas automatizadas.
-*(Para la totalidad de fichas del Diccionario de la EDT, remitirse al Anexo correspondiente).*
+*   **Paquete 1.3.3 (Modelado de Datos Geoespacial):** Entrega el esquema DDL de 110 tablas en PostgreSQL con índices GiST para operadores espaciales y rangos `tstzrange`. Criterio de aceptación: consultas y restricciones verificadas contra los criterios del Capítulo VII.
+*   **Paquete 1.4.3 (Contratación y Cobros Diferenciados):** Entrega un recorrido sintético de reserva y conciliación y define los criterios de habilitación externa. Criterio de aceptación: Cero discrepancias en conciliación de pagos en pruebas automatizadas.
+El Capítulo XIII registra el avance y la evidencia de cada incremento.
 
 ---
 
@@ -130,19 +130,15 @@ La asignación de responsabilidades sobre los paquetes principales de la EDT se 
 | **1.4. Construcción Backend (Go / PostGIS)** | **A / R** | **I** | **C** |
 | **1.4. Construcción Frontend (Next.js)** | **C** | **A / R** | **I** |
 | **1.5. Pruebas de Rendimiento y Seguridad** | **R** | **C** | **A / R** |
-| **1.6. Despliegue GCP y Evaluación Financiera** | **C** | **A / R** | **A / R** |
+| **1.6.1. Automatización de despliegue y topología** | **C** | **C** | **A / R** |
 
 *Convención: **R** = Responsable de ejecutar la tarea; **A** = Aprobador último / Responsable final; **C** = Consultado técnicamente; **I** = Informado.*
 
-*Nota.* Elaboración propia.
+*Nota.* Elaboración propia. La fila 1.6.1 identifica el responsable operativo de despliegue. La planificación y evaluación económica detalladas se conservan en la sección 5.3, el Capítulo XII y los anexos G y H.
 
-### 5.4.2. Estimación de Esfuerzo y Carga Horaria por Integrante
+### 5.4.2. Registro de esfuerzo
 
-La estimación de esfuerzo combina dos aproximaciones metodológicas:
-1. **Estimación Top-Down por Puntos de Casos de Uso (UCP - Karner):** Basada en los 4 actores del sistema y los 52 casos de uso ponderados con los factores técnicos (TCF) y ambientales (ECF), arrojando un esfuerzo industrial teórico de 1.140 horas de desarrollo.
-2. **Estimación Bottom-Up por Desglose de Tareas (EDT):** Distribuye un total de 480 horas netas por integrante (1.440 horas de equipo acumuladas a lo largo de 16 semanas académicas), dedicadas a la construcción, depuración, redacción técnica y aseguramiento de calidad del MVP funcional.
-
----
+La EDT identifica los paquetes que requieren estimación. La comparación entre esfuerzo previsto y observado requiere un registro por paquete, responsable y período. La sección 5.3 conserva el espacio de integración de la planificación detallada.
 
 ## 5.5. Plan de Gestión de Riesgos del Proyecto
 
@@ -157,8 +153,8 @@ La gestión de riesgos identifica, evalúa y mitiga tempranamente amenazas técn
 |:---:|---|:---:|:---:|:---:|:---:|---|
 | **R-01** | Doble reserva concurrente en inmuebles de alta demanda. | Técnico | Media (3) | Crítico (5) | **Alta (15)** | Implementación de índices de exclusión GiST (`tsrange`) a nivel de motor de datos en PostgreSQL 18. |
 | **R-02** | Caída o degradación de la pasarela de pagos durante un arriendo. | Externo | Baja (2) | Crítico (5) | **Media (10)** | Manejo de reintentos idempotentes y registro de transacciones con estado *Pending* para conciliación asíncrona. |
-| **R-03** | Vulnerabilidad de datos personales sensibles (Ley 21.719). | Ciberseguridad | Baja (2) | Crítico (5) | **Media (10)** | Cifrado AES-256 en reposo, TLS 1.3 en tránsito y protocolo de purga *anti-replay* en backups. |
+| **R-03** | Vulnerabilidad de datos personales sensibles (Ley 21.719). | Ciberseguridad | Baja (2) | Crítico (5) | **Media (10)** | Control de acceso por finalidad, protección de archivos y comprobación de permisos tras restaurar. |
 | **R-04** | Desajuste en el calendario académico y fechas de entrega. | Gestión | Media (3) | Mayor (4) | **Alta (12)** | Control estricto de la EDT y congelamiento de alcance en compuertas de fase (*phase gates*). |
-| **R-05** | Rechazo legal de contratos generados dinámicamente. | Legal | Baja (1) | Mayor (4) | **Baja (4)** | Asesoría con abogados especialistas y cumplimiento formal de la Ley N° 21.461. |
+| **R-05** | Rechazo legal de contratos generados dinámicamente. | Legal | Baja (1) | Mayor (4) | **Baja (4)** | Revisar las modalidades, sus condiciones y la evidencia requerida antes de habilitar integraciones. |
 
-*Nota.* Elaboración propia según metodología de gestión de riesgos PMBOK (PMI, 2021).
+*Nota.* Elaboración propia según metodología de gestión de riesgos PMBOK [@pmbok7].

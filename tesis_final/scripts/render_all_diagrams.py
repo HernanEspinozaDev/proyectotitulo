@@ -12,7 +12,6 @@ Uso:
 
 import os
 import sys
-import glob
 import subprocess
 from pathlib import Path
 
@@ -38,11 +37,14 @@ def render_mermaid(src_path: Path, out_path: Path, scale: int = 2):
     return True
 
 def render_plantuml(src_path: Path, out_path: Path):
-    cmd = [
-        "npx", "-y", "node-plantuml", "generate",
-        str(src_path),
-        "-o", str(out_path)
-    ]
+    jar = os.environ.get("ESPACIGO_PLANTUML_JAR")
+    if jar:
+        cmd = [
+            "java", "-jar", jar, "-failfast2", "-charset", "UTF-8",
+            "-o", str(out_path.parent), str(src_path),
+        ]
+    else:
+        cmd = ["npx", "-y", "node-plantuml", "generate", str(src_path), "-o", str(out_path)]
     res = subprocess.run(cmd, capture_output=True, text=True)
     if res.returncode != 0:
         print(f"[ERROR] PlantUML rendering failed for {src_path.name}:", file=sys.stderr)
@@ -65,6 +67,7 @@ def main():
     # 1. Procesar Mermaid (.mmd)
     mmd_files = sorted(SRC_DIR.glob("*.mmd"))
     count_mmd = 0
+    failures = 0
     for mmd in mmd_files:
         if only and not any(o in mmd.stem for o in only):
             continue
@@ -76,24 +79,32 @@ def main():
         ok = render_mermaid(mmd, out_png)
         if ok:
             count_mmd += 1
+        else:
+            failures += 1
 
     # 2. Procesar PlantUML (.puml)
-    puml_files = sorted(SRC_DIR.glob("*.puml"))
+    puml_files = sorted(SRC_DIR.rglob("*.puml"))
     count_puml = 0
     for puml in puml_files:
         if only and not any(o in puml.stem for o in only):
             continue
-        out_png = OUT_DIR / f"{puml.stem}.png"
-        if out_png.exists() and not force_puml:
+        out_png = OUT_DIR / puml.relative_to(SRC_DIR).with_suffix(".png")
+        out_png.parent.mkdir(parents=True, exist_ok=True)
+        if out_png.exists() and not force_puml and not only:
             continue
         print(f"[RENDER] PlantUML: {puml.name} -> {out_png.name}...")
         ok = render_plantuml(puml, out_png)
         if ok:
             count_puml += 1
+        else:
+            failures += 1
 
     print("--------------------------------------------------")
     print(f"Finalizado: {count_mmd} diagramas Mermaid y {count_puml} PlantUML generados.")
     print("==================================================")
 
+    return int(failures > 0)
+
+
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

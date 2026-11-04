@@ -2,7 +2,23 @@
 
 Este catálogo se reconstruye aplicando en orden las migraciones SQL estructurales disponibles. Las claves y nulabilidades corresponden al estado resultante de esas definiciones; no implica que se haya consultado una base persistente.
 
-El inventario contiene **110 tablas físicas**. Las relaciones foráneas indican las columnas origen y destino declaradas en `REFERENCES`; las claves compuestas se identifican como conjuntos.
+El inventario derivado del DDL contiene **110 tablas de aplicación** y excluye el ledger `schema_migrations`. La versión de creación más alta registrada en las fichas es V000079. En la comparación por nombre con la captura local V000075 del 4 de noviembre de 2026, coinciden 104 tablas de aplicación. Las otras seis corresponden al dominio de verificación documental y se declaran en V000079. Esta comparación identifica relaciones por nombre. La comparación de esas 104 tablas con la captura V75 identifica 879 columnas coincidentes por nombre, tipo base y nulabilidad. La comparación normaliza los alias PostgreSQL y trata bigserial como bigint para comparar el tipo base. La comprobación de valores por defecto, restricciones y permisos requiere evidencia separada por versión y entorno.
+
+El modelo lógico objetivo se describe en la sección 9.3. El inventario físico registra las claves y relaciones declaradas en SQL. Las relaciones foráneas identifican las columnas de origen y destino declaradas en `REFERENCES`, y las claves compuestas se presentan como conjuntos.
+
+## Correspondencia lógica y física
+
+**Tabla D.1**\
+*Relaciones físicas de referencia para el modelo objetivo*
+
+| Concepto lógico | Relaciones de referencia | Criterio de evolución |
+|---|---|---|
+| Oferta y titularidad | `espacio`, `espacio_publicacion_historial_local` | Verificar quién puede publicar y recuperar el historial del titular. |
+| Disponibilidad | `ocupacion`, `cotizacion_reserva_ensayo`, `reserva_ensayo_local` | Conservar una autoridad de ocupación y comprobar concurrencia y vencimiento. |
+| Emisión | `contrato_ensayo_local`, `contrato_ensayo_firma` | Identificar emisión, aceptación por parte y firma opcional. |
+| Cobros | `reserva_pago_ensayo` y relaciones de eventos | Identificar obligación, pagador, acreditación y reverso. |
+
+*Nota.* Elaboración propia. El mapeo identifica puntos de partida y criterios de evolución física por corte.
 
 ## Dominio: Gobernanza, privacidad y administración
 

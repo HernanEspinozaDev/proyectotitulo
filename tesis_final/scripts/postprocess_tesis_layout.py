@@ -11,6 +11,7 @@ Aplica post-procesamiento fino sobre el documento DOCX final:
 6. Centrado de imágenes y eliminación de cualquier título o pie duplicado abajo de la imagen.
 """
 
+import json
 import zipfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -18,7 +19,7 @@ import tempfile
 import shutil
 import re
 
-ROOT = Path('/home/nandev/Documentos/projects/Proyectotitulo/tesis_final')
+ROOT = Path(__file__).resolve().parent.parent
 DOCX_PATH = ROOT / 'build/Tesis_Final_espaciGo.docx'
 
 W_NAMESPACE = 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'
@@ -34,6 +35,35 @@ def postprocess():
         doc_xml = zin.read('word/document.xml')
         root = ET.fromstring(doc_xml)
         body = root.find(f'{W}body')
+
+        metadata = json.loads((ROOT / 'document.json').read_text())['metadata']
+        cover_title = next(
+            (p for p in body.findall(f'{W}p') if
+             ''.join(t.text or '' for t in p.iter(f'{W}t')) == metadata['title']),
+            None,
+        )
+        if cover_title is not None:
+            title_properties = cover_title.find(f'{W}pPr')
+            if title_properties is None:
+                title_properties = ET.Element(f'{W}pPr')
+                cover_title.insert(0, title_properties)
+            spacing = title_properties.find(f'{W}spacing')
+            if spacing is None:
+                spacing = ET.SubElement(title_properties, f'{W}spacing')
+            spacing.set(f'{W}before', '1800')
+            date_paragraph = next(
+                (p for p in body.findall(f'{W}p') if
+                 ''.join(t.text or '' for t in p.iter(f'{W}t')) == metadata['date']),
+                None,
+            )
+            if date_paragraph is not None:
+                authors = ' · '.join(metadata['authors'])
+                if not any(''.join(t.text or '' for t in p.iter(f'{W}t')) == authors
+                           for p in body.findall(f'{W}p')):
+                    paragraph = ET.Element(f'{W}p')
+                    run = ET.SubElement(paragraph, f'{W}r')
+                    ET.SubElement(run, f'{W}t').text = authors
+                    body.insert(list(body).index(date_paragraph), paragraph)
 
         modified_h1 = 0
         modified_tables = 0
@@ -53,11 +83,11 @@ def postprocess():
                 'Hoja de Aprobación Institucional',
                 'Dedicatoria',
                 'Agradecimientos',
-                'Resumen Ejecutivo (Abstract)',
+                'Resumen ejecutivo',
                 'Índice de Contenidos'
             ]
             
-            if is_chapter or is_annex or (sval == 'Ttulo2' and is_major_prelim):
+            if is_chapter or is_annex or (sval == 'Ttulo2' and is_major_prelim) or text == 'Índice de Contenidos':
                 if pPr is None:
                     pPr = ET.Element(f'{W}pPr')
                     p.insert(0, pPr)
@@ -88,8 +118,8 @@ def postprocess():
             for edge in ['top', 'left', 'bottom', 'right', 'insideH', 'insideV']:
                 line = ET.SubElement(borders, f'{W}{edge}')
                 line.set(f'{W}val', 'single')
-                line.set(f'{W}sz', '6')
-                line.set(f'{W}color', '555555')
+                line.set(f'{W}sz', '4')
+                line.set(f'{W}color', '000000')
                 line.set(f'{W}space', '0')
             
             # Cell padding

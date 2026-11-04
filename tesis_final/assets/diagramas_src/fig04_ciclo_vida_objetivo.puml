@@ -1,0 +1,16 @@
+@startuml
+skinparam dpi 180
+skinparam shadowing false
+start
+:Planificar y fijar alcance inicial;
+:Analizar requisitos y riesgos;
+:Diseñar el incremento;
+repeat
+  :Construir el incremento;
+  :Ejecutar pruebas y registrar evidencia;
+repeat while (¿Requiere ajuste?) is (Sí)
+-> No;
+:Preparar implementación o entrega del corte;
+:Actualizar la EDT y registrar la decisión;
+stop
+@enduml

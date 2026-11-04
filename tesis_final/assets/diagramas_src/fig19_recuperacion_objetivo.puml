@@ -1,0 +1,14 @@
+@startuml
+skinparam dpi 170
+skinparam shadowing false
+start
+:Seleccionar un corte recuperable;
+:Restaurar base y objetos en un entorno aislado;
+:Comprobar referencias, permisos y supresiones;
+if (¿Supera las comprobaciones?) then (Sí)
+  :Medir RPO y RTO y registrar el resultado;
+else (No)
+  :Registrar divergencias y mantener el entorno aislado;
+endif
+stop
+@enduml

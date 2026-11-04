@@ -2,86 +2,58 @@
 
 ## 11.1. Pipeline de Integración y Despliegue Continuo (CI/CD)
 
-La entrega de valor técnico y la gobernanza del código fuente de **espaciGo** se automatizan mediante un pipeline de Integración y Despliegue Continuo (*CI/CD*) configurado sobre **GitHub Actions**, garantizando que cada cambio en el repositorio principal cumpla con los estándares de calidad y seguridad antes de impactar el entorno de producción:
-
-**Figura 16**  
-*Flujo de Automatización del Pipeline CI/CD en GitHub Actions*
-
-![](assets/figuras/fig16_pipeline_ci_cd_github.png)
-
-*Nota.* Elaboración propia en base a las etapas de integración y entrega continua del proyecto.
-
-*Fases del Pipeline de Automatización:*
-1. **Verificación Estática y Linter:** Valida estándares de estilo y análisis estático mediante `golangci-lint` para el código Go y ESLint/Prettier para la aplicación Next.js.
-2. **Suite de Pruebas Automatizadas:** Ejecuta las pruebas unitarias y de integración. Si la cobertura del código cae por debajo del 80%, el pipeline aborta automáticamente la compilación.
-3. **Construcción Contenerizada Multi-Stage:** Genera una imagen Docker minimalista de producción basada en `scratch` o `distroless`, reduciendo el peso del contenedor a menos de 25 MB y minimizando la superficie de ataque al no incluir intérpretes ni utilitarios de shell innecesarios.
-4. **Despliegue Declarativo en Cloud Run:** El contenedor se despliega mediante la API de Google Cloud Run con una estrategia de despliegue progresivo (*canary deployment*), derivando inicialmente el 10% del tráfico y monitoreando las tasas de error antes de completar la conmutación al 100%.
-
----
+El repositorio de desarrollo contiene la configuración de construcción y despliegue en Cloud Build. La estrategia de entrega identifica la versión de aplicación y el estado del esquema antes de desplegar. El procedimiento de aceptación revisa compilación, pruebas, permisos y compatibilidad con las migraciones aplicadas. La versión de aplicación y el delta de base se registran por separado.
 
 ## 11.2. Topología de Infraestructura Cloud en Google Cloud Platform (GCP)
 
-La solución se despliega íntegramente sobre la infraestructura de clase mundial de **Google Cloud Platform**, aprovechando la región de baja latencia ubicada en Santiago de Chile (**`southamerica-west1`**):
+La topología objetivo utiliza servicios administrados en la región de Santiago. La captura de ensayo del 4 de noviembre registra una instancia Cloud SQL zonal, con acceso privado y respaldos automáticos. La configuración observada registra PITR desactivado. La figura representa la topología de referencia para la operación objetivo.
 
 **Figura 17**  
-*Topología de Infraestructura Cloud en Google Cloud Platform (Región Santiago)*
+*Topología objetivo de aplicación, datos y operación*
 
-![](assets/figuras/fig17_infraestructura_cloud_gcp.png)
+![](assets/figuras/fig17_topologia_objetivo.png)
 
 *Nota.* Elaboración propia sobre servicios gestionados en Google Cloud Platform (región `southamerica-west1`).
 
 ### Segmentación de Red y Comunicaciones Privadas
-En cumplimiento de las buenas prácticas de ciberseguridad industrial, la base de datos relacional y los clústeres de caché se alojan dentro de una **VPC privada con asignación de IPs privadas (RFC 1918)**. La comunicación entre los servicios contenerizados de Cloud Run y la base de datos PostgreSQL se canaliza exclusivamente mediante un **Serverless VPC Access Connector**, impidiendo que el motor de persistencia tenga interfaces expuestas hacia internet público:
+El diseño de red restringe el acceso a la base a través de la VPC y limita el acceso operativo mediante rutas y permisos definidos para cada entorno.
 
-**Figura 18**  
-*Segmentación de Red Privada y Comunicaciones Seguras vía Serverless VPC Connector*
+## 11.3. Seguridad y autorización por recurso
 
-![](assets/figuras/fig18_segmentacion_red_vpc.png)
+El diseño establece mínimo privilegio para aplicación, migraciones y operación. Cada solicitud verifica el vínculo del actor con el recurso y las capacidades exigidas por la acción. La evidencia privada utiliza almacenamiento separado, y su acceso y retención dependen de su finalidad. Las revisiones documentales incluyen pruebas de denegación y comprobación de permisos efectivos.
 
-*Nota.* Elaboración propia según el diseño de seguridad de red en Google Cloud VPC.
+## 11.4. Recuperación y continuidad
 
----
+El procedimiento objetivo restaura PostgreSQL y los objetos privados en un entorno aislado. La aceptación exige comprobar referencias, permisos y acciones de supresión que el respaldo antecede. La medición compara el punto recuperado y el tiempo de recuperación con el RNF-010. El operador registra las divergencias y conserva aislado el destino cuando falla una comprobación.
 
-## 11.3. Políticas de Ciberseguridad, Identidad (OAuth2/JWT) y Control de Acceso (RBAC)
+**Figura 19**\
+*Actividad objetivo de restauración y verificación*
 
-La plataforma adopta el principio de **Privilegio Mínimo** y el modelo de seguridad **Zero Trust**:
+![](assets/figuras/fig19_recuperacion_objetivo.png)
 
-1. **Gestión Centralizada de Secretos:** Ninguna clave de API, certificado o credencial de base de datos se almacena en el código fuente ni en variables de entorno fijas. Todos los secretos se custodian en **Google Secret Manager**, inyectándose dinámicamente en memoria durante el ciclo de vida del contenedor.
-2. **Autenticación sin Estado con JWT Criptográfico:** Los tokens de sesión se firman mediante el algoritmo asimétrico **RS256** (RSA con SHA-256). El backend verifica la autenticidad del token mediante la clave pública local, validando la expiración estricta (15 minutos) y el token de refresco (*refresh token*) almacenado en Redis con rotación obligatoria.
-3. **Control de Acceso Basado en Roles (RBAC):** Cada petición HTTP es evaluada por un middleware de autorización que intercepta los roles y scopes del usuario (`ROLE_ARRENDATARIO`, `ROLE_ARRENDADOR`, `ROLE_ADMIN`, `ROLE_AUDITOR`), impidiendo accesos no autorizados a datos de terceros (vulnerabilidad BOLA / IDOR).
+*Nota.* Elaboración propia. El flujo describe el criterio de aceptación del ensayo de recuperación.
 
----
+## 11.5. Procedimientos operativos de referencia
 
-## 11.4. Plan de Recuperación ante Desastres (DRP) y Protocolo Replay Anti-Restauración (Ley 21.719)
+El diseño de operación incluye guías para continuidad, incidentes y mantenimiento. Antes de ejecutar un procedimiento, el operador confirma destino, permisos, configuración y versión. El objetivo general de recuperación corresponde al RNF-010.
 
-La continuidad operativa y el cumplimiento legal de la privacidad exigen una arquitectura de recuperación resiliente:
+**Tabla 11**\
+*Procedimientos operativos y criterio de comprobación*
 
-**Figura 19**  
-*Plan de Recuperación ante Desastres (DRP) y Resiliencia de Datos*
+| Código | Contingencia | Criterio de comprobación |
+|---|---|---|
+| RB-01 | Indisponibilidad de base de datos | Verificar restauración o conmutación, consistencia de datos y salud de aplicación. Medir RPO y RTO. |
+| RB-02 | Indisponibilidad de pagos | Suspender nuevos cobros cuando proceda y conciliar eventos tardíos. Mantener el vencimiento original del bloqueo. |
+| RB-03 | Incidente de seguridad | Contener, revocar accesos afectados, conservar evidencia y activar el procedimiento de comunicación aplicable. |
+| RB-04 | Regresión de despliegue | Restablecer una revisión compatible con el esquema y ejecutar pruebas de humo. |
+| RB-05 | Degradación de índices | Identificar el índice afectado, evaluar reconstrucción y medir la consulta crítica. |
+| RB-06 | Indisponibilidad DNS | Confirmar la causa y validar resolución y propagación después de una intervención autorizada. |
 
-![](assets/figuras/fig19_recuperacion_drp_replay_privacidad.png)
+*Nota.* Elaboración propia a partir del diseño operativo de espaciGo. RB-01 se verifica mediante PT-11 del Anexo F. RB-02 se vincula con PT-04 y PT-05. RB-03 aporta el contexto operativo de PT-14 y PT-16.
 
-*Nota.* Elaboración propia en base a la política de continuidad de negocio y failover HA en Cloud SQL.
 
-### 11.4.1. Arquitectura de Alta Disponibilidad y Resiliencia
-La instancia de Google Cloud SQL se configura en modalidad de **Alta Disponibilidad (HA Multi-Zona)**, sincronizando sincrónicamente los datos entre dos zonas aisladas de la región Santiago (`southamerica-west1-a` y `southamerica-west1-b`). Ante la caída de un centro de datos físico, GCP ejecuta la conmutación por error (*failover*) automática en menos de 3 minutos sin intervención manual.
+## 11.6. Condiciones de habilitación de integraciones
 
-### 11.4.2. Protocolo de Reaprovechamiento Anti-Restauración (*Anti-Replay Restoration*)
-En cumplimiento de los derechos de supresión de la **Ley N° 21.719**, se implementa un mecanismo de compensación que previene que la restauración de un respaldo antiguo reincorpore datos eliminados legítimamente:
+La configuración objetivo de Mercado Pago utiliza OAuth del vendedor y una preferencia Checkout Pro para Split 1:1 [@es2mpsplit]. La aceptación requiere comprobar acreditación, conciliación y reembolso según el saldo y el alcance del proveedor. La firma opcional requiere evidencia por emisión y firmante, además de confirmar facturación y reversos. El cobro de garantía requiere comprobar su responsable, sus plazos, reclamos y devoluciones antes de habilitarse.
 
-**Figura 20**  
-*Diagrama de Secuencia del Protocolo de Purga Anti-Restauración (Ley 21.719)*
-
-![](assets/figuras/fig20_secuencia_anti_replay.png)
-
-*Nota.* Elaboración propia según el protocolo DRP y exigencias de supresión de la Ley N° 21.719.
-
-### 11.4.3. Respuesta ante Incidentes de Ingeniería (SRE)
-El monitoreo proactivo se articula mediante **Google Cloud Monitoring** y alertas automatizadas que notifican al equipo de guardia ante cualquier anomalía en tasas de error o latencias:
-
-**Figura 21**  
-*Protocolo de Respuesta ante Incidentes de Ingeniería de Confiabilidad (SRE)*
-
-![](assets/figuras/fig21_respuesta_incidentes_sre.png)
-
-*Nota.* Elaboración propia sobre procedimientos de guardia y escalamiento SRE en Google Cloud Monitoring.
+La política de retención identifica finalidad, evento inicial, excepción, responsable y acción sobre datos y objetos. El ensayo de continuidad verifica que la restauración respeta esas decisiones y los permisos de acceso.

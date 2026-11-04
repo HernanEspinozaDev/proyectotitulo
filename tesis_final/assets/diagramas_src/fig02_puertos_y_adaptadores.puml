@@ -1,0 +1,15 @@
+@startuml
+skinparam dpi 180
+skinparam shadowing false
+participant "Adaptador HTTP\no prueba" as Entrada
+participant "Aplicación\nCaso de uso" as App
+participant "Puerto de\npersistencia" as Puerto
+participant "Adaptador PostgreSQL\no doble de prueba" as Salida
+Entrada -> App : Solicitar operación
+App -> App : Evaluar reglas de dominio
+App -> Puerto : Solicitar persistencia
+Puerto -> Salida : Ejecutar contrato del puerto
+Salida --> Puerto : Resultado
+Puerto --> App : Resultado de persistencia
+App --> Entrada : Resultado del caso de uso
+@enduml

@@ -58,7 +58,7 @@ Proyectotitulo/
 Para compilar la tesis y generar el PDF final se requiere:
 - **Python**: 3.10 o superior (recomendado 3.12).
 - **DocSkill**: Incluido en el directorio `docskill/` (con su binario local de Pandoc).
-- **LibreOffice**: Versión de escritorio o headless para Linux (`soffice` / `libreoffice`).
+- **LibreOffice y Python UNO**: LibreOffice para Linux y el paquete `python3-uno` para actualizar el índice durante la exportación PDF. El exportador usa `/usr/bin/python3` o el intérprete indicado por `ESPACIGO_UNO_PYTHON`.
 - **PlantUML y Mermaid CLI** *(opcional, solo para regenerar diagramas desde fuentes)*:
   - Java JRE/JDK y Graphviz para PlantUML.
   - `@mermaid-js/mermaid-cli` (`mmdc`) instalado globalmente con Node.js.
@@ -81,6 +81,12 @@ python3 build_thesis.py --diagrams
 
 # 4. Solo validar sintaxis y estructura documental sin generar archivos
 python3 build_thesis.py --validate
+```
+
+Para regenerar un diagrama PlantUML por nombre, incluido el Anexo C, se puede indicar un JAR compatible con Smetana, como PlantUML 1.2025.10:
+
+```bash
+ESPACIGO_PLANTUML_JAR=/ruta/plantuml.jar python3 tesis_final/scripts/render_all_diagrams.py cu_m06
 ```
 
 ### ¿Qué hace el postprocesamiento automático?

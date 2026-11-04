@@ -1,47 +1,30 @@
 @startuml
-title EspaciGo — Módulo M06: Reservas y Pagos (Escrow)
+!pragma layout smetana
+skinparam shadowing false
 left to right direction
-skinparam packageStyle rectangle
-
-actor "Arrendatario" as ARREN
-actor "Arrendador" as ARR
-actor "Mercado Pago\n(Pasarela de pagos externa)" as MP
-
-rectangle "EspaciGo — Sistema de Marketplace SaaS B2B2C de Espacios Comerciales" {
-  package "M06 — Reservas y Pagos (Escrow)" {
-    usecase "CU-22 Solicitar Reserva" as CU22
-    usecase "CU-23 Validar Disponibilidad en Tiempo Real" as CU23
-    usecase "CU-24 Pagar Reserva y Retener en Escrow" as CU24
-    usecase "CU-25 Bloquear Garantía por Pre-autorización" as CU25
-    usecase "CU-26 Gestionar Solicitud de Reserva" as CU26
-    usecase "CU-27 Cancelar Reserva por Falta de Pago" as CU27
-    usecase "CU-28 Cancelar Solicitud por Falta de Respuesta" as CU28
-    usecase "CU-47 Consultar Historial de Reservas" as CU47
-    usecase "CU-51 Cancelar Reserva" as CU51
-  }
+skinparam dpi 170
+actor "Arrendatario" as AR
+actor "Titular" as TI
+actor "Pasarela de pago" as PSP
+rectangle "espaciGo — M06 Reservas y cobros" {
+  usecase "CU-22 Solicitar intervalo" as CU22
+  usecase "CU-23 Verificar disponibilidad" as CU23
+  usecase "CU-26 Acordar horario y precio" as CU26
+  usecase "CU-24 Acreditar renta" as CU24
+  usecase "CU-25 Acreditar garantía" as CU25
+  usecase "CU-27 Procesar vencimiento" as CU27
+  usecase "CU-28 Conciliar pago tardío" as CU28
+  usecase "CU-47 Consultar historial" as CU47
+  usecase "CU-51 Cancelar reserva" as CU51
 }
-
-ARREN -- CU22
-ARREN -- CU24
-ARR -- CU26
-MP -- CU24
-ARREN -- CU47
-ARR -- CU47
-ARREN -- CU51
-
+AR -- CU22
+TI -- CU26
+AR -- CU24
+PSP -- CU24
+PSP -- CU28
+AR -- CU47
+AR -- CU51
 CU22 ..> CU23 : <<include>>
-CU24 ..> CU25 : <<include>>
-CU27 ..> CU22 : <<extend>>
-CU28 ..> CU26 : <<extend>>
-
-note bottom of CU27
-  Caso de uso automático: se dispara a los 15 minutos
-  sin pago (RQF-120). Punto de extensión de CU-22.
-end note
-
-note bottom of CU28
-  Caso de uso automático: se dispara a las 24 horas
-  sin respuesta del arrendador (RQF-129).
-  Punto de extensión de CU-26.
-end note
+CU25 ..> CU24 : <<extend>>\n[garantía habilitada]
+CU27 ..> CU24 : <<extend>>\n[etapa vencida]
 @enduml

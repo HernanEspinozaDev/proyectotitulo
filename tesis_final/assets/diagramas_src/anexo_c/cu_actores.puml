@@ -1,4 +1,6 @@
 @startuml
+!pragma layout smetana
+skinparam dpi 170
 title EspaciGo — Modelo de Actores (generalización)
 left to right direction
 skinparam packageStyle rectangle
@@ -13,8 +15,12 @@ VIS <|-- USR
 USR <|-- ARR
 USR <|-- ARREN
 
+note bottom of USR
+  Una cuenta puede actuar como titular o arrendatario.
+  El papel depende del recurso y la operación.
+end note
+
 note bottom of ADMIN
-  Actor independiente: no hereda de Usuario Registrado.
-  Opera el backoffice con permisos propios.
+  Opera con capacidades de administración separadas.
 end note
 @enduml

@@ -1,29 +1,6 @@
-graph TD
-    subgraph CAPA_NEGOCIO ["1. Capa de Negocio y Procesos (TOGAF)"]
-        N1["Procesos BPMN: Publicación, Reserva Escrow, Disputas y Supresión Ley 21.719"]
-    end
-
-    subgraph CAPA_APLICACIONES ["2. Capa de Aplicaciones (TOGAF)"]
-        APP1["Frontend BFF: Next.js 16 (React 19) SSR"]
-        APP2["API Gateway / Router HTTP"]
-        APP3["Backend Core: Go 1.27 (Arquitectura Hexagonal)"]
-        APP1 <--> APP2 <--> APP3
-    end
-
-    subgraph CAPA_DATOS ["3. Capa de Datos (TOGAF)"]
-        D1["OLTP: PostgreSQL 18 con Extensión PostGIS 3.6"]
-        D2["Caché de Sesiones y Rate-Limiting: Redis"]
-        D3["Almacenamiento de Objetos Cifrados: Cloud Storage (AES-256)"]
-        D4["Trazabilidad Inmutable: BigQuery Audit Logs"]
-    end
-
-    subgraph CAPA_INFRAESTRUCTURA ["4. Capa de Infraestructura Cloud (TOGAF)"]
-        INF1["Google Cloud Run (Contenedores Serverless Multi-Zona)"]
-        INF2["Google Cloud SQL (Instancia Gestionada con Failover HA)"]
-        INF3["Google Cloud Load Balancing + Cloud Armor (WAF Anti-DDoS)"]
-        INF4["Google Cloud KMS (Gestión Criptográfica)"]
-    end
-
-    CAPA_NEGOCIO --> CAPA_APLICACIONES
-    CAPA_APLICACIONES --> CAPA_DATOS
-    CAPA_DATOS --> CAPA_INFRAESTRUCTURA
+flowchart TD
+    N["Negocio<br/>Oferta, búsqueda, contratación y entrega"]
+    A["Aplicaciones<br/>Interfaz Next.js y API Go modular"]
+    D["Datos<br/>PostgreSQL, PostGIS y objetos privados"]
+    I["Infraestructura<br/>Entorno local y topología objetivo de ensayo"]
+    N --> A --> D --> I

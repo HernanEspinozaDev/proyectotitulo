@@ -1,13 +1,8 @@
-graph TD
-    DIR["Junta de Socios Fundadores<br>(Anita Marchant, Hernán Espinoza, Erick Silva)"]
-    
-    CEO["Directora Ejecutiva (CEO / CPO)<br><b>Anita Marchant Silva</b><br>• Gestión Estratégica y Alianzas<br>• Dirección de Producto y UI/UX<br>• Finanzas y Operaciones"]
-    
-    CTO["Director de Tecnología (CTO)<br><b>Hernán Espinoza Marchant</b><br>• Arquitectura de Software y Backend<br>• Persistencia y Modelado PostGIS<br>• Integraciones API y Rendimiento"]
-    
-    CISO["Director de Ciberseguridad (CISO / COO)<br><b>Erick Silva Espinoza</b><br>• Infraestructura Cloud y DevOps (GCP)<br>• Cumplimiento Ley 21.719 y Seguridad<br>• QA, Continuidad Operativa y DRP"]
-
-    DIR --> CEO
-    CEO --> CTO
-    CEO --> CISO
-    CTO <--> CISO
+flowchart TD
+    A["Equipo de titulación"]
+    B["Gestión y análisis<br/>Alcance y entregables"]
+    C["Arquitectura y desarrollo<br/>Aplicación y datos"]
+    D["Calidad y operación<br/>Pruebas y continuidad"]
+    A --> B
+    A --> C
+    A --> D

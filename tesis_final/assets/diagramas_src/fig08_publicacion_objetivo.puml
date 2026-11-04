@@ -1,0 +1,18 @@
+@startuml
+skinparam shadowing false
+skinparam dpi 190
+start
+:El titular prepara el borrador y la galería;
+:La plataforma comprueba la titularidad vigente;
+if (¿Titular autorizado?) then (Sí)
+  :Validar las reglas del anuncio;
+  if (¿Anuncio válido?) then (Sí)
+    :Publicar el espacio;
+  else (No)
+    :Conservar el borrador e informar observaciones;
+  endif
+else (No)
+  :Denegar la publicación;
+endif
+stop
+@enduml

@@ -1,0 +1,18 @@
+@startuml
+skinparam dpi 175
+skinparam shadowing false
+start
+:Activar bloqueo y mostrar vencimiento;
+if (¿Ruta SimpleFirma?) then (Sí)
+  :Acreditar aportes en 30 min;
+  :Completar ambas firmas en 60 min;
+  :Acreditar renta en 15 min;
+else (No)
+  :Aceptar emisión y acreditar renta en 15 min;
+endif
+if (¿Garantía aplicable y habilitada?) then (Sí)
+  :Acreditar garantía en 15 min adicionales;
+endif
+:Confirmar al cumplir requisitos y cobros;
+stop
+@enduml

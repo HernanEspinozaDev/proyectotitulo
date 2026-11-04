@@ -1,0 +1,26 @@
+@startuml
+skinparam shadowing false
+skinparam dpi 190
+start
+:Verificar ambas identidades y acordar horario y precio;
+:Activar un bloqueo y mostrar su vencimiento;
+note right
+  Si vence una etapa, se libera el bloqueo.
+  Un pago tardío ingresa a conciliación.
+end note
+:Emitir contrato y registrar ambas aceptaciones;
+if (¿Ambas partes eligen SimpleFirma?) then (Sí)
+  :Acreditar aportes;
+  :Registrar ambas firmas;
+endif
+:Acreditar renta;
+if (¿Garantía aplicable y habilitada?) then (Sí)
+  :Acreditar garantía por separado;
+endif
+:Confirmar reserva;
+:El arrendatario entrega el espacio;
+:El titular confirma la desocupación;
+:Liberar su bloqueo y conservar el contrato;
+:Habilitar republicación;
+stop
+@enduml

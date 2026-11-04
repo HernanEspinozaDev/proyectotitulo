@@ -32,6 +32,7 @@
     "sections/12-evaluacion-economica-y-financiera.md",
     "sections/13-monitoreo-control-y-evaluacion-desempeno.md",
     "sections/14-conclusiones-y-trabajos-futuros.md",
+    "sections/referencias.md",
     "appendices/a-requerimientos-ieee830.md",
     "appendices/b-historias-de-usuario.md",
     "appendices/c-casos-de-uso.md",
@@ -42,8 +43,8 @@
     "appendices/h-evaluacion-economica-detallada.md"
   ],
   "appendices": [],
-  "bibliography": null,
-  "csl": null,
+  "bibliography": "context/02_arquitectura_y_diseno/referencias.bib",
+  "csl": "context/apa.csl",
   "template": "templates/reference-inacap.docx",
   "output": "Tesis_Final_espaciGo.docx",
   "style_profile": "templates/style-profile-inacap.json",

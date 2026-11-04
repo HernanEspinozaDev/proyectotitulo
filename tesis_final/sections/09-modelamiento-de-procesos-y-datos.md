@@ -1,122 +1,84 @@
 # CAPÍTULO IX: MODELAMIENTO DE PROCESOS DE NEGOCIO Y DATOS
 
-## 9.1. Modelado de Procesos de Negocio To-Be en BPMN 2.0
+## 9.1. Procesos de negocio objetivo
 
-Para formalizar la operación de la plataforma y garantizar la consistencia en cada interacción de usuario, los flujos principales se modelan bajo el estándar internacional **BPMN 2.0** (*Business Process Model and Notation*), articulando las piscinas y carriles (*lanes*) de cada actor:
+La especificación utiliza actividades UML para los flujos de oferta y contratación y para el flujo de privacidad.
 
-### 9.1.1. Proceso BPMN-01: Publicación, Verificación KYC/KYB y Moderación
+### 9.1.1. Publicación de un espacio
 
-Este proceso gobierna la incorporación de nuevos espacios al catálogo, asegurando que ningún inmueble sea visible sin la validación previa de la identidad jurídica del propietario y la inspección de habitabilidad de los datos:
+El flujo objetivo valida la titularidad y las reglas del anuncio al publicar. La verificación de identidad de ambas partes corresponde a la emisión contractual.
 
 **Figura 8**  
-*Proceso BPMN-01: Publicación, Verificación KYC/KYB y Moderación de Espacios*
+*Actividad de publicación y control de titularidad*
 
-![](assets/figuras/fig08_bpmn_publicacion_kyc.png)
+![](assets/figuras/fig08_publicacion_objetivo.png)
 
-*Nota.* Elaboración propia en notación BPMN 2.0. El.
+*Nota.* Elaboración propia. El diagrama UML representa las condiciones de publicación del ADR del 4 de noviembre de 2026.
 
-### 9.1.2. Proceso BPMN-02: Búsqueda, Reserva y Operación Escrow Transaccional
-
-Modela el circuito crítico transaccional: búsqueda, validación de disponibilidad sin colisión temporal, pago fiduciario retenido en garantía y liquidación condicionada al *check-out*:
+### 9.1.2. Contratación, cobros y cierre
 
 **Figura 9**  
-*Proceso BPMN-02: Búsqueda, Reserva y Operación Escrow Transaccional*
+*Actividad de contratación, cobros y cierre de ocupación*
 
-![](assets/figuras/fig09_bpmn_reserva_escrow.png)
+![](assets/figuras/fig09_contratacion_objetivo.png){height=12cm}
 
-*Nota.* Elaboración propia en notación BPMN 2.0. El.
+*Nota.* Elaboración propia. El diagrama UML representa el flujo objetivo. La garantía se habilita por corte y el vencimiento opera durante las etapas de contratación.
 
-*Descripción Operativa del Flujo:*
-1. El Arrendatario busca mediante coordenadas geoespaciales y selecciona un intervalo de tiempo.
-2. El sistema valida atómicamente la ausencia de superposiciones mediante el operador `&&` de PostGIS.
-3. El usuario autoriza el cobro del arriendo y el bloqueo de garantía en la pasarela segura.
-4. El Arrendador dispone de un plazo límite de 24 horas para aceptar o rechazar la solicitud.
-5. Si se aprueba, se genera el contrato dinámico y se remite a firma remota.
-6. Cumplido el arriendo y verificado el *check-out* sin discrepancias en un período de gracia de 24 horas, el sistema ejecuta el *split payment* y libera el cupo de garantía.
+El diseño objetivo inicia el bloqueo cuando ambas identidades están verificadas y ambas partes acuerdan el horario y el precio. La plataforma emite el contrato y registra la aceptación de cada parte. La modalidad sin firma habilita el cobro de la renta tras ambas aceptaciones. Cuando ambas partes eligen SimpleFirma, la plataforma acredita los aportes antes de habilitar las firmas y exige ambas firmas para habilitar la renta. La garantía, cuando corresponde y está habilitada, se cobra por separado después de acreditar la renta.
 
-### 9.1.3. Proceso BPMN-03: Ejercicio de Derechos ARCO y Supresión de Datos (Ley 21.719)
+Para hora, bloque o sesión, la ruta principal guarda el contrato sin firma y ofrece SimpleFirma como opción. Para el arriendo mensual de inmuebles, la interfaz recomienda SimpleFirma y permite continuar sin ella. La modalidad sin firma informa «Este contrato se guarda sin firma electrónica de las partes». La emisión registra la identidad verificada por RUT y nombre completo de ambas partes y, cuando corresponde, la representación evaluada en un expediente separado.
 
-Gobierna el flujo de eliminación de datos personales, garantizando que el ejercicio del derecho de cancelación sea respetado sin violar obligaciones tributarias del SII:
+Si ambas partes eligen SimpleFirma, la plataforma muestra el desglose. El aporte se divide por mitades o se asigna íntegramente al arrendador si ofreció firma gratis. El peso impar queda a cargo del arrendador. Para la renta, el objetivo integra Mercado Pago Checkout Pro mediante Preferences y vinculación OAuth del arrendador. Split distribuye la renta y la comisión. La garantía queda fuera del primer corte y requiere verificar su operación antes de habilitarse.
 
-**Figura 10**  
-*Proceso BPMN-03: Ejercicio de Derechos ARCO y Supresión de Datos Personales*
+El vencimiento libera el bloqueo mediante una transición atómica. Un pago tardío ingresa a conciliación. Tras la entrega del arrendatario, el titular confirma la desocupación y puede republicar el espacio. El sistema conserva el contrato y los demás intervalos vigentes.
 
-![](assets/figuras/fig10_bpmn_supresion_ley21719.png)
+Si vence un aporte antes de abrir la solicitud de firma, la plataforma devuelve los aportes acreditados. Si la solicitud ya está abierta y vence sin ambas firmas, la política del piloto devuelve los aportes y contempla el cargo irrecuperable del proveedor según el presupuesto aprobado. Si ambas firmas se completan y vence la renta, se conserva el servicio de firma y su cargo según las condiciones informadas. Los errores de plataforma se tramitan por la ruta de devolución aplicable.
 
-*Nota.* Elaboración propia según el marco normativo de la Ley N° 21.719. El.
+**Figura 9.1**\
+*Ventanas de ensayo de contratación y cobros*
 
----
+![](assets/figuras/fig09_ventanas_contratacion.png){height=11cm}
 
-## 9.2. Modelado de Software en UML
+*Nota.* Elaboración propia según el ADR del 4 de noviembre de 2026. Los 60 minutos comienzan al acreditar los aportes. En la ruta SimpleFirma, los 15 minutos para renta comienzan al completar ambas firmas. El plazo de garantía comienza al acreditar la renta. Cada etapa se sujeta al límite total del bloqueo y los reintentos conservan el vencimiento.
 
-El diseño estático y dinámico del sistema se especifica mediante el lenguaje de modelado unificado **UML 2.5**:
+### 9.1.3. Gestión de una solicitud de privacidad
 
-### 9.2.1. Diagrama de Casos de Uso del Ecosistema
+**Figura 10**\
+*Actividad de evaluación y tratamiento de una solicitud de privacidad*
 
-Estructura las interacciones funcionales entre los actores y los subsistemas de la plataforma, respetando los límites formales del sistema:
+![](assets/figuras/fig10_privacidad_objetivo.png)
 
-**Figura 11**  
-*Diagrama UML de Casos de Uso del Ecosistema Transaccional*
+*Nota.* Elaboración propia. El flujo objetivo distingue la solicitud, la decisión, la acción sobre datos y objetos y el registro del resultado.
 
-![](assets/figuras/fig11_uml_casos_uso_ecosistema.png)
+## 9.2. Casos de uso y componentes
 
-*Nota.* Elaboración propia bajo estándar UML 2.5. El.
+El Anexo C organiza los casos de uso por módulo. Arrendador y arrendatario representan papeles de una cuenta en una operación. El administrador actúa con capacidades separadas. Los proveedores participan como sistemas externos en las operaciones que requieren su intervención. La arquitectura de componentes se describe en el Capítulo VIII y el contrato de interfaz se identifica en el Anexo E.
 
-*Aspectos Metodológicos Formales:*
-*   Los actores humanos (*Arrendatario, Arrendador, Administrador*) interactúan exclusivamente con casos de uso de nivel de usuario.
-*   Los casos de uso de pago, firma digital y verificación de identidad incluyen relaciones formales `<<include>>` hacia los servicios fiduciarios y pasarelas externas.
-*   En estricto apego a las normas de ingeniería, los requerimientos no funcionales (como algoritmos de hashing o certificados SSL) no se representan como casos de uso.
+## 9.3. Modelo de datos objetivo y esquema físico de referencia
 
-### 9.2.2. Diagrama de Componentes Hexagonales
+La persistencia utiliza PostgreSQL 18 y PostGIS 3.6. El diseño distingue el modelo lógico ratificado, el catálogo derivado de migraciones y el estado observado en cada entorno. La línea base del diseño de oferta, contratación y cobros corresponde al ADR de espaciGo ratificado el 4 de noviembre de 2026, registrado en el commit `f4bc7bd`.
 
-Ilustra la organización modular del backend en Go y el desacoplamiento de adaptadores:
+### 9.3.1. Modelo lógico objetivo
 
-**Figura 12**  
-*Diagrama de Paquetes y Componentes del Backend Hexagonal en Go*
+El espacio representa una unidad reservable exclusiva con un titular vigente. La publicación, la titularidad y la ocupación tienen estados independientes. La galería administra hasta 30 posiciones, incluidas las cargas reservadas. El modelo separa los medios públicos de la evidencia documental privada y asigna a cada clase sus permisos y su ciclo de vida.
 
-![](assets/figuras/fig12_componentes_hexagonal.png)
+La emisión contractual vincula la reserva con las identidades verificadas, las facultades de representación cuando corresponda, el horario y los importes acordados. Cada emisión conserva un identificador, una huella y sus condiciones. Un cambio de condiciones genera otra emisión. La aceptación de cada parte y la firma electrónica opcional mantienen registros independientes.
 
-*Nota.* Elaboración propia en base al diseño modular del backend. El.
+El modelo separa los aportes de firma, la renta y la garantía en obligaciones identificables. El registro financiero distingue pagador, intento, evento externo y movimiento acreditado. La devolución referencia el pago y su pagador original. La confirmación de desocupación cierra el bloqueo de la reserva y conserva el vínculo histórico con el contrato y los demás intervalos vigentes.
 
----
+### 9.3.2. Relación entre el modelo lógico y el esquema físico
 
-## 9.3. Modelo de Datos Físico y Geoespacial en PostgreSQL / PostGIS
+**Figura 13**\
+*Modelo lógico del núcleo transaccional*
 
-La arquitectura de persistencia se diseña sobre el motor relacional **PostgreSQL 18** con la extensión **PostGIS 3.6**.
+![](assets/figuras/fig13_modelo_logico_objetivo.png){height=11cm}
 
-### 9.3.1. Diagrama Entidad-Relación del Núcleo Transaccional
+*Nota.* Elaboración propia. La figura representa relaciones lógicas objetivo. La aceptación se registra por parte y por emisión. El Anexo D documenta las tablas derivadas del DDL y el alcance de su comparación con el catálogo local.
 
-A continuación se presenta el modelo relacional del núcleo transaccional, articulando las entidades de usuarios, inmuebles, calendarios, reservas, evidencias fotográficas y contratos:
+La Tabla D.1 vincula las entidades lógicas con sus relaciones físicas de referencia. El Anexo D distingue las 110 tablas de aplicación derivadas del DDL de las 104 tablas de aplicación de la captura local V000075. Las seis relaciones adicionales corresponden a la verificación documental declarada en V000079. La evolución física del modelo objetivo parte del mapeo de entidades a tablas vigentes y del análisis de las restricciones que exige cada incremento.
 
-**Figura 13**  
-*Modelo Entidad-Relación del Núcleo Transaccional y Persistencia Geoespacial*
+### 9.3.3. Integridad temporal y concurrencia
 
-![](assets/figuras/fig13_modelo_datos_er_nucleo.png)
+La migración V000009 de espaciGo declara en `public.ocupacion` la columna `intervalo` de tipo `tstzrange`. La restricción de exclusión GiST compara la igualdad de `espacio_id` y el solapamiento de `intervalo` mediante el operador de rangos `&&`, con un predicado que limita la comparación a las filas activas. El operador temporal pertenece a PostgreSQL. PostGIS se utiliza para las consultas geoespaciales.
 
-*Nota.* Elaboración propia en base al esquema relacional de PostgreSQL 18 / PostGIS 3.6. El.
-
-*(La estructura completa de las **110 tablas relacionales**, con sus claves primarias, claves foráneas, restricciones de integridad y tipos de datos normalizados se encuentra documentada en el **Anexo D: Diccionario Físico de Datos y Esquema DDL**).*
-
-### 9.3.2. Índices Geoespaciales y Prevención Matemática de Sobre-Reserva (GiST y tsrange)
-
-Para resolver definitivamente el problema de colisión concurrente (Caso de prueba `PT-02`), la tabla `reservas` implementa la siguiente restricción de exclusión física a nivel de base de datos:
-
-```sql
--- Extensión requerida para operadores de igualdad en índices GiST
-CREATE EXTENSION IF NOT EXISTS btree_gist;
-
--- Restricción de exclusión temporal por espacio físico
-ALTER TABLE reservas 
-ADD CONSTRAINT exclusion_doble_reserva 
-EXCLUDE USING gist (
-    espacio_id WITH =,
-    duracion_intervalo WITH &&
-)
-WHERE (estado IN ('CONFIRMADA', 'EN_PROCESO', 'PAGO_PENDIENTE'));
-```
-
-**Mecanismo de Operación:**
-1. La columna `duracion_intervalo` es de tipo `tsrange` (rango temporal con fecha y hora de inicio y fin).
-2. El operador `WITH &&` evalúa la superposición matemática de intervalos.
-3. Si dos transacciones intentan reservar el mismo `espacio_id` en instantes superpuestos, la estructura de árbol `GiST` serializa el acceso: la primera transacción adquiere la fila y confirma; la segunda transacción es bloqueada de inmediato a nivel de motor de datos lanzando una excepción de violación de restricción de exclusión (`SQLSTATE 23P01`).
-4. Este mecanismo garantiza consistencia matemática con aislamiento serializable, consumiendo menos del 1% del tiempo de CPU en comparación con bloqueos distribuidos en memoria.
+El criterio objetivo utiliza una autoridad de ocupación y un bloqueo activo por reserva. La verificación contempla solapamientos, intervalos adyacentes, vencimiento atómico, duplicados y pagos tardíos que ingresan a conciliación. Los resultados se registran por versión y entorno en el Capítulo X y el Anexo F.

@@ -1,0 +1,6 @@
+flowchart TD
+    U["Usuario"] --> A["Interfaz y API"]
+    A --> DB["PostgreSQL en red privada"]
+    A --> O["Almacenamiento de objetos privados"]
+    OP["Operador autorizado"] --> M["Ruta de migración controlada"]
+    M --> DB

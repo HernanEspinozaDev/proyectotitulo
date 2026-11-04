@@ -1,0 +1,15 @@
+@startuml
+skinparam dpi 165
+skinparam shadowing false
+start
+:Recibir y registrar la solicitud;
+:Comprobar identidad, ámbito y finalidad;
+if (¿Procede la supresión?) then (Sí)
+  :Aplicar la acción autorizada a datos y objetos;
+  :Conservar el registro mínimo de la decisión;
+else (No)
+  :Registrar la excepción y su fundamento;
+endif
+:Informar el resultado;
+stop
+@enduml
