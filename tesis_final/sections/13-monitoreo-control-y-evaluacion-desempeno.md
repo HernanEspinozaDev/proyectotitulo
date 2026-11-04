@@ -2,7 +2,7 @@
 
 ## 13.1. Control por incremento
 
-El enfoque híbrido del Capítulo V vincula los entregables de la EDT con incrementos verificables. Cada revisión registra alcance, versión, entorno, evidencia y decisión de cierre. La evaluación distingue cobertura de diseño, ejecución y conformidad. El indicador de desempeño del cronograma se informa cuando existe una línea base y registros de avance que sustentan su cálculo.
+El enfoque híbrido del Capítulo V vincula los entregables de la EDT con incrementos verificables. El criterio de registro de cada revisión exige alcance, versión, entorno, evidencia y decisión de cierre. La Tabla 12 identifica el estado de cada objetivo según los registros disponibles. La evaluación distingue cobertura de diseño, ejecución y conformidad. El indicador de desempeño del cronograma se informa cuando existe una línea base y registros de avance que sustentan su cálculo.
 
 ## 13.2. Control de decisiones y configuración
 
@@ -17,11 +17,11 @@ La matriz vincula objetivo, RQF o RNF, historia o caso de uso, contrato técnico
 
 | Objetivo | Evidencia o entregable de referencia | Estado del corte |
 |---|---|---|
-| OE1 | Diagnóstico y Tabla 7. Catálogos y fichas de los anexos A, B y C. | Alcance especificado. La evaluación de mercado requiere medición propia. |
+| OE1 | Diagnóstico y Tabla 7. Catálogos y fichas de los anexos A, B y C. | Diseño objetivo documentado. La evaluación de mercado y la comprobación por categoría requieren evidencia propia. |
 | OE2 | Vistas de arquitectura y modelo lógico de VIII y IX. Correspondencia física en Tabla D.1. | Diseño documentado y mapeo físico de referencia. |
-| OE3 | LOCAL-1, F5/F6 y contrato del Anexo E. | Alcance sintético verificado según el Capítulo X. |
-| OE4 | Tablas 8 y 10 y pruebas de las tablas F.1 y F.2. | Verificación por corte. Carga y restauración objetivo requieren evidencia asociada. |
-| OE5 | Capítulo XI y Tabla 11. Apartados de factibilidad en Capítulo XII y Anexo H. | Diseño de operación documentado. |
+| OE3 | LOCAL-1, F5/F6 y contrato del Anexo E. | Evidencia de ensayo local según el alcance de cada perfil del Capítulo X. |
+| OE4 | Tablas 8 y 10 y pruebas de las tablas F.1 y F.2. | Evidencia parcial en F.3. Carga de extremo a extremo y recuperación conjunta pendientes. |
+| OE5 | Capítulo XI y Tabla 11. Apartados de factibilidad en Capítulo XII y Anexo H. | Diseño de operación documentado. La factibilidad económica queda pendiente de integración reservada. |
 
 *Nota.* Elaboración propia a partir de los entregables y evidencias de la memoria.
 
