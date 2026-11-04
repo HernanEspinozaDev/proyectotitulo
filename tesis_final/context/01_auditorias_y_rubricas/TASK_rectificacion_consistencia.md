@@ -1,6 +1,6 @@
 # Tarea de rectificación de la memoria de espaciGo
 
-**Estado:** R06 verificado. Siguiente ítem: R09.
+**Estado:** rectificación documental verificada.
 
 La auditoría compara dos versiones del PDF. Esta tarea contrasta los hallazgos con los archivos que entran en `document.json` y conserva como controles de regresión el alcance amplio, la secuencia de 14 figuras del cuerpo, las 35 historias y los 52 casos de uso.
 
@@ -21,7 +21,7 @@ El flujo objetivo comienza con identidad verificada de ambas partes y acuerdo de
 - [x] **R06 · Capítulo IX y Anexo D.** Sustituir la referencia `f4bc7bd` como fuente única por la procedencia verificable del ADR y su actualización local. Contrastar Inmuebles y sus subtipos con V000067, y revisar ocupación exclusiva, titularidad, contrato inmutable, vencimientos, pagos y republicación en el cuerpo, figuras y mapeo físico. Usar 15 minutos para la ruta sin firma y 30/60/15 para aportes, firmas y renta en el ensayo con firma, con 15 adicionales para garantía habilitada. Identificar esos plazos como valores de ensayo. Regenerar cualquier figura incoherente desde su fuente editable.
 - [x] **R07 · Capítulo X y Anexo F.** Contrastar las pruebas del recorrido con las correcciones del VII y IX. Distinguir check-in, checkout, confirmación, liberación del intervalo y pago tardío en casos trazables. Registrar como pendientes la habilitación de Mercado Pago para renta y comisión, SimpleFirma y la modalidad/proveedor de garantía monetaria según sus condiciones de validación. Mantener pendientes las pruebas integrales, de carga y de condiciones dependientes del código o del entorno objetivo. Conservar como evidencia acotada los ensayos locales que tengan resultados registrados.
 - [x] **R08 · Referencias.** Revisar `referencias.bib` y las anotaciones del PDF. La URL de Ley 21.461 ya contiene `idNorma=1178004` en el fuente, y la auditoría anterior comprobó el destino íntegro. Revisar su presentación. Validar el destino de Ley 21.719 y comprobar el cambio de `i=1209272` a `idNorma=1209272` en la salida.
-- [ ] **R09 · Verificación transversal final.** Recorrer en orden todos los capítulos y los anexos para verificar remisiones, términos, numeración, tablas y figuras. Si aparece una discrepancia fuera del corte actual, abrir un ítem para su capítulo. Compilar con DocSkill, verificar índice y enlaces en PDF y revisar visualmente las páginas afectadas. Comprobar que V §5.3, XII, G y H conservan el contenido reservado y sus alertas. Cualquier observación tipográfica en esas zonas se registra para sus autores.
+- [x] **R09 · Verificación transversal final.** Recorrer en orden todos los capítulos y los anexos para verificar remisiones, términos, numeración, tablas y figuras. Si aparece una discrepancia fuera del corte actual, abrir un ítem para su capítulo. Compilar con DocSkill, verificar índice y enlaces en PDF y revisar visualmente las páginas afectadas. Comprobar que V §5.3, XII, G y H conservan el contenido reservado y sus alertas. Cualquier observación tipográfica en esas zonas se registra para sus autores.
 
 ## Registro de entrega
 
@@ -48,3 +48,15 @@ Por cada corte se registra el estado, archivos y figuras corregidos, comandos y 
 - Capítulo VII y Anexo C. Las 52 fichas mantienen nueve atributos y asignan más espacio al detalle. Los pasos numerados conservan su separación en Word y PDF.
 
 - Capítulo IX y Anexo D, revisión del chat de auditoría. Figura 11 regenerada desde Mermaid con cardinalidad de cero o una ocupación por reserva, según el núcleo de referencia. Se amplía la Figura 8 y se identifica el commit de V000067.
+
+## Commits de los cortes
+
+- Capítulo VII y anexos A–C. `7f20655`, `707eb00`, `fda4eb6`.
+- Capítulo V. `10a7022`, `a9120e4`.
+- Capítulo VIII y Anexo E. `e89224a`, `7dd56a5`.
+- Capítulo IX y Anexo D. `6515fd7`, `77542e6`.
+- Capítulo X y Anexo F. `f715d14`.
+- Referencias. `b8c1ea1`.
+- Maquetación transversal. `60689e0`.
+
+- Cierre transversal. PDF de 497 páginas y render de Word revisados por muestras. Se comprueban 24 fuentes, 22 destinos del índice, 14 figuras y 12 tablas del cuerpo, 208 tablas DOCX, 236 RQF, 43 RNF, 35 HU, 52 CU y 16 PT. Las cuatro áreas reservadas se verifican byte a byte. Los pendientes de desarrollo y proveedores quedan en XI y F.

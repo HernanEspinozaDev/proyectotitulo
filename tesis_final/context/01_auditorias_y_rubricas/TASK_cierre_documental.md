@@ -73,4 +73,4 @@ El proyecto confirma nueve categorías. La Tabla E.2 incorpora Inmuebles con cas
 
 ## Rectificación posterior al cierre anterior
 
-La [tarea de rectificación de consistencia](TASK_rectificacion_consistencia.md) registra los hallazgos de la nueva auditoría y el contraste con el ADR local. El cierre de esta ronda se registra por separado conforme se verifica cada capítulo.
+La [tarea de rectificación de consistencia](TASK_rectificacion_consistencia.md) registra los hallazgos de la nueva auditoría y el contraste con el ADR local. La ronda concluye con el Word y el PDF regenerados. La salida PDF tiene 497 páginas y 22 destinos principales de índice comprobados. Permanecen los apartados de integración reservada y las verificaciones de proveedores y desarrollo registradas en XI y F.
