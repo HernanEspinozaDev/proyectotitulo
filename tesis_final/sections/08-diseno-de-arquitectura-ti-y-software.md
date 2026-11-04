@@ -4,6 +4,8 @@
 
 La vista de negocio define oferta, búsqueda, contratación y entrega. La vista de aplicaciones ubica la interfaz, la API y los módulos. La vista de datos asigna autoridades a ocupación, contrato y pagos y separa los archivos privados. La vista de infraestructura identifica los entornos y los controles de despliegue que desarrolla el Capítulo XI.
 
+La Figura 7 organiza las cuatro vistas que se contrastan con los anexos D y E.
+
 **Figura 7**\
 *Vistas de arquitectura de espaciGo*
 
@@ -15,7 +17,7 @@ La vista de negocio define oferta, búsqueda, contratación y entrega. La vista 
 
 El punto de entrada de la API reside en `cmd/api`. El repositorio agrupa responsabilidades en paquetes bajo `internal`, entre ellos `spaces`, `occupancy`, `booking`, `contract` y `documentverification`. Los adaptadores PostgreSQL se organizan bajo `internal/adapters/postgres`. La estructura refleja límites de responsabilidad y permite verificar componentes con dependencias controladas.
 
-El diseño conserva una autoridad de ocupación y utiliza PostgreSQL con PostGIS para persistencia y consultas geográficas. El Capítulo IX especifica la restricción de solapamiento y el Anexo D identifica el origen del catálogo físico. Los objetos privados requieren comprobación de acceso y retención por finalidad.
+El diseño asigna la autoridad de ocupación a PostgreSQL y utiliza PostGIS para las consultas geográficas. El Anexo D respalda la estructura declarada y el Capítulo X delimita la evidencia de concurrencia. El Capítulo IX especifica la restricción de solapamiento y el Anexo D identifica el origen del catálogo físico. Los objetos privados requieren comprobación de acceso y retención por finalidad.
 
 ## 8.3. Presentación y contrato de aplicación
 
@@ -37,4 +39,4 @@ La interfaz Next.js consume la API Go a través de los adaptadores de la aplicac
 
 ## 8.5. Contratos de interfaz
 
-El catálogo versionado utiliza OpenAPI 3.1. La arquitectura objetivo separa aportes de firma, renta y garantía. Cada integración registra su modalidad, estado de habilitación y evidencia de conformidad.
+El catálogo versionado utiliza OpenAPI 3.1. La arquitectura objetivo separa aportes de firma, renta y garantía. El Anexo E registra el corte de interfaz. El Capítulo XI identifica las condiciones de habilitación y el Capítulo X registra los resultados con evidencia disponible.
