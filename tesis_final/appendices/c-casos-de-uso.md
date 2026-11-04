@@ -104,13 +104,15 @@
 
 | Atributo | Detalle |
 |---|---|
-| ID | CU-01 |
+| **ID** | CU-01 |
+| **Caso de Uso** | Registrar una cuenta |
 | **Actor** | Visitante |
+| **Descripción** | El visitante crea una cuenta con correo, contraseña y aceptación de términos. |
 | **Precondiciones** | Formulario y términos vigentes disponibles |
-| **Flujo principal** | Ingresar correo y contraseña y aceptar los términos aplicables. La plataforma valida y registra la cuenta. |
-| **Flujos alternativos** | Informar entradas inválidas o el estado del envío. |
+| **Flujo Principal** | Ingresar correo y contraseña y aceptar los términos aplicables. La plataforma valida y registra la cuenta. |
+| **Flujos Alternativos** | Informar entradas inválidas o el estado del envío. |
 | **Postcondiciones** | Cuenta pendiente de verificación. El registro prescinde de una preferencia inicial. |
-| **Referencias cruzadas** | RQF-001 a RQF-009 · RQF-186, RQF-187 y RQF-213 · HU01 |
+| **Referencias Cruzadas** | RQF-001 a RQF-009 · RQF-186, RQF-187 y RQF-213 · HU01 |
 
 ### CU-02: Verificar Cuenta por Correo Electrónico
 
@@ -120,10 +122,10 @@
 | **Caso de Uso** | Verificar Cuenta por Correo Electrónico |
 | **Actor** | Visitante |
 | **Descripción** | Extensión de CU-01 que envía el token de verificación, confirma la cuenta y restringe el acceso mientras no esté verificada. |
-| **Pre-condiciones** | Haber completado el registro de la cuenta (CU-01). |
+| **Precondiciones** | Haber completado el registro de la cuenta (CU-01). |
 | **Flujo Principal** | 1. El sistema envía al correo electrónico un token de verificación.<br>2. El visitante abre el enlace y consume el token.<br>3. El sistema cambia el estado de la cuenta a "Verificado".<br>4. El sistema informa la verificación exitosa y habilita el inicio de sesión. |
 | **Flujos Alternativos** | **A1. Token inválido o expirado:**<br>1. El sistema rechaza la verificación.<br>2. El sistema permite reenviar el correo de verificación, generando un nuevo token.<br><br>**A2. Intento de inicio de sesión sin verificar (RQF-010):**<br>1. El sistema bloquea el inicio de sesión de cuentas en estado "No Verificado".<br>2. El sistema indica que debe confirmar su correo electrónico. |
-| **Post-condiciones** | Cuenta habilitada para autenticarse en el sistema. |
+| **Postcondiciones** | Cuenta habilitada para autenticarse en el sistema. |
 | **Referencias Cruzadas** | RQF-008 al RQF-010 · RQF-188 · extiende CU-01 · HU01 |
 
 ### CU-03: Iniciar Sesión
@@ -134,10 +136,10 @@
 | **Caso de Uso** | Iniciar Sesión |
 | **Actor** | Usuario Registrado |
 | **Descripción** | El usuario autentica su identidad con correo y contraseña y obtiene una sesión temporal. |
-| **Pre-condiciones** | Poseer una cuenta registrada y verificada por correo electrónico. |
+| **Precondiciones** | Poseer una cuenta registrada y verificada por correo electrónico. |
 | **Flujo Principal** | 1. El usuario ingresa correo y contraseña en la interfaz de acceso.<br>2. El sistema valida que las credenciales correspondan a una cuenta registrada.<br>3. El sistema genera una sesión temporal.<br>4. El sistema redirige al usuario a su panel según su rol. |
 | **Flujos Alternativos** | **A1. Credenciales incorrectas (Paso 2):**<br>1. El sistema rechaza el acceso y despliega un mensaje genérico de seguridad.<br>2. El sistema incrementa el contador de intentos fallidos (deriva en CU-04 al llegar a 5).<br><br>**A2. Cuenta no verificada:**<br>1. El sistema bloquea el acceso y deriva a CU-02. |
-| **Post-condiciones** | Sesión temporal activa en el sistema. |
+| **Postcondiciones** | Sesión temporal activa en el sistema. |
 | **Referencias Cruzadas** | RQF-011 al RQF-013 · RQF-018 · CU-04 (extensión) · HU02 |
 
 ### CU-04: Bloquear Cuenta por Intentos Fallidos
@@ -148,10 +150,10 @@
 | **Caso de Uso** | Bloquear Cuenta por Intentos Fallidos |
 | **Actor** | Usuario Registrado (caso automático desencadenado por el sistema) |
 | **Descripción** | Extensión de CU-03 que bloquea temporalmente la cuenta tras 5 intentos fallidos consecutivos, alerta al usuario y libera el acceso automáticamente. |
-| **Pre-condiciones** | Haber alcanzado 5 intentos fallidos consecutivos (punto de extensión de CU-03). |
+| **Precondiciones** | Haber alcanzado 5 intentos fallidos consecutivos (punto de extensión de CU-03). |
 | **Flujo Principal** | 1. El sistema detecta el 5.º intento fallido consecutivo.<br>2. El sistema bloquea la cuenta de usuario.<br>3. El sistema envía un correo de alerta de seguridad.<br>4. El sistema mantiene el bloqueo durante 30 minutos.<br>5. El sistema libera automáticamente la cuenta al cumplirse el plazo. |
 | **Flujos Alternativos** | **A1. Intento de acceso durante el bloqueo:**<br>1. El sistema rechaza el inicio de sesión e informa el tiempo restante de bloqueo. |
-| **Post-condiciones** | Cuenta liberada automáticamente y contador de intentos reiniciado. |
+| **Postcondiciones** | Cuenta liberada automáticamente y contador de intentos reiniciado. |
 | **Referencias Cruzadas** | RQF-014 al RQF-017 · extiende CU-03 · HU02 |
 
 ### CU-05: Recuperar Contraseña
@@ -162,10 +164,10 @@
 | **Caso de Uso** | Recuperar Contraseña |
 | **Actor** | Usuario Registrado |
 | **Descripción** | Permite restablecer la contraseña mediante un enlace temporal de un solo uso enviado al correo electrónico. |
-| **Pre-condiciones** | Poseer una cuenta registrada. |
+| **Precondiciones** | Poseer una cuenta registrada. |
 | **Flujo Principal** | 1. El usuario solicita la recuperación de contraseña.<br>2. El sistema envía un enlace único al correo electrónico.<br>3. El usuario abre el enlace dentro del plazo de vigencia de 15 minutos.<br>4. El usuario define la nueva contraseña y el sistema la actualiza. |
 | **Flujos Alternativos** | **A1. Enlace expirado (Paso 3):**<br>1. El sistema rechaza el cambio al superar los 15 minutos y solicita generar un nuevo enlace.<br><br>**A2. Correo no registrado (Paso 2):**<br>1. El sistema informa que no es posible continuar con el correo ingresado. |
-| **Post-condiciones** | Credencial de acceso actualizada. |
+| **Postcondiciones** | Credencial de acceso actualizada. |
 | **Referencias Cruzadas** | RQF-019 al RQF-022 · HU03 |
 
 ### CU-06: Cerrar Sesión
@@ -176,10 +178,10 @@
 | **Caso de Uso** | Cerrar Sesión |
 | **Actor** | Usuario Registrado |
 | **Descripción** | El usuario finaliza su sesión activa e invalida la credencial temporal. |
-| **Pre-condiciones** | Sesión activa en el sistema. |
+| **Precondiciones** | Sesión activa en el sistema. |
 | **Flujo Principal** | 1. El usuario selecciona la opción de cerrar sesión.<br>2. El sistema invalida la sesión temporal activa.<br>3. El sistema redirige al usuario al catálogo público. |
 | **Flujos Alternativos** | **A1. Sesión ya expirada:**<br>1. El sistema detecta que la sesión no es válida y redirige al catálogo público sin error. |
-| **Post-condiciones** | Sesión finalizada y token invalidado. |
+| **Postcondiciones** | Sesión finalizada y token invalidado. |
 | **Referencias Cruzadas** | RQF-023 |
 
 > **Caso de uso complementario (2.ª revisión, derivada de las Historias de Usuario):** CU-50 se incorpora al módulo M01 sin alterar la numeración de los casos existentes.
@@ -192,10 +194,10 @@
 | **Caso de Uso** | Cambiar Contraseña |
 | **Actor** | Usuario Registrado |
 | **Descripción** | El usuario autenticado cambia su contraseña indicando la contraseña actual y una nueva que cumpla la política de seguridad y las restricciones de reutilización. |
-| **Pre-condiciones** | Sesión activa en el sistema. |
+| **Precondiciones** | Sesión activa en el sistema. |
 | **Flujo Principal** | 1. El usuario accede a la configuración de seguridad de su cuenta.<br>2. Ingresa la contraseña actual, la contraseña nueva y la repetición de la nueva.<br>3. El sistema valida que la contraseña actual coincida con la registrada.<br>4. El sistema valida que la contraseña nueva cumpla la política de seguridad (mínimo 8 caracteres, una mayúscula, un número y un carácter especial).<br>5. El sistema verifica que la contraseña nueva no coincida con la actual ni con una utilizada en los últimos 3 meses.<br>6. El sistema actualiza la contraseña y notifica el cambio al usuario por correo electrónico. |
 | **Flujos Alternativos** | **A1. Contraseña actual incorrecta (Paso 3):**<br>1. El sistema rechaza la operación y muestra "La contraseña actual no es correcta".<br><br>**A2. Contraseña nueva inválida (Pasos 4 y 5):**<br>1. El sistema rechaza el cambio e indica el requisito incumplido (política de seguridad, igualdad con la contraseña actual o reutilización dentro de los 3 meses).<br><br>**A3. Repetición no coincidente (Paso 2):**<br>1. El sistema solicita volver a ingresar la contraseña nueva y su repetición. |
-| **Post-condiciones** | Credencial de acceso actualizada y usuario notificado del cambio. |
+| **Postcondiciones** | Credencial de acceso actualizada y usuario notificado del cambio. |
 | **Referencias Cruzadas** | RQF-214 al RQF-218 · CU-05 (recuperación de contraseña) · HU03 |
 
 ---
@@ -229,10 +231,10 @@
 | **Caso de Uso** | Gestionar Perfil de Usuario |
 | **Actor** | Usuario Registrado |
 | **Descripción** | El usuario consulta y actualiza sus datos de perfil: nombre, teléfono y fotografía. |
-| **Pre-condiciones** | Sesión activa en el sistema. |
+| **Precondiciones** | Sesión activa en el sistema. |
 | **Flujo Principal** | 1. El usuario accede a la configuración de su perfil.<br>2. El sistema muestra los datos actuales del perfil.<br>3. El usuario modifica su nombre, y el sistema valida que contenga únicamente caracteres alfabéticos y espacios.<br>4. El usuario modifica su teléfono, y el sistema valida que contenga exactamente 9 dígitos.<br>5. El usuario carga una fotografía de perfil, y el sistema valida que no supere los 2MB.<br>6. El sistema guarda los cambios y confirma la actualización. |
 | **Flujos Alternativos** | **A1. Datos con formato inválido (Pasos 3 y 4):**<br>1. El sistema rechaza el valor ingresado y solicita corregirlo.<br><br>**A2. Fotografía superior al límite (Paso 5):**<br>1. El sistema rechaza la carga por superar los 2MB.<br><br>**A3. Eliminación de fotografía:**<br>1. El usuario solicita eliminar su fotografía y el sistema la elimina del perfil. |
-| **Post-condiciones** | Datos de perfil actualizados en la plataforma. |
+| **Postcondiciones** | Datos de perfil actualizados en la plataforma. |
 | **Referencias Cruzadas** | RQF-024 al RQF-031 · HU31 |
 
 ### CU-08: Gestionar Cuenta Bancaria
@@ -243,10 +245,10 @@
 | **Caso de Uso** | Gestionar Cuenta Bancaria |
 | **Actor** | Usuario Registrado |
 | **Descripción** | El usuario mantiene la cuenta bancaria en la que recibirá los pagos de los arriendos: la registra, consulta, modifica o elimina. |
-| **Pre-condiciones** | Sesión activa y RUT validado en el perfil. |
+| **Precondiciones** | Sesión activa y RUT validado en el perfil. |
 | **Flujo Principal** | 1. El usuario accede a los datos de cobro de su perfil.<br>2. El sistema despliega la cuenta bancaria registrada, si existe.<br>3. El usuario registra una nueva cuenta bancaria o modifica la vigente.<br>4. El sistema valida que el RUT de la cuenta coincida con el RUT del usuario.<br>5. El sistema asocia la cuenta bancaria al perfil y confirma la operación.<br>6. El usuario puede eliminar la cuenta bancaria registrada. |
 | **Flujos Alternativos** | **A1. RUT no coincidente (Paso 4):**<br>1. El sistema rechaza la operación e indica que el titular debe coincidir con el usuario verificado.<br><br>**A2. Eliminación con liquidaciones en proceso (Paso 6):**<br>1. El sistema advierte que existen pagos en proceso y mantiene la cuenta hasta completar su liquidación. |
-| **Post-condiciones** | Cuenta bancaria registrada, actualizada o eliminada según la operación ejecutada. |
+| **Postcondiciones** | Cuenta bancaria registrada, actualizada o eliminada según la operación ejecutada. |
 | **Referencias Cruzadas** | RQF-032, RQF-033 · RQF-189 al RQF-191 · CU-42 (uso de la cuenta en la liquidación) · HU31 |
 
 ### CU-09: Solicitar Eliminación de Cuenta
@@ -257,10 +259,10 @@
 | **Caso de Uso** | Solicitar Eliminación de Cuenta |
 | **Actor** | Usuario Registrado |
 | **Descripción** | El usuario solicita la eliminación de su cuenta y de sus datos personales, conforme al derecho de supresión de datos. |
-| **Pre-condiciones** | Sesión activa en el sistema. |
+| **Precondiciones** | Sesión activa en el sistema. |
 | **Flujo Principal** | 1. El usuario solicita la eliminación de su cuenta desde la configuración.<br>2. El sistema verifica que no existan reservas activas.<br>3. El sistema verifica que no existan pagos pendientes.<br>4. El sistema verifica que no existan disputas abiertas.<br>5. El sistema ejecuta la eliminación de la cuenta y la anonimización de la información transaccional histórica.<br>6. El sistema cierra la sesión activa. |
 | **Flujos Alternativos** | **A1. Procesos activos (Pasos 2 a 4):**<br>1. El sistema detecta reservas, pagos o disputas vigentes.<br>2. El sistema rechaza la eliminación e informa el motivo y las condiciones para reintentar. |
-| **Post-condiciones** | Datos personales eliminados y data transaccional anonimizada (plazo administrativo conforme a RNF-026). |
+| **Postcondiciones** | Datos personales eliminados y data transaccional anonimizada (plazo administrativo conforme a RNF-026). |
 | **Referencias Cruzadas** | RQF-034 al RQF-037 · RNF-018, RNF-026, RNF-029 · HU32 |
 
 ---
@@ -297,35 +299,39 @@
 | **Caso de Uso** | Validar Identidad (abstracto) |
 | **Actor** | Usuario Registrado (actor general) |
 | **Descripción** | Caso de uso abstracto que representa el objetivo común de acreditar la identidad del usuario ante un organismo externo, habilitándolo para operar en el marketplace. |
-| **Pre-condiciones** | Sesión activa y datos básicos del perfil completos. |
+| **Precondiciones** | Sesión activa y datos básicos del perfil completos. |
 | **Flujo Principal** | 1. El caso de uso no se instancia directamente.<br>2. Se ejecuta a través de sus especializaciones CU-11 (persona natural) y CU-12 (empresa). |
 | **Flujos Alternativos** | No aplica (caso de uso abstracto). |
-| **Post-condiciones** | Perfil del usuario en estado verificado y habilitado para transaccionar. |
+| **Postcondiciones** | Perfil del usuario en estado verificado y habilitado para transaccionar. |
 | **Referencias Cruzadas** | RQF-038 al RQF-053 (a través de CU-11 y CU-12) |
 
 ### CU-11: Verificar identidad de persona natural
 
 | Atributo | Detalle |
 |---|---|
-| ID | CU-11 |
+| **ID** | CU-11 |
+| **Caso de Uso** | Verificar identidad de persona natural |
 | **Actor** | Parte solicitante y operador autorizado |
+| **Descripción** | La persona acredita su identidad mediante los datos y evidencias requeridos. |
 | **Precondiciones** | Cuenta autenticada y expediente disponible |
-| **Flujo principal** | Evaluar RUT y nombre completo según el documento y el mecanismo habilitado. |
-| **Flujos alternativos** | Registrar antecedentes insuficientes y permitir reintentar mediante CU-14. |
+| **Flujo Principal** | Evaluar RUT y nombre completo según el documento y el mecanismo habilitado. |
+| **Flujos Alternativos** | Registrar antecedentes insuficientes y permitir reintentar mediante CU-14. |
 | **Postcondiciones** | Resultado de verificación disponible para la emisión. |
-| **Referencias cruzadas** | RQF-038 a RQF-047 · HU04 |
+| **Referencias Cruzadas** | RQF-038 a RQF-047 · HU04 |
 
 ### CU-12: Verificar representación empresarial
 
 | Atributo | Detalle |
 |---|---|
-| ID | CU-12 |
+| **ID** | CU-12 |
+| **Caso de Uso** | Verificar representación empresarial |
 | **Actor** | Representante y operador autorizado |
+| **Descripción** | La persona acredita la representación de una empresa mediante un expediente separado. |
 | **Precondiciones** | Cuenta autenticada y representación aplicable |
-| **Flujo principal** | Registrar por separado la empresa y la acreditación de su representante. Evaluar ambos antecedentes. |
-| **Flujos alternativos** | Registrar la falta de antecedentes y solicitar subsanación. |
+| **Flujo Principal** | Registrar por separado la empresa y la acreditación de su representante. Evaluar ambos antecedentes. |
+| **Flujos Alternativos** | Registrar la falta de antecedentes y solicitar subsanación. |
 | **Postcondiciones** | Facultades evaluadas disponibles para la emisión. |
-| **Referencias cruzadas** | RQF-048 a RQF-053 · HU04 |
+| **Referencias Cruzadas** | RQF-048 a RQF-053 · HU04 |
 
 ### CU-13: Revisar Validación Manual
 
@@ -335,10 +341,10 @@
 | **Caso de Uso** | Revisar Validación Manual |
 | **Actor** | Administrador |
 | **Descripción** | El administrador revisa las validaciones de identidad que fallaron automáticamente y resuelve aprobando o rechazando con motivo obligatorio. |
-| **Pre-condiciones** | Sesión activa con rol de Administrador y existencia de validaciones fallidas. |
+| **Precondiciones** | Sesión activa con rol de Administrador y existencia de validaciones fallidas. |
 | **Flujo Principal** | 1. El administrador consulta el listado de validaciones fallidas.<br>2. El sistema despliega los antecedentes aportados por el usuario.<br>3. El administrador selecciona aprobar o rechazar la validación.<br>4. Al rechazar, el administrador ingresa el motivo obligatorio.<br>5. El sistema actualiza el estado del perfil y notifica al usuario. |
 | **Flujos Alternativos** | **A1. Rechazo sin motivo (Paso 4):**<br>1. El sistema exige completar el motivo antes de procesar el rechazo. |
-| **Post-condiciones** | Validación de identidad resuelta manualmente. |
+| **Postcondiciones** | Validación de identidad resuelta manualmente. |
 | **Referencias Cruzadas** | RQF-054 al RQF-057 · CU-11/CU-12 (origen del caso) · CU-14 (reintento) |
 
 ### CU-14: Reintentar Validación Rechazada
@@ -349,10 +355,10 @@
 | **Caso de Uso** | Reintentar Validación Rechazada |
 | **Actor** | Usuario Registrado |
 | **Descripción** | El usuario corrige los antecedentes rechazados y solicita un nuevo intento de validación de identidad. |
-| **Pre-condiciones** | Contar con una validación de identidad previamente rechazada. |
+| **Precondiciones** | Contar con una validación de identidad previamente rechazada. |
 | **Flujo Principal** | 1. El usuario consulta el estado de su validación de identidad.<br>2. El sistema despliega el estado de la validación y, si corresponde, el motivo del rechazo.<br>3. El usuario modifica los antecedentes rechazados.<br>4. El usuario solicita un nuevo intento de validación.<br>5. El sistema reingresa la solicitud al flujo de validación (CU-11 o CU-12). |
 | **Flujos Alternativos** | **A1. Antecedentes sin modificar:**<br>1. El sistema no habilita el nuevo intento y solicita corregir los datos observados. |
-| **Post-condiciones** | Solicitud de validación reingresada para evaluación. |
+| **Postcondiciones** | Solicitud de validación reingresada para evaluación. |
 | **Referencias Cruzadas** | RQF-058, RQF-059 · RQF-193 · CU-13 (origen del rechazo) |
 
 ---
@@ -383,25 +389,29 @@
 
 | Atributo | Detalle |
 |---|---|
-| ID | CU-15 |
+| **ID** | CU-15 |
+| **Caso de Uso** | Publicar un espacio |
 | **Actor** | Titular vigente |
+| **Descripción** | El titular prepara y publica una unidad reservable según las reglas de la oferta. |
 | **Precondiciones** | Sesión activa y borrador disponible |
-| **Flujo principal** | Preparar el borrador y solicitar publicación. La plataforma comprueba titularidad y reglas del anuncio. |
-| **Flujos alternativos** | Denegar por falta de titularidad o conservar borrador con observaciones. |
+| **Flujo Principal** | Preparar el borrador y solicitar publicación. La plataforma comprueba titularidad y reglas del anuncio. |
+| **Flujos Alternativos** | Denegar por falta de titularidad o conservar borrador con observaciones. |
 | **Postcondiciones** | La publicación válida se vuelve visible. |
-| **Referencias cruzadas** | RQF-081 y RQF-082 · HU05 · Figura 7 |
+| **Referencias Cruzadas** | RQF-081 y RQF-082 · HU05 · Figura 7 |
 
 ### CU-16: Administrar la galería
 
 | Atributo | Detalle |
 |---|---|
-| ID | CU-16 |
+| **ID** | CU-16 |
+| **Caso de Uso** | Administrar la galería |
 | **Actor** | Titular vigente |
+| **Descripción** | El titular administra las imágenes, su orden y la portada del espacio. |
 | **Precondiciones** | Espacio propio y sesión activa |
-| **Flujo principal** | Reservar posición, incorporar imagen válida, ordenar y definir portada. |
-| **Flujos alternativos** | Rechazar al ocupar 30 posiciones, incluidas las reservadas. Resolver revisiones concurrentes. |
+| **Flujo Principal** | Reservar posición, incorporar imagen válida, ordenar y definir portada. |
+| **Flujos Alternativos** | Rechazar al ocupar 30 posiciones, incluidas las reservadas. Resolver revisiones concurrentes. |
 | **Postcondiciones** | Galería asociada al espacio y orden conservado. |
-| **Referencias cruzadas** | RQF-074 a RQF-078 · HU05 |
+| **Referencias Cruzadas** | RQF-074 a RQF-078 · HU05 |
 
 ### CU-17: Configurar Calendario de Disponibilidad
 
@@ -411,10 +421,10 @@
 | **Caso de Uso** | Configurar Calendario de Disponibilidad |
 | **Actor** | Arrendador |
 | **Descripción** | El arrendador administra la disponibilidad de su espacio bloqueando y desbloqueando fechas en el calendario de la publicación. |
-| **Pre-condiciones** | Publicación de espacio existente. |
+| **Precondiciones** | Publicación de espacio existente. |
 | **Flujo Principal** | 1. El arrendador accede al calendario de disponibilidad generado para su publicación.<br>2. Selecciona un rango de fechas u horas para bloquear e ingresa el motivo del bloqueo.<br>3. El sistema valida que la fecha de término sea posterior a la de inicio y que el motivo esté ingresado.<br>4. El sistema verifica que el rango no se superponga con reservas existentes y aplica el bloqueo.<br>5. El sistema actualiza la disponibilidad consultada por el motor de búsqueda.<br>6. El arrendador desbloquea fechas previamente bloqueadas cuando corresponde. |
 | **Flujos Alternativos** | **A1. Superposición con reservas existentes (Paso 4):**<br>1. El sistema impide el bloqueo para no interferir con una reserva vigente (deriva de RQF-112).<br><br>**A2. Motivo no ingresado (Paso 3):**<br>1. El sistema exige el motivo del bloqueo antes de aplicarlo.<br><br>**A3. Fecha de término inválida (Paso 3):**<br>1. El sistema rechaza el bloqueo e indica que la fecha de término debe ser posterior a la de inicio. |
-| **Post-condiciones** | Calendario de la publicación actualizado y consistente con las reservas vigentes. |
+| **Postcondiciones** | Calendario de la publicación actualizado y consistente con las reservas vigentes. |
 | **Referencias Cruzadas** | RQF-083 al RQF-085 · RQF-225, RQF-226 · CU-19 (consumo de la disponibilidad) · CU-23 (validación de disponibilidad) · HU20, HU21 |
 
 ### CU-18: Modificar o Dar de Baja Publicación
@@ -425,10 +435,10 @@
 | **Caso de Uso** | Modificar o Dar de Baja Publicación |
 | **Actor** | Arrendador |
 | **Descripción** | El arrendador consulta su listado de publicaciones y modifica, oculta, reactiva o elimina una publicación. |
-| **Pre-condiciones** | Ser propietario de la publicación y tener sesión activa. |
+| **Precondiciones** | Ser propietario de la publicación y tener sesión activa. |
 | **Flujo Principal** | 1. El arrendador consulta su listado de publicaciones.<br>2. Selecciona la publicación que desea gestionar.<br>3. Modifica el título, la descripción, el precio base, las reglas de uso, la capacidad máxima, la modalidad tarifaria o la política de cancelación de la publicación.<br>4. El sistema valida el precio base modificado (mayor a \$5.000 CLP) y las reglas personalizadas (máximo 250 caracteres).<br>5. El sistema publica las reglas de uso y la política de cancelación en el detalle de la publicación.<br>6. Cambia el estado a "Oculta", quedando excluida de los resultados públicos.<br>7. Cambia el estado de "Oculta" a "Activa" cuando corresponde.<br>8. Solicita la eliminación permanente de la publicación. |
 | **Flujos Alternativos** | **A1. Eliminación con reservas futuras (Paso 8):**<br>1. El sistema detecta reservas futuras pendientes asociadas a la publicación.<br>2. El sistema rechaza la eliminación permanente y emite una advertencia.<br><br>**A2. Datos modificados fuera de rango (Paso 4):**<br>1. El sistema rechaza el valor ingresado y detalla las validaciones incumplidas (precio base o largo de la regla personalizada). |
-| **Post-condiciones** | Publicación modificada, con reglas y política de cancelación publicadas, o bien oculta, reactivada o eliminada según la acción ejecutada. |
+| **Postcondiciones** | Publicación modificada, con reglas y política de cancelación publicadas, o bien oculta, reactivada o eliminada según la acción ejecutada. |
 | **Referencias Cruzadas** | RQF-086 al RQF-093 · RQF-195 al RQF-198 · RQF-221 al RQF-224 · HU06, HU07, HU08 |
 
 ---
@@ -463,10 +473,10 @@
 | **Caso de Uso** | Buscar Espacios |
 | **Actor** | Visitante (el Usuario Registrado y el Arrendatario heredan esta capacidad) |
 | **Descripción** | El visitante busca espacios combinando texto libre, mapa interactivo y filtros, y el sistema excluye las publicaciones sin disponibilidad en el rango consultado. |
-| **Pre-condiciones** | Existencia de publicaciones en estado "Activa". |
+| **Precondiciones** | Existencia de publicaciones en estado "Activa". |
 | **Flujo Principal** | 1. El visitante ingresa términos de búsqueda en la barra de texto.<br>2. El sistema renderiza el mapa interactivo con las ubicaciones de los espacios.<br>3. El sistema despliega la cuadrícula de tarjetas con el resumen de las publicaciones.<br>4. El visitante aplica filtros de precio mínimo y máximo, tipo de inmueble, metros cuadrados mínimos y rango de fechas.<br>5. El sistema excluye las publicaciones sin disponibilidad en las fechas consultadas.<br>6. El visitante limpia todos los filtros aplicados para reiniciar la búsqueda. |
 | **Flujos Alternativos** | **A1. Sin resultados coincidentes (Paso 5):**<br>1. El sistema informa que no se encontraron espacios disponibles.<br>2. El sistema sugiere ampliar o relajar los criterios de búsqueda. |
-| **Post-condiciones** | Listado geolocalizado de espacios disponibles según los criterios aplicados. |
+| **Postcondiciones** | Listado geolocalizado de espacios disponibles según los criterios aplicados. |
 | **Referencias Cruzadas** | RQF-094 al RQF-102 · CU-20 (siguiente paso) · HU10 |
 
 ### CU-20: Consultar Detalle de Publicación
@@ -477,10 +487,10 @@
 | **Caso de Uso** | Consultar Detalle de Publicación |
 | **Actor** | Visitante |
 | **Descripción** | El visitante consulta la información completa de un espacio publicado, incluyendo sus fotografías, reglas y reseñas. |
-| **Pre-condiciones** | Publicación en estado "Activa". |
+| **Precondiciones** | Publicación en estado "Activa". |
 | **Flujo Principal** | 1. El visitante selecciona una tarjeta de resultado.<br>2. El sistema despliega los detalles completos de la publicación.<br>3. El sistema muestra las reseñas y calificaciones del espacio (ver CU-36). |
 | **Flujos Alternativos** | **A1. Publicación no disponible (Paso 1):**<br>1. El sistema informa que la publicación ya no está disponible y vuelve a los resultados (deriva de RQF-089). |
-| **Post-condiciones** | Información completa del espacio desplegada para el visitante. |
+| **Postcondiciones** | Información completa del espacio desplegada para el visitante. |
 | **Referencias Cruzadas** | RQF-103 · CU-36 (reseñas) · CU-21 (cotización) |
 
 ### CU-21: Cotizar Estadía
@@ -491,10 +501,10 @@
 | **Caso de Uso** | Cotizar Estadía |
 | **Actor** | Arrendatario |
 | **Descripción** | Calcula y muestra el desglose económico del uso del espacio considerando precio base, comisión de servicio y garantía. |
-| **Pre-condiciones** | Publicación activa y rango de tiempo de uso seleccionado. |
+| **Precondiciones** | Publicación activa y rango de tiempo de uso seleccionado. |
 | **Flujo Principal** | 1. El arrendatario selecciona el tiempo de uso del espacio.<br>2. El sistema calcula el costo total multiplicando el precio base por el tiempo seleccionado.<br>3. El sistema calcula el monto de la comisión de servicio.<br>4. El sistema calcula el monto de la garantía exigida.<br>5. El sistema muestra el desglose de cobro (Estadía + Comisión + Garantía). |
 | **Flujos Alternativos** | **A1. Cambio del rango de tiempo (Paso 2):**<br>1. El arrendatario modifica el rango y el sistema recalcula el desglose antes de continuar. |
-| **Post-condiciones** | Desglose de cobro disponible para iniciar el proceso de reserva. |
+| **Postcondiciones** | Desglose de cobro disponible para iniciar el proceso de reserva. |
 | **Referencias Cruzadas** | RQF-104 al RQF-107 · CU-22 (reserva) · HU15 |
 
 ---
@@ -518,13 +528,15 @@ El flujo de actividad de la Figura 8 del Capítulo IX documenta las ramas de cob
 
 | Atributo | Detalle |
 |---|---|
-| ID | CU-22 |
+| **ID** | CU-22 |
+| **Caso de Uso** | Solicitar un intervalo de reserva |
 | **Actor** | Arrendatario y titular |
+| **Descripción** | Las partes acuerdan un intervalo y un precio antes de bloquear la disponibilidad. |
 | **Precondiciones** | Espacio y solicitud de intervalo identificados |
-| **Flujo principal** | Validar fin posterior al inicio, disponibilidad y acuerdo de horario y precio. Verificar ambas identidades y activar un bloqueo único. |
-| **Flujos alternativos** | Rechazar intervalos inválidos o solapados y conservar la ocupación previa. |
+| **Flujo Principal** | Validar el intervalo y notificar al titular de la solicitud. Registrar el acuerdo de horario y precio, verificar ambas identidades y activar un bloqueo único. |
+| **Flujos Alternativos** | Rechazar intervalos inválidos o solapados y conservar la ocupación previa. |
 | **Postcondiciones** | Un bloqueo activo para la reserva cuando se cumplen las condiciones. |
-| **Referencias cruzadas** | RQF-110 a RQF-113 · HU18 · CU-23 · PT-01 y PT-02 |
+| **Referencias Cruzadas** | RQF-110 a RQF-113 y RQF-122 · HU15, HU18 y HU30 · CU-23 · PT-01 y PT-02 |
 
 ### CU-23: Validar Disponibilidad en Tiempo Real
 
@@ -534,71 +546,81 @@ El flujo de actividad de la Figura 8 del Capítulo IX documenta las ramas de cob
 | **Caso de Uso** | Validar Disponibilidad en Tiempo Real |
 | **Actor** | Sin actor propio: caso de uso incluido obligatoriamente por CU-22 |
 | **Descripción** | Verifica contra la base de datos operativa que el intervalo solicitado no se superponga con reservas confirmadas ni con bloqueos de calendario, evitando la doble reserva. |
-| **Pre-condiciones** | Intervalo de fechas u horas definido por el arrendatario (CU-22, paso 1). |
+| **Precondiciones** | Intervalo de fechas u horas definido por el arrendatario (CU-22, paso 1). |
 | **Flujo Principal** | 1. El sistema consulta la disponibilidad del intervalo solicitado.<br>2. El sistema confirma que no existen superposiciones y retorna el resultado a CU-22. |
 | **Flujos Alternativos** | **A1. Superposición detectada (Paso 1):**<br>1. El sistema rechaza la reserva cuando existe superposición temporal con otra reserva o bloqueo.<br>2. El sistema retorna el rechazo a CU-22. |
-| **Post-condiciones** | Disponibilidad del intervalo confirmada o rechazada. |
+| **Postcondiciones** | Disponibilidad del intervalo confirmada o rechazada. |
 | **Referencias Cruzadas** | RQF-111, RQF-112 · incluido por CU-22 · HU15 |
 
 ### CU-24: Acreditar la renta
 
 | Atributo | Detalle |
 |---|---|
-| ID | CU-24 |
+| **ID** | CU-24 |
+| **Caso de Uso** | Acreditar la renta |
 | **Actor** | Arrendatario y pasarela |
+| **Descripción** | El arrendatario paga la renta al cumplir las condiciones de su emisión. |
 | **Precondiciones** | Bloqueo vigente y modalidad contractual cumplida |
-| **Flujo principal** | Informar vencimiento, habilitar renta y acreditar el evento conciliado. |
-| **Flujos alternativos** | Procesar duplicado sin cambiar estado. Derivar evento tardío a conciliación. |
+| **Flujo Principal** | Informar vencimiento, habilitar renta y acreditar el evento conciliado. |
+| **Flujos Alternativos** | Procesar duplicado sin cambiar estado. Derivar evento tardío a conciliación. |
 | **Postcondiciones** | Renta acreditada y, si corresponde, etapa de garantía disponible. |
-| **Referencias cruzadas** | RQF-116 a RQF-120 · HU17 |
+| **Referencias Cruzadas** | RQF-116 a RQF-120 · HU17 |
 
 ### CU-25: Acreditar garantía cuando corresponde
 
 | Atributo | Detalle |
 |---|---|
-| ID | CU-25 |
+| **ID** | CU-25 |
+| **Caso de Uso** | Acreditar garantía cuando corresponde |
 | **Actor** | Arrendatario |
+| **Descripción** | El arrendatario paga por separado la garantía habilitada y exigible. |
 | **Precondiciones** | Renta acreditada y garantía aplicable y habilitada |
-| **Flujo principal** | Registrar y acreditar la garantía como cobro separado. |
-| **Flujos alternativos** | Omitir la etapa sin garantía. Si vence, liberar el bloqueo. |
+| **Flujo Principal** | Registrar y acreditar la garantía como cobro separado. |
+| **Flujos Alternativos** | Omitir la etapa sin garantía. Si vence, liberar el bloqueo. |
 | **Postcondiciones** | Acreditación o devolución trazada al pagador original. |
-| **Referencias cruzadas** | RQF-118 y RQF-141 · HU17 |
+| **Referencias Cruzadas** | RQF-118 y RQF-141 · HU17 |
 
 ### CU-26: Acordar horario y precio
 
 | Atributo | Detalle |
 |---|---|
-| ID | CU-26 |
+| **ID** | CU-26 |
+| **Caso de Uso** | Acordar horario y precio |
 | **Actor** | Titular |
+| **Descripción** | Las partes acuerdan el horario y el precio de la solicitud. |
 | **Precondiciones** | Solicitud identificada |
-| **Flujo principal** | Consultar y aceptar o rechazar horario y precio. |
-| **Flujos alternativos** | Conservar el motivo aplicable cuando se rechaza la solicitud. |
+| **Flujo Principal** | Consultar y aceptar o rechazar horario y precio. |
+| **Flujos Alternativos** | Conservar el motivo aplicable cuando se rechaza la solicitud. |
 | **Postcondiciones** | Acuerdo registrado para evaluar el bloqueo. |
-| **Referencias cruzadas** | RQF-123 a RQF-127 |
+| **Referencias Cruzadas** | RQF-123 a RQF-127 |
 
 ### CU-27: Procesar el vencimiento de la etapa
 
 | Atributo | Detalle |
 |---|---|
-| ID | CU-27 |
+| **ID** | CU-27 |
+| **Caso de Uso** | Procesar el vencimiento de la etapa |
 | **Actor** | Proceso automático |
+| **Descripción** | La plataforma libera el bloqueo al vencer la etapa contractual o de cobro. |
 | **Precondiciones** | Etapa de contratación con bloqueo activo |
-| **Flujo principal** | Detectar vencimiento y liberar el bloqueo atómicamente. |
-| **Flujos alternativos** | Un reintento conserva el vencimiento original. |
+| **Flujo Principal** | Detectar vencimiento y liberar el bloqueo atómicamente. |
+| **Flujos Alternativos** | Un reintento conserva el vencimiento original. |
 | **Postcondiciones** | Intervalo liberado y transición registrada. |
-| **Referencias cruzadas** | RQF-129 y RQF-140 · PT-05 |
+| **Referencias Cruzadas** | RQF-129 y RQF-140 · PT-05 |
 
 ### CU-28: Conciliar un pago tardío
 
 | Atributo | Detalle |
 |---|---|
-| ID | CU-28 |
+| **ID** | CU-28 |
+| **Caso de Uso** | Conciliar un pago tardío |
 | **Actor** | Operador y proveedor |
+| **Descripción** | La plataforma concilia un pago tardío y mantiene el vencimiento. |
 | **Precondiciones** | Pago posterior al vencimiento |
-| **Flujo principal** | Registrar el evento para conciliación y, si corresponde, vincular la devolución al pago original. |
-| **Flujos alternativos** | Un duplicado conserva el estado. |
+| **Flujo Principal** | Registrar el evento para conciliación y, si corresponde, vincular la devolución al pago original. |
+| **Flujos Alternativos** | Un duplicado conserva el estado. |
 | **Postcondiciones** | Ocupación liberada y resultado financiero trazable. |
-| **Referencias cruzadas** | RQF-128 y RQF-141 · PT-04 |
+| **Referencias Cruzadas** | RQF-128 y RQF-141 · PT-04 |
 
 ### CU-47: Consultar Historial de Reservas
 
@@ -607,12 +629,12 @@ El flujo de actividad de la Figura 8 del Capítulo IX documenta las ramas de cob
 | **ID** | CU-47 |
 | **Caso de Uso** | Consultar Historial de Reservas |
 | **Actor** | Arrendatario · Arrendador |
-| **Descripción** | El usuario consulta las reservas asociadas a su cuenta y el estado vigente de cada una (pendiente de pago, pagada, aprobada, en firma, lista para check-in, en curso, finalizada, en disputa o cerrada). |
-| **Pre-condiciones** | Sesión activa con identidad verificada (KYC o KYB aprobado). |
-| **Flujo Principal** | 1. El usuario accede a su panel de reservas.<br>2. El sistema despliega el historial de reservas asociadas a su cuenta.<br>3. El usuario selecciona una reserva y el sistema muestra su detalle y estado.<br>4. El sistema habilita las acciones disponibles según el estado de la reserva (pagar, aprobar, firmar, descargar el contrato, realizar check-in o check-out, reseñar). |
+| **Descripción** | El usuario consulta las reservas asociadas a su cuenta y su etapa vigente, desde la solicitud y el acuerdo hasta la contratación, el cobro, la operación y el cierre. |
+| **Precondiciones** | Sesión activa con identidad verificada (KYC o KYB aprobado). |
+| **Flujo Principal** | 1. El usuario accede a su panel de reservas.<br>2. El sistema despliega el historial de reservas asociadas a su cuenta.<br>3. El usuario selecciona una reserva y el sistema muestra su detalle y estado.<br>4. El sistema habilita las acciones disponibles según la etapa, la modalidad y el papel del usuario en la reserva. |
 | **Flujos Alternativos** | **A1. Cuenta sin reservas (Paso 2):**<br>1. El sistema muestra el estado vacío del historial.<br><br>**A2. Reserva finalizada seleccionada (Paso 3):**<br>1. El sistema despliega el detalle en modo de solo lectura y no habilita acciones operativas. |
-| **Post-condiciones** | Historial y estado de las reservas consultado por el usuario según su rol. |
-| **Referencias Cruzadas** | RQF-199 · CU-24 (pago), CU-26 (aprobación), CU-31 (contrato), CU-33/CU-34 (check-in y check-out), CU-42 (cierre) |
+| **Postcondiciones** | Historial y estado de las reservas consultado por el usuario según su rol. |
+| **Referencias Cruzadas** | RQF-199 · CU-24 (pago), CU-26 (acuerdo), CU-31 (contrato), CU-33/CU-34 (check-in y check-out), CU-42 (cierre) |
 
 > **Caso de uso complementario (2.ª revisión, derivada de las Historias de Usuario):** CU-51 se incorpora al módulo M06 sin alterar la numeración de los casos existentes.
 
@@ -624,10 +646,10 @@ El flujo de actividad de la Figura 8 del Capítulo IX documenta las ramas de cob
 | **Caso de Uso** | Cancelar Reserva |
 | **Actor** | Arrendatario |
 | **Descripción** | El arrendatario cancela una reserva vigente conforme a la política de cancelación del espacio, gestionando la devolución de los fondos según corresponda. |
-| **Pre-condiciones** | Reserva en estado "Pagada", "Aprobada_Host", "Lista_Para_Checkin" o "En_Curso", con sesión activa del arrendatario titular. |
-| **Flujo Principal** | 1. El arrendatario selecciona la reserva desde su historial de reservas.<br>2. El sistema muestra la política de cancelación aplicable y el monto estimado a devolver.<br>3. El arrendatario confirma la cancelación e ingresa un motivo opcional.<br>4. El sistema cambia el estado de la reserva a "Cancelada" y libera las fechas bloqueadas.<br>5. El sistema calcula el monto a reembolsar según la política de cancelación configurada.<br>6. El sistema ejecuta el reembolso a través de la pasarela de pago y registra el resultado de la operación.<br>7. El sistema notifica a ambas partes la cancelación y el estado de la devolución de los fondos. |
+| **Precondiciones** | Sesión activa del arrendatario asociado a la reserva. La etapa y el plazo deben admitir cancelación conforme a la política aplicable. El vencimiento se procesa por CU-27. |
+| **Flujo Principal** | 1. El arrendatario selecciona la reserva desde su historial de reservas.<br>2. El sistema muestra la política de cancelación aplicable y el monto estimado a devolver.<br>3. El arrendatario confirma la cancelación e ingresa un motivo opcional.<br>4. El sistema cambia el estado de la reserva a "Cancelada" y libera las fechas bloqueadas.<br>5. El sistema calcula el monto a reembolsar según la política de cancelación configurada.<br>6. Si procede una devolución, el sistema la vincula al pago y al pagador originales y registra su resultado.<br>7. El sistema notifica a ambas partes la cancelación y el estado de la devolución de los fondos. |
 | **Flujos Alternativos** | **A1. Cancelación fuera del plazo permitido:**<br>1. El sistema rechaza la cancelación e informa que se encuentra fuera del plazo de la política de cancelación.<br><br>**A2. Rechazo del reembolso por la pasarela:**<br>1. El sistema registra el fallo, reintenta conforme a las políticas de conciliación (RNF-028) y mantiene la reserva cancelada con la devolución pendiente.<br><br>**A3. Reserva con disputa abierta:**<br>1. El sistema no habilita la cancelación y deriva el caso al flujo de resolución de disputas (CU-41). |
-| **Post-condiciones** | Reserva cancelada, fechas liberadas, reembolso ejecutado o en proceso y partes notificadas del estado de devolución. |
+| **Postcondiciones** | Reserva cancelada, fechas liberadas, reembolso ejecutado o en proceso y partes notificadas del estado de devolución. |
 | **Referencias Cruzadas** | RQF-228 al RQF-231 · CU-18 (política de cancelación) · CU-27 (liberación de fechas) · CU-24 (acreditación de renta) · CU-47 (acceso a la reserva) · HU19 |
 
 ---
@@ -651,49 +673,57 @@ La Figura 8 del Capítulo IX documenta las dos modalidades de contratación. CU-
 
 | Atributo | Detalle |
 |---|---|
-| ID | CU-29 |
+| **ID** | CU-29 |
+| **Caso de Uso** | Emitir y aceptar el contrato |
 | **Actor** | Arrendatario y titular |
+| **Descripción** | La plataforma emite el contrato y registra la aceptación de cada parte. |
 | **Precondiciones** | Ambas identidades verificadas y acuerdo sobre horario y precio |
-| **Flujo principal** | Emitir documento inmutable y registrar la aceptación por parte. |
-| **Flujos alternativos** | Un cambio origina otra emisión. La elección bilateral de SimpleFirma activa CU-30. |
+| **Flujo Principal** | Emitir documento inmutable y registrar la aceptación por parte. |
+| **Flujos Alternativos** | Un cambio origina otra emisión. La elección bilateral de SimpleFirma activa CU-30. |
 | **Postcondiciones** | La ruta sin firma habilita renta tras ambas aceptaciones. |
-| **Referencias cruzadas** | RQF-130 a RQF-133 · HU33 |
+| **Referencias Cruzadas** | RQF-130 a RQF-133 · HU33 |
 
 ### CU-30: Firmar electrónicamente de forma opcional
 
 | Atributo | Detalle |
 |---|---|
-| ID | CU-30 |
+| **ID** | CU-30 |
+| **Caso de Uso** | Firmar electrónicamente de forma opcional |
 | **Actor** | Arrendatario, titular y SimpleFirma |
+| **Descripción** | Las partes completan las firmas cuando eligen la modalidad opcional. |
 | **Precondiciones** | Ambas partes eligen la modalidad y los aportes exigibles se acreditan |
-| **Flujo principal** | Solicitar firmas para la emisión y registrar cada resultado. |
-| **Flujos alternativos** | Procesar vencimiento mediante CU-32. |
+| **Flujo Principal** | Solicitar firmas para la emisión y registrar cada resultado. |
+| **Flujos Alternativos** | Procesar vencimiento mediante CU-32. |
 | **Postcondiciones** | Las dos firmas habilitan renta. |
-| **Referencias cruzadas** | RQF-133 a RQF-141 · HU33 |
+| **Referencias Cruzadas** | RQF-133 a RQF-141 · HU33 |
 
 ### CU-31: Consultar la emisión contractual
 
 | Atributo | Detalle |
 |---|---|
-| ID | CU-31 |
+| **ID** | CU-31 |
+| **Caso de Uso** | Consultar la emisión contractual |
 | **Actor** | Parte autorizada |
+| **Descripción** | La parte autorizada accede al contrato de su emisión. |
 | **Precondiciones** | Emisión asociada al arriendo y disponible |
-| **Flujo principal** | Consultar o descargar el documento de la emisión con su modalidad. |
-| **Flujos alternativos** | Denegar acceso a un tercero. |
+| **Flujo Principal** | Consultar o descargar el documento de la emisión con su modalidad. |
+| **Flujos Alternativos** | Denegar acceso a un tercero. |
 | **Postcondiciones** | Documento y modalidad identificados. |
-| **Referencias cruzadas** | RQF-142 |
+| **Referencias Cruzadas** | RQF-142 |
 
 ### CU-32: Procesar vencimiento de firma opcional
 
 | Atributo | Detalle |
 |---|---|
-| ID | CU-32 |
+| **ID** | CU-32 |
+| **Caso de Uso** | Procesar vencimiento de firma opcional |
 | **Actor** | Proceso automático |
+| **Descripción** | La plataforma procesa el vencimiento de la firma opcional y aplica su política de reversos. |
 | **Precondiciones** | Etapa de firma opcional activa |
-| **Flujo principal** | Procesar vencimiento, liberar el bloqueo y tramitar reversos según la política ratificada. |
-| **Flujos alternativos** | Conservar el historial ante una firma tardía. |
+| **Flujo Principal** | Procesar vencimiento, liberar el bloqueo y tramitar reversos según la política ratificada. |
+| **Flujos Alternativos** | Conservar el historial ante una firma tardía. |
 | **Postcondiciones** | Intervalo liberado y conciliación trazable. |
-| **Referencias cruzadas** | RQF-140 y RQF-141 |
+| **Referencias Cruzadas** | RQF-140 y RQF-141 |
 
 ## Módulo M08 — Check-in y Check-out
 
@@ -716,7 +746,7 @@ La Figura 8 del Capítulo IX documenta las dos modalidades de contratación. CU-
 |---|---|---|
 | `ARR -- CU-33` | Asociación | El arrendador participa en CU-33 al recibir la notificación del ingreso del arrendatario (RQF-149); no participa en CU-34, cuyos RF (RQF-150 a RQF-152) son ejecutados solo por el arrendatario. |
 | CU-33 ↔ CU-34 | Sin relación | Son objetivos independientes y distantes en el tiempo (inicio y término del arriendo). Se evaluó `<<include>>`, pero el check-out no forma parte de la ejecución del check-in, ni el check-in es condición condicional del check-out. |
-| CU-48 → CU-34 | Sin relación (evaluado) | Se evaluó `<<extend>>` desde CU-48 hacia CU-34. Se descartó: la confirmación de recepción la ejecuta un **actor distinto** (Arrendador), ocurre **después** de que el caso base finaliza y no modifica el comportamiento del check-out (RQF-205). Se modela como caso de uso independiente con la reserva finalizada como pre-condición. |
+| CU-48 → CU-34 | Sin relación (evaluado) | Se evaluó `<<extend>>` desde CU-48 hacia CU-34. Se descartó: la confirmación de recepción la ejecuta un **actor distinto** (Arrendador), ocurre **después** de que el caso base finaliza y no modifica el comportamiento del check-out (RQF-205). Se modela como caso de uso independiente con la entrega registrada como precondición. |
 
 ### CU-33: Realizar Check-in con Evidencia
 
@@ -726,35 +756,39 @@ La Figura 8 del Capítulo IX documenta las dos modalidades de contratación. CU-
 | **Caso de Uso** | Realizar Check-in con Evidencia |
 | **Actor** | Arrendatario (inicia) · Arrendador (recibe notificación) |
 | **Descripción** | El arrendatario documenta la recepción del espacio mediante fotografías y comentarios, registrándose la fecha y ubicación del ingreso. |
-| **Pre-condiciones** | Reserva confirmada y fecha actual coincidente con el día de inicio. La modalidad de firma corresponde a la emisión aceptada. |
+| **Precondiciones** | Reserva confirmada y fecha actual coincidente con el día de inicio. La modalidad de firma corresponde a la emisión aceptada. |
 | **Flujo Principal** | 1. El sistema habilita la opción de check-in únicamente el día de inicio de la reserva.<br>2. El arrendatario carga las fotografías del estado del espacio.<br>3. El arrendatario ingresa comentarios de texto asociados al ingreso.<br>4. El sistema registra la fecha y la ubicación al procesar el check-in.<br>5. El sistema cambia el estado de la reserva a "En_Curso".<br>6. El sistema notifica al arrendador que el arrendatario procesó el ingreso. |
 | **Flujos Alternativos** | **A1. Check-in fuera de la fecha de inicio (Paso 1):**<br>1. El sistema bloquea la posibilidad de realizar check-in.<br><br>**A2. Envío sin fotografías (Paso 2):**<br>1. El sistema rechaza el formulario y exige al menos una evidencia fotográfica. |
-| **Post-condiciones** | Evidencia de entrada registrada y reserva en estado "En_Curso". |
+| **Postcondiciones** | Evidencia de entrada registrada y reserva en estado "En_Curso". |
 | **Referencias Cruzadas** | RQF-143 al RQF-149 · RQF-203 · CU-24 (reserva confirmada) · CU-41 y CU-48 (evidencia) · RNF-042 · HU35 |
 
 ### CU-34: Registrar la entrega
 
 | Atributo | Detalle |
 |---|---|
-| ID | CU-34 |
+| **ID** | CU-34 |
+| **Caso de Uso** | Registrar la entrega |
 | **Actor** | Arrendatario |
+| **Descripción** | El arrendatario registra evidencia de la entrega del espacio. |
 | **Precondiciones** | Arriendo en curso y participante autorizado |
-| **Flujo principal** | Registrar entrega y evidencia de operación. |
-| **Flujos alternativos** | Derivar inconsistencias al flujo de revisión. |
+| **Flujo Principal** | Registrar la entrega con al menos una fotografía de evidencia. |
+| **Flujos Alternativos** | Rechazar el registro sin fotografías y derivar las inconsistencias de operación al flujo de revisión. |
 | **Postcondiciones** | Entrega disponible para confirmar en CU-48. |
-| **Referencias cruzadas** | RQF-150 a RQF-152 · HU35 |
+| **Referencias Cruzadas** | RQF-150 a RQF-152 y RQF-204 · CU-48 · HU35 |
 
 ### CU-48: Confirmar la desocupación
 
 | Atributo | Detalle |
 |---|---|
-| ID | CU-48 |
+| **ID** | CU-48 |
+| **Caso de Uso** | Confirmar la desocupación |
 | **Actor** | Titular |
+| **Descripción** | El titular confirma la desocupación a partir de la entrega registrada. |
 | **Precondiciones** | Entrega registrada |
-| **Flujo principal** | Confirmar desocupación y liberar solo el bloqueo correspondiente. |
-| **Flujos alternativos** | Denegar a quien carece de titularidad o si falta entrega. |
+| **Flujo Principal** | Confirmar desocupación, registrar fecha y ubicación y liberar solo el bloqueo correspondiente. |
+| **Flujos Alternativos** | Denegar a quien carece de titularidad o si falta entrega. |
 | **Postcondiciones** | Contrato conservado y republicación disponible. |
-| **Referencias cruzadas** | RQF-205 y RQF-206 · HU35 · PT-08 |
+| **Referencias Cruzadas** | RQF-205 y RQF-206 · HU35 · PT-08 |
 
 ## Módulo M09 — Comunicación y Reputación
 
@@ -788,10 +822,10 @@ La Figura 8 del Capítulo IX documenta las dos modalidades de contratación. CU-
 | **Caso de Uso** | Registrar Reseña y Calificación |
 | **Actor** | Arrendatario · Arrendador |
 | **Descripción** | El arrendatario califica y reseña el espacio, y el arrendador califica y reseña al arrendatario, una vez finalizada la reserva. |
-| **Pre-condiciones** | Reserva finalizada y usuario participante de la reserva. |
+| **Precondiciones** | Reserva finalizada y usuario participante de la reserva. |
 | **Flujo Principal** | 1. El usuario accede al formulario de reseña de una reserva finalizada.<br>2. El arrendatario registra la calificación numérica y la reseña del espacio.<br>3. El arrendador registra la calificación numérica y la reseña del arrendatario.<br>4. El sistema registra las evaluaciones y recalcula el promedio de calificaciones del espacio.<br>5. El sistema publica la reseña del espacio en la vista de detalle de la publicación. |
 | **Flujos Alternativos** | **A1. Reserva no finalizada:**<br>1. El sistema no habilita el formulario de reseña mientras la reserva no esté finalizada.<br><br>**A2. Segunda reseña de la misma reserva (Paso 4):**<br>1. El sistema rechaza el registro si el mismo participante ya emitió su reseña para esa reserva.<br><br>**A3. Envío sin calificación numérica (Paso 2):**<br>1. El sistema exige seleccionar la puntuación y no registra la reseña. |
-| **Post-condiciones** | Calificaciones y reseñas registradas, con el promedio de calificaciones del espacio actualizado. |
+| **Postcondiciones** | Calificaciones y reseñas registradas, con el promedio de calificaciones del espacio actualizado. |
 | **Referencias Cruzadas** | RQF-153, RQF-154 · RQF-232 al RQF-235 · CU-36 (visualización de reseñas), CU-47 (historial de reservas), CU-49 (reporte de reseña) · HU25 |
 
 ### CU-36: Consultar Reseñas y Calificaciones
@@ -802,10 +836,10 @@ La Figura 8 del Capítulo IX documenta las dos modalidades de contratación. CU-
 | **Caso de Uso** | Consultar Reseñas y Calificaciones |
 | **Actor** | Visitante |
 | **Descripción** | El visitante consulta las reseñas y calificaciones publicadas de un espacio desde su vista de detalle. |
-| **Pre-condiciones** | Publicación en estado "Activa". |
+| **Precondiciones** | Publicación en estado "Activa". |
 | **Flujo Principal** | 1. El visitante accede al detalle del espacio.<br>2. El sistema despliega las reseñas y calificaciones registradas. |
 | **Flujos Alternativos** | **A1. Espacio sin reseñas:**<br>1. El sistema muestra el estado vacío indicando que aún no existen evaluaciones. |
-| **Post-condiciones** | Evaluaciones del espacio consultadas por el visitante. |
+| **Postcondiciones** | Evaluaciones del espacio consultadas por el visitante. |
 | **Referencias Cruzadas** | RQF-155 · CU-20 (vista de detalle) · CU-44 (moderación por el administrador) |
 
 ### CU-37: Enviar Mensajes en el Chat de la Reserva
@@ -816,10 +850,10 @@ La Figura 8 del Capítulo IX documenta las dos modalidades de contratación. CU-
 | **Caso de Uso** | Enviar Mensajes en el Chat de la Reserva |
 | **Actor** | Arrendador · Arrendatario |
 | **Descripción** | Las partes intercambian mensajes asociados a la reserva mediante el chat interno de la plataforma. |
-| **Pre-condiciones** | Existencia de una reserva entre las partes. |
+| **Precondiciones** | Existencia de una reserva entre las partes. |
 | **Flujo Principal** | 1. El arrendatario envía mensajes en el chat de la reserva.<br>2. El arrendador envía mensajes en el chat de la reserva.<br>3. El sistema asocia cada mensaje al hilo de la reserva correspondiente. |
 | **Flujos Alternativos** | **A1. Intento de envío sin reserva asociada:**<br>1. El sistema no habilita el chat y no registra el mensaje. |
-| **Post-condiciones** | Mensajes registrados en el hilo de la reserva. |
+| **Postcondiciones** | Mensajes registrados en el hilo de la reserva. |
 | **Referencias Cruzadas** | RQF-156, RQF-157 · CU-38 (historial) · HU34 |
 
 ### CU-38: Consultar Historial de Mensajes
@@ -830,10 +864,10 @@ La Figura 8 del Capítulo IX documenta las dos modalidades de contratación. CU-
 | **Caso de Uso** | Consultar Historial de Mensajes |
 | **Actor** | Arrendador · Arrendatario |
 | **Descripción** | Las partes consultan el historial completo de mensajes asociado a la reserva. |
-| **Pre-condiciones** | Existencia de una reserva con mensajes registrados. |
+| **Precondiciones** | Existencia de una reserva con mensajes registrados. |
 | **Flujo Principal** | 1. La parte abre el hilo de la reserva.<br>2. El sistema despliega el historial de mensajes de la reserva. |
 | **Flujos Alternativos** | **A1. Hilo sin mensajes:**<br>1. El sistema muestra el estado vacío del chat. |
-| **Post-condiciones** | Historial de mensajes consultado por la parte solicitante. |
+| **Postcondiciones** | Historial de mensajes consultado por la parte solicitante. |
 | **Referencias Cruzadas** | RQF-158 · CU-37 (origen de los mensajes) · HU34 |
 
 > **Caso de uso complementario (revisión de completitud):** CU-49 se incorpora al módulo M09 sin alterar la numeración de los casos de uso existentes.
@@ -846,10 +880,10 @@ La Figura 8 del Capítulo IX documenta las dos modalidades de contratación. CU-
 | **Caso de Uso** | Reportar Reseña |
 | **Actor** | Arrendador |
 | **Descripción** | El arrendador reporta una reseña publicada sobre su espacio cuando considera que incumple las reglas de publicación, habilitando su revisión por parte del administrador. |
-| **Pre-condiciones** | Sesión activa y existencia de una reseña publicada sobre un espacio del arrendador. |
+| **Precondiciones** | Sesión activa y existencia de una reseña publicada sobre un espacio del arrendador. |
 | **Flujo Principal** | 1. El arrendador accede a las reseñas de su espacio (CU-36).<br>2. Selecciona la reseña que desea reportar.<br>3. El sistema registra el reporte y cambia la reseña al estado "Reportada".<br>4. El sistema notifica la reseña reportada al administrador para su moderación (CU-44). |
 | **Flujos Alternativos** | **A1. Reseña ya reportada (Paso 3):**<br>1. El sistema informa que la reseña se encuentra en revisión y no duplica el reporte. |
-| **Post-condiciones** | Reseña reportada y disponible para la moderación del administrador. |
+| **Postcondiciones** | Reseña reportada y disponible para la moderación del administrador. |
 | **Referencias Cruzadas** | RQF-207 · CU-36 (visualización), CU-44 (moderación) |
 
 ---
@@ -875,13 +909,15 @@ El reclamo y la conciliación conservan trazas independientes. La confirmación 
 
 | Atributo | Detalle |
 |---|---|
-| ID | CU-39 |
+| **ID** | CU-39 |
+| **Caso de Uso** | Registrar reclamo por daños |
 | **Actor** | Titular |
+| **Descripción** | La parte autorizada registra un reclamo por daños y adjunta evidencia. |
 | **Precondiciones** | Reserva y evidencia de entrega identificadas |
-| **Flujo principal** | Registrar reclamo, motivo y evidencia. |
-| **Flujos alternativos** | Denegar acceso sin autorización o solicitar antecedentes. |
+| **Flujo Principal** | Registrar reclamo, motivo y evidencia. |
+| **Flujos Alternativos** | Denegar acceso sin autorización o solicitar antecedentes. |
 | **Postcondiciones** | Caso disponible para evaluación. |
-| **Referencias cruzadas** | RQF-159 a RQF-162 · CU-41 |
+| **Referencias Cruzadas** | RQF-159 a RQF-162 · CU-41 |
 
 ### CU-40: Presentar Descargos ante Disputa
 
@@ -891,35 +927,39 @@ El reclamo y la conciliación conservan trazas independientes. La confirmación 
 | **Caso de Uso** | Presentar Descargos ante Disputa |
 | **Actor** | Arrendatario |
 | **Descripción** | El arrendatario presenta su defensa con texto y fotografías frente a un reclamo por daños (extensión de CU-39). |
-| **Pre-condiciones** | Existencia de una disputa abierta y notificada al arrendatario (punto de extensión de CU-39). |
+| **Precondiciones** | Existencia de una disputa abierta y notificada al arrendatario (punto de extensión de CU-39). |
 | **Flujo Principal** | 1. El arrendatario revisa el reclamo registrado.<br>2. Ingresa el texto de defensa.<br>3. Adjunta las fotografías de respaldo.<br>4. El sistema incorpora los antecedentes a la disputa para la revisión del administrador. |
 | **Flujos Alternativos** | **A1. El arrendatario no presenta descargos:**<br>1. La extensión no se ejecuta y el administrador resuelve con la evidencia disponible (CU-41). |
-| **Post-condiciones** | Antecedentes de defensa incorporados a la disputa. |
+| **Postcondiciones** | Antecedentes de defensa incorporados a la disputa. |
 | **Referencias Cruzadas** | RQF-165 · extiende CU-39 · CU-41 · HU28 |
 
 ### CU-41: Resolver una disputa
 
 | Atributo | Detalle |
 |---|---|
-| ID | CU-41 |
+| **ID** | CU-41 |
+| **Caso de Uso** | Resolver una disputa |
 | **Actor** | Operador autorizado |
+| **Descripción** | La plataforma resuelve una disputa a partir de los antecedentes y descargos. |
 | **Precondiciones** | Reclamo abierto |
-| **Flujo principal** | Revisar antecedentes y descargos, registrar decisión y notificar. |
-| **Flujos alternativos** | Derivar un ajuste de garantía habilitada a CU-42. |
+| **Flujo Principal** | Revisar antecedentes y descargos, registrar decisión y notificar. |
+| **Flujos Alternativos** | Derivar un ajuste de garantía habilitada a CU-42. |
 | **Postcondiciones** | Resultado y trazabilidad de la disputa conservados. |
-| **Referencias cruzadas** | RQF-166 a RQF-171 · CU-39 y CU-42 |
+| **Referencias Cruzadas** | RQF-166 a RQF-171 · CU-39 y CU-42 |
 
 ### CU-42: Conciliar cobros y reversos
 
 | Atributo | Detalle |
 |---|---|
-| ID | CU-42 |
+| **ID** | CU-42 |
+| **Caso de Uso** | Conciliar cobros y reversos |
 | **Actor** | Operador y proveedor |
+| **Descripción** | La plataforma concilia los cobros y reversos asociados a la operación. |
 | **Precondiciones** | Cobro o reverso identificado |
-| **Flujo principal** | Conciliar obligación, pagador, estado y eventos externos. |
-| **Flujos alternativos** | Deduplicar y tramitar devolución contra el pago original. |
+| **Flujo Principal** | Conciliar obligación, pagador, estado y eventos externos. |
+| **Flujos Alternativos** | Deduplicar y tramitar devolución contra el pago original. |
 | **Postcondiciones** | Movimiento trazable, independiente del bloqueo. |
-| **Referencias cruzadas** | RQF-128, RQF-141 y RQF-172 a RQF-177 |
+| **Referencias Cruzadas** | RQF-128, RQF-141 y RQF-172 a RQF-177 |
 
 ## Módulo M11 — Administración y Auditoría
 
@@ -950,10 +990,10 @@ El reclamo y la conciliación conservan trazas independientes. La confirmación 
 | **Caso de Uso** | Gestionar Bloqueo de Cuentas de Usuario |
 | **Actor** | Administrador |
 | **Descripción** | El administrador bloquea, consulta el motivo y desbloquea el acceso de una cuenta de usuario. |
-| **Pre-condiciones** | Sesión activa con rol de Administrador. |
+| **Precondiciones** | Sesión activa con rol de Administrador. |
 | **Flujo Principal** | 1. El administrador busca la cuenta del usuario.<br>2. El administrador bloquea el acceso a la cuenta de usuario.<br>3. El sistema registra la acción con su motivo.<br>4. El administrador consulta el motivo de bloqueo registrado.<br>5. El administrador desbloquea la cuenta dejándola habilitada nuevamente. |
 | **Flujos Alternativos** | **A1. Cuenta ya bloqueada:**<br>1. El sistema informa el estado actual y el motivo registrado, sin duplicar la acción. |
-| **Post-condiciones** | Estado de acceso de la cuenta actualizado y trazable. |
+| **Postcondiciones** | Estado de acceso de la cuenta actualizado y trazable. |
 | **Referencias Cruzadas** | RQF-178 al RQF-180 · RQF-212 · CU-46 (trazabilidad) |
 
 ### CU-44: Moderar Reseñas Reportadas
@@ -964,10 +1004,10 @@ El reclamo y la conciliación conservan trazas independientes. La confirmación 
 | **Caso de Uso** | Moderar Reseñas Reportadas |
 | **Actor** | Administrador |
 | **Descripción** | El administrador oculta una reseña reportada que incumple las reglas de publicación, registrando el motivo de la acción. |
-| **Pre-condiciones** | Existencia de una reseña reportada. |
+| **Precondiciones** | Existencia de una reseña reportada. |
 | **Flujo Principal** | 1. El administrador accede a la reseña reportada.<br>2. El administrador oculta la reseña.<br>3. El administrador registra el motivo obligatorio de la moderación.<br>4. El sistema deja la reseña fuera de la vista pública. |
 | **Flujos Alternativos** | **A1. Moderación sin motivo (Paso 3):**<br>1. El sistema exige registrar el motivo antes de aplicar la acción. |
-| **Post-condiciones** | Reseña moderada y oculta de la vista pública. |
+| **Postcondiciones** | Reseña moderada y oculta de la vista pública. |
 | **Referencias Cruzadas** | RQF-181, RQF-182 · CU-36 (visualización de reseñas) · CU-49 (origen del reporte) |
 
 ### CU-45: Generar Reportes de Gestión
@@ -978,10 +1018,10 @@ El reclamo y la conciliación conservan trazas independientes. La confirmación 
 | **Caso de Uso** | Generar Reportes de Gestión |
 | **Actor** | Administrador |
 | **Descripción** | El administrador genera reportes de reservas, pagos y disputas para el control de la operación. |
-| **Pre-condiciones** | Sesión activa con rol de Administrador. |
+| **Precondiciones** | Sesión activa con rol de Administrador. |
 | **Flujo Principal** | 1. El administrador selecciona el tipo de reporte requerido.<br>2. El sistema genera el reporte de reservas, pagos y disputas.<br>3. El administrador consulta el reporte generado. |
 | **Flujos Alternativos** | **A1. Período sin datos:**<br>1. El sistema informa que no existen registros para los criterios seleccionados. |
-| **Post-condiciones** | Reporte de gestión disponible para el administrador. |
+| **Postcondiciones** | Reporte de gestión disponible para el administrador. |
 | **Referencias Cruzadas** | RQF-183 |
 
 ### CU-46: Consultar y Exportar Historial de Auditoría
@@ -992,10 +1032,10 @@ El reclamo y la conciliación conservan trazas independientes. La confirmación 
 | **Caso de Uso** | Consultar y Exportar Historial de Auditoría |
 | **Actor** | Administrador |
 | **Descripción** | El operador autorizado consulta eventos de auditoría con los filtros de OpenAPI y exporta los resultados permitidos. |
-| **Pre-condiciones** | Sesión activa con rol de Administrador. |
+| **Precondiciones** | Sesión activa con rol de Administrador. |
 | **Flujo Principal** | 1. El operador selecciona los filtros autorizados para la consulta.<br>2. El sistema consulta y despliega el historial de auditoría asociado.<br>3. El administrador exporta los registros de auditoría consultados. |
 | **Flujos Alternativos** | **A1. Filtros sin coincidencias (Paso 2):**<br>1. El sistema informa que no existen trazas de auditoría para el identificador ingresado.<br><br>**A2. Sin consulta previa (Paso 3):**<br>1. El sistema no habilita la exportación hasta ejecutar una consulta. |
-| **Post-condiciones** | Historial de auditoría consultado y, si corresponde, exportado. |
+| **Postcondiciones** | Historial de auditoría consultado y, si corresponde, exportado. |
 | **Referencias Cruzadas** | RQF-184, RQF-185 · RNF-017 (inmutabilidad del repositorio) |
 
 > **Caso de uso complementario (2.ª revisión, derivada de las Historias de Usuario):** CU-52 se incorpora al módulo M11 sin alterar la numeración de los casos existentes.
@@ -1008,10 +1048,10 @@ El reclamo y la conciliación conservan trazas independientes. La confirmación 
 | **Caso de Uso** | Consultar Publicaciones de la Plataforma |
 | **Actor** | Administrador |
 | **Descripción** | El administrador consulta el listado de espacios publicados en la plataforma para su supervisión. |
-| **Pre-condiciones** | Sesión activa con rol de Administrador. |
+| **Precondiciones** | Sesión activa con rol de Administrador. |
 | **Flujo Principal** | 1. El administrador accede al listado de espacios publicados.<br>2. El sistema despliega las publicaciones con sus datos principales (título, arrendador, tipo de inmueble, estado y precio base).<br>3. El administrador selecciona una publicación y el sistema muestra su detalle. |
 | **Flujos Alternativos** | **A1. Plataforma sin publicaciones:**<br>1. El sistema muestra el estado vacío del listado. |
-| **Post-condiciones** | Publicaciones de la plataforma consultadas por el administrador. |
+| **Postcondiciones** | Publicaciones de la plataforma consultadas por el administrador. |
 | **Referencias Cruzadas** | RQF-236 · CU-44 (moderación), CU-45 (reportes), CU-46 (auditoría) · HU26 |
 
 ---
@@ -1113,7 +1153,7 @@ El reclamo y la conciliación conservan trazas independientes. La confirmación 
 | `<<include>>` CU-29 → CU-30 (firma tras el envío) | La firma la ejecutan las partes con un proveedor externo, de forma asíncrona; no es una ejecución obligatoria sincrónica del envío. |
 | `<<include>>` CU-19 → CU-21 / CU-20 → CU-36 (detalle y reseñas) | No existe obligatoriedad: se puede buscar sin cotizar, y consultar el detalle no exige ver reseñas. |
 | `<<extend>>` CU-13 → CU-11/CU-12 (revisión manual) | La revisión manual es un objetivo autónomo del Administrador, no un comportamiento opcional del caso base. Se documenta como flujo alternativo derivado. |
-| Caso de uso "Cifrar contraseña" | Es `RNF-013`, no un requerimiento funcional (corrección explícita de la profesora). |
+| Caso de uso "Cifrar contraseña" | Corresponde al requisito no funcional `RNF-013`. |
 | Caso de uso "Transmitir logs a BigQuery" | Es `RNF-017`; no existe RF observable por un actor. |
 | Caso de uso "Consultar Mis Publicaciones" | El RQF-093 se integra como primer paso de CU-18 y no requiere ficha independiente. |
 | Generalización Administrador → Usuario Registrado | No hay especialización real: el administrador no ejecuta los flujos comerciales del marketplace. |

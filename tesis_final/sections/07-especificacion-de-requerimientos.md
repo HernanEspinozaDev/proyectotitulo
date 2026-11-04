@@ -27,9 +27,11 @@ El Anexo A utiliza el prefijo `RQF` como identificador canónico. La agrupación
 | Publicación por titularidad | RQF-082 | HU05 y CU-15 |
 | Selección y validación de intervalo | RQF-108 a RQF-111 | HU15, CU-22 y CU-23 |
 | Exclusión y activación del bloqueo | RQF-112 y RQF-113 | HU18, HU23 y CU-22 |
+| Aviso de nueva solicitud | RQF-122 | HU30 y CU-22 |
 | Emisión, aceptación y firma opcional | RQF-130 a RQF-133 | HU33, CU-29 y CU-30 |
 | Acreditación de renta y garantía separada | RQF-116 a RQF-120 | HU17, CU-24 y CU-25 |
-| Entrega y desocupación | RQF-150, RQF-152, RQF-205 y RQF-206 | HU35, CU-34 y CU-48 |
+| Check-in | RQF-143 a RQF-149 y RQF-203 | HU35 y CU-33 |
+| Entrega y desocupación | RQF-150 a RQF-152 y RQF-204 a RQF-206 | HU35, CU-34 y CU-48 |
 
 *Nota.* Elaboración propia. Los anexos A, B y C detallan los requisitos, historias y casos. La Tabla F.1 del Anexo F documenta los criterios de prueba. La aceptación por parte se desarrolla en HU33 y CU-29.
 

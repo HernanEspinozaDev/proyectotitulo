@@ -129,7 +129,7 @@ El catálogo especifica el diseño objetivo y conserva identificadores de las it
 | RQF-119 | El sistema debe registrar el rechazo del intento de pago y conservar el vencimiento original del bloqueo. |
 | RQF-120 | El sistema debe mostrar el vencimiento de la etapa antes de iniciar el cobro. |
 | RQF-121 | El sistema debe notificar al arrendatario cuando el pago sea procesado. |
-| RQF-122 | El sistema debe notificar al arrendador sobre la recepción de una nueva solicitud pagada. |
+| RQF-122 | El sistema debe notificar al arrendador sobre la recepción de una nueva solicitud de arriendo antes del acuerdo y del cobro. |
 | RQF-123 | El sistema debe permitir al arrendador consultar las solicitudes de reserva entrantes. |
 | RQF-124 | El sistema debe permitir al arrendador aprobar una solicitud de reserva. |
 | RQF-125 | El sistema debe registrar el acuerdo del titular sobre el horario y el precio antes de iniciar el bloqueo. |
@@ -234,7 +234,7 @@ El catálogo especifica el diseño objetivo y conserva identificadores de las it
 
 ## Requerimientos funcionales complementarios — Historias de usuario
 
-> Estos **24 requerimientos (RQF-213 a RQF-236)** se incorporaron al revisar íntegramente las 30 Historias de Usuario. Su objetivo es que **ninguna HU quede con criterios de aceptación sin respaldo funcional**, y al mismo tiempo se corrigieron en las HU todas las contradicciones numéricas y de alcance detectadas.
+> Estos **24 requerimientos (RQF-213 a RQF-236)** se incorporaron al revisar el catálogo de 35 historias de usuario. Su objetivo es que **ninguna HU quede con criterios de aceptación sin respaldo funcional**, y al mismo tiempo se corrigieron en las HU todas las contradicciones numéricas y de alcance detectadas.
 >
 > Se mantiene la regla de trazabilidad: **IDs nuevos al final**, sin renumerar ni modificar los requerimientos anteriores.
 
@@ -271,7 +271,7 @@ El catálogo especifica el diseño objetivo y conserva identificadores de las it
 
 **Convenciones aplicadas**
 
-1. **Redacción estándar:** todos los RNF se redactan como **"El sistema debe [condición de calidad]"**, evitando verbos de acción funcional (los verbos de función pertenecen al catálogo de RF). Excepción controlada: los RNF de *Implementación / Gestión de configuración*, redactados como *"El código fuente debe almacenarse..."*, siguiendo el formato de referencia entregado en la retroalimentación.
+1. **Redacción estándar:** todos los RNF se redactan como **"El sistema debe [condición de calidad]"**, evitando verbos de acción funcional (los verbos de función pertenecen al catálogo de RF). Excepción controlada: los RNF de *Implementación / Gestión de configuración*, redactados como *"El código fuente debe almacenarse..."*, siguiendo el estándar de especificación adoptado en el proyecto.
 2. **Categoría y subcategoría:** cada RNF declara su categoría principal (en negrita en la sección de resumen) y su subcategoría específica.
 3. **Mínimo 3 ejemplos por categoría:** todas las categorías declaradas tienen al menos 3 requerimientos (ver sección de resumen).
 4. **Separación RF/RNF:** los RNF describen *condiciones de calidad, restricciones o cumplimiento*. Las acciones del sistema (registrar, generar, ejecutar, notificar, etc.) están exclusivamente en el catálogo de RF. Se corrigieron los RNF que contenían acciones funcionales (RNF-002, RNF-003, RNF-004 y RNF-027) y se separaron los que mezclaban dos condiciones distintas (RNF-012 y RNF-018).

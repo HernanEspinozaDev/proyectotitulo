@@ -370,8 +370,8 @@ El anexo reúne 35 historias en nueve épicas. Cada ficha identifica actor, crit
 **Para que** pueda hacer seguimiento de mis arriendos y acceder a las acciones disponibles en cada caso.
 
 ### Criterios de Aceptación
-- El sistema debe desplegar el historial de reservas del usuario con el estado vigente de cada una (pendiente de pago, pagada, aprobada, en firma, lista para check-in, en curso, finalizada, en disputa o cerrada).
-- Al seleccionar una reserva, el sistema debe mostrar su detalle y habilitar únicamente las acciones válidas para su estado (pagar, aprobar, firmar, descargar contrato, realizar check-in o check-out, reseñar).
+- El sistema debe desplegar el historial de reservas del usuario con la etapa vigente de cada una, desde la solicitud y el acuerdo de horario y precio hasta la contratación, el cobro, la confirmación y el cierre, según corresponda.
+- Al seleccionar una reserva, el sistema debe mostrar su detalle y habilitar únicamente las acciones válidas para su etapa, modalidad y papel en la reserva, como acordar condiciones, aceptar el contrato, firmar, pagar o registrar el ingreso o la entrega.
 - Las reservas finalizadas deben mostrarse en modo de solo lectura.
 - Si la cuenta no registra reservas, el sistema debe mostrar el estado vacío del historial.
 
@@ -384,7 +384,7 @@ El anexo reúne 35 historias en nueve épicas. Cada ficha identifica actor, crit
 ## HU15 - Selección de bloques de fecha y hora para reserva
 
 **Épica:** E4 · **Rol (Como):** Arrendatario · **Prioridad:** Alta
-**RF:** RQF-071, RQF-108 a RQF-112 · **CU:** CU-19, CU-21, CU-22
+**RF:** RQF-071, RQF-108 a RQF-112 · **CU:** CU-19, CU-21, CU-22, CU-23
 
 **Como** arrendatario,
 **Quiero** seleccionar un rango de fechas y horarios disponibles en el calendario del espacio,
@@ -421,30 +421,35 @@ El anexo reúne 35 historias en nueve épicas. Cada ficha identifica actor, crit
 
 ## HU17 - Pagar la renta mediante pasarela integrada
 
-**Épica:** E4 · **Rol:** Arrendatario · **Prioridad:** Alta
+**Épica:** E4 · **Rol (Como):** Arrendatario · **Prioridad:** Alta
 **RF:** RQF-116 a RQF-120, RQF-128 y RQF-129 · **CU:** CU-24, CU-25 y CU-28
 
 **Como** arrendatario, **quiero** pagar la renta según la modalidad de mi emisión **para** confirmar mi reserva.
 
-### Criterios de aceptación
+### Criterios de Aceptación
 
-- Tras ambas aceptaciones, o ambas firmas en la modalidad SimpleFirma, la plataforma habilita la renta. La garantía habilitada se acredita después y por separado. El pago tardío se concilia sin reactivar la reserva.
+- En la modalidad sin firma, la plataforma habilita el cobro de la renta tras ambas aceptaciones.
+- En la modalidad SimpleFirma, la plataforma habilita el cobro de la renta tras acreditar ambas firmas.
+- La garantía, si es exigible y está habilitada, se acredita por separado después de la renta.
+- La plataforma deriva el pago tardío a conciliación y conserva el vencimiento de la reserva.
 
 ## HU18 - Confirmar la reserva y conservar la ocupación
 
-**Épica:** E4 · **Rol:** Participante de la reserva · **Prioridad:** Alta
+**Épica:** E4 · **Rol (Como):** Participante de la reserva · **Prioridad:** Alta
 **RF:** RQF-110 a RQF-113 y RQF-116 · **CU:** CU-22, CU-23 y CU-24
 
 **Como** participante de la reserva, **quiero** conocer si mi reserva se confirma **para** coordinar el uso del espacio.
 
-### Criterios de aceptación
+### Criterios de Aceptación
 
-- El bloqueo se activa tras verificar ambas identidades y acordar horario y precio. Un intervalo activo solapado impide otro bloqueo. La confirmación exige condiciones y cobros satisfechos.
+- El bloqueo se activa tras verificar ambas identidades y registrar el acuerdo de horario y precio.
+- La plataforma rechaza el bloqueo si existe un intervalo activo solapado.
+- La plataforma confirma la reserva al completar las condiciones y acreditar los cobros exigibles.
 
 ## HU19 - Cancelación de reserva y gestión de devolución
 
 **Épica:** E4 · **Rol (Como):** Arrendatario · **Prioridad:** Media
-**RF:** RQF-117, RQF-200, RQF-223, RQF-226 a RQF-231 · **CU:** CU-51, CU-42
+**RF:** RQF-117, RQF-200, RQF-223, RQF-228 a RQF-231 · **CU:** CU-51, CU-42
 
 **Como** arrendatario,
 **Quiero** cancelar una reserva conforme a la política de cancelación del espacio,
@@ -465,14 +470,17 @@ El anexo reúne 35 historias en nueve épicas. Cada ficha identifica actor, crit
 
 ## HU33 - Aceptar el contrato de arriendo
 
-**Épica:** E4 · **Rol:** Participante del arriendo · **Prioridad:** Alta
+**Épica:** E4 · **Rol (Como):** Participante del arriendo · **Prioridad:** Alta
 **RF:** RQF-130 a RQF-133 y RQF-138 · **CU:** CU-29 y CU-30
 
 **Como** participante del arriendo, **quiero** revisar y aceptar la emisión **para** conservar las condiciones acordadas.
 
-### Criterios de aceptación
+### Criterios de Aceptación
 
-- Se exige identidad verificada antes de emitir. La plataforma registra aceptación por parte y emisión. Un cambio origina otra emisión. En la modalidad opcional, se acreditan los aportes antes de habilitar ambas firmas.
+- La plataforma exige identidad verificada de ambas partes antes de emitir.
+- La plataforma registra por separado la aceptación de cada parte sobre la misma emisión inmutable.
+- Un cambio de condiciones exige una nueva emisión y nuevas aceptaciones.
+- Si ambas partes eligen SimpleFirma, la plataforma acredita los aportes antes de habilitar ambas firmas.
 
 ## Épica E5 — Disponibilidad y Calendario
 
@@ -538,14 +546,16 @@ El anexo reúne 35 historias en nueve épicas. Cada ficha identifica actor, crit
 
 ## HU23 - Mantener la disponibilidad del espacio
 
-**Épica:** E5 · **Rol:** Titular · **Prioridad:** Alta
+**Épica:** E5 · **Rol (Como):** Titular · **Prioridad:** Alta
 **RF:** RQF-112, RQF-120, RQF-129 y RQF-140 · **CU:** CU-22, CU-27 y CU-28
 
 **Como** titular, **quiero** consultar la ocupación de mi espacio **para** coordinar el uso sin solapamientos.
 
-### Criterios de aceptación
+### Criterios de Aceptación
 
-- La restricción de ocupación impide bloqueos activos solapados. El vencimiento libera solo el intervalo correspondiente. Un evento duplicado conserva el vencimiento y uno tardío entra a conciliación.
+- La restricción de ocupación impide bloqueos activos solapados.
+- Al vencer una reserva, la plataforma libera de forma atómica su bloqueo y conserva los demás intervalos vigentes.
+- Un evento duplicado conserva el vencimiento original y un pago tardío entra a conciliación sin reactivar la reserva.
 
 ## HU24 - Configuración de disponibilidad recurrente
 
@@ -615,7 +625,7 @@ El anexo reúne 35 historias en nueve épicas. Cada ficha identifica actor, crit
 ## HU26 - Panel de control y supervisión del administrador
 
 **Épica:** E7 · **Rol (Como):** Administrador · **Prioridad:** Alta
-**RF:** RQF-178 a RQF-180, RQF-183 a RQF-185, RQF-212, RQF-236 · **CU:** CU-43, CU-45, CU-46
+**RF:** RQF-178 a RQF-180, RQF-183 a RQF-185, RQF-212, RQF-236 · **CU:** CU-43, CU-45, CU-46, CU-52
 
 **Como** administrador del sistema,
 **Quiero** acceder a un panel de control con las herramientas de gobierno de la plataforma,
@@ -695,14 +705,14 @@ El anexo reúne 35 historias en nueve épicas. Cada ficha identifica actor, crit
 ## HU30 - Notificaciones y alertas de la plataforma
 
 **Épica:** E8 · **Rol (Como):** Usuario Registrado · **Prioridad:** Media
-**RF:** RQF-047, RQF-121, RQF-122, RQF-139, RQF-149, RQF-164, RQF-194, RQF-201, RQF-210, RQF-218, RQF-231 · **RNF:** RNF-023, RNF-024 · **CU:** CU-02, CU-03, CU-24, CU-30, CU-33, CU-41, CU-50, CU-51
+**RF:** RQF-047, RQF-121, RQF-122, RQF-139, RQF-149, RQF-164, RQF-194, RQF-201, RQF-210, RQF-218, RQF-231 · **RNF:** RNF-023, RNF-024 · **CU:** CU-02, CU-03, CU-22, CU-24, CU-30, CU-33, CU-41, CU-50, CU-51
 
 **Como** usuario registrado de la plataforma,
 **Quiero** recibir notificaciones por correo electrónico sobre el estado de mis reservas, pagos y validaciones,
 **Para que** esté informado de cada movimiento relevante de mi actividad en EspaciGo.
 
 ### Criterios de Aceptación
-- El sistema debe notificar por correo electrónico: la verificación de cuenta, el resultado de la validación de identidad (KYC y KYB), el procesamiento o rechazo del pago, la recepción de nuevas solicitudes pagadas, el estado de la firma del contrato, el check-in realizado, la apertura y el resultado de una disputa, el cambio de contraseña y la cancelación de una reserva.
+- El sistema debe notificar por correo electrónico: la verificación de cuenta, el resultado de la validación de identidad (KYC y KYB), el procesamiento o rechazo del pago, la recepción de nuevas solicitudes de arriendo antes del acuerdo y del cobro, el estado de la firma del contrato, el check-in realizado, la apertura y el resultado de una disputa, el cambio de contraseña y la cancelación de una reserva.
 - Las notificaciones críticas deben enviarse de forma automática, sin intervención del usuario.
 - Si el servicio de correo o el proveedor externo presenta fallas, el sistema debe reintentar el envío conforme a las políticas de resiliencia (RNF-023, RNF-024) y registrarlo para auditoría.
 - El sistema debe informar al usuario en la interfaz el resultado de las operaciones críticas que generan notificación (pago, firma, disputa, cancelación).
@@ -713,16 +723,19 @@ El anexo reúne 35 historias en nueve épicas. Cada ficha identifica actor, crit
 
 ## Épica E9 — Operación del Arriendo
 
-## HU35 - Registrar entrega y confirmar desocupación
+## HU35 - Registrar el ingreso y la entrega del espacio
 
-**Épica:** E9 · **Rol:** Arrendatario y titular · **Prioridad:** Alta
-**RF:** RQF-150, RQF-152, RQF-205 y RQF-206 · **CU:** CU-34 y CU-48
+**Épica:** E9 · **Rol (Como):** Arrendatario y titular · **Prioridad:** Alta
+**RF:** RQF-143 a RQF-152 y RQF-203 a RQF-206 · **CU:** CU-33, CU-34 y CU-48
 
-**Como** arrendatario y titular, **quiero** conservar evidencia de la entrega **para** cerrar el intervalo de uso.
+**Como** arrendatario y titular, **quiero** conservar evidencia del ingreso y la entrega **para** documentar la operación y cerrar el intervalo de uso.
 
-### Criterios de aceptación
+### Criterios de Aceptación
 
-- El arrendatario registra entrega y el titular confirma desocupación. El sistema libera solo el intervalo del arriendo, conserva el contrato y habilita republicación. Los reclamos y garantías se tratan de forma separada.
+- Con reserva confirmada, la plataforma habilita el check-in únicamente en la fecha de inicio.
+- El arrendatario adjunta al menos una fotografía y puede agregar comentarios. La plataforma registra fecha y ubicación, inicia el arriendo y notifica al arrendador.
+- El arrendatario registra el check-out y adjunta al menos una fotografía antes de que el titular confirme la desocupación.
+- Al confirmar, la plataforma registra fecha y ubicación, libera solo el intervalo del arriendo, conserva el contrato y habilita la republicación. Los reclamos y garantías se tramitan por separado.
 
 ## Resumen de trazabilidad de las historias de usuario
 
@@ -746,7 +759,7 @@ El anexo reúne 35 historias en nueve épicas. Cada ficha identifica actor, crit
 | HU16 | E4 | RQF-104–107 | CU-21 |
 | HU17 | E4 | RQF-116 a RQF-120, RQF-128 y RQF-129 | CU-24, CU-25 y CU-28 |
 | HU18 | E4 | RQF-110 a RQF-113 y RQF-116 | CU-22, CU-23 y CU-24 |
-| HU19 | E4 | RQF-117, 200, 223, 226–231 | CU-51, CU-42 |
+| HU19 | E4 | RQF-117, 200, 223, 228–231 | CU-51, CU-42 |
 | HU20 | E5 | RQF-083–085, 112 | CU-17, CU-19 |
 | HU21 | E5 | RQF-084, 085, 112, 225, 226 | CU-17 |
 | HU22 | E5 | RQF-199 | CU-47 |
@@ -757,12 +770,12 @@ El anexo reúne 35 historias en nueve épicas. Cada ficha identifica actor, crit
 | HU27 | E7 | RQF-181, 182, 207 | CU-44, CU-49 |
 | HU28 | E7 | RQF-159–175, 209, 210 | CU-39, CU-40, CU-41, CU-42 |
 | HU29 | E8 | Sin RF (fuera de alcance) | — |
-| HU30 | E8 | RQF-047, 121, 122, 139, 149, 164, 194, 201, 210, 218, 231 | CU-02, CU-03, CU-24, CU-30, CU-33, CU-41, CU-50, CU-51 |
+| HU30 | E8 | RQF-047, 121, 122, 139, 149, 164, 194, 201, 210, 218, 231 | CU-02, CU-03, CU-22, CU-24, CU-30, CU-33, CU-41, CU-50, CU-51 |
 | HU31 | E1 | RQF-024–033, 189–191 | CU-07, CU-08 |
 | HU32 | E1 | RQF-034–037 | CU-09 |
 | HU33 | E4 | RQF-130 a RQF-133 y RQF-138 | CU-29 y CU-30 |
 | HU34 | E6 | RQF-156–158 | CU-37, CU-38 |
-| HU35 | E9 | RQF-150, RQF-152, RQF-205 y RQF-206 | CU-34 y CU-48 |
+| HU35 | E9 | RQF-143 a RQF-152 y RQF-203 a RQF-206 | CU-33, CU-34 y CU-48 |
 
 **Cobertura:** 33 de las 35 historias tienen requisitos asociados. Las dos restantes (HU24 y HU29) quedan fuera del corte documentado, con los criterios que deberían definirse si el equipo decide incorporarlas.
 
