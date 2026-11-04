@@ -19,12 +19,12 @@ Para fundamentar la selección del enfoque híbrido frente a alternativas (Casca
 
 | Criterio de selección | Peso | Valoraciones | Justificación técnica |
 |--------------------------|:----------:|---------------------|-----------------------------------------|
-| **Predictibilidad y Control del Alcance** | 25% | 4 / 5 · 2 / 5 · **5 / 5** | El Anexo A fija una línea base de 236 requisitos funcionales. La EDT registra cambios de alcance por incremento. |
-| **Fijeza de Plazos Académicos Institucionales** | 25% | 3 / 5 · 2 / 5 · **5 / 5** | Las fechas de titulación universitaria son inflexibles. La evaluación pondera la capacidad de organizar entregas parciales dentro del calendario académico. |
-| **Mitigación Temprana de Riesgos Técnicos** | 20% | 1 / 5 · 5 / 5 · **4 / 5** | La evaluación compara la frecuencia con que cada propuesta del proyecto incorpora pruebas y revisión de riesgos. |
-| **Control Formal de EDT y Recursos** | 15% | 4 / 5 · 1 / 5 · **5 / 5** | La evaluación considera el grado de integración de la EDT y la asignación de responsabilidades con los controles del proyecto. |
-| **Trazabilidad de Pruebas y Calidad (QA)** | 15% | 2 / 5 · 4 / 5 · **5 / 5** | Permite vincular cada paquete de trabajo de la EDT con matrices de prueba unitarias, de integración y rendimiento. |
-| **Puntaje Ponderado Total** | **100%** | **2,85 / 5,00** · **2,75 / 5,00** · **4,80 / 5,00** | **Selección Ganadora: Modelo Híbrido** |
+| **Predictibilidad y Control del Alcance** | 25% | 4/5 · 2/5 · **5/5** | El Anexo A fija una línea base de 236 requisitos funcionales. La EDT registra cambios de alcance por incremento. |
+| **Fijeza de Plazos Académicos Institucionales** | 25% | 3/5 · 2/5 · **5/5** | Las fechas de titulación universitaria son inflexibles. La evaluación pondera la capacidad de organizar entregas parciales dentro del calendario académico. |
+| **Mitigación Temprana de Riesgos Técnicos** | 20% | 1/5 · 5/5 · **4/5** | La evaluación compara la frecuencia con que cada propuesta del proyecto incorpora pruebas y revisión de riesgos. |
+| **Control Formal de EDT y Recursos** | 15% | 4/5 · 1/5 · **5/5** | La evaluación considera el grado de integración de la EDT y la asignación de responsabilidades con los controles del proyecto. |
+| **Trazabilidad de Pruebas y Calidad (QA)** | 15% | 2/5 · 4/5 · **5/5** | Permite vincular cada paquete de trabajo de la EDT con matrices de prueba unitarias, de integración y rendimiento. |
+| **Puntaje Ponderado Total** | **100%** | **2,85/5,00** · **2,75/5,00** · **4,80/5,00** | **Selección Ganadora: Modelo Híbrido** |
 
 *Nota.* Elaboración propia. Cada criterio se valora de 1 a 5 para este proyecto, donde 1 indica ajuste bajo y 5 ajuste alto. Las valoraciones se presentan en el orden cascada, Scrum y modelo híbrido. El total suma cada valoración multiplicada por su ponderación [@pmbok7].
 
