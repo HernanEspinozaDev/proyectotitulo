@@ -1,6 +1,6 @@
 # Tarea de rectificación de la memoria de espaciGo
 
-**Estado:** R03 verificado. Siguiente ítem: R09.
+**Estado:** R05 verificado. Siguiente ítem: R09.
 
 La auditoría compara dos versiones del PDF. Esta tarea contrasta los hallazgos con los archivos que entran en `document.json` y conserva como controles de regresión el alcance amplio, la secuencia de 14 figuras del cuerpo, las 35 historias y los 52 casos de uso.
 
@@ -40,3 +40,5 @@ Por cada corte se registra el estado, archivos y figuras corregidos, comandos y 
 - Referencias. Ley 21.461 y Ley 21.719 comprobadas en BCN y en las anotaciones del PDF. El primer enlace conserva su destino íntegro.
 
 - Capítulo VII y Anexo C, revisión del chat de auditoría. Figura C.7 reemplazada, actores y relación de acuerdo conciliados con las fichas, y vencimiento modelado como proceso autónomo. Compilación DocSkill completada.
+
+- Capítulo VIII y Anexo E, revisión del chat de auditoría. Confirmados los ocho valores del filtro local de búsqueda y los nueve perfiles del catálogo de producto. La selección de portada queda identificada en la prueba integrada dependiente del desarrollo.
