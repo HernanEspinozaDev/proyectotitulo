@@ -25,7 +25,7 @@ La Figura 2 muestra cómo un caso de uso intercambia datos con sus adaptadores.
 
 ### 3.3.1. Búsqueda geoespacial
 
-PostGIS aporta tipos espaciales y funciones de consulta por proximidad [@postgis; @es2postgiswithin]. En el diseño, la búsqueda combina distancia y filtros para seleccionar espacios candidatos. El Anexo E identifica las rutas declaradas y el Capítulo X delimita la evidencia de búsqueda. La disponibilidad se consulta por separado para el intervalo solicitado.
+PostGIS aporta tipos espaciales y funciones de consulta por proximidad [@postgis; @es2postgiswithin]. La búsqueda combina distancia y atributos para seleccionar candidatos. La consulta de disponibilidad evalúa el intervalo solicitado sobre esos espacios, porque la cercanía de una oferta no determina si puede reservarse en ese horario.
 
 ### 3.3.2. Rangos temporales y exclusión de solapamientos
 
