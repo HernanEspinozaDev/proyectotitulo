@@ -164,6 +164,19 @@ def postprocess():
             if child.tag != f'{W}p':
                 continue
             text = ''.join(child.itertext()).strip()
+
+            # Keep the table label and title on the same page as the table.
+            label = next(child.iter(f'{W}t'), None)
+            if (label is not None
+                    and re.fullmatch(r'Tabla (?:[A-Z]\.)?\d+(?:\.\d+)?', label.text or '')
+                    and i + 1 < len(children)
+                    and children[i + 1].tag == f'{W}tbl'):
+                properties = child.find(f'{W}pPr')
+                if properties is None:
+                    properties = ET.Element(f'{W}pPr')
+                    child.insert(0, properties)
+                if properties.find(f'{W}keepNext') is None:
+                    ET.SubElement(properties, f'{W}keepNext')
             
             # If paragraph starts with "Figura X" or "Figura C.X" -> assign ImageCaption + keepNext
             if re.match(r'^Figura\s+(\d+|[A-Z]\.\d+)', text):
