@@ -1,0 +1,39 @@
+@startuml
+title Flujo de Gestión de Incidentes, Categorización, Escalamiento y Resolución - espaciGo
+skinparam shadowing false
+
+|Monitoreo / Usuario / Administrador|
+start
+:Detección de anomalía o falla\n(Alerta Cloud Logging, fallo de sonda /health/ready,\nerror en reconciliador o reporte en plataforma);
+:Registrar incidente con Correlation-ID, timestamp UTC,\nSHA de revisión desplegada (versión desplegada) y componente afectado;
+
+|Ingeniero de Guardia / Soporte Nivel 1 (N1)|
+:Clasificar severidad del incidente (SEV-1 a SEV-4)\ny verificar si afecta datos personales o pagos;
+
+if (¿Nivel de Severidad?) then (SEV-1: Crítico\nCaída total, brecha de seguridad/PII o colisión financiera)
+  |Arquitecto Cloud & Backend (N3 - Responsable Técnico)|
+  :Activar protocolo de respuesta inmediata (< 15 min);
+  :Ejecutar contención: Rollback de tráfico en Cloud Run\na revisión previa sana o aislamiento de credenciales en Secret Manager;
+  if (¿Requiere restauración de base de datos?) then (Sí)
+    :Ejecutar procedimiento DRP Cloud SQL + Replay de Privacidad\n(docs/gcp03-origin-recovery-procedure.md);
+  else (No)
+  endif
+elseif (SEV-2: Alto\nFallo parcial de módulo: KYC, firma PDF, WebP o SMTP) then
+  |Especialista de Dominio / Integraciones (N2)|
+  :Diagnosticar logs estructurados y tablas de auditoría/outbox\n(outbox_evento, aviso, media_variant_intent);
+  :Re-encolar eventos fallidos o reabrir avisos\n(POST /api/v1/admin/local/notices/{id}/reopen);
+else (SEV-3 / SEV-4: Medio o Bajo\nDefecto visual UI o mejora no bloqueante)
+  |Equipo de Desarrollo Frontend / Backend (N2)|
+  :Reproducir en entorno local aislado con datos sintéticos\n(compose.yaml + Playwright E2E);
+endif
+
+|Equipo de Desarrollo (Desarrollador)|
+:Desarrollar corrección en rama temporal\ncodex/<area>/fix/<id>-<descripcion>;
+:Añadir test de regresión unitario/E2E que reproduzca la falla;
+:Abrir Pull Request hacia main y aprobar checks de GitHub Actions;
+
+|Revisor / Operador Cloud (Responsable Técnico / Revisor)|
+:Revisar SHA, aprobar PR, fusionar a main\ny ejecutar rollout verificado en Cloud Build;
+:Confirmar restablecimiento del SLA y documentar Post-Mortem\nsin exponer PII ni secretos en el historial;
+stop
+@enduml

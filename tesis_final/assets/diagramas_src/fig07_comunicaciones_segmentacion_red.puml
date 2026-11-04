@@ -1,0 +1,60 @@
+@startuml
+title Topología de Comunicaciones, Protocolos, Puertos y Segmentación de Red - espaciGo
+skinparam shadowing false
+skinparam componentStyle rectangle
+
+actor "Usuario Público\n(Navegador Web)" as PublicBrowser
+actor "Operador / Evaluador Autorizado\n(Navegador Web)" as PrivateBrowser
+
+cloud "Cloudflare DNS\n(DNS-Only / Sin Proxy MITM)" as Cloudflare {
+  [espacigo.testingpage.store (A)\nespacigo-demo.testingpage.store (A)] as DNSRecords
+}
+
+node "Perímetro Global Google Cloud (Edge)" {
+  [External Application Load Balancer\nHTTPS :443 (TLS 1.3 / Certificados Gestionados)] as ALB
+  [Google Cloud Armor WAF\nRate Limit: 60 req/min/IP (/public/spaces)\nRate Limit: 120 req/min/IP (Rutas generales)] as Armor
+  [Identity-Aware Proxy (IAP)\nValidación OAuth2 / JWT Audience] as IAP
+}
+
+package "VPC espaciGo (southamerica-west1 - Santiago)" {
+
+  package "Subred Serverless Web (espacigo-testprod-serverless)" {
+    [Cloud Run: espacigo-test-public\nNext.js 16.4.3 SSR/BFF\nPuerto TCP :4000\nFRONTEND_ENTRY_MODE=public] as PublicWeb
+    [Cloud Run: espacigo-test-private\nNext.js 16.4.3 SSR/BFF\nPuerto TCP :4000\nFRONTEND_ENTRY_MODE=private] as PrivateWeb
+  }
+
+  package "Subred Serverless API (espacigo-testprod-api-serverless)" {
+    [Cloud Run: espacigo-test-api\nGo 1.27.1 HTTP Server + Workers\nPuerto TCP :8080\nIngress: Internal / Auth Invoker Only] as GoAPI
+  }
+
+  package "Red Privada de Datos y Servicios Google (Private Google Access)" {
+    database "Cloud SQL PostgreSQL 18\nespacigo-testprod-db\nIP Privada TCP :5432" as CloudSQL
+    storage "Google Cloud Storage (GCS)\nHTTPS :443 (API Privada PGA)\nMedios WebP / Evidencias / Replay / Locks" as GCS
+    [Google Secret Manager\nHTTPS :443 (Inyección de Secretos en /var/secrets)] as SecretMgr
+  }
+}
+
+cloud "Servicios Externos de Correo" {
+  [Zoho Mail SMTP Server\nsmtp.zoho.com\nTCP :587 (STARTTLS) / :465 (TLS)] as ZohoSMTP
+}
+
+PublicBrowser ..> DNSRecords : "Resolución DNS (UDP/TCP :53)"
+PrivateBrowser ..> DNSRecords : "Resolución DNS (UDP/TCP :53)"
+
+PublicBrowser --> ALB : "HTTPS :443 (HTTP/2, JSON, HTMLRSC, WebP)"
+PrivateBrowser --> ALB : "HTTPS :443 (HTTP/2 + Cookie/Token IAP)"
+
+ALB --> Armor : "Tráfico Host Público"
+Armor --> PublicWeb : "Serverless NEG\nHTTP :4000"
+
+ALB --> IAP : "Tráfico Host Privado"
+IAP --> PrivateWeb : "Serverless NEG + Header\nx-goog-iap-jwt-assertion\nHTTP :4000"
+
+PublicWeb --> GoAPI : "HTTPS :443 -> :8080 (Direct VPC Egress + PGA)\nAuth: Bearer OIDC ID Token (roles/run.invoker)\nPayload: application/json, multipart/form-data"
+PrivateWeb --> GoAPI : "HTTPS :443 -> :8080 (Direct VPC Egress + PGA)\nAuth: Bearer OIDC ID Token (roles/run.invoker)\nPayload: application/json, multipart/form-data"
+
+GoAPI --> CloudSQL : "TCP :5432 (Cloud SQL Go Connector v1.25.2)\nProtocolo Binario PostgreSQL v3 (pgx/v5)\nLogin: espacigo_api_login -> SET ROLE espacigo_runtime"
+GoAPI --> GCS : "HTTPS :443 (Private Google Access)\n Lectura/Escritura de blobs WebP y JSON Replay"
+GoAPI --> SecretMgr : "HTTPS :443\nMontaje de credenciales al arranque"
+GoAPI --> ZohoSMTP : "SMTP sobre TLS\nTCP :587 (STARTTLS)"
+@enduml

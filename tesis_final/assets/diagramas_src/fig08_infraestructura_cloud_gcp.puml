@@ -1,0 +1,73 @@
+@startuml
+title Diagrama de Infraestructura Cloud (GCP southamerica-west1 + Cloudflare) y Contenedores Docker
+skinparam shadowing false
+
+cloud "Proveedor DNS Externo: Cloudflare" {
+  node "Zona DNS: testingpage.store" {
+    artifact "Registro A: espacigo.testingpage.store\n(proxied = false)" as DNS_Pub
+    artifact "Registro A: espacigo-demo.testingpage.store\n(proxied = false)" as DNS_Priv
+  }
+}
+
+cloud "Google Cloud Platform — Proyecto: espacigo-testprod (Región: southamerica-west1, Santiago)" {
+
+  node "Capa de Borde Global (Global Edge)" {
+    component "Global External Application Load Balancer\n(IPv4 Estática + Certificados SSL Gestionados)" as GCP_ALB
+    component "Google Cloud Armor\n(Política WAF + Rate Limiting por IP:\nPrioridad 100: 60 rpm / Prioridad 200: 120 rpm)" as GCP_Armor
+  }
+
+  node "VPC: espacigo-testprod (Direct VPC Egress + Private Google Access)" {
+
+    node "Subred: espacigo-testprod-serverless" {
+      component "Cloud Run Service: espacigo-test-public\nImagen: espacigo-web@sha256 (node:24.21.0-alpine)\n1 vCPU / 1 GiB RAM | min=0, max=1..2 | conc=40\nSA: espacigo-test-public-web" as CR_Public
+      component "Cloud Run Service: espacigo-test-private\nImagen: espacigo-web@sha256 (node:24.21.0-alpine)\n1 vCPU / 1 GiB RAM | min=0, max=1..2 | conc=40\nIAP Habilitado (iap_enabled = true)\nSA: espacigo-test-private-web" as CR_Private
+    }
+
+    node "Subred: espacigo-testprod-api-serverless" {
+      component "Cloud Run Service: espacigo-test-api\nImagen: espacigo-api@sha256 (FROM scratch)\n1 vCPU / 1 GiB RAM | cpu_idle=false | min=1, max=1..2 | conc=80\nSA: espacigo-test-api" as CR_API
+    }
+
+    node "Capa de Persistencia Privada (Private Services Access)" {
+      database "Cloud SQL for PostgreSQL 18 (Enterprise N4 Zonal)\nInstancia: espacigo-testprod-db (2 vCPU / 4 GiB RAM)\nDisco: Hyperdisk Balanced 20-100 GiB (4.000 IOPS / 170 MiB/s)\nBackups Automáticos (7 retenidos) + PITR (7 días)" as CSQL
+    }
+  }
+
+  node "Almacenamiento, Secretos y CI/CD Regional (southamerica-west1)" {
+    storage "Cloud Storage Bucket (Archivos y Replay):\nespacigo-test-files-447373903153-gcp02\n(UBLA + Public Access Prevention)" as Bucket_Files
+    storage "Cloud Storage Bucket (Locks y Evidencia CI/CD):\nespacigo-testprod-cloud-build-447373903153" as Bucket_Build
+    storage "Cloud Storage Buckets (Terraform State):\nespacigo-testprod-tfstate-447373903153-{bootstrap,gcp,cloudflare}\n(Versioning + prevent_destroy)" as Bucket_TF
+    component "Artifact Registry (Docker OCI):\nespacigo-testprod\n(Imágenes firmadas con Provenance SLSA)" as AR
+    component "Secret Manager:\n- database-password-v67\n- contract-encryption-key\n- payment-webhook-secret\n- auth-smtp-password" as GSM
+    component "Cloud Build Trigger:\nespacigo-main-rollout (cloudbuild.yaml)\nSA: espacigo-cloud-build-deployer" as CBuild
+  }
+}
+
+node "Entorno Local Aislado (Docker Compose - compose.yaml)" {
+  component "frontend-next (:4201 -> :4000)\n& angular-frontend (:4200 -> :4000)\n[Red: api]" as Local_FE
+  component "backend (:8080 -> :8080)\n& privacy-cleanup-worker\n[Redes: api, mail, data]" as Local_API
+  component "mailpit (:8025 / SMTP :1025)\n[Red: mail]" as Local_Mail
+  database "database (postgis/postgis:18-3.6)\n+ migrate (/api migrate)\nVolumen: espacigo_pgdata\n[Red: data (internal: true)]" as Local_DB
+}
+
+DNS_Pub --> GCP_ALB
+DNS_Priv --> GCP_ALB
+GCP_ALB --> GCP_Armor
+GCP_Armor --> CR_Public
+GCP_ALB --> CR_Private : "Protegido por Cloud Run IAP"
+
+CR_Public --> CR_API : "IAM roles/run.invoker"
+CR_Private --> CR_API : "IAM roles/run.invoker"
+CR_API --> CSQL : "IP Privada :5432"
+CR_API --> Bucket_Files : "Objetos WebP / Evidencia / Replay"
+CR_API --> GSM : "Montaje de Secretos"
+
+CBuild --> Bucket_Build : "Lock y Evidencia de Esquema"
+CBuild --> AR : "Push y Verificación Digest"
+CBuild --> CR_API : "Deploy por Digest SHA-256"
+CBuild --> CR_Public : "Deploy por Digest SHA-256"
+CBuild --> CR_Private : "Deploy por Digest SHA-256"
+
+Local_FE --> Local_API
+Local_API --> Local_DB
+Local_API --> Local_Mail
+@enduml

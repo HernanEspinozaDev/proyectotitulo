@@ -1,0 +1,76 @@
+@startuml
+title Diagrama UML de Componentes de Software (Arquitectura Hexagonal)
+skinparam componentStyle uml2
+skinparam shadowing false
+
+package "Frontend BFF (Next.js 16 / React 19)" {
+  [WebCatalog] as comp_cat
+  [WorkspacePanel] as comp_ws
+  [CheckoutFlow] as comp_chk
+  [ApiClient] as comp_api
+}
+
+interface "IMarketplaceApi
+(OpenAPI 3.1 REST)" as IApi
+comp_api ..> IApi : <<use>>
+
+package "Backend Core Go 1.27 (Hexagonal)" {
+  package "Inbound Driving Adapters" {
+    [HTTP Handlers & Router] as adp_http
+    [Auth & Session Middleware] as adp_auth
+    [Audit & WAF Interceptor] as adp_sec
+  }
+  IApi - adp_http
+
+  package "Domain Core Logic (Hexagon)" {
+    interface "IBookingUseCase" as IBooking
+    interface "ISpaceUseCase" as ISpace
+    interface "IIdentityUseCase" as IIdentity
+    interface "IPrivacyUseCase" as IPrivacy
+
+    [BookingService] as srv_book
+    [SpaceService] as srv_space
+    [IdentityService] as srv_ident
+    [PrivacyService] as srv_priv
+
+    IBooking - srv_book
+    ISpace - srv_space
+    IIdentity - srv_ident
+    IPrivacy - srv_priv
+  }
+
+  adp_http ..> IBooking : <<use>>
+  adp_http ..> ISpace : <<use>>
+  adp_http ..> IIdentity : <<use>>
+  adp_http ..> IPrivacy : <<use>>
+
+  package "Outbound Driven Ports" {
+    interface "ISpaceRepositoryPort" as IRepo
+    interface "IPaymentGatewayPort" as IPay
+    interface "IObjectStoragePort" as IStorage
+    interface "IAuditLedgerPort" as ILedger
+  }
+
+  srv_space ..> IRepo : <<use>>
+  srv_book ..> IRepo : <<use>>
+  srv_book ..> IPay : <<use>>
+  srv_space ..> IStorage : <<use>>
+  srv_priv ..> ILedger : <<use>>
+}
+
+package "Outbound Driven Adapters (Infraestructura)" {
+  [PostgreSQL Adapter
+(pgx/v5 Pool & PostGIS GiST)] as adp_pg
+  [Mercado Pago Adapter
+(Mock / Sandbox SDK & Webhooks)] as adp_mp
+  [Cloud Storage Adapter
+(GCS SDK & Signed URLs)] as adp_gcs
+  [Audit Ledger Adapter
+(Append-Only Immutable Log)] as adp_audit
+
+  IRepo - adp_pg
+  IPay - adp_mp
+  IStorage - adp_gcs
+  ILedger - adp_audit
+}
+@enduml

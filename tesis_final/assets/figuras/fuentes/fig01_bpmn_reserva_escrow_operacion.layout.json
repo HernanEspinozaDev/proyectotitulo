@@ -1,0 +1,549 @@
+{
+  "title": "Reserva y operación de arriendo · espaciGo",
+  "nodes": {
+    "inicio": {
+      "kind": "startEvent",
+      "name": "Inicio",
+      "bounds": [
+        582,
+        102,
+        36,
+        36
+      ],
+      "center": [
+        600,
+        120
+      ]
+    },
+    "cotizacion": {
+      "kind": "task",
+      "name": "Recibir solicitud y\nvalidar cotización",
+      "bounds": [
+        390.0,
+        157.0,
+        420,
+        76
+      ],
+      "center": [
+        600,
+        195
+      ]
+    },
+    "disponible": {
+      "kind": "exclusiveGateway",
+      "name": "¿Intervalo\ndisponible?",
+      "bounds": [
+        574,
+        249,
+        52,
+        52
+      ],
+      "center": [
+        600,
+        275
+      ]
+    },
+    "reserva": {
+      "kind": "task",
+      "name": "Crear reserva y\nretener intervalo",
+      "bounds": [
+        390.0,
+        327.0,
+        420,
+        76
+      ],
+      "center": [
+        600,
+        365
+      ]
+    },
+    "pago": {
+      "kind": "subProcess",
+      "name": "Gestionar pago y\nvencimiento de retención",
+      "bounds": [
+        390.0,
+        433.0,
+        420,
+        84
+      ],
+      "center": [
+        600,
+        475
+      ]
+    },
+    "pagada": {
+      "kind": "exclusiveGateway",
+      "name": "¿Pago confirmado\ndentro del plazo?",
+      "bounds": [
+        574,
+        559,
+        52,
+        52
+      ],
+      "center": [
+        600,
+        585
+      ]
+    },
+    "host": {
+      "kind": "task",
+      "name": "Recibir decisión\ndel anfitrión",
+      "bounds": [
+        390.0,
+        642.0,
+        420,
+        76
+      ],
+      "center": [
+        600,
+        680
+      ]
+    },
+    "aceptada": {
+      "kind": "exclusiveGateway",
+      "name": "¿Solicitud\naprobada?",
+      "bounds": [
+        574,
+        749,
+        52,
+        52
+      ],
+      "center": [
+        600,
+        775
+      ]
+    },
+    "contrato": {
+      "kind": "subProcess",
+      "name": "Formalizar contrato\ny firmas de las partes",
+      "bounds": [
+        390.0,
+        828.0,
+        420,
+        84
+      ],
+      "center": [
+        600,
+        870
+      ]
+    },
+    "operacion": {
+      "kind": "subProcess",
+      "name": "Registrar check-in,\ncheck-out y recepción",
+      "bounds": [
+        390.0,
+        933.0,
+        420,
+        84
+      ],
+      "center": [
+        600,
+        975
+      ]
+    },
+    "liquidacion": {
+      "kind": "subProcess",
+      "name": "Resolver liquidación\no disputa, según evidencia",
+      "bounds": [
+        390.0,
+        1038.0,
+        420,
+        84
+      ],
+      "center": [
+        600,
+        1080
+      ]
+    },
+    "fin": {
+      "kind": "endEvent",
+      "name": "Fin",
+      "bounds": [
+        582,
+        1177,
+        36,
+        36
+      ],
+      "center": [
+        600,
+        1195
+      ]
+    },
+    "conflicto": {
+      "kind": "task",
+      "name": "Notificar conflicto\nde disponibilidad",
+      "bounds": [
+        60.0,
+        225.0,
+        260,
+        100
+      ],
+      "center": [
+        190,
+        275
+      ]
+    },
+    "fin_conflicto": {
+      "kind": "endEvent",
+      "name": "Fin",
+      "bounds": [
+        172,
+        367,
+        36,
+        36
+      ],
+      "center": [
+        190,
+        385
+      ]
+    },
+    "vencimiento": {
+      "kind": "task",
+      "name": "Vencer solicitud y\nliberar intervalo",
+      "bounds": [
+        60.0,
+        535.0,
+        260,
+        100
+      ],
+      "center": [
+        190,
+        585
+      ]
+    },
+    "fin_vencida": {
+      "kind": "endEvent",
+      "name": "Fin",
+      "bounds": [
+        172,
+        677,
+        36,
+        36
+      ],
+      "center": [
+        190,
+        695
+      ]
+    },
+    "devolucion": {
+      "kind": "task",
+      "name": "Liberar intervalo y\ngestionar devolución",
+      "bounds": [
+        60.0,
+        725.0,
+        260,
+        100
+      ],
+      "center": [
+        190,
+        775
+      ]
+    },
+    "fin_rechazada": {
+      "kind": "endEvent",
+      "name": "Fin",
+      "bounds": [
+        172,
+        867,
+        36,
+        36
+      ],
+      "center": [
+        190,
+        885
+      ]
+    }
+  },
+  "flows": [
+    {
+      "source": "inicio",
+      "target": "cotizacion",
+      "name": "",
+      "points": [
+        [
+          600,
+          138
+        ],
+        [
+          600,
+          157.0
+        ]
+      ],
+      "label_center": null
+    },
+    {
+      "source": "cotizacion",
+      "target": "disponible",
+      "name": "",
+      "points": [
+        [
+          600,
+          233.0
+        ],
+        [
+          600,
+          249
+        ]
+      ],
+      "label_center": null
+    },
+    {
+      "source": "disponible",
+      "target": "reserva",
+      "name": "Sí",
+      "points": [
+        [
+          600,
+          301
+        ],
+        [
+          600,
+          327.0
+        ]
+      ],
+      "label_center": [
+        635,
+        314.0
+      ]
+    },
+    {
+      "source": "reserva",
+      "target": "pago",
+      "name": "",
+      "points": [
+        [
+          600,
+          403.0
+        ],
+        [
+          600,
+          433.0
+        ]
+      ],
+      "label_center": null
+    },
+    {
+      "source": "pago",
+      "target": "pagada",
+      "name": "",
+      "points": [
+        [
+          600,
+          517.0
+        ],
+        [
+          600,
+          559
+        ]
+      ],
+      "label_center": null
+    },
+    {
+      "source": "pagada",
+      "target": "host",
+      "name": "Sí",
+      "points": [
+        [
+          600,
+          611
+        ],
+        [
+          600,
+          642.0
+        ]
+      ],
+      "label_center": [
+        635,
+        626.5
+      ]
+    },
+    {
+      "source": "host",
+      "target": "aceptada",
+      "name": "",
+      "points": [
+        [
+          600,
+          718.0
+        ],
+        [
+          600,
+          749
+        ]
+      ],
+      "label_center": null
+    },
+    {
+      "source": "aceptada",
+      "target": "contrato",
+      "name": "Sí",
+      "points": [
+        [
+          600,
+          801
+        ],
+        [
+          600,
+          828.0
+        ]
+      ],
+      "label_center": [
+        635,
+        814.5
+      ]
+    },
+    {
+      "source": "contrato",
+      "target": "operacion",
+      "name": "",
+      "points": [
+        [
+          600,
+          912.0
+        ],
+        [
+          600,
+          933.0
+        ]
+      ],
+      "label_center": null
+    },
+    {
+      "source": "operacion",
+      "target": "liquidacion",
+      "name": "",
+      "points": [
+        [
+          600,
+          1017.0
+        ],
+        [
+          600,
+          1038.0
+        ]
+      ],
+      "label_center": null
+    },
+    {
+      "source": "liquidacion",
+      "target": "fin",
+      "name": "",
+      "points": [
+        [
+          600,
+          1122.0
+        ],
+        [
+          600,
+          1177
+        ]
+      ],
+      "label_center": null
+    },
+    {
+      "source": "disponible",
+      "target": "conflicto",
+      "name": "No",
+      "points": [
+        [
+          574,
+          275
+        ],
+        [
+          320,
+          275
+        ]
+      ],
+      "label_center": [
+        447.0,
+        255
+      ]
+    },
+    {
+      "source": "conflicto",
+      "target": "fin_conflicto",
+      "name": "",
+      "points": [
+        [
+          190,
+          325.0
+        ],
+        [
+          190,
+          367
+        ]
+      ],
+      "label_center": null
+    },
+    {
+      "source": "pagada",
+      "target": "vencimiento",
+      "name": "No",
+      "points": [
+        [
+          574,
+          585
+        ],
+        [
+          320,
+          585
+        ]
+      ],
+      "label_center": [
+        447.0,
+        565
+      ]
+    },
+    {
+      "source": "vencimiento",
+      "target": "fin_vencida",
+      "name": "",
+      "points": [
+        [
+          190,
+          635.0
+        ],
+        [
+          190,
+          677
+        ]
+      ],
+      "label_center": null
+    },
+    {
+      "source": "aceptada",
+      "target": "devolucion",
+      "name": "No",
+      "points": [
+        [
+          574,
+          775
+        ],
+        [
+          320,
+          775
+        ]
+      ],
+      "label_center": [
+        447.0,
+        755
+      ]
+    },
+    {
+      "source": "devolucion",
+      "target": "fin_rechazada",
+      "name": "",
+      "points": [
+        [
+          190,
+          825.0
+        ],
+        [
+          190,
+          867
+        ]
+      ],
+      "label_center": null
+    }
+  ]
+}

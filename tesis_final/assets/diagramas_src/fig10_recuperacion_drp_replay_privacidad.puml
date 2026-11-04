@@ -1,0 +1,26 @@
+@startuml
+title Protocolo Reactivo de Recuperación ante Desastres (DRP) y Re-aplicación de Privacidad
+skinparam shadowing false
+
+start
+:Detección de incidente crítico\n(Fallo en Cloud SQL, corrupción lógica o regresión severa);
+if (¿El incidente es sólo de capa de aplicación\n(Cloud Run API / Web)?) then (Sí - Rollback de Aplicación)
+  :Identificar última revisión sana verificada en\ngs://.../last-successful-main.json;
+  :Conmutar 100% del tráfico de forma inmediata:\ngcloud run services update-traffic --to-revisions=REV_ANTERIOR=100;
+  :Ejecutar smoke tests (/health/ready y /api/health);
+  stop
+else (No - Requiere Recuperación de Base de Datos)
+  :Activar contención: aislar escrituras del API deteniendo tráfico\no revocando temporalmente login de espacigo_api_login;
+  :Restaurar instancia Cloud SQL desde el último Backup válido\no mediante PITR al segundo exacto previo al incidente;
+  :Ejecutar preflight de verificación de esquema y ledger\n(cmd/gcp04preflight y scripts/test_gcp03_origin_postrestore_verify.py);
+  :Re-aplicar obligatoriamente el Registro de Supresión de Privacidad:\n/api local-privacy-replay-apply (desde manifiesto GCS);\nnote right
+    Garantiza que ninguna cuenta eliminada
+    bajo la Ley 21.719 vuelva a quedar activa
+    tras restaurar un backup anterior a su baja.
+  end note
+  :Ejecutar worker de limpieza de archivos pendientes\n(cmd/privacy-cleanup-worker);
+  :Validar sondas de salud (/health/ready) y restablecer tráfico en Cloud Run;
+  :Registrar incidente post-mortem y evidencia de recuperación;
+  stop
+endif
+@enduml

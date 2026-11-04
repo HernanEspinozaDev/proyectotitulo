@@ -1,0 +1,110 @@
+@startuml
+title Diagrama Integral de Arquitectura de Software - espaciGo (Patrones, Capas, Frontend, Backend y Persistencia)
+skinparam shadowing false
+skinparam packageStyle rectangle
+
+package "1. Capa de Presentación y BFF (frontend/ - Next.js 16.4.3 + React 19.3 + TypeScript 5)" {
+  rectangle "Vistas y Rutas App Router (src/app/)" {
+    [Grupo Público (marketplace)\nCatálogo, Búsqueda FTS, Ficha de Espacio] as View_MP
+    [Grupo Autenticación (auth)\nLogin, Registro, Verificación, Recuperación] as View_Auth
+    [Grupo Privado (workspace)\nReservas, Mis Espacios, KYC, Cuenta, Admin GADM] as View_WS
+  }
+
+  rectangle "Capa de Características y Estado UI (src/features/ & src/components/)" {
+    [Features de Dominio\n(public-catalog, bookings, host-listings,\nverifications, account, auth, admin)] as FE_Domain
+    [Sistema de Diseño Accesible\n(Radix UI + Base UI + Tailwind CSS 4)] as FE_UI
+  }
+
+  rectangle "Capa de Contrato y Proxy BFF (src/lib/ & tooling/)" {
+    [Cliente Tipado OpenAPI\n(openapi-fetch + tipos generados de openapi.yaml)] as FE_Client
+    [Proxy Route Handlers Next.js\n(Inyección de OIDC Token + Validación IAP JWT)] as FE_BFF
+  }
+
+  View_MP --> FE_Domain
+  View_Auth --> FE_Domain
+  View_WS --> FE_Domain
+  FE_Domain --> FE_UI
+  FE_Domain --> FE_Client
+  FE_Client --> FE_BFF
+}
+
+package "2. Capa de Entrada y Transporte HTTP (cmd/api & internal/*/transport/http)" {
+  [Servidor HTTP Go (net/http ServeMux)\nReadHeaderTimeout=5s | ReadTimeout=2m | WriteTimeout=4m] as Go_Server
+  [Middlewares Transversales\n- RestrictedAccountMiddleware (Bloqueos y Bajas)\n- CORS Origin Validator\n- Session & Role Guard\n- IP Rate Limiter (Limitador de Tasa por IP)] as Go_MW
+  [Adaptadores Primarios REST (Handlers HTTP)\nValidación de DTOs, Idempotency-Key y Serialización JSON] as Go_Handlers
+
+  Go_Server --> Go_MW
+  Go_MW --> Go_Handlers
+}
+
+package "3. Núcleo de Dominio y Aplicación — Arquitectura Hexagonal (internal/)" {
+  rectangle "Servicios de Dominio y Reglas de Negocio" {
+    [Identidad, Sesiones y Términos\n(internal/identity & m02local)] as Core_Id
+    [Privacidad ARCO, Supresión y Replay\n(internal/privacy)] as Core_Priv
+    [Verificación KYC/KYB y Evidencia\n(internal/verification)] as Core_KYC
+    [Espacios, Categorías, Tarifas y Ocupación\n(internal/spaces, pricing, occupancy)] as Core_Spaces
+    [Medios WebP, Galería y Catálogo Público\n(internal/media, gallery, publiccatalog)] as Core_Media
+    [Reservas, Escrow, Contratos y Mensajería\n(internal/booking, contract, conversation)] as Core_Book
+    [Operaciones, Daños, Disputas y Reputación\n(internal/operation, damageclaim, dispute, reputation)] as Core_Ops
+    [Administración Local/Global y Avisos\n(internal/adminglobal, adminlocal, localnotice)] as Core_Admin
+  }
+
+  rectangle "Orquestador de Workers Concurrentes (Goroutines & cmd/privacy-cleanup-worker)" {
+    [Reconciliadores Financieros (cada 5s)\nPagos, Garantías y Liquidaciones] as W_Fin
+    [Expiración de Contratos y Reservas (cada 5s)\nLiberación automática de intervalos GiST] as W_Exp
+    [Limpieza de Medios y Evidencias (15s - 60s)\nFencing Tokens + Leases temporales] as W_Clean
+    [Despachador de Avisos SMTP y Replay Exporter (1s - 10s)\nPatrón Outbox Transaccional] as W_Outbox
+  }
+
+  Go_Handlers --> Core_Id
+  Go_Handlers --> Core_Priv
+  Go_Handlers --> Core_KYC
+  Go_Handlers --> Core_Spaces
+  Go_Handlers --> Core_Media
+  Go_Handlers --> Core_Book
+  Go_Handlers --> Core_Ops
+  Go_Handlers --> Core_Admin
+
+  W_Fin --> Core_Book
+  W_Exp --> Core_Book
+  W_Clean --> Core_Media
+  W_Clean --> Core_Priv
+  W_Outbox --> Core_Id
+  W_Outbox --> Core_Admin
+  W_Outbox --> Core_Priv
+}
+
+package "4. Puertos Secundarios y Adaptadores de Salida (internal/adapters/)" {
+  [Repositorios PostgreSQL\n(pgx/v5 Pool + sqlc dbgen + Transacciones ACID)] as Adap_PG
+  [Almacenamiento de Blobs\n(cloudstorage GCS / mediafs / evidencefs)] as Adap_Blob
+  [Motor Criptográfico\n(bcrypt + AES-256-GCM + SHA-256 + HMAC)] as Adap_Crypto
+  [Clientes de Notificación SMTP\n(Adaptador SMTP)] as Adap_Mail
+
+  Core_Id --> Adap_PG
+  Core_Id --> Adap_Crypto
+  Core_Id --> Adap_Mail
+  Core_Priv --> Adap_PG
+  Core_Priv --> Adap_Blob
+  Core_KYC --> Adap_PG
+  Core_KYC --> Adap_Blob
+  Core_Spaces --> Adap_PG
+  Core_Media --> Adap_PG
+  Core_Media --> Adap_Blob
+  Core_Book --> Adap_PG
+  Core_Book --> Adap_Crypto
+  Core_Ops --> Adap_PG
+  Core_Ops --> Adap_Blob
+  Core_Admin --> Adap_PG
+}
+
+package "5. Capa de Persistencia y Servicios de Infraestructura" {
+  database "PostgreSQL 18 + PostGIS 3.6\n- 75 Migraciones Versionadas (migraciones SQL versionadas)\n- Exclusión Temporal GiST (tstzrange)\n- Búsqueda FTS Español (espacigo_es_unaccent)\n- Triggers de Integridad (img01b_*)" as Infra_PG
+  storage "Google Cloud Storage / Volumen Privado\n- Variantes image/webp\n- Evidencias cifradas/privadas\n- Registro de Replay de Supresión" as Infra_GCS
+  cloud "Servidor SMTP\n(Zoho Mail / Mailpit)" as Infra_SMTP
+}
+
+FE_BFF ==> Go_Server : "HTTP/S REST OpenAPI 3.1"
+Adap_PG ==> Infra_PG : "Driver pgx/v5 (Rol: espacigo_runtime)"
+Adap_Blob ==> Infra_GCS : "SDK Google Cloud Storage / OS FileSystem"
+Adap_Mail ==> Infra_SMTP : "SMTP STARTTLS"
+@enduml

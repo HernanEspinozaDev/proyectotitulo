@@ -1,0 +1,15 @@
+sequenceDiagram
+    autonumber
+    actor Admin as Administrador DevOps
+    participant DRP as Orquestador DRP
+    participant SQL as Cloud SQL (Restaurada)
+    participant BQ as Registro de Supresiones (BigQuery)
+
+    Admin->>DRP: Inicia Restauración de Backup Histórico (T-1)
+    DRP->>SQL: Restaura Snapshot de Base de Datos
+    Note over SQL: Base de datos vuelve a estado antiguo (Reviviendo datos suprimidos)
+    DRP->>BQ: Consulta Catálogo Inmutable de Purgas ARCO (T-1 hasta T-0)
+    BQ-->>DRP: Retorna IDs de Usuarios y Registros Eliminados Legalmente
+    DRP->>SQL: Ejecuta Script Anti-Replay: DELETE FROM usuarios WHERE id IN (...)
+    SQL-->>DRP: Datos Suprimidos Eliminados Permanentemente
+    DRP->>Admin: Certificación de Restauración Segura y Conforme a Ley 21.719

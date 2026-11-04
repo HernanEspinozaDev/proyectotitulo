@@ -3,6 +3,21 @@
     "notion": {
       "type": "http",
       "url": "https://mcp.notion.com/mcp"
+    },
+    "mercadopago": {
+      "type": "http",
+      "url": "https://mcp.mercadopago.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${input:mercadopago-access-token}"
+      }
     }
-  }
+  },
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "mercadopago-access-token",
+      "description": "Mercado Pago Access Token",
+      "password": true
+    }
+  ]
 }

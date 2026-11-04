@@ -1,0 +1,28 @@
+@startuml Contexto_As_Is_Inmobiliario
+skinparam defaultFontName Arial
+skinparam packageStyle rectangle
+
+actor "Arrendador\n(Propietario)" as Propietario
+actor "Arrendatario\n(Pyme / Emprendedor)" as Cliente
+actor "Corredor Tradicional" as Corredor
+boundary "Notaría Física" as Notaria
+entity "Banco (Transferencia Directa)" as Banco
+boundary "Canales Informales\n(WhatsApp / Redes Sociales)" as Redes
+
+Cliente -> Redes : 1. Busca espacio comercial o bodega
+Propietario -> Redes : 2. Publica anuncio estático sin disponibilidad
+Redes -> Corredor : 3. Deriva a intermediación analógica
+Corredor -> Cliente : 4. Exige avales, DICOM y 12 meses mínimo
+Cliente -> Propietario : 5. Envía copias de cédula y liquidaciones no cifradas
+Propietario -> Notaria : 6. Redacción y firma presencial de contrato en papel
+Cliente -> Banco : 7. Transfiere mes de arriendo y mes de garantía directamente
+Banco -> Propietario : 8. Abono inmediato (Sin retención de garantía ni protección)
+
+note over Cliente, Propietario
+  Fricciones Críticas Detectadas:
+  - Sin verificación fehaciente de identidad ni facultades de arriendo.
+  - Vulnerabilidad ante estafas por espacios inexistentes o inhabitables.
+  - Retención arbitraria de la garantía al término del arriendo.
+  - Inexistencia de actas fotográficas fehacientes (Check-in / Check-out).
+end note
+@enduml

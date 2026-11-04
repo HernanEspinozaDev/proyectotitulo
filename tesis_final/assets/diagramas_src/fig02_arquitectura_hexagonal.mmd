@@ -1,0 +1,22 @@
+flowchart LR
+    subgraph ADAPTADORES_IN ["Adaptadores Primarios (Entrada)"]
+        A1["API REST / Controladores HTTP"]
+        A2["Consumidores de Eventos / Webhooks"]
+    end
+
+    subgraph DOMINIO ["Núcleo de Dominio (Hexágono)"]
+        P1["Puertos de Entrada (Casos de Uso)"]
+        D1["Entidades y Servicios de Dominio"]
+        P2["Puertos de Salida (Interfaces)"]
+        P1 --> D1 --> P2
+    end
+
+    subgraph ADAPTADORES_OUT ["Adaptadores Secundarios (Salida)"]
+        B1["Adaptador PostgreSQL / PostGIS"]
+        B2["Adaptador Mercado Pago"]
+        B3["Adaptador FirmaVirtual"]
+        B4["Adaptador Notificaciones"]
+    end
+
+    ADAPTADORES_IN --> P1
+    P2 --> ADAPTADORES_OUT

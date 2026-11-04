@@ -1,5 +1,0 @@
-# Referencias bibliográficas
-
-::: {#refs}
-:::
-

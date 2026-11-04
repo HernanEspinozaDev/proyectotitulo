@@ -1,0 +1,37 @@
+@startuml
+title EspaciGo — Módulo M03: Verificación de Identidad (KYC / KYB)
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Usuario Registrado" as USR
+actor "Administrador" as ADMIN
+actor "Registro Civil\n(Servicio externo)" as RC
+actor "SII\n(Servicio externo)" as SII
+
+rectangle "EspaciGo — Sistema de Marketplace SaaS B2B2C de Espacios Comerciales" {
+  package "M03 — Verificación de Identidad (KYC / KYB)" {
+    usecase "CU-10 Validar Identidad" as CU10
+    usecase "CU-11 Validar Identidad de Persona Natural (KYC)" as CU11
+    usecase "CU-12 Validar Identidad de Empresa (KYB)" as CU12
+    usecase "CU-13 Revisar Validación Manual" as CU13
+    usecase "CU-14 Reintentar Validación Rechazada" as CU14
+  }
+}
+
+CU11 --|> CU10
+CU12 --|> CU10
+
+USR -- CU11
+USR -- CU12
+USR -- CU14
+ADMIN -- CU13
+RC -- CU11
+SII -- CU12
+
+note bottom of CU10
+  Caso de uso abstracto: no se instancia directamente.
+  Se especializa en CU-11 (persona natural) y CU-12 (empresa),
+  que comparten objetivo (acreditar identidad) y post-condición
+  (perfil verificado), difiriendo en artefactos y organismo validador.
+end note
+@enduml

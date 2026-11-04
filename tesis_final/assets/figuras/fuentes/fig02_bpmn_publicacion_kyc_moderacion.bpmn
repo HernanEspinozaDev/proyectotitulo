@@ -1,0 +1,206 @@
+<?xml version='1.0' encoding='utf-8'?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="fig02_bpmn_publicacion_kyc_moderacion" targetNamespace="https://espacigo.local/documentacion/es2">
+  <bpmn:process id="Process_1" name="Publicación y verificación · espaciGo" isExecutable="false">
+    <bpmn:startEvent id="inicio" name="Inicio">
+      <bpmn:outgoing>Flow_0</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="solicitud" name="Recibir ficha del espacio&#10;y antecedentes">
+      <bpmn:incoming>Flow_0</bpmn:incoming>
+      <bpmn:outgoing>Flow_1</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="borrador" name="Validar datos y&#10;crear borrador">
+      <bpmn:incoming>Flow_1</bpmn:incoming>
+      <bpmn:outgoing>Flow_2</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:subProcess id="medios" name="Procesar fotografías&#10;y variantes de medios">
+      <bpmn:incoming>Flow_2</bpmn:incoming>
+      <bpmn:outgoing>Flow_3</bpmn:outgoing>
+    </bpmn:subProcess>
+    <bpmn:subProcess id="verificacion" name="Revisar antecedentes&#10;de identidad KYC/KYB">
+      <bpmn:incoming>Flow_3</bpmn:incoming>
+      <bpmn:outgoing>Flow_4</bpmn:outgoing>
+    </bpmn:subProcess>
+    <bpmn:exclusiveGateway id="identidad" name="¿Verificación&#10;aprobada?">
+      <bpmn:incoming>Flow_4</bpmn:incoming>
+      <bpmn:outgoing>Flow_5</bpmn:outgoing>
+      <bpmn:outgoing>Flow_9</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="moderacion" name="Evaluar requisitos de&#10;publicación y moderación">
+      <bpmn:incoming>Flow_5</bpmn:incoming>
+      <bpmn:outgoing>Flow_6</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="aprobacion" name="¿Publicación&#10;autorizada?">
+      <bpmn:incoming>Flow_6</bpmn:incoming>
+      <bpmn:outgoing>Flow_7</bpmn:outgoing>
+      <bpmn:outgoing>Flow_11</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="publicar" name="Publicar espacio y&#10;actualizar catálogo">
+      <bpmn:incoming>Flow_7</bpmn:incoming>
+      <bpmn:outgoing>Flow_8</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="fin" name="Fin">
+      <bpmn:incoming>Flow_8</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:task id="observacion_kyc" name="Comunicar&#10;observaciones KYC/KYB">
+      <bpmn:incoming>Flow_9</bpmn:incoming>
+      <bpmn:outgoing>Flow_10</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="fin_kyc" name="Fin">
+      <bpmn:incoming>Flow_10</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:task id="observacion_espacio" name="Comunicar ajustes&#10;y conservar borrador">
+      <bpmn:incoming>Flow_11</bpmn:incoming>
+      <bpmn:outgoing>Flow_12</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="fin_espacio" name="Fin">
+      <bpmn:incoming>Flow_12</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0" sourceRef="inicio" targetRef="solicitud" name="" />
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="solicitud" targetRef="borrador" name="" />
+    <bpmn:sequenceFlow id="Flow_2" sourceRef="borrador" targetRef="medios" name="" />
+    <bpmn:sequenceFlow id="Flow_3" sourceRef="medios" targetRef="verificacion" name="" />
+    <bpmn:sequenceFlow id="Flow_4" sourceRef="verificacion" targetRef="identidad" name="" />
+    <bpmn:sequenceFlow id="Flow_5" sourceRef="identidad" targetRef="moderacion" name="Sí" />
+    <bpmn:sequenceFlow id="Flow_6" sourceRef="moderacion" targetRef="aprobacion" name="" />
+    <bpmn:sequenceFlow id="Flow_7" sourceRef="aprobacion" targetRef="publicar" name="Sí" />
+    <bpmn:sequenceFlow id="Flow_8" sourceRef="publicar" targetRef="fin" name="" />
+    <bpmn:sequenceFlow id="Flow_9" sourceRef="identidad" targetRef="observacion_kyc" name="No" />
+    <bpmn:sequenceFlow id="Flow_10" sourceRef="observacion_kyc" targetRef="fin_kyc" name="" />
+    <bpmn:sequenceFlow id="Flow_11" sourceRef="aprobacion" targetRef="observacion_espacio" name="No" />
+    <bpmn:sequenceFlow id="Flow_12" sourceRef="observacion_espacio" targetRef="fin_espacio" name="" />
+  </bpmn:process>
+  <bpmn:collaboration id="Collaboration_1">
+    <bpmn:participant id="Participant_1" name="espaciGo" processRef="Process_1" />
+  </bpmn:collaboration>
+  <bpmndi:BPMNDiagram id="Diagram_1">
+    <bpmndi:BPMNPlane id="Plane_1" bpmnElement="Collaboration_1">
+      <bpmndi:BPMNShape id="Shape_Participant" bpmnElement="Participant_1" isHorizontal="true">
+        <dc:Bounds x="25" y="24" width="950" height="1214" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_inicio" bpmnElement="inicio">
+        <dc:Bounds x="582" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="630" y="104" width="150" height="32" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_solicitud" bpmnElement="solicitud">
+        <dc:Bounds x="390.0" y="162.0" width="420" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_borrador" bpmnElement="borrador">
+        <dc:Bounds x="390.0" y="272.0" width="420" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_medios" bpmnElement="medios" isExpanded="false">
+        <dc:Bounds x="390.0" y="378.0" width="420" height="84" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_verificacion" bpmnElement="verificacion" isExpanded="false">
+        <dc:Bounds x="390.0" y="488.0" width="420" height="84" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_identidad" bpmnElement="identidad">
+        <dc:Bounds x="574" y="614" width="52" height="52" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="662" y="600" width="285" height="80" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_moderacion" bpmnElement="moderacion">
+        <dc:Bounds x="390.0" y="712.0" width="420" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_aprobacion" bpmnElement="aprobacion">
+        <dc:Bounds x="574" y="829" width="52" height="52" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="662" y="815" width="285" height="80" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_publicar" bpmnElement="publicar">
+        <dc:Bounds x="390.0" y="927.0" width="420" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_fin" bpmnElement="fin">
+        <dc:Bounds x="582" y="1082" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="630" y="1084" width="150" height="32" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_observacion_kyc" bpmnElement="observacion_kyc">
+        <dc:Bounds x="60.0" y="590.0" width="260" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_fin_kyc" bpmnElement="fin_kyc">
+        <dc:Bounds x="172" y="732" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="220" y="734" width="150" height="32" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_observacion_espacio" bpmnElement="observacion_espacio">
+        <dc:Bounds x="60.0" y="805.0" width="260" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_fin_espacio" bpmnElement="fin_espacio">
+        <dc:Bounds x="172" y="947" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="220" y="949" width="150" height="32" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_0" bpmnElement="Flow_0">
+        <di:waypoint x="600" y="138" />
+        <di:waypoint x="600" y="162.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_1" bpmnElement="Flow_1">
+        <di:waypoint x="600" y="238.0" />
+        <di:waypoint x="600" y="272.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_2" bpmnElement="Flow_2">
+        <di:waypoint x="600" y="348.0" />
+        <di:waypoint x="600" y="378.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_3" bpmnElement="Flow_3">
+        <di:waypoint x="600" y="462.0" />
+        <di:waypoint x="600" y="488.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_4" bpmnElement="Flow_4">
+        <di:waypoint x="600" y="572.0" />
+        <di:waypoint x="600" y="614" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_5" bpmnElement="Flow_5">
+        <di:waypoint x="600" y="666" />
+        <di:waypoint x="600" y="712.0" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="605" y="674.0" width="60" height="30" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_6" bpmnElement="Flow_6">
+        <di:waypoint x="600" y="788.0" />
+        <di:waypoint x="600" y="829" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_7" bpmnElement="Flow_7">
+        <di:waypoint x="600" y="881" />
+        <di:waypoint x="600" y="927.0" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="605" y="889.0" width="60" height="30" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_8" bpmnElement="Flow_8">
+        <di:waypoint x="600" y="1003.0" />
+        <di:waypoint x="600" y="1082" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_9" bpmnElement="Flow_9">
+        <di:waypoint x="574" y="640" />
+        <di:waypoint x="320" y="640" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="417.0" y="605" width="60" height="30" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_10" bpmnElement="Flow_10">
+        <di:waypoint x="190" y="690.0" />
+        <di:waypoint x="190" y="732" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_11" bpmnElement="Flow_11">
+        <di:waypoint x="574" y="855" />
+        <di:waypoint x="320" y="855" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="417.0" y="820" width="60" height="30" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_12" bpmnElement="Flow_12">
+        <di:waypoint x="190" y="905.0" />
+        <di:waypoint x="190" y="947" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

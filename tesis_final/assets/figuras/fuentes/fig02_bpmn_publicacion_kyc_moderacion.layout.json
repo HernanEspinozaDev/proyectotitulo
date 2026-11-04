@@ -1,0 +1,423 @@
+{
+  "title": "Publicación y verificación · espaciGo",
+  "nodes": {
+    "inicio": {
+      "kind": "startEvent",
+      "name": "Inicio",
+      "bounds": [
+        582,
+        102,
+        36,
+        36
+      ],
+      "center": [
+        600,
+        120
+      ]
+    },
+    "solicitud": {
+      "kind": "task",
+      "name": "Recibir ficha del espacio\ny antecedentes",
+      "bounds": [
+        390.0,
+        162.0,
+        420,
+        76
+      ],
+      "center": [
+        600,
+        200
+      ]
+    },
+    "borrador": {
+      "kind": "task",
+      "name": "Validar datos y\ncrear borrador",
+      "bounds": [
+        390.0,
+        272.0,
+        420,
+        76
+      ],
+      "center": [
+        600,
+        310
+      ]
+    },
+    "medios": {
+      "kind": "subProcess",
+      "name": "Procesar fotografías\ny variantes de medios",
+      "bounds": [
+        390.0,
+        378.0,
+        420,
+        84
+      ],
+      "center": [
+        600,
+        420
+      ]
+    },
+    "verificacion": {
+      "kind": "subProcess",
+      "name": "Revisar antecedentes\nde identidad KYC/KYB",
+      "bounds": [
+        390.0,
+        488.0,
+        420,
+        84
+      ],
+      "center": [
+        600,
+        530
+      ]
+    },
+    "identidad": {
+      "kind": "exclusiveGateway",
+      "name": "¿Verificación\naprobada?",
+      "bounds": [
+        574,
+        614,
+        52,
+        52
+      ],
+      "center": [
+        600,
+        640
+      ]
+    },
+    "moderacion": {
+      "kind": "task",
+      "name": "Evaluar requisitos de\npublicación y moderación",
+      "bounds": [
+        390.0,
+        712.0,
+        420,
+        76
+      ],
+      "center": [
+        600,
+        750
+      ]
+    },
+    "aprobacion": {
+      "kind": "exclusiveGateway",
+      "name": "¿Publicación\nautorizada?",
+      "bounds": [
+        574,
+        829,
+        52,
+        52
+      ],
+      "center": [
+        600,
+        855
+      ]
+    },
+    "publicar": {
+      "kind": "task",
+      "name": "Publicar espacio y\nactualizar catálogo",
+      "bounds": [
+        390.0,
+        927.0,
+        420,
+        76
+      ],
+      "center": [
+        600,
+        965
+      ]
+    },
+    "fin": {
+      "kind": "endEvent",
+      "name": "Fin",
+      "bounds": [
+        582,
+        1082,
+        36,
+        36
+      ],
+      "center": [
+        600,
+        1100
+      ]
+    },
+    "observacion_kyc": {
+      "kind": "task",
+      "name": "Comunicar\nobservaciones KYC/KYB",
+      "bounds": [
+        60.0,
+        590.0,
+        260,
+        100
+      ],
+      "center": [
+        190,
+        640
+      ]
+    },
+    "fin_kyc": {
+      "kind": "endEvent",
+      "name": "Fin",
+      "bounds": [
+        172,
+        732,
+        36,
+        36
+      ],
+      "center": [
+        190,
+        750
+      ]
+    },
+    "observacion_espacio": {
+      "kind": "task",
+      "name": "Comunicar ajustes\ny conservar borrador",
+      "bounds": [
+        60.0,
+        805.0,
+        260,
+        100
+      ],
+      "center": [
+        190,
+        855
+      ]
+    },
+    "fin_espacio": {
+      "kind": "endEvent",
+      "name": "Fin",
+      "bounds": [
+        172,
+        947,
+        36,
+        36
+      ],
+      "center": [
+        190,
+        965
+      ]
+    }
+  },
+  "flows": [
+    {
+      "source": "inicio",
+      "target": "solicitud",
+      "name": "",
+      "points": [
+        [
+          600,
+          138
+        ],
+        [
+          600,
+          162.0
+        ]
+      ],
+      "label_center": null
+    },
+    {
+      "source": "solicitud",
+      "target": "borrador",
+      "name": "",
+      "points": [
+        [
+          600,
+          238.0
+        ],
+        [
+          600,
+          272.0
+        ]
+      ],
+      "label_center": null
+    },
+    {
+      "source": "borrador",
+      "target": "medios",
+      "name": "",
+      "points": [
+        [
+          600,
+          348.0
+        ],
+        [
+          600,
+          378.0
+        ]
+      ],
+      "label_center": null
+    },
+    {
+      "source": "medios",
+      "target": "verificacion",
+      "name": "",
+      "points": [
+        [
+          600,
+          462.0
+        ],
+        [
+          600,
+          488.0
+        ]
+      ],
+      "label_center": null
+    },
+    {
+      "source": "verificacion",
+      "target": "identidad",
+      "name": "",
+      "points": [
+        [
+          600,
+          572.0
+        ],
+        [
+          600,
+          614
+        ]
+      ],
+      "label_center": null
+    },
+    {
+      "source": "identidad",
+      "target": "moderacion",
+      "name": "Sí",
+      "points": [
+        [
+          600,
+          666
+        ],
+        [
+          600,
+          712.0
+        ]
+      ],
+      "label_center": [
+        635,
+        689.0
+      ]
+    },
+    {
+      "source": "moderacion",
+      "target": "aprobacion",
+      "name": "",
+      "points": [
+        [
+          600,
+          788.0
+        ],
+        [
+          600,
+          829
+        ]
+      ],
+      "label_center": null
+    },
+    {
+      "source": "aprobacion",
+      "target": "publicar",
+      "name": "Sí",
+      "points": [
+        [
+          600,
+          881
+        ],
+        [
+          600,
+          927.0
+        ]
+      ],
+      "label_center": [
+        635,
+        904.0
+      ]
+    },
+    {
+      "source": "publicar",
+      "target": "fin",
+      "name": "",
+      "points": [
+        [
+          600,
+          1003.0
+        ],
+        [
+          600,
+          1082
+        ]
+      ],
+      "label_center": null
+    },
+    {
+      "source": "identidad",
+      "target": "observacion_kyc",
+      "name": "No",
+      "points": [
+        [
+          574,
+          640
+        ],
+        [
+          320,
+          640
+        ]
+      ],
+      "label_center": [
+        447.0,
+        620
+      ]
+    },
+    {
+      "source": "observacion_kyc",
+      "target": "fin_kyc",
+      "name": "",
+      "points": [
+        [
+          190,
+          690.0
+        ],
+        [
+          190,
+          732
+        ]
+      ],
+      "label_center": null
+    },
+    {
+      "source": "aprobacion",
+      "target": "observacion_espacio",
+      "name": "No",
+      "points": [
+        [
+          574,
+          855
+        ],
+        [
+          320,
+          855
+        ]
+      ],
+      "label_center": [
+        447.0,
+        835
+      ]
+    },
+    {
+      "source": "observacion_espacio",
+      "target": "fin_espacio",
+      "name": "",
+      "points": [
+        [
+          190,
+          905.0
+        ],
+        [
+          190,
+          947
+        ]
+      ],
+      "label_center": null
+    }
+  ]
+}

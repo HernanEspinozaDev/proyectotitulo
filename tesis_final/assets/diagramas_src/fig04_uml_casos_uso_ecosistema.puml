@@ -1,0 +1,66 @@
+@startuml
+title Diagrama General de Casos de Uso UML del Ecosistema espaciGo (14 Casos Canonicos)
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+
+actor Arrendatario as "Arrendatario
+(Cliente)"
+actor Arrendador as "Arrendador
+(Anfitrion)"
+actor GADM as "Administrador
+Global (GADM)"
+actor Pasarela as "Pasarela de Pago /
+Servicio KYC"
+
+rectangle "Sistema Marketplace espaciGo" {
+  usecase "UC-01: Registro y Activacion de Cuenta" as UC01
+  usecase "UC-02: Autenticacion Multifactor y Sesion" as UC02
+  usecase "UC-03: Busqueda Geoespacial PostGIS" as UC03
+  usecase "UC-04: Consulta de Ficha y Disponibilidad" as UC04
+  usecase "UC-05: Publicacion de Espacio y Fotos" as UC05
+  usecase "UC-06: Verificacion KYC/KYB" as UC06
+  usecase "UC-07: Cotizacion Dinamica de Precios" as UC07
+  usecase "UC-08: Confirmacion de Reserva y GiST" as UC08
+  usecase "UC-09: Retencion Escrow y Pago" as UC09
+  usecase "UC-10: Firma Digital de Contrato" as UC10
+  usecase "UC-11: Check-in Operativo y Liquidacion" as UC11
+  usecase "UC-12: Gestion de Disputas y Reembolso" as UC12
+  usecase "UC-13: Supresion de Datos Ley 21.719" as UC13
+  usecase "UC-14: Moderacion y Auditoria Global" as UC14
+
+  UC08 ..> UC07 : <<include>>
+  UC08 ..> UC02 : <<include>>
+  UC08 ..> UC09 : <<include>>
+  UC10 ..> UC08 : <<include>>
+  UC11 ..> UC10 : <<include>>
+  UC12 ..> UC11 : <<extend>>
+  UC14 ..> UC05 : <<extend>>
+}
+
+Arrendatario -- UC01
+Arrendatario -- UC02
+Arrendatario -- UC03
+Arrendatario -- UC04
+Arrendatario -- UC08
+Arrendatario -- UC10
+Arrendatario -- UC11
+Arrendatario -- UC12
+Arrendatario -- UC13
+
+Arrendador -- UC01
+Arrendador -- UC02
+Arrendador -- UC05
+Arrendador -- UC06
+Arrendador -- UC10
+Arrendador -- UC11
+Arrendador -- UC12
+Arrendador -- UC13
+
+GADM -- UC06
+GADM -- UC12
+GADM -- UC14
+
+Pasarela -- UC06
+Pasarela -- UC09
+@enduml

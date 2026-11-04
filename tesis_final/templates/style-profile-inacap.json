@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "name": "inacap-es2",
+  "version": "1.0.0",
+  "template": {
+    "file": "templates/reference-inacap.docx"
+  },
+  "roles": {
+    "body": {
+      "word_styles": [
+        "FirstParagraph",
+        "BodyText",
+        "Normal",
+        "Compact",
+        "BlockText"
+      ]
+    },
+    "heading_1": {
+      "word_styles": [
+        "Ttulo10"
+      ]
+    },
+    "heading_2": {
+      "word_styles": [
+        "Ttulo2"
+      ]
+    },
+    "heading_3": {
+      "word_styles": [
+        "Ttulo3"
+      ]
+    },
+    "caption": {
+      "word_styles": [
+        "ImageCaption",
+        "TableCaption"
+      ]
+    },
+    "toc_heading": {
+      "word_styles": [
+        "TOCHeading"
+      ]
+    }
+  },
+  "compatibility": {
+    "pandoc_style_aliases": {
+      "FirstParagraph": "Normal",
+      "BodyText": "Normal",
+      "Compact": "Normal",
+      "ImageCaption": "PIEDEFOTO",
+      "TableCaption": "TABLATTULO",
+      "Table": "Tablanormal",
+      "TOCHeading": "TtuloTDC",
+      "BlockText": "Normal"
+    }
+  }
+}

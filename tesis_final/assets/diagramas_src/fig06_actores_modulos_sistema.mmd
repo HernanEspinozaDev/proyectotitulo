@@ -1,0 +1,22 @@
+graph LR
+    subgraph ACTORES ["Actores del Sistema"]
+        A1["Arrendatario<br>(Cliente demandante)"]
+        A2["Arrendador<br>(Propietario oferente)"]
+        A3["Administrador<br>(Operador de plataforma)"]
+        A4["Sistema Pasarela / KYC<br>(Entidad externa)"]
+    end
+
+    subgraph MODULOS ["Módulos de la Plataforma"]
+        M1["M1: Identidad y Seguridad (KYC/KYB/RBAC)"]
+        M2["M2: Gestión de Espacios e Inmuebles"]
+        M3["M3: Motor de Búsqueda Geoespacial y Filtros"]
+        M4["M4: Motor de Reservas y Disponibilidad"]
+        M5["M5: Pasarela de Pagos y Bóveda Escrow"]
+        M6["M6: Contratos Digitales y Notarización"]
+        M7["M7: Evidencias (Check-in/out) y Disputas"]
+    end
+
+    A1 --> M1 & M3 & M4 & M5 & M6 & M7
+    A2 --> M1 & M2 & M4 & M5 & M6 & M7
+    A3 --> M1 & M2 & M5 & M7
+    A4 --> M1 & M5 & M6

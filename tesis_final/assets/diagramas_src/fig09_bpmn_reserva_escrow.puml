@@ -1,0 +1,78 @@
+@startuml
+title Proceso BPMN 2.0: Reserva, Pago en Custodia (Escrow), Firma y Arriendo (Colaboracion)
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+
+|#F8FAFC|Arrendatario|
+start
+:Explorar catalogo y seleccionar horario;
+:Solicitar reserva enviando Idempotency-Key;
+
+|#F0F9FF|Marketplace espaciGo (Backend Go)|
+:Verificar exclusion GiST (btree_gist);
+if (¿Conflicto o solapamiento temporal?) then (Si - 409 Conflict)
+  :Rechazar creacion de reserva;
+  stop
+else (No)
+  :Crear reserva en estado 'pendiente_de_pago'
+Activar temporizador TTL Pago (15 min);
+endif
+
+|#FFFBEB|Mercado Pago (Custodia / Escrow)|
+:Retener fondos bajo pre-autorizacion (Escrow);
+:Emitir Webhook con firma HMAC-SHA256;
+
+|Marketplace espaciGo (Backend Go)|
+:Actualizar estado a 'pagada'
+Activar temporizador TTL Anfitrion (24h);
+
+|#F8FAFC|Arrendador (Anfitrion)|
+:Revisar solicitud y perfil del arrendatario;
+if (¿Anfitrion aprueba solicitud dentro de 24h?) then (No / Timeout)
+  |Marketplace espaciGo (Backend Go)|
+  :Transicionar a 'rechazada_arrendador' / 'vencida_host';
+  |Mercado Pago (Custodia / Escrow)|
+  :Ejecutar liberacion y reembolso integro 100%;
+  stop
+else (Si)
+  |Marketplace espaciGo (Backend Go)|
+  partition "[+] Subproceso: Firma de Contrato Digital Cifrado" {
+    :Generar snapshot JSONB y renderizar contrato PDF;
+    :Cifrar contrato con AES-256-GCM y calcular hash SHA-256;
+    :Solicitar firmas digitales a ambas partes;
+  }
+endif
+
+|Arrendatario|
+:Firmar digitalmente contrato de arriendo;
+
+|Arrendador (Anfitrion)|
+:Firmar digitalmente contrato de arriendo;
+
+|Marketplace espaciGo (Backend Go)|
+:Verificar validez de ambas firmas;
+:Transicionar reserva a estado 'lista_para_checkin';
+
+|Arrendatario|
+:Efectuar Check-in presencial y adjuntar fotografias con hash SHA-256;
+
+|Marketplace espaciGo (Backend Go)|
+:Validar coordenadas y evidencia fotográfica;
+:Transicionar arriendo a 'en_curso';
+
+|Arrendador (Anfitrion)|
+:Efectuar Check-out e inspeccion del espacio;
+if (¿Recepcion conforme sin observaciones?) then (Si)
+  |Marketplace espaciGo (Backend Go)|
+  :Transicionar reserva a 'finalizada';
+  |Mercado Pago (Custodia / Escrow)|
+  :Desembolsar 90% a Arrendador y liquidar comision 10%;
+  stop
+else (Disputa de danos)
+  |Marketplace espaciGo (Backend Go)|
+  :Transicionar arriendo a 'en_disputa' y retener garantia;
+  :Derivar caso a resolucion administrativa GADM;
+  stop
+endif
+@enduml

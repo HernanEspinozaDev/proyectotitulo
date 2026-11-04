@@ -1,0 +1,345 @@
+@startuml
+title Modelo Lógico Relacional de Base de Datos - espaciGo (PostgreSQL 18 + PostGIS 3.6)
+hide circle
+skinparam linetype ortho
+skinparam shadowing false
+
+package "M01, M02, M03 & GADM: Identidad, Perfil, Privacidad, KYC y Gobierno" {
+  entity "public.usuario" as usuario {
+    * **id** : uuid <<PK>>
+    --
+    * correo_original : text
+    * correo_normalizado : text <<UQ>>
+    * hash_clave : text
+    * estado : text
+    * creado_en : timestamptz
+    * actualizado_en : timestamptz
+    baja_solicitada_en : timestamptz
+    * intentos_fallidos_consecutivos : integer
+    bloqueado_hasta : timestamptz
+  }
+
+  entity "public.rol_usuario" as rol_usuario {
+    * **usuario_id** : uuid <<PK, FK>>
+    * **rol** : text <<PK>>
+    --
+    * concedido_en : timestamptz
+    concedido_por : uuid <<FK>>
+  }
+
+  entity "public.administrador_global" as admin_global {
+    * **usuario_id** : uuid <<PK, FK>>
+    --
+    * concedido_en : timestamptz
+    concedido_por : uuid <<FK>>
+    * motivo_codigo : text
+  }
+
+  entity "public.sesion" as sesion {
+    * **id** : uuid <<PK>>
+    --
+    * usuario_id : uuid <<FK>>
+    * token_hash : char(64) <<UQ>>
+    * creada_en : timestamptz
+    * ultima_actividad_en : timestamptz
+    * expira_en : timestamptz
+    revocada_en : timestamptz
+    cliente_resumen : text
+  }
+
+  entity "public.token_accion" as token_accion {
+    * **id** : uuid <<PK>>
+    --
+    * usuario_id : uuid <<FK>>
+    * proposito : text
+    * token_hash : char(64) <<UQ>>
+    * creado_en : timestamptz
+    * expira_en : timestamptz
+    consumido_en : timestamptz
+    invalidado_en : timestamptz
+    * intentos : integer
+  }
+
+  entity "public.perfil_usuario" as perfil_usuario {
+    * **usuario_id** : uuid <<PK, FK>>
+    --
+    * nombre_visible : text
+    telefono_normalizado : text
+    * actualizado_en : timestamptz
+  }
+
+  entity "public.solicitud_titular" as solicitud_titular {
+    * **id** : uuid <<PK>>
+    --
+    * usuario_id : uuid <<FK>>
+    * tipo : text
+    * canal : text
+    * estado : text
+    * solicitada_en : timestamptz
+  }
+
+  entity "public.ejecucion_baja" as ejecucion_baja {
+    * **solicitud_id** : uuid <<PK, FK>>
+    --
+    * usuario_id : uuid <<FK, UQ>>
+    * ejecutada_por : uuid <<FK>>
+    * ejecutada_en : timestamptz
+    * sesiones_revocadas : integer
+    * tokens_invalidados : integer
+  }
+
+  entity "public.verificacion" as verificacion {
+    * **id** : uuid <<PK>>
+    --
+    * usuario_id : uuid <<FK>>
+    * tipo : text
+    * estado : text
+    * proveedor_ref : text
+    * referencia_evidencia : text
+    * clave_idempotencia : text <<UQ>>
+    reintento_de : uuid <<FK>>
+    revisor_id : uuid <<FK>>
+    motivo_codigo : text
+    * creada_en : timestamptz
+    resuelta_en : timestamptz
+  }
+}
+
+package "M04, M05, MPV2 & IMG-01: Espacios, Categorías, Tarifas, Ubicaciones y Medios WebP" {
+  entity "public.categoria_espacio" as categoria_espacio {
+    * **codigo** : text <<PK>>
+    --
+    * nombre : text <<UQ>>
+    * orden : smallint <<UQ>>
+    * activa : boolean
+  }
+
+  entity "public.espacio" as espacio {
+    * **id** : uuid <<PK>>
+    --
+    * propietario_id : uuid <<FK>>
+    * categoria_codigo : text <<FK>>
+    * titulo : varchar(70)
+    * descripcion : text
+    * superficie_m2 : numeric(10,2)
+    * capacidad_maxima : integer
+    * reglas_uso : varchar(250)
+    * modalidad_tarifa : text
+    * precio_base_clp : bigint
+    * direccion : text
+    * estado : text
+    zona_horaria : text
+    portada_foto_id : uuid
+    portada_media_id : uuid <<FK>>
+    catalogo_ubicacion_version : text
+    region_codigo : text
+    comuna_codigo : text
+    busqueda_fts : tsvector
+    * creado_en : timestamptz
+    * actualizado_en : timestamptz
+  }
+
+  entity "public.espacio_caracteristicas" as espacio_caract {
+    * **espacio_id** : uuid <<PK, FK>>
+    --
+    * categoria_codigo : text <<FK>>
+    * perfil_version : integer <<FK>>
+    * atributos : jsonb
+    * actualizado_en : timestamptz
+  }
+
+  entity "public.tarifa_espacio" as tarifa_espacio {
+    * **espacio_id** : uuid <<PK, FK>>
+    * **version** : integer <<PK>>
+    --
+    * modalidad : text
+    * precio_base_clp : bigint
+    * moneda : char(3)
+    * creada_en : timestamptz
+  }
+
+  entity "public.media_asset" as media_asset {
+    * **id** : uuid <<PK>>
+    --
+    * propietario_id : uuid <<FK>>
+    espacio_id : uuid <<FK>>
+    * proposito : text
+    * estado : text
+    * idempotency_key : text
+    * input_sha256 : char(64)
+    * fencing_token : bigint
+    lease_until : timestamptz
+    * created_at : timestamptz
+    * updated_at : timestamptz
+    deleted_at : timestamptz
+  }
+
+  entity "public.media_variant" as media_variant {
+    * **media_id** : uuid <<PK, FK>>
+    * **variant** : text <<PK>>
+    --
+    * provider : text
+    * bucket_name : text
+    * object_key : text
+    * generation : bigint
+    * mime_type : text
+    * size_bytes : bigint
+    * sha256 : char(64)
+    * width : integer
+    * height : integer
+    * created_at : timestamptz
+  }
+
+  entity "public.space_media" as space_media {
+    * **id** : uuid <<PK>>
+    --
+    * espacio_id : uuid <<FK>>
+    * propietario_id : uuid <<FK>>
+    * media_id : uuid <<FK, UQ>>
+    * alt_text : varchar(250)
+    * visible : boolean
+    * created_at : timestamptz
+    retired_at : timestamptz
+  }
+}
+
+package "M06, M07, M08, M09 & M10: Ocupación GiST, Reservas, Pagos, Contratos y Operaciones" {
+  entity "public.ocupacion" as ocupacion {
+    * **id** : uuid <<PK>>
+    --
+    * espacio_id : uuid <<FK>>
+    reserva_id : uuid <<FK, UQ>>
+    * intervalo : tstzrange <<GiST EXCLUDE>>
+    * tipo : text
+    * activo : boolean
+    expira_en : timestamptz
+    motivo : text
+    * creada_en : timestamptz
+    desactivada_en : timestamptz
+  }
+
+  entity "public.cotizacion_reserva_ensayo" as cotizacion {
+    * **id** : uuid <<PK>>
+    --
+    * espacio_id : uuid <<FK>>
+    * anfitrion_id : uuid <<FK>>
+    * arrendatario_id : uuid <<FK>>
+    * tarifa_version : integer <<FK>>
+    * modalidad : text
+    * precio_unitario_clp : bigint
+    * unidades : bigint
+    * subtotal_clp : bigint
+    * inicio : timestamptz
+    * termino : timestamptz
+    * vence_en : timestamptz
+  }
+
+  entity "public.reserva_ensayo" as reserva {
+    * **id** : uuid <<PK>>
+    --
+    * cotizacion_id : uuid <<FK, UQ>>
+    * espacio_id : uuid <<FK>>
+    * anfitrion_id : uuid <<FK>>
+    * arrendatario_id : uuid <<FK>>
+    * clave_idempotencia : text
+    * huella_solicitud : bytea
+    * ocupacion_id : uuid <<FK, UQ>>
+    * estado : text
+    * subtotal_clp : bigint
+    * inicio : timestamptz
+    * termino : timestamptz
+    * pago_vence_en : timestamptz
+    anfitrion_vence_en : timestamptz
+  }
+
+  entity "public.contrato_ensayo" as contrato {
+    * **id** : uuid <<PK>>
+    --
+    * reserva_id : uuid <<FK, UQ>>
+    * version : integer
+    * estado : text
+    * snapshot : jsonb
+    * documento_id : uuid <<FK, UQ>>
+    * sha256 : bytea
+    * creada_en : timestamptz
+    firmado_en : timestamptz
+  }
+
+  entity "public.documento_privado_sintetico" as doc_pdf {
+    * **id** : uuid <<PK>>
+    --
+    * reserva_id : uuid <<FK>>
+    * mime_type : text
+    * encryption_algorithm : text
+    * sha256 : bytea
+    * size_bytes : integer
+    * contenido : bytea
+  }
+
+  entity "public.operacion_arriendo_ensayo" as operacion {
+    * **id** : uuid <<PK>>
+    --
+    * reserva_id : uuid <<FK>>
+    * tipo : text
+    * actor_id : uuid <<FK>>
+    * ocurrio_en : timestamptz
+    * ubicacion_sintetica : jsonb
+    * resultado : text
+    * clave_idempotencia : text
+  }
+
+  entity "public.reclamo_dano_ensayo" as reclamo_dano {
+    * **id** : uuid <<PK>>
+    --
+    * reserva_id : uuid <<FK, UQ>>
+    * anfitrion_id : uuid <<FK>>
+    * arrendatario_id : uuid <<FK>>
+    * checkout_operacion_id : uuid <<FK>>
+    * checkout_evidencia_id : uuid <<FK>>
+    * descripcion : text
+    * estado : text
+    * plazo_reclamo_hasta : timestamptz
+  }
+
+  entity "public.resena_ensayo" as resena {
+    * **id** : uuid <<PK>>
+    --
+    * reserva_id : uuid <<FK>>
+    * espacio_id : uuid <<FK>>
+    * autor_id : uuid <<FK>>
+    * destinatario_id : uuid <<FK>>
+    * rol_autor : text
+    * calificacion : smallint
+    * comentario : text
+    * estado : text
+  }
+}
+
+usuario ||--o{ rol_usuario : "posee"
+usuario ||--o| admin_global : "es miembro GADM"
+usuario ||--o{ sesion : "mantiene"
+usuario ||--o{ token_accion : "recibe"
+usuario ||--o| perfil_usuario : "describe"
+usuario ||--o{ solicitud_titular : "ejerce ARCO"
+solicitud_titular ||--o| ejecucion_baja : "ejecuta"
+usuario ||--o{ verificacion : "acredita KYC/KYB"
+
+categoria_espacio ||--o{ espacio : "clasifica"
+usuario ||--o{ espacio : "es propietario"
+espacio ||--|| espacio_caract : "detalla JSONB"
+espacio ||--o{ tarifa_espacio : "versiona precios"
+espacio ||--o{ media_asset : "almacena fotos"
+media_asset ||--o{ media_variant : "genera WebP"
+media_asset ||--o| space_media : "publica en galería"
+
+espacio ||--o{ ocupacion : "bloquea intervalos"
+espacio ||--o{ cotizacion : "cotiza"
+tarifa_espacio ||--o{ cotizacion : "congela versión"
+cotizacion ||--o| reserva : "origina"
+ocupacion ||--o| reserva : "garantiza exclusión"
+reserva ||--o| contrato : "formaliza"
+doc_pdf ||--|| contrato : "cifra AES-256-GCM"
+reserva ||--o{ operacion : "registra check-in/out"
+reserva ||--o| reclamo_dano : "reporta daños"
+reserva ||--o{ resena : "evalúa experiencia"
+@enduml

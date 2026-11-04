@@ -1,0 +1,453 @@
+{
+  "title": "Solicitud de supresión de datos · espaciGo",
+  "nodes": {
+    "inicio": {
+      "kind": "startEvent",
+      "name": "Inicio",
+      "bounds": [
+        582,
+        102,
+        36,
+        36
+      ],
+      "center": [
+        600,
+        120
+      ]
+    },
+    "registro": {
+      "kind": "task",
+      "name": "Registrar solicitud\ndel titular",
+      "bounds": [
+        390.0,
+        162.0,
+        420,
+        76
+      ],
+      "center": [
+        600,
+        200
+      ]
+    },
+    "identidad": {
+      "kind": "subProcess",
+      "name": "Verificar identidad\ny alcance de la solicitud",
+      "bounds": [
+        390.0,
+        268.0,
+        420,
+        84
+      ],
+      "center": [
+        600,
+        310
+      ]
+    },
+    "procedente": {
+      "kind": "exclusiveGateway",
+      "name": "¿Solicitud\nprocedente?",
+      "bounds": [
+        574,
+        394,
+        52,
+        52
+      ],
+      "center": [
+        600,
+        420
+      ]
+    },
+    "retencion": {
+      "kind": "task",
+      "name": "Evaluar obligaciones y\nretención aplicable",
+      "bounds": [
+        390.0,
+        492.0,
+        420,
+        76
+      ],
+      "center": [
+        600,
+        530
+      ]
+    },
+    "impedimentos": {
+      "kind": "exclusiveGateway",
+      "name": "¿Hay impedimentos\npara la supresión?",
+      "bounds": [
+        574,
+        614,
+        52,
+        52
+      ],
+      "center": [
+        600,
+        640
+      ]
+    },
+    "anonimizar": {
+      "kind": "subProcess",
+      "name": "Revocar sesiones y\ndesidentificar datos",
+      "bounds": [
+        390.0,
+        708.0,
+        420,
+        84
+      ],
+      "center": [
+        600,
+        750
+      ]
+    },
+    "archivos": {
+      "kind": "subProcess",
+      "name": "Purgar archivos y\nevidencias procedentes",
+      "bounds": [
+        390.0,
+        818.0,
+        420,
+        84
+      ],
+      "center": [
+        600,
+        860
+      ]
+    },
+    "replay": {
+      "kind": "task",
+      "name": "Registrar ejecución\ny replay de bajas",
+      "bounds": [
+        390.0,
+        932.0,
+        420,
+        76
+      ],
+      "center": [
+        600,
+        970
+      ]
+    },
+    "respuesta": {
+      "kind": "task",
+      "name": "Notificar resultado\nal titular",
+      "bounds": [
+        390.0,
+        1042.0,
+        420,
+        76
+      ],
+      "center": [
+        600,
+        1080
+      ]
+    },
+    "fin": {
+      "kind": "endEvent",
+      "name": "Fin",
+      "bounds": [
+        582,
+        1177,
+        36,
+        36
+      ],
+      "center": [
+        600,
+        1195
+      ]
+    },
+    "subsanacion": {
+      "kind": "task",
+      "name": "Comunicar requisitos\nde subsanación",
+      "bounds": [
+        60.0,
+        370.0,
+        260,
+        100
+      ],
+      "center": [
+        190,
+        420
+      ]
+    },
+    "fin_subsanar": {
+      "kind": "endEvent",
+      "name": "Fin",
+      "bounds": [
+        172,
+        512,
+        36,
+        36
+      ],
+      "center": [
+        190,
+        530
+      ]
+    },
+    "limitacion": {
+      "kind": "task",
+      "name": "Comunicar decisión\nfundada y su alcance",
+      "bounds": [
+        60.0,
+        590.0,
+        260,
+        100
+      ],
+      "center": [
+        190,
+        640
+      ]
+    },
+    "fin_limitado": {
+      "kind": "endEvent",
+      "name": "Fin",
+      "bounds": [
+        172,
+        732,
+        36,
+        36
+      ],
+      "center": [
+        190,
+        750
+      ]
+    }
+  },
+  "flows": [
+    {
+      "source": "inicio",
+      "target": "registro",
+      "name": "",
+      "points": [
+        [
+          600,
+          138
+        ],
+        [
+          600,
+          162.0
+        ]
+      ],
+      "label_center": null
+    },
+    {
+      "source": "registro",
+      "target": "identidad",
+      "name": "",
+      "points": [
+        [
+          600,
+          238.0
+        ],
+        [
+          600,
+          268.0
+        ]
+      ],
+      "label_center": null
+    },
+    {
+      "source": "identidad",
+      "target": "procedente",
+      "name": "",
+      "points": [
+        [
+          600,
+          352.0
+        ],
+        [
+          600,
+          394
+        ]
+      ],
+      "label_center": null
+    },
+    {
+      "source": "procedente",
+      "target": "retencion",
+      "name": "Sí",
+      "points": [
+        [
+          600,
+          446
+        ],
+        [
+          600,
+          492.0
+        ]
+      ],
+      "label_center": [
+        635,
+        469.0
+      ]
+    },
+    {
+      "source": "retencion",
+      "target": "impedimentos",
+      "name": "",
+      "points": [
+        [
+          600,
+          568.0
+        ],
+        [
+          600,
+          614
+        ]
+      ],
+      "label_center": null
+    },
+    {
+      "source": "impedimentos",
+      "target": "anonimizar",
+      "name": "No",
+      "points": [
+        [
+          600,
+          666
+        ],
+        [
+          600,
+          708.0
+        ]
+      ],
+      "label_center": [
+        635,
+        687.0
+      ]
+    },
+    {
+      "source": "anonimizar",
+      "target": "archivos",
+      "name": "",
+      "points": [
+        [
+          600,
+          792.0
+        ],
+        [
+          600,
+          818.0
+        ]
+      ],
+      "label_center": null
+    },
+    {
+      "source": "archivos",
+      "target": "replay",
+      "name": "",
+      "points": [
+        [
+          600,
+          902.0
+        ],
+        [
+          600,
+          932.0
+        ]
+      ],
+      "label_center": null
+    },
+    {
+      "source": "replay",
+      "target": "respuesta",
+      "name": "",
+      "points": [
+        [
+          600,
+          1008.0
+        ],
+        [
+          600,
+          1042.0
+        ]
+      ],
+      "label_center": null
+    },
+    {
+      "source": "respuesta",
+      "target": "fin",
+      "name": "",
+      "points": [
+        [
+          600,
+          1118.0
+        ],
+        [
+          600,
+          1177
+        ]
+      ],
+      "label_center": null
+    },
+    {
+      "source": "procedente",
+      "target": "subsanacion",
+      "name": "No",
+      "points": [
+        [
+          574,
+          420
+        ],
+        [
+          320,
+          420
+        ]
+      ],
+      "label_center": [
+        447.0,
+        400
+      ]
+    },
+    {
+      "source": "subsanacion",
+      "target": "fin_subsanar",
+      "name": "",
+      "points": [
+        [
+          190,
+          470.0
+        ],
+        [
+          190,
+          512
+        ]
+      ],
+      "label_center": null
+    },
+    {
+      "source": "impedimentos",
+      "target": "limitacion",
+      "name": "Sí",
+      "points": [
+        [
+          574,
+          640
+        ],
+        [
+          320,
+          640
+        ]
+      ],
+      "label_center": [
+        447.0,
+        620
+      ]
+    },
+    {
+      "source": "limitacion",
+      "target": "fin_limitado",
+      "name": "",
+      "points": [
+        [
+          190,
+          690.0
+        ],
+        [
+          190,
+          732
+        ]
+      ],
+      "label_center": null
+    }
+  ]
+}

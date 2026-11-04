@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "id": "tesis_final_espacigo",
+  "metadata": {
+    "title": "espaciGo — Plataforma Web Transaccional para la Gestión y Arriendo Flexible de Espacios Comerciales e Industriales",
+    "subtitle": "Memoria de Título para optar al Título Profesional de Ingeniero en Tecnologías de Información y Ciberseguridad",
+    "authors": [
+      "Hernán Espinoza Marchant",
+      "Anita Marchant Silva",
+      "Erick Silva Espinoza"
+    ],
+    "advisor": "Teresa Jesús Tapia Soto",
+    "institution": "Universidad Tecnológica de Chile INACAP",
+    "department": "Área de Tecnologías de Información y Ciberseguridad",
+    "date": "Noviembre 2026",
+    "lang": "es-CL",
+    "toc-title": "Índice de Contenidos"
+  },
+  "sections": [
+    "sections/00-preliminares.md",
+    "sections/01-introduccion-y-contexto.md",
+    "sections/02-planteamiento-del-problema.md",
+    "sections/03-marco-teorico-y-estado-del-arte.md",
+    "sections/04-objetivos-y-modelo-de-negocio.md",
+    "sections/05-gestion-del-proyecto-y-metodologia.md",
+    "sections/06-arquitectura-empresarial.md",
+    "sections/07-especificacion-de-requerimientos.md",
+    "sections/08-diseno-de-arquitectura-ti-y-software.md",
+    "sections/09-modelamiento-de-procesos-y-datos.md",
+    "sections/10-aseguramiento-de-calidad-y-pruebas.md",
+    "sections/11-estrategia-de-implementacion-y-seguridad.md",
+    "sections/12-evaluacion-economica-y-financiera.md",
+    "sections/13-monitoreo-control-y-evaluacion-desempeno.md",
+    "sections/14-conclusiones-y-trabajos-futuros.md",
+    "appendices/a-requerimientos-ieee830.md",
+    "appendices/b-historias-de-usuario.md",
+    "appendices/c-casos-de-uso.md",
+    "appendices/d-diccionario-de-datos-ddl.md",
+    "appendices/e-catalogo-openapi.md",
+    "appendices/f-matrices-de-pruebas.md",
+    "appendices/g-carta-gantt-detallada.md",
+    "appendices/h-evaluacion-economica-detallada.md"
+  ],
+  "appendices": [],
+  "bibliography": null,
+  "csl": null,
+  "template": "templates/reference-inacap.docx",
+  "output": "Tesis_Final_espaciGo.docx",
+  "style_profile": "templates/style-profile-inacap.json",
+  "toc": {
+    "enabled": true,
+    "depth": 3
+  }
+}

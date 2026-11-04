@@ -1,49 +1,106 @@
-﻿# Repository Guidelines
+# Guía de Operación para Agentes de IA (AGENTS.md)
+**Proyecto de Título: espaciGo — INACAP**
 
-## Structure and Sources of Truth
+Este archivo contiene el contexto operativo, reglas inmutables, directrices de estilo y procedimientos técnicos que cualquier agente de Inteligencia Artificial (o colaborador automatizado) DEBE cumplir al trabajar en este repositorio.
 
-`Informes/` contains EspaciGo's academic reports. `ES1PT/` inside it is a closed historical delivery: preserve every source and generated document. Do not rewrite ES1 to match later decisions.
+---
 
-The immutable academic baseline is ES1's final report (`Informes/ES1PT/docx/build/Informe_Final.docx`) and its `Anexo_*.docx` files. New research belongs in the active delivery, such as `Informes/ES2PT/investigacion/`, and must distinguish what ES1 proposed from what later evidence verifies.
+## 1. Misión del Proyecto y Estructura del Repositorio
 
-The shared entry point is `Informes/generar.py`; reusable Python modules live in `herramientas/`, APA resources and institutional profiles in `recursos/`, and new-delivery scaffolding in `plantillas/nueva_entrega/`. The ignored root `espaciGo/` directory is outside this documentation workflow.
+El repositorio contiene la **Memoria de Título final** para optar al Título Profesional de Ingeniero en Tecnologías de Información y Ciberseguridad en INACAP, correspondiente a la plataforma **espaciGo**.
 
-## Context and Authoring
+### Estructura de Directorios Clave
+- **`tesis_final/`**: Directorio principal de trabajo.
+  - `document.json`: Manifiesto de compilación DocSkill. Define los metadatos y la secuencia exacta de capítulos (`sections/`) y anexos (`appendices/`).
+  - `sections/`: 15 capítulos en Markdown (`00-preliminares.md` a `14-conclusiones-y-trabajos-futuros.md`).
+  - `appendices/`: 8 anexos técnicos (`a-requerimientos-ieee830.md` a `h-evaluacion-economica-detallada.md`).
+  - `assets/diagramas_src/`: Código fuente editable de todos los diagramas (`.puml` y `.mmd`).
+  - `assets/imagenes/`: Renders PNG de alta resolución insertados en el documento.
+  - `scripts/`: Herramientas de soporte, renderizado y postprocesamiento.
+  - `context/`: **Base de conocimiento centralizada**:
+    - `00_material_docente/`: Guías de actividades oficiales de INACAP (ACT0 a ACT9).
+    - `01_auditorias_y_rubricas/`: Rúbricas de evaluación, correcciones docentes previas y análisis forense comparativo.
+    - `02_arquitectura_y_diseno/`: Documento rector de diseño técnico (`DESIGN_espaciGo.md`), actores, módulos y bibliografía.
+    - `03_insumos_anita_erick_finanzas/`: Scripts Python de simulación Monte Carlo / Bootstrap (`evaluacion_economica.py`, `simular_bootstrap.py`), notas de investigación económica (`INV-009`, `INV-011`, etc.) y supuestos JSON para el Capítulo XII y Anexo H.
+    - `04_insumos_anita_erick_gantt/`: Matriz de trazabilidad, backlog de sprints, supuestos de planificación y documentación para el Capítulo V y Anexo G.
+  - `build/`: Salidas compiladas (`Tesis_Final_espaciGo.docx` y `Tesis_Final_espaciGo.pdf`).
+- **`build_thesis.py`**: Script de orquestación en la raíz para compilar la tesis de principio a fin.
+- **`docskill/`**: Motor documental que utiliza Pandoc y perfiles de estilo OOXML.
 
-Read `Informes/contexto/README.md` and `decisiones.md`, then the active delivery's `contexto.md`, `pendientes.md`, `informe.json`, rubric, and relevant sections. Follow evidence links into ES1 when needed. Treat proposed architecture and integrations as proposals until implementation evidence is recorded.
+---
 
-For ES2, apply Law 21.719 as a design criterion from the first development increment, using the treatment matrix in `Informes/ES2PT/anexos/B_diccionario_datos.md` and planned test PT-16. Its effective date is 1 December 2026; distinguish design work from legal applicability and proven compliance.
+## 2. Reglas Inmutables y Restricciones Absolutas
 
-ES2 retains all rental-space categories from ES1. Investigate pricing, duration, capacity, demand, and transaction costs by category; `INV-011_muestra_precios_y_demanda.md` records the current evidence. The single-ticket bootstrap simulation is provisional, not a market average or a decision to restrict the product to one pilot category.
+1. **Secciones Reservadas de Integrantes (Anita Marchant y Erick Silva)**:
+   - **NUNCA** redactar, alterar o inventar datos financieros (flujos de caja, VAN, TIR, Payback) ni cronogramas Gantt detallados.
+   - Esas secciones pertenecen a **Anita Marchant Silva** y **Erick Silva Espinoza**.
+   - En el **Capítulo XII**, **Anexo H**, **Capítulo V (Sección 5.3)** y **Anexo G**, se DEBE respetar la presencia de las alertas visuales verdes:
+     ```markdown
+     > 🟢 **[SECCIÓN RESERVADA PARA INTEGRACIÓN — ANITA MARCHANT Y ERICK SILVA]**
+     ```
+   - Si se requiere consultar los insumos preparados para ellos, remitirse a `tesis_final/context/03_insumos_anita_erick_finanzas/` y `tesis_final/context/04_insumos_anita_erick_gantt/`.
 
-Edit Markdown under each delivery's `secciones/` and `anexos/`. `informe.json` orders sections and declares annexes. Keep image paths relative to the delivery root. Never maintain edits in `build/` artifacts. Do not invent academic requirements, citations, dates, approvals, or results. Mark missing evidence with `[[PENDIENTE: ...]]`.
+2. **Regla de Formato APA 7 para Figuras e Imágenes**:
+   - **Cero bloques de código crudos**: En los capítulos o anexos **JAMÁS** debe haber bloques ```mermaid o ```plantuml en el texto principal. Todo diagrama debe estar renderizado en PNG e insertado como imagen.
+   - **Ubicación de fuentes**: Las fuentes editables residen en `tesis_final/assets/diagramas_src/` (`.puml` o `.mmd`) y los renders en `tesis_final/assets/imagenes/`.
+   - **Estructura en Markdown**:
+     ```markdown
+     **Figura X.Y**
+     *Título descriptivo de la figura en cursiva*
 
-Annex letters are data-driven: they come from the order of the `anexos` array in `informe.json`, which must follow the order of first reference in the body. ES2 was reordered to A = evaluación económica, B = diccionario de datos, C = catálogo de casos de prueba; when an annex moves, update its letter in every body and annex reference. Lowercase `anexo A/B/C/D/E` always points to the frozen ES1 annexes and must never be renumbered. The technical sample selects its annex by file name, not by letter.
+     ![](../assets/imagenes/figXY_nombre_diagrama.png)
 
-Cite only primary sources in the report: never cite the internal `INV-*.md` registers or the frozen ES1 baseline as author–year sources. Mention the prior delivery in prose ("la entrega anterior") and cite the original sources it was based on. After any citation change, regenerate the Word and verify on the render that no `INV-0xx` mention and no ES1 self-citation remain (`INV-019` records the convention).
+     *Nota.* Descripción breve del contenido. Adaptado de... / Fuente: Elaboración propia a partir de la especificación técnica de espaciGo.
+     ```
+   - **Alt text vacío**: El corchete de la imagen debe ser estrictamente `![](...)` sin texto interno para evitar que Pandoc duplique el pie de foto al exportar a Word.
 
-## Development and Validation
+3. **Regla de Formato APA 7 para Tablas**:
+   - Toda tabla debe poseer bordes visibles (cuadrícula completa de 1/2 pt en negro), encabezados oscurecidos/sombreados y su respectivo rótulo superior y nota de elaboración inferior:
+     ```markdown
+     **Tabla X.Y**
+     *Título de la tabla en cursiva*
 
-For parallel ES2 research, use `python Informes/coordinar.py contexto`, inspect `tablero`, and reserve a free task with `tomar --agente <unique-instance-name>` before editing its files. The versioned task list is `Informes/ES2PT/coordinacion/tareas.json`; `bitacora.md` records who took each task and progress, while the ignored SQLite database holds live reservations. Read the prior summary on takeover, record `avance`, and `finalizar` or `liberar` with a concrete handoff. Do not edit files reserved by another agent. Research tasks write distinct INV files; `ES2-INTEGRAR` owns shared body, bibliography, and pending-list edits after its dependencies finish. See [coordination guide](Informes/ES2PT/coordinacion/README.md). Agents in different worktrees must point `INFORMES_COORD_DB` to the same local database to coordinate live claims.
+     | Encabezado 1 | Encabezado 2 |
+     |---|---|
+     | Dato 1 | Dato 2 |
 
-For ES2, prioritize research, body text and annexes. By user instruction, defer all Word/PDF rendering, APA field experiments, profile approval and visual checks until the content is complete, or the user explicitly requests them. Do not repeat these checks after each writing task. Keep `perfil_es2.json` unapproved until the user explicitly requests the Word closure; it was approved on 24-09-2026 by express user decision, with the render review recorded in `INV-020`. During drafting, use lightweight Markdown/source checks and focused arithmetic checks when calculations change.
+     *Nota.* Fuente: Elaboración propia / Adaptado de...
+     ```
 
-Economic analysis follows `Informes/ES2PT/investigacion/INV-009_evaluacion_economica.md` and its editable assumptions. Preserve commission revenue versus third-party funds, cash versus opportunity cost, and hypothetical scenarios versus quotations. The reusable personal skill is `$evaluacion-proyectos-chile`; the repository calculator is `Informes/herramientas/evaluacion_economica.py` and needs no Word or external packages.
+4. **Tono y Redacción Académica**:
+   - Todo el contenido debe estar redactado en **Español Técnico Formal**, en **tercera persona singular en presente** («la plataforma implementa», «el sistema procesa», «la arquitectura comprende»).
+   - Prohibido el uso de primera persona («hicimos», «desarrollé», «nuestro equipo»).
 
-Use Python 3.10+; `Informes/requirements.txt` lists external prerequisites without PyPI dependencies. Word generation requires Pandoc 3.x; PlantUML requires Java and `PLANTUML_JAR`, while SVG diagrams require Inkscape. Recreate relocated virtual environments rather than trusting stale paths.
+---
 
-```powershell
-python Informes/generar.py nuevo ES3PT
-python Informes/generar.py ensamblar ES2PT
-python Informes/generar.py generar ES2PT
-python Informes/generar.py validar ES2PT --final
-python -m unittest discover -s Informes/tests -v
+## 3. Procedimiento de Compilación y Verificación
+
+Para compilar el documento tras realizar cambios en el Markdown o en los diagramas:
+
+```bash
+# Compilación completa (DocSkill + Layout + PDF):
+python3 build_thesis.py
+
+# Si solo se modificó texto y se requiere probar rápido el DOCX:
+python3 build_thesis.py --no-pdf
+
+# Si se modificó un archivo .puml o .mmd en diagramas_src/:
+python3 build_thesis.py --diagrams
 ```
 
-ES2 has an institutional template and a Markdown draft; its Word profile remains disabled pending the final visual review. Follow `Informes/ES2PT/investigacion/matriz_trazabilidad_es2.md` for actual progress. Do not bypass missing or unreviewed Word profiles. Errors must return nonzero status. Test pipeline changes with focused `unittest` cases; reserve isolated ES1 compatibility and visual Word checks for the final validation phase. Final validation blocks unresolved content and bibliography tasks; it does not replace rubric review.
+### Flujo Interno de Compilación:
+1. `DocSkillProject.open('tesis_final').build()` genera el archivo Word base `Tesis_Final_espaciGo.docx`.
+2. `tesis_final/scripts/postprocess_tesis_layout.py` modifica el OOXML del DOCX para:
+   - Inyectar saltos de página limpios (`<w:pageBreakBefore/>`) antes de cada capítulo y anexo mayor.
+   - Configurar la cuadrícula de bordes completos en las más de 200 tablas.
+   - Aplicar el estilo nativo `ImageCaption` y `<w:keepNext/>` en los títulos de figuras.
+3. `libreoffice --headless --convert-to pdf` produce `Tesis_Final_espaciGo.pdf` (más de 560 páginas).
 
-## Style and Contributions
+---
 
-Use four-space Python indentation, `snake_case`, and uppercase constants. Preserve Spanish prose, UTF-8 accents, bibliography keys, and RQF/RNF/CU/HU identifiers. No global formatter or coverage threshold is configured.
+## 4. Trazabilidad y Consulta de Contexto
 
-Recent commits use concise Spanish descriptions. Keep commits focused; PRs describe affected behavior, task links, checks, unresolved warnings, and screenshots for layout changes. Never force-add ignored outputs or credentials. Notion configuration uses OAuth; see `NOTION_MCP.md`.
+Antes de redactar o modificar capítulos técnicos, consulta las carpetas correspondientes en `tesis_final/context/`:
+- **¿Dudas de requerimientos o casos de uso?** Revisa `context/02_arquitectura_y_diseno/actores_y_modulos.md` y `DESIGN_espaciGo.md`.
+- **¿Dudas sobre criterios de evaluación de la profesora Teresa Tapia?** Revisa `context/01_auditorias_y_rubricas/correcciones_profesora.md` y las rúbricas de evaluación.
+- **¿Dudas sobre cómo modelar o estructurar según INACAP?** Revisa `context/00_material_docente/` donde están las guías oficiales de actividades (ACT0 a ACT9).

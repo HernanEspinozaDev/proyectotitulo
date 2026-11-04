@@ -1,4 +1,4 @@
-# Directorios y artefactos del proyecto
+# Directorios y artefactos de Python
 __pycache__/
 *.py[cod]
 *.pyo
@@ -6,37 +6,24 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 
-# Entornos virtuales de Python
+# Entornos virtuales
 .venv/
 venv/
 env/
 ENV/
-.venv*/
-venv*/
 **/.venv/
-**/venv/
-**/env/
-**/ENV/
-**/venv*/
 
-# Salidas generadas por el pipeline de ES1PT
-ES1PT/docx/build/
-ES1PT/docx/calibracion/
-ES1PT/docx/__pycache__/
-ES1PT/**/__pycache__/
-
-
+# Repositorios o submódulos externos
+docskill/
 espaciGo/
 
-# Motor compartido y entregas académicas
-docskill/
-Informes/**/build/
-Informes/**/calibracion/
-Informes/**/coordinacion/estado.sqlite3*
-Informes/**/coordinacion/.bitacora.*.tmp
+# Archivos intermedios generados por Pandoc/DocSkill
+tesis_final/build/body.*
+tesis_final/build/adapted-reference.docx
+tesis_final/build/assembled.md
+tesis_final/build/manifest.json
+tesis_final/build/diagnostics.json
+tesis_final/build/validation.md
 
-# Investigación local de Mercado Pago pendiente de revisar
-Informes/ES2PT/investigacion/investigacionmanual/mercadopago/
-
-# Configuración local del entorno Docker (sin credenciales)
+# Configuración local de entorno
 .env

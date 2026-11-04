@@ -1,0 +1,24 @@
+flowchart LR
+    subgraph FASE1 ["1. Iniciación y Gobernanza"]
+        F1["Acta de Constitución<br>Línea Base EDT"]
+    end
+
+    subgraph FASE2 ["2. Análisis y Requerimientos"]
+        F2["IEEE 830 (236 RF / 43 RNF)<br>Modelado As-Is / To-Be"]
+    end
+
+    subgraph FASE3 ["3. Diseño de Ingeniería"]
+        F3["Arquitectura TOGAF<br>Hexagonal en Go<br>Modelo ER PostGIS"]
+    end
+
+    subgraph FASE4 ["4. Construcción Incremental"]
+        I1["Incremento 1: Identidad/KYC"] --> I2["Incremento 2: Inmuebles"]
+        I2 --> I3["Incremento 3: Escrow/Pagos"]
+        I3 --> I4["Incremento 4: Contratos/QA"]
+    end
+
+    subgraph FASE5 ["5. Puesta en Marcha y Cierre"]
+        F5["CI/CD en Cloud Run<br>Validación RPO/RTO<br>Memoria Final"]
+    end
+
+    FASE1 --> FASE2 --> FASE3 --> FASE4 --> FASE5

@@ -1,0 +1,36 @@
+graph TD
+    USER["Usuarios Web / Móvil"]
+    
+    subgraph PERIMETRO ["Perímetro de Red y Seguridad"]
+        DNS["Google Cloud DNS"]
+        LB["Cloud Load Balancing HTTPS (Anycast)"]
+        WAF["Cloud Armor (WAF Anti-DDoS / Rate Limiting)"]
+        CDN["Cloud CDN (Contenido Estático)"]
+        DNS --> LB
+        LB --> WAF & CDN
+    end
+
+    subgraph COMPUTO ["Capa de Cómputo Gestionada (Serverless)"]
+        BFF["Frontend Next.js (Cloud Run)"]
+        API["Backend Core Go (Cloud Run)"]
+        VPC_CONN["Serverless VPC Access Connector"]
+        LB --> BFF
+        BFF --> API
+        API --> VPC_CONN
+    end
+
+    subgraph RED_PRIVADA ["VPC Privada (Sin Acceso Público a Internet)"]
+        SQL["Google Cloud SQL (PostgreSQL 18 + PostGIS 3.6 HA)"]
+        REDIS["Memorystore for Redis (Caché y Sesiones)"]
+        VPC_CONN --> SQL
+        VPC_CONN --> REDIS
+    end
+
+    subgraph ALMACENAMIENTO ["Almacenamiento y Auditoría"]
+        GCS["Cloud Storage Buckets (Evidencias y Contratos AES-256)"]
+        BQ["BigQuery (Logs de Auditoría Inmutables)"]
+        KMS["Cloud KMS (Gestión de Llaves Criptográficas)"]
+        API --> GCS & BQ & KMS
+    end
+
+    USER --> DNS

@@ -1,0 +1,13 @@
+flowchart LR
+    subgraph CI ["1. Integración Continua (CI)"]
+        G1["Push / PR a main"] --> G2["Linting y Formato<br>(golangci-lint / ESLint)"]
+        G2 --> G3["Tests Unitarios y Cobertura<br>(Umbral >= 80%)"]
+        G3 --> G4["Análisis de Vulnerabilidades<br>(Trivy / SAST)"]
+    end
+
+    subgraph CD ["2. Despliegue Continuo (CD)"]
+        G4 --> D1["Construcción Multi-Stage Docker"]
+        D1 --> D2["Publicación en Artifact Registry"]
+        D2 --> D3["Despliegue Canary en Cloud Run<br>(southamerica-west1)"]
+        D3 --> D4["Health Check y Migración SQL"]
+    end

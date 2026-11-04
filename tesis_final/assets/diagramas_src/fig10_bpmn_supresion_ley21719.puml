@@ -1,0 +1,36 @@
+@startuml
+title Proceso BPMN 2.0: Supresion de Datos Personales (Ley N° 21.719)
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+
+|#F8FAFC|Titular de Datos (Usuario)|
+start
+:Solicitar supresion de cuenta y ejercicio de derechos ARCO;
+:Confirmar identidad mediante desafio MFA y reautenticacion;
+
+|#F0F9FF|Plataforma espaciGo (Core & DB)|
+:Registrar solicitud formal de supresion;
+:Aplicar BLOQUEO PREVENTIVO (Plazo: max 2 dias habiles, Art. 11 Ley 21.719);
+:Inhabilitar credenciales y revocar todas las sesiones activas;
+if (¿Existen contratos de arriendo activos, deudas o retencion tributaria legal?) then (Si)
+  :Mantener bloqueo preventivo y suspender purga definitiva;
+  :Notificar causa legal fundada al titular (Art. 17 Ley 21.719);
+  stop
+else (No)
+  fork
+    :Anonimizacion criptografica irreversible de PII en BD
+(Sobrescritura SHA-256 de RUT, email, telefono);
+  fork again
+    :Purga fisica irreversible de archivos en Google Cloud Storage;
+  end fork
+  
+  |#FAF5FF|Oficial de Privacidad (DPO) / Ledger|
+  :Registrar evento irreversible en Ledger Inmutable de Auditoria;
+  :Generar Certificado Digital de Supresion (Plazo total: max 30 dias corridos);
+  
+  |Titular de Datos (Usuario)|
+  :Recibir Certificado Oficial de Supresion Cumplida;
+  stop
+endif
+@enduml

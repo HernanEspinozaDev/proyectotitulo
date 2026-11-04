@@ -1,0 +1,18 @@
+sequenceDiagram
+    autonumber
+    actor U as Arrendatario
+    participant S as Plataforma espaciGo
+    participant P as Pasarela de Pago (Escrow)
+    actor O as Propietario
+
+    U->>S: Solicita Reserva con Fechas
+    S->>P: Autoriza Cobro de Renta + Bloqueo de Garantía
+    P-->>S: Fondos Custodiados en Bóveda Segura
+    S->>O: Notifica Reserva Garantizada
+    Note over U,O: Periodo de Arriendo y Verificación Check-in/Check-out
+    alt Servicio Cumplido sin Daños
+        S->>P: Ejecuta Split Payment (Comisión Plataforma + Liquidación Propietario)
+        S->>P: Libera Bloqueo de Garantía en Tarjeta del Arrendatario
+    else Daño Reportado con Evidencia Fotográfica
+        S->>P: Congela Garantía y Deriva a Protocolo de Disputa
+    end

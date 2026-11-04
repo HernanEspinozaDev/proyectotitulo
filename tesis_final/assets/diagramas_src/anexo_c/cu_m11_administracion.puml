@@ -1,0 +1,23 @@
+@startuml
+title EspaciGo — Módulo M11: Administración y Auditoría
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Administrador" as ADMIN
+
+rectangle "EspaciGo — Sistema de Marketplace SaaS B2B2C de Espacios Comerciales" {
+  package "M11 — Administración y Auditoría" {
+    usecase "CU-43 Gestionar Bloqueo de Cuentas de Usuario" as CU43
+    usecase "CU-44 Moderar Reseñas Reportadas" as CU44
+    usecase "CU-45 Generar Reportes de Gestión" as CU45
+    usecase "CU-46 Consultar y Exportar Historial de Auditoría" as CU46
+    usecase "CU-52 Consultar Publicaciones de la Plataforma" as CU52
+  }
+}
+
+ADMIN -- CU43
+ADMIN -- CU44
+ADMIN -- CU45
+ADMIN -- CU46
+ADMIN -- CU52
+@enduml

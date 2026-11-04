@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1260" viewBox="0 0 1000 1260">
+<title>Publicación y verificación · espaciGo</title>
+<rect width="100%" height="100%" fill="white"/>
+<rect x="25" y="24" width="950" height="1214" rx="0" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<rect x="25" y="24" width="950" height="53" rx="0" fill="#EEF2F6" stroke="#334155" stroke-width="2"/>
+<text x="500" y="50.0" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="25" font-weight="bold" fill="#172033">Publicación y verificación · espaciGo</text>
+<circle cx="600" cy="120" r="18" fill="white" stroke="#334155" stroke-width="2"/>
+<text x="700" y="120.0" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="22" font-weight="normal" fill="#172033">Inicio</text>
+<rect x="390.0" y="162.0" width="420.0" height="76.0" rx="9" fill="#F8FAFC" stroke="#334155" stroke-width="2"/>
+<text x="600" y="186.58" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="22" font-weight="normal" fill="#172033">Recibir ficha del espacio</text>
+<text x="600" y="213.42" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="22" font-weight="normal" fill="#172033">y antecedentes</text>
+<rect x="390.0" y="272.0" width="420.0" height="76.0" rx="9" fill="#F8FAFC" stroke="#334155" stroke-width="2"/>
+<text x="600" y="296.58" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="22" font-weight="normal" fill="#172033">Validar datos y</text>
+<text x="600" y="323.42" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="22" font-weight="normal" fill="#172033">crear borrador</text>
+<rect x="390.0" y="378.0" width="420.0" height="84.0" rx="9" fill="#F8FAFC" stroke="#334155" stroke-width="2"/>
+<text x="600" y="396.58" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="22" font-weight="normal" fill="#172033">Procesar fotografías</text>
+<text x="600" y="423.42" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="22" font-weight="normal" fill="#172033">y variantes de medios</text>
+<rect x="591" y="439.0" width="18" height="18.0" rx="0" fill="white" stroke="#334155" stroke-width="1"/>
+<text x="600" y="448.0" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="18" font-weight="normal" fill="#172033">+</text>
+<rect x="390.0" y="488.0" width="420.0" height="84.0" rx="9" fill="#F8FAFC" stroke="#334155" stroke-width="2"/>
+<text x="600" y="506.58" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="22" font-weight="normal" fill="#172033">Revisar antecedentes</text>
+<text x="600" y="533.42" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="22" font-weight="normal" fill="#172033">de identidad KYC/KYB</text>
+<rect x="591" y="549.0" width="18" height="18.0" rx="0" fill="white" stroke="#334155" stroke-width="1"/>
+<text x="600" y="558.0" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="18" font-weight="normal" fill="#172033">+</text>
+<polygon points="600,614 626,640 600,666 574,640" fill="#FFF7E5" stroke="#334155" stroke-width="2"/>
+<text x="600" y="640.0" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="27" font-weight="normal" fill="#172033">×</text>
+<text x="805" y="626.58" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="22" font-weight="normal" fill="#172033">¿Verificación</text>
+<text x="805" y="653.42" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="22" font-weight="normal" fill="#172033">aprobada?</text>
+<rect x="390.0" y="712.0" width="420.0" height="76.0" rx="9" fill="#F8FAFC" stroke="#334155" stroke-width="2"/>
+<text x="600" y="736.58" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="22" font-weight="normal" fill="#172033">Evaluar requisitos de</text>
+<text x="600" y="763.42" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="22" font-weight="normal" fill="#172033">publicación y moderación</text>
+<polygon points="600,829 626,855 600,881 574,855" fill="#FFF7E5" stroke="#334155" stroke-width="2"/>
+<text x="600" y="855.0" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="27" font-weight="normal" fill="#172033">×</text>
+<text x="805" y="841.58" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="22" font-weight="normal" fill="#172033">¿Publicación</text>
+<text x="805" y="868.42" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="22" font-weight="normal" fill="#172033">autorizada?</text>
+<rect x="390.0" y="927.0" width="420.0" height="76.0" rx="9" fill="#F8FAFC" stroke="#334155" stroke-width="2"/>
+<text x="600" y="951.58" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="22" font-weight="normal" fill="#172033">Publicar espacio y</text>
+<text x="600" y="978.42" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="22" font-weight="normal" fill="#172033">actualizar catálogo</text>
+<circle cx="600" cy="1100" r="18" fill="white" stroke="#334155" stroke-width="4"/>
+<text x="700" y="1100.0" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="22" font-weight="normal" fill="#172033">Fin</text>
+<polyline points="600,138 600,162.0" fill="none" stroke="#334155" stroke-width="2"/>
+<polygon points="600,162.0 595.7163982346049,151.86832906596825 604.2836017653951,151.86832906596825" fill="#334155"/>
+<polyline points="600,238.0 600,272.0" fill="none" stroke="#334155" stroke-width="2"/>
+<polygon points="600,272.0 595.7163982346049,261.8683290659683 604.2836017653951,261.8683290659683" fill="#334155"/>
+<polyline points="600,348.0 600,378.0" fill="none" stroke="#334155" stroke-width="2"/>
+<polygon points="600,378.0 595.7163982346049,367.8683290659683 604.2836017653951,367.8683290659683" fill="#334155"/>
+<polyline points="600,462.0 600,488.0" fill="none" stroke="#334155" stroke-width="2"/>
+<polygon points="600,488.0 595.7163982346049,477.8683290659683 604.2836017653951,477.8683290659683" fill="#334155"/>
+<polyline points="600,572.0 600,614" fill="none" stroke="#334155" stroke-width="2"/>
+<polygon points="600,614 595.7163982346049,603.8683290659683 604.2836017653951,603.8683290659683" fill="#334155"/>
+<polyline points="600,666 600,712.0" fill="none" stroke="#334155" stroke-width="2"/>
+<polygon points="600,712.0 595.7163982346049,701.8683290659683 604.2836017653951,701.8683290659683" fill="#334155"/>
+<text x="635" y="689.0" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="21" font-weight="normal" fill="#172033">Sí</text>
+<polyline points="600,788.0 600,829" fill="none" stroke="#334155" stroke-width="2"/>
+<polygon points="600,829 595.7163982346049,818.8683290659683 604.2836017653951,818.8683290659683" fill="#334155"/>
+<polyline points="600,881 600,927.0" fill="none" stroke="#334155" stroke-width="2"/>
+<polygon points="600,927.0 595.7163982346049,916.8683290659683 604.2836017653951,916.8683290659683" fill="#334155"/>
+<text x="635" y="904.0" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="21" font-weight="normal" fill="#172033">Sí</text>
+<polyline points="600,1003.0 600,1082" fill="none" stroke="#334155" stroke-width="2"/>
+<polygon points="600,1082 595.7163982346049,1071.8683290659683 604.2836017653951,1071.8683290659683" fill="#334155"/>
+<rect x="60.0" y="590.0" width="260.0" height="100.0" rx="9" fill="#F8FAFC" stroke="#334155" stroke-width="2"/>
+<text x="190" y="613.16" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="22" font-weight="normal" fill="#172033">Comunicar</text>
+<text x="190" y="640.0" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="22" font-weight="normal" fill="#172033">observaciones</text>
+<text x="190" y="666.84" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="22" font-weight="normal" fill="#172033">KYC/KYB</text>
+<circle cx="190" cy="750" r="18" fill="white" stroke="#334155" stroke-width="4"/>
+<text x="290" y="750.0" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="22" font-weight="normal" fill="#172033">Fin</text>
+<polyline points="574,640 320,640" fill="none" stroke="#334155" stroke-width="2"/>
+<polygon points="320,640 330.1316709340317,635.7163982346049 330.1316709340317,644.2836017653951" fill="#334155"/>
+<text x="447.0" y="620.0" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="21" font-weight="normal" fill="#172033">No</text>
+<polyline points="190,690.0 190,732" fill="none" stroke="#334155" stroke-width="2"/>
+<polygon points="190,732 185.71639823460484,721.8683290659683 194.28360176539516,721.8683290659683" fill="#334155"/>
+<rect x="60.0" y="805.0" width="260.0" height="100.0" rx="9" fill="#F8FAFC" stroke="#334155" stroke-width="2"/>
+<text x="190" y="828.16" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="22" font-weight="normal" fill="#172033">Comunicar ajustes</text>
+<text x="190" y="855.0" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="22" font-weight="normal" fill="#172033">y conservar</text>
+<text x="190" y="881.84" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="22" font-weight="normal" fill="#172033">borrador</text>
+<circle cx="190" cy="965" r="18" fill="white" stroke="#334155" stroke-width="4"/>
+<text x="290" y="965.0" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="22" font-weight="normal" fill="#172033">Fin</text>
+<polyline points="574,855 320,855" fill="none" stroke="#334155" stroke-width="2"/>
+<polygon points="320,855 330.1316709340317,850.7163982346049 330.1316709340317,859.2836017653951" fill="#334155"/>
+<text x="447.0" y="835.0" text-anchor="middle" dominant-baseline="central" font-family="DejaVu Sans" font-size="21" font-weight="normal" fill="#172033">No</text>
+<polyline points="190,905.0 190,947" fill="none" stroke="#334155" stroke-width="2"/>
+<polygon points="190,947 185.71639823460484,936.8683290659683 194.28360176539516,936.8683290659683" fill="#334155"/>
+</svg>

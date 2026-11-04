@@ -1,0 +1,48 @@
+@startuml
+title Proceso BPMN 2.0: Publicacion de Espacios, Verificacion KYC y Moderacion GADM
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+
+|#F8FAFC|Arrendador (Propietario)|
+start
+:Ingresar ficha descriptiva, m2, aforo, reglas y tarifas;
+:Adjuntar fotografias del espacio y documento de identidad;
+
+|#F0F9FF|Plataforma espaciGo (Core)|
+:Validar coordenadas geoespaciales PostGIS (SRID 4326);
+:Crear espacio en estado 'borrador';
+partition "[+] Subproceso: Conversion Asincrona WebP y Hash SHA-256" {
+  :Redimensionar imagenes a resolucion estandar;
+  :Convertir a formato WebP optimizado;
+  :Generar digest SHA-256 de integridad;
+}
+
+|#FFFBEB|Servicio Externo KYC/KYB|
+:Validar documento de identidad, vigencia y prueba biometrica facial;
+if (¿Identidad y facultades validadas?) then (No)
+  :Emitir webhook de rechazo de identidad;
+  |Plataforma espaciGo (Core)|
+  :Notificar observaciones al arrendador;
+  stop
+else (Si)
+  :Emitir webhook KYC aprobado;
+endif
+
+|Plataforma espaciGo (Core)|
+:Asignar espacio a cola de moderacion administrativa;
+
+|#FAF5FF|Administrador Global (GADM)|
+:Revisar fotografias, facultades legales y destino de uso;
+if (¿Espacio cumple politicas y normativa?) then (No)
+  |Plataforma espaciGo (Core)|
+  :Marcar espacio como 'rechazado' con observaciones fundadas;
+  :Notificar causas de rechazo al arrendador;
+  stop
+else (Si)
+  |Plataforma espaciGo (Core)|
+  :Transicionar estado a 'publicado';
+  :Habilitar espacio en indices espaciales y catalogo publico;
+  stop
+endif
+@enduml

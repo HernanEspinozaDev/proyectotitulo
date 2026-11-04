@@ -1,0 +1,24 @@
+@startuml
+title EspaciGo — Módulo M05: Búsqueda y Cotización de Espacios
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Visitante" as VIS
+actor "Usuario Registrado" as USR
+actor "Arrendatario" as ARREN
+
+VIS <|-- USR
+USR <|-- ARREN
+
+rectangle "EspaciGo — Sistema de Marketplace SaaS B2B2C de Espacios Comerciales" {
+  package "M05 — Búsqueda y Cotización de Espacios" {
+    usecase "CU-19 Buscar Espacios" as CU19
+    usecase "CU-20 Consultar Detalle de Publicación" as CU20
+    usecase "CU-21 Cotizar Estadía" as CU21
+  }
+}
+
+VIS -- CU19
+VIS -- CU20
+ARREN -- CU21
+@enduml

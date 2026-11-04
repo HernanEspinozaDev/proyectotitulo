@@ -1,0 +1,20 @@
+@startuml
+title EspaciGo — Modelo de Actores (generalización)
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Visitante" as VIS
+actor "Usuario Registrado" as USR
+actor "Arrendador" as ARR
+actor "Arrendatario" as ARREN
+actor "Administrador" as ADMIN
+
+VIS <|-- USR
+USR <|-- ARR
+USR <|-- ARREN
+
+note bottom of ADMIN
+  Actor independiente: no hereda de Usuario Registrado.
+  Opera el backoffice con permisos propios.
+end note
+@enduml

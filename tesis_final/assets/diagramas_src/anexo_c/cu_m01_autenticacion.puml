@@ -1,0 +1,38 @@
+@startuml
+title EspaciGo — Módulo M01: Autenticación y Gestión de Cuenta
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Visitante" as VIS
+actor "Usuario Registrado" as USR
+
+VIS <|-- USR
+
+rectangle "EspaciGo — Sistema de Marketplace SaaS B2B2C de Espacios Comerciales" {
+  package "M01 — Autenticación y Gestión de Cuenta" {
+    usecase "CU-01 Registrar Cuenta" as CU01
+    usecase "CU-02 Verificar Cuenta por Correo Electrónico" as CU02
+    usecase "CU-03 Iniciar Sesión" as CU03
+    usecase "CU-04 Bloquear Cuenta por Intentos Fallidos" as CU04
+    usecase "CU-05 Recuperar Contraseña" as CU05
+    usecase "CU-06 Cerrar Sesión" as CU06
+    usecase "CU-50 Cambiar Contraseña" as CU50
+  }
+}
+
+VIS -- CU01
+VIS -- CU02
+USR -- CU03
+USR -- CU05
+USR -- CU06
+USR -- CU50
+
+CU02 ..> CU01 : <<extend>>
+CU04 ..> CU03 : <<extend>>
+
+note bottom of CU04
+  Caso de uso automático: se dispara al 5.º intento
+  fallido consecutivo (RQF-015). Extiende CU-03 en el
+  punto de extensión "credenciales rechazadas".
+end note
+@enduml

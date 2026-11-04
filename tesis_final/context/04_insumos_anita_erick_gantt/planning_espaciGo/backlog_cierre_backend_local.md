@@ -1,0 +1,488 @@
+Actualización 2026-10-11 — LOCAL-1 aceptado; inicia LOCAL-DOCKER. #246 fue aceptada y cerrada/Hecho en Projects; los Issues padres siguen abiertos cuando conservan criterios generales/productivos. LOCAL-DOCKER (#267) se organiza en DOCKER-01 (#268, En curso), DOCKER-02 (#269, Bloqueado por DOCKER-01) y DOCKER-03 (#270, Bloqueado por DOCKER-01/02). El inventario de Compose existente ya contiene Backend, mock, PostgreSQL, Mailpit y migrador separado; el corte no vuelve a crear esos servicios. El diseño, los comandos y los criterios de cada corte están en [`local_docker.md`](local_docker.md).
+Actualización DOCKER-02 — PR #271 se fusionó en `main` como `e074d78`; #268 está aceptada/Cerrada/Hecho. DOCKER-02/#269 se ejecutó con volumen vacío y se presenta en PR #272. La instalación y limitación de vencimiento se documentan en [`evidence/local-docker-02-20261011.md`](evidence/local-docker-02-20261011.md). #270 permanece bloqueada hasta la aceptación de #269.
+
+# Backlog propuesto para cerrar el backend local
+
+Fecha inicial: 2026-10-07; conciliación post-merge vigente 2026-10-11 sobre `main` #266 (`0a47cafc24f0570b53e19c7d81d7ed8a806b50a1`), código funcional validado `03e9c77`. La regresión integral publicada se reutilizó porque el código ejecutable coincide. V53/V54 están aplicadas incrementalmente al volumen local; salud, grants y exportación contractual de ambas partes se comprobaron después del merge. Evidencia inicial: `evidence/local-close-01-contract-export-20261011.md`; verificación post-merge: `evidence/local-close-01-post-merge-20261011.md`. No quedan brechas funcionales locales obligatorias identificadas para LOCAL-1; #246 fue aceptada, cerrada y marcada Hecho tras la aceptación explícita del propietario; los Issues padre no se cierran por este estado.
+
+## Convenciones
+
+- `LOCAL-*` identifica paquetes de cierre. Tipo `VERTICAL` agrupa las etapas ARCH → DB → BE → API → TEST → MOCK de las tarjetas originales para evitar un PR por etapa. No sustituye la trazabilidad de esas tarjetas.
+- Reutilizar las Issues originales; crear un hijo local cuando sea necesario distinguir criterios locales de proveedores/GCP o ampliar una entrega ya cerrada. LOCAL-KYC-01 es Issue #200 y subissue de #45, relacionada con #48–#50. LOCAL-M04-PUB-01 (#204), EDIT-01 (#206) y EDIT-02 (#208) quedaron aceptadas tras PR #205/#207/#209; sus recorridos y límites constan en `planning/evidence/local-m04-publication-20261008.md`, `planning/evidence/local-m04-edit-20261009.md` y `planning/evidence/local-m04-edit-details-20261009.md`. LOCAL-M04-GALLERY-01 (#210, hija de #56) cubre ahora la galería sintética privada. No importar de nuevo el backlog Hermes.
+- LOCAL-PLAN-01, LOCAL-CORE-01 y LOCAL-AUTH-01 cuentan con entregas aceptadas (#181/#180/#182). LOCAL-BOOK-01 (#177) y LOCAL-M02-01 (#202, PR #203) también fueron aceptadas sin cerrar sus padres generales. LOCAL-KYC-01 (#200) fue aceptada tras PR #201. LOCAL-M04-PUB-01 (#204), EDIT-01 (#206) y EDIT-02 (#208) son slices aceptados; #209 confirma descripción/capacidad/reglas. LOCAL-M04-GALLERY-01 (#210) cubre galería privada; LOCAL-M05-DISC-01 (#212) integra publicaciones activas al catálogo. LOCAL-BOOK-02 (#214) reúne el ciclo de reserva/pago fake sobre ofertas activas; #73/#75/#77 permanecen abiertas por alcance general. Los padres/issues no cambian de estado automáticamente.
+- Una dependencia significa contrato/entrega aceptada y disponible en la rama base. Las puertas D-* del plan bloquean solo las operaciones que necesitan su decisión; no esperar a resolver toda la lista de decisiones para avanzar trabajo independiente.
+- Toda tarjeta VERTICAL incluye Backend/API → pruebas → tarjeta final de mock de su módulo. El mock no queda `ready` antes de existir sus APIs y pruebas necesarias.
+- Aceptación común: código en PR revisable, comportamiento/errores documentados, permisos efectivos, evidencia del commit y sin secretos; aceptación humana y merge para `Hecho`. Conservar volumen y migraciones previas.
+- Los RNF aplicables se extraen de referencias/contratos al convertir los paquetes en Issues. No atribuir un número de requisito a una decisión nueva sin comprobar su fuente.
+
+## L0 — Conciliación y primera entrega
+
+### LOCAL-PLAN-01 — Conciliar requisitos y entregas locales
+
+- **Módulo/tipo/estado:** transversal / ARCH-DOC / `ready`.
+- **Objetivo y motivo:** definir el trabajo que falta realmente; fuentes ES1/ES2, M01–M11, Issues #17–120 y subentregas aceptadas.
+- **Alcance:** matriz RQF/RNF/CU/HU → módulo → criterio local → código/PR/evidencia → brecha → Issue; conciliación de las 43 entidades; distinguir fakes, obligaciones externas, ideas fuera de alcance y estados históricos.
+- **Fuera:** implementar, cerrar criterios sin evidencia o decidir requisitos nuevos unilateralmente.
+- **Dependencias:** ninguna. **Desbloquea:** LOCAL-DEC-01, LOCAL-CORE-01 y LOCAL-BOOK-01.
+- **Aceptación:** todo requisito tiene clasificación justificada; cada brecha local tiene owner y tarea; relacionar Issues existentes sin duplicarlas; estimación solo tras identificar trabajo restante.
+- **Verificación prevista:** revisión documental de cobertura, referencias y grafo sin ciclos; no ejecutar suites de aplicación.
+- **Riesgo:** confundir aceptación parcial con módulo completo o perder obligaciones al excluirlas como externas.
+
+### LOCAL-DEC-01 — Preparar y ratificar decisiones pendientes por grupo
+
+- **Módulo/tipo/estado:** transversal / ARCH / `todo`.
+- **Objetivo y motivo:** resolver DB02-09 y reglas faltantes de CU-07–14/29–42/43–52 sin inventar políticas; usar grupos D-* del plan.
+- **Alcance:** presentar fuente, recomendación, alternativa, impacto y operaciones bloqueadas; registrar ratificación por grupo. Reutilizar las decisiones aceptadas de identidad, tarifas, tiempo y cancelación local.
+- **Fuera:** proveedores, efectos jurídicos/financieros reales, nuevas funcionalidades o decisión de frontend definitivo.
+- **Dependencias:** LOCAL-PLAN-01. **Desbloquea:** criterios de AUTH/PRIV/KYC/LIST/BOOK/CONT/OPS/COMM/DIS/ADMIN que requieran la decisión ratificada.
+- **Aceptación:** cada decisión tiene estado, actor y alcance; los pendientes bloquean solo tareas afectadas; no se declara completa esta tarjeta ni el cierre local con decisiones locales obligatorias pendientes.
+- **Verificación prevista:** contrastar CU/RQF y contratos; revisión de impactos, sin pruebas de aplicación.
+- **Riesgo:** un bloqueo global de decisiones vuelve a impedir trabajo independiente.
+
+### LOCAL-BOOK-01 — Consolidar invariantes de reservas existentes
+
+- **Módulo/tipo/estado:** M06 / TEST-DOC / aceptado localmente; Issue #177 cerrada/Hecho tras PR #178 y reutilizada como base de LOCAL-BOOK-02.
+- **Objetivo y motivo:** completar evidencia concreta de #77 y aceptación local de #73/#75, CU-22–28/51, sin añadir otra función al prototipo.
+- **Alcance:** prueba PostgreSQL directa de `23P01`, traducción de conflicto a servicio/API, dos reservas adyacentes creadas y solape estricto con rollback; matriz de criterios ya satisfechos.
+- **Fuera:** proveedor, nuevas políticas, cerrar padres generales pendientes o cambiar constraints si ya satisfacen el requisito.
+- **Dependencias:** LOCAL-PLAN-01 y registro de subentrega/dependencias locales de código fusionado. Las dependencias generales #77 → #75 → #73 → #65 permanecen visibles. **Desbloquea:** consolidación de descubrimiento/reserva general y parte de LOCAL-QA-03.
+- **Aceptación:** adyacentes confirman ambas; solape deja una sola ocupación válida; error público no filtra SQLSTATE; no hay reserva/historial parcial; un PR agrupa evidencia y matriz.
+- **Pruebas previstas:** PostgreSQL desechable con rol runtime, transacciones/barreras controladas, servicio/API y regresión enfocada.
+- **Riesgo:** confundir horarios ofrecidos con reservas persistidas o probar solo el mapper de errores.
+
+## L1 — Fundamentos y confianza
+
+### LOCAL-CORE-01 — Completar fundamentos locales comunes
+
+- **Módulo/tipo/estado:** transversal, base M11 / DB-BE-API / aceptado localmente; Issue #180 cerrada tras PR integrado. Su alcance de fundamentos locales se reutiliza en las entregas actuales; no implica terminar M11 ni #111–#118.
+- **Objetivo y motivo:** soportar persistencia y contratos generales según CORE-ARCH/CORE-BE y #112–114, sin duplicar infraestructura por módulo.
+- **Alcance:** mapa físico/ownership; transacciones; separación de rutas/casos de uso de los habilitadores de fixtures; selección explícita de adaptadores fake; metadata/almacenamiento privado; auditoría y outbox atómicos con payload mínimo; contrato de reintentos/leases.
+- **Fuera:** GCP, microservicios, proveedor real, sustituir código aceptado completo o construir toda M11 antes de M01.
+- **Dependencias:** LOCAL-PLAN-01; contratos vigentes y decisiones aplicables de datos/auditoría. **Desbloquea:** LOCAL-QA-01 y los módulos que usan storage/eventos.
+- **Aceptación:** migraciones incrementales trazadas; evento e intención de envío se guardan con el cambio de dominio; dominio sin importación de herramientas de ensayo; secreto no aparece en logs/respuestas; SQL de cada módulo respeta owner.
+- **Pruebas previstas:** rollback/evento atómico, permisos runtime, acceso privado y selección de adaptadores; PostgreSQL aislado.
+- **Riesgo:** convertir las tablas específicas de ensayo en modelo global sin conciliación o producir ciclos entre módulos.
+
+### LOCAL-QA-01 — Unificar ejecución reproducible de pruebas locales
+
+- **Módulo/tipo/estado:** transversal / TEST / aceptado y Hecho; Issue #238 cerrada tras PR #239. Se reutiliza el runner en LOCAL-CLOSE-01.
+- **Objetivo y motivo:** completar CORE-TEST-01 con ejecución real, evitando suites verdes con integraciones omitidas.
+- **Alcance:** `scripts/test-local-qa.sh` reutiliza los runners existentes: instala dependencias fijadas, compila y prueba el mock, ejecuta `go test ./...` sin DSN de desarrollo, `go vet ./...`, y corre cada paquete con integraciones obligatorias en contenedores propios PostgreSQL/PostGIS y Mailpit. `scripts/local-required-integrations.txt` fija pruebas requeridas; `check_local_qa_results.py` falla si una falta, fue omitida/`SKIP` o falla. Limpieza verifica contenedor, red y archivos temporales. Se documenta y repite el fallo histórico de check-in.
+- **Fuera:** pruebas cloud, sandbox, ejecutar suite completa por edición documental o umbral arbitrario de cobertura.
+- **Dependencias:** LOCAL-CORE-01. **Desbloquea:** gates de entregas y LOCAL-QA-02/03.
+- **Aceptación:** una integración obligatoria ausente, omitida/`SKIP` o fallida produce código distinto de cero; el entorno por paquete se aísla para impedir colisiones de roles y permisos; los temporales se limpian incluso al fallar; `espacigo_pgdata`, secretos y GCP quedan fuera. Evidencia en `planning/evidence/local-qa-01-20261010.md`.
+- **Pruebas ejecutadas para este corte:** pruebas del parser para resultado exitoso, omitido, faltante y skip opcional; suite Go/mock; validación PostgreSQL/Mailpit y repetición controlada de check-in, según evidencia. No sustituye LOCAL-QA-03 ni acepta LOCAL-1 integral.
+- **Riesgo:** utilizar el DSN de desarrollo por defecto o contabilizar un parseo YAML como validación del contrato.
+
+### LOCAL-AUTH-01 — Completar identidad y credenciales
+
+- **Módulo/tipo/estado:** M01 / VERTICAL / **entrega local aceptada parcialmente** (#182 mediante #183; outbox terminal/recovery #198 mediante #199).
+- **Objetivo y motivo:** cerrar alcance local de #26–35, CU-01–06/50 y DB02-09 (RQF-213/217/218).
+- **Alcance:** preferencias independientes de roles; historial de hashes/ventana de tres meses ratificada; avisos durables de credenciales; completar matriz de registro, verificación, reemisión, sesión, recuperación, cambio y revocación. Conservar decisiones vigentes de enumeración/TTL.
+- **Fuera:** correo real, redefinir reglas aprobadas, tokens en logs o preferencias como permisos.
+- **Dependencias:** LOCAL-CORE-01 y D-AUTH ratificada; satisfechas para este corte. **Desbloquea:** LOCAL-PRIV-01, LOCAL-KYC-01 y validación final M01.
+- **Aceptación:** recuperación/cambio de clave impiden reutilización según ventana; hash nunca se expone; sesiones idle/absoluto y reemisión mantienen comportamiento; notificación se recupera tras reinicio sin enviar secretos.
+- **Pruebas previstas:** fronteras temporales, contraseñas reutilizadas, autorización, consumo/concurrencia de tokens y outbox; finalizar con LOCAL-AUTH-MOCK-01.
+- **Riesgo:** comparar hashes salados por igualdad o conservar historial/PII más allá del plazo ratificado.
+
+### LOCAL-PRIV-01 — Completar perfil y derechos de datos
+
+- **Módulo/tipo/estado:** M02 / VERTICAL / **parcial**, con cortes aceptados #186, #192, #194, #196 y #198.
+- **Objetivo y motivo:** #37–43 y CU-07–09; pasar de registrar solicitudes a ejecutarlas conforme al contrato local.
+- **Alcance:** perfil/foto sintética y cuenta de cobro local según requisitos; estados, actor/motivo, acceso/exportación y supresión/desidentificación con trazabilidad; coordinar referencias y retención con otros módulos.
+- **Fuera:** datos bancarios reales, entrega a proveedor o afirmar cumplimiento jurídico; eliminación irreversible indiscriminada de reservas/ledger.
+- **Dependencias:** LOCAL-AUTH-01, fundamentos privados/eventos de CORE y D-PRIV. La exportación actual, baja local, retención/replay y recuperación de outbox tienen evidencia aceptada; quedan criterios de los padres. **Desbloquea:** LOCAL-LIST-01 y administración de derechos solo según cada criterio.
+- **Aceptación:** solo titular/administrador autorizado accede; una resolución produce el efecto acordado sobre datos o un motivo trazado de conservación/rechazo; exportación acotada; actuación no rompe integridad.
+- **Pruebas previstas:** solicitud duplicada, cambio de estado, ownership, datos exportados/suprimidos/conservados y replay; finalizar LOCAL-PRIV-MOCK-01.
+- **Riesgo:** cerrar solicitudes sin actuar o borrar evidencias que deben conservarse por política ratificada.
+
+### LOCAL-PRIV-M02-01 — Foto sintética y cuenta de cobro fake (Issue #202)
+
+- **Módulo/tipo/estado:** M02 / subentrega VERTICAL / `Aceptada y Hecho` tras PR #203; vinculada a #37–#43, bajo seguimiento de #185/#40.
+- **Objetivo:** añadir los dos recursos M02 faltantes que se pueden verificar localmente sin proveedor productivo.
+- **Alcance:** PNG fijo generado por Backend y guardado en storage privado; leer/reemplazar/retirar foto propia; referencia `fake-local-v1` con alta/consulta/cambio/revocación, gate KYC sintético efectivo, ZIP, baja y limpieza recuperable. Integrar controles en mock existente.
+- **Fuera:** imagen real/carga arbitraria, RUT, cuentas bancarias reales, pagos/transferencias, proveedor real, cierre de padres ni publicación M04.
+- **Dependencias:** almacenamiento privado, auth/ownership, elegibilidad local, export ZIP, baja bloqueada/worker recuperable satisfechos por entregas aceptadas; permiso de escritura sincronizado por account lock. No depende de #142 ni desbloquea M04.
+- **Aceptación:** migración incremental; privacidad de archivo; aislamiento; reintentos y concurrencia con baja; KYC requerido al crear/cambiar el payout fake; ZIP incluye datos propios; limpieza falla/reintenta; pruebas PostgreSQL desechables y mock.
+- **Evidencia de integración posterior al merge:** V30 aplicada incrementalmente sin borrar volumen; API y ZIP reales con dos cuentas sintéticas: photo PNG create/read/replace/remove, payout fake create/read/change/revoke, ambos incluidos en exportación, y `eligibility_required` al crear payout sin KYC. #202 cerrada y Projects Hecho. No cierra #37–#43 ni #185/#40.
+
+### LOCAL-KYC-01 — Elegibilidad y ciclo de revisión sintéticos (Issue #200)
+
+- **Módulo/tipo/estado:** M03 / VERTICAL / aceptada localmente y Issue #200 cerrada/Hecho tras PR #201; hija nativa de #45, relacionada con #48–#50. Los padres conservan criterios generales y productivos.
+- **Objetivo y motivo:** completar en local los casos, subsanaciones y resultados fake reutilizando #47/#51; conservar la aprobación sintética por tipo y permitir revocación explícita auditada conforme a la decisión ratificada.
+- **Alcance:** V28 incremental; historial append-only; código de corrección compatible con el motivo; reintento idempotente; lista de casos pendientes y rechazados; elegibilidad `kyc`/`kyb` persistente e independiente; revocación admin bajo bloqueo de cuenta; API/OpenAPI y mock existente.
+- **Fuera:** documentos reales, RUT, proveedor, consentimiento/retención productivos de #142; no conceder roles. No implementar el ciclo general de publicación M04 ni la reserva comercial general M06 en esta Issue.
+- **Dependencias:** identidad/CORE y almacenamiento sintético ya integrados. El tipo de gate está ratificado: cuentas personales requieren KYC; KYB no lo sustituye. La transacción de nueva reserva lo verifica para anfitrión y arrendatario; LOCAL-M04-PUB-01 (#204) lo conecta al cambio de estado local de borrador a activa. #142 bloquea solo proveedor/datos reales. **Habilita:** siguientes criterios de LOCAL-LIST-01, sin darlos por satisfechos.
+- **Aceptación:** aprobar concede solo el tipo indicado; casos nuevos pendientes/rechazados no remueven una concesión; revocar la retira con motivo/auditoría y no altera reservas; una aprobación nueva puede restablecer. Historial estable, aislamiento, reintento y concurrencia probados en PostgreSQL descartable; mock compilado y recorrido validado.
+- **Pendientes originales:** notificación de resultados KYC mediante contrato durable de dominio, consentimiento/cuotas M03, retención/supresión integral de expedientes y todo proveedor/dato real permanecen abiertos; no cerrar #45/#48–#50.
+- **Riesgo:** interpretar una aprobación fixture como identidad real o asignar el tipo a operaciones comerciales sin un vínculo de negocio definido.
+
+## L2 — Oferta y reserva generales
+
+### LOCAL-LIST-01 — Completar ciclo local de publicaciones
+
+- **Módulo/tipo/estado:** M04 / VERTICAL / `parcial`; #204 y #206 son slices aceptados, no completan este paquete.
+- **Objetivo y motivo:** #52–61, CU-15–18; completar borrador → publicación local con controles de negocio.
+- **Alcance restante conciliado al 2026-10-11:** los cortes aceptados cubren publicación activa consumida por catálogo (#212), título/descripción/capacidad/reglas/precio, calendario, galería, portada, modalidad y eliminación/conservación histórica. RQF-077/198 fueron aceptados por #256/PR #260; RQF-091/092 por #258/PR #262. No volver a planificar como brecha la conexión catálogo ni la tarifa inicial ya integradas.
+- **Fuera:** archivos/documentos reales, geocodificación comercial, proveedor y frontend definitivo. Los criterios RQF anteriores siguen locales salvo exclusión específica.
+- **Dependencias:** LOCAL-PRIV-01, LOCAL-KYC-01, CORE y D-KYC/LIST/D-BOOK. El gate KYC sintético de publicación/solicitud personal está ratificado; #204 y #206 lo conservan en los puntos de entrada existentes. #142 queda fuera para la parte sintética local. La relación de publicaciones con descubrimiento general sigue pendiente. No cerrar #55/#52–#61 para desbloquear. **Desbloquea:** LOCAL-DISC-01 al completar contratos mínimos de oferta y acceso; #204/#206 por sí solos no bastan.
+- **Aceptación:** publicación requiere datos/estados aprobados; borradores quedan privados; despublicar corta nuevas operaciones según regla sin borrar reservas anteriores; galería conserva autorización y datos validados; snapshots anteriores sobreviven edición.
+- **Pruebas previstas:** transición inválida, dueño/tercero, versión de perfil, files sintéticos, permisos y reglas de calendario; finalizar LOCAL-LIST-MOCK-01.
+- **Riesgo:** duplicar `ocupacion` o confundir una oferta local sintética con lanzamiento público.
+
+### LOCAL-M04-PUB-01 — Publicar y ocultar espacios propios con gate KYC sintético (Issue #204)
+
+- **Módulo/tipo/estado:** M04 / subentrega VERTICAL de LOCAL-LIST-01 / Aceptada y Hecho; Issue hija de #55, cerrada tras PR #205.
+- **Alcance:** transición de borrador/oculto a activo y activo a oculto; solo rol arrendador y titular; KYC sintético efectivo para cuentas personales, sin KYB sustituto; revalidación bajo bloqueo de cuenta/espacio; historial append-only; OpenAPI y controles en mock.
+- **Fuera:** aparición automática en catálogo general, edición de oferta activa, galería, políticas comerciales, cancelación de reservas, KYC productivo/#142 y GCP.
+- **Dependencias reales:** #200/#201, ownership/rol, V30 y la tabla `espacio` están integrados en main. #204 se implementa sobre ellos; no depende de terminar padres #185/#40 ni cierra Issues M04.
+
+### LOCAL-M04-EDIT-01 — Editar título y tarifa de una publicación propia (Issue #206)
+
+- **Módulo/tipo/estado:** M04 / VERTICAL DB-API-TEST-MOCK / aceptada y Hecho, hija de #55.
+- **Alcance:** editar título y/o precio base solo en publicación propia activa u oculta; mantener estado; cambio de precio crea nueva versión de tarifa; cotizaciones y reservas conservan snapshots. El mock ofrece edición contextual al titular.
+- **Dependencias reales:** #204/#205 publica y delimita ownership/estados; #134/#141 integra tarifa versionada y snapshots; #200/#201 mantiene gate KYC en reserva/publicación. Sin dependencia de catálogo general, galería, proveedor real o GCP.
+- **Validación focalizada:** unidad y handler/OpenAPI; build del mock; PostgreSQL desechable comprueba titularidad, estados activa/oculta, precio versionado, título sin nueva versión y snapshots inmutables. Sin migración nueva (V31 basta).
+- **Aceptación:** PR #207 merge `42e0744515baa0b9b191e3aacd03a0bd480b5370`; #206 cerrada/Hecho tras el mock posterior al merge. #55 y demás padres M04 permanecen abiertos.
+- **Evidencia:** `planning/evidence/local-m04-edit-20261009.md`; comprobación del mock activo propio con cambio de título y tarifa, reutilizando pruebas publicadas.
+
+### LOCAL-M04-EDIT-02 — Editar descripción, capacidad y reglas propias (Issue #208)
+
+- **Módulo/tipo/estado:** M04 / VERTICAL DB-API-TEST-MOCK / aceptada y Hecho tras PR #209, subissue de #55.
+- **Alcance:** edición owner-only de descripción, capacidad y reglas de uso para publicaciones activa/oculta; partial update conserva estado, título y tarifa. El mock genera únicamente el body con valores cambiados.
+- **Dependencias reales:** #204/#205 y #206/#207 están fusionadas; reutiliza el modelo V5/V31 y la política de titularidad existente. Sin nueva migración, galería o conexión al catálogo general.
+- **Validación:** unitarias de límites, handler que valida body/respuesta OpenAPI, build y test enfocado del mock, integración PostgreSQL desechable con snapshots preservados.
+- **Fuera:** cambiar modalidad tarifaria (interactúa con calendario/disponibilidad), galería/archivos, ubicación/categoría/atributos, comercialización y GCP.
+- **Aceptación:** merge #209 integrado en `main`; prueba del mock guardó por separado descripción, capacidad y reglas, confirmó persistencia y preservó título, tarifa y estado originales. #208 cerrada/Hecho por su alcance; #55 y #52–#61 siguen abiertas.
+- **Evidencia:** `planning/evidence/local-m04-edit-details-20261009.md`.
+
+### LOCAL-M04-GALLERY-01 — Administrar galería sintética privada (Issue #210)
+
+- **Módulo/tipo/estado:** M04 / VERTICAL DB-API-TEST-MOCK / aceptada y Hecho tras PR #211, hija de #56.
+- **Alcance:** Backend genera solo `synthetic-png-v1`; titular lista, consulta, añade idempotentemente y retira hasta 10 imágenes de sus espacios. Archivos quedan fuera del repositorio y de rutas públicas. Incluye limpieza recuperable, ZIP propio y coordinación con la baja existente. La galería no se expone al catálogo general.
+- **Dependencias reales:** storage privado #47/#143, baja/exportación #202/#203 y ownership/publicación #204/#205 integrados. La edición de contenido #208/#209 no es dependencia funcional. No espera a cerrar #55/#56 ni al catálogo general.
+- **Fuera:** archivos arbitrarios/reales, moderación, URL pública, plazo nuevo de retención, proveedor productivo y GCP.
+- **Validación:** PostgreSQL desechable cubre límite/idempotencia/competencia, ownership y limpieza recuperable; integración de exportación/baja cubre inclusión del PNG propio y limpieza coordinada; build y pruebas enfocadas del mock. PR actual añade evidencia y recorrido mínimo propietario.
+- **Aceptación:** PR #211 integrado en `47b04cf`; V33 incremental, health/mock health y endpoints HTTP verificados. El mock permitió generar PNG, consultarlo desde API autenticada y retirarlo; galería quedó en 0/10. #210 cerrada y Hecho; padres M04 siguen abiertos.
+- **Evidencia:** `planning/evidence/local-m04-gallery-20261008.md`: PostgreSQL descartable con `espacigo_runtime` (candidato antiguo bloqueado durante Put, foto confirmada accesible, recuperación tras reinicio), checksums V32/V33, verify-http y smoke del mock. Se conservaron volumen/secretos y no se ejecutó GCP.
+
+### LOCAL-M04-COVER-RATE-01 — Seleccionar portada y cambiar modalidad (Issue #256)
+
+- **Módulo/tipo/estado:** M04 / VERTICAL DB-BE-API-TEST-MOCK / aceptada, cerrada y Hecho únicamente por RQF-077/198 tras PR #260; hija de #246 y trazada a #55/#56. No completa #55/#56 ni LOCAL-1.
+- **Alcance verificable:** elegir/consultar portada solo entre PNG sintéticos activos de la galería del mismo titular/espacio; mantener privada la imagen; limpiar selección atómicamente al retirar la foto y ejecutar baja. Cambiar modalidad hora/día/mes en borrador, publicación activa u oculta con nueva versión inmutable; cotizaciones, reservas, contratos y simulaciones anteriores conservan su snapshot. Rechazar cambio incompatible con horario semanal activo con 409 sin cambiar tarifa; permitirlo después de desactivarlo.
+- **Dependencias satisfechas:** publicación/ownership y KYC local (#204/#205), edición (#206–#209), galería (#210/#211), calendario semanal M06 y snapshots. V19 exige desactivar horario semanal antes de dejar `hora`; se conserva y se expone como conflicto claro.
+- **Fuera:** exponer archivo privado en catálogo, asignar modalidad retroactiva, reescribir reservas, cambiar ocupaciones, proveedores y GCP.
+- **Validación:** PostgreSQL desechable cubre publicación, modalidad activa/oculta, incompatibilidad, snapshots, portada, ownership y retiro; handler/OpenAPI y build/tests del mock. **Aceptación:** PR #260 fusionado (`38c3e1300b6d3f843238f4ee6b8758bfe3b71913`); V49 aplicado incrementalmente tras aprobación; smoke de API confirmó portada persistida/retirada y cambio/restauración de modalidad preservando snapshots. #256 cerrada/Hecho por esos criterios solamente.
+
+### LOCAL-M05-SEARCH-GAPS-01 — Búsqueda textual y filtros locales restantes (Issue #257)
+
+- **Estado:** aceptada/Cerrada/Hecho por RQF-094/095/099/102 tras PR #261, merge `d5f8668da7747270115c5191dfb81de6af5d13ba`; el smoke posterior confirmó búsqueda, detalle y mapa. No completa #65/#62–#68 ni LOCAL-1.
+- **Criterios:** texto literal e insensible a mayúsculas en título/descripción/categoría públicos, nunca dirección/contacto; plano mock usa solo posiciones relativas de coordenadas sintéticas habilitadas y no devuelve lat/lon; superficie mínima inclusiva se combina con filtros mediante AND; limpiar criterios reinicia controles/cursor/selección/cotización/mapa e invalida respuestas tardías. API/OpenAPI, PostgreSQL desechable, mock y evidencia; sin geocodificación real ni GCP. Aceptación: PR #261 fusionado y smoke posterior; evidencia en `planning/evidence/local-m05-search-gaps-20261011.md`.
+
+### LOCAL-M04-PUBLICATION-DELETE-01 — Conservación histórica (Issue #258)
+
+- **Estado:** Aceptada/Cerrada/Hecho solo por RQF-091/092 tras PR #262; hija de #246 y trazada a #55/#52–#61. V50 añade tombstone e historial minimizado. La eliminación comprueba bloqueadores transaccionales; rechaza reservas/obligaciones pendientes; retira contenido/configuración sin finalidad; usa cleanup durable; conserva snapshots/hechos sin cascada ni cancelar reservas; reutiliza fechas de retención. No declara anonimización. Pruebas PostgreSQL enfocadas y verificación posterior al merge en `planning/evidence/local-m04-publication-delete-20261011.md`. #246 fue aceptada y cerrada por el propietario.
+
+### LOCAL-M10-BOOKING-CLOSE-01 — Cerrar reserva tras liquidación fake (Issue #259)
+
+- **Estado:** Aceptada/Cerrada/Hecho solo por RQF-177 tras PR #263. Hija de #246, trazada a #109/#110. Solo liquidación fake confirmada cambia `finalizada` a `cerrada`, con trigger SQL, historia idempotente y revalidación de obligaciones. Timeout/rechazo/disputa no cierran; el mismo evento se concilia tras resolver disputa. Respeta retención de 24 meses. Evidencia `planning/evidence/local-m04-booking-close-20261011.md`. #246 está aceptada/cerrada; los padres generales siguen abiertos. Sin payout real, documento fiscal ni GCP.
+
+### LOCAL-M05-DISC-01 — Descubrir publicaciones locales activas (Issue #212)
+
+- **Módulo/tipo/estado:** M05 / subentrega VERTICAL DB-API-TEST-MOCK / aceptada como slice (#212, PR #213), hija de #65; no completa M05 ni M04.
+- **Alcance:** extender catálogo/detalle existente para incluir espacios `activa` con KYC sintético efectivo, además de conservar fixtures explícitos; borrar/ocultar/no elegible permanece excluido. Reusar filtros, precio estimado, disponibilidad, zona, paginación, cotización snapshot y reserva; no exponer dirección, coordenadas, titular ni galería privada.
+- **Dependencias reales:** #200/#201, #204/#205, #206/#207, #208/#209, #210/#211 y slices M05/M06 de filtro, geografía, paginación, selector e integridad están fusionados. No exige completar #55/#56/#62–68 ni proveedores/GCP.
+- **Fuera:** tarifas/comisiones generales, promociones, galería pública, modificación/cancelación de reservas por ocultación o cambio de elegibilidad, pagos reales y rendimiento cloud.
+- **Aceptación:** borradores/ocultos/no elegibles no aparecen; detalle no filtra datos privados; catálogo no crea cotización/ocupación; filtros y paginación se conservan; cotización ligada al espacio y reserva revalida snapshots/eligibilidad/disponibilidad. Pruebas PostgreSQL de visibilidad/ownership y recorrido mock búsqueda→detalle→cotización.
+- **Estado operativo:** Issue #212 cerrada y Hecho por su alcance aceptado; parent #65 y #55/#56/#62–68 permanecen abiertos.
+
+### LOCAL-DISC-01 — Completar búsqueda y cotización de oferta local
+
+- **Módulo/tipo/estado:** M05 / VERTICAL / los RQF locales citados fueron aceptados por #212/#257, PR #213/#261, con cotización sobre publicación activa. Los padres #62–68 siguen abiertos por alcance general.
+- **Objetivo y motivo:** #62–68, CU-19–21; reemplazar la dependencia funcional de allowlists por oferta publicada/elegible.
+- **Alcance satisfecho:** filtros de categoría/atributos/precio/disponibilidad/geografía, búsqueda textual RQF-094, mapa mock RQF-095, superficie inclusiva RQF-099 y limpiar filtros RQF-102; detalle y cotización versionada por oferta. No hay otra brecha local concreta identificada en estos criterios.
+- **Fuera:** geocodificador real, ranking patrocinado, mapa definitivo o garantía de capacidad cloud.
+- **Dependencias:** LOCAL-LIST-01 y LOCAL-BOOK-01. **Desbloquea:** LOCAL-BOOK-02.
+- **Aceptación:** oferta despublicada/no elegible no aparece; búsquedas no retienen disponibilidad; total/intervalo/snapshot correctos; paginación y orden documentados; no exponer dirección/coordenada privada por error.
+- **Evidencia aceptada:** pruebas de filtros combinados, atributos ausentes, redondeo, DST, precio/radio inclusivo, páginas y cambio de estado/tarifa; recorrido del mock tras PR #261. Reutilizar `local-m05-search-gaps-20261011.md` y QA-03.
+- **Riesgo:** permitir reserva de precio estimado obsoleto o declarar estable un catálogo que cambia entre páginas.
+
+### LOCAL-BOOK-02 — Consolidar reservas locales sobre publicaciones activas (Issue #214)
+
+- **Módulo/tipo/estado:** M06 / VERTICAL / aceptada localmente y Issue #214 cerrada/Hecho tras PR #215; hija de #73 y relacionada con #75/#77. La subentrega cubre el recorrido no-fixture.
+- **Objetivo y motivo:** #69/#73/#75/#77/#79, CU-22–28/47/51; ciclo general con pago fake/durable ya aceptado.
+- **Alcance:** reutilizar elegibilidad/snapshot, reserva/ocupación atómica, solicitud/aprobación/rechazo, vencimientos y cancelación/refund `local_flexible_v1` sobre publicación activa sin habilitador de fixture; registrar puntos de integración futura con M07/M08/M10; inbox/conciliación se reutilizan.
+- **Fuera:** proveedor real/sandbox #76/#78, políticas financieras nuevas no ratificadas o custodiar fondos.
+- **Dependencias:** publicación/detalle/cotización de #212, AUTH/CORE y `local_flexible_v1` ratificada; #74 fake durable aceptada. Satisfechas para este alcance. Proveedor real sigue aislado en #76/#78.
+- **Criterios satisfechos en este slice:** API de publicación activa no-fixture; snapshots de tarifa/política; reintentos idempotentes de solicitud/pago/refund; aprobación/rechazo; historial y aislamiento; expiración, cancelación/refund; cambios oculto/KYC/tarifa antes de solicitar sin filas parciales; recorrido mock de dos participantes.
+- **Criterios pendientes de los padres:** conciliación general, proveedor/sandbox real, aceptación amplia de #79, políticas generales y criterios restantes de #73/#75/#77. No declarar completos esos Issues ni M06.
+- **Contratos futuros:** M07 consume reserva aprobada y snapshots por contrato versionado e idempotente; M08 ejecuta check-in/out sobre la misma reserva sin autocompletar por reloj; M10 vincula disputas a reserva y conserva pagos/refunds fake como hechos, no como ledger. Ningún consumidor muta snapshots ni crea ocupaciones alternativas. Los nuevos eventos/transiciones se definen al implementar esos módulos; aquí quedan registrados los puntos de integración.
+- **Pruebas previstas:** reutilizar cobertura previa y añadir recorrido API de publicación activa, transiciones y regresiones de tarifa/elegibilidad en PostgreSQL desechable; verificar el mock con las dos cuentas.
+- **Riesgo:** doble ocupación, dinero simulado no trazado o dependencia circular entre reserva y módulos posteriores.
+
+## L3 — Ejecutar el arriendo
+
+### LOCAL-CONT-01 — Construir contrato y firma simulada
+
+- **Módulo/tipo/estado:** M07 / VERTICAL / `Aceptado` (#216 / PR #217 fusionado).
+- **Objetivo y motivo:** #80–87, CU-29–32; asegurar contenido y resultado antes del uso del espacio.
+- **Alcance del corte:** snapshot versionado desde reserva aprobada; PDF sintético privado/hash cifrado; firmas fake; rechazo terminal no cancelatorio; vencimiento transaccional M06 con liberación de ocupación y obligación fake del 100%; recuperación idempotente después de aprobación. Rutas JSON, OpenAPI y controles del mock.
+- **Fuera:** validez jurídica, firma real, proveedor o documentos personales reales.
+- **Dependencias:** LOCAL-BOOK-02/#214, identidad, precio y M06 pagos/devoluciones fake fusionados. Las decisiones de firma/rechazo/vencimiento fueron ratificadas en este corte. LOCAL-OPS-01/#218 quedó habilitada tras aceptación.
+- **Aceptación del corte:** edición de perfil/tarifa no cambia contrato histórico; firman solo participantes; tercero no accede; firma parcial/final y rechazo registrado; inicio exacto con firma faltante cancela y crea una devolución única dentro del lock; contrato completamente firmado no vence; descarga solo tras firma total; contenido cifrado en reposo.
+- **Pendiente del padre M07:** proveedor real/sandbox y callback externo; notificaciones durables de contrato; exportación del nuevo artefacto; retención general/productiva y criterios restantes de firma legal.
+- **Pruebas ejecutadas/previsibles:** lifecycle PostgreSQL con reloj inyectado, lock/carrera, replay y ocupación/refund fake; cifrado PDF y acceso participante; acciones mock. Integración completa en DB desechable; no usar el volumen de desarrollo.
+- **Riesgo:** regenerar retrospectivamente el snapshot o representar el fake como firma legal.
+
+### LOCAL-OPS-01 — Construir entrega, recepción y devolución
+
+- **Módulo/tipo/estado:** M08/M10 intake / VERTICAL / `Hecho` para su alcance local (#218; PR #219 fusionado y aceptado 2026-10-09).
+- **Objetivo y motivo:** #88–94, CU-33–34/48; completar el uso del arriendo y sus evidencias.
+- **Alcance:** check-in/out, recepción/observaciones, evidencia PNG privada sintética, ubicación identificada de ensayo, actor/fecha y transiciones de reserva. Incluye apertura local del reclamo formal M10 por anfitrión dentro de las 24 horas desde el check-out persistido y descargo textual del arrendatario. No adjudica daños, mueve fondos ni cierra el arriendo por reloj.
+- **Fuera:** geolocalización real o política de daño/garantía no acordada; resolución de disputa pertenece a M10.
+- **Dependencias:** LOCAL-CONT-01/#216 aceptado, BOOK/CORE y decisión D-CONT/OPS; decisión de reclamante/ventana ya ratificada. **Desbloquea:** LOCAL-COMM-01 y el siguiente corte de evidencias/resolución LOCAL-DIS-01.
+- **Aceptación:** acciones por participante/estado/fecha; firma completa requerida para check-in; evidencia privada generada por Backend; idempotencia/reintentos; check-out inicia el plazo persistido; recepción no acorta plazo; observación separada del reclamo formal; apertura y descargo se autorizan por rol y ventana, sin resolución automática.
+- **Pruebas previstas:** reloj bajo bloqueo, actor incorrecto, confirmaciones/objeciones, repetición y estado final; finalizar LOCAL-OPS-MOCK-01.
+- **Riesgo:** confundir la incidencia de privacidad M02 con el reclamo de daños M10, presentar un fake como resolución legal/financiera, o completar la reserva solo porque pasó la hora.
+
+### LOCAL-COMM-01 — Reseñas, moderación y avisos durables locales (Issue #220)
+
+- **Módulo/tipo/estado:** M09 / VERTICAL / Hecho para LOCAL-COMM-01; #220 cerrada tras merge PR #221 (`8d3157c`), hija de #95 y relacionada con #96–#102. Los padres y criterios generales siguen abiertos.
+- **Objetivo y motivo:** #95–102, CU-35–38/49; completar reseñas/reportes y avisos durables sin cerrar padres generales.
+- **Alcance D-COMM ratificado:** una reseña por participante y reserva `finalizada`, arrendatario→espacio y anfitrión→arrendatario; nota entera 1–5 obligatoria, comentario opcional; no hay ventana adicional, edición ni nuevas reseñas en `en_disputa`; reintento idéntico reutiliza. Reseñas visibles del espacio y promedio únicamente para publicación activa, sin datos privados; reputación del arrendatario solo en vistas autenticadas autorizadas. El anfitrión reporta reseñas de su espacio con catálogo estructurado; el reporte marca `reportada` pero no oculta ni modifica promedio. Admin desestima u oculta con motivo y auditoría; ocultas no listan ni promedian; sin apelación.
+- **Avisos:** intención en transacción, deduplicación por evento/destinatario y entrega Mailpit para check-in→anfitrión, reporte→administradores autorizados, reclamo abierto→arrendatario y cancelación→ambas partes. Sin aviso por mensaje. Ocho intentos por ciclo, fallo terminal persistido y reapertura administrativa motivada; SMTP puede duplicar si el resultado es incierto tras envío.
+- **Privacidad local ratificada:** exportación propia y minimización coordinada con baja; reseñas 24 meses desde creación; reportes hasta resolución y 24 meses posteriores; entregas pendientes se conservan hasta resolución y terminales 30 días. Chat conserva su tratamiento vigente. Son decisiones locales, no plazos legales.
+- **Dependencias satisfechas para el corte:** LOCAL-BOOK-02/#214 (reserva/participantes), LOCAL-CONT-01/#216, LOCAL-OPS-01/#218 (check-in, check-out, disputa, cancelación), conversación/#156/#158, identidad/auditoría/outbox/Mailpit. #79 y los padres #88–94/#103–110 conservan criterios generales y no se cierran ni bloquean este recorrido local.
+- **Fuera:** mensajería por cada mensaje, push/campana, canales externos, perfiles públicos de arrendatarios, apelaciones y criterios generales productivos.
+- **Aceptación:** autorización por rol/participante/propietario/admin; reseñas recíprocas, promedio activo, reporte/moderación/auditoría; cuatro tipos de intención durable; fallos/reapertura y retención; exportación/baja aisladas; pruebas PostgreSQL y recorrido mock.
+- **Pruebas:** `go test` focalizado PostgreSQL con runtime, aislamiento, idempotencia, concurrencia, promedio, moderación y recuperación del outbox; recorrido mock con ambas partes y administrador.
+- **Riesgo:** filtrar datos privados o confundir aceptación SMTP con entrega exactamente una vez.
+- **Corrección previa a revisión:** V37 permite minimizar reseñas recibidas conforme a sus checks; coordina escrituras/despacho con baja; recupera leases vencidos del intento 8 como terminales sin noveno envío; y conserva marca opaca de unicidad hasta que deje de estar permitida la reseña, incluida reserva sin vencimiento de vínculos. Altas de reseña/reporte ahora comparten con reclamos el orden cuentas ordenadas → reserva → reseña/reporte. La integración desechable aplica V36→V37, comprueba Mailpit SMTP/API, la carrera reseña/reclamo sin deadlock y el purgado a 25 meses con unicidad retenida.
+
+## L4 — Resolver, liquidar y administrar
+
+### LOCAL-DIS-01 — Resolución administrativa local de disputas (Issue #222)
+
+- **Módulo/tipo/estado:** M10 / DB-BE-API-TEST-MOCK / aceptada localmente y Issue #222 cerrada/Hecho tras PR #223; hija de #106, relacionada con #103. No cierra #103/#106 ni los padres #103–110.
+- **Objetivo y motivo:** completar adjudicación sintética de reclamo/descargo siguiendo CU-39–41, RQF-159–171 y PT-07, después de LOCAL-OPS-01/#218 y LOCAL-COMM-01/#220.
+- **Alcance:** anfitrión abre según plazo vigente; participante contrario consulta y presenta texto de descargo; ambos participantes acceden a PNG sintéticos de check-in/out/recepción vinculados a la reserva; administrador tiene cola/detalle/evidencia privados y registra `acogido`/`rechazado`, motivo estructurado, actor, instante e historial; cierre transaccional/idempotente y aviso outbox a ambos. Cerrar retira solo el bloqueador `disputa_abierta` de este reclamo; la evaluación de privacidad conserva otras obligaciones. No ejecuta baja.
+- **Separación financiera ratificada:** no asignar montos ni actualizar reserva/ocupación/pagos. Garantía, deducciones, captura, liberación y devoluciones derivadas del fallo pertenecen a LOCAL-FIN-01; su importe/fuente no se simulan aquí.
+- **Fuera:** validez jurídica, proveedores/PSP, efectos financieros, reglas comerciales no aprobadas y GCP. La evidencia PNG propia del descargo se completa en LOCAL-CLOSE-01C/#249, con la retención ya ratificada; eso no implementa fotos reales ni la purga de otras clases fuera de la política local.
+- **Dependencias satisfechas para este corte:** LOCAL-OPS-01/#218, LOCAL-COMM-01/#220, identidad/roles, auditoría, outbox y almacenamiento privado local. **Desbloquea:** solo consumo posterior por LOCAL-FIN-01; #107–110 mantienen sus criterios generales.
+- **Aceptación prevista:** autorización de administrador/partes/tercero; decisión estructurada e idempotente; sin cambios financieros; historial/auditoría/avisos únicos; PostgreSQL con rol runtime y mock compilado/recorrido.
+- **Riesgo:** presentar adjudicación sintética como resolución jurídica o como saldo/garantía disponible.
+
+### LOCAL-FIN-01 — Garantía y deducciones fake del cierre local (Issue #224)
+
+- **Módulo/tipo/estado:** M06/M10 / DB-BE-API-TEST-MOCK / aceptada tras PR #225 fusionado el 2026-10-09; #224 cerrada/Hecho. Issue hija de #185/#40 y relacionada con #103/#107–110. El corte local no cierra criterios generales.
+- **Objetivo y motivo:** #107/#108–110 y criterios financieros de CU-39–42/47; separar movimiento observado fake de una mera transición de reserva.
+- **Alcance ratificado 2026-10-09:** exclusivamente cuentas sintéticas y reservas fake. `garantia_local_fija_v1` = CLP 50.000 por reserva nueva; política/moneda/monto quedan en snapshot de cotización y reserva. Autorización, captura, liberación y devolución son obligaciones distintas y persistidas; autorización no es cobro ni ingreso. Tras pago fake confirmado, preautorización separada/idempotente con vencimiento min(15 min desde primer intento, inicio); pending impide aprobar, firmar y check-in. Rechazo o vencimiento cancela, libera ocupación y genera devolución fake completa del arriendo confirmado. Timeout se concilia sobre misma operación; autorización tardía no reactiva y crea liberación compensatoria pendiente. Deducción administrativa inmutable 0..autorizado; reclamo rechazado exige 0; positiva exige motivo `dano_acreditado`/`faltante_acreditado` y evidencia sintética de la reserva. Captura confirmada antes de marcar aplicada; luego liberar saldo. Sin reclamo, liberar tras 24 h desde checkout; reclamo abierto suspende. Cancelar reserva cierra/libera autorización sin borrar obligaciones inciertas. Todos los inciertos bloquean baja.
+- **Fuera:** proveedor real/sandbox, liquidación al anfitrión, comisión, boleta, fondos reales/custodia y completar M06/M10 generales. Los hechos V40 se exportan con alcance propio y se incluyen en bloqueadores de privacidad.
+- **Dependencias:** LOCAL-DIS-01, BOOK, snapshots LIST y D-BOOK/D-DIS. **Desbloquea:** LOCAL-ADMIN-01 y validación completa M10.
+- **Dependencias:** LOCAL-DIS-01/#222 aceptado, LOCAL-BOOK-01/#177 y BOOK-02/#214, snapshots de tarifa/listado, LOCAL-CONT-01/#216 y LOCAL-OPS-01/#218. No depende del proveedor real #76/#78. **Desbloquea:** solo cierre económico local fake; no cerrar #103/#107–110 ni desbloquear liquidación/proveedor.
+
+### LOCAL-DIS-TEST-MOCK-01 — Consolidación de pruebas de disputa y mock financiero (Issue #230)
+
+- **Módulo/tipo/estado:** M10 / VERTICAL TEST-API-MOCK / aceptada y Hecho tras PR #231, merge `ca259396`; subentrega bajo #109 DIS-TEST-01 y #110 DIS-MOCK-01, no cierre de M10.
+- **Propósito:** conciliar criterios originales de #109/#110 con LOCAL-DIS-01 y LOCAL-FIN-01; verificar evidencia/descargo, resolución admin y decisiones financieras fake mediante resultados persistidos, no solo proyecciones.
+- **Alcance local:** recorrido de anfitrión, arrendatario y administrador independientes; resolución y evidencia privada; límite de deducción al monto autorizado; captura/liberación fake, timeout/conciliación e historial observado; autorización, concurrencia e idempotencia ya cubiertas por pruebas aceptadas, añadiendo solo el contraste de proyección/resultado/historial que faltaba.
+- **Dependencias satisfechas para este corte:** LOCAL-DIS-01 (#222/#223), LOCAL-FIN-01 (#224/#225, V40), CORE-TEST-01 (#24) y CORE-ENV-01 (#25). Los endpoints del alcance de DIS-API-01 (#108) están disponibles; los criterios generales de #108 siguen abiertos.
+- **Matriz de criterios:** [`evidence/local-dis-test-mock-20261009.md`](evidence/local-dis-test-mock-20261009.md). Se acepta el tramo local de #109: valores observados, reintentos/terminales y audit trail. #109 permanece abierto por compensación/liquidación general; #110 sigue parcial porque no hay payout al anfitrión, comisión ni documento/boleta fixture.
+- **Pendientes fuera del corte:** credenciales, contrato y sandbox de proveedor auténtico; liquidación, comisión y documento fiscal requieren regla/modelo y siguen pendientes aunque exista proveedor. No representar garantía autorizada como ingreso ni inventar dichos artefactos. No GCP.
+- **Trazabilidad:** #230 se cerró tras aceptación; #108–#110 permanecen abiertas por criterios generales. #111 continúa abierta/bloqueada por la dependencia nativa #110, aunque su alcance local puede diseñarse y ejecutarse con #230 como prerequisito aceptado explícito. No cerrar #109/#110 ni cambiar su dependencia original para adelantar el padre.
+
+### LOCAL-ADMIN-ARCH-01 — Diseño de permisos, auditoría y outbox local (Issue #232)
+
+- **Módulo/tipo/estado:** M11 / ARCH / diseño aceptado y Issue cerrada por su alcance tras PR #234; hija de #111. La Issue de diseño y su Project están sincronizados tras la aceptación de #233; el padre #111 sigue abierto/bloqueado por la dependencia original #110; #230 está aceptada/Hecho tras PR #231.
+- **Propósito:** definir la matriz de permisos administrativos, gobierno de cuenta, productores de auditoría, contrato outbox y división mínima de brechas para culminar M11.
+- **Diseño:** [`diseno_local_admin_arch_01.md`](diseno_local_admin_arch_01.md). Reutiliza #180, #226, #228 y los contratos/ownership existentes. Distingue `evento_auditoria_local`, outbox de credenciales, `aviso_local` y el inbox fake de pagos; no duplica los mecanismos específicos.
+- **Dependencias de la subentrega local:** #230 aceptada; CORE-ARCH #19, CORE-DB #20/#21, CORE-BE #22, CORE-API #23, CORE-TEST #24 y CORE-ENV #25 cerrados. #109/#110 y #111–#118 mantienen sus criterios y vínculos generales.
+- **Brechas mínimas que se reutilizarán:** #112 diseño de contrato/eventos; #113 persistencia/grants si el outbox común se justifica; #114 publicación durable y cobertura de acciones privilegiadas; #115 gobierno de cuentas/reportes; #116 contratos API; #117 pruebas aisladas; #118 mock. Es la descomposición existente; no se crean Issues duplicadas por etapa.
+- **Decisiones ratificadas para prototipo local:** CU-43 admite autenticación restringida, con API allow-list y sin nuevas operaciones comerciales/admin; CU-45 permite dos reportes agregados solo lectura bajo el límite temporal definido. Estas reglas no completan los criterios generales. RNF-043 conserva cinco años de auditoría; RNF-017 productivo, proveedor real y GCP quedan fuera.
+- **Estado:** #232 queda cerrada porque matriz de permisos, inventario de auditoría/outbox y división de brechas están documentados y ratificados. #233 queda aceptada/cerrada únicamente por su corte local tras PR #234. Las Issues #232 y #233 quedaron sincronizadas en Projects tras su aceptación y merge. Ni el diseño ni #233 cierran #111 ni completan M11; #112–#118 conservan sus criterios y dependencias.
+- **Aceptación:** snapshot CLP fijo sin retroactividad; operaciones fake idempotentes/durables; gates transaccionales; importes enteros exactos; reintentos/fallos/resultado tardío no duplican; cierre no pierde trazabilidad y bloqueadores de baja consideran toda incertidumbre. No registrar garantía autorizada como ingreso.
+- **Pruebas/evidencia:** límites (0, 1, 50.000 y >50.000), reclamo aceptado/rechazado, rechazo/vencimiento/timeouts, resultado tardío, cierre 24 h, cancelación, carreras, reinicio/conciliación y rol runtime están cubiertos por la integración desechable publicada y sus pruebas focalizadas; evidencia de aceptación/migración V40 y HTTP posterior al merge: [`local-fin-01-20261009.md`](evidence/local-fin-01-20261009.md). El recorrido de negocio se verifica por integración API; no se afirma automatización de navegador sobre los datos persistentes.
+- **Riesgo:** confundir comisión con fondos de terceros o simular liquidación como pago confirmado real.
+
+### LOCAL-ADMIN-01C — Bloqueo restringido de cuentas y reportes fake (Issue #233)
+
+- **Módulo/tipo/estado:** M11 / VERTICAL DB-BE-API-TEST-MOCK / aceptada y cerrada solo por LOCAL-ADMIN-01C tras PR #234; hija de #111 y trazada al diseño #232. El campo Projects debe sincronizarse cuando vuelva a estar accesible. #111–#118 permanecen abiertos por criterios generales.
+- **Objetivo y motivo:** ejecutar la parte local ratificada de CU-43 y el catálogo parcial de CU-45, sin pretender cubrir el gobierno administrativo completo.
+- **Alcance:** migración V41 para estado actual de bloqueo e historial; bloqueo/desbloqueo admin auditado; revocar sesiones y tokens anteriores; permitir nueva autenticación en modo restringido con allow-list de rutas reales de reservas propias y operaciones que cada módulo ya permita; impedir publicación/cotización/reserva y administración. Reportes read-only de reservas por estado actual y hechos financieros fake confirmados/obligaciones pendientes, con periodo IANA inclusivo/exclusivo de hasta 31 días, CLP y sin datos personales. Mock integrado, OpenAPI y pruebas focalizadas. PR #234 corrige las rutas reales de evidencia/historial, CORS en errores, el mensaje 403 del mock y el tratamiento V42 de exportación/baja; el plazo del historial queda pendiente de ratificación.
+- **Fuera:** cancelaciones/fondos por bloqueo; permisos nuevos de reserva; roles por preferencia; KPI generales, comisión/liquidación/boleta, outbox general, proveedor real y GCP.
+- **Dependencias:** diseño y decisiones CU-43/CU-45 ratificadas en #232; identidad/sesiones/auditoría #180; reserva, contrato, mensajes, disputas y finanzas fake existentes. No depende de cerrar #110 ni los padres PRIV/M06/M10; no desbloquea #112–#118 ni LOCAL-CORE-02.
+- **Aceptación:** PR #234 fusionado en `main` (`cfdbcc1`). La API hace cumplir allow-list y ownership en cada llamada; bloqueos concurrentes con altas se coordinan por bloqueo de cuenta; desbloquear exige sesión nueva; los reportes no reconcilian ni mutan; eventos confirmados y pendientes quedan separados sin contar autorizaciones como ingreso ni reintentos como operaciones nuevas.
+- **Pruebas/evidencia:** comprobación posterior al merge aplicó V41/V42 incrementalmente, comprobó salud HTTP y conservó volumen/secretos; integraciones PostgreSQL desechables verificaron cuenta bloqueada, sesión restringida, consultas propias/terceros, desbloqueo y ambos reportes. Ver [`local-admin-01c-20261009.md`](evidence/local-admin-01c-20261009.md).
+- **Riesgo:** permitir que el middleware de UI sustituya la autorización Backend, o interpretar el reporte de estado vigente como historial de estados.
+
+### LOCAL-ADMIN-01D — Cobertura financiera del ledger y conciliación de #112–#114
+
+- **Módulo/tipo/estado:** M11 / DB-BE-TEST / aceptada localmente por PR #235 (merge `5c6be649967b794f862bf2457eaacd18e104448b`); parte de #112–#114, hija funcional trazable a #111. No crea Issue duplicada ni cierra #112/#113/#114.
+- **Objetivo:** conciliar los criterios nativos de diseño de auditoría/outbox (#112), persistencia (#113) y productor Backend (#114) con los schemas y productores ya aceptados en `main`, corrigiendo los descriptores obsoletos de publicación M04, contrato M07 y garantía fake M10.
+- **Matriz de criterios:** consultar [`diseno_local_admin_arch_01.md`](diseno_local_admin_arch_01.md), [`matriz_cierre_backend_local.md`](matriz_cierre_backend_local.md), [`trazabilidad_requisitos_backend_local.md`](trazabilidad_requisitos_backend_local.md) y la evidencia específica del PR. Cada requisito se marca aceptado localmente, brecha funcional, brecha de evidencia, decisión pendiente o integración externa.
+- **Cobertura finita del cambio:** `local.finance.decision`, `local.finance.guarantee.operation` (solo captura/liberación admin) y `local.finance.guarantee.reconcile`. La autorización iniciada por el arrendatario, los vencimientos y otros hechos del dominio conservan el historial de su owner. Eventos mínimos, append-only, dentro de la transacción dueña, sin importes, texto libre ni respuesta del fake; replay no duplica. Reutiliza auditoría y retención vigente de cinco años, solo para auditoría.
+- **Persistencia:** V43 extiende el constraint de acciones que pueden usar clave idempotente. No crea outbox genérico ni cambia grants existentes; `espacigo_runtime` ya inserta el ledger y no puede actualizar/borrar filas.
+- **Decisión de outbox:** no hay en la línea base actual un nuevo consumidor que justifique evento compartido; credenciales (#198/#199), avisos de ensayo (#220) y eventos entrantes de pago fake (#74) mantienen schemas/workers/retenciones distintos. No heredar plazo común. Si aparece un productor futuro, primero debe demostrar finalidad, owner, consumer, dedupe, recuperación y retención.
+- **Fuera:** outbox/event bus genérico, cambio de retenciones especializadas, promover campañas/NPS, nuevos reportes, exactly-once, inmutabilidad productiva RNF-017, proveedores reales, BigQuery y GCP.
+- **Dependencias satisfechas para el slice:** #180 audit/roles; #224 operations fake; #228 consulta/export del ledger; V40 y runtime grants. #110 sigue como dependencia nativa abierta del padre #111; no se altera el grafo para habilitar este corte local.
+- **Validación:** integración PostgreSQL desechable con `espacigo_runtime`; confirmar decisión + captura + liberación + conciliación con actor/recurso/código/correlación, vencimiento de auditoría a cinco años, reintentos sin duplicados, ausencia de monto/payload y rollback si falla la inserción de auditoría. Reutilizar la aceptación de workers existentes; no repetir flujos no afectados.
+- **Estado general:** #112 puede aceptar la decisión local de diseño una vez revisada; #113/#114 permanecen abiertos por criterios generales y posibles futuros productores. M11/LOCAL-ADMIN-01 no se declara completo.
+
+### Conciliación de criterios #112–#114
+
+| Criterio | Clasificación vigente | Referencia |
+|---|---|---|
+| Auditoría append-only, proyección mínima, consulta/exportación y retención de 5 años | Aceptado localmente como base/consulta; cobertura de productores se evalúa por acción | #180/#228 y V22+; RNF-043 solo aplica a auditoría. |
+| Acciones administrativas existentes de credenciales, baja, KYC, moderación, reclamos, gobierno y lecturas | Aceptado localmente en productores específicos; reutilizar historial de cada owner | Inventario en `diseno_local_admin_arch_01.md`; evidencia previa por corte. |
+| Decisión financiera, captura/liberación y conciliación fake ejecutadas por administrador | Brecha funcional; implementada en esta PR, pendiente de aceptación humana | V43 + `guarantee.go`; PostgreSQL desechable. |
+| Outbox universal con lease/dedup/orden y publicador único | Decisión resuelta para la línea base actual: no se justifica por productores/consumidores autorizados | Outboxes e inbox especializados ya persisten su ciclo y su retención. No migrar a tabla común solo por homonimia con el backlog. |
+| Campañas/promociones/NPS y sus payloads/retención | Decisión pendiente/diferido por MAP-07 | No crear productores ni cambiar Projects a Listo. |
+| Fallos/restarts/reintentos de los workers especializados existentes | Aceptado localmente con sus tests previos; brecha de evidencia solo si se modifica un worker | #198/#220/#74. Esta PR no los cambia. |
+| Pub/Sub, BigQuery, bloqueo de almacenamiento/inmutabilidad y proveedores externos | Integración externa | No se prueba ni despliega como parte de LOCAL-1. |
+
+### LOCAL-ADMIN-01 — Completar gobierno y administración
+
+- **Módulo/tipo/estado:** M11 / VERTICAL / parcial local; subentregas aceptadas #226/#228/#233/#235/#250. Issue padre #111 y #112–#118 siguen abiertos por criterios generales; no marcar el padre completo por acumulación de slices.
+- **Objetivo y motivo:** #111–118, CU-43–46/52 y requisitos de reportes/accesos vigentes.
+- **Alcance:** gobierno de cuentas, moderación, consultas de reserva/pago/disputa, reportes requeridos y auditoría; permisos, filtros y exportaciones mínimas. Reusar infraestructura CORE, no duplicar eventos.
+- **Fuera:** panel visual de producción, nuevas métricas/promociones sin requisito o configuración cloud.
+- **Dependencias:** LOCAL-FIN-01 y capacidades de PRIV/KYC/LIST/DIS/CORE; D-DIS/ADMIN. **Desbloquea:** LOCAL-CORE-02 y validación final.
+- **Aceptación:** cada función administrativa requiere permiso y motivo cuando corresponde; transiciones válidas; exportación minimizada; auditoría registra actor/recurso/correlación sin secretos; actor sin permiso recibe rechazo.
+- **Pruebas previstas:** matriz por rol, alcance de consultas, acciones concurrentes, auditoría/append y exportación; finalizar LOCAL-ADMIN-MOCK-01.
+- **Riesgo:** un rol administrativo con acceso indiscriminado o auditoría modificable por el rol runtime.
+
+### LOCAL-ADMIN-01A — Consulta administrativa local de reservas y finanzas (Issue #226)
+
+- **Módulo/tipo/estado:** M11 / VERTICAL DB-BE-API-TEST-MOCK / `aceptada y Hecho` para esta subentrega tras PR #227; subentrega acotada de LOCAL-ADMIN-01, no aceptación del padre.
+- **Objetivo y motivo:** proporcionar una bandeja de consulta para reserva, participantes mínimos, estado/historial, pago/devolución fake, garantía, deducción y reclamo, reutilizando los ownerships existentes.
+- **Alcance:** filtros por ID/estado/fecha de creación; cursor estable versionado y ligado a cuenta/filtros; default 25, máximo 100, sin conteo. Sólo rol administrador en Backend. Proyección privada y minimizada; una auditoría estructurada por solicitud de lista/detalle, correlacionada y sin guardar respuestas. Mock que limpia selección, detalle y cursores al cambiar/perder sesión. Lecturas sin vencimiento materializado, conciliación, pagos ni transiciones.
+- **Fuera:** gobierno/moderación general, acciones financieras, historial de mensajes/documentos, proveedor real y GCP. No desbloquea LOCAL-CORE-02 ni cierra #111–118.
+- **Dependencias satisfechas para esta subentrega:** LOCAL-CORE-01/#180 (sesión/roles/auditoría), LOCAL-DIS-01/#222 (reclamo/resolución mínima), LOCAL-FIN-01/#224 (garantía/deducción fake) y LOCAL-BOOK-02/#214 (reservas/snapshots/historial). Padres #185/#40 y criterios generales M11 permanecen abiertos; no son una dependencia técnica para la vista acotada, aunque siguen siendo gates de privacidad/módulo completo.
+- **Criterios:** administrador puede listar/abrir; filtros y cursor sin duplicados con datos estables; identificadores retirados son null; terceros reciben 403; respuesta excluye contacto, credenciales, documentos y contenido privado; cada lectura exitosa genera un evento mínimo de auditoría; ninguna lectura muta estados/importes; el mock descarta respuestas atrasadas después de cambio/logout/relogin.
+- **Pruebas/evidencia:** unitarias de autorización/parámetros/cursor y sesión mock; integración PostgreSQL desechable con rol runtime, auditoría, historial minimizado y conteos/estado antes-después; pasos de navegador documentados en `planning/evidence/local-admin-01a-20261009.md`.
+
+### LOCAL-ADMIN-01B — Consulta y exportación mínima de auditoría local (Issue #228)
+
+- **Módulo/tipo/estado:** M11 / VERTICAL DB-BE-API-TEST-MOCK / aceptada y Hecho tras PR #229 (merge `994c91f`); subentrega acotada, no aceptación de LOCAL-ADMIN-01 ni #111–#118.
+- **Objetivo:** permitir inspección local del ledger ya existente sin ampliar su cobertura de productores ni modificar/borrar eventos.
+- **Contrato:** administrador activo obligatorio en Backend; periodo RFC3339 requerido desde inclusivo/hasta exclusivo normalizado UTC y máximo 31 días; filtros exactos opcionales por actor UUID, tipo/ID recurso, acción y resultado; lista por `ocurrido_en DESC, id DESC`, 25 por defecto y 100 máximo, cursor URL-safe ligado a cuenta/filtros/tamaño/corte; exportación JSON v1 con máximo 10.000, sin truncamiento. Proyección única: ID, fecha, actor técnico nullable, recurso, acción, resultado, motivo estructurado y correlación. Un evento mínimo por petición administrativa autenticada; scope de lectura/exportación se fija antes de su evento de acceso.
+- **Persistencia/retención:** reusa `evento_auditoria_local`, V22/V23+ y grants append-only existentes. No requiere DDL; conserva retención de cinco años y no añade UPDATE/DELETE.
+- **Dependencias satisfechas para este corte:** #180 roles/auditoría local y #226 lectura admin integrados; el ledger existente permite lectura con rol `espacigo_runtime`. #111–#114 son relacionadas y contienen criterios generales de gobierno, modelado transversal, outbox y durabilidad aún abiertos; no se declara su dependencia completa ni se desbloquean padres.
+- **Fuera:** nuevos productores transversales, búsqueda textual, mutaciones, purga, outbox general, inmutabilidad productiva y GCP. LOCAL-CORE-02 y #111–#118 siguen abiertos. #230 cubrió el tramo local de DIS-TEST/DIS-MOCK; la Issue nativa #111 conserva su dependencia abierta de #110, mientras LOCAL-ADMIN-ARCH-01/#232 permite avanzar el diseño local con #230 aceptada.
+- **Evidencia:** [`local-admin-01b-20261009.md`](evidence/local-admin-01b-20261009.md); contraste de productores/cobertura, integración PostgreSQL desechable, OpenAPI, pruebas mock y smoke HTTP posterior al merge.
+
+### LOCAL-CORE-02 — Consolidar continuidad del trabajo durable (Issue #240)
+
+- **Módulo/tipo/estado:** transversal / BE-TEST / **aceptada**, Issue #240 cerrada/Hecho tras PR #241; subentrega local, no aceptación de LOCAL-ADMIN-01/M11 ni de los padres generales.
+- **Objetivo y motivo:** RNF de continuidad/idempotencia y contratos M11; verificar pagos, firmas, notificaciones y auditoría integrados.
+- **Alcance:** leases/reintentos/checkpoints, recuperación tras interrupción, deduplicación y diagnósticos mínimos; correlación sin PII. Pruebas con varios workers locales si el contrato lo requiere.
+- **Fuera:** escalado GCP, HA cloud, WAF o infraestructura productiva.
+- **Dependencias locales satisfechas para este corte:** LOCAL-QA-01/#238 quedó aceptada/Cerrada/Hecho tras PR #239; los productores locales ya implementados están integrados en `main` y su cobertura obligatoria está en el runner. Se reutilizan los cortes locales aceptados de identidad/privacidad, reservas/pagos/garantía/liquidación, comunicación, galería y administración. LOCAL-ADMIN-01 solo está satisfecho para esos contratos operativos reutilizados; M11 y #111–#118 permanecen abiertos por criterios generales. Los padres #109/#110, #185/#40 y demás Issues generales mantienen sus dependencias nativas y estado propios; este corte no los cierra ni los desbloquea artificialmente. **Desbloqueó localmente:** LOCAL-QA-02, aceptada posteriormente mediante #242/PR #243.
+- **Aceptación:** trabajo pendiente recuperable; worker detenido no retiene lease indefinidamente; dos workers no finalizan dos veces; errores/correlación permiten diagnosticar sin filtrar secretos.
+- **Pruebas previstas:** interrupciones antes/después de cada persistencia/efecto, expiración de lease, replay y continuidad local.
+- **Riesgo:** efecto externo simulado realizado pero no persistido o retry ilimitado sin política.
+- **Brechas verificadas y cubiertas:** las dos familias de aviso recuperan un lease vencido tras reinicio antes de confirmar el resultado; los avisos de reserva también recuperan el octavo lease sin un noveno envío y mantienen deduplicación/reapertura; los reintentos de pagos, garantía y liquidación consultan la operación fake persistida y no inician efectos nuevos al recuperar resultados; cleanup de archivos y baja conservan candidatos/trabajo pendiente recuperable. El caso añadido se limita a leases no terminales reclamados y abandonados antes del efecto.
+- **Límites explícitos:** Mailpit/SMTP puede entregar dos veces si el proceso cae después de aceptar el mensaje y antes de persistir `entregada`; no se ofrece semántica exactly-once. Proveedor real, infraestructura cloud y observabilidad productiva quedan fuera. Las operaciones de dinero real no están implementadas.
+
+## L5 — Aceptación final local
+
+### LOCAL-QA-02 — Verificar evolución y recuperación de datos
+
+- **Módulo/tipo/estado:** transversal / DB-TEST / **aceptada**, Issue #242 cerrada y Hecho tras PR #243.
+- **Objetivo y motivo:** cierre DB de todos los módulos y RNF locales de integridad/continuidad.
+- **Alcance:** migración vacía/repetida, upgrade con datos representativos, checksums, backup/restore en otra DB, metadata/blobs privados y permisos restaurados; conciliación final de entidades.
+- **Fuera:** probar sobre/borrar el volumen de desarrollo o medir RPO/RTO de GCP.
+- **Dependencias:** LOCAL-QA-01 y LOCAL-CORE-02. PR #243 integró la entrega y habilitó LOCAL-QA-03/#244.
+- **Aceptación:** datos/hashes/relaciones coinciden después de restaurar; cambios conservan snapshots; migraciones aplicadas intactas; resultados y límites de la restauración documentados.
+- **Evidencia reutilizada:** runner de LOCAL-QA-01 para migración vacía/repetida, checksum y gate de integraciones; `TestVerificationRepositoryOwnershipIdempotencyReviewAndRetry` y `TestV37BackfillsV36ReviewAuthorshipMarker` para upgrade con datos previos; `TestLocalSuppressionReplayAfterPgDumpRestore` para dump/restore separado y replay idempotente del registro externo antes de exponer la base.
+- **Brecha de evidencia cubierta por #242:** `TestDurableFakePaymentInboxDeduplicatesTimeoutAndRecoversAfterRestart` comprueba snapshots de cotización/reserva, relaciones con espacio/ocupación y permisos del rol runtime después de restaurar un custom dump a otra base; `TestSyntheticGalleryOwnerLimitIdempotencyAndRecoverableCleanup` copia y restaura conjuntamente metadata SQL y blobs privados a otra carpeta, comprueba titularidad, relación y permisos. Ambas siguen dentro del runner obligatorio.
+- **Aceptación:** PR #243 merge `65e5a08`; #242 aceptada/Cerrada/Hecho solo por restauración aislada SQL+blobs y criterios enumerados en su evidencia. Volumen y secretos preservados.
+- **Riesgo:** respaldar solo SQL y perder blobs o usar una base restaurada como prueba de conservación en desarrollo.
+
+### LOCAL-QA-03 — Ejecutar aceptación integral M01–M11 (Issue #244)
+
+- **Módulo/tipo/estado:** transversal / TEST-MOCK / **aceptada**, PR #245 merge `74b10dbe655d4f6ae3957a6de81f895ab887e57d`; #244 cerrada/Hecho solo por QA-03.
+- **Objetivo y motivo:** demostrar LOCAL-1, casos originales aplicables y RNF verificables localmente.
+- **Alcance:** unitarias/integración/contratos; recorrido completo feliz y alternativos; roles/tercero; concurrencia, expiración, errores y fakes; límites/consultas con dataset/máquina declarados; mocks finales de módulos completos.
+- **Fuera:** GCP, sandbox, SLA extrapolado o nueva UI.
+- **Dependencias:** LOCAL-QA-01/#238, LOCAL-CORE-02/#240 y LOCAL-QA-02/#242 aceptadas; paquetes funcionales locales aceptados por sus alcances y evidencia MOCK/API. Evidencia final `evidence/local-qa-03-20261010.md`. Los criterios generales #109/#110, #111–#118, #185/#40 y otros padres siguen abiertos y no se cierran artificialmente. Desbloquea LOCAL-CLOSE-01, no declara LOCAL-1 aceptada.
+- **Aceptación:** integraciones exigidas sin omisiones; cuenta → publicación → reserva/pago → firma → operación → reputación o disputa → liquidación, más privacidad/admin, reproducibles; fallos críticos resueltos y evidencia por commit.
+- **Pruebas previstas:** comando consolidado y recorridos visuales mínimos; repetir solo lo necesario por correcciones y una regresión final.
+- **Riesgo:** dar por completo el backend porque pasa una suite que no ejecutó un módulo o su integración.
+
+### LOCAL-CLOSE-01E — Exportación contractual y retención sintética (esta entrega)
+
+- **Alcance:** incluir contratos de ambas partes autorizadas en el ZIP de datos propios: snapshot, firmas/historial minimizados, PDF disponible y manifiesto de archivo ya retirado; sin secretos, claves de cifrado ni documentos ajenos. Consumir repositorio dueño de contrato; mantener autorización y storage privado.
+- **Persistencia:** V53 incremental agrega tratamiento de PDF ya retirado y fechas de retención para contratos e historiales de publicación/eliminación, backfill desde anclas originales y purga recuperable protegida por obligaciones. Owner-stores especializados se ratifican como adaptación local de MAP-02/DB02-02; no reorganizar el storage global ni modificar fuentes congeladas.
+- **Plazos locales ratificados:** contrato/firmas/PDF: 24 meses calendario desde el último cierre terminal relacionado; publicación/eliminación: 24 meses desde eliminación definitiva. Obligaciones abiertas difieren la purga. Consultas, reintentos y ZIP no reinician vencimientos.
+- **Pruebas:** aislamiento host/arrendatario/tercero, JSON/PDF y manifiesto, plazo y no mutación al exportar, obligaciones abiertas y purga/archivo recuperable. V52→V54 y runner integral se validan con PostgreSQL desechable.
+- **Evidencia:** [`evidence/local-close-01-contract-export-20261011.md`](evidence/local-close-01-contract-export-20261011.md). El volumen persistente no recibió V53.
+
+### LOCAL-CLOSE-01 — Registrar aceptación y detener desarrollo local (Issue #246)
+
+- **Módulo/tipo/estado:** transversal / DOC+funcional / **Aceptado por el propietario; Issue #246 cerrada y Hecho** el 2026-10-11. LOCAL-CLOSE-01E completa contrato ZIP y retención ratificada con V53.
+- **Objetivo y motivo:** cerrar LOCAL-1 y distinguir pendientes externos del alcance local entregado.
+- **Alcance:** conciliar cada RQF/CU/HU/RNF con evidencia, función local pendiente, decisión y exclusión ratificada; completar brechas funcionales locales obligatorias; mantener guía de arranque/uso y seguimientos separados por tipo.
+- **Fuera:** desplegar/probar GCP, afirmar cumplimiento legal o cerrar criterios externos por su fake.
+- **Dependencias:** LOCAL-QA-03. **Desbloquea:** solamente la posibilidad de solicitar una nueva planificación de nube después de aceptación; no autoriza ejecutarla.
+- **Estado conciliado después de PR #266 + LOCAL-CLOSE-01E:** #247–#250 y #256–#263 están aceptadas solo por sus cortes. DB02-02 se adapta por owner-stores especializados y DB02-05 queda implementado para los grupos/plazos ratificados. El runner integral publicado para `03e9c77` se reutiliza; V53/V54 están aplicadas incrementalmente en el volumen persistente tras el merge, con evidencia de salud, grants runtime y exportación bilateral en `evidence/local-close-01-post-merge-20261011.md`. LOCAL-1 fue aceptado por el propietario; #246 está cerrada/Hecho.
+
+- **Decisiones ratificadas para cerrar alcance local:** exact lookup por UUID de cuenta sintética; tercer reporte agregado de disputas por período/estado; outbox durable para los productores RQF-016, 047/194, 121/122/201 y 134/135/139; enlaces de firma autenticados sin bearer token en URL; foto sintética privada en descargo. RQF-210 ya dispone de trigger durable en V38 y evidencia de Mailpit en el corte #223/QA-03.
+- **Subentregas trazables:** #247 avisos (aceptada/Hecho tras PR #251); #248 purgadores de privacidad (aceptada/Hecho tras PR #252 y aplicación local de V47); #249 evidencia en descargo (aceptada/Hecho por PR #253); #250 consultas admin/reportes (aceptada/Cerrada/Hecho tras PR #254 y comprobación HTTP local). Dependencias: QA-03/#244 y slices funcionales satisfechas; ninguna requiere proveedor real. Las Issues se cierran solo por su propio criterio y aceptación, no por estar incluida en LOCAL-CLOSE-01.
+- **LOCAL-CLOSE-01C / #249 — evidencia privada en descargo:** adjuntar una PNG sintética fija generada por Backend al descargo ya persistido; acceso de participantes/admin autorizado y rechazo de terceros; exportar solo al autor; usar limpieza durable por baja y purga tras los 24 meses de reserva/disputa ya ratificados, sin plazo nuevo. Incluye pruebas de aislamiento, ZIP y cleanup/retención con PostgreSQL desechable. No fotos reales.
+- **LOCAL-CLOSE-01D / #250 — consultas administrativas pendientes:** exact lookup auditado por UUID, lista/detalle de publicaciones y reporte agregado de disputas por período/estado. Solo lectura, sin contacto/evidencia/texto libre. Dependencias locales satisfechas tras #249; las funciones no dependen de proveedor.
+- **Criterio de salida:** exportación de contratos y retenciones locales ratificadas implementadas; V53/V54 validadas desechablemente y aplicadas incrementalmente tras merge. No se identifican brechas funcionales locales obligatorias restantes. Los cambios de código se probaron en `03e9c77`; la evidencia post-merge confirma que el código integrado coincide, servicios sanos y grants efectivos. Integraciones de PSP, firma jurídica, KYC documental real, fiscal y GCP se reportan aparte.
+- **Aceptación:** cero brechas funcionales locales obligatorias y decisiones locales ratificadas implementadas; exclusiones separadas; cambios publicados/integrados y evidencia trazada; propietario acepta explícitamente y el agente se detiene. Los Issues padre conservan criterios generales abiertos. Estado: LOCAL-1 aceptado por el propietario; #246 cerrada/Hecho después de esa aceptación.
+- **Verificación:** `bash scripts/test-local-qa.sh` pasó en `03e9c77`: 100/100 mock tests, 4/4 checks del gate, `go test -p 1 ./...`, `go vet ./...`, 89/89 integraciones obligatorias (127 eventos Go), cero omisiones/SKIP y 5/5 repeticiones estables de check-in. V52→V54, aislamiento ZIP, obligaciones y purga recuperable pasaron en PostgreSQL desechable. Tras integrar #266, V53/V54 se aplicaron incrementalmente al volumen y se verificaron salud, permisos y exportación bilateral; no se ejecutó purga. Véanse `planning/evidence/local-close-01-contract-export-20261011.md` y `planning/evidence/local-close-01-post-merge-20261011.md`.
+- **Riesgo:** aceptar un cierre parcial como integral o iniciar nube automáticamente.
+
+## Tarjetas finales de mock por módulo
+
+Estas tarjetas son tareas de aceptación incluidas en el paquete vertical, preferentemente usando/ampliando la tarjeta MOCK original. Si la original está cerrada por un corte parcial, abrir un hijo local con el delta; no invalidar su aceptación anterior. **Estado inicial propuesto de todas: `todo`.**
+
+**Ficha común:** tipo MOCK; objetivo comprobar visualmente CU del módulo; fuera de alcance frontend definitivo/archivos o proveedores reales; dependencia Backend/API y pruebas del paquete; desbloquea aceptación del módulo y LOCAL-QA-03; riesgo falsas conclusiones por sesión/selección/respuesta obsoleta; comprobación funcional en navegador. Todas deben mostrar resultados/datos y errores HTTP, respetar auth/roles, consumir solo la API pública y ejecutarse desde su contenedor HTML/CSS/TS sin framework ni acceso a DB.
+
+| ID / módulo / referencia | Depende de código y pruebas de | Operaciones exactas de aceptación |
+| --- | --- | --- |
+| LOCAL-AUTH-MOCK-01 / M01 / #35 | LOCAL-AUTH-01 | Registro/duplicado, aceptar versión, verificación/reemisión Mailpit, login/sesión/logout, recuperar/cambiar clave, rechazo de reutilización y permisos/preferencias sin alterar roles. |
+| LOCAL-PRIV-MOCK-01 / M02 / #43 | LOCAL-PRIV-01 | Consultar/editar perfil y foto sintética, dato de cobro local; crear/seguir solicitud; exportar datos propios; revisor autorizado resuelve y comprueba efecto/motivo. |
+| LOCAL-KYC-MOCK-01 / M03 / #51 | LOCAL-KYC-01 | Crear/consultar caso, gestionar evidencia sintética admitida, revisión/subsanación/aprobación/rechazo/reintento y visualizar elegibilidad; tercero rechazado. |
+| LOCAL-LIST-MOCK-01 / M04 / #61 | LOCAL-LIST-01 | Crear/editar borrador con atributos y perfiles, galería sintética, tarifas/políticas y calendario; publicar/despublicar; mostrar impedimentos de elegibilidad y ownership. |
+| LOCAL-DISC-MOCK-01 / M05 / #68 | LOCAL-DISC-01 | Buscar oferta publicada con filtros/precio/intervalo/proximidad, paginar, consultar detalle/horarios y cotizar selección; cambios de filtros/espacio invalidan resultados anteriores. |
+| LOCAL-BOOK-MOCK-01 / M06 / #79 | LOCAL-BOOK-02 | Solicitar, consultar bandejas/detalle/historial, pago fake/timeout/retry, aprobar/rechazar, vencer y cancelar/refund según política; mismo resultado tras reintento. |
+| LOCAL-CONT-MOCK-01 / M07 / #87 | LOCAL-CONT-01 | Consultar documento privado/versionado y firmantes, firmar/rechazar simuladamente, mostrar estado parcial/final/vencido y conflictos; tercero sin acceso. |
+| LOCAL-OPS-MOCK-01 / M08 / #94 | LOCAL-OPS-01 | Check-in/out, recepción/observación, reclamo formal y descargo sintético, evidencia, fechas/roles y estado; repetición y plazo vencido muestran resultado/error correcto. |
+| LOCAL-COMM-MOCK-01 / M09 / #102 | LOCAL-COMM-01 | Hilo/lectura existente, publicar/consultar reseña elegible, reportar/moderar con rol adecuado y comprobar avisos por Mailpit/estado de entrega autorizado. No añadir un centro de notificaciones. |
+| LOCAL-DIS-TEST-MOCK-01 / M10 / #230, bajo #109/#110 | LOCAL-DIS-01/#222–223, LOCAL-FIN-01/#224–225, #24, #25 | Verificar resultados fake observados, historial, resolución/evidencia/descargo, deducción dentro de garantía, conciliación e integración de mock. Proveedor real/sandbox y payout/boleta/liquidación comercial no se simulan; #109/#110 permanecen abiertos por aceptación y criterios incompletos. |
+| LOCAL-ADMIN-MOCK-01 / M11 / #118 | LOCAL-ADMIN-01 | Consultar cuentas/reservas/pagos/disputas, acciones administrativas permitidas, moderación, reportes/exportación mínima y auditoría/correlación; negar rol insuficiente. |
+
+No crear un mock antes de que existan sus operaciones Backend/API. Se pueden usar secciones del mock existente, sin routing complejo, layouts ni componentes de producción.
+
+## Traslado futuro a GitHub Projects
+
+1. Ejecutar LOCAL-PLAN-01: revisar registro vigente antes de editar. Preservar IDs, historial y relaciones originales.
+2. Asociar estos paquetes a Issues existentes o hijos locales necesarios; el tipo VERTICAL no requiere crear una nueva tarjeta por cada etapa ya planificada.
+3. Registrar puertas de decisión y dependencias de código reales; verificar grafo sin ciclos. No borrar dependencias generales para fingir que están satisfechas.
+4. Actualizar estado operativo solo mediante mecanismos soportados y leerlo de vuelta. Esta propuesta no cambia el Project por sí misma.
+5. Estimar y reportar por hito/criterio, no por cantidad de PRs. Un PR puede completar varias tarjetas del mismo corte si cada aceptación queda demostrada.
+6. Detenerse tras aceptación LOCAL-1. Las pruebas de GCP quedan fuera del backlog ejecutable local.
+
+
+## LOCAL-DOCKER — empaquetado y recuperación local
+
+### DOCKER-01 — Empaquetado y configuración aislada (Issue #268)
+
+- **Estado:** Aceptado/Cerrado/Hecho tras PR #271 y merge `e074d78`; subcorte de #267, dependiente de LOCAL-1 aceptado (#246). DOCKER-02/#269 se presenta por PR #272; DOCKER-03/#270 espera su aceptación.
+- **Base existente:** Compose ya separa `backend`, `mock-frontend`, `database`, `mailpit` y `migrate`. No recrear servicios. `migrate` mantiene credencial admin y `backend` runtime.
+- **Entrega:** targets independientes API/mock; configuración PostgreSQL y TLS; helper con proyecto, host ports, volumen nombrado, secretos y directorios privados propios. Defaults del proyecto/puertos/volumen de desarrollo se conservan.
+- **Aceptación:** `go test ./cmd/api -run 'TestLoadConfig' -count=1`; render de Compose dev/aislado; verificaciones de TLS/roles/red/secret paths; builds separados de ambos targets; script no inicia servicios ni manipula volumen/secretos activos.
+- **Fuera:** instalación limpia/recorrido integral (#269) y recuperación/base sustituible (#270), GCP, proveedor real, cambios de negocio.
+- **Evidencia:** `evidence/local-docker-01-20261011.md`; especificación y comandos en `local_docker.md`.
+
+### DOCKER-02 — Instalación limpia y recorrido integral (Issue #269)
+
+- **Estado:** Implementado y en revisión mediante PR #272; DOCKER-01/#268 aceptada tras PR #271. DOCKER-03/#270 no inicia hasta que este corte sea aceptado.
+- **Alcance probado:** Compose aislado con volumen inicialmente inexistente; migraciones con usuario separado; salud del API/mock/PostgreSQL/Mailpit; permisos del runtime; recorrido sintético de catálogo, cotización, solicitud, pago/garantía fake, contrato, check-in/out, recepción, historial, exportación y correo local. El runner local valida vencimientos/settlement con reloj sustituible.
+- **Fuera:** nueva funcionalidad de negocio, reutilizar/copiar datos o secretos del stack activo, reset del volumen de desarrollo, proveedor real, Cloud SQL y GCP.
+- **Validación:** `go test ./cmd/api -run 'TestLoadConfig' -count=1`, `bash scripts/test-local-docker-01.sh`, `scripts/verify-http.py` en los puertos aislados y `bash scripts/test-local-qa.sh`; evidencia: `evidence/local-docker-02-20261011.md`.
+- **Límite observable:** el settlement manual del fixture recién operado devolvió conflicto antes de 24 horas desde el check-out, según la política. No se adelantó fecha ni reloj en la base viva. El camino elegible y sus reintentos se cubrieron con el reloj sustituible del runner.
