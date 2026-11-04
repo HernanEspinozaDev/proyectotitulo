@@ -40,7 +40,7 @@ Los casos conservan los identificadores PT del plan de pruebas. La matriz actual
 
 ## Registro de evidencia
 
-El Capítulo X y la Tabla 10 identifican los resultados de LOCAL-1 y F5/F6. El ensayo local V1–V61 aporta evidencia parcial a PT-02 y PT-11. La recuperación conjunta y la carga objetivo requieren registros específicos. El resultado de un paquete o recorrido se asocia con una fila únicamente cuando el registro comprueba su criterio. El expediente de verificación registra entradas, fecha, entorno, versión, resultado y observaciones.
+El Capítulo X y la Tabla 10 identifican los resultados de LOCAL-1 y F5/F6. LOCAL-1 aporta evidencia del recorrido sintético documentado. Las modalidades externas de PT-03 y PT-06 conservan sus criterios pendientes. El ensayo local V1–V61 aporta evidencia parcial a PT-02 y PT-11. La recuperación conjunta y la carga objetivo requieren registros específicos. El resultado de un paquete o recorrido se asocia con una fila únicamente cuando el registro comprueba su criterio. El expediente de verificación registra entradas, fecha, entorno, versión, resultado y observaciones.
 
 
 **Tabla F.3**\
@@ -51,6 +51,7 @@ El Capítulo X y la Tabla 10 identifican los resultados de LOCAL-1 y F5/F6. El e
 | PT-02 · Exclusión temporal | Restauración local V1–V61 con un solo ganador ante solapamiento concurrente. | Comprobado para ese escenario y corte. |
 | PT-09 y PT-10 · Carga | Consulta SQL PostGIS con 200 conexiones sobre 10.000 puntos sintéticos. | Evidencia del componente. Queda pendiente medir la búsqueda de extremo a extremo. |
 | PT-11 · Recuperación | Restauración básica local aprobada. El ensayo del ejecutor GCP03 se detiene en la restauración de permisos. | Pendiente verificar recuperación conjunta de base y objetos y medir RPO y RTO. |
+| PT-07 · Acceso a evidencias | F5 registra controles documentales y F6 verifica la denegación a un titular ajeno en el recorrido sintético. | Evidencia parcial. El escenario completo conserva sus roles y recursos propios. |
 | PT-16 · Retención | Evidencia documental F5 de retención y permisos en su alcance. | Pendiente verificar la política de retención y los objetos en el ensayo de recuperación objetivo. |
 
 *Nota.* Elaboración propia a partir de los ensayos y registros del Capítulo X. Los resultados locales conservan su alcance.

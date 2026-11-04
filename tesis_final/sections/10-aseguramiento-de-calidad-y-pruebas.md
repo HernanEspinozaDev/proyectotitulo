@@ -12,8 +12,8 @@ El modelo de calidad de producto orienta la selección de características verif
 | Corte | Resultado registrado | Alcance de la evidencia |
 |---|---|---|
 | LOCAL-1 | La matriz de cierre registra la aceptación del recorrido sintético y la comprobación posterior a la integración de V53 y V54. | Búsqueda, reserva, cobros simulados y controles del alcance local. |
-| Verificación documental F5 | El registro del 4 de noviembre documenta 86 pruebas de primer nivel aprobadas, sin fallas ni omisiones en el paquete documental. Backend `8d33dcf`. | Ensayo local sobre V83 con cambios del corte. Incluye escaneo, revocación, retención y permisos. |
-| Recorrido F6 | El cierre técnico registra 2 pruebas aprobadas de borrador y 4 del perfil documental, sin fallas ni omisiones en esos perfiles. Frontend `cc2fdc3`. | Ensayo sintético de navegador, BFF, API, base, almacenamiento y escáner. La evidencia corresponde a ramas de ensayo y se conserva separada de la aceptación visual y del despliegue en nube. |
+| Verificación documental F5 | El registro del 4 de noviembre documenta 86 pruebas de primer nivel aprobadas, sin fallas ni omisiones en el paquete documental. Backend `8d33dcf`. | Ensayo local sobre V83 con cambios del corte. Incluye las comprobaciones documentadas de escaneo, revocación, retención y permisos dentro del paquete. La Tabla F.3 identifica su relación parcial con PT-07 y PT-16. |
+| Recorrido F6 | El cierre técnico registra 2 pruebas aprobadas de borrador y 4 del perfil documental, sin fallas ni omisiones en esos perfiles. Frontend `cc2fdc3`. | Ensayo sintético de borrador y del perfil documental. El segundo incluye navegador, BFF, API, base, almacenamiento y escáner dentro del recorrido descrito en la evidencia. La evidencia corresponde a ramas de ensayo y se conserva separada de la aceptación visual y del despliegue en nube. |
 | Reputación local | Dos pruebas PostgreSQL pasan en una copia desechable con el banco preparado para los cortes V37 y V80. | Reciprocidad, moderación, retención y permisos de su alcance. La preparación adaptada no certifica la suite original ni el esquema actual completo. |
 | Carga SQL local | 200 conexiones durante 15 s sobre 10.000 puntos sintéticos. 42.636 consultas completadas, cero fallos y latencia media de 70,222 ms. | Consulta PostGIS aislada en PostgreSQL 18.6. La medición excluye navegador, API y red del entorno objetivo. |
 
@@ -29,4 +29,4 @@ El primer recorrido de aceptación cubre oferta por titularidad, búsqueda, cont
 
 ## 10.4. Rendimiento, seguridad y recuperación
 
-Los objetivos de rendimiento y continuidad se definen en el Capítulo VII. La comprobación de capacidad, latencia, seguridad y recuperación requiere registros reproducibles del entorno evaluado. El ensayo de recuperación mide RPO y RTO y verifica permisos y referencias entre la base y los archivos privados.
+Los objetivos de rendimiento y continuidad se definen en el Capítulo VII. La comprobación de capacidad, latencia, seguridad y recuperación requiere registros reproducibles del entorno evaluado. Los resultados locales tampoco acreditan cobertura de todas las categorías objetivo. El ensayo de recuperación mide RPO y RTO y verifica permisos y referencias entre la base y los archivos privados.
