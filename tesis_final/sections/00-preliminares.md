@@ -1,5 +1,3 @@
-# PRELIMINARES
-
 ## Hoja de Aprobación Institucional
 
 **Profesor Guía:** Teresa Jesús Tapia Soto  
@@ -8,4 +6,8 @@
 
 ## Resumen ejecutivo
 
-espaciGo es una plataforma web transaccional para el arriendo flexible de espacios en Chile ofrecidos por personas y organizaciones. El alcance objetivo comprende usos residenciales, turísticos, recreativos, comerciales e industriales. El catálogo vigente comprende nueve categorías, incluida Inmuebles. La evidencia disponible corresponde a ensayos con datos sintéticos. La evidencia comprende búsqueda, ocupación y verificación documental en los recorridos del Capítulo X. Casas de veraneo y hostales son ejemplos del alcance objetivo. El proyecto aborda las fricciones de búsqueda, disponibilidad y coordinación entre las partes mediante una arquitectura modular en Go y Next.js y persistencia en PostgreSQL con PostGIS. El diseño objetivo define la publicación por titularidad, la contratación con firma electrónica opcional y la separación de los cobros. El corte local verifica recorridos con datos sintéticos y aporta evidencia de búsqueda, ocupación y controles documentales. La integración de proveedores, la validación de capacidad y la recuperación en el entorno objetivo se evalúan por corte.
+La dispersión de anuncios, la incertidumbre sobre la disponibilidad y la coordinación manual dificultan el arriendo flexible de espacios en Chile. Para abordar este problema, el proyecto diseña espaciGo, una plataforma web para personas y organizaciones con nueve categorías de espacios de uso residencial, turístico, recreativo, comercial e industrial. La arquitectura modular utiliza Go, Next.js y PostgreSQL con PostGIS. El diseño combina publicación por titularidad, exclusión temporal, aceptación bilateral del contrato y cobros separados, con una modalidad opcional de firma electrónica.
+
+El proyecto aplica un ciclo iterativo e incremental, con pruebas sobre datos sintéticos y criterios de aceptación por incremento. El inventario de migraciones identifica 110 tablas de aplicación, 104 de ellas contrastadas por nombre con la captura local V000075. El corte documental F5 registra 86 pruebas aprobadas y el recorrido F6 registra seis pruebas aprobadas entre los perfiles de borrador y documentos. En un ensayo aislado de PostgreSQL 18.6 con PostGIS, 200 conexiones completan 42.636 consultas geoespaciales en 15 segundos sin fallos, con una latencia media de 70,22 ms. La validación de carga de extremo a extremo, la recuperación conjunta de datos y archivos, y la habilitación de proveedores se mantienen como verificaciones del entorno objetivo.
+
+**Palabras clave** · arriendo flexible, arquitectura modular, disponibilidad, PostgreSQL, PostGIS.
