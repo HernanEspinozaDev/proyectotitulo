@@ -24,7 +24,7 @@ La Figura 8 representa la secuencia objetivo. El Anexo E identifica rutas de ens
 **Figura 8**\
 *Actividad de contratación, cobros y cierre de ocupación*
 
-![](assets/figuras/fig09_contratacion_objetivo.png){height=12cm}
+![](assets/figuras/fig09_contratacion_objetivo.png){height=16.5cm}
 
 *Nota.* Elaboración propia. El diagrama UML representa el flujo objetivo. La garantía se habilita por corte y el vencimiento opera durante las etapas de contratación.
 
@@ -64,7 +64,7 @@ El Anexo C organiza los casos de uso por módulo. Arrendador y arrendatario repr
 
 ## 9.3. Modelo de datos objetivo y esquema físico de referencia
 
-La persistencia utiliza PostgreSQL 18 y PostGIS 3.6. El diseño distingue el modelo lógico ratificado, el catálogo derivado de migraciones y el estado observado en cada entorno. La línea base del diseño de oferta, contratación y cobros corresponde al ADR de espaciGo ratificado el 4 de noviembre de 2026, registrado en `planning/decisiones/adr_objetivo_espacios_contratacion_cobros.md` en el commit `4e26d52b57d9687c4b6b7a778e89dbbb5be855e5`. La actualización local del mismo ADR incorpora explícitamente la novena categoría y la vincula con la migración V000067. El Anexo D distingue esta decisión del perfil físico sembrado por la migración.
+La persistencia utiliza PostgreSQL 18 y PostGIS 3.6. El diseño distingue el modelo lógico ratificado, el catálogo derivado de migraciones y el estado observado en cada entorno. La línea base del diseño de oferta, contratación y cobros corresponde al ADR de espaciGo ratificado el 4 de noviembre de 2026, registrado en `planning/decisiones/adr_objetivo_espacios_contratacion_cobros.md` en el commit `4e26d52b57d9687c4b6b7a778e89dbbb5be855e5`. La copia de trabajo del ADR incorpora explícitamente la novena categoría. Su incorporación al catálogo físico se registra por separado en V000067, commit `b1b38d1`. El Anexo D distingue esta decisión del perfil físico sembrado por la migración.
 
 ### 9.3.1. Modelo lógico objetivo
 
@@ -83,7 +83,7 @@ La Figura 11 relaciona las entidades lógicas que la Tabla D.1 vincula con el es
 
 ![](assets/figuras/fig13_modelo_logico_objetivo.png){height=11cm}
 
-*Nota.* Elaboración propia. La figura representa relaciones lógicas objetivo. La aceptación se registra por parte y por emisión. El Anexo D documenta las tablas derivadas del DDL y el alcance de su comparación con el catálogo local.
+*Nota.* Elaboración propia. La figura representa relaciones lógicas objetivo. La reserva se vincula con cero o una ocupación en el núcleo representado. Una ocupación manual puede existir sin reserva. La aceptación se registra por parte y por emisión. El Anexo D documenta las tablas derivadas del DDL y el alcance de su comparación con el catálogo local.
 
 La Tabla D.1 vincula las entidades lógicas con sus relaciones físicas de referencia. El Anexo D distingue las 110 tablas de aplicación derivadas del DDL de las 104 tablas de aplicación de la captura local V000075. Las seis relaciones adicionales corresponden a la verificación documental declarada en V000079. La evolución física del modelo objetivo parte del mapeo de entidades a tablas vigentes y del análisis de las restricciones que exige cada incremento.
 

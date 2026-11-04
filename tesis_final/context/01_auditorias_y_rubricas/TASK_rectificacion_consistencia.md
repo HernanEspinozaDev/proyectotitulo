@@ -1,6 +1,6 @@
 # Tarea de rectificación de la memoria de espaciGo
 
-**Estado:** R03 verificado. Siguiente ítem: R09.
+**Estado:** R06 verificado. Siguiente ítem: R09.
 
 La auditoría compara dos versiones del PDF. Esta tarea contrasta los hallazgos con los archivos que entran en `document.json` y conserva como controles de regresión el alcance amplio, la secuencia de 14 figuras del cuerpo, las 35 historias y los 52 casos de uso.
 
@@ -46,3 +46,5 @@ Por cada corte se registra el estado, archivos y figuras corregidos, comandos y 
 - Capítulo V, verificación visual. Se redistribuye el ancho de las tablas 3, 4 y 5. Se conservan valoraciones, responsables y riesgos, y se verifica otra vez la integridad de 5.3.
 
 - Capítulo VII y Anexo C. Las 52 fichas mantienen nueve atributos y asignan más espacio al detalle. Los pasos numerados conservan su separación en Word y PDF.
+
+- Capítulo IX y Anexo D, revisión del chat de auditoría. Figura 11 regenerada desde Mermaid con cardinalidad de cero o una ocupación por reserva, según el núcleo de referencia. Se amplía la Figura 8 y se identifica el commit de V000067.

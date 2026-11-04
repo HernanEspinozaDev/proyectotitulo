@@ -21,7 +21,7 @@ El modelo lógico objetivo se describe en la sección 9.3. La capacidad registra
 
 *Nota.* Elaboración propia. El mapeo identifica puntos de partida y criterios de evolución física por corte.
 
-V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en el catálogo existente. El perfil de la memoria comprende casa, departamento, habitación y cabaña. El enum físico de tipo de inmueble también registra otras opciones. El campo físico sobre qué se arrienda incluye habitación y cama compartidas. Esos valores sembrados se registran como parte del esquema de referencia. El ADR mantiene el alcance objetivo de una unidad reservable exclusiva y difiere el aforo compartido. La disponibilidad efectiva de un perfil requiere comprobación por entorno.
+V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en el catálogo existente. El perfil de la memoria comprende casa, departamento, habitación y cabaña. El enum físico de tipo de inmueble también registra otras opciones. El campo físico sobre qué se arrienda incluye habitación y cama compartidas. Esos valores sembrados se registran como parte del esquema de referencia. El ADR mantiene el alcance objetivo de una unidad reservable exclusiva y difiere el aforo compartido. Las opciones compartidas sembradas quedan fuera del alcance ratificado de oferta y reserva. La disponibilidad efectiva de un perfil requiere comprobación por entorno.
 
 ## Dominio: Gobernanza, privacidad y administración
 
