@@ -2,11 +2,11 @@
 
 ## 14.1. Cierre por objetivo
 
-- **OE1. Diagnóstico y requisitos.** El informe caracteriza las fricciones de intermediación y especifica un alcance objetivo para espacios ofrecidos por personas y organizaciones con usos residenciales, turísticos, recreativos, comerciales e industriales. Los anexos A, B y C documentan el alcance funcional. El efecto sobre la vacancia requiere una medición de mercado.
-- **OE2. Arquitectura y datos.** El proyecto especifica el modelo objetivo y su relación con el esquema físico. El diseño asigna la exclusión temporal al espacio y al intervalo activo. El ensayo local V1–V61 del Capítulo X comprueba ese comportamiento en el escenario sintético ensayado.
-- **OE3. Construcción e integración.** LOCAL-1 acredita el recorrido sintético de su corte. El ADR define publicación por titularidad, emisión inmutable, firma opcional y cobros separados. La habilitación de cada proveedor requiere evidencia propia. El diseño distingue la aceptación sin firma de la modalidad SimpleFirma.
-- **OE4. Calidad.** El Capítulo X presenta resultados locales con alcance identificado. La validación de carga y recuperación en el entorno objetivo requiere evidencia propia.
-- **OE5. Despliegue y factibilidad.** El informe define la estrategia de operación y continuidad. La evaluación económica corresponde al apartado reservado.
+- **OE1. Diagnóstico y requisitos.** El diagnóstico traduce las dificultades de búsqueda y coordinación en 236 requerimientos funcionales, 43 no funcionales, 35 historias de usuario y 52 casos de uso. El catálogo admite nueve categorías y permite aplicar las reglas comunes de intermediación a usos residenciales, turísticos, recreativos, comerciales e industriales. El efecto sobre la vacancia requiere una medición de mercado.
+- **OE2. Arquitectura y datos.** El inventario derivado del DDL identifica 110 tablas de aplicación. La captura local V000075 comparte 104 relaciones por nombre y registra coincidencia de tipo base y nulabilidad en 879 columnas de esas relaciones. El ensayo V1–V61 confirma que la exclusión temporal admite un solo ganador ante solicitudes solapadas en el escenario probado.
+- **OE3. Construcción e integración.** LOCAL-1 acredita el recorrido sintético de su corte. F5 registra 86 pruebas de primer nivel aprobadas en verificación documental. F6 registra dos pruebas de borrador y cuatro del perfil documental. La contratación objetivo distingue la aceptación sin firma de la modalidad SimpleFirma y mantiene separados los cobros. La habilitación de proveedores requiere completar los flujos correspondientes y verificar sus resultados.
+- **OE4. Calidad.** El ensayo SQL aislado en PostgreSQL 18.6 con PostGIS completa 42.636 consultas en 15 segundos con 200 conexiones, sin fallos y con 70,22 ms de latencia media. El resultado caracteriza la consulta geoespacial sobre datos sintéticos. La carga de extremo a extremo y la recuperación conjunta de base y archivos requieren ensayos del sistema integrado.
+- **OE5. Operación y factibilidad.** La estrategia define controles de despliegue, seguridad y continuidad. La evaluación financiera detallada se integra en los apartados reservados.
 
 ## 14.2. Aporte de ingeniería
 
