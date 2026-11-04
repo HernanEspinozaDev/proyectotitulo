@@ -180,7 +180,7 @@ El anexo reúne 35 historias en nueve épicas. Cada ficha identifica actor, crit
 **Épica:** E2 · **Rol (Como):** Arrendador · **Prioridad:** Alta
 **RF:** RQF-060 a RQF-085 · **CU:** CU-15, CU-16, CU-17
 
-**Como** arrendador con identidad verificada,
+**Como** titular vigente,
 **Quiero** registrar y publicar los detalles de mi espacio físico (quinchos, bodegas, estacionamientos, parcelas u otros espacios habilitados en el catálogo del corte),
 **Para que** los interesados puedan visualizarlo, conocer sus características y solicitar su arriendo de forma digital.
 
@@ -311,11 +311,11 @@ El anexo reúne 35 historias en nueve épicas. Cada ficha identifica actor, crit
 **RF:** RQF-097 a RQF-102 · **CU:** CU-19
 
 **Como** arrendatario,
-**Quiero** aplicar filtros de precio, tipo de inmueble, metros cuadrados y rango de fechas,
+**Quiero** aplicar filtros de precio, categoría de espacio, metros cuadrados y rango de fechas,
 **Para que** los resultados se acoten a los espacios que cumplen mis requerimientos.
 
 ### Criterios de Aceptación
-- El sistema debe ofrecer filtros de precio mínimo y máximo, tipo de inmueble, metros cuadrados mínimos y rango de fechas.
+- El sistema debe ofrecer filtros de precio mínimo y máximo, categoría de espacio, metros cuadrados mínimos y rango de fechas.
 - El sistema debe excluir de los resultados las publicaciones sin disponibilidad dentro del rango consultado.
 - El sistema debe permitir limpiar todos los filtros aplicados y volver al listado general.
 - Los resultados deben actualizarse sin recargar la página completa.
@@ -792,7 +792,7 @@ El anexo reúne 35 historias en nueve épicas. Cada ficha identifica actor, crit
 | M07 — Contratos y Firma Electrónica | HU33 | Cubierto |
 | M08 — Check-in y Check-out | HU35 | Cubierto |
 | M09 — Comunicación y Reputación | HU25, HU34 | Cubierto |
-| M10 — Disputas, Payout y Facturación | HU19, HU28 | Cubierto |
+| M10 — Disputas y conciliación | HU19, HU28 | Cubierto |
 | M11 — Administración y Auditoría | HU26, HU27, HU28 | Cubierto |
 
 **Resultado: 11/11 módulos cubiertos por al menos una historia de usuario.**

@@ -73,7 +73,7 @@ El catálogo especifica el diseño objetivo y conserva identificadores de las it
 | RQF-063 | El sistema debe validar que el título no exceda los 70 caracteres. |
 | RQF-064 | El sistema debe permitir ingresar la descripción de la publicación. |
 | RQF-065 | El sistema debe validar que la descripción contenga al menos 100 caracteres. |
-| RQF-066 | El sistema debe permitir ingresar la superficie total del inmueble en metros cuadrados. |
+| RQF-066 | El sistema debe permitir ingresar la superficie total del espacio en metros cuadrados. |
 | RQF-067 | El sistema debe validar que la superficie ingresada sea un número mayor a cero. |
 | RQF-068 | El sistema debe permitir seleccionar el tipo de espacio entre las categorías habilitadas para el corte. |
 | RQF-069 | El sistema debe permitir establecer la capacidad máxima de personas. |
@@ -86,7 +86,7 @@ El catálogo especifica el diseño objetivo y conserva identificadores de las it
 | RQF-076 | El sistema debe rechazar una imagen que exceda el límite de entrada del procesador multimedia del corte. |
 | RQF-077 | El sistema debe permitir seleccionar una fotografía como portada. |
 | RQF-078 | El sistema debe permitir eliminar una fotografía de la galería. |
-| RQF-079 | El sistema debe permitir ingresar la dirección física completa del inmueble. |
+| RQF-079 | El sistema debe permitir ingresar la dirección física completa del espacio. |
 | RQF-080 | El sistema debe registrar la ubicación geográfica a partir de la dirección ingresada. |
 | RQF-081 | El sistema debe asignar el estado "Borrador" automáticamente durante la creación. |
 | RQF-082 | El sistema debe publicar el espacio cuando el titular vigente solicita la publicación y el anuncio satisface sus reglas. |
@@ -105,7 +105,7 @@ El catálogo especifica el diseño objetivo y conserva identificadores de las it
 | RQF-095 | El sistema debe mostrar un mapa interactivo con las ubicaciones de los espacios. |
 | RQF-096 | El sistema debe mostrar una cuadrícula de tarjetas con el resumen de las publicaciones. |
 | RQF-097 | El sistema debe permitir buscar a través de filtros de rango de precio. |
-| RQF-098 | El sistema debe permitir buscar a través de filtros de tipo de inmueble. |
+| RQF-098 | El sistema debe permitir buscar a través de filtros por categoría de espacio. |
 | RQF-099 | El sistema debe permitir buscar a través de filtros de superficie mínima. |
 | RQF-100 | El sistema debe permitir buscar a través de filtros de rango de fechas. |
 | RQF-101 | El sistema debe excluir de los resultados las publicaciones sin disponibilidad en las fechas consultadas. |
@@ -138,7 +138,7 @@ El catálogo especifica el diseño objetivo y conserva identificadores de las it
 | RQF-128 | El sistema debe enviar a conciliación el pago acreditado después de vencer el bloqueo sin reactivar la reserva. |
 | RQF-129 | El sistema debe mantener el vencimiento original ante reintentos y eventos duplicados. |
 | RQF-130 | El sistema debe emitir un documento contractual inmutable cuando ambas identidades están verificadas. |
-| RQF-131 | El sistema debe consultar los datos legales de las partes involucradas y del inmueble. |
+| RQF-131 | El sistema debe consultar los datos legales de las partes involucradas y del espacio arrendado. |
 | RQF-132 | El sistema debe generar una nueva emisión al modificar las condiciones del contrato. |
 | RQF-133 | El sistema debe solicitar la firma externa de la emisión cuando ambas partes eligen SimpleFirma y se acreditan los aportes exigibles. |
 | RQF-134 | El sistema debe enviar el enlace de firma correspondiente al arrendatario. |
@@ -313,7 +313,7 @@ El catálogo especifica el diseño objetivo y conserva identificadores de las it
 | RNF-028 | Conciliación de pagos sin confirmación | Fiabilidad / Integridad | El sistema debe conciliar automáticamente cada 5 minutos los eventos de pago que no registren confirmación, dejando evidencia del resultado de la conciliación para su revisión. |
 | RNF-029 | Anonimización de la información transaccional | Seguridad / Privacidad | El sistema debe aplicar las medidas de minimización, supresión o anonimización que correspondan al dato y su finalidad. |
 | RNF-030 | Capacidad de usuarios y escrituras concurrentes | Rendimiento / Capacidad | El sistema debe soportar al menos 500 usuarios concurrentes y 100 operaciones de escritura por segundo sobre la base de datos transaccional, sin degradar los tiempos de respuesta definidos. |
-| RNF-031 | Adaptabilidad funcional del catálogo | Flexibilidad / Adaptabilidad | El sistema debe permitir incorporar nuevos tipos de inmueble y nuevos métodos de pago sin modificar los módulos existentes. |
+| RNF-031 | Adaptabilidad funcional del catálogo | Flexibilidad / Adaptabilidad | El sistema debe permitir incorporar nuevas categorías de espacio y nuevos métodos de pago sin modificar los módulos existentes. |
 | RNF-032 | Documentación del contrato de la API | Mantenibilidad / Analizabilidad | El sistema debe mantener documentado el contrato de su API REST (especificación OpenAPI) y actualizado con cada versión desplegada. |
 | RNF-033 | Modularidad del código por dominio | Mantenibilidad / Modularidad | El sistema debe organizarse en módulos desacoplados por dominio funcional, con interfaces documentadas entre ellos. |
 | RNF-034 | Despliegue agnóstico del proveedor de nube | Portabilidad / Adaptabilidad | El sistema debe desplegarse sobre contenedores compatibles con cualquier proveedor de nube que soporte Docker, sin dependencias propietarias del entorno. |

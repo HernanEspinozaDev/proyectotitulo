@@ -474,7 +474,7 @@
 | **Actor** | Visitante (el Usuario Registrado y el Arrendatario heredan esta capacidad) |
 | **Descripción** | El visitante busca espacios combinando texto libre, mapa interactivo y filtros, y el sistema excluye las publicaciones sin disponibilidad en el rango consultado. |
 | **Precondiciones** | Existencia de publicaciones en estado "Activa". |
-| **Flujo Principal** | 1. El visitante ingresa términos de búsqueda en la barra de texto. 2. El sistema renderiza el mapa interactivo con las ubicaciones de los espacios. 3. El sistema despliega la cuadrícula de tarjetas con el resumen de las publicaciones. 4. El visitante aplica filtros de precio mínimo y máximo, tipo de inmueble, metros cuadrados mínimos y rango de fechas. 5. El sistema excluye las publicaciones sin disponibilidad en las fechas consultadas. 6. El visitante limpia todos los filtros aplicados para reiniciar la búsqueda. |
+| **Flujo Principal** | 1. El visitante ingresa términos de búsqueda en la barra de texto. 2. El sistema renderiza el mapa interactivo con las ubicaciones de los espacios. 3. El sistema despliega la cuadrícula de tarjetas con el resumen de las publicaciones. 4. El visitante aplica filtros de precio mínimo y máximo, categoría de espacio, metros cuadrados mínimos y rango de fechas. 5. El sistema excluye las publicaciones sin disponibilidad en las fechas consultadas. 6. El visitante limpia todos los filtros aplicados para reiniciar la búsqueda. |
 | **Flujos Alternativos** | **A1. Sin resultados coincidentes (Paso 5):** 1. El sistema informa que no se encontraron espacios disponibles. 2. El sistema sugiere ampliar o relajar los criterios de búsqueda. |
 | **Postcondiciones** | Listado geolocalizado de espacios disponibles según los criterios aplicados. |
 | **Referencias Cruzadas** | RQF-094 al RQF-102 · CU-20 (siguiente paso) · HU10 |
@@ -1049,7 +1049,7 @@ El reclamo y la conciliación conservan trazas independientes. La confirmación 
 | **Actor** | Administrador |
 | **Descripción** | El administrador consulta el listado de espacios publicados en la plataforma para su supervisión. |
 | **Precondiciones** | Sesión activa con rol de Administrador. |
-| **Flujo Principal** | 1. El administrador accede al listado de espacios publicados. 2. El sistema despliega las publicaciones con sus datos principales (título, arrendador, tipo de inmueble, estado y precio base). 3. El administrador selecciona una publicación y el sistema muestra su detalle. |
+| **Flujo Principal** | 1. El administrador accede al listado de espacios publicados. 2. El sistema despliega las publicaciones con sus datos principales (título, arrendador, categoría de espacio, estado y precio base). 3. El administrador selecciona una publicación y el sistema muestra su detalle. |
 | **Flujos Alternativos** | **A1. Plataforma sin publicaciones:** 1. El sistema muestra el estado vacío del listado. |
 | **Postcondiciones** | Publicaciones de la plataforma consultadas por el administrador. |
 | **Referencias Cruzadas** | RQF-236 · CU-44 (moderación), CU-45 (reportes), CU-46 (auditoría) · HU26 |
