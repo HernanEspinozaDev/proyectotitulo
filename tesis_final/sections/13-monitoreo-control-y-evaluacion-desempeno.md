@@ -2,7 +2,7 @@
 
 ## 13.1. Control por incremento
 
-El enfoque híbrido del Capítulo V vincula los entregables de la EDT con incrementos verificables. El criterio de registro de cada revisión exige alcance, versión, entorno, evidencia y decisión de cierre. La Tabla 12 identifica el estado de cada objetivo según los registros disponibles. La evaluación distingue cobertura de diseño, ejecución y conformidad. El indicador de desempeño del cronograma se informa cuando existe una línea base y registros de avance que sustentan su cálculo.
+El enfoque híbrido del Capítulo V vincula los entregables de la EDT con incrementos verificables. Cada revisión registra alcance, versión, entorno, evidencia y decisión de cierre. La Tabla 12 utiliza esos antecedentes para distinguir por objetivo el diseño documentado, la ejecución de pruebas y la conformidad observada. El indicador de desempeño del cronograma se informa cuando existe una línea base y registros de avance que sustentan su cálculo.
 
 ## 13.2. Control de decisiones y configuración
 
