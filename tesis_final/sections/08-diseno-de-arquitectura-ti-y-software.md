@@ -17,7 +17,7 @@ La Figura 6 organiza las cuatro vistas que se contrastan con los anexos D y E.
 
 El punto de entrada de la API reside en `cmd/api`. El repositorio agrupa responsabilidades en paquetes bajo `internal`, entre ellos `spaces`, `occupancy`, `booking`, `contract` y `documentverification`. Los adaptadores PostgreSQL se organizan bajo `internal/adapters/postgres`. La estructura refleja límites de responsabilidad y permite verificar componentes con dependencias controladas.
 
-El diseño asigna la autoridad de ocupación a PostgreSQL y utiliza PostGIS para las consultas geográficas. El Anexo D respalda la estructura declarada y el Capítulo X delimita la evidencia de concurrencia. El Capítulo IX especifica la restricción de solapamiento y el Anexo D identifica el origen del catálogo físico. Los objetos privados requieren comprobación de acceso y retención por finalidad.
+El diseño asigna la ocupación a PostgreSQL para que dos solicitudes simultáneas se resuelvan bajo la misma restricción de integridad. PostGIS selecciona candidatos por ubicación y distancia. El Capítulo IX desarrolla la exclusión temporal y el Anexo D vincula el diseño con el esquema físico.
 
 ## 8.3. Presentación y contrato de aplicación
 
@@ -39,4 +39,4 @@ La interfaz Next.js consume la API Go a través de los adaptadores de la aplicac
 
 ## 8.5. Contratos de interfaz
 
-El catálogo versionado utiliza OpenAPI 3.1. La galería admite hasta 30 posiciones por espacio, incluidas las cargas reservadas. La selección de portada exige la revisión fuerte del espacio mediante `If-Match` en el contrato local de desarrollo. La Tabla E.1 y la sección de galería del Anexo E distinguen la instantánea versionada, el contrato local y su alcance observado. La arquitectura objetivo separa aportes de firma, renta y garantía. El Anexo E distingue la instantánea de interfaz citada del catálogo vigente de nueve categorías. El Capítulo XI identifica las condiciones de habilitación y el Capítulo X registra los resultados con evidencia disponible.
+El catálogo versionado utiliza OpenAPI 3.1. La galería admite hasta 30 posiciones por espacio, incluidas las cargas reservadas. La selección de portada exige enviar en `If-Match` el ETag fuerte de la revisión que leyó el editor. Si otra operación cambia el espacio antes de guardar, la revisión queda desactualizada y la solicitud se rechaza. Esto evita que una elección basada en una galería anterior sobrescriba una actualización posterior. El Anexo E identifica la versión del contrato y el alcance de la evidencia.
