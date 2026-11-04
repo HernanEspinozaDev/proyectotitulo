@@ -39,4 +39,4 @@ La interfaz Next.js consume la API Go a través de los adaptadores de la aplicac
 
 ## 8.5. Contratos de interfaz
 
-El catálogo versionado utiliza OpenAPI 3.1. La arquitectura objetivo separa aportes de firma, renta y garantía. El Anexo E distingue la instantánea de interfaz citada del catálogo vigente de nueve categorías. El Capítulo XI identifica las condiciones de habilitación y el Capítulo X registra los resultados con evidencia disponible.
+El catálogo versionado utiliza OpenAPI 3.1. La galería admite hasta 30 posiciones por espacio, incluidas las cargas reservadas. La selección de portada exige la revisión fuerte del espacio mediante `If-Match` en el contrato local de desarrollo. La Tabla E.1 y la sección de galería del Anexo E distinguen la instantánea versionada, el contrato local y su alcance observado. La arquitectura objetivo separa aportes de firma, renta y garantía. El Anexo E distingue la instantánea de interfaz citada del catálogo vigente de nueve categorías. El Capítulo XI identifica las condiciones de habilitación y el Capítulo X registra los resultados con evidencia disponible.

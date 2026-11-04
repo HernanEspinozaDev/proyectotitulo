@@ -18,7 +18,13 @@ El catálogo de referencia corresponde a [planning/openapi.yaml](https://github.
 
 La consulta pública y la consulta de ensayo tienen rutas separadas. PT-09 requiere identificar cuál se mide, la versión del servicio y el conjunto de datos utilizado. El catálogo documenta un corte de la interfaz de desarrollo. Las rutas de ensayo permiten verificar contratos internos con datos sintéticos. La habilitación de una integración externa requiere evidencias de autorización, idempotencia, conciliación y devolución según la operación.
 
-La instantánea OpenAPI fijada en este anexo registra ocho códigos en el contrato local de ese corte. La Tabla E.2 documenta las nueve categorías vigentes informadas para la memoria, incluida Inmuebles. La publicación de una nueva versión del contrato debe conciliar sus perfiles con ese catálogo.
+La instantánea OpenAPI fijada en este anexo registra ocho códigos en el contrato local de ese corte. La Tabla E.2 documenta las nueve categorías vigentes informadas para la memoria, incluida Inmuebles. La migración V000067 incorpora Inmuebles al catálogo de datos. La especificación versionada y el catálogo de producto corresponden a fuentes con alcances distintos.
+
+## Galería y control de portada en el corte local
+
+El contrato de trabajo de `planning/openapi.yaml` del 4 de noviembre de 2026 exige `If-Match` en `PUT /spaces/{spaceId}/cover`. La cabecera transporta un ETag fuerte ligado a la revisión del espacio. El manejador de galería del backend `93b59c8` exige esa revisión. Seleccionar portada conserva el carácter privado de los bytes y retirar la imagen elimina su selección en la misma transacción. El ADR fija hasta 30 posiciones, incluidas las cargas reservadas. Las constantes de los dominios de galería y medios del backend establecen un máximo de 30.
+
+El registro local del asistente de publicación y galería del 4 de noviembre documenta un corte en ejecución. Registra respuestas de la API para autenticación, listado de espacios y categorías, además de una medición sintética de conversión de imágenes. La prueba autenticada conjunta de interfaz y galería, y la comprobación de la publicación elegible, requieren un registro de ejecución del recorrido integrado.
 
 ## Catálogo vigente de categorías
 
