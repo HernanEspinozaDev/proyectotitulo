@@ -12,7 +12,7 @@ Para garantizar el cumplimiento de los objetivos académicos e industriales de *
 
 ### 5.1.2. Matriz Multicriterio de Decisión Metodológica
 
-Para fundamentar técnicamente la selección del modelo Híbrido frente a paradigmas alternativos (Cascada tradicional y Scrum ágil puro), se formula la siguiente matriz multicriterio ponderada:
+Para fundamentar la selección del enfoque híbrido frente a alternativas (Cascada tradicional y Scrum ágil puro), se formula la siguiente matriz multicriterio ponderada:
 
 **Tabla 3**  
 *Matriz Multicriterio Ponderada de Selección Metodológica*
@@ -20,13 +20,13 @@ Para fundamentar técnicamente la selección del modelo Híbrido frente a paradi
 | Criterio de Selección | Ponderación | Cascada Tradicional | Scrum Puro | **Modelo Híbrido (PMBOK + Iterativo)** | Justificación Técnica |
 |---|:---:|:---:|:---:|:---:|---|
 | **Predictibilidad y Control del Alcance** | 25% | 4 / 5 | 2 / 5 | **5 / 5** | El Anexo A fija una línea base de 236 requisitos funcionales. La EDT registra cambios de alcance por incremento. |
-| **Fijeza de Plazos Académicos Institucionales** | 25% | 3 / 5 | 2 / 5 | **5 / 5** | Las fechas de titulación universitaria son inflexibles. Scrum no ofrece garantías de fecha fija para un alcance cerrado sin recortar funcionalidad. |
+| **Fijeza de Plazos Académicos Institucionales** | 25% | 3 / 5 | 2 / 5 | **5 / 5** | Las fechas de titulación universitaria son inflexibles. La evaluación pondera la capacidad de organizar entregas parciales dentro del calendario académico. |
 | **Mitigación Temprana de Riesgos Técnicos** | 20% | 1 / 5 | 5 / 5 | **4 / 5** | Cascada posterga las pruebas y despliegue al final del ciclo de vida (riesgo inaceptable). El modelo iterativo valida módulos de software en cada incremento. |
-| **Control Formal de EDT y Recursos** | 15% | 4 / 5 | 1 / 5 | **5 / 5** | La pauta de titulación y la auditoría docente exigen expresamente una EDT y asignación de esfuerzo por persona, artefactos nativos de PMBOK inexistentes en Scrum. |
+| **Control Formal de EDT y Recursos** | 15% | 4 / 5 | 1 / 5 | **5 / 5** | La evaluación considera el grado de integración de la EDT y la asignación de responsabilidades con los controles del proyecto. |
 | **Trazabilidad de Pruebas y Calidad (QA)** | 15% | 2 / 5 | 4 / 5 | **5 / 5** | Permite vincular cada paquete de trabajo de la EDT con matrices de prueba unitarias, de integración y rendimiento. |
 | **Puntaje Ponderado Total** | **100%** | **2,85 / 5,00** | **2,75 / 5,00** | **4,80 / 5,00** | **Selección Ganadora: Modelo Híbrido** |
 
-*Nota.* Elaboración propia en base a directrices del estándar PMI (2021).
+*Nota.* Elaboración propia. Cada criterio se valora de 1 a 5 para este proyecto, donde 1 indica ajuste bajo y 5 ajuste alto. El total suma cada valoración multiplicada por su ponderación [@pmbok7].
 
 ### 5.1.3. Modelo de Fases e Incrementos del Ciclo de Vida
 
