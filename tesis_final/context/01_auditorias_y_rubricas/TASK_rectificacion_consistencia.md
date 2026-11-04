@@ -1,6 +1,6 @@
 # Tarea de rectificación de la memoria de espaciGo
 
-**Estado:** R04 verificado. Siguiente ítem: R09.
+**Estado:** R03 verificado. Siguiente ítem: R09.
 
 La auditoría compara dos versiones del PDF. Esta tarea contrasta los hallazgos con los archivos que entran en `document.json` y conserva como controles de regresión el alcance amplio, la secuencia de 14 figuras del cuerpo, las 35 historias y los 52 casos de uso.
 
@@ -44,3 +44,5 @@ Por cada corte se registra el estado, archivos y figuras corregidos, comandos y 
 - Capítulo VIII y Anexo E, revisión del chat de auditoría. Confirmados los ocho valores del filtro local de búsqueda y los nueve perfiles del catálogo de producto. La selección de portada queda identificada en la prueba integrada dependiente del desarrollo.
 
 - Capítulo V, verificación visual. Se redistribuye el ancho de las tablas 3, 4 y 5. Se conservan valoraciones, responsables y riesgos, y se verifica otra vez la integridad de 5.3.
+
+- Capítulo VII y Anexo C. Las 52 fichas mantienen nueve atributos y asignan más espacio al detalle. Los pasos numerados conservan su separación en Word y PDF.
