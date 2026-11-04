@@ -29,4 +29,4 @@ El primer recorrido de aceptación cubre oferta por titularidad, búsqueda, cont
 
 ## 10.4. Rendimiento, seguridad y recuperación
 
-Los objetivos de rendimiento y continuidad se definen en el Capítulo VII. La comprobación de capacidad, latencia, seguridad y recuperación requiere registros reproducibles del entorno evaluado. Los resultados locales tampoco acreditan cobertura de todas las categorías objetivo. El ensayo de recuperación mide RPO y RTO y verifica permisos y referencias entre la base y los archivos privados.
+Los objetivos de rendimiento y continuidad se definen en el Capítulo VII. La comprobación de capacidad, latencia, seguridad y recuperación requiere el código del flujo correspondiente listo para probar y registros reproducibles del entorno evaluado. La Tabla F.4 enumera las pruebas pendientes de ese cierre. Los resultados locales tampoco acreditan cobertura de todas las categorías objetivo. El ensayo de recuperación mide RPO y RTO y verifica permisos y referencias entre la base y los archivos privados.

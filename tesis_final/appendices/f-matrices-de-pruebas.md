@@ -55,3 +55,19 @@ El Capítulo X y la Tabla 10 identifican los resultados de LOCAL-1 y F5/F6. LOCA
 | PT-16 · Retención | Evidencia documental F5 de retención y permisos en su alcance. | Pendiente verificar la política de retención y los objetos en el ensayo de recuperación objetivo. |
 
 *Nota.* Elaboración propia a partir de los ensayos y registros del Capítulo X. Los resultados locales conservan su alcance.
+
+## Pruebas pendientes de cierre del código
+
+**Tabla F.4**\
+*Pruebas condicionadas por la disponibilidad del código*
+
+| Prueba o condición | Dependencia | Evidencia pendiente |
+|---|---|---|
+| Mercado Pago · PT-03 y PT-04 | Adaptador de renta y comisión e integración de notificaciones. | Acreditación, duplicados, pago tardío, reembolso y conciliación con cuentas de ensayo. |
+| SimpleFirma · PT-06 | Flujo opcional de firma asociado a la emisión. | Solicitudes, firmas por parte, vencimientos y efectos sobre cobros y reversos. |
+| Garantía monetaria · PT-03 | Modalidad habilitada y mecanismo de garantía implementado. | Cobro separado, devolución total y parcial, reclamos y conciliación. |
+| Catálogo de nueve categorías | Perfil de atributos, publicación y búsqueda de cada categoría en el corte evaluado. | Validaciones de publicación, búsqueda y disponibilidad, incluido el perfil Inmuebles. |
+| Carga de extremo a extremo · PT-09 y PT-10 | Flujo de búsqueda listo y entorno objetivo identificado. | Volumen, latencia y errores medidos según RNF-001 y el escenario del ensayo. |
+| Recuperación conjunta · PT-11 y PT-16 | Código y operación de base, objetos privados, permisos y retención listos para ensayo. | Restauración y comprobación de archivos, referencias y permisos. Medición de RPO y RTO. |
+
+*Nota.* Elaboración propia. Cada resultado se integra al informe cuando existe código verificable y un registro de ejecución con versión, entorno y alcance.

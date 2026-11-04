@@ -66,3 +66,7 @@ Los chats propietarios reciben el commit de su corte para revisar el diff en mod
 Los archivos compilados se regeneran juntos desde el conjunto final de fuentes. La revisión conserva 236 RQF, 43 RNF, 35 HU, 52 CU y 16 PT. El alcance objetivo incluye casas de veraneo y hostales. Su incorporación al catálogo, el inventario compartido, las integraciones externas y las pruebas en el entorno objetivo conservan sus condiciones propias de verificación.
 
 La exportación del cierre contiene 498 páginas. Se verifican los 22 destinos principales del índice, los 14 rótulos de figuras y los 12 de tablas del cuerpo. La revisión visual incluye portada, índice y una muestra de figuras y fichas. El hipervínculo de la Ley 21.461 conserva su destino completo.
+
+### Catálogo vigente y pruebas condicionadas al código
+
+El proyecto confirma nueve categorías. La Tabla E.2 incorpora Inmuebles con casa, departamento, habitación y cabaña. La Tabla E.1 conserva su versión de OpenAPI y el texto distingue ese corte del catálogo vigente. El Capítulo XI identifica Mercado Pago y SimpleFirma como proveedores previstos, ambos pendientes de habilitación. La Tabla F.4 registra las verificaciones de proveedores, garantía, catálogo, carga y recuperación que se integran cuando el código correspondiente está listo y existe evidencia de ejecución.

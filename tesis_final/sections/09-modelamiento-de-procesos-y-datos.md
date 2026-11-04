@@ -68,7 +68,7 @@ La persistencia utiliza PostgreSQL 18 y PostGIS 3.6. El diseño distingue el mod
 
 ### 9.3.1. Modelo lógico objetivo
 
-El espacio representa una unidad reservable exclusiva con un titular vigente. Una casa completa o una habitación exclusiva puede modelarse como unidad si la categoría y las reglas del corte la admiten. El inventario compartido y la asignación de múltiples unidades requieren un modelo y pruebas específicos. La publicación, la titularidad y la ocupación tienen estados independientes. La galería administra hasta 30 posiciones, incluidas las cargas reservadas. El modelo separa los medios públicos de la evidencia documental privada y asigna a cada clase sus permisos y su ciclo de vida.
+El espacio representa una unidad reservable exclusiva con un titular vigente. La categoría Inmuebles distingue casa, departamento, habitación y cabaña. Cada publicación corresponde a la unidad que se arrienda, como una casa completa o una habitación de uso exclusivo. El inventario compartido y la asignación de múltiples unidades requieren un modelo y pruebas específicos. La publicación, la titularidad y la ocupación tienen estados independientes. La galería administra hasta 30 posiciones, incluidas las cargas reservadas. El modelo separa los medios públicos de la evidencia documental privada y asigna a cada clase sus permisos y su ciclo de vida.
 
 La emisión contractual vincula la reserva con las identidades verificadas, las facultades de representación cuando corresponda, el horario y los importes acordados. Cada emisión conserva un identificador, una huella y sus condiciones. Un cambio de condiciones genera otra emisión. La aceptación de cada parte y la firma electrónica opcional mantienen registros independientes.
 

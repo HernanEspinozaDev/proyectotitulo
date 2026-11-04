@@ -14,7 +14,7 @@ La propuesta relaciona las reglas del arriendo con mecanismos verificables de oc
 
 ## 14.3. Limitaciones
 
-La evidencia se concentra en escenarios sintéticos y cortes de ensayo. Casas de veraneo y hostales son ejemplos objetivo. El catálogo del Anexo E y la evidencia del Capítulo X delimitan las categorías y recorridos comprobados. El modelo conserva una unidad reservable exclusiva y el inventario compartido o de múltiples unidades requiere una especificación propia. La operación con clientes requiere verificar integraciones, recuperación conjunta de datos y archivos y el comportamiento bajo carga del entorno objetivo.
+La evidencia se concentra en escenarios sintéticos y cortes de ensayo. El catálogo vigente incluye Inmuebles, con los tipos casa, departamento, habitación y cabaña. Una casa de veraneo puede describirse como casa según la modalidad publicada. Los hostales ilustran un uso objetivo. El Anexo E describe el catálogo y el Capítulo X delimita la evidencia de ejecución. El modelo conserva una unidad reservable exclusiva y el inventario compartido o de múltiples unidades requiere una especificación propia. La operación con clientes requiere verificar integraciones, recuperación conjunta de datos y archivos y el comportamiento bajo carga del entorno objetivo.
 
 ## 14.4. Trabajos futuros
 

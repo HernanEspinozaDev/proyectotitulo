@@ -18,4 +18,25 @@ El catálogo de referencia corresponde a [planning/openapi.yaml](https://github.
 
 La consulta pública y la consulta de ensayo tienen rutas separadas. PT-09 requiere identificar cuál se mide, la versión del servicio y el conjunto de datos utilizado. El catálogo documenta un corte de la interfaz de desarrollo. Las rutas de ensayo permiten verificar contratos internos con datos sintéticos. La habilitación de una integración externa requiere evidencias de autorización, idempotencia, conciliación y devolución según la operación.
 
-El contrato local de ese corte enumera ocho códigos de categoría: `oficina`, `sala_multiproposito`, `bodega`, `estacionamiento`, `local_flexible`, `stand`, `quincho` y `parcela_eventos`. Casas de veraneo y hostales ilustran el alcance objetivo de la memoria. La incorporación de categorías requiere actualización del contrato y verificación de su operación.
+La instantánea OpenAPI fijada en este anexo registra ocho códigos en el contrato local de ese corte. La Tabla E.2 documenta las nueve categorías vigentes informadas para la memoria, incluida Inmuebles. La publicación de una nueva versión del contrato debe conciliar sus perfiles con ese catálogo.
+
+## Catálogo vigente de categorías
+
+**Tabla E.2**\
+*Categorías de espaciGo y atributos de publicación*
+
+| Categoría | Uso | Atributos descriptivos |
+|---|---|---|
+| Oficina | Trabajo, atención de clientes o instalación temporal de un equipo. | Puestos, escritorios, mobiliario, salas de reunión, conectividad y climatización. |
+| Sala multipropósito | Reuniones, talleres, capacitaciones y sesiones grupales. | Distribución, sillas, mesas, proyector, pantalla, videoconferencia y equipamiento. |
+| Bodega | Almacenamiento de mercadería, equipos o materiales. | Altura y volumen útil, acceso, capacidad de carga, muelle y tipo de almacenamiento. |
+| Estacionamiento | Estacionamiento de un vehículo durante el período contratado. | Dimensiones, altura, vehículos admitidos, cubierta, acceso y carga eléctrica. |
+| Local flexible | Venta temporal, exhibición o atención al público. | Acceso desde la calle, vitrina, frente, mostradores, probadores, bodega de apoyo y servicios. |
+| Stand | Puesto de feria, exhibición o promoción dentro de un recinto. | Dimensiones, lados abiertos, montaje, potencia eléctrica y mobiliario. |
+| Quincho | Parrilladas, comidas y reuniones sociales. | Tipo y número de parrillas, cubierta, asientos, mesas, refrigerador y servicios. |
+| Parcela de eventos | Encuentros o celebraciones en un predio con áreas exteriores y, cuando corresponde, cubiertas. | Superficies, estacionamientos, salón, cocina, piscina y acceso. |
+| Inmuebles | Alojamiento o arriendo habitacional. Distingue casa, departamento, habitación y cabaña. | Tipo, modalidad, dormitorios, camas, baños, superficies, cocina, comodidades, convivencia y duración. |
+
+*Nota.* Elaboración propia a partir del catálogo vigente confirmado por el proyecto. Los atributos describen el perfil de publicación. Las validaciones obligatorias y sus resultados se documentan por versión.
+
+El tipo de espacio se distingue por la unidad que se arrienda y su uso. Un local flexible es un recinto comercial y un stand es un puesto. El quincho se caracteriza por el equipamiento para cocinar y reunirse, y la parcela de eventos por el conjunto del predio. La sala multipropósito se caracteriza por su configuración para actividades grupales y la oficina por sus puestos y condiciones de trabajo. El catálogo admite ampliaciones futuras mediante perfiles y verificaciones por versión.
