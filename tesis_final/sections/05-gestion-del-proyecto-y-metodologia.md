@@ -30,7 +30,7 @@ Para fundamentar la selección del enfoque híbrido frente a alternativas (Casca
 
 ### 5.1.3. Modelo de Fases e Incrementos del Ciclo de Vida
 
-El ciclo de desarrollo se estructura en las etapas de planificación, análisis, diseño, construcción, pruebas e implementación, garantizando la coherencia terminológica exigida por la pauta docente:
+El ciclo de desarrollo se estructura en las etapas de planificación, análisis, diseño, construcción, pruebas e implementación, manteniendo la coherencia terminológica entre la gestión y la ingeniería del proyecto:
 
 **Figura 3**\
 *Modelo de Proceso del Ciclo de Vida Híbrido por Fases e Incrementos*
@@ -151,7 +151,7 @@ La gestión de riesgos identifica, evalúa y mitiga tempranamente amenazas técn
 
 | ID | Riesgo Identificado | Categoría | Probabilidad | Impacto | Severidad | Estrategia de Mitigación |
 |:---:|---|:---:|:---:|:---:|:---:|---|
-| **R-01** | Doble reserva concurrente en espacios de alta demanda. | Técnico | Media (3) | Crítico (5) | **Alta (15)** | Implementación de índices de exclusión GiST (`tsrange`) a nivel de motor de datos en PostgreSQL 18. |
+| **R-01** | Doble reserva concurrente en espacios de alta demanda. | Técnico | Media (3) | Crítico (5) | **Alta (15)** | Implementación de índices de exclusión GiST (`tstzrange`) a nivel de motor de datos en PostgreSQL 18. |
 | **R-02** | Caída o degradación de la pasarela de pagos durante un arriendo. | Externo | Baja (2) | Crítico (5) | **Media (10)** | Manejo de reintentos idempotentes y registro de transacciones con estado *Pending* para conciliación asíncrona. |
 | **R-03** | Vulnerabilidad de datos personales sensibles (Ley 21.719). | Ciberseguridad | Baja (2) | Crítico (5) | **Media (10)** | Control de acceso por finalidad, protección de archivos y comprobación de permisos tras restaurar. |
 | **R-04** | Desajuste en el calendario académico y fechas de entrega. | Gestión | Media (3) | Mayor (4) | **Alta (12)** | Control estricto de la EDT y congelamiento de alcance en compuertas de fase (*phase gates*). |
