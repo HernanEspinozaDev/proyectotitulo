@@ -14,11 +14,14 @@ El modelo lógico objetivo se describe en la sección 9.3. La capacidad registra
 | Concepto lógico | Relaciones de referencia | Criterio de evolución |
 |---|---|---|
 | Oferta y titularidad | `espacio`, `espacio_publicacion_historial_local` | Verificar quién puede publicar y recuperar el historial del titular. |
+| Categoría y perfil | `categoria_espacio`, `categoria_perfil_atributos` | V000067 registra Inmuebles como novena categoría y siembra la versión 1 de su perfil. |
 | Disponibilidad | `ocupacion`, `cotizacion_reserva_ensayo`, `reserva_ensayo_local` | Conservar una autoridad de ocupación y comprobar concurrencia y vencimiento. |
 | Emisión | `contrato_ensayo_local`, `contrato_ensayo_firma` | Identificar emisión, aceptación por parte y firma opcional. |
 | Cobros | `reserva_pago_ensayo` y relaciones de eventos | Identificar obligación, pagador, acreditación y reverso. |
 
 *Nota.* Elaboración propia. El mapeo identifica puntos de partida y criterios de evolución física por corte.
+
+V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en el catálogo existente. El perfil de la memoria comprende casa, departamento, habitación y cabaña. El enum físico de tipo de inmueble también registra otras opciones. El campo físico sobre qué se arrienda incluye habitación y cama compartidas. Esos valores sembrados se registran como parte del esquema de referencia. El ADR mantiene el alcance objetivo de una unidad reservable exclusiva y difiere el aforo compartido. La disponibilidad efectiva de un perfil requiere comprobación por entorno.
 
 ## Dominio: Gobernanza, privacidad y administración
 

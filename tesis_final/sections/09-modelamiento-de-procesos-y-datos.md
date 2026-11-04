@@ -34,7 +34,7 @@ Para hora, bloque o sesión, la ruta principal guarda el contrato sin firma y of
 
 Si ambas partes eligen SimpleFirma, la plataforma muestra el desglose. El aporte se divide por mitades o se asigna íntegramente al arrendador si ofreció firma gratis. El peso impar queda a cargo del arrendador. Para la renta, el objetivo integra Mercado Pago Checkout Pro mediante Preferences y vinculación OAuth del arrendador. Split distribuye la renta y la comisión. La garantía queda fuera del primer corte y requiere verificar su operación antes de habilitarse.
 
-El vencimiento libera el bloqueo mediante una transición atómica. Un pago tardío ingresa a conciliación. Tras la entrega del arrendatario, el titular confirma la desocupación y puede republicar el espacio. El sistema conserva el contrato y los demás intervalos vigentes.
+El vencimiento libera el bloqueo mediante una transición atómica. Un pago tardío ingresa a conciliación sin reactivar la reserva. La operación registra evidencia de ingreso y de entrega conforme a HU35 y los casos CU-33, CU-34 y CU-48. Tras la entrega del arrendatario, el titular confirma la desocupación y puede republicar el espacio. El sistema conserva el contrato y los demás intervalos vigentes.
 
 Si vence un aporte antes de abrir la solicitud de firma, la plataforma devuelve los aportes acreditados. Si la solicitud ya está abierta y vence sin ambas firmas, la política del piloto devuelve los aportes y contempla el cargo irrecuperable del proveedor según el presupuesto aprobado. Si ambas firmas se completan y vence la renta, se conserva el servicio de firma y su cargo según las condiciones informadas. Los errores de plataforma se tramitan por la ruta de devolución aplicable.
 
@@ -45,7 +45,7 @@ La Figura 9 muestra los plazos de ensayo ratificados y el punto de inicio de cad
 
 ![](assets/figuras/fig09_ventanas_contratacion.png){height=11cm}
 
-*Nota.* Elaboración propia según el ADR del 4 de noviembre de 2026. Los 60 minutos comienzan al acreditar los aportes. En la ruta SimpleFirma, los 15 minutos para renta comienzan al completar ambas firmas. El plazo de garantía comienza al acreditar la renta. Cada etapa se sujeta al límite total del bloqueo y los reintentos conservan el vencimiento.
+*Nota.* Elaboración propia según el ADR del 4 de noviembre de 2026. La ventana inicial con SimpleFirma comprende 30 minutos para acreditar los aportes. Los 60 minutos para firmar comienzan al acreditarlos. La ruta sin firma dispone de 15 minutos para aceptar y pagar la renta desde el inicio del bloqueo. En la ruta SimpleFirma, los 15 minutos para renta comienzan al completar ambas firmas. El plazo de garantía comienza al acreditar la renta. Cada etapa se sujeta al límite total del bloqueo y los reintentos conservan el vencimiento.
 
 ### 9.1.3. Gestión de una solicitud de privacidad
 
@@ -64,7 +64,7 @@ El Anexo C organiza los casos de uso por módulo. Arrendador y arrendatario repr
 
 ## 9.3. Modelo de datos objetivo y esquema físico de referencia
 
-La persistencia utiliza PostgreSQL 18 y PostGIS 3.6. El diseño distingue el modelo lógico ratificado, el catálogo derivado de migraciones y el estado observado en cada entorno. La línea base del diseño de oferta, contratación y cobros corresponde al ADR de espaciGo ratificado el 4 de noviembre de 2026, registrado en el commit `f4bc7bd`.
+La persistencia utiliza PostgreSQL 18 y PostGIS 3.6. El diseño distingue el modelo lógico ratificado, el catálogo derivado de migraciones y el estado observado en cada entorno. La línea base del diseño de oferta, contratación y cobros corresponde al ADR de espaciGo ratificado el 4 de noviembre de 2026, registrado en `planning/decisiones/adr_objetivo_espacios_contratacion_cobros.md` en el commit `4e26d52b57d9687c4b6b7a778e89dbbb5be855e5`. La actualización local del mismo ADR incorpora explícitamente la novena categoría y la vincula con la migración V000067. El Anexo D distingue esta decisión del perfil físico sembrado por la migración.
 
 ### 9.3.1. Modelo lógico objetivo
 
