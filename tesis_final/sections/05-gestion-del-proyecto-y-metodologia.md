@@ -74,11 +74,11 @@ A continuación se presenta la descomposición jerárquica orientada a entregabl
 │   ├── 1.3.1. Arquitectura Empresarial (TOGAF 4 Capas: Procesos, Datos, Apps, Infra)
 │   ├── 1.3.2. Diseño de Arquitectura de Software (Hexagonal en Go / BFF Next.js)
 │   ├── 1.3.3. Modelado de Datos Relacional y Geoespacial (PostgreSQL / PostGIS)
-│   ├── 1.3.4. Diseño de Seguridad, Autenticación (JWT/OAuth2) y Ley 21.719
+│   ├── 1.3.4. Diseño de Seguridad, Sesiones, Autorización por Recurso y Ley 21.719
 │   └── 1.3.5. Especificación de Contratos de Interfaz (Catálogo OpenAPI / REST)
 ├── 1.4. Construcción y Desarrollo Incremental
 │   ├── 1.4.1. Iteración 1: Núcleo de Autenticación, Usuarios y Control de Acceso (RBAC)
-│   ├── 1.4.2. Iteración 2: Catálogo de Inmuebles, Publicación y Búsqueda Geoespacial
+│   ├── 1.4.2. Iteración 2: Catálogo de Espacios, Publicación y Búsqueda Geoespacial
 │   ├── 1.4.3. Iteración 3: Contratación y Cobros Diferenciados
 │   ├── 1.4.4. Iteración 4: Módulo de Contratos Digitales y Notificaciones
 │   └── 1.4.5. Iteración 5: Panel de Administración, Métricas y Auditoría
