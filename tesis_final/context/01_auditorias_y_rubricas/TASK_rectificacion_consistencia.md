@@ -69,9 +69,11 @@ La revisión visual de la página 70 confirma que la URL de la Ley 21.461 se mue
 
 ## Plan de la cuarta revisión
 
-- [ ] Verificar y fijar la presentación del enlace de la Ley 21.461 en la salida.
-- [ ] Conciliar los anexos A–C con el ADR y revisar la separación de pasos.
-- [ ] Ajustar la EDT del Capítulo V y separar objetivos y trazabilidad en el IV.
-- [ ] Quitar la hoja preliminar vacía, incorporar índices de tablas y figuras y rehacer el resumen ejecutivo.
-- [ ] Mejorar la lectura de los capítulos editables y explicar las decisiones de concurrencia y procesamiento diferido.
-- [ ] Sustentar las conclusiones por objetivo con cifras y verificar Word, PDF, remisiones y áreas reservadas.
+- [x] Verificar y fijar la presentación del enlace de la Ley 21.461 en la salida.
+- [x] Conciliar los anexos A–C con el ADR y revisar la separación de pasos.
+- [x] Ajustar la EDT del Capítulo V y separar objetivos y trazabilidad en el IV.
+- [x] Quitar la hoja preliminar vacía, incorporar índices de tablas y figuras y rehacer el resumen ejecutivo.
+- [x] Mejorar la lectura de los capítulos editables y explicar las decisiones de concurrencia y procesamiento diferido.
+- [x] Sustentar las conclusiones por objetivo con cifras y verificar Word, PDF, remisiones y áreas reservadas.
+
+La salida PDF de 499 páginas comprueba los 22 destinos principales del índice de contenidos y los destinos de 20 tablas numeradas y 26 figuras. El Word conserva los campos de índice actualizables. La URL de la Ley 21.461 aparece íntegra en su propia línea. La revisión visual incluye los nuevos índices, el resumen y la referencia legal. Se verifica la integridad de V §5.3, XII y los anexos G y H. Los proveedores y las pruebas dependientes del desarrollo conservan su estado.

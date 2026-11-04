@@ -16,6 +16,39 @@ def properties(**values):
     return tuple(PropertyValue(key, 0, value, 0) for key, value in values.items())
 
 
+def update_indexes(document):
+    indexes = document.getDocumentIndexes()
+    existing = [indexes.getByIndex(index) for index in range(indexes.getCount())]
+    # Writer can omit imported Word indexes based on named paragraph styles.
+    for title, style in (
+        ('Índice de Tablas', 'Table Caption'),
+        ('Índice de Figuras', 'Image Caption'),
+    ):
+        if any(style in item.LevelParagraphStyles.getByIndex(0) for item in existing):
+            continue
+        search = document.createSearchDescriptor()
+        search.SearchString = title
+        heading = document.findFirst(search)
+        if heading is None:
+            raise RuntimeError(f'No se encontró el marcador de {title}.')
+        text = heading.getText()
+        cursor = text.createTextCursorByRange(heading.getEnd())
+        if not cursor.goRight(1, False):
+            raise RuntimeError(f'No se encontró el párrafo del {title}.')
+        index = document.createInstance('com.sun.star.text.ContentIndex')
+        index.Title = ''
+        index.Level = 1
+        index.CreateFromOutline = False
+        index.CreateFromMarks = False
+        index.CreateFromLevelParagraphStyles = True
+        uno.invoke(index.LevelParagraphStyles, 'replaceByIndex', (0, uno.Any('[]string', (style,))))
+        text.insertTextContent(cursor, index, False)
+    # A second pass accounts for the page shifts caused by the indexes themselves.
+    for _ in range(2):
+        for position in range(indexes.getCount()):
+            indexes.getByIndex(position).update()
+
+
 def export_pdf(source, target):
     pipe = f'espacigo_{uuid.uuid4().hex}'
     local = uno.getComponentContext()
@@ -51,9 +84,7 @@ def export_pdf(source, target):
             if document is None:
                 raise RuntimeError(f'LibreOffice no pudo abrir {source.name}.')
             try:
-                indexes = document.getDocumentIndexes()
-                for index in range(indexes.getCount()):
-                    indexes.getByIndex(index).update()
+                update_indexes(document)
                 output = temporary / target.name
                 document.storeToURL(
                     output.as_uri(), properties(FilterName='writer_pdf_Export')

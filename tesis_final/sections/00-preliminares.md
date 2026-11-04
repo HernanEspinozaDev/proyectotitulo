@@ -1,10 +1,10 @@
-## Hoja de Aprobación Institucional
+# Hoja de Aprobación Institucional
 
 **Profesor Guía:** Teresa Jesús Tapia Soto  
 **Nota de Titulación:** ______________  
 **Firma:** ___________________________  
 
-## Resumen ejecutivo
+# Resumen ejecutivo
 
 La dispersión de anuncios, la incertidumbre sobre la disponibilidad y la coordinación manual dificultan el arriendo flexible de espacios en Chile. Para abordar este problema, el proyecto diseña espaciGo, una plataforma web para personas y organizaciones con nueve categorías de espacios de uso residencial, turístico, recreativo, comercial e industrial. La arquitectura modular utiliza Go, Next.js y PostgreSQL con PostGIS. El diseño combina publicación por titularidad, exclusión temporal, aceptación bilateral del contrato y cobros separados, con una modalidad opcional de firma electrónica.
 

@@ -26,6 +26,33 @@ W_NAMESPACE = 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'
 ET.register_namespace('w', W_NAMESPACE)
 W = f'{{{W_NAMESPACE}}}'
 
+def insert_caption_indexes(body):
+    contents = next(
+        child for child in body.findall(f'{W}sdt')
+        if any((field.text or '').startswith('TOC') for field in child.iter(f'{W}instrText'))
+    )
+    position = list(body).index(contents) + 1
+    for title, caption_style in (
+        ('Índice de Tablas', 'Table Caption'),
+        ('Índice de Figuras', 'Image Caption'),
+    ):
+        heading = ET.Element(f'{W}p')
+        properties = ET.SubElement(heading, f'{W}pPr')
+        ET.SubElement(properties, f'{W}pStyle', {f'{W}val': 'TOCHeading'})
+        ET.SubElement(properties, f'{W}pageBreakBefore')
+        ET.SubElement(properties, f'{W}keepNext')
+        ET.SubElement(ET.SubElement(heading, f'{W}r'), f'{W}t').text = title
+        field = ET.Element(f'{W}p')
+        run = ET.SubElement(field, f'{W}r')
+        ET.SubElement(run, f'{W}fldChar', {f'{W}fldCharType': 'begin', f'{W}dirty': 'true'})
+        ET.SubElement(run, f'{W}instrText').text = f'TOC \\t "{caption_style},1" \\h'
+        ET.SubElement(run, f'{W}fldChar', {f'{W}fldCharType': 'separate'})
+        ET.SubElement(run, f'{W}fldChar', {f'{W}fldCharType': 'end'})
+        body.insert(position, heading)
+        body.insert(position + 1, field)
+        position += 2
+
+
 def postprocess():
     if not DOCX_PATH.exists():
         print(f"ERROR: {DOCX_PATH} no existe.")
@@ -87,7 +114,7 @@ def postprocess():
                 'Índice de Contenidos'
             ]
             
-            if is_chapter or is_annex or (sval == 'Ttulo2' and is_major_prelim) or text == 'Índice de Contenidos':
+            if is_chapter or is_annex or is_major_prelim:
                 if pPr is None:
                     pPr = ET.Element(f'{W}pPr')
                     p.insert(0, pPr)
@@ -158,6 +185,14 @@ def postprocess():
 
         # Give the legal reference its own link line without changing the destination.
         for paragraph in body.findall(f'{W}p'):
+            properties = paragraph.find(f'{W}pPr')
+            style = properties.find(f'{W}pStyle') if properties is not None else None
+            if style is not None and style.get(f'{W}val') == 'Bibliography':
+                style.set(f'{W}val', 'FirstParagraph')
+                outline = properties.find(f'{W}outlineLvl')
+                if outline is None:
+                    outline = ET.SubElement(properties, f'{W}outlineLvl')
+                outline.set(f'{W}val', '9')
             for link in paragraph.findall(f'{W}hyperlink'):
                 label = ''.join(node.text or '' for node in link.iter(f'{W}t'))
                 if label == 'https://www.bcn.cl/leychile/navegar?idNorma=1178004':
@@ -184,6 +219,11 @@ def postprocess():
                 if properties is None:
                     properties = ET.Element(f'{W}pPr')
                     child.insert(0, properties)
+                style = properties.find(f'{W}pStyle')
+                if style is None:
+                    style = ET.Element(f'{W}pStyle')
+                    properties.insert(0, style)
+                style.set(f'{W}val', 'TableCaption')
                 if properties.find(f'{W}keepNext') is None:
                     ET.SubElement(properties, f'{W}keepNext')
             
@@ -235,6 +275,7 @@ def postprocess():
         print(f"Postprocesamiento: {modified_captions} títulos de figuras formateados con estilo oficial ImageCaption y keepNext.")
         print(f"Postprocesamiento: {removed_duplicates} títulos duplicados debajo de imágenes eliminados.")
 
+        insert_caption_indexes(body)
         new_doc_xml = ET.tostring(root, encoding='utf-8', xml_declaration=True)
 
         with tempfile.NamedTemporaryFile(delete=False, suffix='.docx') as tmp_file:
@@ -244,6 +285,13 @@ def postprocess():
             for item in zin.infolist():
                 if item.filename == 'word/document.xml':
                     zout.writestr(item, new_doc_xml)
+                elif item.filename == 'word/styles.xml':
+                    styles = ET.fromstring(zin.read(item.filename))
+                    caption = styles.find(f"{W}style[@{W}styleId='TableCaption']")
+                    # Use the existing body appearance for the indexed table labels.
+                    caption.find(f'{W}basedOn').set(f'{W}val', 'FirstParagraph')
+                    caption.find(f'{W}next').set(f'{W}val', 'Normal')
+                    zout.writestr(item, ET.tostring(styles, encoding='utf-8', xml_declaration=True))
                 else:
                     zout.writestr(item, zin.read(item.filename))
 
