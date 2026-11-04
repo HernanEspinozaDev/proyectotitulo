@@ -37,7 +37,7 @@ El Anexo A utiliza el prefijo `RQF` como identificador canónico. La agrupación
 
 ## 7.3. Requerimientos no funcionales
 
-El Anexo A registra los requisitos de calidad y su alcance. La Tabla 8 reúne criterios de verificación del entorno objetivo. El Capítulo X identifica las ejecuciones documentadas.
+La Tabla 8 selecciona requisitos de calidad del Anexo A y asocia cada umbral con la evidencia que exige su comprobación en el entorno objetivo.
 
 **Tabla 8**\
 *Criterios de calidad y verificación*
