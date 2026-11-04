@@ -30,7 +30,7 @@ La Figura 1 representa un escenario analítico de coordinación por canales sepa
 | El pago se registra fuera del estado de la reserva. | Un evento duplicado o tardío requiere conciliación. | Eventos duplicados o tardíos tratados según la política vigente. |
 | Los documentos y las evidencias se intercambian fuera de un registro con permisos. | Se dificulta controlar el acceso y reconstruir el proceso de entrega. | Accesos autorizados y denegados según actor, recurso y finalidad. |
 
-*Nota.* Elaboración propia. Los indicadores corresponden a criterios de diseño y verificación. El Capítulo X identifica la evidencia observada. El Anexo F desarrolla los criterios técnicos de solapamiento (PT-02), emisión (PT-06), eventos tardíos (PT-04) y acceso (PT-07). La coordinación manual corresponde a una futura medición de uso.
+*Nota.* Elaboración propia. El Anexo F traduce los indicadores técnicos en casos de prueba de solapamiento (PT-02), emisión (PT-06), eventos tardíos (PT-04) y acceso (PT-07). La coordinación manual corresponde a una futura medición de uso.
 
 ## 2.4. Delimitación y complejidad
 
