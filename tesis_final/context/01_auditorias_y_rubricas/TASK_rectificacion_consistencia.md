@@ -77,3 +77,16 @@ La revisión visual de la página 70 confirma que la URL de la Ley 21.461 se mue
 - [x] Sustentar las conclusiones por objetivo con cifras y verificar Word, PDF, remisiones y áreas reservadas.
 
 La salida PDF de 499 páginas comprueba los 22 destinos principales del índice de contenidos y los destinos de 20 tablas numeradas y 26 figuras. El Word conserva los campos de índice actualizables. La URL de la Ley 21.461 aparece íntegra en su propia línea. La revisión visual incluye los nuevos índices, el resumen y la referencia legal. Se verifica la integridad de V §5.3, XII y los anexos G y H. Los proveedores y las pruebas dependientes del desarrollo conservan su estado.
+
+## Plan de revisión de figuras
+
+| Corte | Figura anterior | Decisión y verificación |
+|---|---|---|
+| V §5.2.2 y §5.5.1 | EDT textual y Tabla 5 | Agregar árbol EDT con identificadores de los tres niveles y mapa de los cinco riesgos. Contrastar paquetes y coordenadas con sus fuentes. |
+| VIII §8.1–8.3 | Cuatro cajas de vistas | Reemplazar por componentes Next.js, Go, puertos y adaptadores. Separar integraciones pendientes. |
+| IX §9.1.2 | Actividad de contratación | Reemplazar por máquina de estados objetivo. Conservar el gráfico de ventanas, y distinguir vencimiento, cancelación, disputa y pago tardío. |
+| IX §9.3.2 | Modelo lógico sin atributos | Conservar el modelo lógico y añadir una figura física con claves y tipos cotejados contra migraciones y Anexo D. |
+| XI §11.2 | Topología genérica | Reemplazar por topología regional con ruta de entrega, Cloud Run, red privada, base y almacenamiento por finalidad. |
+| Cierre | 14 figuras del cuerpo y 12 del Anexo C | Renumerar en orden de lectura y verificar destinos del índice, URL de la Ley 21.461 y secciones reservadas. |
+
+La edición de cada diagrama se realiza en su fuente Mermaid o PlantUML. El segundo paso renderiza el PNG con `tesis_final/scripts/render_all_diagrams.py`. DocSkill incorpora la imagen con rótulo, título y nota. Las figuras organizacional y de trabajos futuros mantienen su función de síntesis.
