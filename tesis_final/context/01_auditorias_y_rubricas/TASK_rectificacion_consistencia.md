@@ -66,3 +66,12 @@ Por cada corte se registra el estado, archivos y figuras corregidos, comandos y 
 Se uniforman los separadores de las valoraciones y los totales de la Tabla 3 en las páginas 30 y 31. HU22 utiliza las acciones de la etapa, modalidad y papel del participante en la página 139. La tabla de relaciones UML presenta R-12 antes de R-13 en la página 232.
 
 La revisión visual de la página 70 confirma que la URL de la Ley 21.461 se muestra completa. El enlace del PDF y la relación del Word conservan el destino oficial. La grafía «SILVAJ» no aparece en el Capítulo XII ni en el PDF generado. Las cuatro áreas reservadas conservan sus fuentes.
+
+## Plan de la cuarta revisión
+
+- [ ] Verificar y fijar la presentación del enlace de la Ley 21.461 en la salida.
+- [ ] Conciliar los anexos A–C con el ADR y revisar la separación de pasos.
+- [ ] Ajustar la EDT del Capítulo V y separar objetivos y trazabilidad en el IV.
+- [ ] Quitar la hoja preliminar vacía, incorporar índices de tablas y figuras y rehacer el resumen ejecutivo.
+- [ ] Mejorar la lectura de los capítulos editables y explicar las decisiones de concurrencia y procesamiento diferido.
+- [ ] Sustentar las conclusiones por objetivo con cifras y verificar Word, PDF, remisiones y áreas reservadas.

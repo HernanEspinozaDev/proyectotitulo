@@ -156,6 +156,15 @@ def postprocess():
                         shd.set(f'{W}color', 'auto')
                         shd.set(f'{W}fill', 'EDEDED')
 
+        # Give the legal reference its own link line without changing the destination.
+        for paragraph in body.findall(f'{W}p'):
+            for link in paragraph.findall(f'{W}hyperlink'):
+                label = ''.join(node.text or '' for node in link.iter(f'{W}t'))
+                if label == 'https://www.bcn.cl/leychile/navegar?idNorma=1178004':
+                    line_break = ET.Element(f'{W}r')
+                    ET.SubElement(line_break, f'{W}br')
+                    paragraph.insert(list(paragraph).index(link), line_break)
+
         # 3. Figure Titles above: assign ImageCaption style + keepNext; eliminate duplicate titles below
         children = list(body)
         paras_to_remove = set()
