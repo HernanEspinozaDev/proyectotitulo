@@ -8,6 +8,8 @@ El diagnóstico utiliza un escenario de referencia de intermediación por canale
 
 ## 2.2. Proceso de referencia
 
+La Figura 1 representa un escenario analítico de coordinación por canales separados.
+
 **Figura 1**\
 *Proceso de referencia para coordinar un arriendo por canales separados*
 
@@ -32,6 +34,6 @@ El diagnóstico utiliza un escenario de referencia de intermediación por canale
 
 ## 2.4. Delimitación y complejidad
 
-El proyecto se concentra en unidades no residenciales de uso exclusivo, representadas mediante un espacio, un titular vigente y uno o más intervalos. Los ejemplos de oficinas, bodegas, locales y estacionamientos ilustran el dominio. El catálogo objetivo conserva las categorías del ADR. La evidencia local corresponde a escenarios sintéticos y el contexto de mercado del capítulo anterior se circunscribe a la medición citada.
+El proyecto comprende espacios de uso residencial, turístico, recreativo, comercial e industrial ofrecidos por personas y organizaciones. Cada unidad reservable exclusiva se representa mediante un espacio, un titular vigente y uno o más intervalos. En alojamiento, una casa o habitación puede ilustrar ese concepto cuando se ofrece como unidad exclusiva. El catálogo objetivo conserva las categorías del ADR. La evidencia local corresponde a escenarios sintéticos y el contexto de mercado del capítulo anterior se circunscribe a la medición citada.
 
 El problema de ingeniería exige coordinar búsqueda geográfica, exclusión temporal, evidencia de aceptación, cobros y acceso a documentos privados. La verificación comprueba cada comportamiento en el entorno identificado. La evaluación comercial de la demanda y la habilitación de proveedores corresponden a actividades distintas de la verificación funcional del prototipo.
