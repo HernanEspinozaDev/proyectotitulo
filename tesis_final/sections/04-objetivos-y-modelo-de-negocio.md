@@ -6,11 +6,13 @@ Diseñar y desarrollar una plataforma de intermediación para el arriendo flexib
 
 ## 4.2. Objetivos específicos
 
-1. **OE1. Diagnóstico y requisitos.** Caracterizar el problema y especificar los requisitos, historias y casos de uso. El resultado se identifica en los capítulos II y VII y en los anexos A, B y C.
-2. **OE2. Arquitectura y datos.** Diseñar las vistas de negocio, aplicaciones, datos e infraestructura y especificar el control de ocupación. El resultado se documenta en los capítulos VI a IX y el Anexo D.
-3. **OE3. Construcción e integración.** Implementar un recorrido transaccional con datos sintéticos y documentar los contratos de integración y los criterios de habilitación de proveedores. El resultado se contrasta con los capítulos VIII a X y el Anexo E.
-4. **OE4. Calidad.** Definir y aplicar pruebas de dominio, integración y recorrido, y establecer criterios medibles de carga y recuperación. El Capítulo X y el Anexo F distinguen evidencia obtenida y pruebas objetivo.
-5. **OE5. Operación y factibilidad.** Formular la estrategia de despliegue, seguridad y continuidad, y considerar la evaluación económica en los apartados correspondientes.
+1. **OE1. Diagnóstico y requisitos.** Caracterizar las dificultades de intermediación y especificar los requisitos mediante historias y casos de uso para definir el alcance funcional de la plataforma.
+2. **OE2. Arquitectura y datos.** Diseñar las vistas de negocio, aplicaciones, datos e infraestructura y modelar la ocupación para preservar la disponibilidad de cada unidad reservable.
+3. **OE3. Construcción e integración.** Implementar un recorrido transaccional con datos sintéticos y especificar los contratos de integración para verificar la coordinación entre módulos y establecer las condiciones de habilitación de proveedores.
+4. **OE4. Calidad.** Aplicar pruebas de dominio, integración y recorrido y definir criterios medibles de carga y recuperación para evaluar la calidad del prototipo y orientar la validación del entorno objetivo.
+5. **OE5. Operación y factibilidad.** Formular una estrategia de despliegue, seguridad y continuidad, e incorporar criterios de evaluación económica para estimar la viabilidad operativa del servicio.
+
+La trazabilidad de OE1 se documenta en los capítulos II y VII y los anexos A–C. Las vistas y el modelo de OE2 se desarrollan en los capítulos VI a IX y el Anexo D. La construcción y los contratos de OE3 se documentan en los capítulos VIII a X y el Anexo E. El Capítulo X y el Anexo F reúnen la evidencia y los criterios de OE4. Para OE5, el Capítulo XI presenta la estrategia de operación y el Capítulo XII y el Anexo H reservan la evaluación económica.
 
 ## 4.3. Modelo de negocio
 
