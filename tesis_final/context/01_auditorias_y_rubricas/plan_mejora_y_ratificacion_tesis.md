@@ -1,6 +1,6 @@
 # Plan de mejora y ratificación de la memoria espaciGo
 
-**Corte documental:** 4 de noviembre de 2026.  
+**Corte documental:** 4 de noviembre de 2026.
 **Objeto:** mantener la memoria como especificación del producto objetivo y registro verificable del avance por corte.
 
 ## 1. Fuentes y estados

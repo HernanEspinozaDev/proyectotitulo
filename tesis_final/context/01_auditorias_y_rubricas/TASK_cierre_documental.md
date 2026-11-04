@@ -1,6 +1,6 @@
 # Tarea de cierre documental de espaciGo
 
-**Unidad de trabajo:** un capítulo y sus materiales asociados por vez.  
+**Unidad de trabajo:** un capítulo y sus materiales asociados por vez.
 **Estado:** capítulos editables revisados, Word y PDF regenerados con DocSkill.
 
 | Corte | Estado | Entrega |

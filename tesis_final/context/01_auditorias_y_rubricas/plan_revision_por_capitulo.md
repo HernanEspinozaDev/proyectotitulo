@@ -1,6 +1,6 @@
 # Plan de revisión por capítulo y publicación de espaciGo
 
-**Fecha:** 4 de noviembre de 2026.  
+**Fecha:** 4 de noviembre de 2026.
 **Ejecución:** el chat principal integra y publica. Cada chat de capítulo realiza una auditoría de solo lectura con GPT-6 Luna y conserva sus hallazgos. La edición se realiza en orden, con un solo corte activo. Un anexo compartido se modifica en el corte propietario de la regla y se revisa en los capítulos que lo citan.
 
 ## Regla de alcance ratificada para la revisión
@@ -50,3 +50,9 @@ Audita tercera persona, presente y tono técnico. Revisa título, rótulo, nota,
 2. Revisar el diff de un capítulo y sus anexos propietarios. Comprobar IDs, rótulos, imágenes, citas y contenido reservado. Compilar con `python3 build_thesis.py` cuando cambian fuentes compiladas y verificar una muestra del PDF y las entradas afectadas del índice.
 3. Comparar `main` con `origin/main`, incluir únicamente archivos del corte, crear el commit, subir a `origin/main` sin reescribir historial y comprobar el SHA remoto. Registrar el SHA y el estado de las comprobaciones en el chat del capítulo o en el registro central.
 4. Pasar al capítulo siguiente tras verificar el corte anterior. Los chats de auditoría trabajan en paralelo sobre una misma instantánea y sus conclusiones se vuelven a contrastar si otro corte cambia una fuente compartida.
+
+## Registro de inicio
+
+- Línea base publicada en `main`: `e9a4688`. Incluye el último Word y PDF compilados antes de aplicar el alcance amplio al cuerpo.
+- Chats creados: preliminares, capítulos I a XIV y referencias/formato. Cada uno conserva su diagnóstico y sus criterios de cierre. Se identifican en Codex por el prefijo «espaciGo» y el número de corte.
+- Primer corte de edición: preliminares y manifiesto. La revisión del Capítulo I sigue como corte separado. El estado de cada auditoría no equivale a aprobación de cambios en el documento.

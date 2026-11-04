@@ -1,6 +1,6 @@
 # Revisión comparativa de coherencia de la memoria espaciGo
 
-**Fecha:** 4 de noviembre de 2026.  
+**Fecha:** 4 de noviembre de 2026.
 **Alcance:** manifiesto completo, capítulos y anexos compilados, ADR de producto, contrato API fijado en el informe y evidencia del repositorio local. Se comprueba integridad de referencias e imágenes y se contrasta por significado el recorrido principal. El examen de maquetación se realiza por muestra.
 
 | Hallazgo de la primera revisión | Cambio previo | Resultado de la nueva revisión |
