@@ -28,7 +28,7 @@ El diseño establece mínimo privilegio para aplicación, migraciones y operaci�
 
 El procedimiento objetivo restaura PostgreSQL y los objetos privados en un entorno aislado. La aceptación exige comprobar referencias, permisos y acciones de supresión que el respaldo antecede. La medición compara el punto recuperado y el tiempo de recuperación con el RNF-010. El operador registra las divergencias y conserva aislado el destino cuando falla una comprobación.
 
-La Figura 13 resume el ensayo objetivo de restauración. El Capítulo X y la Tabla F.3 identifican los resultados parciales y la falla de permisos observada.
+La Figura 13 resume el ensayo objetivo de restauración. La comprobación de permisos es una condición de reapertura del servicio, porque la recuperación de los datos por sí sola no acredita que se conserva su control de acceso. La Tabla F.3 registra la falla observada en esa etapa.
 
 **Figura 13**\
 *Actividad objetivo de restauración y verificación*
