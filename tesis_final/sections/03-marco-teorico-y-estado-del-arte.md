@@ -4,13 +4,15 @@
 
 Una plataforma coordina interacciones mediante reglas e interfaces compartidas [@tiwana2014]. En espaciGo, la oferta especifica espacios y condiciones de uso, y la demanda busca disponibilidad por intervalo. El diseño conserva el vínculo entre anuncio, cotización y acuerdo para que ambas partes puedan identificar el recurso y las condiciones pactadas.
 
-El proyecto pertenece al ámbito de la tecnología aplicada a bienes raíces. El Capítulo II utiliza un escenario de intermediación por canales separados como punto de comparación. La evaluación contrasta comportamientos verificables, como detectar solapamientos y recuperar las condiciones aceptadas de una emisión.
+El proyecto aplica tecnología a la intermediación de espacios para alojamiento, recreación, comercio e industria. El Capítulo II utiliza un escenario de intermediación por canales separados como punto de comparación. La evaluación contrasta comportamientos verificables, como detectar solapamientos y recuperar las condiciones aceptadas de una emisión.
 
 ## 3.2. Modularidad y arquitectura de puertos y adaptadores
 
 El monolito modular organiza el backend mediante límites internos de responsabilidad. Una distribución por servicios agrega coordinación operativa y requiere límites estables entre componentes [@fowler2015]. El proyecto adopta módulos internos para identidad, oferta, ocupación y contratación, con PostgreSQL como autoridad de los datos transaccionales correspondientes.
 
 La arquitectura de puertos y adaptadores separa los casos de uso de la interfaz y de los servicios externos [@cockburn2005]. En el corte local, un adaptador de ensayo permite comprobar el flujo de aplicación y mantener explícito qué resultado requiere un proveedor real.
+
+La Figura 2 muestra cómo un caso de uso intercambia datos con sus adaptadores.
 
 **Figura 2**\
 *Interacción entre un caso de uso y sus adaptadores*
@@ -23,11 +25,11 @@ La arquitectura de puertos y adaptadores separa los casos de uso de la interfaz 
 
 ### 3.3.1. Búsqueda geoespacial
 
-PostGIS aporta tipos espaciales y funciones de consulta por proximidad [@postgis; @es2postgiswithin]. En espaciGo, la búsqueda usa la distancia y los filtros del catálogo para seleccionar espacios candidatos. La disponibilidad se consulta por separado para el intervalo solicitado.
+PostGIS aporta tipos espaciales y funciones de consulta por proximidad [@postgis; @es2postgiswithin]. En el diseño, la búsqueda combina distancia y filtros para seleccionar espacios candidatos. El Anexo E identifica las rutas declaradas y el Capítulo X delimita la evidencia de búsqueda. La disponibilidad se consulta por separado para el intervalo solicitado.
 
 ### 3.3.2. Rangos temporales y exclusión de solapamientos
 
-PostgreSQL permite representar intervalos mediante tipos de rango y comprobar su superposición con el operador `&&` [@es2pgrangos]. El diseño utiliza un intervalo `tstzrange` por ocupación y una restricción de exclusión por espacio e intervalo activo. La sección 9.3 identifica la migración y los criterios de verificación.
+PostgreSQL permite representar intervalos mediante tipos de rango y comprobar su superposición con el operador `&&` [@es2pgrangos]. El diseño utiliza un intervalo `tstzrange` por ocupación y una restricción de exclusión por espacio e intervalo activo. La sección 9.3 identifica la migración y los criterios de verificación. El Anexo D documenta el esquema de referencia.
 
 ## 3.4. Intermediación de pagos y contratación
 
