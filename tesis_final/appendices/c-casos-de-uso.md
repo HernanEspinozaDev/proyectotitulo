@@ -3,9 +3,9 @@
 > **Versión sincronizada con `actores_y_modulos.md` (11 módulos) y con el catálogo vigente de 236 requerimientos funcionales (RQF-001 – RQF-236 = 185 base + 51 complementarios).**
 > Los casos de uso se renumeraron de forma correlativa **CU-01 a CU-52**. Los casos complementarios (**CU-47 a CU-52**) se anexan al final del módulo correspondiente para no renumerar los casos existentes.
 
-**Sistema:** EspaciGo — Marketplace SaaS B2B2C de espacios comerciales
+**Sistema:** espaciGo — Plataforma de publicación y arriendo flexible de espacios
 **Notación:** UML 2.5 — diagramas de casos de uso
-**Total de casos de uso:** 52 | **Total de módulos:** 11 | **Cobertura:** 236/236 RF | **RNF relacionados:** 43
+**Total de casos de uso:** 52 | **Total de módulos:** 11 | **Catálogo de referencia:** 236 RF | **RNF relacionados:** 43
 
 ---
 
@@ -102,11 +102,15 @@
 
 ### CU-01: Registrar una cuenta
 
-- **Actor:** Visitante.
-- **Flujo principal:** La persona ingresa correo y contraseña y acepta las versiones de términos aplicables. La plataforma valida los datos y registra la cuenta pendiente de verificación de correo.
-- **Alternativas:** La plataforma informa entradas inválidas o el estado del envío según el resultado.
-- **Resultado:** La cuenta conserva la evidencia de aceptación. El registro no exige una preferencia inicial de oferta o arriendo.
-- **Traza:** RQF-001 a RQF-009 · RQF-186, RQF-187 y RQF-213 · HU01.
+| Atributo | Detalle |
+|---|---|
+| ID | CU-01 |
+| **Actor** | Visitante |
+| **Precondiciones** | Formulario y términos vigentes disponibles |
+| **Flujo principal** | Ingresar correo y contraseña y aceptar los términos aplicables. La plataforma valida y registra la cuenta. |
+| **Flujos alternativos** | Informar entradas inválidas o el estado del envío. |
+| **Postcondiciones** | Cuenta pendiente de verificación. El registro prescinde de una preferencia inicial. |
+| **Referencias cruzadas** | RQF-001 a RQF-009 · RQF-186, RQF-187 y RQF-213 · HU01 |
 
 ### CU-02: Verificar Cuenta por Correo Electrónico
 
@@ -301,19 +305,27 @@
 
 ### CU-11: Verificar identidad de persona natural
 
-- **Actor:** Parte que solicita la verificación.
-- **Flujo principal:** La plataforma registra el expediente y comprueba el RUT y el nombre completo según el documento evaluado. El operador actúa según su capacidad y la integración habilitada.
-- **Alternativas:** Ante antecedentes insuficientes, el sistema registra el resultado y permite reintentar según CU-14.
-- **Resultado:** La verificación aporta evidencia para la emisión. La publicación se rige por titularidad y reglas del anuncio.
-- **Traza:** RQF-038 a RQF-047 · HU04.
+| Atributo | Detalle |
+|---|---|
+| ID | CU-11 |
+| **Actor** | Parte solicitante y operador autorizado |
+| **Precondiciones** | Cuenta autenticada y expediente disponible |
+| **Flujo principal** | Evaluar RUT y nombre completo según el documento y el mecanismo habilitado. |
+| **Flujos alternativos** | Registrar antecedentes insuficientes y permitir reintentar mediante CU-14. |
+| **Postcondiciones** | Resultado de verificación disponible para la emisión. |
+| **Referencias cruzadas** | RQF-038 a RQF-047 · HU04 |
 
 ### CU-12: Verificar representación empresarial
 
-- **Actor:** Parte que actúa en representación de una empresa.
-- **Flujo principal:** La plataforma registra el expediente de empresa y la evidencia de representación por separado. El operador autorizado evalúa ambos antecedentes.
-- **Alternativas:** Si falta acreditación, registra el resultado y solicita subsanación.
-- **Resultado:** La emisión conserva las facultades evaluadas cuando corresponden.
-- **Traza:** RQF-048 a RQF-053 · HU04.
+| Atributo | Detalle |
+|---|---|
+| ID | CU-12 |
+| **Actor** | Representante y operador autorizado |
+| **Precondiciones** | Cuenta autenticada y representación aplicable |
+| **Flujo principal** | Registrar por separado la empresa y la acreditación de su representante. Evaluar ambos antecedentes. |
+| **Flujos alternativos** | Registrar la falta de antecedentes y solicitar subsanación. |
+| **Postcondiciones** | Facultades evaluadas disponibles para la emisión. |
+| **Referencias cruzadas** | RQF-048 a RQF-053 · HU04 |
 
 ### CU-13: Revisar Validación Manual
 
@@ -369,17 +381,27 @@
 
 ### CU-15: Publicar un espacio
 
-- **Actor:** Titular vigente con sesión activa.
-- **Flujo principal:** El titular prepara el borrador y solicita publicación. La plataforma comprueba titularidad y reglas del anuncio antes de hacerlo visible.
-- **Alternativas:** Ante falta de titularidad, la plataforma deniega la operación. Si faltan datos, conserva el borrador e informa observaciones.
-- **Traza:** RQF-081 y RQF-082 · HU05 · Figura 8.
+| Atributo | Detalle |
+|---|---|
+| ID | CU-15 |
+| **Actor** | Titular vigente |
+| **Precondiciones** | Sesión activa y borrador disponible |
+| **Flujo principal** | Preparar el borrador y solicitar publicación. La plataforma comprueba titularidad y reglas del anuncio. |
+| **Flujos alternativos** | Denegar por falta de titularidad o conservar borrador con observaciones. |
+| **Postcondiciones** | La publicación válida se vuelve visible. |
+| **Referencias cruzadas** | RQF-081 y RQF-082 · HU05 · Figura 8 |
 
 ### CU-16: Administrar la galería
 
-- **Actor:** Titular vigente.
-- **Flujo principal:** La plataforma reserva la posición de carga, incorpora la imagen válida y permite ordenar la galería y elegir portada.
-- **Alternativas:** Si se ocupan las 30 posiciones, incluidas las reservadas, la plataforma rechaza una nueva carga. Un cambio concurrente requiere comprobar la revisión del conjunto.
-- **Traza:** RQF-074 y RQF-075 · HU05.
+| Atributo | Detalle |
+|---|---|
+| ID | CU-16 |
+| **Actor** | Titular vigente |
+| **Precondiciones** | Espacio propio y sesión activa |
+| **Flujo principal** | Reservar posición, incorporar imagen válida, ordenar y definir portada. |
+| **Flujos alternativos** | Rechazar al ocupar 30 posiciones, incluidas las reservadas. Resolver revisiones concurrentes. |
+| **Postcondiciones** | Galería asociada al espacio y orden conservado. |
+| **Referencias cruzadas** | RQF-074 a RQF-078 · HU05 |
 
 ### CU-17: Configurar Calendario de Disponibilidad
 
@@ -494,7 +516,15 @@ El flujo de actividad de la Figura 9 del Capítulo IX documenta las ramas de cob
 
 ### CU-22: Solicitar un intervalo de reserva
 
-Las partes acuerdan horario y precio. La plataforma verifica ambas identidades y activa un bloqueo único si el intervalo está disponible. Una colisión devuelve un conflicto y conserva la ocupación previa.
+| Atributo | Detalle |
+|---|---|
+| ID | CU-22 |
+| **Actor** | Arrendatario y titular |
+| **Precondiciones** | Espacio y solicitud de intervalo identificados |
+| **Flujo principal** | Validar fin posterior al inicio, disponibilidad y acuerdo de horario y precio. Verificar ambas identidades y activar un bloqueo único. |
+| **Flujos alternativos** | Rechazar intervalos inválidos o solapados y conservar la ocupación previa. |
+| **Postcondiciones** | Un bloqueo activo para la reserva cuando se cumplen las condiciones. |
+| **Referencias cruzadas** | RQF-110 a RQF-113 · HU18 · CU-23 · PT-01 y PT-02 |
 
 ### CU-23: Validar Disponibilidad en Tiempo Real
 
@@ -512,31 +542,63 @@ Las partes acuerdan horario y precio. La plataforma verifica ambas identidades y
 
 ### CU-24: Acreditar la renta
 
-- **Actor principal:** Arrendatario.
-- **Precondición:** Existe un bloqueo vigente. Ambas partes aceptan la emisión y, si eligen SimpleFirma, completan ambas firmas.
-- **Flujo principal:** La plataforma informa el vencimiento, habilita el pago de renta y acredita el evento conciliado. Si existe garantía habilitada, abre la etapa separada de garantía.
-- **Flujo alternativo:** El evento duplicado conserva el estado. Si la acreditación llega después del vencimiento, se envía a conciliación sin reactivar el bloqueo.
-- **Postcondición:** La reserva se confirma al acreditar las obligaciones exigibles.
+| Atributo | Detalle |
+|---|---|
+| ID | CU-24 |
+| **Actor** | Arrendatario y pasarela |
+| **Precondiciones** | Bloqueo vigente y modalidad contractual cumplida |
+| **Flujo principal** | Informar vencimiento, habilitar renta y acreditar el evento conciliado. |
+| **Flujos alternativos** | Procesar duplicado sin cambiar estado. Derivar evento tardío a conciliación. |
+| **Postcondiciones** | Renta acreditada y, si corresponde, etapa de garantía disponible. |
+| **Referencias cruzadas** | RQF-116 a RQF-120 · HU17 |
 
 ### CU-25: Acreditar garantía cuando corresponde
 
-- **Actor principal:** Arrendatario.
-- **Precondición:** La renta está acreditada y la oferta exige una garantía habilitada.
-- **Flujo principal:** La plataforma registra el cobro separado y su pagador. La confirmación de la reserva exige su acreditación.
-- **Flujo alternativo:** La oferta sin garantía omite la etapa. El vencimiento libera el bloqueo y un evento tardío ingresa a conciliación.
-- **Postcondición:** Toda devolución conserva el vínculo al pago y al pagador originales.
+| Atributo | Detalle |
+|---|---|
+| ID | CU-25 |
+| **Actor** | Arrendatario |
+| **Precondiciones** | Renta acreditada y garantía aplicable y habilitada |
+| **Flujo principal** | Registrar y acreditar la garantía como cobro separado. |
+| **Flujos alternativos** | Omitir la etapa sin garantía. Si vence, liberar el bloqueo. |
+| **Postcondiciones** | Acreditación o devolución trazada al pagador original. |
+| **Referencias cruzadas** | RQF-118 y RQF-141 · HU17 |
 
 ### CU-26: Acordar horario y precio
 
-El titular consulta la solicitud y confirma o rechaza el horario y precio propuestos. El acuerdo permite evaluar la activación del bloqueo. El rechazo conserva el registro de la decisión.
+| Atributo | Detalle |
+|---|---|
+| ID | CU-26 |
+| **Actor** | Titular |
+| **Precondiciones** | Solicitud identificada |
+| **Flujo principal** | Consultar y aceptar o rechazar horario y precio. |
+| **Flujos alternativos** | Conservar el motivo aplicable cuando se rechaza la solicitud. |
+| **Postcondiciones** | Acuerdo registrado para evaluar el bloqueo. |
+| **Referencias cruzadas** | RQF-123 a RQF-127 |
 
 ### CU-27: Procesar el vencimiento de la etapa
 
-La plataforma detecta la expiración de una etapa y libera el bloqueo mediante una transición atómica. Los reintentos conservan el vencimiento original.
+| Atributo | Detalle |
+|---|---|
+| ID | CU-27 |
+| **Actor** | Proceso automático |
+| **Precondiciones** | Etapa de contratación con bloqueo activo |
+| **Flujo principal** | Detectar vencimiento y liberar el bloqueo atómicamente. |
+| **Flujos alternativos** | Un reintento conserva el vencimiento original. |
+| **Postcondiciones** | Intervalo liberado y transición registrada. |
+| **Referencias cruzadas** | RQF-129 y RQF-140 · PT-05 |
 
 ### CU-28: Conciliar un pago tardío
 
-La plataforma recibe un pago tras el vencimiento, conserva liberada la ocupación y registra el evento para conciliación. La devolución referencia el pago y al pagador original.
+| Atributo | Detalle |
+|---|---|
+| ID | CU-28 |
+| **Actor** | Operador y proveedor |
+| **Precondiciones** | Pago posterior al vencimiento |
+| **Flujo principal** | Registrar el evento para conciliación y, si corresponde, vincular la devolución al pago original. |
+| **Flujos alternativos** | Un duplicado conserva el estado. |
+| **Postcondiciones** | Ocupación liberada y resultado financiero trazable. |
+| **Referencias cruzadas** | RQF-128 y RQF-141 · PT-04 |
 
 ### CU-47: Consultar Historial de Reservas
 
@@ -587,27 +649,51 @@ La Figura 9 del Capítulo IX documenta las dos modalidades de contratación. CU-
 
 ### CU-29: Emitir y aceptar el contrato
 
-- **Actores:** Arrendador y arrendatario.
-- **Precondición:** Ambas identidades están verificadas y las partes acuerdan horario y precio.
-- **Flujo principal:** La plataforma emite un documento inmutable y registra la aceptación de cada parte. La modalidad sin firma habilita el cobro de la renta.
-- **Flujo alternativo:** Una modificación origina otra emisión y requiere nuevas aceptaciones. La elección bilateral de SimpleFirma activa CU-30.
-- **Trazabilidad:** RQF-130 a RQF-133 · HU33.
+| Atributo | Detalle |
+|---|---|
+| ID | CU-29 |
+| **Actor** | Arrendatario y titular |
+| **Precondiciones** | Ambas identidades verificadas y acuerdo sobre horario y precio |
+| **Flujo principal** | Emitir documento inmutable y registrar la aceptación por parte. |
+| **Flujos alternativos** | Un cambio origina otra emisión. La elección bilateral de SimpleFirma activa CU-30. |
+| **Postcondiciones** | La ruta sin firma habilita renta tras ambas aceptaciones. |
+| **Referencias cruzadas** | RQF-130 a RQF-133 · HU33 |
 
 ### CU-30: Firmar electrónicamente de forma opcional
 
-- **Actores:** Arrendador, arrendatario y SimpleFirma.
-- **Precondición:** Ambas partes eligen la modalidad y se acreditan los aportes exigibles.
-- **Flujo principal:** La plataforma solicita las firmas de esa emisión, registra el resultado de cada firmante y habilita la renta al completar ambas.
-- **Flujo alternativo:** Al vencer la etapa, la plataforma libera el bloqueo y aplica la política de devolución del ADR.
-- **Trazabilidad:** RQF-133 a RQF-141 · HU33.
+| Atributo | Detalle |
+|---|---|
+| ID | CU-30 |
+| **Actor** | Arrendatario, titular y SimpleFirma |
+| **Precondiciones** | Ambas partes eligen la modalidad y los aportes exigibles se acreditan |
+| **Flujo principal** | Solicitar firmas para la emisión y registrar cada resultado. |
+| **Flujos alternativos** | Procesar vencimiento mediante CU-32. |
+| **Postcondiciones** | Las dos firmas habilitan renta. |
+| **Referencias cruzadas** | RQF-133 a RQF-141 · HU33 |
 
 ### CU-31: Consultar la emisión contractual
 
-Una parte autorizada consulta la emisión asociada al arriendo. La plataforma entrega el documento disponible y registra su modalidad. El tercero recibe una denegación.
+| Atributo | Detalle |
+|---|---|
+| ID | CU-31 |
+| **Actor** | Parte autorizada |
+| **Precondiciones** | Emisión asociada al arriendo y disponible |
+| **Flujo principal** | Consultar o descargar el documento de la emisión con su modalidad. |
+| **Flujos alternativos** | Denegar acceso a un tercero. |
+| **Postcondiciones** | Documento y modalidad identificados. |
+| **Referencias cruzadas** | RQF-142 |
 
 ### CU-32: Procesar vencimiento de firma opcional
 
-Si vence la etapa de firma sin ambas firmas, la plataforma libera el bloqueo y registra la devolución según la política ratificada. Una firma tardía conserva el historial de la emisión.
+| Atributo | Detalle |
+|---|---|
+| ID | CU-32 |
+| **Actor** | Proceso automático |
+| **Precondiciones** | Etapa de firma opcional activa |
+| **Flujo principal** | Procesar vencimiento, liberar el bloqueo y tramitar reversos según la política ratificada. |
+| **Flujos alternativos** | Conservar el historial ante una firma tardía. |
+| **Postcondiciones** | Intervalo liberado y conciliación trazable. |
+| **Referencias cruzadas** | RQF-140 y RQF-141 |
 
 ## Módulo M08 — Check-in y Check-out
 
@@ -648,11 +734,27 @@ Si vence la etapa de firma sin ambas firmas, la plataforma libera el bloqueo y r
 
 ### CU-34: Registrar la entrega
 
-El arrendatario registra la entrega y sus evidencias. El titular confirma desocupación en CU-48. El sistema conserva el historial.
+| Atributo | Detalle |
+|---|---|
+| ID | CU-34 |
+| **Actor** | Arrendatario |
+| **Precondiciones** | Arriendo en curso y participante autorizado |
+| **Flujo principal** | Registrar entrega y evidencia de operación. |
+| **Flujos alternativos** | Derivar inconsistencias al flujo de revisión. |
+| **Postcondiciones** | Entrega disponible para confirmar en CU-48. |
+| **Referencias cruzadas** | RQF-150 a RQF-152 · HU35 |
 
 ### CU-48: Confirmar la desocupación
 
-El titular confirma la desocupación después de la entrega. La plataforma libera solo el bloqueo del arriendo correspondiente, conserva la emisión y habilita republicación.
+| Atributo | Detalle |
+|---|---|
+| ID | CU-48 |
+| **Actor** | Titular |
+| **Precondiciones** | Entrega registrada |
+| **Flujo principal** | Confirmar desocupación y liberar solo el bloqueo correspondiente. |
+| **Flujos alternativos** | Denegar a quien carece de titularidad o si falta entrega. |
+| **Postcondiciones** | Contrato conservado y republicación disponible. |
+| **Referencias cruzadas** | RQF-205 y RQF-206 · HU35 · PT-08 |
 
 ## Módulo M09 — Comunicación y Reputación
 
@@ -771,10 +873,15 @@ El reclamo y la conciliación conservan trazas independientes. La confirmación 
 
 ### CU-39: Registrar reclamo por daños
 
-- **Actor:** Titular de la reserva.
-- **Flujo principal:** El titular registra el reclamo, su motivo y la evidencia asociada a la entrega. La plataforma verifica el ámbito y registra el caso.
-- **Alternativas:** Si falta autorización o evidencia exigida, la plataforma deniega o informa los antecedentes requeridos.
-- **Resultado:** El reclamo queda disponible para evaluación. La garantía habilitada conserva su propia traza de conciliación.
+| Atributo | Detalle |
+|---|---|
+| ID | CU-39 |
+| **Actor** | Titular |
+| **Precondiciones** | Reserva y evidencia de entrega identificadas |
+| **Flujo principal** | Registrar reclamo, motivo y evidencia. |
+| **Flujos alternativos** | Denegar acceso sin autorización o solicitar antecedentes. |
+| **Postcondiciones** | Caso disponible para evaluación. |
+| **Referencias cruzadas** | RQF-159 a RQF-162 · CU-41 |
 
 ### CU-40: Presentar Descargos ante Disputa
 
@@ -792,18 +899,27 @@ El reclamo y la conciliación conservan trazas independientes. La confirmación 
 
 ### CU-41: Resolver una disputa
 
-- **Actor:** Operador con capacidad de resolución.
-- **Precondición:** El reclamo se encuentra abierto y vinculado a una reserva.
-- **Flujo principal:** El operador consulta antecedentes y descargos, registra la decisión y notifica el resultado.
-- **Alternativas:** Si existe una garantía habilitada y la decisión implica un ajuste, la plataforma deriva el movimiento a CU-42. La disputa conserva su traza de forma independiente.
-- **Referencias:** RQF-166 a RQF-171 · CU-39, CU-40 y CU-42.
+| Atributo | Detalle |
+|---|---|
+| ID | CU-41 |
+| **Actor** | Operador autorizado |
+| **Precondiciones** | Reclamo abierto |
+| **Flujo principal** | Revisar antecedentes y descargos, registrar decisión y notificar. |
+| **Flujos alternativos** | Derivar un ajuste de garantía habilitada a CU-42. |
+| **Postcondiciones** | Resultado y trazabilidad de la disputa conservados. |
+| **Referencias cruzadas** | RQF-166 a RQF-171 · CU-39 y CU-42 |
 
 ### CU-42: Conciliar cobros y reversos
 
-- **Actores:** Operador autorizado y proveedor de pago cuando corresponde.
-- **Flujo principal:** El operador verifica la obligación, el pagador, el estado y los eventos externos. La plataforma registra las diferencias y el resultado.
-- **Alternativas:** Un evento repetido conserva el estado. Una devolución referencia el pago y al pagador original. La garantía se tramita por separado cuando está habilitada.
-- **Resultado:** Los movimientos conservan su relación con el cobro y la reserva. La conciliación no prolonga el bloqueo de ocupación.
+| Atributo | Detalle |
+|---|---|
+| ID | CU-42 |
+| **Actor** | Operador y proveedor |
+| **Precondiciones** | Cobro o reverso identificado |
+| **Flujo principal** | Conciliar obligación, pagador, estado y eventos externos. |
+| **Flujos alternativos** | Deduplicar y tramitar devolución contra el pago original. |
+| **Postcondiciones** | Movimiento trazable, independiente del bloqueo. |
+| **Referencias cruzadas** | RQF-128, RQF-141 y RQF-172 a RQF-177 |
 
 ## Módulo M11 — Administración y Auditoría
 
@@ -1004,45 +1120,3 @@ El reclamo y la conciliación conservan trazas independientes. La confirmación 
 | Relación entre los casos complementarios CU-47, CU-48 y CU-49 y los casos existentes | Se evaluó `<<extend>>` / `<<include>>` hacia casos del mismo módulo y se descartó: son objetivos autónomos (consultar, confirmar evidencia, reportar), no obligatorios para otro caso de uso; además CU-48 y CU-49 son iniciados por actores distintos a los del caso base. |
 
 ---
-
-## 5. Antecedentes de revisiones de ES1 y ES2
-
-Las tablas de esta sección registran decisiones de sus cortes históricos. Las fichas actualizadas y el ADR definen el alcance objetivo vigente.
-
-### 5.1 Brechas cerradas en la 1.ª revisión de completitud (RF y casos de uso)
-
-| Brecha detectada | Solución aplicada |
-|---|---|
-| Liberación de la garantía en el flujo sin reclamos (solo existía `RQF-175` "saldo restante tras deducciones") | Se agregó **RQF-208** y se actualizó **CU-42** |
-| El arrendador no tenía ninguna acción al término de la reserva | Se agregaron **RQF-205** y **RQF-206**, que dan origen a **CU-48** |
-| No existía forma de consultar las reservas del usuario (precondición de CU-24, CU-26, CU-33, CU-34 y CU-42) | Se agregó **RQF-199**, que da origen a **CU-47** |
-| No existía RF para reportar una reseña, aunque `RQF-181` presupone reseñas reportadas | Se agregó **RQF-207**, que da origen a **CU-49** |
-| No existía RF de aceptación de términos y condiciones (ejemplo explícito de la retroalimentación) | Se agregaron **RQF-186** y **RQF-187** en **CU-01** |
-| Ausencia de RF para reenviar el token de verificación | **RQF-188** integrado en **CU-02** |
-| CRUD incompleto sobre entidades (cuenta bancaria, campos editables de la publicación, estado de la validación) | **RQF-189 a RQF-193** y **RQF-195 a RQF-198**, integrados en CU-08, CU-11, CU-12, CU-14 y CU-18 |
-| Asimetría de notificación entre KYC y KYB | **RQF-194** integrado en **CU-12** |
-| Cancelaciones automáticas que liberaban fechas sin RF que lo declarara; rechazo de pago sin notificación; rechazo de firma sin registro | **RQF-200**, **RQF-201** y **RQF-202**, integrados en CU-27/CU-28, CU-24 y CU-30 |
-| Obligatoriedad de evidencia fotográfica en Check-in y Check-out no declarada | **RQF-203** y **RQF-204** integrados en CU-33 y CU-34 |
-| Evidencia de recepción no consultable por el administrador al arbitrar; resultado de la disputa sin notificación; boleta sin envío | **RQF-209**, **RQF-210** y **RQF-211**, integrados en CU-41 y CU-42 |
-| Imposibilidad de localizar una cuenta para bloquearla o desbloquearla | **RQF-212** integrado en **CU-43** |
-
-### 5.2 Brechas cerradas en la 2.ª revisión (Historias de Usuario)
-
-| Brecha detectada al revisar las HU | Solución aplicada |
-|---|---|
-| HU01 pedía seleccionar el rol principal en el registro sin RF que lo respaldara | **RQF-213** integrado en **CU-01** (como preferencia de uso no excluyente) |
-| HU03 describía el cambio de contraseña con sesión iniciada y sus validaciones, inexistentes en el catálogo | **RQF-214 a RQF-218** → nuevo **CU-50** |
-| HU04 definía un límite de 10 MB por documento y el estado "Pendiente de Verificación" | **RQF-219, RQF-220** integrados en **CU-11** |
-| HU06 y HU07 exigían validaciones al editar (precio), reglas de 250 caracteres y política de cancelación configurable y visible | **RQF-221 a RQF-224** integrados en **CU-18** |
-| HU21 exigía motivo obligatorio y validación de fechas en el bloqueo manual del calendario | **RQF-225, RQF-226** integrados en **CU-17** |
-| HU17 exigía identidad verificada antes de pagar (estaba solo como pre-condición del CU) | **RQF-227** integrado en **CU-22** |
-| HU19 describía la cancelación de la reserva por el arrendatario con devolución y notificación | **RQF-228 a RQF-231** → nuevo **CU-51** |
-| HU25 pedía reputación recíproca, una reseña por reserva y promedio de calificaciones | **RQF-232 a RQF-235** integrados en **CU-35** |
-| HU26 requería que el administrador pudiera consultar las publicaciones para supervisarlas | **RQF-236** → nuevo **CU-52** |
-
-### 5.3 Observaciones abiertas (no bloqueantes)
-
-1. **Solapamiento RF/RNF corregido:** `RNF-027` fue reformulado para expresar únicamente el cumplimiento normativo (timbrado del SII, formatos XML/PDF y plazo máximo de 24 horas), dejando la acción funcional en `RQF-176` y `RQF-211`. En la misma revisión se corrigieron los RNF con verbos funcionales (RNF-002, RNF-003, RNF-004) y se separaron los que mezclaban dos condiciones (RNF-012 y RNF-018). El catálogo de RNF quedó en **43 requerimientos**, con al menos 3 por categoría.
-2. **Alcance confirmado en las HU (requiere validación del equipo):** la segunda revisión declaró explícitamente fuera del alcance de la ES1 los siguientes criterios: disponibilidad recurrente (HU24), centro de ayuda y tickets (HU29), favoritos (HU14), adicionales o equipamiento extra con tarifa (HU09), panel de estadísticas de ocupación del arrendador (HU22), centro de notificaciones dentro de la aplicación (HU30), doble factor de administrador y tablero de métricas globales (HU26), y moderación/suspensión de anuncios reportados (HU27). Si el equipo desea incorporarlos, corresponden nuevos RF y casos de uso.
-3. **Contexto narrativo:** conviene agregar en `contexto_narrativo.md` una frase sobre la confirmación de recepción del arrendador (`RQF-205`, `RQF-206`) para mantener la coherencia del relato end-to-end.
-4. **Numeración de figuras del informe:** al pegar los 11 diagramas en el documento Word, verificar que la numeración de imágenes del índice coincida (actualizar campos con `Ctrl+A → F9`).

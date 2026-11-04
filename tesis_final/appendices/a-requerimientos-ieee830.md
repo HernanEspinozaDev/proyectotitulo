@@ -2,7 +2,7 @@
 
 ## Catálogo consolidado de requerimientos funcionales (RQF)
 
-El catálogo especifica el diseño objetivo y conserva identificadores de las iteraciones previas. La condición de implementación se registra por versión y entorno en los capítulos X y XIII. Las tablas de cambios de revisiones anteriores son antecedentes históricos.
+El catálogo especifica el diseño objetivo y conserva identificadores de las iteraciones previas. La condición de implementación se registra por versión y entorno en los capítulos X y XIII. Los cambios históricos se conservan en el registro de contexto de la memoria.
 
 ## Sistema EspaciGo
 
@@ -75,7 +75,7 @@ El catálogo especifica el diseño objetivo y conserva identificadores de las it
 | RQF-065 | El sistema debe validar que la descripción contenga al menos 100 caracteres. |
 | RQF-066 | El sistema debe permitir ingresar la superficie total del inmueble en metros cuadrados. |
 | RQF-067 | El sistema debe validar que la superficie ingresada sea un número mayor a cero. |
-| RQF-068 | El sistema debe permitir seleccionar el tipo de inmueble. |
+| RQF-068 | El sistema debe permitir seleccionar el tipo de espacio entre las categorías habilitadas para el corte. |
 | RQF-069 | El sistema debe permitir establecer la capacidad máxima de personas. |
 | RQF-070 | El sistema debe permitir agregar reglas de uso a la publicación. |
 | RQF-071 | El sistema debe permitir configurar la modalidad tarifaria (por hora, día o mes). |
@@ -232,35 +232,7 @@ El catálogo especifica el diseño objetivo y conserva identificadores de las it
 | RQF-211 | El sistema debe permitir el acceso al documento tributario cuando la integración correspondiente está habilitada. |
 | RQF-212 | El sistema debe permitir al administrador buscar una cuenta de usuario. |
 
-### Brechas cerradas y módulo al que se incorpora cada RF
-
-| Brecha detectada | RF agregados | Módulo |
-| :--- | :--- | :--- |
-| No existía requerimiento de aceptación de términos y condiciones (ejemplo explícito señalado en la retroalimentación). | RQF-186, RQF-187 | M01 |
-| El flujo alternativo "reenviar token de verificación" (CU-02) no tenía RF que lo respaldara. | RQF-188 | M01 |
-| La entidad "cuenta bancaria" solo tenía la operación de registro (RQF-032, RQF-033): faltaban consultar, modificar y eliminar. | RQF-189, RQF-190, RQF-191 | M02 |
-| La HU04 contempla la captura de selfie de validación facial, sin RF asociado. | RQF-192 | M03 |
-| El paso "consultar el estado de la validación" (CU-14) no tenía RF. | RQF-193 | M03 |
-| Asimetría: el resultado de la validación se notificaba solo para KYC (RQF-047), no para KYB. | RQF-194 | M03 |
-| La HU06 permite editar descripción, reglas de uso, capacidad y tarifas, pero el catálogo solo permitía editar título (RQF-086) y precio base (RQF-087). | RQF-195, RQF-196, RQF-197, RQF-198 | M04 |
-| No existía RF para consultar las reservas del usuario, pese a ser precondición de CU-24, CU-26, CU-33, CU-34 y CU-42. | RQF-199 | M06 |
-| Las cancelaciones automáticas (CU-27, CU-28) liberaban las fechas sin RF que lo declarara. | RQF-200 | M06 |
-| El rechazo del pago cambiaba de estado (RQF-119) sin notificar al arrendatario. | RQF-201 | M06 |
-| El escenario "una parte no firma" (CU-30) no tenía RF que registrara el rechazo notificado por el proveedor. | RQF-202 | M07 |
-| La obligatoriedad de evidencia fotográfica en Check-in y Check-out había quedado fuera del catálogo. | RQF-203, RQF-204 | M08 |
-| **El arrendador no tenía ninguna acción al término de la reserva** (brecha reportada en la revisión). | RQF-205, RQF-206 | M08 |
-| RQF-181 presupone reseñas reportadas, pero no existía RF que permitiera reportar una reseña. | RQF-207 | M09 |
-| **No existía RF de liberación de la garantía en el flujo sin reclamos** (solo RQF-175 "saldo restante tras deducciones"). | RQF-208 | M10 |
-| El administrador no tenía RF para consultar la evidencia de recepción del arrendador al arbitrar (simetría con RQF-167). | RQF-209 | M10 |
-| Solo existía la notificación de apertura de disputa (RQF-164), no la del resultado. | RQF-210 | M10 |
-| La boleta electrónica solo se generaba (RQF-176); no se enviaba al arrendador. | RQF-211 | M10 |
-| Bloquear/desbloquear una cuenta (RQF-178 a RQF-180) requiere localizarla previamente. | RQF-212 | M11 |
-
-**Catálogo total resultante: 212 requerimientos funcionales (RQF-001 a RQF-212).**
-
----
-
-## Requerimientos funcionales complementarios — Segunda revisión (Historias de Usuario)
+## Requerimientos funcionales complementarios — Historias de usuario
 
 > Estos **24 requerimientos (RQF-213 a RQF-236)** se incorporaron al revisar íntegramente las 30 Historias de Usuario. Su objetivo es que **ninguna HU quede con criterios de aceptación sin respaldo funcional**, y al mismo tiempo se corrigieron en las HU todas las contradicciones numéricas y de alcance detectadas.
 >
@@ -292,25 +264,6 @@ El catálogo especifica el diseño objetivo y conserva identificadores de las it
 | RQF-234 | El sistema debe rechazar el registro de una segunda reseña del mismo participante para la misma reserva. |
 | RQF-235 | El sistema debe calcular el promedio de calificaciones del espacio. |
 | RQF-236 | El sistema debe permitir al administrador consultar el listado de espacios publicados. |
-
-### Brechas cerradas en la revisión de las HU
-
-| HU que lo exigía | Brecha detectada | RF agregados | Módulo |
-| :--- | :--- | :--- | :--- |
-| HU01 | La HU pedía seleccionar el perfil principal (Arrendador/Arrendatario) y no existía RF. Se redefine como **preferencia de uso no excluyente**. | RQF-213 | M01 |
-| HU03 | La HU describía el **cambio de contraseña con sesión iniciada**, que no existía en el catálogo (solo la recuperación), junto con sus validaciones (contraseña actual, no repetir la anterior, no reutilizar en 3 meses) y la notificación del cambio. | RQF-214 a RQF-218 | M01 |
-| HU04 | La HU definía un **límite de 10 MB** por documento y un estado **"Pendiente de Verificación"** inexistentes en el catálogo. | RQF-219, RQF-220 | M03 |
-| HU06 | La HU validaba la tarifa al **modificar** la publicación; el catálogo solo validaba el precio al crearla (RQF-073). | RQF-221 | M04 |
-| HU07 | La HU definía un **máximo de 250 caracteres** para reglas personalizadas y la existencia de una **política de cancelación** configurable y visible en el detalle. | RQF-222, RQF-223, RQF-224 | M04 |
-| HU21 | La HU exigía **motivo obligatorio** y validación de fechas en el bloqueo manual del calendario. | RQF-225, RQF-226 | M04 |
-| HU17 | La HU exigía validar la **identidad verificada antes de pagar**; el caso de uso lo declaraba como precondición sin RF que lo respaldara. | RQF-227 | M06 |
-| HU19 | La HU describía la **cancelación de la reserva por el arrendatario** con cálculo de devolución, ejecución del reembolso y notificación a las partes. El catálogo solo contemplaba el rechazo del arrendador, la expiración por falta de pago y la falta de firma. | RQF-228 a RQF-231 | M06 |
-| HU25 | La HU pedía **calificación y reseña recíproca** (arrendador hacia arrendatario), el bloqueo de una segunda reseña por reserva y el recálculo del promedio de calificaciones. | RQF-232 a RQF-235 | M09 |
-| HU26 | La HU requería que el administrador pudiera **consultar el listado de espacios publicados** para su supervisión. | RQF-236 | M11 |
-
-**Catálogo total resultante: 236 requerimientos funcionales (RQF-001 a RQF-236).**
-
----
 
 ## Requerimientos No Funcionales (RNF) — Sistema EspaciGo
 
@@ -420,17 +373,3 @@ El catálogo especifica el diseño objetivo y conserva identificadores de las it
 | RNF-042 | RQF-137, RQF-167, RQF-205 | M07 (CU-30), M08 (CU-33, CU-48), M10 (CU-41) |
 
 ---
-
-## 4. Cambios aplicados respecto de la versión anterior (27 RNF)
-
-| RNF | Cambio aplicado | Motivo |
-| :--- | :--- | :--- |
-| RNF-002 | Se reescribió para eliminar el verbo funcional "completar el ciclo": ahora expresa la condición de tiempo (*"debe garantizar que el ciclo de pago se complete en..."*). | Evitar contenido funcional en un RNF. |
-| RNF-003 | Se reescribió para eliminar los verbos "compilar y exportar". | Ídem anterior. |
-| RNF-004 | Se reescribió para eliminar el verbo funcional "comprimir". | Ídem anterior. |
-| RNF-012 | Se dividió en **RNF-012** (idempotencia) y **RNF-028** (conciliación), porque un requerimiento no debe contener dos condiciones distintas. | Regla de atomicidad también aplicada a los RNF. |
-| RNF-018 | Se dividió en **RNF-018** (eliminación irreversible) y **RNF-029** (anonimización de la información transaccional). | Ídem anterior. |
-| RNF-027 | Se reescribió para eliminar las acciones funcionales "generar la boleta" y "entregarla" (ya cubiertas por RQF-176 y RQF-211); ahora expresa el cumplimiento normativo. | Separación RF/RNF. |
-| RNF-007 | Se ajustó el nombre y la redacción ("presentar sus interfaces" en lugar de "renderizar"). | Evitar lenguaje técnico de implementación. |
-| RNF-017 | Se ajustó "almacenar log" por **"preservar los logs"**, manteniendo el foco en la integridad y no en una acción funcional. | Evitar duplicidad con el catálogo de RF. |
-| Nuevos | Se agregaron **RNF-030 a RNF-043** (14 requerimientos) para completar las categorías exigidas por la retroalimentación: **Implementación** (contenedores Docker, motor de base de datos relacional, repositorio de código, CI/CD), **Almacenamiento** (capacidad y retención), **Portabilidad** (despliegue agnóstico, entorno local, reemplazabilidad) y completar **Flexibilidad**, **Mantenibilidad** y **Rendimiento**. | Cada categoría debe tener al menos 3 ejemplos. |

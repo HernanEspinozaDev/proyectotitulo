@@ -1,16 +1,6 @@
 # ANEXO B: HISTORIAS DE USUARIO CON CRITERIOS INVEST
 
-> **Versión revisada (19-09-2026).** 35 historias de usuario (**HU01–HU35**) organizadas en **9 épicas**, cada una con su rol, los requerimientos funcionales (RF) que la implementan, los casos de uso (CU) donde se especifica y criterios de aceptación redactados como **comportamiento esperado del sistema**.
->
-> **Cobertura completa de módulos:** los 11 módulos funcionales quedan cubiertos por al menos una historia de usuario (ver tabla de cobertura al final). En esta versión se agregaron **HU31 a HU35** para cubrir los procesos que no tenían historia: gestión del perfil y cuenta bancaria, eliminación de cuenta (Ley 21.719), contratos y firma electrónica, mensajería entre las partes y operación del arriendo (check-in, check-out y confirmación de recepción).
-
-**Convenciones aplicadas en esta revisión**
-
-1. **Nomenclatura de actores:** se usa **Arrendador** (nombre oficial del actor) en lugar de "Propietario"/"anfitrión", y **Arrendatario** en lugar de "cliente", para que las HU, los RF y los casos de uso compartan la misma terminología.
-2. **Sin contradicciones numéricas:** todos los plazos, límites y umbrales fueron alineados al catálogo de RF (236 en total). Se corrigieron: intentos de bloqueo de sesión, vigencia del enlace de contraseña, largo del título, tarifa mínima, cantidad de fotografías, tamaño de archivos y estados de la cuenta.
-3. **Trazabilidad:** cada HU declara `RF` (requerimientos que la implementan) y `CU` (casos de uso donde está especificada).
-4. **Criterios de interfaz:** las validaciones y comportamientos que ocurren solo en la interfaz se indican como *(criterio de interfaz)* cuando no requieren un RF propio.
-5. **Alcance:** los criterios que describen funcionalidad fuera del alcance declarado de la Evaluación Sumativa 1 se listan en el bloque **Fuera del alcance de la ES1**, de modo que ninguna HU quede con criterios sin respaldo documental.
+El anexo reúne 35 historias en nueve épicas. Cada ficha identifica actor, criterios de aceptación y traza con el catálogo de requisitos y casos de uso. La cobertura documental identifica relaciones entre artefactos. El Capítulo X presenta la evidencia de ejecución por corte.
 
 **Épicas**
 
@@ -50,7 +40,7 @@
 
 > *(criterio de interfaz)* La pantalla de registro debe agrupar los campos en un solo formulario con validación en línea y mensajes de error junto a cada campo.
 
-> **Fuera del alcance de la ES1:** registro con proveedores externos (login social) y captcha para el registro.
+> **Fuera del corte documentado:** registro con proveedores externos (login social) y captcha para el registro.
 
 ---
 
@@ -74,7 +64,7 @@
 
 > *(criterio de interfaz)* El formulario debe bloquear el botón de envío mientras se valida la respuesta del servidor y mostrar el aviso de bloqueo con el tiempo restante.
 
-> **Fuera del alcance de la ES1:** autenticación de doble factor (2FA) para usuarios finales y bloqueo por dirección IP.
+> **Fuera del corte documentado:** autenticación de doble factor (2FA) para usuarios finales y bloqueo por dirección IP.
 
 ---
 
@@ -104,7 +94,7 @@
 
 > *(criterio de interfaz)* El correo de notificación debe incluir un enlace "¿No fue usted?" que redirija al flujo de recuperación de contraseña y a los canales de soporte.
 
-> **Fuera del alcance de la ES1:** bloqueo automático de la cuenta ante el aviso "¿No fue usted?" (la acción se deriva a soporte) y autenticación de doble factor para confirmar el cambio.
+> **Fuera del corte documentado:** bloqueo automático de la cuenta ante el aviso "¿No fue usted?" (la acción se deriva a soporte) y autenticación de doble factor para confirmar el cambio.
 
 ---
 
@@ -136,7 +126,7 @@
 - El administrador debe poder consultar el listado de validaciones fallidas y aprobarlas o rechazarlas, ingresando obligatoriamente un motivo al rechazar.
 - El usuario debe poder consultar el estado de su validación, corregir los antecedentes rechazados y solicitar un nuevo intento de validación.
 
-> **Fuera del alcance de la ES1:** validación de Pasaporte u otros documentos distintos de la Cédula de Identidad, y validación biométrica presencial.
+> **Fuera del corte documentado:** validación de Pasaporte u otros documentos distintos de la Cédula de Identidad, y validación biométrica presencial.
 
 ---
 
@@ -158,7 +148,7 @@
 - El usuario debe poder consultar, modificar y eliminar la cuenta bancaria registrada.
 - La cuenta bancaria registrada es la que se utiliza para transferir el monto de la estadía en la liquidación de la reserva.
 
-> **Fuera del alcance de la ES1:** validación bancaria mediante micro-depósitos y registro de múltiples cuentas bancarias simultáneas.
+> **Fuera del corte documentado:** validación bancaria mediante micro-depósitos y registro de múltiples cuentas bancarias simultáneas.
 
 ---
 
@@ -179,7 +169,7 @@
 - El sistema debe cerrar la sesión activa del usuario al completar la eliminación.
 - La solicitud y su resolución deben quedar registradas en la auditoría del sistema.
 
-> **Fuera del alcance de la ES1:** eliminación selectiva de datos individuales (por ejemplo, solo el teléfono) y portabilidad de datos a otro prestador.
+> **Fuera del corte documentado:** eliminación selectiva de datos individuales (por ejemplo, solo el teléfono) y portabilidad de datos a otro prestador.
 
 ---
 
@@ -191,7 +181,7 @@
 **RF:** RQF-060 a RQF-085 · **CU:** CU-15, CU-16, CU-17
 
 **Como** arrendador con identidad verificada,
-**Quiero** registrar y publicar los detalles de mi espacio físico (quinchos, bodegas, estacionamientos, parcelas u otros),
+**Quiero** registrar y publicar los detalles de mi espacio físico (quinchos, bodegas, estacionamientos, parcelas u otros espacios habilitados en el catálogo del corte),
 **Para que** los interesados puedan visualizarlo, conocer sus características y solicitar su arriendo de forma digital.
 
 ### Criterios de Aceptación
@@ -199,7 +189,7 @@
 - El sistema debe comprobar que la publicación la solicita el titular vigente y que el anuncio satisface sus reglas. La identidad contractual se verifica al emitir el contrato.
 - El título del espacio debe cumplir un máximo de **70 caracteres**; si lo excede, el sistema debe mostrar *"El título no puede exceder los 70 caracteres"*.
 - La descripción del espacio debe contener al menos 100 caracteres.
-- El sistema debe permitir seleccionar el tipo de inmueble desde una lista predefinida, ingresar la superficie en metros cuadrados (mayor a cero) y establecer la capacidad máxima de personas.
+- El sistema debe permitir seleccionar el tipo de espacio entre las categorías habilitadas, ingresar la superficie en metros cuadrados (mayor a cero) y establecer la capacidad máxima de personas.
 - El sistema debe permitir configurar la modalidad tarifaria (por hora, día o mes) y el precio base, validando que sea superior a **$5.000 CLP**.
 - En la sección de ubicación, el sistema debe exigir la dirección completa y registrar la ubicación geográfica a partir de ella.
 - La galería admite 30 posiciones, incluidas las cargas reservadas, y permite ordenar las imágenes y definir la portada.
@@ -208,7 +198,7 @@
 
 > *(criterio de interfaz)* La pantalla de éxito debe incluir un botón "Ver mi publicación".
 
-> **Fuera del alcance de la ES1:** publicación asistida con migración automática de anuncios desde otras plataformas.
+> **Fuera del corte documentado:** publicación asistida con migración automática de anuncios desde otras plataformas.
 
 ---
 
@@ -229,7 +219,7 @@
 - Al guardar, el sistema debe solicitar confirmación (*"¿Está seguro de actualizar la información de este espacio?"*), actualizar los registros y mostrar *"Anuncio actualizado correctamente"*, redirigiendo al listado de espacios.
 - El sistema debe rechazar la eliminación permanente de una publicación que posea reservas futuras pendientes.
 
-> **Fuera del alcance de la ES1:** edición masiva de múltiples publicaciones simultáneas y versionado histórico de cada cambio de la publicación.
+> **Fuera del corte documentado:** edición masiva de múltiples publicaciones simultáneas y versionado histórico de cada cambio de la publicación.
 
 ---
 
@@ -249,7 +239,7 @@
 - El sistema debe asociar cada regla y la política de cancelación al identificador de la publicación correspondiente.
 - El sistema debe mostrar las reglas de uso y la política de cancelación en la vista de detalle de la publicación, de modo que el arrendatario las conozca antes de iniciar la reserva.
 
-> **Fuera del alcance de la ES1:** reglas con validación automática por sensores o accesos físicos, y penalizaciones automáticas por incumplimiento distinto a la garantía.
+> **Fuera del corte documentado:** reglas con validación automática por sensores o accesos físicos, y penalizaciones automáticas por incumplimiento distinto a la garantía.
 
 ---
 
@@ -287,7 +277,7 @@
 - El sistema debe permitir modificar esta información en cualquier momento desde la edición de la publicación.
 - El sistema debe mostrar el equipamiento y las condiciones descritas en la vista de detalle del espacio, junto con las fotografías de la galería.
 
-> **Fuera del alcance de la ES1:** **adicionales o equipamiento extra con tarifa propia** (ítems seleccionables con costo adicional que se sumen al desglose de cobro). Si el equipo decide incorporarlos, requieren nuevos RF, un caso de uso de gestión de adicionales y la actualización del desglose de cobro (RQF-107).
+> **Fuera del corte documentado:** **adicionales o equipamiento extra con tarifa propia** (ítems seleccionables con costo adicional que se sumen al desglose de cobro). Si el equipo decide incorporarlos, requieren nuevos RF, un caso de uso de gestión de adicionales y la actualización del desglose de cobro (RQF-107).
 
 ---
 
@@ -311,7 +301,7 @@
 
 > *(criterio de interfaz)* La búsqueda puede sugerir términos mientras el usuario escribe y no debe recargar la página completa.
 
-> **Fuera del alcance de la ES1:** buscador con indexación semántica o recomendaciones personalizadas por historial.
+> **Fuera del corte documentado:** buscador con indexación semántica o recomendaciones personalizadas por historial.
 
 ---
 
@@ -385,7 +375,7 @@
 - Las reservas finalizadas deben mostrarse en modo de solo lectura.
 - Si la cuenta no registra reservas, el sistema debe mostrar el estado vacío del historial.
 
-> **Fuera del alcance de la ES1:** el reemplazo del panel de favoritos. **"Guardar espacios en favoritos"** no forma parte del alcance: el catálogo y la búsqueda con filtros cubren la necesidad de volver a encontrar un espacio; si el equipo lo incorpora, requiere nuevos RF y un caso de uso de favoritos.
+> **Fuera del corte documentado:** el reemplazo del panel de favoritos. **"Guardar espacios en favoritos"** no forma parte del alcance: el catálogo y la búsqueda con filtros cubren la necesidad de volver a encontrar un espacio; si el equipo lo incorpora, requiere nuevos RF y un caso de uso de favoritos.
 
 ---
 
@@ -431,15 +421,25 @@
 
 ## HU17 - Pagar la renta mediante pasarela integrada
 
-**Historia.** Como participante del arriendo, quiero completar la contratación para conocer el estado de la reserva.
+**Épica:** E4 · **Rol:** Arrendatario · **Prioridad:** Alta
+**RF:** RQF-116 a RQF-120, RQF-128 y RQF-129 · **CU:** CU-24, CU-25 y CU-28
 
-**Criterios de aceptación.** La plataforma habilita la renta tras ambas aceptaciones, o tras ambas firmas en la modalidad SimpleFirma. Si aplica garantía habilitada, la plataforma abre su etapa después de acreditar la renta. El duplicado conserva el estado y el pago tardío ingresa a conciliación.
+**Como** arrendatario, **quiero** pagar la renta según la modalidad de mi emisión **para** confirmar mi reserva.
+
+### Criterios de aceptación
+
+- Tras ambas aceptaciones, o ambas firmas en la modalidad SimpleFirma, la plataforma habilita la renta. La garantía habilitada se acredita después y por separado. El pago tardío se concilia sin reactivar la reserva.
 
 ## HU18 - Confirmar la reserva y conservar la ocupación
 
-**Historia.** Como participante del arriendo, quiero completar la contratación para conocer el estado de la reserva.
+**Épica:** E4 · **Rol:** Participante de la reserva · **Prioridad:** Alta
+**RF:** RQF-110 a RQF-113 y RQF-116 · **CU:** CU-22, CU-23 y CU-24
 
-**Criterios de aceptación.** La plataforma activa un bloqueo cuando ambas partes verificadas acuerdan el horario y precio. Un intervalo activo solapado impide otro bloqueo. La plataforma confirma la reserva cuando cumple las condiciones contractuales y acredita los cobros exigibles. El vencimiento libera el bloqueo atómicamente.
+**Como** participante de la reserva, **quiero** conocer si mi reserva se confirma **para** coordinar el uso del espacio.
+
+### Criterios de aceptación
+
+- El bloqueo se activa tras verificar ambas identidades y acordar horario y precio. Un intervalo activo solapado impide otro bloqueo. La confirmación exige condiciones y cobros satisfechos.
 
 ## HU19 - Cancelación de reserva y gestión de devolución
 
@@ -459,20 +459,20 @@
 - El sistema debe notificar por correo a ambas partes la cancelación y el estado de la devolución de los fondos.
 - La plataforma registra la devolución aplicable contra el pago y pagador originales. El cierre de ocupación sigue su propia transición.
 
-> **Fuera del alcance de la ES1:** cancelación con reasignación automática a otro espacio, y seguros o reembolsos por causas de fuerza mayor.
+> **Fuera del corte documentado:** cancelación con reasignación automática a otro espacio, y seguros o reembolsos por causas de fuerza mayor.
 
 ---
 
 ## HU33 - Aceptar el contrato de arriendo
 
-Como participante de un arriendo, quiero revisar y aceptar la emisión contractual para conservar las condiciones acordadas.
+**Épica:** E4 · **Rol:** Participante del arriendo · **Prioridad:** Alta
+**RF:** RQF-130 a RQF-133 y RQF-138 · **CU:** CU-29 y CU-30
 
-**Criterios de aceptación**
+**Como** participante del arriendo, **quiero** revisar y aceptar la emisión **para** conservar las condiciones acordadas.
 
-- La plataforma exige identidad verificada de ambas partes antes de emitir.
-- La plataforma registra cada aceptación contra el identificador de la emisión. Un cambio de condiciones exige otra emisión y otra aceptación.
-- La ruta sin firma informa su modalidad y habilita la renta tras ambas aceptaciones.
-- Cuando ambas partes eligen SimpleFirma, la plataforma acredita los aportes antes de habilitar las firmas y habilita la renta tras ambas firmas.
+### Criterios de aceptación
+
+- Se exige identidad verificada antes de emitir. La plataforma registra aceptación por parte y emisión. Un cambio origina otra emisión. En la modalidad opcional, se acreditan los aportes antes de habilitar ambas firmas.
 
 ## Épica E5 — Disponibilidad y Calendario
 
@@ -494,7 +494,7 @@ Como participante de un arriendo, quiero revisar y aceptar la emisión contractu
 
 > *(criterio de interfaz)* El calendario debe distinguir los estados mediante colores y leyenda.
 
-> **Fuera del alcance de la ES1:** sincronización con calendarios externos en formato iCal y exportación del calendario.
+> **Fuera del corte documentado:** sincronización con calendarios externos en formato iCal y exportación del calendario.
 
 ---
 
@@ -532,15 +532,20 @@ Como participante de un arriendo, quiero revisar y aceptar la emisión contractu
 - Al seleccionar una reserva, el sistema debe mostrar su detalle, las fechas comprometidas y las acciones disponibles según su estado (aprobar, rechazar, confirmar recepción, abrir reclamo).
 - El sistema debe permitir al arrendador consultar únicamente las reservas de sus propias publicaciones.
 
-> **Fuera del alcance de la ES1:** **panel de estadísticas de ocupación y rentabilidad** (KPIs, gráficos por período y exportación de reportes del arrendador). El seguimiento operativo queda cubierto por el historial de reservas (CU-47). Si el equipo incorpora el panel de estadísticas, requiere nuevos RF y un caso de uso de reportes para el arrendador.
+> **Fuera del corte documentado:** **panel de estadísticas de ocupación y rentabilidad** (KPIs, gráficos por período y exportación de reportes del arrendador). El seguimiento operativo queda cubierto por el historial de reservas (CU-47). Si el equipo incorpora el panel de estadísticas, requiere nuevos RF y un caso de uso de reportes para el arrendador.
 
 ---
 
 ## HU23 - Mantener la disponibilidad del espacio
 
-**Como** titular, **quiero** consultar la ocupación del espacio **para** coordinar su uso sin solapamientos.
+**Épica:** E5 · **Rol:** Titular · **Prioridad:** Alta
+**RF:** RQF-112, RQF-120, RQF-129 y RQF-140 · **CU:** CU-22, CU-27 y CU-28
 
-**Criterios de aceptación.** El bloqueo inicia con ambas identidades verificadas y acuerdo de horario y precio. La autoridad de ocupación rechaza otro bloqueo solapado. La expiración o cancelación válida libera el intervalo correspondiente. El evento tardío ingresa a conciliación y los duplicados conservan el vencimiento.
+**Como** titular, **quiero** consultar la ocupación de mi espacio **para** coordinar el uso sin solapamientos.
+
+### Criterios de aceptación
+
+- La restricción de ocupación impide bloqueos activos solapados. El vencimiento libera solo el intervalo correspondiente. Un evento duplicado conserva el vencimiento y uno tardío entra a conciliación.
 
 ## HU24 - Configuración de disponibilidad recurrente
 
@@ -555,7 +560,7 @@ Como participante de un arriendo, quiero revisar y aceptar la emisión contractu
 - El horario semanal y los bloqueos manuales describen disponibilidad del espacio. La recurrencia de reservas permanece diferida en el ADR vigente.
 - Si el equipo incorpora la recurrencia, debe definir: días de la semana operativos, rango horario de apertura y cierre por día, validación de hora de cierre posterior a la de apertura, aplicación masiva de bloqueos fuera del patrón, y detección de colisión con reservas confirmadas.
 
-> **Fuera del alcance de la ES1:** horarios recurrentes, plantillas de disponibilidad por temporada y reglas automáticas de precio por demanda.
+> **Fuera del corte documentado:** horarios recurrentes, plantillas de disponibilidad por temporada y reglas automáticas de precio por demanda.
 
 ---
 
@@ -580,7 +585,7 @@ Como participante de un arriendo, quiero revisar y aceptar la emisión contractu
 - El sistema debe mostrar las reseñas y calificaciones del espacio en su vista de detalle.
 - El sistema debe permitir al arrendador reportar una reseña publicada que incumpla las reglas, quedando disponible para la moderación del administrador.
 
-> **Fuera del alcance de la ES1:** ventana de calificación recíproca con plazo de 14 días, límite de 500 caracteres por comentario y perfiles públicos con historial de evaluaciones del usuario.
+> **Fuera del corte documentado:** ventana de calificación recíproca con plazo de 14 días, límite de 500 caracteres por comentario y perfiles públicos con historial de evaluaciones del usuario.
 
 ---
 
@@ -601,7 +606,7 @@ Como participante de un arriendo, quiero revisar y aceptar la emisión contractu
 - El historial de la conversación queda disponible como antecedente cuando existe una disputa sobre la reserva.
 - El chat solo se habilita cuando existe una reserva entre las partes.
 
-> **Fuera del alcance de la ES1:** adjuntar archivos en el chat, indicadores de conexión en tiempo real, y notificaciones push por cada mensaje recibido.
+> **Fuera del corte documentado:** adjuntar archivos en el chat, indicadores de conexión en tiempo real, y notificaciones push por cada mensaje recibido.
 
 ---
 
@@ -624,7 +629,7 @@ Como participante de un arriendo, quiero revisar y aceptar la emisión contractu
 - El sistema debe permitir consultar el historial de auditoría de un usuario filtrando por RUT y exportar los registros consultados.
 - Toda acción crítica ejecutada por el administrador debe quedar registrada en la auditoría del sistema.
 
-> **Fuera del alcance de la ES1:** autenticación de doble factor para administradores y tablero de métricas globales en tiempo real (usuarios activos, volumen transaccionado).
+> **Fuera del corte documentado:** autenticación de doble factor para administradores y tablero de métricas globales en tiempo real (usuarios activos, volumen transaccionado).
 
 ---
 
@@ -644,7 +649,7 @@ Como participante de un arriendo, quiero revisar y aceptar la emisión contractu
 - Al ocultar la reseña, el sistema debe dejar de mostrarla en la vista pública del espacio.
 - La acción de moderación debe quedar registrada en la auditoría con el administrador responsable y la fecha.
 
-> **Fuera del alcance de la ES1:** moderación y suspensión de **anuncios** reportados (publicaciones), bandeja de denuncias con estados y apelaciones, y notificación automática al propietario por suspensión de anuncio.
+> **Fuera del corte documentado:** moderación y suspensión de **anuncios** reportados (publicaciones), bandeja de denuncias con estados y apelaciones, y notificación automática al propietario por suspensión de anuncio.
 
 ---
 
@@ -680,10 +685,10 @@ Como participante de un arriendo, quiero revisar y aceptar la emisión contractu
 **Para que** pueda resolver dudas o reportar problemas operativos.
 
 ### Criterios de Aceptación
-- **No implementado en la ES1.** El contacto con soporte se gestiona por el correo de contacto de la plataforma.
+- **Fuera del corte documentado.** El contacto con soporte se gestiona por el correo de contacto de la plataforma.
 - Si el equipo incorpora el centro de ayuda, debe definir: categorías de preguntas frecuentes, buscador predictivo, formulario de contacto con asunto y categoría, generación del ticket con código de seguimiento, notificación al usuario y gestión interna de los tickets.
 
-> **Fuera del alcance de la ES1:** centro de ayuda con FAQ, formulario de tickets, códigos de seguimiento y bandeja de soporte con estados.
+> **Fuera del corte documentado:** centro de ayuda con FAQ, formulario de tickets, códigos de seguimiento y bandeja de soporte con estados.
 
 ---
 
@@ -702,7 +707,7 @@ Como participante de un arriendo, quiero revisar y aceptar la emisión contractu
 - Si el servicio de correo o el proveedor externo presenta fallas, el sistema debe reintentar el envío conforme a las políticas de resiliencia (RNF-023, RNF-024) y registrarlo para auditoría.
 - El sistema debe informar al usuario en la interfaz el resultado de las operaciones críticas que generan notificación (pago, firma, disputa, cancelación).
 
-> **Fuera del alcance de la ES1:** centro de notificaciones dentro de la aplicación (campana con contador, marcado de leídas, historial en pantalla), notificaciones push en navegador y preferencias de notificación configurables por el usuario.
+> **Fuera del corte documentado:** centro de notificaciones dentro de la aplicación (campana con contador, marcado de leídas, historial en pantalla), notificaciones push en navegador y preferencias de notificación configurables por el usuario.
 
 ---
 
@@ -710,11 +715,14 @@ Como participante de un arriendo, quiero revisar y aceptar la emisión contractu
 
 ## HU35 - Registrar entrega y confirmar desocupación
 
-**Como** participante de un arriendo, **quiero** conservar evidencia de la entrega **para** cerrar el intervalo de uso.
+**Épica:** E9 · **Rol:** Arrendatario y titular · **Prioridad:** Alta
+**RF:** RQF-150, RQF-152, RQF-205 y RQF-206 · **CU:** CU-34 y CU-48
 
-**Criterios de aceptación.** El arrendatario registra la entrega y el titular confirma la desocupación. La confirmación libera solo el bloqueo de ese arriendo, conserva su contrato y habilita la republicación. El tratamiento de reclamos y garantías habilitadas se registra de forma separada.
+**Como** arrendatario y titular, **quiero** conservar evidencia de la entrega **para** cerrar el intervalo de uso.
 
-**Traza.** RQF-205 y RQF-206 · CU-34 y CU-48 · PT-08.
+### Criterios de aceptación
+
+- El arrendatario registra entrega y el titular confirma desocupación. El sistema libera solo el intervalo del arriendo, conserva el contrato y habilita republicación. Los reclamos y garantías se tratan de forma separada.
 
 ## Resumen de trazabilidad de las historias de usuario
 
@@ -756,7 +764,7 @@ Como participante de un arriendo, quiero revisar y aceptar la emisión contractu
 | HU34 | E6 | RQF-156–158 | CU-37, CU-38 |
 | HU35 | E9 | RQF-143–152, 203–206 | CU-33, CU-34, CU-48 |
 
-**Cobertura:** 33 de las 35 HU quedan implementadas por requerimientos funcionales del catálogo. Las 2 restantes (HU24 y HU29) están declaradas explícitamente **fuera del alcance de la ES1**, con los criterios que deberían definirse si el equipo decide incorporarlas.
+**Cobertura:** 33 de las 35 historias tienen requisitos asociados. Las dos restantes (HU24 y HU29) quedan fuera del corte documentado, con los criterios que deberían definirse si el equipo decide incorporarlas.
 
 ### Cobertura de los módulos del sistema por historias de usuario
 
@@ -775,35 +783,3 @@ Como participante de un arriendo, quiero revisar y aceptar la emisión contractu
 | M11 — Administración y Auditoría | HU26, HU27, HU28 | Cubierto |
 
 **Resultado: 11/11 módulos cubiertos por al menos una historia de usuario.**
-
-## Correcciones aplicadas respecto de la versión anterior (antecedente histórico)
-
-| HU | Corrección aplicada |
-|---|---|
-| HU01 | El estado de la cuenta al registrarse se corrige de "activo" a **"No Verificado"**; la selección de rol pasa a **preferencia de uso no excluyente** (RQF-213); se agrega la aceptación de términos y condiciones (RQF-186, RQF-187) y el reenvío del token (RQF-188). |
-| HU02 | El bloqueo se corrige de **3 intentos / 5 minutos** a **5 intentos / 30 minutos** (RQF-015, RQF-017); se agrega el cierre de sesión (RQF-023) y el bloqueo por cuenta no verificada (RQF-010). |
-| HU03 | El enlace de recuperación se corrige de **10 a 15 minutos** (RQF-021); se separa el escenario de cambio autenticado del de recuperación y se agregan sus RF (RQF-214 a RQF-218). |
-| HU04 | Se elimina el **Pasaporte** (el catálogo valida la Cédula ante el Registro Civil) y se incorpora el escenario **KYB (empresa)**, que no existía en ninguna HU; el peso máximo de archivo se fija en 10 MB (RQF-219) y se agrega el estado "Pendiente de Verificación" (RQF-220). |
-| HU05 | Título máximo corregido de **100 a 70 caracteres** (RQF-063); precio mínimo corregido de **"> 0" a "> $5.000 CLP"** (RQF-073); se elimina el mínimo de 3 imágenes y se mantiene el máximo de 10 (RQF-075); se incorporan las validaciones de superficie, descripción y estados Borrador/Activa. |
-| HU06 | Se agrega la validación del precio modificado (RQF-221) y se alinean los campos editables con RQF-195 a RQF-198. |
-| HU07 | Se incorpora la política de cancelación (RQF-223, RQF-224) y la validación de 250 caracteres (RQF-222). |
-| HU08 | Se corrige la regla: ocultar una publicación **no** se bloquea por reservas vigentes; solo se bloquea la **eliminación permanente** con reservas futuras (RQF-092). |
-| HU09 | Se reescribe como descripción de equipamiento incluido. Los **adicionales con tarifa propia** quedan declarados fuera de alcance (requerirían nuevos RF y un caso de uso, además de modificar el desglose de cobro RQF-107). |
-| HU14 | Se reemplaza "favoritos" por **consulta del historial de reservas** (RQF-199, CU-47), que sí está en el alcance y cubre la necesidad operativa; se documentó "favoritos" como fuera de alcance. |
-| HU17 | Se elimina **Transbank** como alternativa: la pasarela del proyecto es **Mercado Pago**; se agrega la exigencia de identidad verificada antes de pagar (RQF-227) y la notificación de pago rechazado (RQF-201). |
-| HU18 | Se elimina el comprobante PDF independiente (fuera de alcance: la constancia es el contrato firmado) y se corrige "ingresos acreditados" por **fondos retenidos en custodia** (RQF-117). |
-| HU19 | Se alinea la cancelación a la **política de cancelación configurada** y se agregan los RF de cancelación, cálculo de devolución, reembolso y notificación (RQF-226 a RQF-231). |
-| HU20 | Se elimina la sincronización iCal (fuera de alcance) y se mantiene el control de disponibilidad con bloqueo/desbloqueo (RQF-084, RQF-085). |
-| HU21 | Se agregan el motivo obligatorio del bloqueo (RQF-225) y la validación de fechas (RQF-226). |
-| HU22 | Se convierte en **consulta del historial de reservas del arrendador** (RQF-199, CU-47); el panel de estadísticas de ocupación queda fuera de alcance. |
-| HU25 | Se incorpora la **calificación y reseña recíproca** del arrendador hacia el arrendatario (RQF-232, RQF-233), el bloqueo de una segunda reseña (RQF-234) y el cálculo del promedio (RQF-235); el plazo de 14 días y el límite de 500 caracteres quedan fuera de alcance. |
-| HU26 | Se alinean las funciones al catálogo: búsqueda y bloqueo de cuentas (RQF-212, RQF-178–180), reportes (RQF-183), auditoría (RQF-184, RQF-185) y listado de espacios (RQF-236); 2FA y tablero de métricas quedan fuera de alcance. |
-| HU27 | Se acota a la moderación de **reseñas reportadas** (RQF-181, RQF-182, RQF-207); la suspensión de anuncios reportados queda fuera de alcance. |
-| HU28 | Se agrega el uso de la confirmación de recepción como evidencia (RQF-209) y la notificación del resultado a las partes (RQF-210). |
-| HU29 | Se declara fuera del alcance de la ES1. |
-| HU30 | Se reescribe sobre las notificaciones que el sistema efectivamente emite por correo (RF de notificación del catálogo); el centro de notificaciones en la aplicación y las preferencias de alerta quedan fuera de alcance. |
-| Todas | Se reemplaza "Propietario"/"anfitrión" por **Arrendador** y "cliente" por **Arrendatario**; se agrega épica, prioridad, RF y CU a cada HU. |
-| HU31, HU32 (nuevas) | Se crearon para cubrir el módulo **M02 (Perfil y Privacidad)**, que no tenía ninguna historia: gestión del perfil, fotografía y cuenta bancaria (HU31) y ejercicio del derecho de eliminación de la cuenta (HU32, Ley 21.719). |
-| HU33 (nueva) | Se creó para cubrir el módulo **M07 (Contratos y Firma Electrónica)**, que no tenía historia: generación automática del contrato, firma electrónica por ambas partes, rechazo de firma y cancelación por falta de firma. |
-| HU34 (nueva) | Se creó para cubrir la mensajería entre las partes del módulo **M09 (Comunicación y Reputación)**, que no estaba reflejada en ninguna historia. |
-| HU35 (nueva) | Se creó para cubrir el módulo **M08 (Check-in y Check-out)**, que no tenía historia: check-in con evidencia, check-out y confirmación de recepción por el arrendador. |

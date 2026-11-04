@@ -9,7 +9,7 @@ actor "Usuario Registrado" as USR
 actor "Administrador" as ADMIN
 actor "Proveedor habilitado\n(cuando corresponde)" as EXT
 
-rectangle "EspaciGo — Sistema de Marketplace SaaS B2B2C de Espacios Comerciales" {
+rectangle "espaciGo — Plataforma de arriendo flexible de espacios" {
   package "M03 — Verificación de Identidad (KYC / KYB)" {
     usecase "CU-10 Validar Identidad" as CU10
     usecase "CU-11 Validar Identidad de Persona Natural (KYC)" as CU11

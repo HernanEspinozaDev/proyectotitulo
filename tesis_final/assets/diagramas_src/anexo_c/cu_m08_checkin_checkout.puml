@@ -8,7 +8,7 @@ skinparam packageStyle rectangle
 actor "Arrendatario" as ARREN
 actor "Titular" as ARR
 
-rectangle "EspaciGo — Sistema de Marketplace SaaS B2B2C de Espacios Comerciales" {
+rectangle "espaciGo — Plataforma de arriendo flexible de espacios" {
   package "M08 — Check-in y Check-out" {
     usecase "CU-33 Realizar Check-in con Evidencia" as CU33
     usecase "CU-34 Registrar entrega" as CU34

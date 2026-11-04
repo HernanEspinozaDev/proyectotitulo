@@ -10,7 +10,7 @@ actor "Arrendatario" as ARREN
 actor "Administrador" as ADMIN
 actor "Mercado Pago\n(Pasarela de pagos externa)" as MP
 
-rectangle "EspaciGo — Sistema de Marketplace SaaS B2B2C de Espacios Comerciales" {
+rectangle "espaciGo — Plataforma de arriendo flexible de espacios" {
   package "M10 — Disputas y conciliación" {
     usecase "CU-39 Registrar Reclamo por Daños" as CU39
     usecase "CU-40 Presentar Descargos ante Disputa" as CU40
