@@ -4,7 +4,7 @@
 
 La organización operadora se define como una propuesta para prestar el servicio de intermediación. El diseño organizacional identifica funciones necesarias para operar la plataforma y asignar responsabilidades sobre decisiones, datos e incidentes.
 
-**Misión.** Facilitar el arriendo flexible de espacios no residenciales mediante información clara sobre la oferta, control de disponibilidad y evidencia de contratación.
+**Misión.** Facilitar el arriendo flexible de espacios ofrecidos por personas y organizaciones mediante información clara sobre la oferta, control de disponibilidad y evidencia de contratación.
 
 **Visión.** Consolidar un servicio de arriendo flexible que demuestre su utilidad para titulares y arrendatarios y pueda ampliar su cobertura cuando exista evidencia operativa y comercial.
 
@@ -15,6 +15,8 @@ La organización operadora se define como una propuesta para prestar el servicio
 La organización prioriza comprobar el recorrido de arriendo, establecer criterios de operación y evaluar la adopción por segmento. La expansión comercial depende de la evidencia que produzca la operación inicial.
 
 ## 6.3. Estructura funcional
+
+La Figura 5 presenta las funciones de gestión, desarrollo y operación del equipo de titulación.
 
 **Figura 5**\
 *Estructura funcional del proyecto*
@@ -38,5 +40,7 @@ La organización prioriza comprobar el recorrido de arriendo, establecer criteri
 *Nota.* Elaboración propia. La matriz distingue capacidades observadas y supuestos para evaluación.
 
 ## 6.5. Vistas de arquitectura empresarial
+
+La estructura de la Figura 5 asigna responsabilidades internas. En la operación, una persona puede actuar por cuenta propia o con representación acreditada cuando corresponde. La plataforma evalúa su relación con el recurso y la capacidad de la acción. La Tabla 6 orienta los controles de operación.
 
 La vista de negocio organiza oferta, búsqueda, contratación y soporte. La vista de aplicaciones asigna esas funciones a los módulos y a sus interfaces externas. La vista de datos identifica los responsables de titularidad, ocupación, emisiones y pagos. La vista tecnológica separa el prototipo y los entornos de ensayo del entorno objetivo. Los capítulos VIII, IX y XI desarrollan esas vistas. El Anexo C asigna casos a los módulos, el Anexo D documenta las relaciones físicas y el Anexo E identifica los contratos de interfaz.
