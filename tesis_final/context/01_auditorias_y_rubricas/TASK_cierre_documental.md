@@ -70,3 +70,7 @@ La exportación del cierre contiene 498 páginas. Se verifican los 22 destinos p
 ### Catálogo vigente y pruebas condicionadas al código
 
 El proyecto confirma nueve categorías. La Tabla E.2 incorpora Inmuebles con casa, departamento, habitación y cabaña. La Tabla E.1 conserva su versión de OpenAPI y el texto distingue ese corte del catálogo vigente. El Capítulo XI identifica Mercado Pago y SimpleFirma como proveedores previstos, ambos pendientes de habilitación. La Tabla F.4 registra las verificaciones de proveedores, garantía, catálogo, carga y recuperación que se integran cuando el código correspondiente está listo y existe evidencia de ejecución.
+
+## Rectificación posterior al cierre anterior
+
+La [tarea de rectificación de consistencia](TASK_rectificacion_consistencia.md) registra los hallazgos de la nueva auditoría y el contraste con el ADR local. El cierre de esta ronda se registra por separado conforme se verifica cada capítulo.
