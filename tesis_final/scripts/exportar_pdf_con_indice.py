@@ -100,7 +100,12 @@ def export_pdf(source, target):
                 update_indexes(document)
                 output = temporary / target.name
                 document.storeToURL(
-                    output.as_uri(), properties(FilterName='writer_pdf_Export')
+                    output.as_uri(), properties(
+                        FilterName='writer_pdf_Export',
+                        FilterData=uno.Any('[]com.sun.star.beans.PropertyValue', properties(
+                            UseLosslessCompression=True,
+                        )),
+                    )
                 )
             finally:
                 document.close(True)

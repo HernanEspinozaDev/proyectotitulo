@@ -1,11 +1,15 @@
 @startuml
 !pragma layout smetana
-skinparam dpi 200
+skinparam dpi 300
+skinparam ranksep 16
+skinparam nodesep 20
+skinparam ArrowFontSize 14
 skinparam shadowing false
 skinparam state {
   BackgroundColor #EDF4FC
   BorderColor #345575
   FontColor #132A43
+  FontSize 16
 }
 [*] --> Solicitada
 Solicitada --> Acuerdo : acuerdo de horario y precio

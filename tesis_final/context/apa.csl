@@ -71,6 +71,7 @@
   <locale xml:lang="es">
     <terms>
       <term name="from">de</term>
+      <term name="retrieved">recuperado el</term>
     </terms>
   </locale>
   <locale xml:lang="fr">
@@ -1853,12 +1854,16 @@
       <else-if variable="URL">
         <group delimiter=" ">
           <choose>
-            <if match="none" variable="issued status">
-              <text term="retrieved" text-case="capitalize-first"/>
-              <group delimiter=", ">
-                <date form="text" variable="accessed"/>
-                <text term="from"/>
-              </group>
+            <if variable="accessed">
+              <choose>
+                <if match="none" variable="issued status">
+                  <text term="retrieved" text-case="capitalize-first"/>
+                  <group delimiter=", ">
+                    <date form="text" variable="accessed"/>
+                    <text term="from"/>
+                  </group>
+                </if>
+              </choose>
             </if>
           </choose>
           <text variable="URL"/>

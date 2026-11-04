@@ -45,7 +45,9 @@ def render_plantuml(src_path: Path, out_path: Path):
         ]
     else:
         cmd = ["npx", "-y", "node-plantuml", "generate", str(src_path), "-o", str(out_path)]
-    res = subprocess.run(cmd, capture_output=True, text=True)
+    environment = os.environ.copy()
+    environment.setdefault("PLANTUML_LIMIT_SIZE", "8192")
+    res = subprocess.run(cmd, capture_output=True, text=True, env=environment)
     if res.returncode != 0:
         print(f"[ERROR] PlantUML rendering failed for {src_path.name}:", file=sys.stderr)
         print(res.stderr, file=sys.stderr)

@@ -7,6 +7,7 @@ En el ámbito de la Ingeniería de Software contemporánea, la gestión de proye
 ### 5.1.1. Gobernanza (PMBOK) y Ciclo de Vida del Software (Iterativo-Incremental)
 
 Para garantizar el cumplimiento de los objetivos académicos e industriales de **espaciGo**, se adopta formalmente un **Enfoque Metodológico Híbrido**:
+
 1. **Marco de Gobernanza y Gestión:** Se fundamenta en las mejores prácticas del estándar **PMBOK** (*Project Management Body of Knowledge*, 7ma Edición). Este marco proporciona la estructura formal para definir y controlar la **Línea Base del Alcance** mediante la **Estructura de Desglose del Trabajo (EDT/WBS)**, la gestión de riesgos sistémicos, la asignación de recursos y el aseguramiento del cronograma.
 2. **Modelo de Ciclo de Vida de Construcción:** Se adopta un modelo **Iterativo e Incremental**. La ingeniería de detalle, codificación y pruebas se organizan en ciclos sucesivos e incrementales donde cada fase entrega un incremento funcional, verificable e integrable de la plataforma, mitigando riesgos de arquitectura de forma temprana.
 
@@ -48,6 +49,7 @@ La gestión del alcance asegura que el proyecto incluya todo el trabajo requerid
 ### 5.2.1. Criterios de Delimitación y Línea Base del Alcance
 
 La Línea Base del Alcance se integra por tres componentes oficiales:
+
 1. El Enunciado del Alcance del Proyecto (detallado en el Capítulo IV).
 2. La **Estructura de Desglose del Trabajo (EDT/WBS)**.
 3. El **Diccionario de la EDT**.
@@ -104,8 +106,10 @@ La Figura 4 organiza los paquetes de trabajo en seis ramas. El desglose textual 
 ### 5.2.3. Diccionario de la EDT y Entregables Principales
 
 Cada paquete de trabajo de nivel 3 cuenta con una ficha técnica que define su alcance y criterios de aceptación. A modo de síntesis ejecutiva:
+
 *   **Paquete 1.3.3 (Modelado de Datos Geoespacial):** Entrega el esquema DDL de 110 tablas en PostgreSQL con índices GiST para operadores espaciales y rangos `tstzrange`. Criterio de aceptación: consultas y restricciones verificadas contra los criterios del Capítulo VII.
 *   **Paquete 1.4.3 (Contratación y Cobros Diferenciados):** Entrega un recorrido sintético de reserva y conciliación y define los criterios de habilitación externa. Criterio de aceptación: La aceptación requiere comprobar la conciliación según el alcance del ensayo y los criterios del Anexo F.
+
 El Capítulo XIII registra el avance y la evidencia de cada incremento.
 
 ---
@@ -160,7 +164,7 @@ La Figura 5 sitúa los riesgos por probabilidad e impacto. La Tabla 5 desarrolla
 
 ![](assets/figuras/mapa_riesgos.png)
 
-*Nota.* Elaboración propia a partir de la Tabla 5. Cada celda indica el producto de probabilidad e impacto. Los códigos identifican los riesgos evaluados.
+*Nota.* Elaboración propia a partir de la Tabla 5. Cada celda indica el producto de probabilidad e impacto. Los códigos identifican los riesgos evaluados. Los niveles bajo, medio y alto corresponden a la clasificación de la Tabla 5.
 
 **Tabla 5**  
 *Matriz de Probabilidad e Impacto de Riesgos del Proyecto*

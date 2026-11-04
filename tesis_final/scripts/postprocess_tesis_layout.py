@@ -193,6 +193,12 @@ def postprocess():
                 if outline is None:
                     outline = ET.SubElement(properties, f'{W}outlineLvl')
                 outline.set(f'{W}val', '9')
+                indent = properties.find(f'{W}ind')
+                if indent is None:
+                    indent = ET.SubElement(properties, f'{W}ind')
+                indent.attrib.pop(f'{W}firstLine', None)
+                indent.set(f'{W}left', '720')
+                indent.set(f'{W}hanging', '720')
             for link in paragraph.findall(f'{W}hyperlink'):
                 label = ''.join(node.text or '' for node in link.iter(f'{W}t'))
                 if label == 'https://www.bcn.cl/leychile/navegar?idNorma=1178004':
