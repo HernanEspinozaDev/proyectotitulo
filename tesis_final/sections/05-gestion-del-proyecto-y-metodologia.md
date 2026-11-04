@@ -17,16 +17,16 @@ Para fundamentar la selección del enfoque híbrido frente a alternativas (Casca
 **Tabla 3**  
 *Matriz Multicriterio Ponderada de Selección Metodológica*
 
-| Criterio de Selección | Ponderación | Cascada Tradicional | Scrum Puro | **Modelo Híbrido (PMBOK + Iterativo)** | Justificación Técnica |
-|---|:---:|:---:|:---:|:---:|---|
-| **Predictibilidad y Control del Alcance** | 25% | 4 / 5 | 2 / 5 | **5 / 5** | El Anexo A fija una línea base de 236 requisitos funcionales. La EDT registra cambios de alcance por incremento. |
-| **Fijeza de Plazos Académicos Institucionales** | 25% | 3 / 5 | 2 / 5 | **5 / 5** | Las fechas de titulación universitaria son inflexibles. La evaluación pondera la capacidad de organizar entregas parciales dentro del calendario académico. |
-| **Mitigación Temprana de Riesgos Técnicos** | 20% | 1 / 5 | 5 / 5 | **4 / 5** | La evaluación compara la frecuencia con que cada propuesta del proyecto incorpora pruebas y revisión de riesgos. |
-| **Control Formal de EDT y Recursos** | 15% | 4 / 5 | 1 / 5 | **5 / 5** | La evaluación considera el grado de integración de la EDT y la asignación de responsabilidades con los controles del proyecto. |
-| **Trazabilidad de Pruebas y Calidad (QA)** | 15% | 2 / 5 | 4 / 5 | **5 / 5** | Permite vincular cada paquete de trabajo de la EDT con matrices de prueba unitarias, de integración y rendimiento. |
-| **Puntaje Ponderado Total** | **100%** | **2,85 / 5,00** | **2,75 / 5,00** | **4,80 / 5,00** | **Selección Ganadora: Modelo Híbrido** |
+| Criterio de selección | Peso | Valoraciones | Justificación técnica |
+|--------------------------|:----------:|---------------------|-----------------------------------------|
+| **Predictibilidad y Control del Alcance** | 25% | 4 / 5 · 2 / 5 · **5 / 5** | El Anexo A fija una línea base de 236 requisitos funcionales. La EDT registra cambios de alcance por incremento. |
+| **Fijeza de Plazos Académicos Institucionales** | 25% | 3 / 5 · 2 / 5 · **5 / 5** | Las fechas de titulación universitaria son inflexibles. La evaluación pondera la capacidad de organizar entregas parciales dentro del calendario académico. |
+| **Mitigación Temprana de Riesgos Técnicos** | 20% | 1 / 5 · 5 / 5 · **4 / 5** | La evaluación compara la frecuencia con que cada propuesta del proyecto incorpora pruebas y revisión de riesgos. |
+| **Control Formal de EDT y Recursos** | 15% | 4 / 5 · 1 / 5 · **5 / 5** | La evaluación considera el grado de integración de la EDT y la asignación de responsabilidades con los controles del proyecto. |
+| **Trazabilidad de Pruebas y Calidad (QA)** | 15% | 2 / 5 · 4 / 5 · **5 / 5** | Permite vincular cada paquete de trabajo de la EDT con matrices de prueba unitarias, de integración y rendimiento. |
+| **Puntaje Ponderado Total** | **100%** | **2,85 / 5,00** · **2,75 / 5,00** · **4,80 / 5,00** | **Selección Ganadora: Modelo Híbrido** |
 
-*Nota.* Elaboración propia. Cada criterio se valora de 1 a 5 para este proyecto, donde 1 indica ajuste bajo y 5 ajuste alto. El total suma cada valoración multiplicada por su ponderación [@pmbok7].
+*Nota.* Elaboración propia. Cada criterio se valora de 1 a 5 para este proyecto, donde 1 indica ajuste bajo y 5 ajuste alto. Las valoraciones se presentan en el orden cascada, Scrum y modelo híbrido. El total suma cada valoración multiplicada por su ponderación [@pmbok7].
 
 ### 5.1.3. Modelo de Fases e Incrementos del Ciclo de Vida
 
@@ -122,8 +122,8 @@ La asignación de responsabilidades sobre los paquetes principales de la EDT se 
 **Tabla 4**  
 *Matriz de Asignación de Responsabilidades (RACI) del Equipo Fundador*
 
-| Paquete de Trabajo de la EDT | Hernán Espinoza (Líder Arquitectura y Backend) | Anita Marchant (Líder Frontend y Negocio) | Erick Silva (Líder Ciberseguridad y DevOps) |
-|---|:---:|:---:|:---:|
+| Paquete de Trabajo de la EDT | Hernán Espinoza | Anita Marchant | Erick Silva |
+|----------------------------------------|:------------------:|:------------------:|:------------------:|
 | **1.1. Gestión y Gobernanza del Proyecto** | **C** | **A / R** | **C** |
 | **1.2. Requerimientos y Modelado BPMN** | **R** | **A / R** | **C** |
 | **1.3. Arquitectura TOGAF y Hexagonal** | **A / R** | **C** | **R** |
@@ -134,7 +134,7 @@ La asignación de responsabilidades sobre los paquetes principales de la EDT se 
 
 *Convención: **R** = Responsable de ejecutar la tarea; **A** = Aprobador último / Responsable final; **C** = Consultado técnicamente; **I** = Informado.*
 
-*Nota.* Elaboración propia. La fila 1.6.1 identifica el responsable operativo de despliegue. La planificación y evaluación económica detalladas se conservan en la sección 5.3, el Capítulo XII y los anexos G y H.
+*Nota.* Elaboración propia. Hernán Espinoza lidera arquitectura y backend. Anita Marchant lidera frontend y negocio. Erick Silva lidera ciberseguridad y DevOps. La fila 1.6.1 identifica el responsable operativo de despliegue. La planificación y evaluación económica detalladas se conservan en la sección 5.3, el Capítulo XII y los anexos G y H.
 
 ### 5.4.2. Registro de esfuerzo
 
@@ -149,12 +149,12 @@ La gestión de riesgos identifica, evalúa y mitiga tempranamente amenazas técn
 **Tabla 5**  
 *Matriz de Probabilidad e Impacto de Riesgos del Proyecto*
 
-| ID | Riesgo Identificado | Categoría | Probabilidad | Impacto | Severidad | Estrategia de Mitigación |
-|:---:|---|:---:|:---:|:---:|:---:|---|
-| **R-01** | Doble reserva concurrente en espacios de alta demanda. | Técnico | Media (3) | Crítico (5) | **Alta (15)** | Implementación de índices de exclusión GiST (`tstzrange`) a nivel de motor de datos en PostgreSQL 18. |
-| **R-02** | Caída o degradación de la pasarela de pagos durante un arriendo. | Externo | Baja (2) | Crítico (5) | **Media (10)** | Manejo de reintentos idempotentes y registro de transacciones con estado *Pending* para conciliación asíncrona. |
-| **R-03** | Vulnerabilidad de datos personales sensibles (Ley 21.719). | Ciberseguridad | Baja (2) | Crítico (5) | **Media (10)** | Control de acceso por finalidad, protección de archivos y comprobación de permisos tras restaurar. |
-| **R-04** | Desajuste en el calendario académico y fechas de entrega. | Gestión | Media (3) | Mayor (4) | **Alta (12)** | Control estricto de la EDT y congelamiento de alcance en compuertas de fase (*phase gates*). |
-| **R-05** | Rechazo legal de contratos generados dinámicamente. | Legal | Baja (1) | Mayor (4) | **Baja (4)** | Revisar las modalidades, sus condiciones y la evidencia requerida antes de habilitar integraciones. |
+| ID | Riesgo y categoría | Evaluación | Estrategia de mitigación |
+|:---------:|--------------------------|-------------------------|-------------------------------------|
+| **R-01** | Doble reserva concurrente en espacios de alta demanda. Categoría: Técnico. | Media (3) · Crítico (5) · **Alta (15)** | Implementación de índices de exclusión GiST (`tstzrange`) a nivel de motor de datos en PostgreSQL 18. |
+| **R-02** | Caída o degradación de la pasarela de pagos durante un arriendo. Categoría: Externo. | Baja (2) · Crítico (5) · **Media (10)** | Manejo de reintentos idempotentes y registro de transacciones con estado *Pending* para conciliación asíncrona. |
+| **R-03** | Vulnerabilidad de datos personales sensibles (Ley 21.719). Categoría: Ciberseguridad. | Baja (2) · Crítico (5) · **Media (10)** | Control de acceso por finalidad, protección de archivos y comprobación de permisos tras restaurar. |
+| **R-04** | Desajuste en el calendario académico y fechas de entrega. Categoría: Gestión. | Media (3) · Mayor (4) · **Alta (12)** | Control estricto de la EDT y congelamiento de alcance en compuertas de fase (*phase gates*). |
+| **R-05** | Rechazo legal de contratos generados dinámicamente. Categoría: Legal. | Baja (1) · Mayor (4) · **Baja (4)** | Revisar las modalidades, sus condiciones y la evidencia requerida antes de habilitar integraciones. |
 
-*Nota.* Elaboración propia según metodología de gestión de riesgos PMBOK [@pmbok7].
+*Nota.* Elaboración propia según la metodología de gestión de riesgos PMBOK [@pmbok7]. La evaluación presenta la probabilidad, el impacto y la severidad en ese orden.
