@@ -4,9 +4,9 @@
 
 La vista de negocio define oferta, búsqueda, contratación y entrega. La vista de aplicaciones ubica la interfaz, la API y los módulos. La vista de datos asigna autoridades a ocupación, contrato y pagos y separa los archivos privados. La vista de infraestructura identifica los entornos y los controles de despliegue que desarrolla el Capítulo XI.
 
-La Figura 7 organiza las cuatro vistas que se contrastan con los anexos D y E.
+La Figura 6 organiza las cuatro vistas que se contrastan con los anexos D y E.
 
-**Figura 7**\
+**Figura 6**\
 *Vistas de arquitectura de espaciGo*
 
 ![](assets/figuras/fig07_arquitectura_togaf_capas.png){height=11cm}
@@ -21,7 +21,7 @@ El diseño asigna la autoridad de ocupación a PostgreSQL y utiliza PostGIS para
 
 ## 8.3. Presentación y contrato de aplicación
 
-La interfaz Next.js consume la API Go a través de los adaptadores de la aplicación y de la ruta BFF cuando corresponde. El contrato de acceso debe preservar la autorización sobre cada recurso desde la entrada hasta la operación de dominio. El Anexo E identifica el corte de OpenAPI y separa las rutas de ensayo.
+La interfaz Next.js consume la API Go a través de los adaptadores de la aplicación y de la ruta BFF cuando corresponde. El contrato de acceso debe preservar la autorización sobre cada recurso desde la entrada hasta la operación de dominio. La Tabla F.3 registra evidencia parcial de denegación en el perfil documental. El Anexo E identifica el corte de OpenAPI y separa las rutas de ensayo.
 
 ## 8.4. Decisiones y criterios de revisión
 

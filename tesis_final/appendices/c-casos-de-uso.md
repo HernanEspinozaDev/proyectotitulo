@@ -389,7 +389,7 @@
 | **Flujo principal** | Preparar el borrador y solicitar publicación. La plataforma comprueba titularidad y reglas del anuncio. |
 | **Flujos alternativos** | Denegar por falta de titularidad o conservar borrador con observaciones. |
 | **Postcondiciones** | La publicación válida se vuelve visible. |
-| **Referencias cruzadas** | RQF-081 y RQF-082 · HU05 · Figura 8 |
+| **Referencias cruzadas** | RQF-081 y RQF-082 · HU05 · Figura 7 |
 
 ### CU-16: Administrar la galería
 
@@ -512,7 +512,7 @@
 
 *Nota.* Elaboración propia. La figura representa los casos de uso del alcance objetivo según el ADR.
 
-El flujo de actividad de la Figura 9 del Capítulo IX documenta las ramas de cobro y vencimiento. CU-23 verifica disponibilidad durante CU-22. CU-25 se ejecuta cuando la garantía corresponde y está habilitada. CU-27 y CU-28 describen expiración y conciliación.
+El flujo de actividad de la Figura 8 del Capítulo IX documenta las ramas de cobro y vencimiento. CU-23 verifica disponibilidad durante CU-22. CU-25 se ejecuta cuando la garantía corresponde y está habilitada. CU-27 y CU-28 describen expiración y conciliación.
 
 ### CU-22: Solicitar un intervalo de reserva
 
@@ -645,7 +645,7 @@ El flujo de actividad de la Figura 9 del Capítulo IX documenta las ramas de cob
 
 *Nota.* Elaboración propia. La figura representa los casos de uso del alcance objetivo según el ADR.
 
-La Figura 9 del Capítulo IX documenta las dos modalidades de contratación. CU-29 registra la aceptación. CU-30 se ejecuta cuando ambas partes eligen la firma opcional. CU-31 permite consultar la emisión y CU-32 trata el vencimiento de la etapa de firma.
+La Figura 8 del Capítulo IX documenta las dos modalidades de contratación. CU-29 registra la aceptación. CU-30 se ejecuta cuando ambas partes eligen la firma opcional. CU-31 permite consultar la emisión y CU-32 trata el vencimiento de la etapa de firma.
 
 ### CU-29: Emitir y aceptar el contrato
 

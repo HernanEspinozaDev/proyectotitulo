@@ -39,3 +39,30 @@ La [auditoría de tablas y anexos](auditoria_tablas_y_anexos.md) comprueba las 1
 El [plan de revisión por capítulo](plan_revision_por_capitulo.md) registra la instrucción de alcance amplio, las auditorías separadas y la publicación de cada corte verificado en `main`.
 
 Las 16 auditorías de los chats terminaron. La [matriz de integración](matriz_integracion_auditorias.md) asigna propietario, dependencia y verificación de cierre a cada corrección. El siguiente corte es preliminares y manifiesto.
+
+## Aplicación de las auditorías por capítulo
+
+Los chats propietarios reciben el commit de su corte para revisar el diff en modo de solo lectura. El cierre transversal incorpora los hallazgos confirmados de esos recibos.
+
+| Corte | Commit de edición | Cambio principal |
+|---|---|---|
+| Preliminares | `2631f16` | Título y resumen de alcance amplio. Se retiran textos provisionales de portada, dedicatoria y agradecimientos. |
+| I | `ef70cb1` | Oferentes, usos y ejemplos objetivo. Mercado de oficinas acotado a su segmento. |
+| II | `d4c731f` | Diagnóstico transversal y unidad exclusiva. Se retira la fuente Mermaid divergente de la Figura 1. |
+| III | `3faa830` | Marco teórico alineado al dominio, referencias a arquitectura, datos y evidencia. |
+| IV | `ee6ce13` | Objetivo, segmentos, Canvas y reglas de servicio objetivo. |
+| V | `bd15857` | Escala, método de ponderación y justificación contextual. Sección 5.3 intacta. |
+| VI | `ac8171b` | Misión amplia, funciones y distinción entre persona, representación y permisos. |
+| VII y A–C | `a56c29f` | Cinco HU y veinte CU recuperan estructura uniforme. Se corrige la cobertura documental y se archivan notas históricas. Se actualizan los diagramas que restringían el sistema a espacios comerciales. |
+| VIII y E | `5958a71` | Contrato por commit y ocho categorías del corte, diferenciadas del alcance objetivo. |
+| IX y D | `49c8017` | Referencias explícitas a figuras. Unidad exclusiva y diferencia entre capacidad, categoría e inventario compartido. |
+| X y F | `80d4fd2` | Evidencia por perfil, límites por categoría y trazabilidad parcial a PT-07. |
+| XI | `90b969d` | Configuración fechada, autorización como criterio y ensayos operativos pendientes. |
+| XII, G y H | Reservado | Contenido intacto. Se revisan las remisiones externas. |
+| XIII | `989a889` | Estados de objetivos y vínculos a evidencia. |
+| XIV | `c0c5551` | Conclusiones por alcance, resultado y dependencia externa. |
+| Referencias y cierre | Commit de exportación | Numeración correlativa de 14 figuras y 12 tablas. Se concilian las trazas de las fichas con sus tablas resumen y se verifican referencias e índice. |
+
+Los archivos compilados se regeneran juntos desde el conjunto final de fuentes. La revisión conserva 236 RQF, 43 RNF, 35 HU, 52 CU y 16 PT. El alcance objetivo incluye casas de veraneo y hostales. Su incorporación al catálogo, el inventario compartido, las integraciones externas y las pruebas en el entorno objetivo conservan sus condiciones propias de verificación.
+
+La exportación del cierre contiene 498 páginas. Se verifican los 22 destinos principales del índice, los 14 rótulos de figuras y los 12 de tablas del cuerpo. La revisión visual incluye portada, índice y una muestra de figuras y fichas. El hipervínculo de la Ley 21.461 conserva su destino completo.

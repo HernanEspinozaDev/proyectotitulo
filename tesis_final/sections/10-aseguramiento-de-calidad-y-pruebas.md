@@ -17,7 +17,7 @@ El modelo de calidad de producto orienta la selección de características verif
 | Reputación local | Dos pruebas PostgreSQL pasan en una copia desechable con el banco preparado para los cortes V37 y V80. | Reciprocidad, moderación, retención y permisos de su alcance. La preparación adaptada no certifica la suite original ni el esquema actual completo. |
 | Carga SQL local | 200 conexiones durante 15 s sobre 10.000 puntos sintéticos. 42.636 consultas completadas, cero fallos y latencia media de 70,222 ms. | Consulta PostGIS aislada en PostgreSQL 18.6. La medición excluye navegador, API y red del entorno objetivo. |
 
-*Nota.* Elaboración propia a partir de la matriz de cierre LOCAL-1 y la evidencia técnica F5/F6 del repositorio de desarrollo, registrada en el commit documental `93b59c8`, y a partir de los ensayos locales documentados en el registro de verificación. La Tabla F.3 relaciona los resultados con su alcance.
+*Nota.* Elaboración propia a partir de la matriz de cierre LOCAL-1 y la evidencia técnica F5/F6 del repositorio de desarrollo, registrada en el [cierre técnico del repositorio de desarrollo](https://github.com/HernanEspinozaDev/espaciGo/blob/93b59c8352960d900b4e62bb42bced9e05dcad8c/planning/frontend_next/evidence/f5-f6-recovered-live-20261104.md), y a partir de los ensayos locales documentados en el registro de verificación. La Tabla F.3 relaciona los resultados con su alcance.
 
 ### Ensayo local de restauración
 

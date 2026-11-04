@@ -7,9 +7,9 @@
 
 ## 📌 Resumen Ejecutivo del Proyecto
 
-**espaciGo** es una plataforma web transaccional y de intermediación confiable orientada a la gestión y arriendo flexible de espacios comerciales e industriales subutilizados en Chile (tales como bodegas, oficinas compartidas, dark kitchens, estacionamientos, locales comerciales y recintos de eventos). 
+**espaciGo** es una plataforma web para publicar y arrendar espacios ofrecidos por personas y organizaciones. El alcance objetivo contempla usos residenciales, turísticos, recreativos, comerciales e industriales.
 
-La plataforma aborda el problema de asimetría informativa, desocupación de activos y fricción operacional en el sector inmobiliario no residencial mediante una arquitectura basada en microservicios desacoplados, contratos de arriendo automatizados, pasarela de pago seguro (escrow / custodia de fondos), verificación de identidad (KYC) y cumplimiento estricto con la Ley 21.719 sobre Protección de Datos Personales.
+La memoria distingue el diseño objetivo, el catálogo de cada versión y los recorridos verificados con datos sintéticos. La arquitectura documenta titularidad, disponibilidad, contratación con firma opcional, cobros separados y controles de privacidad.
 
 ### Equipo de Desarrollo y Memoria de Título
 - **Hernán Espinoza Marchant**: Líder Técnico, Arquitectura de Software y Seguridad.

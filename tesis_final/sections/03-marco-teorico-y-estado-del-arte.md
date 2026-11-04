@@ -4,7 +4,7 @@
 
 Una plataforma coordina interacciones mediante reglas e interfaces compartidas [@tiwana2014]. En espaciGo, la oferta especifica espacios y condiciones de uso, y la demanda busca disponibilidad por intervalo. El diseño conserva el vínculo entre anuncio, cotización y acuerdo para que ambas partes puedan identificar el recurso y las condiciones pactadas.
 
-El proyecto aplica tecnología a la intermediación de espacios para alojamiento, recreación, comercio e industria. El Capítulo II utiliza un escenario de intermediación por canales separados como punto de comparación. La evaluación contrasta comportamientos verificables, como detectar solapamientos y recuperar las condiciones aceptadas de una emisión.
+El proyecto aplica tecnología a la intermediación de espacios de uso residencial, turístico, recreativo, comercial e industrial. El Capítulo VIII distingue este alcance del catálogo del corte. El Capítulo II utiliza un escenario de intermediación por canales separados como punto de comparación. La evaluación contrasta comportamientos verificables, como detectar solapamientos y recuperar las condiciones aceptadas de una emisión.
 
 ## 3.2. Modularidad y arquitectura de puertos y adaptadores
 

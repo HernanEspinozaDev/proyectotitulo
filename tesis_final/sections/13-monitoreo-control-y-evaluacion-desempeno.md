@@ -18,7 +18,7 @@ La matriz vincula objetivo, RQF o RNF, historia o caso de uso, contrato técnico
 | Objetivo | Evidencia o entregable de referencia | Estado del corte |
 |---|---|---|
 | OE1 | Diagnóstico y Tabla 7. Catálogos y fichas de los anexos A, B y C. | Diseño objetivo documentado. La evaluación de mercado y la comprobación por categoría requieren evidencia propia. |
-| OE2 | Vistas de arquitectura y modelo lógico de VIII y IX. Correspondencia física en Tabla D.1. | Diseño documentado y mapeo físico de referencia. |
+| OE2 | Vistas de arquitectura y modelo lógico de VIII y IX. Correspondencia física en Tabla D.1. | Diseño documentado. PT-02 aporta evidencia local de exclusión temporal para el corte ensayado. |
 | OE3 | LOCAL-1, F5/F6 y contrato del Anexo E. | Evidencia de ensayo local según el alcance de cada perfil del Capítulo X. |
 | OE4 | Tablas 8 y 10 y pruebas de las tablas F.1 y F.2. | Evidencia parcial en F.3. Carga de extremo a extremo y recuperación conjunta pendientes. |
 | OE5 | Capítulo XI y Tabla 11. Apartados de factibilidad en Capítulo XII y Anexo H. | Diseño de operación documentado. La factibilidad económica queda pendiente de integración reservada. |

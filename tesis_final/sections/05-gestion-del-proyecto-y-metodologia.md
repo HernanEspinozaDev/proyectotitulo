@@ -21,7 +21,7 @@ Para fundamentar la selección del enfoque híbrido frente a alternativas (Casca
 |---|:---:|:---:|:---:|:---:|---|
 | **Predictibilidad y Control del Alcance** | 25% | 4 / 5 | 2 / 5 | **5 / 5** | El Anexo A fija una línea base de 236 requisitos funcionales. La EDT registra cambios de alcance por incremento. |
 | **Fijeza de Plazos Académicos Institucionales** | 25% | 3 / 5 | 2 / 5 | **5 / 5** | Las fechas de titulación universitaria son inflexibles. La evaluación pondera la capacidad de organizar entregas parciales dentro del calendario académico. |
-| **Mitigación Temprana de Riesgos Técnicos** | 20% | 1 / 5 | 5 / 5 | **4 / 5** | Cascada posterga las pruebas y despliegue al final del ciclo de vida (riesgo inaceptable). El modelo iterativo valida módulos de software en cada incremento. |
+| **Mitigación Temprana de Riesgos Técnicos** | 20% | 1 / 5 | 5 / 5 | **4 / 5** | La evaluación compara la frecuencia con que cada propuesta del proyecto incorpora pruebas y revisión de riesgos. |
 | **Control Formal de EDT y Recursos** | 15% | 4 / 5 | 1 / 5 | **5 / 5** | La evaluación considera el grado de integración de la EDT y la asignación de responsabilidades con los controles del proyecto. |
 | **Trazabilidad de Pruebas y Calidad (QA)** | 15% | 2 / 5 | 4 / 5 | **5 / 5** | Permite vincular cada paquete de trabajo de la EDT con matrices de prueba unitarias, de integración y rendimiento. |
 | **Puntaje Ponderado Total** | **100%** | **2,85 / 5,00** | **2,75 / 5,00** | **4,80 / 5,00** | **Selección Ganadora: Modelo Híbrido** |
@@ -32,12 +32,12 @@ Para fundamentar la selección del enfoque híbrido frente a alternativas (Casca
 
 El ciclo de desarrollo se estructura en las etapas de planificación, análisis, diseño, construcción, pruebas e implementación, garantizando la coherencia terminológica exigida por la pauta docente:
 
-**Figura 4**  
+**Figura 3**\
 *Modelo de Proceso del Ciclo de Vida Híbrido por Fases e Incrementos*
 
 ![](assets/figuras/fig04_ciclo_vida_objetivo.png){height=11cm}
 
-*Nota.* Elaboración propia según estándares de gestión PMI (2021).
+*Nota.* Elaboración propia según el marco de gestión del proyecto [@pmbok7].
 
 ---
 
@@ -98,7 +98,7 @@ A continuación se presenta la descomposición jerárquica orientada a entregabl
 
 Cada paquete de trabajo de nivel 3 cuenta con una ficha técnica que define su alcance y criterios de aceptación. A modo de síntesis ejecutiva:
 *   **Paquete 1.3.3 (Modelado de Datos Geoespacial):** Entrega el esquema DDL de 110 tablas en PostgreSQL con índices GiST para operadores espaciales y rangos `tstzrange`. Criterio de aceptación: consultas y restricciones verificadas contra los criterios del Capítulo VII.
-*   **Paquete 1.4.3 (Contratación y Cobros Diferenciados):** Entrega un recorrido sintético de reserva y conciliación y define los criterios de habilitación externa. Criterio de aceptación: Cero discrepancias en conciliación de pagos en pruebas automatizadas.
+*   **Paquete 1.4.3 (Contratación y Cobros Diferenciados):** Entrega un recorrido sintético de reserva y conciliación y define los criterios de habilitación externa. Criterio de aceptación: La aceptación requiere comprobar la conciliación según el alcance del ensayo y los criterios del Anexo F.
 El Capítulo XIII registra el avance y la evidencia de cada incremento.
 
 ---
@@ -151,7 +151,7 @@ La gestión de riesgos identifica, evalúa y mitiga tempranamente amenazas técn
 
 | ID | Riesgo Identificado | Categoría | Probabilidad | Impacto | Severidad | Estrategia de Mitigación |
 |:---:|---|:---:|:---:|:---:|:---:|---|
-| **R-01** | Doble reserva concurrente en inmuebles de alta demanda. | Técnico | Media (3) | Crítico (5) | **Alta (15)** | Implementación de índices de exclusión GiST (`tsrange`) a nivel de motor de datos en PostgreSQL 18. |
+| **R-01** | Doble reserva concurrente en espacios de alta demanda. | Técnico | Media (3) | Crítico (5) | **Alta (15)** | Implementación de índices de exclusión GiST (`tsrange`) a nivel de motor de datos en PostgreSQL 18. |
 | **R-02** | Caída o degradación de la pasarela de pagos durante un arriendo. | Externo | Baja (2) | Crítico (5) | **Media (10)** | Manejo de reintentos idempotentes y registro de transacciones con estado *Pending* para conciliación asíncrona. |
 | **R-03** | Vulnerabilidad de datos personales sensibles (Ley 21.719). | Ciberseguridad | Baja (2) | Crítico (5) | **Media (10)** | Control de acceso por finalidad, protección de archivos y comprobación de permisos tras restaurar. |
 | **R-04** | Desajuste en el calendario académico y fechas de entrega. | Gestión | Media (3) | Mayor (4) | **Alta (12)** | Control estricto de la EDT y congelamiento de alcance en compuertas de fase (*phase gates*). |

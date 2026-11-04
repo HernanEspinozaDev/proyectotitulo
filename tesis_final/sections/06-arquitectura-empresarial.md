@@ -16,9 +16,9 @@ La organización prioriza comprobar el recorrido de arriendo, establecer criteri
 
 ## 6.3. Estructura funcional
 
-La Figura 5 presenta las funciones de gestión, desarrollo y operación del equipo de titulación.
+La Figura 4 presenta las funciones de gestión, desarrollo y operación del equipo de titulación.
 
-**Figura 5**\
+**Figura 4**\
 *Estructura funcional del proyecto*
 
 ![](assets/figuras/fig05_organigrama_espacigo.png)
@@ -41,6 +41,6 @@ La Figura 5 presenta las funciones de gestión, desarrollo y operación del equi
 
 ## 6.5. Vistas de arquitectura empresarial
 
-La estructura de la Figura 5 asigna responsabilidades internas. En la operación, una persona puede actuar por cuenta propia o con representación acreditada cuando corresponde. La plataforma evalúa su relación con el recurso y la capacidad de la acción. La Tabla 6 orienta los controles de operación.
+La estructura de la Figura 4 asigna responsabilidades internas. En la operación, una persona puede actuar por cuenta propia o con representación acreditada cuando corresponde. El diseño exige evaluar su relación con el recurso y la capacidad de la acción. La estructura del Anexo D identifica relaciones de referencia. El registro de representación y su alcance operativo requieren evidencia específica por corte. La Tabla 6 orienta los controles de operación.
 
 La vista de negocio organiza oferta, búsqueda, contratación y soporte. La vista de aplicaciones asigna esas funciones a los módulos y a sus interfaces externas. La vista de datos identifica los responsables de titularidad, ocupación, emisiones y pagos. La vista tecnológica separa el prototipo y los entornos de ensayo del entorno objetivo. Los capítulos VIII, IX y XI desarrollan esas vistas. El Anexo C asigna casos a los módulos, el Anexo D documenta las relaciones físicas y el Anexo E identifica los contratos de interfaz.

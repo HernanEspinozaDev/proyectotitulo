@@ -744,13 +744,13 @@ El anexo reúne 35 historias en nueve épicas. Cada ficha identifica actor, crit
 | HU14 | E3 | RQF-199 | CU-47 |
 | HU15 | E4 | RQF-071, 108–112 | CU-19, CU-21, CU-22, CU-23 |
 | HU16 | E4 | RQF-104–107 | CU-21 |
-| HU17 | E4 | RQF-113–122, 201, 227 | CU-22, CU-24, CU-25 |
-| HU18 | E4 | RQF-113, 116, 117, 121, 122 | CU-24, CU-26, CU-47 |
+| HU17 | E4 | RQF-116 a RQF-120, RQF-128 y RQF-129 | CU-24, CU-25 y CU-28 |
+| HU18 | E4 | RQF-110 a RQF-113 y RQF-116 | CU-22, CU-23 y CU-24 |
 | HU19 | E4 | RQF-117, 200, 223, 226–231 | CU-51, CU-42 |
 | HU20 | E5 | RQF-083–085, 112 | CU-17, CU-19 |
 | HU21 | E5 | RQF-084, 085, 112, 225, 226 | CU-17 |
 | HU22 | E5 | RQF-199 | CU-47 |
-| HU23 | E5 | RQF-112, 120, 129, 200 | CU-17, CU-22, CU-27, CU-28, CU-51 |
+| HU23 | E5 | RQF-112, RQF-120, RQF-129 y RQF-140 | CU-22, CU-27 y CU-28 |
 | HU24 | E5 | Sin RF (fuera de alcance) | — |
 | HU25 | E6 | RQF-153–155, 207, 232–235 | CU-35, CU-36, CU-49 |
 | HU26 | E7 | RQF-178–180, 183–185, 212, 236 | CU-43, CU-45, CU-46, CU-52 |
@@ -760,9 +760,9 @@ El anexo reúne 35 historias en nueve épicas. Cada ficha identifica actor, crit
 | HU30 | E8 | RQF-047, 121, 122, 139, 149, 164, 194, 201, 210, 218, 231 | CU-02, CU-03, CU-24, CU-30, CU-33, CU-41, CU-50, CU-51 |
 | HU31 | E1 | RQF-024–033, 189–191 | CU-07, CU-08 |
 | HU32 | E1 | RQF-034–037 | CU-09 |
-| HU33 | E4 | RQF-130–142, 202 | CU-29, CU-30, CU-31, CU-32 |
+| HU33 | E4 | RQF-130 a RQF-133 y RQF-138 | CU-29 y CU-30 |
 | HU34 | E6 | RQF-156–158 | CU-37, CU-38 |
-| HU35 | E9 | RQF-143–152, 203–206 | CU-33, CU-34, CU-48 |
+| HU35 | E9 | RQF-150, RQF-152, RQF-205 y RQF-206 | CU-34 y CU-48 |
 
 **Cobertura:** 33 de las 35 historias tienen requisitos asociados. Las dos restantes (HU24 y HU29) quedan fuera del corte documentado, con los criterios que deberían definirse si el equipo decide incorporarlas.
 

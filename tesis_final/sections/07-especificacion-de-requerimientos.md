@@ -4,9 +4,9 @@
 
 La especificación de requerimientos de la plataforma **espaciGo** se articula en torno a la interacción de roles de arrendamiento definidos por operación, capacidades de administración e integraciones externas:
 
-La Figura 6 sintetiza los papeles de la cuenta y la administración.
+La Figura 5 sintetiza los papeles de la cuenta y la administración.
 
-**Figura 6**  
+**Figura 5**\
 *Diagrama de Interacción entre Actores y Módulos de la Plataforma*
 
 ![](assets/figuras/anexo_c/cu_actores.png)
@@ -25,7 +25,8 @@ El Anexo A utiliza el prefijo `RQF` como identificador canónico. La agrupación
 | Comportamiento | Requisitos | Historia o caso |
 |---|---|---|
 | Publicación por titularidad | RQF-082 | HU05 y CU-15 |
-| Control de intervalos y bloqueo | RQF-110 a RQF-113 | HU18, CU-22 y CU-23 |
+| Selección y validación de intervalo | RQF-108 a RQF-111 | HU15, CU-22 y CU-23 |
+| Exclusión y activación del bloqueo | RQF-112 y RQF-113 | HU18, HU23 y CU-22 |
 | Emisión, aceptación y firma opcional | RQF-130 a RQF-133 | HU33, CU-29 y CU-30 |
 | Acreditación de renta y garantía separada | RQF-116 a RQF-120 | HU17, CU-24 y CU-25 |
 | Entrega y desocupación | RQF-150, RQF-152, RQF-205 y RQF-206 | HU35, CU-34 y CU-48 |
