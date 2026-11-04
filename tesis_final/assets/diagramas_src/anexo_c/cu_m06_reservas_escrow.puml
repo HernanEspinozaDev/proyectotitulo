@@ -6,6 +6,7 @@ skinparam dpi 170
 actor "Arrendatario" as AR
 actor "Titular" as TI
 actor "Pasarela de pago" as PSP
+actor "Proceso automático" as PA
 rectangle "espaciGo — M06 Reservas y cobros" {
   usecase "CU-22 Solicitar intervalo" as CU22
   usecase "CU-23 Verificar disponibilidad" as CU23
@@ -18,13 +19,18 @@ rectangle "espaciGo — M06 Reservas y cobros" {
   usecase "CU-51 Cancelar reserva" as CU51
 }
 AR -- CU22
+TI -- CU22
+AR -- CU26
 TI -- CU26
 AR -- CU24
 PSP -- CU24
 PSP -- CU28
 AR -- CU47
+TI -- CU47
+AR -- CU25
+PA -- CU27
 AR -- CU51
 CU22 ..> CU23 : <<include>>
+CU22 ..> CU26 : <<include>>
 CU25 ..> CU24 : <<extend>>\n[garantía habilitada]
-CU27 ..> CU24 : <<extend>>\n[etapa vencida]
 @enduml

@@ -131,11 +131,11 @@ El catálogo especifica el diseño objetivo y conserva identificadores de las it
 | RQF-121 | El sistema debe notificar al arrendatario cuando el pago sea procesado. |
 | RQF-122 | El sistema debe notificar al arrendador sobre la recepción de una nueva solicitud de arriendo antes del acuerdo y del cobro. |
 | RQF-123 | El sistema debe permitir al arrendador consultar las solicitudes de reserva entrantes. |
-| RQF-124 | El sistema debe permitir al arrendador aprobar una solicitud de reserva. |
+| RQF-124 | El sistema debe permitir al titular aceptar las condiciones de horario y precio propuestas en una solicitud de reserva. |
 | RQF-125 | El sistema debe registrar el acuerdo del titular sobre el horario y el precio antes de iniciar el bloqueo. |
 | RQF-126 | El sistema debe permitir al arrendador rechazar una solicitud de reserva. |
 | RQF-127 | El sistema debe exigir al arrendador seleccionar un motivo al rechazar una solicitud. |
-| RQF-128 | El sistema debe enviar a conciliación el pago acreditado después de vencer el bloqueo. |
+| RQF-128 | El sistema debe enviar a conciliación el pago acreditado después de vencer el bloqueo sin reactivar la reserva. |
 | RQF-129 | El sistema debe mantener el vencimiento original ante reintentos y eventos duplicados. |
 | RQF-130 | El sistema debe emitir un documento contractual inmutable cuando ambas identidades están verificadas. |
 | RQF-131 | El sistema debe consultar los datos legales de las partes involucradas y del inmueble. |

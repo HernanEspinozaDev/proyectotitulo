@@ -500,9 +500,9 @@
 | **ID** | CU-21 |
 | **Caso de Uso** | Cotizar Estadía |
 | **Actor** | Arrendatario |
-| **Descripción** | Calcula y muestra el desglose económico del uso del espacio considerando precio base, comisión de servicio y garantía. |
+| **Descripción** | Calcula y muestra el desglose económico del uso del espacio considerando precio base, comisión de servicio y garantía cuando corresponde y está habilitada. |
 | **Precondiciones** | Publicación activa y rango de tiempo de uso seleccionado. |
-| **Flujo Principal** | 1. El arrendatario selecciona el tiempo de uso del espacio.<br>2. El sistema calcula el costo total multiplicando el precio base por el tiempo seleccionado.<br>3. El sistema calcula el monto de la comisión de servicio.<br>4. El sistema calcula el monto de la garantía exigida.<br>5. El sistema muestra el desglose de cobro (Estadía + Comisión + Garantía). |
+| **Flujo Principal** | 1. El arrendatario selecciona el tiempo de uso del espacio.<br>2. El sistema calcula el costo total multiplicando el precio base por el tiempo seleccionado.<br>3. El sistema calcula el monto de la comisión de servicio.<br>4. El sistema calcula el monto de la garantía si corresponde y está habilitada.<br>5. El sistema muestra el desglose de cobro (Estadía + Comisión + Garantía). |
 | **Flujos Alternativos** | **A1. Cambio del rango de tiempo (Paso 2):**<br>1. El arrendatario modifica el rango y el sistema recalcula el desglose antes de continuar. |
 | **Postcondiciones** | Desglose de cobro disponible para iniciar el proceso de reserva. |
 | **Referencias Cruzadas** | RQF-104 al RQF-107 · CU-22 (reserva) · HU15 |
@@ -522,7 +522,7 @@
 
 *Nota.* Elaboración propia. La figura representa los casos de uso del alcance objetivo según el ADR.
 
-El flujo de actividad de la Figura 8 del Capítulo IX documenta las ramas de cobro y vencimiento. CU-23 verifica disponibilidad durante CU-22. CU-25 se ejecuta cuando la garantía corresponde y está habilitada. CU-27 y CU-28 describen expiración y conciliación.
+El flujo de actividad de la Figura 8 del Capítulo IX documenta las ramas de cobro y vencimiento. CU-23 verifica disponibilidad durante CU-22. CU-26 registra el acuerdo bilateral requerido antes de activar el bloqueo. CU-25 se ejecuta cuando la garantía corresponde y está habilitada. CU-27 y CU-28 describen expiración y conciliación.
 
 ### CU-22: Solicitar un intervalo de reserva
 
@@ -586,10 +586,10 @@ El flujo de actividad de la Figura 8 del Capítulo IX documenta las ramas de cob
 |---|---|
 | **ID** | CU-26 |
 | **Caso de Uso** | Acordar horario y precio |
-| **Actor** | Titular |
+| **Actor** | Arrendatario y titular |
 | **Descripción** | Las partes acuerdan el horario y el precio de la solicitud. |
 | **Precondiciones** | Solicitud identificada |
-| **Flujo Principal** | Consultar y aceptar o rechazar horario y precio. |
+| **Flujo Principal** | Registrar la conformidad de ambas partes sobre horario y precio o el rechazo de la solicitud. |
 | **Flujos Alternativos** | Conservar el motivo aplicable cuando se rechaza la solicitud. |
 | **Postcondiciones** | Acuerdo registrado para evaluar el bloqueo. |
 | **Referencias Cruzadas** | RQF-123 a RQF-127 |
@@ -1137,11 +1137,12 @@ El reclamo y la conciliación conservan trazas independientes. La confirmación 
 | R-04 | CU-12 → CU-10 | Generalización | Especialización KYB (RQF-048 a RQF-053) |
 | R-05 | CU-22 → CU-23 | `<<include>>` | RQF-111 (validación de disponibilidad obligatoria) |
 | R-06 | CU-25 → CU-24 | `<<extend>>` | RQF-118 (garantía aplicable y habilitada) |
-| R-07 | CU-27 → CU-24 | `<<extend>>` | RQF-140 (vencimiento de etapa) |
+| R-07 | CU-27 | Autónomo | RQF-129 y RQF-140 (vencimiento en etapas contractuales y de cobro) |
 | R-08 | CU-28 | Autónomo | RQF-128 (conciliación de pago tardío) |
 | R-09 | CU-32 → CU-30 | `<<extend>>` | RQF-140 (cancelación condicional por falta de firma) |
 | R-10 | CU-39 y CU-42 | Autónomos | El reclamo aporta evidencia. La conciliación registra movimientos. |
 | R-11 | CU-30 → CU-29 | `<<extend>>` | RQF-133 (elección bilateral y aportes acreditados) |
+| R-13 | CU-22 → CU-26 | `<<include>>` | RQF-125 (acuerdo obligatorio antes de activar el bloqueo) |
 | R-12 | Visitante ◁— Usuario Registrado ◁— Arrendador / Arrendatario | Generalización de actores | Herencia de capacidades (ver sección 2.3) |
 
 ### 4.3 Relaciones evaluadas y descartadas (justificación)
