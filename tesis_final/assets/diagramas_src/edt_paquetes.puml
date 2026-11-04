@@ -1,0 +1,28 @@
+@startmindmap
+skinparam dpi 190
+skinparam shadowing false
+<style>
+mindmapDiagram {
+  node {
+    BackgroundColor #F3F7FC
+    LineColor #385575
+    FontColor #132A43
+    FontSize 16
+  }
+}
+</style>
+* 1. Proyecto espaciGo
+** 1.1 Gestión y gobernanza
+*** 1.1.1 Constitución del equipo\n1.1.2 Alcance y EDT\n1.1.3 Cronograma maestro\n1.1.4 Costos y adquisiciones\n1.1.5 Riesgos y cambios
+** 1.2 Diagnóstico y requisitos
+*** 1.2.1 Procesos actuales\n1.2.2 Requisitos funcionales\n1.2.3 Requisitos no funcionales\n1.2.4 Casos de uso e historias\n1.2.5 Matriz de trazabilidad
+** 1.3 Arquitectura y diseño
+*** 1.3.1 Arquitectura empresarial\n1.3.2 Arquitectura de software\n1.3.3 Datos y geoespacialidad\n1.3.4 Sesiones y autorización\n1.3.5 Contratos de interfaz
+left side
+** 1.4 Construcción incremental
+*** 1.4.1 Identidad y acceso\n1.4.2 Catálogo y búsqueda\n1.4.3 Contratación y cobros\n1.4.4 Contratos y avisos\n1.4.5 Administración y auditoría
+** 1.5 Aseguramiento de calidad
+*** 1.5.1 Pruebas de software\n1.5.2 Carga y rendimiento\n1.5.3 Resiliencia y recuperación\n1.5.4 Auditoría de seguridad
+** 1.6 Puesta en marcha y cierre
+*** 1.6.1 Despliegue y topología\n1.6.2 Evaluación financiera\n1.6.3 Aspectos societarios y legales\n1.6.4 Informe y defensa
+@endmindmap

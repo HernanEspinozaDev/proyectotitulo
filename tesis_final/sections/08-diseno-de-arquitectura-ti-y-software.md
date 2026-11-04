@@ -4,14 +4,14 @@
 
 La vista de negocio define oferta, búsqueda, contratación y entrega. La vista de aplicaciones ubica la interfaz, la API y los módulos. La vista de datos asigna autoridades a ocupación, contrato y pagos y separa los archivos privados. La vista de infraestructura identifica los entornos y los controles de despliegue que desarrolla el Capítulo XI.
 
-La Figura 6 organiza las cuatro vistas que se contrastan con los anexos D y E.
+La Figura 8 desarrolla la vista de aplicaciones y muestra cómo la interfaz se comunica con el núcleo y sus adaptadores.
 
-**Figura 6**\
-*Vistas de arquitectura de espaciGo*
+**Figura 8**\
+*Componentes de aplicación y adaptadores de espaciGo*
 
-![](assets/figuras/fig07_arquitectura_togaf_capas.png){height=11cm}
+![](assets/figuras/fig07_arquitectura_togaf_capas.png){height=16cm}
 
-*Nota.* Elaboración propia a partir de las vistas de negocio, aplicaciones, datos e infraestructura del proyecto.
+*Nota.* Elaboración propia a partir de la estructura del repositorio y el contrato de desarrollo. La autorización se aplica por recurso y el control If-Match se utiliza en operaciones de galería. La habilitación de proveedores externos sigue pendiente.
 
 ## 8.2. Aplicación modular y persistencia
 

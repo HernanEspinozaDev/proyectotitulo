@@ -1,6 +1,29 @@
-flowchart TD
-    N["Negocio<br/>Oferta, búsqueda, contratación y entrega"]
-    A["Aplicaciones<br/>Interfaz Next.js y API Go modular"]
-    D["Datos<br/>PostgreSQL, PostGIS y objetos privados"]
-    I["Infraestructura<br/>Entorno local y topología objetivo de ensayo"]
-    N --> A --> D --> I
+flowchart TB
+    subgraph P["Presentación · Next.js"]
+      V["Vistas de catálogo, cuenta y arriendo"]
+      B["Rutas BFF y adaptadores HTTP"]
+      V --> B
+    end
+    subgraph G["Backend · Go"]
+      E["cmd/api · entrada HTTP<br/>Sesión y autorización por recurso<br/>If-Match en operaciones de galería"]
+      subgraph N["Núcleo · internal/"]
+        direction LR
+        S["spaces<br/>Publicación"]
+        O["occupancy · booking<br/>Disponibilidad y reserva"]
+        C["contract<br/>Emisiones"]
+        D["documentverification<br/>Verificación documental"]
+      end
+      I["Puertos de persistencia, objetos e integración"]
+      E --> S & O & C & D
+      S & O & C & D --> I
+    end
+    B -->|HTTPS| E
+    subgraph A["Adaptadores de salida"]
+      direction LR
+      PG["internal/adapters/postgres<br/>PostgreSQL y PostGIS"]
+      OBJ["Almacenamiento privado<br/>Objetos y evidencia"]
+      EXT["Simulación de ensayo<br/>Mercado Pago y SimpleFirma<br/>habilitación pendiente"]
+    end
+    I --> PG & OBJ & EXT
+    classDef box fill:#EDF4FC,stroke:#345575,color:#132A43
+    class V,B,E,S,O,C,D,I,PG,OBJ,EXT box

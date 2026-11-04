@@ -1,6 +1,36 @@
-flowchart TD
-    U["Usuario"] --> A["Interfaz y API"]
-    A --> DB["PostgreSQL en red privada"]
-    A --> O["Almacenamiento de objetos privados"]
-    OP["Operador autorizado"] --> M["Ruta de migración controlada"]
-    M --> DB
+---
+config:
+  flowchart:
+    nodeSpacing: 18
+    rankSpacing: 22
+    wrappingWidth: 250
+---
+flowchart TB
+    U["Usuario"] --> WEB
+    O["Operación autorizada"] --> M
+    subgraph REG["Google Cloud · southamerica-west1 · Santiago"]
+      direction TB
+      BUILD["Cloud Build · cloudbuild.yaml<br/>Construcción y control de procedencia"]
+      AR["Artifact Registry<br/>Imágenes versionadas por digest"]
+      BUILD --> AR
+      WEB["Cloud Run · Next.js<br/>Web pública y privada"]
+      API["Cloud Run · API Go<br/>Identidad de servicio e invocación autorizada"]
+      AR -->|despliegue por digest| WEB & API
+      WEB -->|BFF · HTTPS| API
+      subgraph VPC["VPC · rutas privadas"]
+        direction LR
+        M["Ejecución controlada<br/>de migraciones"]
+        DB["Cloud SQL · PostgreSQL 18 / PostGIS<br/>Instancia zonal con IP privada"]
+        M --> DB
+      end
+      subgraph STORAGE["Cloud Storage · separación por finalidad"]
+        direction LR
+        PRIV["Objetos privados<br/>Evidencias y documentos"]
+        PUB["Medios públicos<br/>Publicación controlada"]
+      end
+      API -->|egreso privado| DB
+      API --> PRIV & PUB
+    end
+    style REG fill:#F7FAFE,stroke:#345575,stroke-dasharray: 5 4
+    style VPC fill:#E8F1FB,stroke:#345575,stroke-dasharray: 5 4
+    style STORAGE fill:#F2F7F3,stroke:#426957

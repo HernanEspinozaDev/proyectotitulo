@@ -20,9 +20,9 @@ La evidencia se concentra en escenarios sintéticos y cortes de ensayo. El catá
 
 El siguiente incremento completa la demostración local del recorrido sin firma ni garantía. La integración de firma y la habilitación de garantía requieren verificaciones separadas. La preparación de un piloto también exige un ensayo de recuperación conjunta y medición de carga en el entorno objetivo.
 
-La Figura 14 relaciona los incrementos de integración y los ensayos necesarios para preparar un piloto.
+La Figura 17 relaciona los incrementos de integración y los ensayos necesarios para preparar un piloto.
 
-**Figura 14**\
+**Figura 17**\
 *Dependencias de los siguientes incrementos*
 
 ![](assets/figuras/fig23_hoja_ruta_tecnologica.png)

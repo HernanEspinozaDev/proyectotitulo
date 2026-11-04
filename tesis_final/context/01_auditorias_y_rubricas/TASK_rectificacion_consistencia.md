@@ -90,3 +90,18 @@ La salida PDF de 499 páginas comprueba los 22 destinos principales del índice 
 | Cierre | 14 figuras del cuerpo y 12 del Anexo C | Renumerar en orden de lectura y verificar destinos del índice, URL de la Ley 21.461 y secciones reservadas. |
 
 La edición de cada diagrama se realiza en su fuente Mermaid o PlantUML. El segundo paso renderiza el PNG con `tesis_final/scripts/render_all_diagrams.py`. DocSkill incorpora la imagen con rótulo, título y nota. Las figuras organizacional y de trabajos futuros mantienen su función de síntesis.
+
+### Entrega de figuras
+
+| Figura | Resultado | Fuente editable |
+|---|---|---|
+| 4 | EDT de seis ramas y 28 paquetes de nivel 3. El desglose textual conserva los nombres completos. | `assets/diagramas_src/edt_paquetes.puml` |
+| 5 | Grilla de probabilidad e impacto contrastada con los cinco riesgos de la Tabla 5. | `assets/diagramas_src/mapa_riesgos.puml` |
+| 8 | Componentes Next.js/BFF, entrada Go, módulos, puertos y adaptadores. | `assets/diagramas_src/fig07_arquitectura_togaf_capas.mmd` |
+| 10 | Máquina de estados objetivo con bloqueo, cobros y salidas por vencimiento, cancelación y disputa. | `assets/diagramas_src/fig09_contratacion_objetivo.puml` |
+| 14 | ERD físico del ensayo con claves, huella contractual, exclusión temporal y geografía sintética. Complementa la Figura 13. | `assets/diagramas_src/erd_fisico_ensayo.mmd` |
+| 15 | Topología regional con Cloud Build, Artifact Registry, Cloud Run, rutas privadas y separación de almacenamiento. | `assets/diagramas_src/fig17_topologia_objetivo.mmd` |
+
+Los seis PNG se guardan con el mismo nombre base en `assets/figuras/`. Se regeneran de forma selectiva pasando el nombre base al script de diagramas. La numeración del cuerpo se verifica del 1 al 17, con 12 figuras del Anexo C. La URL de la Ley 21.461 se verifica por su texto completo en una línea y por la anotación del PDF.
+
+**Cierre verificado.** DocSkill genera un PDF de 503 páginas. Se comprueban 29 destinos del índice de figuras en una página, 20 del índice de tablas y 22 entradas principales del índice de contenidos. Se revisan visualmente las figuras nuevas y reemplazadas, y se comprueba la integridad de las cuatro áreas reservadas.

@@ -4,9 +4,9 @@
 
 La especificación de requerimientos de la plataforma **espaciGo** se articula en torno a la interacción de roles de arrendamiento definidos por operación, capacidades de administración e integraciones externas:
 
-La Figura 5 sintetiza los papeles de la cuenta y la administración.
+La Figura 7 sintetiza los papeles de la cuenta y la administración.
 
-**Figura 5**\
+**Figura 7**\
 *Diagrama de Interacción entre Actores y Módulos de la Plataforma*
 
 ![](assets/figuras/anexo_c/cu_actores.png)

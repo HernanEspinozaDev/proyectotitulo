@@ -1,0 +1,64 @@
+erDiagram
+    USUARIO ||--o{ ESPACIO : titular
+    USUARIO o|--o{ RESERVA_ENSAYO_LOCAL : participa
+    ESPACIO ||--o{ OCUPACION : contiene
+    ESPACIO ||--o{ RESERVA_ENSAYO_LOCAL : recibe
+    OCUPACION ||--o| RESERVA_ENSAYO_LOCAL : ocupa
+    RESERVA_ENSAYO_LOCAL ||--o| CONTRATO_ENSAYO_LOCAL : documenta
+    CONTRATO_ENSAYO_LOCAL ||--o{ CONTRATO_ENSAYO_FIRMA : registra
+    USUARIO ||--o{ CONTRATO_ENSAYO_FIRMA : firma
+    RESERVA_ENSAYO_LOCAL ||--o{ RESERVA_PAGO_ENSAYO : registra
+    ESPACIO ||--o| RESERVA_ENSAYO_LOCAL_FIXTURE : habilita
+    RESERVA_ENSAYO_LOCAL_FIXTURE ||--o| RESERVA_ENSAYO_LOCAL_UBICACION_SINTETICA : ubica
+
+    USUARIO {
+      uuid id PK
+    }
+    ESPACIO {
+      uuid id PK
+      uuid propietario_id FK
+    }
+    OCUPACION {
+      uuid id PK
+      uuid espacio_id FK
+      uuid reserva_id FK, UK
+      tstzrange intervalo "GiST excluye solapamientos activos por espacio"
+      boolean activo
+    }
+    RESERVA_ENSAYO_LOCAL {
+      uuid id PK
+      uuid espacio_id FK
+      uuid ocupacion_id FK, UK
+      uuid anfitrion_id FK
+      uuid arrendatario_id FK
+      text estado
+    }
+    CONTRATO_ENSAYO_LOCAL {
+      uuid id PK
+      uuid reserva_id FK, UK
+      integer version
+      bytea sha256 "huella de 32 bytes"
+    }
+    CONTRATO_ENSAYO_FIRMA {
+      uuid contrato_id PK, FK
+      uuid firmante_id PK, FK
+      text estado
+    }
+    RESERVA_PAGO_ENSAYO {
+      uuid id PK
+      uuid reserva_id FK
+    }
+    OUTBOX_EVENTO_LOCAL {
+      uuid id PK
+      text agregado_tipo
+      uuid agregado_id "sin FK polimórfica"
+      text clave_deduplicacion UK
+      integer intentos
+    }
+    RESERVA_ENSAYO_LOCAL_FIXTURE {
+      uuid espacio_id PK, FK
+    }
+    RESERVA_ENSAYO_LOCAL_UBICACION_SINTETICA {
+      uuid espacio_id PK, FK
+      geography punto "Point, SRID 4326, índice GiST"
+    }

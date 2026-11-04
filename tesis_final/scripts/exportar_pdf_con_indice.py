@@ -19,12 +19,24 @@ def properties(**values):
 def update_indexes(document):
     indexes = document.getDocumentIndexes()
     existing = [indexes.getByIndex(index) for index in range(indexes.getCount())]
+    visual_index_style = 'Entradas del índice visual'
+    styles = document.getStyleFamilies().getByName('ParagraphStyles')
+    entry_style = document.createInstance('com.sun.star.style.ParagraphStyle')
+    styles.insertByName(visual_index_style, entry_style)
+    entry_style.ParentStyle = 'Contents 1'
+    entry_style.ParaTopMargin = 0
+    entry_style.ParaBottomMargin = 60
+
     # Writer can omit imported Word indexes based on named paragraph styles.
     for title, style in (
         ('Índice de Tablas', 'Table Caption'),
         ('Índice de Figuras', 'Image Caption'),
     ):
-        if any(style in item.LevelParagraphStyles.getByIndex(0) for item in existing):
+        imported = next(
+            (item for item in existing if style in item.LevelParagraphStyles.getByIndex(0)), None
+        )
+        if imported is not None:
+            imported.ParaStyleLevel1 = visual_index_style
             continue
         search = document.createSearchDescriptor()
         search.SearchString = title
@@ -38,6 +50,7 @@ def update_indexes(document):
         index = document.createInstance('com.sun.star.text.ContentIndex')
         index.Title = ''
         index.Level = 1
+        index.ParaStyleLevel1 = visual_index_style
         index.CreateFromOutline = False
         index.CreateFromMarks = False
         index.CreateFromLevelParagraphStyles = True

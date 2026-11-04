@@ -1,27 +1,40 @@
 @startuml
+!pragma layout smetana
+skinparam dpi 200
 skinparam shadowing false
-skinparam dpi 190
-start
-:Verificar ambas identidades y acordar horario y precio;
-:Activar un bloqueo y mostrar su vencimiento;
-note right
-  Si vence una etapa, se libera el bloqueo de forma atómica.
-  Un pago tardío ingresa a conciliación sin reactivar la reserva.
-end note
-:Emitir contrato y registrar ambas aceptaciones;
-if (¿Ambas partes eligen SimpleFirma?) then (Sí)
-  :Acreditar aportes;
-  :Registrar ambas firmas;
-endif
-:Acreditar renta;
-if (¿Garantía aplicable y habilitada?) then (Sí)
-  :Acreditar garantía por separado;
-endif
-:Confirmar reserva;
-:Registrar check-in con evidencia;
-:El arrendatario entrega el espacio;
-:El titular confirma la desocupación;
-:Liberar su bloqueo y conservar el contrato;
-:Habilitar republicación;
-stop
+skinparam state {
+  BackgroundColor #EDF4FC
+  BorderColor #345575
+  FontColor #132A43
+}
+[*] --> Solicitada
+Solicitada --> Acuerdo : acuerdo de horario y precio
+Acuerdo --> Contratacion : identidades verificadas y bloqueo único
+state "Contratación · bloqueo activo" as Contratacion {
+  [*] --> Bloqueada
+  Bloqueada --> Emitida : emitir documento inmutable
+  Emitida --> Aceptada : aceptar ambas partes
+  Aceptada --> Renta : sin firma
+  Aceptada --> Firma : modalidad bilateral
+  Firma --> Renta : aportes y ambas firmas
+  Renta --> Cobros : renta acreditada
+  Cobros --> Garantia : aplicable y habilitada
+  state "Garantía por acreditar" as Garantia
+  state "Renta acreditada" as Cobros
+}
+Contratacion --> Vencida : vence etapa / liberar bloqueo atómicamente
+Vencida : pago tardío / conciliar sin reactivar
+Cobros --> Confirmada : sin garantía exigible
+Garantia --> Confirmada : garantía acreditada
+Contratacion --> Cancelada : política aplicable / liberar y conciliar
+Confirmada --> Cancelada : política aplicable / liberar y conciliar
+Confirmada --> EnCurso : check-in con evidencia
+state "En curso" as EnCurso
+EnCurso --> Entregada : check-out con evidencia
+Entregada --> Desocupada : confirma titular / liberar su intervalo
+state "Desocupación confirmada" as Desocupada
+EnCurso --> Disputa : reclamo admisible
+Entregada --> Disputa : reclamo admisible
+state "En disputa" as Disputa
+Disputa : resolver y conciliar según política
 @enduml

@@ -54,7 +54,14 @@ La Línea Base del Alcance se integra por tres componentes oficiales:
 
 ### 5.2.2. Estructura de Desglose del Trabajo (EDT / WBS) a 3 Niveles
 
-A continuación se presenta la descomposición jerárquica orientada a entregables de la totalidad del trabajo del proyecto:
+La Figura 4 organiza los paquetes de trabajo en seis ramas. El desglose textual conserva el nombre completo de cada paquete.
+
+**Figura 4**\
+*Estructura de desglose del trabajo de espaciGo*
+
+![](assets/figuras/edt_paquetes.png){width=16cm}
+
+*Nota.* Elaboración propia a partir de la EDT del proyecto. Los identificadores vinculan cada entregable con su rama de trabajo.
 
 ```text
 1. PROYECTO DE TITULACIÓN "espaciGo"
@@ -145,6 +152,15 @@ La EDT identifica los paquetes que requieren estimación. La comparación entre 
 La gestión de riesgos identifica, evalúa y mitiga tempranamente amenazas técnicas y operacionales:
 
 ### 5.5.1. Matriz de Probabilidad e Impacto de Riesgos
+
+La Figura 5 sitúa los riesgos por probabilidad e impacto. La Tabla 5 desarrolla las medidas de mitigación.
+
+**Figura 5**\
+*Mapa de probabilidad e impacto de los riesgos*
+
+![](assets/figuras/mapa_riesgos.png)
+
+*Nota.* Elaboración propia a partir de la Tabla 5. Cada celda indica el producto de probabilidad e impacto. Los códigos identifican los riesgos evaluados.
 
 **Tabla 5**  
 *Matriz de Probabilidad e Impacto de Riesgos del Proyecto*

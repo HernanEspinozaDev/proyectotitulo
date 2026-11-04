@@ -6,16 +6,14 @@ El repositorio de desarrollo declara la configuración de construcción y despli
 
 ## 11.2. Topología de Infraestructura Cloud en Google Cloud Platform (GCP)
 
-La topología objetivo utiliza servicios administrados en la región de Santiago. El registro de estrategia de base de datos del 4 de noviembre, en el contexto local de desarrollo, describe una instancia Cloud SQL zonal, con acceso privado y respaldos automáticos. La configuración observada registra PITR desactivado. La figura representa la topología de referencia para la operación objetivo.
+La topología objetivo utiliza servicios administrados en la región de Santiago. El registro de estrategia de base de datos del 4 de noviembre, en el contexto local de desarrollo, describe una instancia Cloud SQL zonal, con acceso privado y respaldos automáticos. La configuración observada registra PITR desactivado. La Figura 15 separa las rutas de usuario, entrega y operación. La API accede a Cloud SQL por la red privada y utiliza almacenamiento de objetos separado por finalidad.
 
-La Figura 12 representa la topología objetivo y separa las rutas de usuario y operación.
+**Figura 15**\
+*Topología regional y ruta de entrega de espaciGo en Google Cloud*
 
-**Figura 12**\
-*Topología objetivo de aplicación, datos y operación*
+![](assets/figuras/fig17_topologia_objetivo.png){height=16cm}
 
-![](assets/figuras/fig17_topologia_objetivo.png)
-
-*Nota.* Elaboración propia sobre servicios gestionados en Google Cloud Platform (región `southamerica-west1`).
+*Nota.* Elaboración propia a partir de cloudbuild.yaml y del diseño de infraestructura de southamerica-west1. La separación entre medios públicos y objetos privados representa la topología objetivo.
 
 ### Segmentación de Red y Comunicaciones Privadas
 El diseño de red restringe el acceso a la base a través de la VPC y limita el acceso operativo mediante rutas y permisos definidos para cada entorno.
@@ -28,9 +26,9 @@ El diseño establece mínimo privilegio para aplicación, migraciones y operaci�
 
 El procedimiento objetivo restaura PostgreSQL y los objetos privados en un entorno aislado. La aceptación exige comprobar referencias, permisos y acciones de supresión que el respaldo antecede. La medición compara el punto recuperado y el tiempo de recuperación con el RNF-010. El operador registra las divergencias y conserva aislado el destino cuando falla una comprobación.
 
-La Figura 13 resume el ensayo objetivo de restauración. La comprobación de permisos es una condición de reapertura del servicio, porque la recuperación de los datos por sí sola no acredita que se conserva su control de acceso. La Tabla F.3 registra la falla observada en esa etapa.
+La Figura 16 resume el ensayo objetivo de restauración. La comprobación de permisos es una condición de reapertura del servicio, porque la recuperación de los datos por sí sola no acredita que se conserva su control de acceso. La Tabla F.3 registra la falla observada en esa etapa.
 
-**Figura 13**\
+**Figura 16**\
 *Actividad objetivo de restauración y verificación*
 
 ![](assets/figuras/fig19_recuperacion_objetivo.png)
