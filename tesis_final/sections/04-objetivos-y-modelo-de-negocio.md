@@ -2,7 +2,7 @@
 
 ## 4.1. Objetivo general
 
-Diseñar y desarrollar una plataforma de intermediación para el arriendo flexible de espacios no residenciales y verificar, mediante un prototipo, el control de disponibilidad y la trazabilidad de la contratación.
+Diseñar y desarrollar una plataforma de intermediación para el arriendo flexible de espacios ofrecidos por personas y organizaciones para distintos usos y verificar, mediante un prototipo, el control de disponibilidad y la trazabilidad de la contratación.
 
 ## 4.2. Objetivos específicos
 
@@ -22,19 +22,19 @@ El lienzo sintetiza las hipótesis de intermediación y las dependencias del ser
 | Bloque | Hipótesis de diseño |
 |---|---|
 | Propuesta de valor | Consultar oferta y disponibilidad, conservar el acuerdo y coordinar la entrega. |
-| Segmentos | Titulares de espacios no residenciales y personas o empresas que requieren uso temporal. |
+| Segmentos | Personas y organizaciones que ofrecen o requieren espacios para alojamiento, recreación, comercio, industria u otros usos contemplados. |
 | Canales | Aplicación web y publicación de espacios por su titular. |
 | Relación | Autoservicio y soporte para incidencias y conciliación. |
 | Ingresos | Comisión de intermediación como hipótesis del modelo. |
 | Recursos | Plataforma web, registro de ocupación y evidencias privadas. |
 | Actividades | Mantener el catálogo y coordinar contratación, cobros y operación. |
 | Socios | Proveedores de pagos y firma sujetos a validación de integración. |
-| Costos | Infraestructura, integraciones y operación. El análisis detallado corresponde al Capítulo XII y su respaldo al Anexo H. |
+| Costos | Infraestructura, integraciones y operación. El análisis detallado se integra en los apartados reservados del Capítulo XII y el Anexo H. |
 
 *Nota.* Elaboración propia. El lienzo describe el modelo propuesto para evaluación.
 
 ## 4.4. Alcance y condiciones de servicio objetivo
 
-La plataforma contempla arriendo no residencial por hora, día o mes y bloques o sesiones puntuales. La publicación exige titularidad y cumplimiento de las reglas del anuncio. La emisión exige identidad verificada de ambas partes y acreditación de representación cuando corresponde. Cada participante acepta la emisión identificada y, si ambas partes eligen SimpleFirma, el flujo acredita aportes y firmas antes de habilitar la renta.
+El diseño objetivo contempla arriendo de espacios residenciales, turísticos, recreativos, comerciales e industriales. Las unidades de tarifa del corte son hora, día y mes. Un bloque puntual conserva el horario y el precio acordados. La publicación exige titularidad y cumplimiento de las reglas del anuncio. La emisión exige identidad verificada de ambas partes y acreditación de representación cuando corresponde. Cada participante acepta la emisión identificada y, si ambas partes eligen SimpleFirma, el flujo acredita aportes y firmas antes de habilitar la renta.
 
 La plataforma confirma la reserva al acreditar los cobros exigibles. La garantía se habilita por separado cuando se verifica su operación. Tras la entrega, el titular confirma desocupación, libera el bloqueo correspondiente y puede republicar. La recurrencia, la subdivisión, el aforo compartido y la validación de firmas externas permanecen diferidos según el ADR.
