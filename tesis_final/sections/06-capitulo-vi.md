@@ -129,7 +129,7 @@ La Figura 5 sitúa los riesgos por probabilidad e impacto. La Tabla 6 desarrolla
 
 ![](assets/figuras/mapa_riesgos.png)
 
-*Nota.* Elaboración propia a partir de la Tabla 5. Cada celda indica el producto de probabilidad e impacto. Los códigos identifican los riesgos evaluados. Los niveles bajo, medio y alto corresponden a la clasificación de la Tabla 5.
+*Nota.* Elaboración propia a partir de la Tabla 6. Cada celda indica el producto de probabilidad e impacto. Los códigos identifican los riesgos evaluados. Los niveles bajo, medio y alto corresponden a la clasificación de la Tabla 6.
 
 **Tabla 6**\
 *Matriz de Probabilidad e Impacto de Riesgos del Proyecto*

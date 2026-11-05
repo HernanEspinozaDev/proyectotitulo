@@ -25,7 +25,7 @@ La Figura 17 resume el ensayo objetivo de restauración. La comprobación de per
 
 El diseño de operación incluye guías para continuidad, incidentes y mantenimiento. Antes de ejecutar un procedimiento, el operador confirma destino, permisos, configuración y versión. El objetivo general de recuperación corresponde al RNF-010.
 
-**Tabla 12**\
+**Tabla 13**\
 *Procedimientos operativos y criterio de comprobación*
 
 | Código | Contingencia | Criterio de comprobación |

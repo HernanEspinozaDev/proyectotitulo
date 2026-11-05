@@ -6,7 +6,7 @@
 
 El modelo de calidad de producto orienta la selección de características verificables [@iso25010]. El plan organiza las pruebas en niveles de dominio, integración, recorrido de usuario y operación. El Anexo F conserva el diseño de pruebas y distingue el resultado esperado del resultado observado. Cada registro identifica versión, entorno, datos, procedimiento, resultado y límite.
 
-**Tabla 11**\
+**Tabla 12**\
 *Resultados documentados por corte de verificación*
 
 | Corte | Resultado registrado | Alcance de la evidencia |

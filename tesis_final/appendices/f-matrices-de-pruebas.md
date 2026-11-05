@@ -40,7 +40,7 @@ Los casos conservan los identificadores PT del plan de pruebas. La matriz actual
 
 ## Registro de evidencia
 
-El Capítulo XII y la Tabla 11 identifican los resultados de LOCAL-1 y F5/F6. LOCAL-1 aporta evidencia del recorrido sintético documentado. Las modalidades externas de PT-03 y PT-06 conservan sus criterios pendientes. El ensayo local V1–V61 aporta evidencia parcial a PT-02 y PT-11. La recuperación conjunta y la carga objetivo requieren registros específicos. El resultado de un paquete o recorrido se asocia con una fila únicamente cuando el registro comprueba su criterio. El expediente de verificación registra entradas, fecha, entorno, versión, resultado y observaciones.
+El Capítulo XII y la Tabla 12 identifican los resultados de LOCAL-1 y F5/F6. LOCAL-1 aporta evidencia del recorrido sintético documentado. Las modalidades externas de PT-03 y PT-06 conservan sus criterios pendientes. El ensayo local V1–V61 aporta evidencia parcial a PT-02 y PT-11. La recuperación conjunta y la carga objetivo requieren registros específicos. El resultado de un paquete o recorrido se asocia con una fila únicamente cuando el registro comprueba su criterio. El expediente de verificación registra entradas, fecha, entorno, versión, resultado y observaciones.
 
 
 **Tabla F.3**\

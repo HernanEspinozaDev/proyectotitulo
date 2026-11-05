@@ -2,7 +2,7 @@
 
 ## 1. Introducción
 
-### 1.1. Introducción
+### 1.1. Propósito y alcance de la memoria
 
 espaciGo es una plataforma web transaccional para el arriendo flexible de espacios en Chile ofrecidos por personas y organizaciones. El proyecto aborda una dificultad de coordinación entre quien ofrece un espacio y quien necesita utilizarlo durante un intervalo determinado. La oferta debe comunicar ubicación, condiciones de uso, precio y disponibilidad. La contratación requiere registrar el acuerdo y controlar que otro arriendo activo no ocupe el mismo intervalo.
 

@@ -8,17 +8,11 @@
 
 ##### 2.1.1.1. Antecedentes
 
-La organización operadora se define como una propuesta para prestar el servicio de intermediación. El diseño organizacional identifica funciones necesarias para operar la plataforma y asignar responsabilidades sobre decisiones, datos e incidentes.
-
-**Misión.** Facilitar el arriendo flexible de espacios ofrecidos por personas y organizaciones mediante información clara sobre la oferta, control de disponibilidad y evidencia de contratación.
-
-**Visión.** Consolidar un servicio de arriendo flexible que demuestre su utilidad para titulares y arrendatarios y pueda ampliar su cobertura cuando exista evidencia operativa y comercial.
-
-**Principios.** Transparencia de condiciones y cobros, privacidad por finalidad, trazabilidad de decisiones y verificación incremental.
+La iniciativa espaciGo surge de la necesidad de coordinar el uso temporal de espacios entre personas y organizaciones en Chile. El diseño propone un servicio de intermediación digital que reúne la publicación, la búsqueda y la contratación de unidades reservables por hora, día o mes. El catálogo vigente contempla nueve categorías para usos residenciales, turísticos, recreativos, comerciales e industriales. La plataforma organiza la interacción entre las partes y conserva evidencia del acuerdo sobre el horario, el precio y las condiciones de uso.
 
 ##### 2.1.1.2. Diagnóstico
 
-El Capítulo VIII presenta el análisis FODA y las decisiones que se derivan de él.
+El diagnóstico identifica un proceso fragmentado. Los anuncios se distribuyen entre distintos canales y la disponibilidad se confirma mediante mensajes o registros que cada titular mantiene por separado. La información sobre el espacio y el precio puede quedar en un canal, mientras el horario y las condiciones se acuerdan en otro. Esta separación dificulta verificar qué intervalo sigue disponible, reconstruir el acuerdo y detectar solicitudes incompatibles. La Figura 1 describe el proceso actual y la Tabla 1 sintetiza sus causas y efectos. La sección 8.4 examina sus implicaciones mediante el análisis FODA.
 
 #### 2.1.2. Descripción del problema
 

@@ -1,6 +1,6 @@
 # CAPÍTULO XVII: Referencias Bibliográficas
 
-## Glosario
+## 17.1. Glosario
 
 - **ADR** — registro de decisión de arquitectura.
 - **BFF** — adaptador de backend orientado a las necesidades de una interfaz.
@@ -12,7 +12,7 @@
 - **SLA** — nivel de servicio definido para una operación o un sistema.
 - **Transactional Outbox** — registro transaccional de eventos pendientes de entrega.
 
-## Referencias bibliográficas
+## 17.2. Referencias bibliográficas
 
 ::: {#refs}
 :::
