@@ -1,6 +1,6 @@
 # ANEXO F: MATRICES DE PRUEBAS Y COBERTURA DE CALIDAD
 
-Los casos conservan los identificadores PT del plan de pruebas. La matriz actualiza su alcance según el ADR del 4 de noviembre. El Capítulo X documenta evidencia por corte. La conformidad de una fila requiere un registro que identifique el caso, versión, entorno, datos, resultado observado y limitaciones.
+Los casos conservan los identificadores PT del plan de pruebas. La matriz actualiza su alcance según el ADR del 4 de noviembre. El Capítulo XII documenta evidencia por corte. La conformidad de una fila requiere un registro que identifique el caso, versión, entorno, datos, resultado observado y limitaciones.
 
 ## Verificación funcional
 
@@ -29,8 +29,8 @@ Los casos conservan los identificadores PT del plan de pruebas. La matriz actual
 
 | Caso y traza | Escenario y operación | Resultado esperado |
 |---|---|---|
-| PT-09 · RNF-001 | Medir la búsqueda de la Tabla E.1 en la ruta y versión seleccionadas. Registrar datos, 200 usuarios concurrentes y tiempo de extremo a extremo. | Los tiempos observados satisfacen el umbral del Capítulo VII. |
-| PT-10 · Capítulo VII | Aumentar carga en un entorno identificado y registrar volumen, latencia y errores. | El reporte caracteriza la capacidad por escenario y explica su límite. |
+| PT-09 · RNF-001 | Medir la búsqueda de la Tabla E.1 en la ruta y versión seleccionadas. Registrar datos, 200 usuarios concurrentes y tiempo de extremo a extremo. | Los tiempos observados satisfacen el umbral del Capítulo XI. |
+| PT-10 · Capítulo XI | Aumentar carga en un entorno identificado y registrar volumen, latencia y errores. | El reporte caracteriza la capacidad por escenario y explica su límite. |
 | PT-11 · RNF-010 | Restaurar base y objetos privados. Verificar referencias y permisos. | RPO máximo de 15 minutos y RTO máximo de 1 hora en el escenario definido. |
 | PT-14 · RNF-015 | Revisar dependencias, interfaces, transporte y autorización del corte. | El reporte registra alcance, hallazgos y verificación de correcciones. |
 | PT-15 · RNF-007, RNF-008 | Ejecutar el recorrido mediante teclado y en resoluciones definidas. | El recorrido satisface los criterios de acceso y presentación especificados. |
@@ -40,7 +40,7 @@ Los casos conservan los identificadores PT del plan de pruebas. La matriz actual
 
 ## Registro de evidencia
 
-El Capítulo X y la Tabla 10 identifican los resultados de LOCAL-1 y F5/F6. LOCAL-1 aporta evidencia del recorrido sintético documentado. Las modalidades externas de PT-03 y PT-06 conservan sus criterios pendientes. El ensayo local V1–V61 aporta evidencia parcial a PT-02 y PT-11. La recuperación conjunta y la carga objetivo requieren registros específicos. El resultado de un paquete o recorrido se asocia con una fila únicamente cuando el registro comprueba su criterio. El expediente de verificación registra entradas, fecha, entorno, versión, resultado y observaciones.
+El Capítulo XII y la Tabla 11 identifican los resultados de LOCAL-1 y F5/F6. LOCAL-1 aporta evidencia del recorrido sintético documentado. Las modalidades externas de PT-03 y PT-06 conservan sus criterios pendientes. El ensayo local V1–V61 aporta evidencia parcial a PT-02 y PT-11. La recuperación conjunta y la carga objetivo requieren registros específicos. El resultado de un paquete o recorrido se asocia con una fila únicamente cuando el registro comprueba su criterio. El expediente de verificación registra entradas, fecha, entorno, versión, resultado y observaciones.
 
 
 **Tabla F.3**\
@@ -54,7 +54,7 @@ El Capítulo X y la Tabla 10 identifican los resultados de LOCAL-1 y F5/F6. LOCA
 | PT-07 · Acceso a evidencias | F5 registra controles documentales y F6 verifica la denegación a un titular ajeno en el recorrido sintético. | Evidencia parcial. El escenario completo conserva sus roles y recursos propios. |
 | PT-16 · Retención | Evidencia documental F5 de retención y permisos en su alcance. | Pendiente verificar la política de retención y los objetos en el ensayo de recuperación objetivo. |
 
-*Nota.* Elaboración propia a partir de los ensayos y registros del Capítulo X. Los resultados locales conservan su alcance.
+*Nota.* Elaboración propia a partir de los ensayos y registros del Capítulo XII. Los resultados locales conservan su alcance.
 
 ## Pruebas pendientes de cierre del código
 

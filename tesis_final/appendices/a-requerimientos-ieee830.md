@@ -2,7 +2,7 @@
 
 ## Catálogo consolidado de requerimientos funcionales (RQF)
 
-El catálogo especifica el diseño objetivo y conserva identificadores de las iteraciones previas. La condición de implementación se registra por versión y entorno en los capítulos X y XIII. Los cambios históricos se conservan en el registro de contexto de la memoria.
+El catálogo especifica el diseño objetivo y conserva identificadores de las iteraciones previas. La condición de implementación se registra por versión y entorno en los capítulos XII y XI. Los cambios históricos se conservan en el registro de contexto de la memoria.
 
 ## Sistema EspaciGo
 

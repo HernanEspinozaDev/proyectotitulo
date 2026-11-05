@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "name": "inacap-es2",
+  "name": "inacap-tihi84-final",
   "version": "1.0.0",
   "template": {
-    "file": "templates/reference-inacap.docx"
+    "file": "templates/reference-tihi84.docx"
   },
   "roles": {
     "body": {
@@ -17,7 +17,7 @@
     },
     "heading_1": {
       "word_styles": [
-        "Ttulo10"
+        "Ttulo1"
       ]
     },
     "heading_2": {
@@ -40,6 +40,16 @@
       "word_styles": [
         "TOCHeading"
       ]
+    },
+    "heading_4": {
+      "word_styles": [
+        "Ttulo4"
+      ]
+    },
+    "heading_5": {
+      "word_styles": [
+        "Ttulo5"
+      ]
     }
   },
   "compatibility": {
@@ -47,10 +57,10 @@
       "FirstParagraph": "Normal",
       "BodyText": "Normal",
       "Compact": "Normal",
-      "ImageCaption": "PIEDEFOTO",
-      "TableCaption": "TABLATTULO",
+      "ImageCaption": "FiguraoTablaTtulo",
+      "TableCaption": "FiguraoTablaTtulo",
       "Table": "Tablanormal",
-      "TOCHeading": "TtuloTDC",
+      "TOCHeading": "Ttulodendice",
       "BlockText": "Normal"
     }
   }

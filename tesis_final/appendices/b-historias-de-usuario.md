@@ -1,6 +1,6 @@
 # ANEXO B: HISTORIAS DE USUARIO CON CRITERIOS INVEST
 
-El anexo reúne 35 historias en nueve épicas. Cada ficha identifica actor, criterios de aceptación y traza con el catálogo de requisitos y casos de uso. La cobertura documental identifica relaciones entre artefactos. El Capítulo X presenta la evidencia de ejecución por corte.
+El anexo reúne 35 historias en nueve épicas. Cada ficha identifica actor, criterios de aceptación y traza con el catálogo de requisitos y casos de uso. La cobertura documental identifica relaciones entre artefactos. El Capítulo XII presenta la evidencia de ejecución por corte.
 
 **Épicas**
 

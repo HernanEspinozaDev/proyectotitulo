@@ -1,21 +1,23 @@
-# CAPÍTULO V: GESTIÓN DEL PROYECTO, MARCO METODOLÓGICO Y PLANIFICACIÓN
+# CAPÍTULO VI: Metodología de trabajo
 
-## 5.1. Selección y Justificación Metodológica del Enfoque Híbrido
+## 6. Metodología de trabajo
+
+### 6.1. Metodología y Desarrollo de la solución
 
 En el ámbito de la Ingeniería de Software contemporánea, la gestión de proyectos no debe confundirse con el modelo de desarrollo de código. La literatura especializada y los estándares internacionales [@pmbok7] recomiendan desacoplar la **gobernanza directiva del proyecto** del **ciclo de vida constructivo del producto informático**.
 
-### 5.1.1. Gobernanza (PMBOK) y Ciclo de Vida del Software (Iterativo-Incremental)
+#### 6.1.1. Gobernanza (PMBOK) y Ciclo de Vida del Software (Iterativo-Incremental)
 
 Para garantizar el cumplimiento de los objetivos académicos e industriales de **espaciGo**, se adopta formalmente un **Enfoque Metodológico Híbrido**:
 
 1. **Marco de Gobernanza y Gestión:** Se fundamenta en las mejores prácticas del estándar **PMBOK** (*Project Management Body of Knowledge*, 7ma Edición). Este marco proporciona la estructura formal para definir y controlar la **Línea Base del Alcance** mediante la **Estructura de Desglose del Trabajo (EDT/WBS)**, la gestión de riesgos sistémicos, la asignación de recursos y el aseguramiento del cronograma.
 2. **Modelo de Ciclo de Vida de Construcción:** Se adopta un modelo **Iterativo e Incremental**. La ingeniería de detalle, codificación y pruebas se organizan en ciclos sucesivos e incrementales donde cada fase entrega un incremento funcional, verificable e integrable de la plataforma, mitigando riesgos de arquitectura de forma temprana.
 
-### 5.1.2. Matriz Multicriterio de Decisión Metodológica
+#### 6.1.2. Matriz Multicriterio de Decisión Metodológica
 
 Para fundamentar la selección del enfoque híbrido frente a alternativas (Cascada tradicional y Scrum ágil puro), se formula la siguiente matriz multicriterio ponderada:
 
-**Tabla 3**  
+**Tabla 5**\
 *Matriz Multicriterio Ponderada de Selección Metodológica*
 
 | Criterio de selección | Peso | Valoraciones | Justificación técnica |
@@ -29,7 +31,7 @@ Para fundamentar la selección del enfoque híbrido frente a alternativas (Casca
 
 *Nota.* Elaboración propia. Cada criterio se valora de 1 a 5 para este proyecto, donde 1 indica ajuste bajo y 5 ajuste alto. Las valoraciones se presentan en el orden cascada, Scrum y modelo híbrido. El total suma cada valoración multiplicada por su ponderación [@pmbok7].
 
-### 5.1.3. Modelo de Fases e Incrementos del Ciclo de Vida
+#### 6.1.3. Modelo de Fases e Incrementos del Ciclo de Vida
 
 El ciclo de desarrollo se estructura en las etapas de planificación, análisis, diseño, construcción, pruebas e implementación, manteniendo la coherencia terminológica entre la gestión y la ingeniería del proyecto:
 
@@ -42,19 +44,19 @@ El ciclo de desarrollo se estructura en las etapas de planificación, análisis,
 
 ---
 
-## 5.2. Gestión del Alcance del Proyecto
+#### 6.1.4. Gestión del alcance
 
 La gestión del alcance asegura que el proyecto incluya todo el trabajo requerido, y únicamente el trabajo necesario, para culminar con éxito la plataforma **espaciGo**.
 
-### 5.2.1. Criterios de Delimitación y Línea Base del Alcance
+##### 6.1.4.1. Criterios de Delimitación y Línea Base del Alcance
 
 La Línea Base del Alcance se integra por tres componentes oficiales:
 
-1. El Enunciado del Alcance del Proyecto (detallado en el Capítulo IV).
+1. El Enunciado del Alcance del Proyecto (detallado en el Capítulo V).
 2. La **Estructura de Desglose del Trabajo (EDT/WBS)**.
 3. El **Diccionario de la EDT**.
 
-### 5.2.2. Estructura de Desglose del Trabajo (EDT / WBS) a 3 Niveles
+##### 6.1.4.2. Estructura de Desglose del Trabajo (EDT / WBS) a 3 Niveles
 
 La Figura 4 organiza los paquetes de trabajo en seis ramas. El desglose textual conserva el nombre completo de cada paquete.
 
@@ -103,18 +105,46 @@ La Figura 4 organiza los paquetes de trabajo en seis ramas. El desglose textual 
     └── 1.6.4. Informe Final de Titulación y Defensa de Grado
 ```
 
-### 5.2.3. Diccionario de la EDT y Entregables Principales
+##### 6.1.4.3. Diccionario de la EDT y Entregables Principales
 
 Cada paquete de trabajo de nivel 3 cuenta con una ficha técnica que define su alcance y criterios de aceptación. A modo de síntesis ejecutiva:
 
-*   **Paquete 1.3.3 (Modelado de Datos Geoespacial):** Entrega el esquema DDL de 110 tablas en PostgreSQL con índices GiST para operadores espaciales y rangos `tstzrange`. Criterio de aceptación: consultas y restricciones verificadas contra los criterios del Capítulo VII.
+*   **Paquete 1.3.3 (Modelado de Datos Geoespacial):** Entrega el esquema DDL de 110 tablas en PostgreSQL con índices GiST para operadores espaciales y rangos `tstzrange`. Criterio de aceptación: consultas y restricciones verificadas contra los criterios del Capítulo III.
 *   **Paquete 1.4.3 (Contratación y Cobros Diferenciados):** Entrega un recorrido sintético de reserva y conciliación y define los criterios de habilitación externa. Criterio de aceptación: La aceptación requiere comprobar la conciliación según el alcance del ensayo y los criterios del Anexo F.
 
-El Capítulo XIII registra el avance y la evidencia de cada incremento.
+El Capítulo XI registra el avance y la evidencia de cada incremento.
 
 ---
 
-## 5.3. Planificación Temporal y Carta Gantt Maestra
+#### 6.1.5. Gestión de riesgos
+
+La gestión de riesgos identifica, evalúa y mitiga tempranamente amenazas técnicas y operacionales:
+
+##### 6.1.5.1. Matriz de Probabilidad e Impacto de Riesgos
+
+La Figura 5 sitúa los riesgos por probabilidad e impacto. La Tabla 6 desarrolla las medidas de mitigación.
+
+**Figura 5**\
+*Mapa de probabilidad e impacto de los riesgos*
+
+![](assets/figuras/mapa_riesgos.png)
+
+*Nota.* Elaboración propia a partir de la Tabla 5. Cada celda indica el producto de probabilidad e impacto. Los códigos identifican los riesgos evaluados. Los niveles bajo, medio y alto corresponden a la clasificación de la Tabla 5.
+
+**Tabla 6**\
+*Matriz de Probabilidad e Impacto de Riesgos del Proyecto*
+
+| ID | Riesgo y categoría | Evaluación | Estrategia de mitigación |
+|:---------:|--------------------------|-------------------------|-------------------------------------|
+| **R-01** | Doble reserva concurrente en espacios de alta demanda. Categoría: Técnico. | Media (3) · Crítico (5) · **Alta (15)** | Implementación de índices de exclusión GiST (`tstzrange`) a nivel de motor de datos en PostgreSQL 18. |
+| **R-02** | Caída o degradación de la pasarela de pagos durante un arriendo. Categoría: Externo. | Baja (2) · Crítico (5) · **Media (10)** | Manejo de reintentos idempotentes y registro de transacciones con estado *Pending* para conciliación asíncrona. |
+| **R-03** | Vulnerabilidad de datos personales sensibles (Ley 21.719). Categoría: Ciberseguridad. | Baja (2) · Crítico (5) · **Media (10)** | Control de acceso por finalidad, protección de archivos y comprobación de permisos tras restaurar. |
+| **R-04** | Desajuste en el calendario académico y fechas de entrega. Categoría: Gestión. | Media (3) · Mayor (4) · **Alta (12)** | Control estricto de la EDT y congelamiento de alcance en compuertas de fase (*phase gates*). |
+| **R-05** | Rechazo legal de contratos generados dinámicamente. Categoría: Legal. | Baja (1) · Mayor (4) · **Baja (4)** | Revisar las modalidades, sus condiciones y la evidencia requerida antes de habilitar integraciones. |
+
+*Nota.* Elaboración propia según la metodología de gestión de riesgos PMBOK [@pmbok7]. La evaluación presenta la probabilidad, el impacto y la severidad en ese orden.
+
+### 6.2. Duración y cronograma
 
 > [!TIP]
 > 🟢 **[SECCIÓN RESERVADA PARA INTEGRACIÓN — ANITA MARCHANT Y ERICK SILVA]**  
@@ -122,15 +152,15 @@ El Capítulo XIII registra el avance y la evidencia de cada incremento.
 
 ---
 
-## 5.4. Plan de Gestión de Recursos y Equipo de Trabajo
+### 6.3. Equipo de trabajo
 
 La ejecución del proyecto está a cargo del equipo fundador, conformado por tres ingenieros con roles de responsabilidad complementarios:
 
-### 5.4.1. Roles y Matriz de Asignación de Responsabilidades (RACI)
+#### 6.3.1. Roles y Matriz de Asignación de Responsabilidades (RACI)
 
 La asignación de responsabilidades sobre los paquetes principales de la EDT se define bajo la matriz RACI (*Responsible, Accountable, Consulted, Informed*):
 
-**Tabla 4**  
+**Tabla 7**\
 *Matriz de Asignación de Responsabilidades (RACI) del Equipo Fundador*
 
 | Paquete de Trabajo de la EDT | Hernán Espinoza | Anita Marchant | Erick Silva |
@@ -145,36 +175,12 @@ La asignación de responsabilidades sobre los paquetes principales de la EDT se 
 
 *Convención: **R** = Responsable de ejecutar la tarea; **A** = Aprobador último / Responsable final; **C** = Consultado técnicamente; **I** = Informado.*
 
-*Nota.* Elaboración propia. Hernán Espinoza lidera arquitectura y backend. Anita Marchant lidera frontend y negocio. Erick Silva lidera ciberseguridad y DevOps. La fila 1.6.1 identifica el responsable operativo de despliegue. La planificación y evaluación económica detalladas se conservan en la sección 5.3, el Capítulo XII y los anexos G y H.
+*Nota.* Elaboración propia. Hernán Espinoza lidera arquitectura y backend. Anita Marchant lidera frontend y negocio. Erick Silva lidera ciberseguridad y DevOps. La fila 1.6.1 identifica el responsable operativo de despliegue. La planificación y evaluación económica detalladas se conservan en la sección 6.2, el Capítulo XIV y los anexos G y H.
 
-### 5.4.2. Registro de esfuerzo
+#### 6.3.2. Registro de esfuerzo
 
-La EDT identifica los paquetes que requieren estimación. La comparación entre esfuerzo previsto y observado requiere un registro por paquete, responsable y período. La sección 5.3 conserva el espacio de integración de la planificación detallada.
+La EDT identifica los paquetes que requieren estimación. La comparación entre esfuerzo previsto y observado requiere un registro por paquete, responsable y período. La sección 6.2 conserva el espacio de integración de la planificación detallada.
 
-## 5.5. Plan de Gestión de Riesgos del Proyecto
+### 6.4. Plan de recursos
 
-La gestión de riesgos identifica, evalúa y mitiga tempranamente amenazas técnicas y operacionales:
-
-### 5.5.1. Matriz de Probabilidad e Impacto de Riesgos
-
-La Figura 5 sitúa los riesgos por probabilidad e impacto. La Tabla 5 desarrolla las medidas de mitigación.
-
-**Figura 5**\
-*Mapa de probabilidad e impacto de los riesgos*
-
-![](assets/figuras/mapa_riesgos.png)
-
-*Nota.* Elaboración propia a partir de la Tabla 5. Cada celda indica el producto de probabilidad e impacto. Los códigos identifican los riesgos evaluados. Los niveles bajo, medio y alto corresponden a la clasificación de la Tabla 5.
-
-**Tabla 5**  
-*Matriz de Probabilidad e Impacto de Riesgos del Proyecto*
-
-| ID | Riesgo y categoría | Evaluación | Estrategia de mitigación |
-|:---------:|--------------------------|-------------------------|-------------------------------------|
-| **R-01** | Doble reserva concurrente en espacios de alta demanda. Categoría: Técnico. | Media (3) · Crítico (5) · **Alta (15)** | Implementación de índices de exclusión GiST (`tstzrange`) a nivel de motor de datos en PostgreSQL 18. |
-| **R-02** | Caída o degradación de la pasarela de pagos durante un arriendo. Categoría: Externo. | Baja (2) · Crítico (5) · **Media (10)** | Manejo de reintentos idempotentes y registro de transacciones con estado *Pending* para conciliación asíncrona. |
-| **R-03** | Vulnerabilidad de datos personales sensibles (Ley 21.719). Categoría: Ciberseguridad. | Baja (2) · Crítico (5) · **Media (10)** | Control de acceso por finalidad, protección de archivos y comprobación de permisos tras restaurar. |
-| **R-04** | Desajuste en el calendario académico y fechas de entrega. Categoría: Gestión. | Media (3) · Mayor (4) · **Alta (12)** | Control estricto de la EDT y congelamiento de alcance en compuertas de fase (*phase gates*). |
-| **R-05** | Rechazo legal de contratos generados dinámicamente. Categoría: Legal. | Baja (1) · Mayor (4) · **Baja (4)** | Revisar las modalidades, sus condiciones y la evidencia requerida antes de habilitar integraciones. |
-
-*Nota.* Elaboración propia según la metodología de gestión de riesgos PMBOK [@pmbok7]. La evaluación presenta la probabilidad, el impacto y la severidad en ese orden.
+La matriz RACI identifica los roles. El plan técnico considera entornos de desarrollo y ensayo, control de versiones, cómputo, persistencia y almacenamiento de objetos. La estimación y los costos de recursos y adquisiciones corresponden al Capítulo XIV.

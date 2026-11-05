@@ -1,25 +1,12 @@
-# CAPÍTULO VII: ESPECIFICACIÓN DE REQUERIMIENTOS Y NIVELES DE SERVICIO
+# CAPÍTULO III: Levantamiento de Requerimientos
 
-## 7.1. Identificación de Actores y Módulos del Sistema
+## 3. Levantamiento de Requerimientos
 
-La especificación de requerimientos de la plataforma **espaciGo** se articula en torno a la interacción de roles de arrendamiento definidos por operación, capacidades de administración e integraciones externas:
-
-La Figura 7 sintetiza los papeles de la cuenta y la administración.
-
-**Figura 7**\
-*Diagrama de Interacción entre Actores y Módulos de la Plataforma*
-
-![](assets/figuras/anexo_c/cu_actores.png)
-
-*Nota.* Elaboración propia en base a la arquitectura modular de la plataforma espaciGo.
-
----
-
-## 7.2. Síntesis Ejecutiva de Requerimientos Funcionales (IEEE 830)
+### 3.1. Especificación de Requerimientos (IEEE 830/1998)
 
 El Anexo A utiliza el prefijo `RQF` como identificador canónico. La agrupación del catálogo sigue los módulos M01 a M11 de los casos de uso. El flujo transaccional reúne oferta y titularidad (M04), descubrimiento (M05), reserva y cobros (M06), contratación (M07), entrega (M08) y resolución de disputas (M10). Los anexos B, C y F documentan historias, casos de uso y pruebas por corte.
 
-**Tabla 7**\
+**Tabla 2**\
 *Trazabilidad inicial del recorrido objetivo*
 
 | Comportamiento | Requisitos | Historia o caso |
@@ -35,11 +22,11 @@ El Anexo A utiliza el prefijo `RQF` como identificador canónico. La agrupación
 
 *Nota.* Elaboración propia. Los anexos A, B y C detallan los requisitos, historias y casos. La Tabla F.1 del Anexo F documenta los criterios de prueba. La aceptación por parte se desarrolla en HU33 y CU-29.
 
-## 7.3. Requerimientos no funcionales
+#### 3.1.1. Requerimientos no funcionales
 
-La Tabla 8 selecciona requisitos de calidad del Anexo A y asocia cada umbral con la evidencia que exige su comprobación en el entorno objetivo.
+La Tabla 3 selecciona requisitos de calidad del Anexo A y asocia cada umbral con la evidencia que exige su comprobación en el entorno objetivo.
 
-**Tabla 8**\
+**Tabla 3**\
 *Criterios de calidad y verificación*
 
 | Requisito | Criterio objetivo | Evidencia exigida |
@@ -52,8 +39,6 @@ La Tabla 8 selecciona requisitos de calidad del Anexo A y asocia cada umbral con
 
 *Nota.* Elaboración propia con base en el Anexo A. Los umbrales corresponden a criterios objetivo. La Tabla F.2 identifica PT-09 para búsqueda, PT-11 para recuperación y PT-14 para revisión de seguridad.
 
-## 7.4. Indicadores de operación
+### 3.2. Especificación de Restricciones
 
-La evaluación comercial puede medir conversión de búsqueda a reserva, tiempo entre publicación y primera reserva, proporción de incidencias resueltas y satisfacción posterior al arriendo. Cada medición define población, período y denominador antes de asignar metas.
-
-La evaluación técnica registra volumen de solicitudes, latencia P95 por operación, errores de integración y cobertura. El reporte diferencia pruebas sintéticas, observación de un entorno de ensayo y medición de operación.
+Las publicaciones se asocian a un titular y una unidad reservable exclusiva. La emisión requiere identidad de ambas partes y representación acreditada cuando corresponde. Las modalidades de firma, garantía y proveedores se habilitan por corte y evidencia. La recurrencia, el aforo compartido y la subdivisión quedan fuera del alcance vigente. Los anexos A–C conservan la trazabilidad de estas restricciones.

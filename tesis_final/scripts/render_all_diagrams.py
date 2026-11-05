@@ -101,8 +101,24 @@ def main():
         else:
             failures += 1
 
+    count_bpmn = 0
+    for source in sorted(SRC_DIR.glob("*.bpmn")):
+        if only and not any(name in source.stem for name in only):
+            continue
+        output = OUT_DIR / f"{source.stem}.png"
+        if output.exists() and not only:
+            continue
+        result = subprocess.run([
+            "npx", "-y", "bpmn-to-image@0.10.0",
+            "--no-title", "--no-footer", "--scale=3", f"{source}:{output}",
+        ])
+        if result.returncode:
+            failures += 1
+        else:
+            count_bpmn += 1
+
     print("--------------------------------------------------")
-    print(f"Finalizado: {count_mmd} diagramas Mermaid y {count_puml} PlantUML generados.")
+    print(f"Finalizado: {count_mmd} diagramas Mermaid , {count_puml} PlantUML y {count_bpmn} BPMN generados.")
     print("==================================================")
 
     return int(failures > 0)

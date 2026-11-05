@@ -13,11 +13,13 @@ Aplica post-procesamiento fino sobre el documento DOCX final:
 
 import json
 import zipfile
-import xml.etree.ElementTree as ET
+from lxml import etree as ET
 from pathlib import Path
 import tempfile
 import shutil
 import re
+
+from tihi84_frontmatter import apply_frontmatter
 
 ROOT = Path(__file__).resolve().parent.parent
 DOCX_PATH = ROOT / 'build/Tesis_Final_espaciGo.docx'
@@ -40,6 +42,7 @@ def insert_caption_indexes(body):
         properties = ET.SubElement(heading, f'{W}pPr')
         ET.SubElement(properties, f'{W}pStyle', {f'{W}val': 'TOCHeading'})
         ET.SubElement(properties, f'{W}pageBreakBefore')
+        ET.SubElement(properties, f'{W}outlineLvl', {f'{W}val': '0'})
         ET.SubElement(properties, f'{W}keepNext')
         ET.SubElement(ET.SubElement(heading, f'{W}r'), f'{W}t').text = title
         field = ET.Element(f'{W}p')
@@ -63,34 +66,8 @@ def postprocess():
         root = ET.fromstring(doc_xml)
         body = root.find(f'{W}body')
 
-        metadata = json.loads((ROOT / 'document.json').read_text())['metadata']
-        cover_title = next(
-            (p for p in body.findall(f'{W}p') if
-             ''.join(t.text or '' for t in p.iter(f'{W}t')) == metadata['title']),
-            None,
-        )
-        if cover_title is not None:
-            title_properties = cover_title.find(f'{W}pPr')
-            if title_properties is None:
-                title_properties = ET.Element(f'{W}pPr')
-                cover_title.insert(0, title_properties)
-            spacing = title_properties.find(f'{W}spacing')
-            if spacing is None:
-                spacing = ET.SubElement(title_properties, f'{W}spacing')
-            spacing.set(f'{W}before', '1800')
-            date_paragraph = next(
-                (p for p in body.findall(f'{W}p') if
-                 ''.join(t.text or '' for t in p.iter(f'{W}t')) == metadata['date']),
-                None,
-            )
-            if date_paragraph is not None:
-                authors = ' · '.join(metadata['authors'])
-                if not any(''.join(t.text or '' for t in p.iter(f'{W}t')) == authors
-                           for p in body.findall(f'{W}p')):
-                    paragraph = ET.Element(f'{W}p')
-                    run = ET.SubElement(paragraph, f'{W}r')
-                    ET.SubElement(run, f'{W}t').text = authors
-                    body.insert(list(body).index(date_paragraph), paragraph)
+        manifest = json.loads((ROOT / 'document.json').read_text())
+        extra_parts = apply_frontmatter(body, zin, ROOT / manifest['template'], manifest['metadata'])
 
         modified_h1 = 0
         modified_tables = 0
@@ -98,6 +75,7 @@ def postprocess():
         removed_duplicates = 0
         
         # 1. Page breaks and keepNext
+        inside_appendices = False
         for p in body.iter(f'{W}p'):
             pPr = p.find(f'{W}pPr')
             pStyle = pPr.find(f'{W}pStyle') if pPr is not None else None
@@ -106,15 +84,19 @@ def postprocess():
             
             is_chapter = text.startswith('CAPÍTULO ')
             is_annex = text.startswith('ANEXO ')
+            if is_annex:
+                inside_appendices = True
+            if text == 'Material Complementario (Apéndices)':
+                inside_appendices = False
             is_major_prelim = text in [
                 'Hoja de Aprobación Institucional',
                 'Dedicatoria',
                 'Agradecimientos',
-                'Resumen ejecutivo',
+                'Abstract',
                 'Índice de Contenidos'
             ]
             
-            if is_chapter or is_annex or is_major_prelim:
+            if (is_chapter or is_annex or is_major_prelim) and not text.startswith('CAPÍTULO I:'):
                 if pPr is None:
                     pPr = ET.Element(f'{W}pPr')
                     p.insert(0, pPr)
@@ -122,7 +104,21 @@ def postprocess():
                     ET.SubElement(pPr, f'{W}pageBreakBefore')
                     modified_h1 += 1
             
-            if sval in ['Ttulo10', 'Ttulo2', 'Ttulo3', 'Heading1', 'Heading2', 'Heading3']:
+            if sval in [f'Ttulo{i}' for i in range(1, 6)] + [f'Heading{i}' for i in range(1, 6)]:
+                # DocSkill headings carry the migrated number in the text.
+                # Suppress the reference's automatic multilevel list for these paragraphs.
+                if pPr is not None:
+                    numbering = pPr.find(f'{W}numPr')
+                    if numbering is None:
+                        numbering = ET.SubElement(pPr, f'{W}numPr')
+                    for child in list(numbering):
+                        numbering.remove(child)
+                    ET.SubElement(numbering, f'{W}numId', {f'{W}val':'0'})
+                    if inside_appendices and p.getparent() is body:
+                        outline = pPr.find(f'{W}outlineLvl')
+                        if outline is None:
+                            outline = ET.SubElement(pPr, f'{W}outlineLvl')
+                        outline.set(f'{W}val', str(int(sval[-1])+1))
                 if pPr is None:
                     pPr = ET.Element(f'{W}pPr')
                     p.insert(0, pPr)
@@ -282,17 +278,24 @@ def postprocess():
         print(f"Postprocesamiento: {removed_duplicates} títulos duplicados debajo de imágenes eliminados.")
 
         insert_caption_indexes(body)
-        new_doc_xml = ET.tostring(root, encoding='utf-8', xml_declaration=True)
+        extra_parts['word/document.xml'] = ET.tostring(root, encoding='utf-8', xml_declaration=True)
 
         with tempfile.NamedTemporaryFile(delete=False, suffix='.docx') as tmp_file:
             tmp_path = Path(tmp_file.name)
 
         with zipfile.ZipFile(DOCX_PATH, 'r') as zin, zipfile.ZipFile(tmp_path, 'w', compression=zipfile.ZIP_DEFLATED) as zout:
             for item in zin.infolist():
-                if item.filename == 'word/document.xml':
-                    zout.writestr(item, new_doc_xml)
+                if item.filename in extra_parts:
+                    zout.writestr(item, extra_parts.pop(item.filename))
                 elif item.filename == 'word/styles.xml':
                     styles = ET.fromstring(zin.read(item.filename))
+                    for style in styles.findall(f'{W}style'):
+                        if re.fullmatch(r'(?:Ttulo|Heading)[1-8]', style.get(f'{W}styleId','')):
+                            properties = style.find(f'{W}pPr')
+                            if properties is not None:
+                                numbering = properties.find(f'{W}numPr')
+                                if numbering is not None:
+                                    properties.remove(numbering)
                     caption = styles.find(f"{W}style[@{W}styleId='TableCaption']")
                     # Use the existing body appearance for the indexed table labels.
                     caption.find(f'{W}basedOn').set(f'{W}val', 'FirstParagraph')
@@ -300,6 +303,8 @@ def postprocess():
                     zout.writestr(item, ET.tostring(styles, encoding='utf-8', xml_declaration=True))
                 else:
                     zout.writestr(item, zin.read(item.filename))
+            for name, data in extra_parts.items():
+                zout.writestr(name, data)
 
         shutil.move(str(tmp_path), str(DOCX_PATH))
         print("DOCX final actualizado con éxito!")

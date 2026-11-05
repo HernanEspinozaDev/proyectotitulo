@@ -25,7 +25,12 @@ def update_indexes(document):
     styles.insertByName(visual_index_style, entry_style)
     entry_style.ParentStyle = 'Contents 1'
     entry_style.ParaTopMargin = 0
-    entry_style.ParaBottomMargin = 60
+    entry_style.ParaBottomMargin = 45
+    entry_style.CharHeight = 10.5
+    spacing = uno.createUnoStruct('com.sun.star.style.LineSpacing')
+    spacing.Mode = 0
+    spacing.Height = 100
+    entry_style.ParaLineSpacing = spacing
 
     # Writer can omit imported Word indexes based on named paragraph styles.
     for title, style in (

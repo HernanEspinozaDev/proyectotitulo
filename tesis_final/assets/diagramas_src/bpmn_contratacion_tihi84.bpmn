@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='utf-8'?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="DefEspacigo" targetNamespace="urn:espacigo:tesis">
+  <bpmn:process id="Contratacion" isExecutable="false">
+    <bpmn:laneSet id="Responsabilidades">
+      <bpmn:lane id="Partes" name="Partes del arriendo">
+        <bpmn:flowNodeRef>Inicio</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Acuerdo</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Aceptacion</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>FirmaOpcional</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Firma</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>UnirFirma</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Pagar</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Plataforma" name="Plataforma espaciGo">
+        <bpmn:flowNodeRef>Bloqueo</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Emision</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Renta</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>GarantiaOpcional</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Garantia</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>UnirGarantia</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Confirmar</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Fin</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="Inicio" name="Inicio" />
+    <bpmn:userTask id="Acuerdo" name="Acordar horario y precio" />
+    <bpmn:serviceTask id="Bloqueo" name="Verificar identidades y activar bloqueo" />
+    <bpmn:serviceTask id="Emision" name="Emitir documento inmutable" />
+    <bpmn:userTask id="Aceptacion" name="Aceptar la emisión" />
+    <bpmn:exclusiveGateway id="FirmaOpcional" name="¿Modalidad con firma?" />
+    <bpmn:userTask id="Firma" name="Acreditar aportes y firmar" />
+    <bpmn:exclusiveGateway id="UnirFirma" name="" />
+    <bpmn:userTask id="Pagar" name="Pagar la renta" />
+    <bpmn:serviceTask id="Renta" name="Acreditar la renta" />
+    <bpmn:exclusiveGateway id="GarantiaOpcional" name="¿Garantía exigible y habilitada?" />
+    <bpmn:serviceTask id="Garantia" name="Acreditar garantía separada" />
+    <bpmn:exclusiveGateway id="UnirGarantia" name="" />
+    <bpmn:serviceTask id="Confirmar" name="Confirmar la reserva" />
+    <bpmn:endEvent id="Fin" name="Fin" />
+    <bpmn:sequenceFlow id="Flujo1" sourceRef="Inicio" targetRef="Acuerdo" name="" />
+    <bpmn:sequenceFlow id="Flujo2" sourceRef="Acuerdo" targetRef="Bloqueo" name="" />
+    <bpmn:sequenceFlow id="Flujo3" sourceRef="Bloqueo" targetRef="Emision" name="" />
+    <bpmn:sequenceFlow id="Flujo4" sourceRef="Emision" targetRef="Aceptacion" name="" />
+    <bpmn:sequenceFlow id="Flujo5" sourceRef="Aceptacion" targetRef="FirmaOpcional" name="" />
+    <bpmn:sequenceFlow id="Flujo6" sourceRef="FirmaOpcional" targetRef="Firma" name="Sí" />
+    <bpmn:sequenceFlow id="Flujo7" sourceRef="Firma" targetRef="UnirFirma" name="" />
+    <bpmn:sequenceFlow id="Flujo8" sourceRef="UnirFirma" targetRef="Pagar" name="" />
+    <bpmn:sequenceFlow id="Flujo9" sourceRef="Pagar" targetRef="Renta" name="" />
+    <bpmn:sequenceFlow id="Flujo10" sourceRef="Renta" targetRef="GarantiaOpcional" name="" />
+    <bpmn:sequenceFlow id="Flujo11" sourceRef="GarantiaOpcional" targetRef="Garantia" name="Sí" />
+    <bpmn:sequenceFlow id="Flujo12" sourceRef="Garantia" targetRef="UnirGarantia" name="" />
+    <bpmn:sequenceFlow id="Flujo13" sourceRef="UnirGarantia" targetRef="Confirmar" name="" />
+    <bpmn:sequenceFlow id="Flujo14" sourceRef="Confirmar" targetRef="Fin" name="" />
+    <bpmn:sequenceFlow id="Flujo15" sourceRef="FirmaOpcional" targetRef="UnirFirma" name="No" />
+    <bpmn:sequenceFlow id="Flujo16" sourceRef="GarantiaOpcional" targetRef="UnirGarantia" name="No" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="VistaContratacion">
+    <bpmndi:BPMNPlane id="PlanoContratacion" bpmnElement="Contratacion">
+      <bpmndi:BPMNShape id="Vista_Partes" bpmnElement="Partes" isHorizontal="false">
+        <dc:Bounds x="0" y="0" width="320" height="1190" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Vista_Plataforma" bpmnElement="Plataforma" isHorizontal="false">
+        <dc:Bounds x="320" y="0" width="320" height="1190" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Vista_Inicio" bpmnElement="Inicio">
+        <dc:Bounds x="142" y="35" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Vista_Acuerdo" bpmnElement="Acuerdo">
+        <dc:Bounds x="77" y="113" width="166" height="52" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Vista_Bloqueo" bpmnElement="Bloqueo">
+        <dc:Bounds x="397" y="191" width="166" height="52" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Vista_Emision" bpmnElement="Emision">
+        <dc:Bounds x="397" y="269" width="166" height="52" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Vista_Aceptacion" bpmnElement="Aceptacion">
+        <dc:Bounds x="77" y="347" width="166" height="52" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Vista_FirmaOpcional" bpmnElement="FirmaOpcional">
+        <dc:Bounds x="139" y="425" width="42" height="42" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="191" y="424" width="107" height="44" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Vista_Firma" bpmnElement="Firma">
+        <dc:Bounds x="77" y="503" width="166" height="52" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Vista_UnirFirma" bpmnElement="UnirFirma">
+        <dc:Bounds x="139" y="581" width="42" height="42" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Vista_Pagar" bpmnElement="Pagar">
+        <dc:Bounds x="77" y="659" width="166" height="52" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Vista_Renta" bpmnElement="Renta">
+        <dc:Bounds x="397" y="737" width="166" height="52" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Vista_GarantiaOpcional" bpmnElement="GarantiaOpcional">
+        <dc:Bounds x="459" y="815" width="42" height="42" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="511" y="814" width="107" height="44" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Vista_Garantia" bpmnElement="Garantia">
+        <dc:Bounds x="397" y="893" width="166" height="52" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Vista_UnirGarantia" bpmnElement="UnirGarantia">
+        <dc:Bounds x="459" y="971" width="42" height="42" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Vista_Confirmar" bpmnElement="Confirmar">
+        <dc:Bounds x="397" y="1049" width="166" height="52" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Vista_Fin" bpmnElement="Fin">
+        <dc:Bounds x="462" y="1127" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Vista_Flujo1" bpmnElement="Flujo1">
+        <di:waypoint x="160" y="71" />
+        <di:waypoint x="160" y="113" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Vista_Flujo2" bpmnElement="Flujo2">
+        <di:waypoint x="160" y="165" />
+        <di:waypoint x="160" y="178" />
+        <di:waypoint x="480" y="178" />
+        <di:waypoint x="480" y="191" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Vista_Flujo3" bpmnElement="Flujo3">
+        <di:waypoint x="480" y="243" />
+        <di:waypoint x="480" y="269" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Vista_Flujo4" bpmnElement="Flujo4">
+        <di:waypoint x="480" y="321" />
+        <di:waypoint x="480" y="334" />
+        <di:waypoint x="160" y="334" />
+        <di:waypoint x="160" y="347" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Vista_Flujo5" bpmnElement="Flujo5">
+        <di:waypoint x="160" y="399" />
+        <di:waypoint x="160" y="425" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Vista_Flujo6" bpmnElement="Flujo6">
+        <di:waypoint x="160" y="467" />
+        <di:waypoint x="160" y="503" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="167" y="471" width="18" height="16" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Vista_Flujo7" bpmnElement="Flujo7">
+        <di:waypoint x="160" y="555" />
+        <di:waypoint x="160" y="581" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Vista_Flujo8" bpmnElement="Flujo8">
+        <di:waypoint x="160" y="623" />
+        <di:waypoint x="160" y="659" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Vista_Flujo9" bpmnElement="Flujo9">
+        <di:waypoint x="160" y="711" />
+        <di:waypoint x="160" y="724" />
+        <di:waypoint x="480" y="724" />
+        <di:waypoint x="480" y="737" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Vista_Flujo10" bpmnElement="Flujo10">
+        <di:waypoint x="480" y="789" />
+        <di:waypoint x="480" y="815" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Vista_Flujo11" bpmnElement="Flujo11">
+        <di:waypoint x="480" y="857" />
+        <di:waypoint x="480" y="893" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="487" y="861" width="18" height="16" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Vista_Flujo12" bpmnElement="Flujo12">
+        <di:waypoint x="480" y="945" />
+        <di:waypoint x="480" y="971" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Vista_Flujo13" bpmnElement="Flujo13">
+        <di:waypoint x="480" y="1013" />
+        <di:waypoint x="480" y="1049" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Vista_Flujo14" bpmnElement="Flujo14">
+        <di:waypoint x="480" y="1101" />
+        <di:waypoint x="480" y="1127" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Vista_Flujo15" bpmnElement="Flujo15">
+        <di:waypoint x="139" y="446" />
+        <di:waypoint x="71" y="446" />
+        <di:waypoint x="71" y="602" />
+        <di:waypoint x="139" y="602" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="77" y="471" width="18" height="16" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Vista_Flujo16" bpmnElement="Flujo16">
+        <di:waypoint x="459" y="836" />
+        <di:waypoint x="391" y="836" />
+        <di:waypoint x="391" y="992" />
+        <di:waypoint x="459" y="992" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="397" y="861" width="18" height="16" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
