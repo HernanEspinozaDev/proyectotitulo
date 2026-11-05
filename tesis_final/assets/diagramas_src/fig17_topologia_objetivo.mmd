@@ -10,20 +10,20 @@ flowchart TB
     O["Operación autorizada"] --> M
     subgraph REG["Google Cloud · southamerica-west1 · Santiago"]
       direction TB
-      BUILD["Cloud Build · cloudbuild.yaml<br/>Construcción y control de procedencia"]
-      AR["Artifact Registry<br/>Imágenes versionadas por digest"]
+      BUILD["Cloud Build · cloudbuild.yaml<br/>Construcción y procedencia"]
+      AR["Artifact Registry<br/>Imágenes por digest"]
       BUILD --> AR
       WEB["Cloud Run · Next.js<br/>Web pública y privada"]
-      API["Cloud Run · API Go<br/>Identidad de servicio e invocación autorizada"]
-      AR -->|despliegue por digest| WEB & API
+      API["Cloud Run · API Go<br/>Invocación autorizada"]
+      AR --> WEB & API
       WEB -->|BFF · HTTPS| API
       subgraph VPC["VPC · rutas privadas"]
         direction LR
-        M["Ejecución controlada<br/>de migraciones"]
-        DB["Cloud SQL · PostgreSQL 18 / PostGIS<br/>Instancia zonal con IP privada"]
+        M["Migraciones controladas"]
+        DB["Cloud SQL · PostgreSQL 18 / PostGIS<br/>Instancia zonal · IP privada"]
         M --> DB
       end
-      subgraph STORAGE["Cloud Storage · separación por finalidad"]
+      subgraph STORAGE["Cloud Storage · por finalidad"]
         direction LR
         PRIV["Objetos privados<br/>Evidencias y documentos"]
         PUB["Medios públicos<br/>Publicación controlada"]

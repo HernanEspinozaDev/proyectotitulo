@@ -201,7 +201,7 @@ def postprocess():
                 indent.set(f'{W}hanging', '720')
             for link in paragraph.findall(f'{W}hyperlink'):
                 label = ''.join(node.text or '' for node in link.iter(f'{W}t'))
-                if label == 'https://www.bcn.cl/leychile/navegar?idNorma=1178004':
+                if re.fullmatch(r'https://www\.bcn\.cl/leychile/navegar\?idNorma=\d+', label):
                     line_break = ET.Element(f'{W}r')
                     ET.SubElement(line_break, f'{W}br')
                     paragraph.insert(list(paragraph).index(link), line_break)
