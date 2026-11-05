@@ -123,3 +123,7 @@ Fuentes de contraste: [guía APA de resumen y palabras clave](https://apastyle.a
 **Resultado.** Se conserva el resumen ejecutivo de dos párrafos de la memoria y se corrige su etiqueta de palabras clave. Se verifican siete elementos de lista en Word, la clasificación de cinco riesgos y la máquina de estados completa. Las figuras se exportan sin pérdida. Las referencias usan sangría francesa y PostgreSQL 18 conserva sus enlaces versionados sin fecha de recuperación. El PDF tiene 503 páginas. Se comprueban 20 destinos de tablas, 29 de figuras y 22 entradas principales del índice de contenidos. Los cuatro apartados reservados conservan su contenido fuente.
 
 **Recomprobación del informe APA.** Se reservó una línea para cada uno de los tres enlaces de LeyChile y se compactó la Figura 15 desde su fuente Mermaid. Se comprobó la integridad de los cuatro destinos citados por el revisor en Word y PDF, la etiqueta de palabras clave, los siete elementos de lista y los tres índices de la nueva exportación. Las fuentes de los apartados reservados coinciden con la línea base.
+
+## Plantilla docente TIHI84
+
+El [plan de migración a la plantilla docente](TASK_migracion_plantilla_TIHI84.md) cruza los 18 capítulos y preliminares del formato con las fuentes vigentes de espaciGo.
