@@ -26,7 +26,7 @@ Las personas y organizaciones arrendadoras publican y gestionan la disponibilida
 
 #### 5.2.3. Indicadores de gestión
 
-La evaluación comercial puede medir conversión de búsqueda a reserva, tiempo entre publicación y primera reserva, proporción de incidencias resueltas y satisfacción posterior al arriendo. Cada medición define población, período y denominador antes de asignar metas.
+El Capítulo XI define tres indicadores operativos por segmento: conversión de recorridos de contratación, tiempo de coordinación e incidencias por cada cien arriendos. La evaluación comercial puede complementarlos con el tiempo entre publicación y primera reserva, la proporción de incidencias resueltas y la satisfacción posterior al arriendo. Cada medición define su población y período antes de asignar metas.
 
 La evaluación técnica registra volumen de solicitudes, latencia P95 por operación, errores de integración y cobertura. El reporte diferencia pruebas sintéticas, observación de un entorno de ensayo y medición de operación.
 

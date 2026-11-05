@@ -12,6 +12,8 @@
 
 La propuesta relaciona las reglas del arriendo con mecanismos verificables de ocupación, autorización por recurso, preservación contractual y conciliación de pagos. La arquitectura separa las reglas del dominio de los adaptadores que operan con servicios externos.
 
+El aporte en ciberseguridad incorpora autorización por recurso y por finalidad para proteger la evidencia privada, con la Ley 21.719 como referencia de diseño [@ley21719]. El control optimista mediante `If-Match` protege la selección de portada frente a actualizaciones concurrentes. El corte local F5 documenta verificaciones de escaneo, revocación, retención y permisos en el paquete documental. El ensayo GCP03 se detiene en la restauración de permisos de aplicación. El ensayo objetivo de recuperación conjunta conserva pendiente la comprobación de permisos sobre datos y archivos, según los capítulos XII y XIII y el Anexo F.
+
 ### 16.3. Limitaciones
 
 La evidencia se concentra en escenarios sintéticos y cortes de ensayo. El catálogo vigente incluye Inmuebles, con los tipos casa, departamento, habitación y cabaña. Una casa de veraneo puede describirse como casa según la modalidad publicada. Los hostales ilustran un uso objetivo. El Anexo E describe el catálogo y el Capítulo XII delimita la evidencia de ejecución. El modelo conserva una unidad reservable exclusiva y el inventario compartido o de múltiples unidades requiere una especificación propia. La operación con clientes requiere verificar integraciones, recuperación conjunta de datos y archivos y el comportamiento bajo carga del entorno objetivo.
@@ -20,8 +22,6 @@ La evidencia se concentra en escenarios sintéticos y cortes de ensayo. El catá
 
 El siguiente incremento completa la demostración local del recorrido sin firma ni garantía. La integración de firma y la habilitación de garantía requieren verificaciones separadas. La preparación de un piloto también exige un ensayo de recuperación conjunta y medición de carga en el entorno objetivo.
 
-La Figura 18 relaciona los incrementos de integración y los ensayos necesarios para preparar un piloto.
-
 **Figura 18**\
 *Dependencias de los siguientes incrementos*
 
@@ -29,4 +29,4 @@ La Figura 18 relaciona los incrementos de integración y los ensayos necesarios 
 
 *Nota.* Elaboración propia. La figura muestra dependencias de verificación e integración.
 
-El piloto puede medir conversión, tiempo de coordinación e incidencias por segmento. La recurrencia, la subdivisión, el aforo compartido y la validación de firmas externas permanecen diferidos según el ADR vigente.
+La Figura 18 relaciona los incrementos de integración y los ensayos necesarios para preparar el piloto. El piloto puede medir conversión, tiempo de coordinación e incidencias por segmento. La recurrencia, la subdivisión, el aforo compartido y la validación de firmas externas permanecen diferidos según el ADR vigente.

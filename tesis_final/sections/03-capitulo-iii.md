@@ -32,6 +32,7 @@ La Tabla 3 selecciona requisitos de calidad del Anexo A y asocia cada umbral con
 | Requisito | Criterio objetivo | Evidencia exigida |
 |---|---|---|
 | RNF-001 | Respuesta de búsqueda en hasta 2 segundos bajo 200 usuarios concurrentes. | Escenario, intervalo, volumen y tiempos observados. |
+| RNF-002 | Acreditación interna de la renta en hasta 8 segundos, excluido el tiempo de respuesta del proveedor. | Tiempos de procesamiento interno por intento, separados de los del proveedor. |
 | RNF-009 | Disponibilidad mensual mínima de 99,9 % para funciones críticas. | Ventana de observación y registro de disponibilidad. |
 | RNF-010 | RPO máximo de 15 minutos y RTO máximo de 1 hora. | Ensayo de restauración y comprobación del estado recuperado. |
 | RNF-015 | HTTPS con TLS 1.2 o superior para credenciales y datos sensibles. | Comprobación del canal en el entorno evaluado. |

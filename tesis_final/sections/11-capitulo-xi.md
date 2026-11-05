@@ -4,11 +4,22 @@
 
 ### 11.1. Descripción de KPI
 
-La tasa de conversión se calcula como reservas confirmadas sobre recorridos iniciados en una ventana definida. La mediana de coordinación se calcula desde la solicitud hasta el acuerdo. Las incidencias se informan por cada cien operaciones. Cada medición conserva fuente, segmento, período y corte. El registro por incremento comprueba su procedencia.
+- **Tasa de conversión de contratación.** Divide el número de recorridos que terminan en reserva confirmada por el total de recorridos iniciados en el período y multiplica por 100. El historial de solicitudes y reservas vincula cada inicio con su desenlace mediante el identificador del recorrido. El registro fija un plazo de seguimiento común para la cohorte.
+- **Tiempo mediano de coordinación.** Calcula la mediana de los minutos transcurridos entre el registro de la solicitud y el registro del acuerdo sobre horario y precio. El historial de contratación aporta las marcas de tiempo de las solicitudes iniciadas en el período que alcanzan un acuerdo dentro del plazo de seguimiento.
+- **Incidencias por cada cien arriendos.** Divide el número de incidencias distintas vinculadas a los arriendos finalizados en el período por el total de esos arriendos y multiplica por 100. Los registros de incidencias y arriendos permiten asociar cada incidencia con su operación y aplicar un plazo de seguimiento común.
+
+Cada medición identifica período, segmento, plazo de seguimiento y corte. Si el denominador es cero o no hay observaciones para calcular la mediana, el indicador se registra como no calculable. El reporte conserva el volumen de observaciones para interpretar el resultado.
 
 ### 11.2. Descripción de SLA
 
-Los umbrales y su fuente de evidencia se reúnen en los requisitos no funcionales del Capítulo III. Los plazos se contrastan por ventana y escenario en el Anexo F. Los resultados de ensayo mantienen su condición de evidencia local.
+La Tabla 3 y el Anexo A establecen los siguientes objetivos técnicos.
+
+- **RNF-001. Búsqueda.** Respuesta en hasta 2 segundos con 200 usuarios concurrentes, medida desde la confirmación de los parámetros. PT-09 define el ensayo de extremo a extremo. El ensayo SQL del Capítulo XII caracteriza una consulta aislada.
+- **RNF-002. Acreditación de renta.** Procesamiento interno en hasta 8 segundos, excluido el tiempo de respuesta del proveedor. La comprobación requiere un registro de tiempos que separe ambos tramos.
+- **RNF-009. Disponibilidad.** Disponibilidad mensual mínima de 99,9 % para autenticación, búsqueda y reservas. Su comprobación requiere un registro de disponibilidad de esas funciones en la ventana mensual y el entorno evaluado.
+- **RNF-010. Recuperación.** RPO máximo de 15 minutos y RTO máximo de 1 hora en el entorno objetivo. PT-11 contrasta los tiempos, el estado recuperado y los permisos conforme al procedimiento del Capítulo XIII.
+
+El Anexo F identifica las mediciones pendientes. Los resultados locales acreditan únicamente el escenario y la versión registrados en el Capítulo XII.
 
 ### 11.3. Control por incremento
 

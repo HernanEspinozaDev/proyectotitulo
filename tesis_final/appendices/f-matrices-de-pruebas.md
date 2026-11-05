@@ -69,6 +69,8 @@ El Capítulo XII y la Tabla 12 identifican los resultados de LOCAL-1 y F5/F6. LO
 | Garantía monetaria · PT-03 | Modalidad habilitada y mecanismo o proveedor definido e implementado. | Cobro separado, devolución total y parcial, reclamos y conciliación. |
 | Catálogo de nueve categorías | Perfil de atributos, publicación y búsqueda de cada categoría en el corte evaluado. | Validaciones de publicación, búsqueda y disponibilidad, incluido el perfil Inmuebles. |
 | Carga de extremo a extremo · PT-09 y PT-10 | Flujo de búsqueda listo y entorno objetivo identificado. | Volumen, latencia y errores medidos según RNF-001 y el escenario del ensayo. |
+| Acreditación interna de renta · RNF-002 | Flujo de acreditación listo e instrumentación que distingue la espera del proveedor. | Tiempos internos por intento y comprobación del límite de 8 segundos. |
+| Disponibilidad mensual · RNF-009 | Funciones críticas habilitadas e instrumentadas en el entorno objetivo. | Registro mensual de autenticación, búsqueda y reservas y contraste con el 99,9 %. |
 | Recuperación conjunta · PT-11 y PT-16 | Código y operación de base, objetos privados, permisos y retención listos para ensayo. | Restauración y comprobación de archivos, referencias y permisos. Medición de RPO y RTO. |
 
 *Nota.* Elaboración propia. Cada resultado se integra al informe cuando existe código verificable y un registro de ejecución con versión, entorno y alcance.

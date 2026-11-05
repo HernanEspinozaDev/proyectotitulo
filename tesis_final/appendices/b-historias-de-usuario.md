@@ -26,7 +26,7 @@ El anexo reúne 35 historias en nueve épicas. Cada ficha identifica actor, crit
 **RF:** RQF-001 a RQF-010, RQF-186, RQF-187, RQF-213 · **CU:** CU-01, CU-02
 
 **Como** visitante de la plataforma,
-**Quiero** registrarme ingresando mis datos personales y señalando mi intención de uso (ofrecer espacios o arrendar espacios),
+**Quiero** registrar una cuenta con correo y contraseña y aceptar los términos aplicables,
 **Para que** pueda acceder a las funcionalidades del sistema con mi propia cuenta.
 
 ### Criterios de Aceptación
@@ -34,9 +34,9 @@ El anexo reúne 35 historias en nueve épicas. Cada ficha identifica actor, crit
 - El sistema debe validar que el correo electrónico tenga un formato válido y que no exista previamente; si ya existe, debe mostrar *"El correo electrónico ya está registrado, por favor inicie sesión o recupere su contraseña"*.
 - La contraseña debe cumplir obligatoriamente: mínimo 8 caracteres, al menos una letra mayúscula, al menos un número y al menos un carácter especial. Si no cumple, el sistema debe indicar los requisitos faltantes.
 - El sistema debe exigir la aceptación de los términos y condiciones para completar el registro y debe registrar la fecha y la versión aceptadas.
-- Al confirmar el registro, el sistema debe crear la cuenta en estado **"No Verificado"** (no "activo") y enviar un correo con el token de verificación; debe permitir reenviar dicho correo si el token expira o no llega.
+- Al confirmar el registro, el sistema debe crear la cuenta en estado **"No Verificado"** y enviar un correo con el token de verificación; debe permitir reenviar dicho correo si el token expira o no llega.
 - El sistema debe permitir el inicio de sesión solo cuando la cuenta esté en estado "Verificado"; mientras no lo esté, debe bloquear el acceso e indicar que debe confirmar su correo.
-- Al completarse el registro, el sistema debe redirigir al usuario a su panel principal o a la vista de perfil para completar su verificación de identidad.
+- Una vez confirmado el correo e iniciada la sesión, el usuario accede a su panel o a la vista de perfil para completar sus datos.
 
 > *(criterio de interfaz)* La pantalla de registro debe agrupar los campos en un solo formulario con validación en línea y mensajes de error junto a cada campo.
 

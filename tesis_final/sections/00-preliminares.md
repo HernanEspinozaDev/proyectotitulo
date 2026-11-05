@@ -12,7 +12,7 @@ La dispersión de los anuncios, la incertidumbre sobre la disponibilidad y la co
 
 La especificación reúne 236 requerimientos funcionales, 43 no funcionales, 35 historias de usuario y 52 casos de uso. El inventario DDL identifica 110 tablas de aplicación, de las cuales 104 coinciden por nombre con la captura local V000075. El corte F5 registra 86 pruebas aprobadas de verificación documental y F6 registra seis pruebas aprobadas en los perfiles de borrador y documentos. En un ensayo aislado de PostgreSQL 18.6 con PostGIS y datos sintéticos, 200 conexiones completan 42.636 consultas geoespaciales en 15 segundos sin fallos, con una latencia media de 70,22 ms. La propuesta establece reglas verificables para buscar, reservar y contratar espacios. La validación de carga de extremo a extremo, la recuperación conjunta de datos y archivos y la habilitación de proveedores quedan pendientes en el entorno objetivo.
 
-**Palabras Claves**
+**Palabras clave**
 
 Arriendo flexible de espacios, arquitectura hexagonal, concurrencia espaciotemporal, PostgreSQL, PostGIS.
 
