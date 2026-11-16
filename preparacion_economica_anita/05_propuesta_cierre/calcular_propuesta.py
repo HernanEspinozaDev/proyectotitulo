@@ -42,6 +42,6 @@ def main():
  assert results['reserva_interna_mensual_para_reposicion_clp']*36==900000
  (OUT/'parametros_propuestos.json').write_text(json.dumps(results,ensure_ascii=False,indent=2,default=lambda v:format(v,'f'))+'\n')
  with (OUT/'calendario_2027_propuesto.csv').open('w',newline='',encoding='utf-8') as f:
-  writer=csv.DictWriter(f,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
+  writer=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator="\n");writer.writeheader();writer.writerows(rows)
  print(json.dumps(results,ensure_ascii=False,indent=2,default=str))
 if __name__=='__main__':main()
