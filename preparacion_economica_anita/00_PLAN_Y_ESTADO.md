@@ -90,3 +90,12 @@ El corte anterior produce 76 páginas y 78 tablas nativas. Se corrigen encabezad
 El propietario adopta la meta provisional de Anita de CLP 200.000 por integrante, condicionada a disponibilidad para distribuir CLP 600.000 conjuntos. Se propone verificar esa disponibilidad después de obligaciones operativas. Se incorpora CLP 1.000.000 por integrante como objetivo adicional. La sección 14.6 documenta componentes, fórmula, sensibilidad de ticket y brecha de demanda. Los costos parciales AWS sin fundadores son CLP 491.583,02 mensuales. E06 continúa abierto por las partidas excluidas; E07 no se declara cerrado con un umbral parcial.
 
 La vista previa de remuneraciones contiene 79 páginas y 80 tablas nativas. Se comprueban los mínimos enteros en ambos objetivos y cuatro tickets, la suma de componentes desde Base mensual, la integridad de las extracciones y la correspondencia de 14.6 con H.27. Las 69 páginas de transcripción del anexo original son visualmente idénticas al corte anterior, con desplazamiento por las páginas añadidas. Se revisan las páginas modificadas y se conserva la tesis principal sin cambios.
+
+## Formato rector del flujo y usuarios activos
+
+- [x] Registrar la instrucción de conservar el formato de flujo que entrega Anita y solicita la profesora: Año 0 a Año 4, estructura completa de resultados y ajustes de caja; VAN, TIR y recuperación posteriores al flujo.
+- [x] Estimar publicadores y arrendatarios activos bajo distintas frecuencias de pago, sin confundirlos con usuarios registrados ni sumar roles como personas únicas.
+- [x] Identificar tasas históricas y descartar el 25 % como rentabilidad garantizada o tarifa vigente.
+- [ ] Justificar la tasa de descuento del flujo actualizado, diferenciando socios y proyecto; conciliar régimen tributario y cierre de serie anual.
+
+El soporte de esta aclaración se registra en 02_contraste/usuarios_formato_y_tasas.md. Las tablas de tickets complementan el flujo de Anita y no reemplazan su formato. La comparación de cobertura adicional o margen del 25 % queda como explicación metodológica, sin ratificar un nuevo objetivo.
