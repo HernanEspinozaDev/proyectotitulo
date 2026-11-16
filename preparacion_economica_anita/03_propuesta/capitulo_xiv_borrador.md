@@ -8,7 +8,21 @@ Este borrador organiza los insumos económicos de Anita en la estructura de la m
 
 La plataforma comprende nueve categorías y admite personas y organizaciones. El insumo económico describe un lanzamiento centrado en espacios comerciales y profesionales, con oferta complementaria de mayor duración. Esa selección delimita un escenario inicial dentro del alcance de producto.
 
-Las hojas Escenarios comerciales y Base mensual plantean ocho espacios activos promedio, dos reservas por espacio y mes y un ticket de CLP 50.000. Esos parámetros producen 192 reservas y un GMV de CLP 9.600.000 al año. Con comisión del 14 %, el ingreso bruto de la plataforma alcanza CLP 1.344.000. El modelo original del informe utiliza otra base comercial. El Anexo H conserva ambas versiones para conciliarlas.
+Las hojas Escenarios comerciales y Base mensual plantean ocho espacios activos promedio, dos reservas por espacio y mes y un ticket de CLP 50.000. Esos parámetros producen 192 reservas y un GMV de CLP 9.600.000 al año bajo distribución uniforme. La tarifa indicada por el propietario es del 3 % más IVA, a cargo de quien reserva, que también asume el cargo de la pasarela. Sobre la base comisionable de referencia, la comisión neta equivale a CLP 288.000 anuales y CLP 24.000 mensuales. El IVA asociado a esa comisión se registra por separado. Los modelos recibidos utilizaban tasas distintas y se conservan como antecedentes en el Anexo H.
+
+El ingreso mensual se modela sumando los cobros de las modalidades hora, día y mes. El ticket medio global pondera cada modalidad por el número de transacciones, y su valor se ajusta cuando existe evidencia del mix. La distribución ilustrativa de la Tabla 14 conserva la referencia de dieciséis cobros y CLP 800.000 transados.
+
+**Tabla 14**
+*Ejemplo de mezcla mensual que conserva el ticket de referencia*
+
+| Modalidad | Cobros por mes | Ticket medio CLP | Total transado CLP |
+|---|---|---|---|
+| Hora | 10 | 20.000 | 200.000 |
+| Día | 4 | 50.000 | 200.000 |
+| Mes | 2 | 200.000 | 400.000 |
+| Total | 16 | 50.000 ponderado | 800.000 |
+
+*Nota.* Ejemplo de planificación pendiente de ratificación de su distribución y precios. Los ocho espacios se cuentan como inventario único. El calendario de comisión de los arriendos mensuales requiere definición.
 
 ### 14.2. Costos del Proyecto
 
@@ -16,7 +30,7 @@ Las hojas Escenarios comerciales y Base mensual plantean ocho espacios activos p
 
 La inversión distingue trabajo valorizado, lanzamiento y capital de trabajo. La evaluación de caja separa el trabajo aportado del desembolso efectivo. La hoja Maquinaria registra equipos por CLP 2.700.000 y depreciación anual de CLP 780.000. La relación con la inversión inicial y el estado de compra requiere conciliación.
 
-**Tabla 14**
+**Tabla 15**
 *Balance de inversión inicial del insumo recibido*
 
 | Detalle de la Inversión | Tipo de Inversión | Monto Total (CLP) | Porcentaje (%) |
@@ -39,9 +53,9 @@ Los créditos informados se aplican al consumo elegible según saldo y vigencia.
 
 #### 14.3.1. Flujo original aportado
 
-La Tabla 15 reproduce el segundo bloque de FlujoNeto porque presenta el signo coherente del resultado antes de impuestos del Año 1. Se mantienen todas sus partidas y períodos. Infraestructura y base comercial corresponden al insumo de origen.
+La Tabla 16 reproduce el segundo bloque de FlujoNeto porque presenta el signo coherente del resultado antes de impuestos del Año 1. Se mantienen todas sus partidas y períodos. Infraestructura y base comercial corresponden al insumo de origen.
 
-**Tabla 15**
+**Tabla 16**
 *Flujo neto original completo del Año 0 al Año 4*
 
 | Partida / Período (Años) | Año 0 | Año 1 | Año 2 (+4% IPC) | Año 3 (+4% IPC) | Año 4 (+4% IPC) |
@@ -66,9 +80,9 @@ La Tabla 15 reproduce el segundo bloque de FlujoNeto porque presenta el signo co
 *Nota.* Transcripción de «FlujoNeto», A29:F45. Importes en CLP salvo indicación distinta. Las celdas pendientes conservan el estado de la fuente.
 #### 14.3.2. Flujo reconstruido del libro
 
-La Tabla 16 presenta íntegramente el modelo reconstruido. Las celdas pendientes reflejan parámetros o resultados que el libro todavía no determina. La sustitución AWS debe propagarse por costos, resultados, capital de trabajo y caja después de conciliar las decisiones comerciales y financieras.
+La Tabla 17 presenta íntegramente el modelo reconstruido. Las celdas pendientes reflejan parámetros o resultados que el libro todavía no determina. La sustitución AWS debe propagarse por costos, resultados, capital de trabajo y caja después de conciliar las decisiones comerciales y financieras.
 
-**Tabla 16**
+**Tabla 17**
 *Flujo reconstruido completo y parámetros pendientes*
 
 | Partida | Año 0 | Año 1 | Año 2 | Año 3 | Año 4 |

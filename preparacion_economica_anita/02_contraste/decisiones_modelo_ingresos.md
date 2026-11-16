@@ -39,8 +39,23 @@ El escenario base produce CLP 24.000 mensuales de comisión neta y CLP 4.560 de 
 | Decisión | Estado |
 |---|---|
 | Tarifa de comisión | 3 % más IVA indicada por el propietario. |
-| Parte que paga la comisión | Consultado al propietario. |
-| Parte que asume la comisión de Mercado Pago | Consultado al propietario. |
-| Volumen y ticket del escenario base | Consultado si se conserva 8 espacios, 2 reservas mensuales y CLP 50.000 como escenario provisional. |
+| Parte que paga la comisión | La persona que reserva, como cobro adicional. |
+| Parte que asume la comisión de Mercado Pago | La persona que reserva. |
+| Volumen y ticket del escenario base | Se conserva provisionalmente la referencia de 8 espacios, 2 reservas mensuales por espacio y CLP 50.000 de ticket medio. La mezcla por modalidad requiere definición. |
 | Base comisionable del arriendo | Definir si el ticket informado es neto de impuestos propios de la renta y qué conceptos quedan excluidos. |
 | Remuneraciones y financiamiento | Resolver después de fijar los ingresos y los costos variables. |
+
+
+## Actualización por modalidad de arriendo
+
+En la terminología de la tesis, quien publica u ofrece es la persona arrendadora y quien reserva el uso es la persona arrendataria. Las selecciones del propietario asignan a quien reserva el pago de la comisión y del costo de la pasarela. La aclaración del reparto del dinero queda consultada por la referencia posterior a lo que recibe quien publica.
+
+El modelo mensual suma las bases comisionables de las transacciones efectivamente cobradas en el mes. Para cada modalidad se registra el número de cobros y su importe medio. El ticket medio global se obtiene dividiendo el total transado por el número total de cobros. Esa media pondera cada modalidad por su frecuencia.
+
+La comisión neta del mes equivale al 3 % de ese total. El IVA se calcula sobre la comisión. El cobro destinado a la pasarela tiene un registro separado, con su costo y su eventual recuperación al cliente. La tarifa efectiva y la base de cálculo del proveedor requieren definición para cerrar ese componente.
+
+## Preguntas siguientes
+
+- En un arriendo de varios meses, determinar si la comisión se aplica a cada pago mensual o sobre el total del contrato en el momento de su contratación.
+- Confirmar que quien publica recibe la renta y que espaciGo y la pasarela reciben sus cargos respectivos.
+- Reemplazar la distribución ilustrativa por un mix de transacciones y tickets acorde con las categorías y modalidades que se espera ofrecer.

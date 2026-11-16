@@ -37,7 +37,35 @@
       "cobro_comision_clp": "1253070.0000"
     }
   ],
-  "estado_volumen_y_ticket": "pendiente de ratificación como escenario",
-  "pagador_comision": null,
-  "responsable_pasarela": null
+  "estado_volumen_y_ticket": "base provisional mantenida por el propietario; mezcla por modalidad pendiente",
+  "pagador_comision": "persona_que_reserva",
+  "responsable_pasarela": "persona_que_reserva",
+  "reparto_fondos": "pendiente de confirmar la aclaración sobre quien publica",
+  "cobro_comision_arriendo_mensual": "pendiente de confirmar cobro por cuota o por contrato",
+  "modelo_mensual": {
+    "espacios_activos_referencia": 8,
+    "cobros_mes_referencia": 16,
+    "ticket_medio_comisionable_referencia_clp": 50000,
+    "gmv_mes_referencia_clp": 800000,
+    "ingreso_neto_mes_clp": 24000,
+    "iva_comision_mes_clp": 4560,
+    "cobro_comision_mes_clp": 28560,
+    "mezcla_ejemplo_no_ratificada": [
+      {
+        "modalidad": "hora",
+        "cobros_mes": 10,
+        "ticket_medio_clp": 20000
+      },
+      {
+        "modalidad": "dia",
+        "cobros_mes": 4,
+        "ticket_medio_clp": 50000
+      },
+      {
+        "modalidad": "mes",
+        "cobros_mes": 2,
+        "ticket_medio_clp": 200000
+      }
+    ]
+  }
 }
