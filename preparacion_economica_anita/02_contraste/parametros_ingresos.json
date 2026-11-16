@@ -1,0 +1,43 @@
+{
+  "tarifa_indicada_usuario": "0.03",
+  "iva_referencia": "0.19",
+  "comision_total_sobre_base": "0.0357",
+  "escenarios": [
+    {
+      "escenario": "conservador",
+      "espacios": 4,
+      "reservas_espacio_mes": 1,
+      "ticket_comisionable_clp": 35000,
+      "reservas_anuales": 48,
+      "gmv_clp": 1680000,
+      "comision_neta_clp": "50400.00",
+      "iva_comision_clp": "9576.0000",
+      "cobro_comision_clp": "59976.0000"
+    },
+    {
+      "escenario": "base",
+      "espacios": 8,
+      "reservas_espacio_mes": 2,
+      "ticket_comisionable_clp": 50000,
+      "reservas_anuales": 192,
+      "gmv_clp": 9600000,
+      "comision_neta_clp": "288000.00",
+      "iva_comision_clp": "54720.0000",
+      "cobro_comision_clp": "342720.0000"
+    },
+    {
+      "escenario": "optimista",
+      "espacios": 15,
+      "reservas_espacio_mes": 3,
+      "ticket_comisionable_clp": 65000,
+      "reservas_anuales": 540,
+      "gmv_clp": 35100000,
+      "comision_neta_clp": "1053000.00",
+      "iva_comision_clp": "200070.0000",
+      "cobro_comision_clp": "1253070.0000"
+    }
+  ],
+  "estado_volumen_y_ticket": "pendiente de ratificación como escenario",
+  "pagador_comision": null,
+  "responsable_pasarela": null
+}

@@ -26,7 +26,7 @@ La propuesta contiene un borrador del Capítulo XIV con el flujo original comple
 - [x] **E03. Contrastar modelos y cálculos.** Comparar el informe con FlujoNeto, Modelo reconstruido, Supuestos modelo, Conciliacion costos y Perspectivas fundadores. Recalcular VAN y TIR del flujo original y registrar las inconsistencias que afectan ingresos, OPEX, inversión y recuperación.
 - [x] **E04. Preparar la sustitución AWS.** Adoptar para comparación el perfil de USD 26,41 mensuales del repositorio AWS y 972 CLP/USD del libro. Verificar suma y conversión, identificar las celdas afectadas y separar consumo bruto de cobertura por créditos.
 - [x] **E05. Preparar la estructura de tesis.** Ubicar mercado, recursos, adquisiciones, flujos completos, indicadores y sensibilidad en XIV. Transcribir todas las hojas en H y relacionarlas con el cuerpo. Preparar una vista previa de revisión.
-- [ ] **E06. Conciliar una base única.** Resolver la comisión (10 % o 14 %), ingresos (35 millones o base de 192 reservas), remuneración (400 mil o 200 mil por fundador), pasarela, oficina, mantenimiento, inversión, crédito y capital de trabajo. Usar como punto de partida la estructura parametrizada de Modelo reconstruido y preservar el modelo original como antecedente.
+- [ ] **E06. Conciliar una base única.** Aplicar la tarifa del 3 % más IVA indicada por el propietario. Resolver el pagador, el costo de pasarela y el volumen de transacciones, remuneración (400 mil o 200 mil por fundador), pasarela, oficina, mantenimiento, inversión, crédito y capital de trabajo. Usar como punto de partida la estructura parametrizada de Modelo reconstruido y preservar el modelo original como antecedente.
 - [ ] **E07. Recalcular el modelo AWS elegido.** Propagar costos AWS y créditos por período, depurar dobles conteos, separar flujo económico y flujo de caja, corregir amortización y calcular el flujo completo. Contrastar resultados con un cálculo independiente y obtener VAN, TIR y recuperación.
 - [ ] **E08. Cerrar respaldo y sensibilidad.** Definir escenarios coherentes de demanda y capacidad, verificar cotización regional y consumos previstos, régimen tributario y condiciones financieras. Identificar cada cifra con hoja/celda o evidencia externa, y documentar fecha y alcance.
 - [ ] **E09. Integrar la versión económica cerrada.** Reemplazar los bloques económicos reservados con el material de Anita conciliado, mantener su autoría y actualizar XIV, H, síntesis de conclusiones, índices y referencias. Recompilar y verificar Word/PDF y numeración después de incorporar las partes pendientes.
@@ -56,6 +56,10 @@ El flujo original se reproduce desde A29:F45 porque corrige el signo del EBT que
 ## Criterio de confirmación
 
 Un parámetro puede adoptarse para evaluar un escenario. Una suma, conversión o indicador puede verificarse mediante recálculo. Un consumo, una tarifa contratada o una condición financiera se confirma con su evidencia. Se mantiene esa distinción para que la redacción final de la tesis sea comprobable.
+
+## Actualización del modelo de ingresos
+
+El propietario indica una comisión del 3 % más IVA. La tarifa pasa a ser común entre los escenarios. El detalle y las preguntas pendientes se registran en 02_contraste/decisiones_modelo_ingresos.md. Los importes del libro y de la vista previa inicial conservan su condición de antecedentes. El recálculo de los escenarios de ingresos se conserva en parametros_ingresos.json.
 
 ## Próximo corte
 
