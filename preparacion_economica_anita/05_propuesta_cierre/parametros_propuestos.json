@@ -1,0 +1,33 @@
+{
+  "estado": "propuesta no adoptada; no modifica parámetros vigentes",
+  "dominio_tarifa_publicada_clp": 9990,
+  "dominio_presupuesto_previo_clp": 10950,
+  "subtotal_mensual_prorrateado_propuesto_clp": "514003.02",
+  "presupuesto_anual_identificado_propuesto_clp": "6168036.24",
+  "lag_dias_propuesto": 7,
+  "lag_estres_dias": 30,
+  "comision_por_cobrar_supuesto_clp": "5600",
+  "caja_bruta_para_lanzamiento_y_primer_trimestre_sin_ventas_clp": "2862001.56",
+  "necesidad_parcial_acumulada_primer_trimestre_con_referencia_16_pagos_clp": "2795601.56",
+  "horas_totales_valorizacion_fuente": 960,
+  "tarifa_hora_fuente_clp": 6500,
+  "valor_desarrollo_fuente_clp": 6240000,
+  "capacidad_seis_semanas_horas": 360,
+  "valor_capacidad_seis_semanas_clp": 2340000,
+  "advertencia_capacidad": "capacidad propuesta, no backlog estimado ni evidencia de horas ya realizadas",
+  "reposicion_estres_referencia_clp": 900000,
+  "precio_fuente_notebook_clp": 800000,
+  "referencia_reajustada_tres_anios_clp": "899891.20",
+  "reserva_interna_mensual_para_reposicion_clp": "25000",
+  "efecto_van_aislado_compra_900000_anio3_clp": "-640602.22",
+  "valor_venta_terminal_caso_prudente_clp": 0,
+  "advertencia_cierre": "cero cobro por venta en caso prudente, no tasación de activos o empresa; sin perpetuidad y sin recuperar pérdidas como activo",
+  "gasto_marketing_por_pago_referencia_clp": "21875",
+  "advertencia_marketing": "cociente de presupuesto por pagos de referencia; no CAC medido ni costo por cliente único",
+  "lanzamiento_desglose_propuesto_clp": {
+    "formalizacion_y_asesoria": 300000,
+    "preparacion_contenidos_y_materiales": 300000,
+    "campana_lanzamiento": 400000,
+    "contingencia_preoperativa": 200000
+  }
+}

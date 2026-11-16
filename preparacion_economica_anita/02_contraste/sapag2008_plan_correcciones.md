@@ -92,3 +92,7 @@ Los cálculos disponibles quedan ejecutados. Los padres SP04–SP13 no se marcan
 - [x] Evaluar separadamente recuperar esa valorización, sin sumarla a aportes de caja ni deducirla tributariamente por el solo hecho de valorizarla: quiebres parciales 548, 948 y 2.548 pagos para etapa sin asignaciones y las dos metas.
 
 Las tres aclaraciones se incorporan. No se vuelve a pedir definición sobre inclusión de trámites o uso compartido. El reparto pasado/futuro y el costo de oportunidad incremental no se infieren del importe global. Las condiciones efectivas de proveedores y la valoración final continúan delimitadas en H.39; H.40 documenta la ratificación.
+
+## Propuesta concreta para resolver entradas restantes
+
+Se prepara 05_propuesta_cierre/PROPUESTA_DE_DECISIONES.md con propuestas de demanda y validación, calendario de costos y comisión por cobrar, desglose presupuestario de lanzamiento, horas de desarrollo y reposición/cierre. Se recupera la base de Anita de 960 horas × CLP6500, sin inferir ejecución. Se consulta tarifa pública NIC de CLP9990 y se detecta diferencia de alcance entre perfil piloto del presupuesto cloud y diseño Multi-AZ del README. Las hipótesis de siete días, compra de estrés y cierre sin venta se identifican como propuestas, no decisiones ratificadas ni contratos. Los resultados auxiliares no reemplazan parámetros activos.

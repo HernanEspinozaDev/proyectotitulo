@@ -1,0 +1,21 @@
+{
+  "fecha_consulta": "2026-11-16",
+  "fuentes": [
+    {
+      "titulo": "NIC Chile tarifas vigentes",
+      "url": "https://www.nic.cl/dominios/tarifas.html",
+      "dato": "un año .cl CLP9990 exento IVA; no tarifa garantizada 2027"
+    },
+    {
+      "titulo": "INE EMAT septiembre 2026",
+      "url": "https://www.ine.gob.cl/sala-de-prensa/prensa/general/noticia/2026/11/02/pernoctaciones-en-establecimientos-de-alojamiento-tur%C3%ADstico-disminuyeron-1-9-interanualmente-en-septiembre-de-2026",
+      "alcance": "contexto alojamiento; no captación espaciGo ni todas las categorías"
+    },
+    {
+      "titulo": "Mercado Pago Split1:1 requisitos",
+      "url": "https://www.mercadopago.com/developers/es/docs/split-payments/split-1-1/prerequisites",
+      "acceso": "connector Mercado Pago, idioma es, siteId MLC",
+      "alcance": "no confirma siete días ni tarifa particular"
+    }
+  ]
+}
