@@ -8,7 +8,9 @@ Este borrador organiza los insumos económicos de Anita en la estructura de la m
 
 La plataforma comprende nueve categorías y admite personas y organizaciones. El insumo económico describe un lanzamiento centrado en espacios comerciales y profesionales, con oferta complementaria de mayor duración. Esa selección delimita un escenario inicial dentro del alcance de producto.
 
-Las hojas Escenarios comerciales y Base mensual plantean ocho espacios activos promedio, dos reservas por espacio y mes y un ticket de CLP 50.000. Esos parámetros producen 192 reservas y un GMV de CLP 9.600.000 al año bajo distribución uniforme. La tarifa indicada por el propietario es del 3 % más IVA, a cargo de quien reserva, que también asume el cargo de la pasarela. Sobre la base comisionable de referencia, la comisión neta equivale a CLP 288.000 anuales y CLP 24.000 mensuales. El IVA asociado a esa comisión se registra por separado. Los modelos recibidos utilizaban tasas distintas y se conservan como antecedentes en el Anexo H.
+Las hojas Escenarios comerciales y Base mensual plantean ocho espacios activos promedio, dos reservas por espacio y mes y un ticket de CLP 50.000. Esos parámetros producen 192 reservas y un GMV de CLP 9.600.000 al año bajo distribución uniforme. La tarifa indicada por el propietario es del 3 % más IVA, a cargo de quien publica, mediante descuento del importe del arriendo, junto con el cargo de la pasarela. Sobre la base comisionable de referencia, la comisión neta equivale a CLP 288.000 anuales y CLP 24.000 mensuales. El IVA asociado a esa comisión se registra por separado. Los modelos recibidos utilizaban tasas distintas y se conservan como antecedentes en el Anexo H.
+
+Por un pago de CLP 100.000, la comisión neta es CLP 3.000 y el IVA sobre la comisión es CLP 570. El saldo para quien publica corresponde a CLP 96.430 menos el cargo efectivo de Mercado Pago, cuya tarifa permanece pendiente. El importe de la pasarela se registra separado de los ingresos de espaciGo.
 
 El ingreso mensual se modela sumando los cobros de las modalidades hora, día y mes. El ticket medio global pondera cada modalidad por el número de transacciones, y su valor se ajusta cuando existe evidencia del mix. La distribución ilustrativa de la Tabla 14 conserva la referencia de dieciséis cobros y CLP 800.000 transados.
 
@@ -22,9 +24,10 @@ El ingreso mensual se modela sumando los cobros de las modalidades hora, día y 
 | Mes | 2 | 200.000 | 400.000 |
 | Total | 16 | 50.000 ponderado | 800.000 |
 
-*Nota.* Ejemplo de planificación pendiente de ratificación de su distribución y precios. Los ocho espacios se cuentan como inventario único. El calendario de comisión de los arriendos mensuales requiere definición.
+*Nota.* Ejemplo de planificación pendiente de ratificación de su distribución y precios. Los ocho espacios se cuentan como inventario único. La comisión se aplica a cada pago procesado: a cada cuota mensual o al pago anual completo si el contrato se paga una sola vez.
 
 ### 14.2. Costos del Proyecto
+
 
 #### 14.2.1. Recursos
 
@@ -41,7 +44,9 @@ La inversión distingue trabajo valorizado, lanzamiento y capital de trabajo. La
 | Total Inversión Inicial | Pendiente | 10.140.000 | 100 % |
 
 *Nota.* Transcripción de «balance de inversion inicial », A1:D5. Importes en CLP salvo indicación distinta. Las celdas pendientes conservan el estado de la fuente.
-La remuneración de fundadores tiene alternativas de CLP 400.000 y CLP 200.000 mensuales por integrante. Las hojas de conciliación proponen evitar su duplicación con administración y soporte. El costo del modelo que se adopte debe responder a una sola política.
+
+La remuneración de fundadores tiene alternativas de CLP 400.000 y CLP 200.000 mensuales por integrante. Las hojas de conciliación proponen evitar su duplicación con administración y soporte. El costo del modelo que se adopte debe responder a una sola política. La decisión vigente establece ausencia de pagos a fundadores al comienzo. El trabajo aportado se valoriza por separado de las salidas de caja. La fecha o condición de inicio de las remuneraciones y su monto posterior permanecen pendientes; no se extrapola la ausencia inicial de pagos a todo el horizonte.
+
 
 #### 14.2.2. Adquisiciones y servicios
 
@@ -49,7 +54,10 @@ El escenario AWS preparado adopta USD 26,41 mensuales y 972 CLP/USD, equivalente
 
 Los créditos informados se aplican al consumo elegible según saldo y vigencia. La evaluación distingue el costo bruto y el desembolso cubierto por créditos. El cierre del costo requiere conciliar volumen S3, retención, procesamiento documental y nivel de servicio.
 
+El préstamo de CLP 3.720.000 al 12 % anual por tres años corresponde a una simulación, según confirmación del propietario. Su cuadro original se conserva como antecedente en el Anexo H. La alternativa con deuda se evalúa por separado del escenario sin financiamiento; no se presenta como obligación contratada.
+
 ### 14.3. Flujo de Caja
+
 
 #### 14.3.1. Flujo original aportado
 
@@ -78,6 +86,7 @@ La Tabla 16 reproduce el segundo bloque de FlujoNeto porque presenta el signo co
 | (=) FLUJO DE CAJA NETO (FNC) | -6.420.000 | -1.278.818 | 445.097 | 2.104.062 | 5.378.456 |
 
 *Nota.* Transcripción de «FlujoNeto», A29:F45. Importes en CLP salvo indicación distinta. Las celdas pendientes conservan el estado de la fuente.
+
 #### 14.3.2. Flujo reconstruido del libro
 
 La Tabla 17 presenta íntegramente el modelo reconstruido. Las celdas pendientes reflejan parámetros o resultados que el libro todavía no determina. La sustitución AWS debe propagarse por costos, resultados, capital de trabajo y caja después de conciliar las decisiones comerciales y financieras.
@@ -124,6 +133,7 @@ La Tabla 17 presenta íntegramente el modelo reconstruido. Las celdas pendientes
 | FLUJO DE CAJA NETO | -2.700.000 | Pendiente | Pendiente | Pendiente | Pendiente |
 
 *Nota.* Transcripción de «Modelo reconstruido», A3:F38. Importes en CLP salvo indicación distinta. Las celdas pendientes conservan el estado de la fuente.
+
 ### 14.4. Indicadores de Rentabilidad Financiera
 
 El recálculo del flujo original obtiene VAN de CLP −1.960.342,32 al 10 %, VAN de CLP −2.291.237,39 al 12 % y TIR de 0,85115 %. Ese resultado corresponde al vector original. El escenario AWS requiere un flujo actualizado antes de obtener sus indicadores.

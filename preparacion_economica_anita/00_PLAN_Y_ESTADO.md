@@ -26,7 +26,7 @@ La propuesta contiene un borrador del Capítulo XIV con el flujo original comple
 - [x] **E03. Contrastar modelos y cálculos.** Comparar el informe con FlujoNeto, Modelo reconstruido, Supuestos modelo, Conciliacion costos y Perspectivas fundadores. Recalcular VAN y TIR del flujo original y registrar las inconsistencias que afectan ingresos, OPEX, inversión y recuperación.
 - [x] **E04. Preparar la sustitución AWS.** Adoptar para comparación el perfil de USD 26,41 mensuales del repositorio AWS y 972 CLP/USD del libro. Verificar suma y conversión, identificar las celdas afectadas y separar consumo bruto de cobertura por créditos.
 - [x] **E05. Preparar la estructura de tesis.** Ubicar mercado, recursos, adquisiciones, flujos completos, indicadores y sensibilidad en XIV. Transcribir todas las hojas en H y relacionarlas con el cuerpo. Preparar una vista previa de revisión.
-- [ ] **E06. Conciliar una base única.** Aplicar la tarifa del 3 % más IVA indicada por el propietario. Se asignan la comisión y el cargo de pasarela a quien reserva. Definir el calendario de cobro de los arriendos mensuales, el mix de transacciones y la tarifa efectiva de la pasarela. Resolver remuneración (400 mil o 200 mil por fundador), pasarela, oficina, mantenimiento, inversión, crédito y capital de trabajo. Usar como punto de partida la estructura parametrizada de Modelo reconstruido y preservar el modelo original como antecedente.
+- [ ] **E06. Conciliar una base única.** Aplicar la tarifa del 3 % más IVA indicada por el propietario. La comisión y el cargo de pasarela se descuentan del importe que recibe quien publica. La comisión se aplica por cada pago procesado. Definir el mix de transacciones y la tarifa efectiva de la pasarela. Definir inicio y monto posterior de remuneraciones, con ausencia de pagos al comienzo confirmada; resolver pasarela, oficina, mantenimiento, inversión y capital de trabajo. El préstamo es una simulación confirmada por el propietario; mantener escenarios con y sin deuda. Usar como punto de partida la estructura parametrizada de Modelo reconstruido y preservar el modelo original como antecedente.
 - [ ] **E07. Recalcular el modelo AWS elegido.** Propagar costos AWS y créditos por período, depurar dobles conteos, separar flujo económico y flujo de caja, corregir amortización y calcular el flujo completo. Contrastar resultados con un cálculo independiente y obtener VAN, TIR y recuperación.
 - [ ] **E08. Cerrar respaldo y sensibilidad.** Definir escenarios coherentes de demanda y capacidad, verificar cotización regional y consumos previstos, régimen tributario y condiciones financieras. Identificar cada cifra con hoja/celda o evidencia externa, y documentar fecha y alcance.
 - [ ] **E09. Integrar la versión económica cerrada.** Reemplazar los bloques económicos reservados con el material de Anita conciliado, mantener su autoría y actualizar XIV, H, síntesis de conclusiones, índices y referencias. Recompilar y verificar Word/PDF y numeración después de incorporar las partes pendientes.
@@ -67,8 +67,19 @@ Completar E06 y E07 produce el primer flujo único actualizado a AWS. Hasta ese 
 
 ## Verificación de la preparación
 
-Se comprueban 26 hojas, 2.081 celdas no vacías, 294 fórmulas, 219 párrafos y 17 imágenes. Las huellas SHA-256 confirman que los insumos originales conservan sus bytes. El documento de revisión contiene 77 tablas nativas y el PDF tiene 74 páginas. La vista previa se construye con DocSkill y se renderiza para revisar tablas, continuidad y presencia de los dos flujos completos. La carpeta de la tesis principal conserva sus archivos publicados.
+Se comprueban 26 hojas, 2.081 celdas no vacías, 294 fórmulas, 219 párrafos y 17 imágenes. Las huellas SHA-256 confirman que los insumos originales conservan sus bytes. El documento de revisión contiene 78 tablas nativas; el número de páginas se comprueba en cada compilación. La vista previa se construye con DocSkill y se renderiza para revisar tablas, continuidad y presencia de los dos flujos completos. La carpeta de la tesis principal conserva sus archivos publicados.
 
-El propietario mantiene provisionalmente ocho espacios, frecuencia de dos reservas por espacio y ticket de CLP 50.000. La preparación evoluciona hacia un modelo de cobros mensuales por modalidad. Las selecciones asignan los cargos a quien reserva. Permanecen consultados el calendario de comisión mensual y la aclaración del reparto de fondos.
+El propietario mantiene provisionalmente ocho espacios, frecuencia de dos reservas por espacio y ticket de CLP 50.000. La preparación evoluciona hacia un modelo de cobros mensuales por modalidad. La aclaración posterior asigna los cargos a quien publica mediante descuento de su liquidación y fija la comisión por pago procesado. Esta decisión sustituye las selecciones anteriores.
 
 La vista previa se actualiza con la comisión vigente y el modelo mensual por modalidad. Incorpora 78 tablas nativas, conservando los flujos del insumo como antecedentes identificados. El ejemplo de distribución por modalidad es ilustrativo y requiere ratificación.
+
+## Decisiones conciliadas en este corte
+
+- [x] Registrar al publicador como responsable de comisión e IVA y del costo de Mercado Pago mediante descuento.
+- [x] Registrar la comisión en cada pago, según el calendario real de cuotas o pago único.
+- [x] Identificar el préstamo como simulación, sin atribuir contratación.
+- [x] Registrar la decisión de no efectuar pagos a fundadores al comienzo.
+- [ ] Definir fecha o condición de inicio de remuneraciones y monto posterior, separando trabajo valorizado y caja.
+- [ ] Confirmar tarifa de pasarela y mezcla mensual de cobros antes del flujo único.
+
+La compilación de este corte produce 76 páginas y 78 tablas nativas. Se corrigen encabezados Markdown que se mostraban como texto, anchos de las tablas de flujo, separación de filas entre páginas y continuidad entre rótulos y tablas. El constructor reproducible queda en scripts/build_preview.py. Se verifican los importes de comisión e IVA y la integridad de los originales.

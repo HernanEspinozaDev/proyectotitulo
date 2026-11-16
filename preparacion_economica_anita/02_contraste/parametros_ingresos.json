@@ -38,10 +38,10 @@
     }
   ],
   "estado_volumen_y_ticket": "base provisional mantenida por el propietario; mezcla por modalidad pendiente",
-  "pagador_comision": "persona_que_reserva",
-  "responsable_pasarela": "persona_que_reserva",
-  "reparto_fondos": "pendiente de confirmar la aclaración sobre quien publica",
-  "cobro_comision_arriendo_mensual": "pendiente de confirmar cobro por cuota o por contrato",
+  "pagador_comision": "publicador_persona_arrendadora",
+  "responsable_pasarela": "publicador_persona_arrendadora",
+  "reparto_fondos": "del importe del arriendo se descuentan la comisión de espaciGo, su IVA y el cargo de Mercado Pago; el saldo corresponde al publicador",
+  "cobro_comision_arriendo_mensual": "por cada pago mensual procesado",
   "modelo_mensual": {
     "espacios_activos_referencia": 8,
     "cobros_mes_referencia": 16,
@@ -67,5 +67,15 @@
         "ticket_medio_clp": 200000
       }
     ]
+  },
+  "regla_temporal_comision": "3 % más IVA sobre cada pago procesado; un pago anual único genera una comisión sobre ese pago",
+  "tarifa_mercado_pago": "pendiente de definir con evidencia del proveedor",
+  "ejemplo_liquidacion_clp": {
+    "importe_arriendo": 100000,
+    "comision_neta": 3000,
+    "iva_comision": 570,
+    "comision_con_iva": 3570,
+    "saldo_publicador_antes_de_pasarela": 96430,
+    "cargo_mercado_pago": null
   }
 }

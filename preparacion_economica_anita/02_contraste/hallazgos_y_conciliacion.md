@@ -12,7 +12,7 @@
 | Pasarela ligada a otro volumen | Costo anual de 10.800.000 frente a 192 reservas del escenario reconstruido. | Recalcular desde GMV y tarifa aplicable. |
 | Trabajo valorizado dentro del desembolso | Desarrollo de 6.240.000 en la inversión y el flujo. | Separar costo de oportunidad y flujo de caja. |
 | Saldo de amortización distinto entre imagen y tabla | La imagen 11 del informe presenta saldo final negativo; cuadro amortizacion!B17 conserva 1 CLP. | Reconstruir intereses, cuota, capital y redondeo hasta saldo cero. |
-| Crédito e impuestos sin respaldo específico | Tasa 12 %, deuda 3.720.000 y tasa tributaria 27 % en el informe. | Modelar parámetros y confirmar oferta, régimen y método antes de cerrar. |
+| Crédito e impuestos sin respaldo específico | Tasa 12 %, deuda 3.720.000 y tasa tributaria 27 % en el informe. | El propietario confirma que el préstamo es una simulación. Separar escenarios con y sin deuda; confirmar régimen tributario y método antes de cerrar. |
 | Imagen 2 mal rotulada | Imagen Google Play frente a título de conversión cloud. | Retirar del costo web o tratar como escenario móvil separado. |
 | Respaldo potencialmente duplicado | Servicio respaldo y Revision respaldo. | Actualizar protección de RDS/S3 y evitar otra partida sin alcance propio. |
 | Alcance solo comercial | Informe y escenarios A/B. | Mantener nueve categorías y delimitar un mix inicial de evaluación. |

@@ -34,28 +34,30 @@ El informe narrativo utiliza otra simulación, con CLP 35.000.000 de ingresos po
 
 El escenario base produce CLP 24.000 mensuales de comisión neta y CLP 4.560 de IVA de comisión. El IVA se mantiene separado del ingreso disponible para cubrir costos. El supuesto AWS preparado de CLP 25.670,52 mensuales supera esa comisión en CLP 1.670,52, antes de sumar otros gastos y bajo los supuestos de volumen y costo indicados.
 
-## Decisiones pendientes de la conversación
+## Decisiones confirmadas y asuntos pendientes
 
 | Decisión | Estado |
 |---|---|
 | Tarifa de comisión | 3 % más IVA indicada por el propietario. |
-| Parte que paga la comisión | La persona que reserva, como cobro adicional. |
-| Parte que asume la comisión de Mercado Pago | La persona que reserva. |
+| Parte que paga la comisión | Quien publica, mediante descuento del importe del arriendo. |
+| Parte que asume la comisión de Mercado Pago | Quien publica, mediante descuento del importe del arriendo. |
 | Volumen y ticket del escenario base | Se conserva provisionalmente la referencia de 8 espacios, 2 reservas mensuales por espacio y CLP 50.000 de ticket medio. La mezcla por modalidad requiere definición. |
 | Base comisionable del arriendo | Definir si el ticket informado es neto de impuestos propios de la renta y qué conceptos quedan excluidos. |
-| Remuneraciones y financiamiento | Resolver después de fijar los ingresos y los costos variables. |
+| Momento de la comisión | En cada pago procesado; mensual por cuota y anual una vez si existe un solo pago. |
+| Remuneraciones | Sin pagos al comienzo. Fecha o condición de inicio y monto posterior pendientes de definición. |
+| Financiamiento | El préstamo de CLP 3.720.000 al 12 % anual por tres años es una simulación, según confirmación del propietario. |
 
 
-## Actualización por modalidad de arriendo
+## Ratificación del reparto y del momento de cobro
 
-En la terminología de la tesis, quien publica u ofrece es la persona arrendadora y quien reserva el uso es la persona arrendataria. Las selecciones del propietario asignan a quien reserva el pago de la comisión y del costo de la pasarela. La aclaración del reparto del dinero queda consultada por la referencia posterior a lo que recibe quien publica.
+La aclaración del propietario del 16 de noviembre de 2026 sustituye las respuestas anteriores que asignaban los cargos a quien reserva. Quien publica asume la comisión de espaciGo, su IVA y el costo de Mercado Pago, mediante descuento del importe del arriendo. En la terminología de la tesis, quien publica es la persona arrendadora y quien utiliza el espacio es la persona arrendataria.
 
-El modelo mensual suma las bases comisionables de las transacciones efectivamente cobradas en el mes. Para cada modalidad se registra el número de cobros y su importe medio. El ticket medio global se obtiene dividiendo el total transado por el número total de cobros. Esa media pondera cada modalidad por su frecuencia.
+Por un pago de CLP 100.000, la comisión neta es CLP 3.000, el IVA sobre esa comisión es CLP 570 y la deducción de espaciGo suma CLP 3.570. El saldo para quien publica es CLP 96.430 menos el cargo efectivo de Mercado Pago, cuya tarifa continúa pendiente. El costo de la pasarela se registra separado y no constituye ingreso adicional de espaciGo. Este reparto expresa la regla comercial acordada; su mecanismo de liquidación e implementación requiere validación técnica con el proveedor.
 
-La comisión neta del mes equivale al 3 % de ese total. El IVA se calcula sobre la comisión. El cobro destinado a la pasarela tiene un registro separado, con su costo y su eventual recuperación al cliente. La tarifa efectiva y la base de cálculo del proveedor requieren definición para cerrar ese componente.
+La tasa se aplica a cada pago procesado. Un contrato con cuotas mensuales genera comisión sobre cada cuota; un contrato anual con un solo pago genera una comisión sobre ese pago completo. El modelo mensual suma los importes comisionables efectivamente cobrados en cada mes. La duración del contrato no multiplica por sí misma el número de comisiones.
 
 ## Preguntas siguientes
 
-- En un arriendo de varios meses, determinar si la comisión se aplica a cada pago mensual o sobre el total del contrato en el momento de su contratación.
-- Confirmar que quien publica recibe la renta y que espaciGo y la pasarela reciben sus cargos respectivos.
-- Reemplazar la distribución ilustrativa por un mix de transacciones y tickets acorde con las categorías y modalidades que se espera ofrecer.
+- Definir cuándo comienzan las remuneraciones y su monto posterior. El propietario decide que no existen pagos al comienzo. Las alternativas históricas del libro son CLP 200.000 o CLP 400.000 mensuales por persona. El trabajo aportado se valoriza separado del desembolso y no se supone remuneración nula durante todo el horizonte.
+- Reemplazar la distribución ilustrativa por una mezcla de transacciones y tickets acorde con las categorías y modalidades.
+- Precisar tarifa y base de Mercado Pago, conceptos incluidos en la base comisionable, y condiciones de devoluciones y cancelaciones antes de cerrar el flujo.
