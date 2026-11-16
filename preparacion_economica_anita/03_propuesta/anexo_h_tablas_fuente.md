@@ -1495,24 +1495,24 @@ El cálculo se reproduce con scripts/calcular_tickets_remuneraciones.py, usando 
 Los costos omitidos y el alcance de planificación se explicitan en 14.6. La comparación histórica de H.24 mantiene sus datos originales al 14 %, y este apartado identifica el recálculo al 3 %. No se declara un punto de equilibrio definitivo ni se presupone capacidad técnica o demanda acreditada para los volúmenes resultantes.
 
 
-## H.28. Régimen tributario proyectado y calendario de evaluación
+## H.28. Supuesto fiscal académico y calendario de evaluación
 
-La empresa aún no se constituye. La preparación adopta Pro Pyme General como supuesto del escenario, sin afirmar inscripción vigente ante el SII. La actividad se modela como intermediación: los publicadores arriendan sus espacios y la plataforma cobra su comisión. La operación como sitio web no determina por sí sola la elegibilidad tributaria; deben cumplirse los requisitos de ingresos, capital y demás condiciones aplicables. El supuesto de intermediación requiere coherencia entre contratos, documentos tributarios y liquidaciones.
+La empresa aún no se constituye. La preparación mantiene Pro Pyme General como régimen proyectado, sin afirmar inscripción vigente ante el SII. La actividad se modela como intermediación: los publicadores arriendan sus espacios y la plataforma cobra su comisión. Para el cálculo académico se conserva el impuesto fijo del 27 % utilizado por Anita, según la instrucción docente comunicada por el propietario. Esta elección metodológica no se presenta como tasa legal del régimen proyectado.
 
 **Tabla H.28.1**
-*Tasas de Primera Categoría por período del escenario proyectado*
+*Tasa de impuesto adoptada para el ejercicio académico*
 
-| Período | Año comercial | Año tributario | Tasa proyectada |
+| Período | Año comercial | Año tributario | Tasa académica |
 |---|---|---|---|
-| 1 | 2027 | 2028 | 12,5 % |
-| 2 | 2028 | 2029 | 15 % |
-| 3 | 2029 | 2030 | 23 % |
-| 4 | 2030 | 2031 | 23 % |
+| 1 | 2027 | 2028 | 27 % |
+| 2 | 2028 | 2029 | 27 % |
+| 3 | 2029 | 2030 | 27 % |
+| 4 | 2030 | 2031 | 27 % |
 
-*Nota.* Elaboración a partir de la Circular 53 de 2025 del SII y del artículo 8, numeral 3, de la ley 21.850, respetando las tasas transitorias Pro Pyme. El Año 0 de preparación corresponde a 2026. Las tasas proyectadas reflejan normativa consultada al 16 de noviembre de 2026 y suponen permanencia en el régimen. Se revisan ante cambios legales o de elegibilidad.
+*Nota.* Elaboración a partir del modelo de Anita y del criterio docente comunicado por el propietario el 16 de noviembre de 2026. Se utiliza 27 % fijo como supuesto de evaluación académica. El Año 0 de preparación corresponde a 2026. La tabla no constituye una determinación de la tasa legal aplicable al régimen proyectado.
 
-El flujo conserva las columnas y partidas de Anita. La fila de impuesto utiliza una conciliación tributaria auxiliar para distinguir ingreso propio, fondos de terceros, IVA, ingresos percibidos, egresos pagados, pérdidas y ajustes aplicables. La depreciación contable no se descuenta nuevamente si el régimen permite o exige reconocer la adquisición mediante otro tratamiento tributario. El trabajo valorizado tampoco se deduce automáticamente como si fuera un pago. La determinación de la base y del momento efectivo de pago de impuestos permanece dentro del cierre del flujo; no se presenta un recálculo completo con los demás parámetros pendientes.
+El flujo conserva las columnas, partidas y secuencia de Anita. El impuesto se calcula sobre la base de resultados y ajustes del ejercicio, considerando las pérdidas que correspondan al modelo. Los fondos de terceros y el IVA se separan del ingreso propio. El trabajo valorizado, la depreciación y los desembolsos se concilian para evitar doble conteo. La serie definitiva y sus indicadores requieren cerrar los demás parámetros pendientes.
 
-La tasa académica de descuento es 25 % anual según la indicación del profesor comunicada por el propietario. Se mantiene separada de la tasa de Primera Categoría, del IVA de la comisión y del interés del préstamo simulado. No se incrementan los costos operativos en 25 % por aplicar este criterio. El VAN del escenario actualizado se calcula después de cerrar su serie anual; la TIR no se fija de antemano.
+La tasa de descuento académico se mantiene en 25 % anual, según la indicación del profesor comunicada por el propietario. Se distingue del impuesto del 27 %, del IVA de la comisión y del interés del préstamo simulado del 12 %. La referencia original de Anita utiliza tasas de descuento del 10 % y 12 %; ambas permanecen como antecedentes. El VAN del escenario actualizado se calcula al 25 % cuando se cierre el flujo y la TIR se obtiene de sus resultados.
 
-Fuentes: SII, requisitos para optar a Pro Pyme General, https://www.sii.cl/preguntas_frecuentes/declaracion_renta/001_140_7530.htm; SII, Circular 53 de 2025, https://www.sii.cl/normativa_legislacion/circulares/2025/circu53.pdf; ley 21.850, artículo 8 numeral 3 y artículo sexto transitorio, https://www.bcn.cl/leychile/Navegar?idNorma=1229250&idVersion=2026-10-17. Los parámetros estructurados se conservan en 02_contraste/parametros_tributarios.json.
+Fuentes del supuesto académico: informe de Anita, sección 5.3; hoja FlujoNeto, A29:F45; instrucción del propietario del 16 de noviembre de 2026. Los parámetros se conservan en 02_contraste/parametros_tributarios.json. El contraste legal anterior permanece identificado como antecedente no aplicado al cálculo académico, para no confundirlo con el criterio adoptado.

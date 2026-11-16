@@ -59,7 +59,7 @@ El préstamo de CLP 3.720.000 al 12 % anual por tres años corresponde a una sim
 
 La evaluación adopta una empresa proyectada que presta servicios de intermediación mediante un marketplace y prevé acogerse a Pro Pyme General, artículo 14 letra D número 3 de la Ley sobre Impuesto a la Renta. La empresa aún no se constituye; el acogimiento constituye un supuesto de planificación, sujeto a cumplir los requisitos del SII. Los publicadores ofrecen los espacios y reciben el saldo de sus arriendos. La comisión neta corresponde al ingreso propio modelado de espaciGo; los fondos de terceros y el IVA se registran por separado.
 
-El Año 0 corresponde a 2026 y el Año 1 de operación a 2027. Las tasas de Primera Categoría proyectadas son 12,5 % para 2027, 15 % para 2028 y 23 % para 2029 y 2030, conforme a las disposiciones consultadas al corte. El Anexo H.28 documenta calendario, fuentes y alcance. El impuesto se calcula sobre la base tributaria que corresponda al régimen, con sus ajustes y pérdidas, y no sobre el valor bruto de los arriendos. Las tablas históricas mantienen el 27 % original para comparación.
+El Año 0 corresponde a 2026 y el Año 1 de operación a 2027. Para conservar el criterio docente del ejercicio y el modelo de Anita, la evaluación utiliza una tasa fija de impuesto del 27 % durante los cuatro años de operación. Se identifica como supuesto académico, separado del régimen Pro Pyme General proyectado y de su liquidación tributaria efectiva. El impuesto se aplica a la base de resultados y ajustes del modelo, no al valor bruto de los arriendos. El Anexo H.28 documenta el calendario y el alcance de este criterio.
 
 
 #### 14.3.1. Flujo original aportado

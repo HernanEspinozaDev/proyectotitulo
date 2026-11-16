@@ -114,3 +114,13 @@ El 25 % de descuento no se incorpora como recargo de costos ni se usa para fijar
 Se incorporan el régimen proyectado y calendario en 14.3 y H.28 y el descuento académico del 25 % en 14.4. Se preservan las tablas y resultados originales como antecedentes. El formato del flujo de Anita continúa siendo rector. La comisión de intermediación se separa de fondos de terceros e IVA; el impuesto se parametriza por año y régimen, sin atribuir inscripción existente.
 
 La vista previa tributaria contiene 81 páginas y 81 tablas nativas. Se comprueban calendario 2027–2030, estado de empresa proyectada, tasas por año y descuento académico. Las 69 páginas de transcripción fuente conservan identidad visual con el corte anterior. Se revisan las páginas modificadas y el respaldo nuevo H.28; se conservan intactos los insumos recibidos y la tesis principal.
+
+## Ratificación del impuesto del ejercicio
+
+- [x] Conservar 27 % fijo en los cuatro años del cálculo académico, por instrucción docente comunicada por el propietario.
+- [x] Sustituir en 14.3, H.28 y parámetros activos la secuencia de tasas legales por el supuesto académico fijo; conservar el contraste anterior como antecedente identificado.
+- [x] Mantener separado impuesto académico 27 %, descuento académico 25 % e interés simulado 12 %. Anita utiliza originalmente descuentos del 10 % y 12 %.
+
+El régimen Pro Pyme continúa como proyección y la empresa no se presenta como constituida. El cierre del flujo definitivo conserva sus tareas pendientes; esta ratificación no atribuye un recálculo completo a una serie aún no conciliada.
+
+La vista previa del criterio fijo conserva 81 páginas y 81 tablas nativas. Se comprueba 27 % en los cuatro períodos y correspondencia entre 14.3 y H.28. Las 69 páginas de transcripción original mantienen identidad visual. La revisión del informe y las hojas no identifica una derivación adicional de las tasas de descuento referenciales de Anita; la distinción con la exigencia académica del 25 % queda registrada.

@@ -11,3 +11,5 @@ Para reconstruir la vista previa Word con DocSkill, ejecutar desde el repositori
 La sección 14.6 incorpora el cálculo de cobros para remuneraciones. El soporte y los límites se encuentran en 02_contraste/tickets_para_remuneraciones.md. El script scripts/calcular_tickets_remuneraciones.py permite variar el monto por fundador sin alterar las extracciones.
 
 Se incorpora Pro Pyme General como supuesto de una empresa proyectada, Año 1 de operación en 2027, y descuento académico del 25 %. El calendario y las fuentes tributarias se documentan en 02_contraste/parametros_tributarios.json y en H.28.
+
+El criterio vigente del ejercicio conserva impuesto fijo del 27 % como Anita, por indicación docente comunicada por el propietario. Se distingue de la tasa de descuento académico del 25 % y de la tributación real del régimen proyectado. El calendario legal analizado antes queda como antecedente y no se aplica al cálculo académico.

@@ -72,3 +72,17 @@ Fuentes tributarias consultadas el 16 de noviembre de 2026: tabla SII https://ww
 ## Selección del escenario tributario y calendario
 
 El propietario confirma que la empresa aún no se constituye y elige modelar Pro Pyme General, con Año 1 de operación en 2027. Se registra como régimen proyectado, sin afirmar acogimiento formal. El ingreso propio modelado es la comisión de intermediación; los arriendos corresponden a los publicadores. El Anexo H.28 vincula este supuesto con las tasas proyectadas de 12,5 % en 2027, 15 % en 2028 y 23 % desde 2029, según normativa consultada. El calendario estructurado y las fuentes se conservan en parametros_tributarios.json. El estado tributario efectivo y la conciliación de la base siguen sujetos a formalización y cierre.
+
+## Criterio vigente del impuesto académico
+
+La última instrucción del propietario conserva 27 % fijo como impuesto del ejercicio, tal como lo presenta Anita y por el criterio de revisión de la profesora. Sustituye el uso de tasas legales por año en el cálculo académico. Se mantiene el régimen Pro Pyme General como proyección organizativa, con empresa aún no constituida, sin atribuir a ese régimen la tasa legal del 27 %. Las tasas legales consultadas antes quedan solo como antecedente de contraste. Se mantienen Año 1 en 2027 y descuento académico del 25 %; las tasas de descuento originales de Anita son 10 % y 12 % referenciales. El formato del flujo permanece intacto.
+
+## Diferencia entre descuento referencial y exigencia académica
+
+La revisión del informe completo encuentra que la sección 5.3 denomina referencial al COK del 10 % al 12 % anual. No presenta una derivación cuantitativa de esas tasas mediante costo de oportunidad, prima de riesgo, comparables o un modelo de costo de capital. La explicación de la simulación de préstamo al 12 % justifica otra variable y no basta por sí sola para justificar el descuento de los flujos. En las hojas extraídas tampoco se identifica una derivación adicional del COK. Se trata de ausencia de respaldo en los insumos revisados, no de prueba de que la tasa sea necesariamente incorrecta.
+
+El 25 % comunicado por el profesor constituye una exigencia metodológica para el ejercicio. Puede sustentarse como criterio docente adoptado y acompañarse de sensibilidad al 10 % y 12 %, sin presentarse como estimación de mercado validada. Una justificación económica propia requeriría identificar tipo de flujo, moneda, tasa nominal o real, costo de oportunidad y evidencia del riesgo. No se inventa una suma de primas para obtener exactamente 25 %.
+
+Por ejemplo, CLP 100.000 recibidos dentro de cuatro años tienen valor presente de CLP 68.301,35 al 10 %, frente a CLP 40.960 al 25 %. Los cobros proyectados permanecen iguales; cambia su valor para la evaluación actual. La TIR del mismo flujo no depende de la tasa elegida para el VAN. En el vector histórico de Anita, el VAN cambia de CLP −1.960.342,32 al 10 % a CLP −3.877.897 al 25 %, mientras la TIR permanece en aproximadamente 0,85 %.
+
+La base metodológica es el descuento de flujos con una tasa acorde a su riesgo y al destinatario del flujo: NYU Stern, Aswath Damodaran, https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/approach.html. Esta fuente respalda el método; no prescribe 25 % para espaciGo.

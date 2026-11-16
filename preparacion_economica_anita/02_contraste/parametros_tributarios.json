@@ -13,30 +13,30 @@
       "periodo": 1,
       "anio_comercial": 2027,
       "anio_tributario": 2028,
-      "tasa": "0.125"
+      "tasa": "0.27"
     },
     {
       "periodo": 2,
       "anio_comercial": 2028,
       "anio_tributario": 2029,
-      "tasa": "0.15"
+      "tasa": "0.27"
     },
     {
       "periodo": 3,
       "anio_comercial": 2029,
       "anio_tributario": 2030,
-      "tasa": "0.23"
+      "tasa": "0.27"
     },
     {
       "periodo": 4,
       "anio_comercial": 2030,
       "anio_tributario": 2031,
-      "tasa": "0.23"
+      "tasa": "0.27"
     }
   ],
-  "estado_tasas": "parámetros de proyección según normativa consultada; revisar cambios y permanencia en régimen",
-  "base_imponible": "por conciliar según reglas Pro Pyme; no usar automáticamente GMV ni resultado contable antes de impuestos",
-  "precaucion_calculo": "conciliar percibido y pagado, pérdidas y diferencias tributarias; no duplicar depreciación si corresponde deducción inmediata; el costo de oportunidad no es por sí solo gasto tributario",
+  "estado_tasas": "supuesto académico de evaluación; no afirmación de tasa legal aplicable al régimen Pro Pyme proyectado",
+  "base_imponible": "base del impuesto del ejercicio académico, conciliada con resultados y ajustes; no aplicar al GMV",
+  "precaucion_calculo": "mantener estructura del flujo de Anita; conciliar pérdidas, trabajo valorizado y doble conteo antes del cierre definitivo; diferenciar ejercicio académico y liquidación fiscal real",
   "fuentes": [
     {
       "titulo": "SII requisitos Pro Pyme General",
@@ -50,5 +50,33 @@
       "titulo": "Ley 21.850 artículo 8 numeral 3 y sexto transitorio",
       "url": "https://www.bcn.cl/leychile/Navegar?idNorma=1229250&idVersion=2026-10-17"
     }
-  ]
+  ],
+  "antecedente_legal_no_aplicado_al_calculo_academico": [
+    {
+      "periodo": 1,
+      "anio_comercial": 2027,
+      "anio_tributario": 2028,
+      "tasa": "0.27"
+    },
+    {
+      "periodo": 2,
+      "anio_comercial": 2028,
+      "anio_tributario": 2029,
+      "tasa": "0.27"
+    },
+    {
+      "periodo": 3,
+      "anio_comercial": 2029,
+      "anio_tributario": 2030,
+      "tasa": "0.27"
+    },
+    {
+      "periodo": 4,
+      "anio_comercial": 2030,
+      "anio_tributario": 2031,
+      "tasa": "0.27"
+    }
+  ],
+  "criterio_impuesto": "tasa fija académica del 27 %, conservada del modelo de Anita por instrucción docente comunicada por el propietario",
+  "fuente_criterio_academico": "informe y libro de Anita; ratificación del propietario el 16 de noviembre de 2026"
 }
