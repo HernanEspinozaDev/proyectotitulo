@@ -43,3 +43,5 @@ La Tabla 3 selecciona requisitos de calidad del Anexo A y asocia cada umbral con
 ### 3.2. Especificación de Restricciones
 
 Las publicaciones se asocian a un titular y una unidad reservable exclusiva. La emisión requiere identidad de ambas partes y representación acreditada cuando corresponde. Las modalidades de firma, garantía y proveedores se habilitan por corte y evidencia. La recurrencia, el aforo compartido y la subdivisión quedan fuera del alcance vigente. Los anexos A–C conservan la trazabilidad de estas restricciones.
+
+La restricción de despliegue mantiene los recursos regionales en la región seleccionada y habilitada para el proyecto. La región inicial del diseño es us-east-2. Un cambio a Chile requiere comprobar su habilitación y los servicios necesarios. El entorno emulado mantiene configuración, datos y credenciales propios. La incorporación de AWS conserva los objetivos RNF y exige evidencia de su cumplimiento en el entorno de destino.

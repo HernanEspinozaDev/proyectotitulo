@@ -1,4 +1,6 @@
 ---
+
+La infraestructura vigente se documenta en ARQUITECTURA_AWS_CORTE_20261116.md. Ese corte y los ADR-AWS-01 a ADR-AWS-05 sustituyen las referencias anteriores de despliegue. Las reglas de negocio y los resultados históricos conservan su versión y alcance.
 version: alpha
 name: EspaciGo — paleta de marca sobre Next existente
 description: Normalización cromática sobre el diseño Next existente en main. No sustituye layouts, tipografía, espaciado ni componentes.

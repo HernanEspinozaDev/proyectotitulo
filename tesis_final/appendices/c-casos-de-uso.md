@@ -31,7 +31,7 @@
 | Inmutabilidad de logs en el repositorio analítico | `RNF-017` | Condición de integridad de infraestructura. |
 | Tokenización de tarjetas (PCI-DSS) | `RNF-025` | Restricción externa de cumplimiento. |
 | Envío asíncrono de eventos a BigQuery | Detalle de implementación | No existe RF que lo observe un actor; se cubre con RNF-017. |
-| Google BigQuery / Data Warehouse | Repositorio interno | No es actor: no hay interacción iniciada por él con un objetivo observable. |
+| Repositorio analítico interno | Repositorio interno | No es actor: no hay interacción iniciada por él con un objetivo observable. |
 
 ---
 

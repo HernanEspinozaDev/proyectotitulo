@@ -21,7 +21,7 @@ El modelo de calidad de producto orienta la selección de características verif
 
 #### 12.1.1. Ensayo local de restauración
 
-El ensayo sintético de PostgreSQL/PostGIS sobre migraciones V1–V61 supera las comprobaciones de restauración de base y solapamiento concurrente. El ensayo independiente del ejecutor GCP03 en PostgreSQL desechable se detiene al restaurar los permisos de aplicación. La restauración conjunta de base y objetos, la carga de extremo a extremo y la medición de RPO y RTO permanecen como verificaciones separadas.
+El ensayo sintético de PostgreSQL/PostGIS sobre migraciones V1–V61 supera las comprobaciones de restauración de base y solapamiento concurrente. El ensayo histórico del ejecutor de recuperación anterior, sobre PostgreSQL desechable, se detiene al restaurar los permisos de aplicación. Ese resultado conserva su condición de antecedente del cambio de infraestructura. La restauración conjunta de base y objetos, la carga de extremo a extremo y la medición de RPO y RTO permanecen como verificaciones separadas.
 
 El recorrido de aceptación comprende oferta por titularidad, búsqueda, contrato sin firma, pago simulado y cierre. Los casos PT-01 a PT-08 y PT-12 del Anexo F contrastan ese recorrido con fallos de autorización, concurrencia, expiración y procesamiento de eventos. PT-08 comprueba el ingreso, la entrega y la confirmación de desocupación de HU35. La matriz distingue el criterio de cada etapa de su estado de ejecución. La firma opcional y la garantía requieren escenarios de aceptación por proveedor, pagador y emisión.
 
@@ -30,3 +30,9 @@ Los objetivos de rendimiento y continuidad se definen en el Capítulo XI. La com
 ### 12.2. Normas y Estándares
 
 El modelo de calidad se organiza según ISO/IEC 25010 [@iso25010]. Los criterios de aceptación remiten a los requerimientos funcionales y no funcionales y a los registros reproducibles del Anexo F.
+
+### 12.3. Verificación de la construcción AWS
+
+El corte 3dc1c18 incorpora adaptadores S3, configuración Terraform local y flujos de calidad de aplicación, frontend, base de datos e infraestructura. La inspección documental identifica esos artefactos y los endpoints del emulador. La aceptación exige registrar la ejecución de las pruebas del adaptador, las denegaciones de acceso y el ciclo de carga, lectura y borrado de documentos cifrados por versión.
+
+El despliegue AWS requiere ensayos independientes sobre Fargate, RDS y S3. PT-09 y PT-10 miden capacidad y latencia de extremo a extremo. PT-11 y PT-16 comprueban recuperación conjunta, permisos y supresiones. El estado de las pruebas del entorno objetivo se registra en la Tabla F.4. Las cifras históricas de F5, F6 y carga SQL permanecen asociadas a su corte de origen.

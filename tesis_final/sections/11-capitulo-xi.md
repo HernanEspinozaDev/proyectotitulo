@@ -49,3 +49,5 @@ La matriz vincula objetivo, RQF o RNF, historia o caso de uso, contrato técnico
 ### 11.6. Criterio de actualización
 
 Cada incremento registra su relación con la EDT y con los requisitos afectados. Si cambia una regla de producto, la revisión identifica la decisión, las fuentes modificadas y las pruebas que se repiten. Si cambia la implementación, el registro identifica el commit, el entorno y el resultado observado. El cierre de un incremento conserva explícitas las verificaciones pendientes.
+
+La transición a AWS conserva los umbrales del catálogo. La aceptación del destino requiere medir la ruta completa Cloudflare, Next.js, API y RDS e identificar región, revisión de tarea y versión de esquema. La emulación local y el ensayo SQL histórico conservan su propio alcance. CloudWatch y el registro de operación aportan las fuentes previstas para disponibilidad y tiempos cuando exista un despliegue verificable.

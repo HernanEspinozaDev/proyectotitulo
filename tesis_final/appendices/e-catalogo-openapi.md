@@ -1,6 +1,8 @@
 # ANEXO E: CATÁLOGO DE CONTRATOS DE INTERFAZ OPENAPI
 
-El catálogo de referencia corresponde a [planning/openapi.yaml](https://github.com/HernanEspinozaDev/espaciGo/blob/4e26d52b57d9687c4b6b7a778e89dbbb5be855e5/planning/openapi.yaml), commit `4e26d52b57d9687c4b6b7a778e89dbbb5be855e5`, especificación OpenAPI 3.1. La base relativa es `/api/v1`. El catálogo distingue las rutas de ensayo local por el prefijo `/local`.
+El catálogo histórico de referencia corresponde a [planning/openapi.yaml](https://github.com/HernanEspinozaDev/espaciGo/blob/4e26d52b57d9687c4b6b7a778e89dbbb5be855e5/planning/openapi.yaml), commit `4e26d52b57d9687c4b6b7a778e89dbbb5be855e5`, especificación OpenAPI 3.1. La base relativa es `/api/v1`. El catálogo distingue las rutas de ensayo local por el prefijo `/local`.
+
+La infraestructura vigente se documenta en espacigo-aws, corte 3dc1c18 del 16 de noviembre [@espacigoaws2026]. El BFF utiliza la API por loopback en desarrollo y en el diseño co-ubicado de Fargate. Las operaciones de almacenamiento se resuelven mediante adaptadores S3 y autorización de aplicación. La aceptación del despliegue coteja la especificación de interfaz de ese corte con sus rutas y controles efectivos.
 
 **Tabla E.1**\
 *Operaciones representativas del corte de desarrollo*
@@ -18,7 +20,7 @@ El catálogo de referencia corresponde a [planning/openapi.yaml](https://github.
 
 La consulta pública y la consulta de ensayo tienen rutas separadas. PT-09 requiere identificar cuál se mide, la versión del servicio y el conjunto de datos utilizado. El catálogo documenta un corte de la interfaz de desarrollo. Las rutas de ensayo permiten verificar contratos internos con datos sintéticos. La habilitación de una integración externa requiere evidencias de autorización, idempotencia, conciliación y devolución según la operación.
 
-La instantánea OpenAPI fijada en este anexo registra ocho códigos en el contrato local de ese corte. La Tabla E.2 documenta las nueve categorías vigentes informadas para la memoria, incluida Inmuebles. La migración V000067 incorpora Inmuebles al catálogo de datos. El filtro `category_code` de `GET /local/booking-trial/catalog` conserva ocho códigos tanto en la instantánea citada como en la copia local consultada. La Tabla E.2 describe el catálogo de producto de nueve categorías.
+La instantánea OpenAPI fijada en este anexo registra ocho códigos en el contrato local de ese corte. La Tabla E.2 documenta las nueve categorías vigentes informadas para la memoria, incluida Inmuebles. La migración V000067 incorpora Inmuebles al catálogo de datos. El filtro `category_code` de `GET /local/booking-trial/catalog` conserva ocho códigos tanto en la instantánea citada como en la copia local consultada el 4 de noviembre. La Tabla E.2 describe el catálogo de producto de nueve categorías.
 
 ## Galería y control de portada en el corte local
 

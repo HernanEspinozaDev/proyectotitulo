@@ -1,0 +1,32 @@
+@startuml
+skinparam dpi 200
+skinparam shadowing false
+skinparam monochrome true
+skinparam defaultFontName "DejaVu Sans"
+skinparam defaultFontSize 14
+skinparam componentStyle rectangle
+top to bottom direction
+package "Presentación · Next.js" {
+  component "Catálogo, cuenta y arriendo" as views
+  component "BFF · autorización de solicitudes" as bff
+  views --> bff
+}
+package "Aplicación · Go" {
+  component "cmd/api\nSesión y autorización por recurso" as api
+  component "Dominio\nEspacios · ocupación · reservas\nContratos · documentos" as domain
+  component "Puertos de datos, objetos y servicios" as ports
+  api --> domain
+  domain --> ports
+}
+package "Adaptadores construidos" {
+  database "PostgreSQL y PostGIS\nDocker en desarrollo" as db
+  component "s3storage y documents3\nAWS SDK para Go v2" as s3
+  component "Correo SMTP\nMailpit en desarrollo" as mail
+}
+bff --> api : HTTP por loopback
+ports --> db
+ports --> s3
+ports --> mail
+cloud "aws-emulator\nS3 local por HTTPS" as emulator
+s3 --> emulator
+@enduml

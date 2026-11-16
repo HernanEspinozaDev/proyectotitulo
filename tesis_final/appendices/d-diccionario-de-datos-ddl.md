@@ -1,10 +1,18 @@
 # ANEXO D: DICCIONARIO DE DATOS DEL ESQUEMA FÍSICO POSTGRESQL Y POSTGIS
 
-Este catálogo se reconstruye aplicando en orden las migraciones SQL estructurales disponibles. Las claves y nulabilidades corresponden al estado resultante de esas definiciones; no implica que se haya consultado una base persistente.
+Este catálogo conserva el corte histórico reconstruido desde las migraciones SQL estructurales disponibles al 4 de noviembre de 2026. Las claves y nulabilidades corresponden al estado resultante de esas definiciones; no implica que se haya consultado una base persistente.
 
 El inventario derivado del DDL contiene **110 tablas de aplicación** y excluye el ledger `schema_migrations`. La versión de creación más alta registrada en las fichas es V000079. En la comparación por nombre con la captura local V000075 del 4 de noviembre de 2026, coinciden 104 tablas de aplicación. Las otras seis corresponden al dominio de verificación documental y se declaran en V000079. Esta comparación identifica relaciones por nombre. La comparación de esas 104 tablas con la captura V75 identifica 879 columnas coincidentes por nombre, tipo base y nulabilidad. La comparación normaliza los alias PostgreSQL y trata bigserial como bigint para comparar el tipo base. La comprobación de valores por defecto, restricciones y permisos requiere evidencia separada por versión y entorno.
 
 El modelo lógico objetivo se describe en la sección 10.4. La capacidad registrada describe el recurso y no acredita un inventario compartido ni la disponibilidad de una categoría en un entorno. El inventario físico registra las claves y relaciones declaradas en SQL. Las relaciones foráneas identifican las columnas de origen y destino declaradas en `REFERENCES`, y las claves compuestas se presentan como conjuntos.
+
+## Evolución del esquema en la construcción AWS
+
+El repositorio espacigo-aws, corte 3dc1c18 del 16 de noviembre de 2026, incorpora migraciones hasta V000098. La migración a S3 modifica los adaptadores de objetos y conserva PostgreSQL como autoridad de datos. El inventario de 110 tablas y la comparación de 879 columnas que siguen pertenecen al corte histórico identificado. La actualización del motor de inventario y los cambios de identidad posteriores se registran en sus migraciones y requieren un nuevo contraste físico por entorno [@espacigoaws2026].
+
+Las migraciones del repositorio AWS todavía contienen identificadores heredados como gcp06_test_access_batch_audit, cli_gcp06 y literales de proveedor gcs. Su presencia en las fichas reproduce el SQL de referencia. El adaptador de ejecución actual admite S3 y sistema de archivos. La compatibilidad entre metadatos de medios, restricciones heredadas y el proveedor S3 requiere conciliación y prueba en el corte de despliegue.
+
+RDS conserva el esquema relacional y exige validar extensiones, roles y funciones al restaurar o migrar. El entorno cloud requiere comprobar la versión PostgreSQL disponible y sus extensiones PostGIS, btree_gist y unaccent antes de aplicar el esquema. La conexión de aplicación utiliza TLS y permisos por rol. El Anexo F especifica la recuperación y comprobación de autorización.
 
 ## Correspondencia lógica y física
 

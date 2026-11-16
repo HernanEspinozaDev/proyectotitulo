@@ -90,7 +90,8 @@ def main():
     for puml in puml_files:
         if only and not any(o in puml.stem for o in only):
             continue
-        out_png = OUT_DIR / puml.relative_to(SRC_DIR).with_suffix(".png")
+        output_directory = BASE_DIR / "assets" / "imagenes" if puml.stem.endswith("_aws") else OUT_DIR
+        out_png = output_directory / puml.relative_to(SRC_DIR).with_suffix(".png")
         out_png.parent.mkdir(parents=True, exist_ok=True)
         if out_png.exists() and not force_puml and not only:
             continue

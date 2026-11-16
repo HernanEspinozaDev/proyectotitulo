@@ -44,3 +44,9 @@ La aceptación de condiciones se registra por parte y por emisión. La firma ele
 El análisis del proyecto incorpora como referencias la normativa chilena sobre protección de datos, documentos electrónicos y arrendamiento [@ley21719; @ley19799; @ley21461]. La arquitectura traduce el análisis a requisitos verificables de acceso por finalidad, minimización, evidencia de aceptación, retención y recuperación. La revisión de habilitación evalúa el alcance aplicable de cada modalidad de contratación y proveedor.
 
 En el diseño de continuidad, la restauración requiere comprobar el estado de los datos y sus objetos asociados. El procedimiento revisa los permisos, el historial de supresiones y el resultado de recuperación antes de restablecer la operación, según los criterios del Capítulo XIII.
+
+### 4.6. Regiones y servicios cloud de la solución
+
+Una región AWS agrupa zonas de disponibilidad separadas físicamente. El anuncio de la región South America (Chile) contempla tres zonas al lanzamiento [@awschile2025]. Amazon comunica el 11 de noviembre de 2026 que la región opera en acceso anticipado para clientes seleccionados, con disponibilidad general prevista [@awschile2026]. Al corte de esta memoria, su uso por el proyecto requiere confirmar habilitación y catálogo regional. El acceso local a un emulador representa un entorno de desarrollo con endpoints compatibles.
+
+Amazon ECS con Fargate utiliza el modo de red awsvpc. Los contenedores de una misma tarea pueden comunicarse por localhost, lo que fundamenta la ubicación conjunta de Next.js y Go [@awsfargatenetwork2026]. RDS administra PostgreSQL y sus mecanismos de respaldo y recuperación. La versión del motor y las extensiones se contrastan con el catálogo disponible antes de provisionar [@awsrdspg2026; @awsrdsbackup2026]. S3 separa el almacenamiento de objetos de la base relacional y admite cifrado SSE-S3 mediante AES256 [@awss3encryption2026].

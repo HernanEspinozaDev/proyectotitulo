@@ -99,7 +99,7 @@ La Figura 4 organiza los paquetes de trabajo en seis ramas. El desglose textual 
 │   ├── 1.5.3. Pruebas de Resiliencia, Respaldo y Recuperación (Validación RPO/RTO)
 │   └── 1.5.4. Auditoría de Ciberseguridad y Escaneo de Vulnerabilidades (OWASP ZAP)
 └── 1.6. Puesta en Marcha, Evaluación Económica y Cierre
-    ├── 1.6.1. Automatización de Despliegue CI/CD y Topología en GCP
+    ├── 1.6.1. Automatización de Despliegue CI/CD y Topología en AWS
     ├── 1.6.2. Evaluación Financiera (Flujo de Caja, VAN, TIR, Payback)
     ├── 1.6.3. Constitución Societaria (SpA) y Aspectos Legales Tributarios
     └── 1.6.4. Informe Final de Titulación y Defensa de Grado

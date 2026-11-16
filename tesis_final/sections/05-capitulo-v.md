@@ -70,3 +70,5 @@ El lienzo sintetiza las hipótesis de intermediación y las dependencias del ser
 | Costos | Infraestructura, integraciones y operación. El análisis detallado se integra en los apartados reservados del Capítulo XIV y el Anexo H. |
 
 *Nota.* Elaboración propia. El lienzo describe el modelo propuesto para evaluación.
+
+La selección de AWS mantiene esos objetivos y añade como condición de habilitación la comprobación de red, permisos, almacenamiento y recuperación en el destino. La configuración local permite construir y probar cada incremento. El despliegue cloud requiere un registro de versión, región, recursos y resultados que sustente su aceptación.

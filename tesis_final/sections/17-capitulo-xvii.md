@@ -3,6 +3,11 @@
 ## 17.1. Glosario
 
 - **ADR:** Registro de decisión de arquitectura.
+- **AWS:** Plataforma de servicios cloud adoptada como destino.
+- **ECS Fargate:** Ejecución administrada de tareas con contenedores.
+- **RDS:** Servicio administrado de bases de datos relacionales.
+- **S3:** Servicio de almacenamiento de objetos.
+- **Zona de disponibilidad:** Ubicación aislada dentro de una región AWS.
 - **BFF:** Adaptador de backend orientado a las necesidades de una interfaz.
 - **BPMN:** Notación de modelado de procesos de negocio.
 - **DDL:** Sentencias de definición de estructuras de base de datos.

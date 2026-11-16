@@ -1,0 +1,38 @@
+@startuml
+skinparam dpi 200
+skinparam shadowing false
+skinparam monochrome true
+skinparam defaultFontName "DejaVu Sans"
+skinparam defaultFontSize 14
+skinparam componentStyle rectangle
+top to bottom direction
+actor "Usuario o evaluador" as user
+cloud "Cloudflare\nBorde y acceso" as edge
+user --> edge : HTTPS
+cloud "AWS · us-east-2\nDestino inicial sujeto a habilitación" {
+  package "VPC" {
+    node "Subred pública\nTarea ECS Fargate objetivo" {
+      component "Next.js\nOrigen web" as web
+      component "API Go\n127.0.0.1:8080" as api
+      web -down-> api : BFF · loopback
+    }
+    database "Subredes privadas\nRDS PostgreSQL / PostGIS\nSingle-AZ · respaldo y PITR" as db
+    api -down-> db : TCP 5432 · TLS
+  }
+  storage "S3 · cinco finalidades\nVersionado · SSE-S3\nAcceso público bloqueado" as s3
+  note bottom of db
+  Soporte objetivo
+  IAM y SSM · permisos y parámetros.
+  CloudWatch · logs de operación.
+  GitHub Actions / OIDC → ECR → ECS.
+  end note
+}
+api -down-> s3 : HTTPS\nEndpoint Gateway
+edge --> web : Origen autorizado\nTLS e ingreso por validar
+note bottom of s3
+Configuración por completar
+Tarea, servicio y registro de imágenes.
+Entrega, secretos y controles de ingreso.
+Chile como destino futuro condicionado.
+end note
+@enduml

@@ -32,12 +32,12 @@ El Anexo C organiza los casos de uso por módulo. Arrendador y arrendatario repr
 
 ### 10.3. Diagrama de componentes
 
-La Figura 9 detalla la vista de aplicaciones y el enlace entre la interfaz, el núcleo y sus adaptadores. El Anexo E conserva el contrato OpenAPI.
+La Figura 9 detalla la vista de aplicaciones y el enlace entre la interfaz, el núcleo y sus adaptadores AWS. La aplicación utiliza S3 y PostgreSQL local durante el desarrollo. El destino Fargate conserva los mismos límites de dominio. El Anexo E conserva el contrato OpenAPI de referencia.
 
 **Figura 9**\
 *Componentes de aplicación y adaptadores de espaciGo*
 
-![](assets/figuras/fig07_arquitectura_togaf_capas.png){height=16cm}
+![](assets/imagenes/fig09_componentes_aws.png){height=15.5cm}
 
 *Nota.* Elaboración propia a partir de la estructura del repositorio y el contrato de desarrollo. La autorización se aplica por recurso y el control If-Match se utiliza en operaciones de galería. La habilitación de proveedores externos sigue pendiente.
 
@@ -85,21 +85,21 @@ El criterio objetivo utiliza una autoridad de ocupación y un bloqueo activo por
 
 ### 10.5. Topología de comunicaciones
 
-La interfaz se comunica con la API por HTTPS mediante el BFF. El acceso a la base de datos se realiza por las rutas privadas de la VPC. El almacenamiento público y el privado conservan rutas y finalidades diferenciadas.
+El navegador accede al borde Cloudflare por HTTPS. El origen web requiere configurar y comprobar TLS y la restricción de ingreso. En el destino Fargate, el BFF Next.js invoca la API Go mediante loopback dentro de la misma tarea. La API accede a RDS por TCP 5432 y TLS en subredes privadas. La comunicación con S3 utiliza HTTPS y un endpoint Gateway de la VPC. Los buckets separan finalidades y mantienen bloqueo de acceso público. La aplicación autoriza la entrega de cada objeto.
 
 ### 10.6. Diagrama de Infraestructura
 
-La topología objetivo utiliza servicios administrados en la región de Santiago. El registro de estrategia de base de datos del 4 de noviembre, en el contexto local de desarrollo, describe una instancia Cloud SQL zonal, con acceso privado y respaldos automáticos. La configuración observada registra PITR desactivado. La Figura 12 separa las rutas de usuario, entrega y operación. La API accede a Cloud SQL por la red privada y utiliza almacenamiento de objetos separado por finalidad.
+La topología objetivo adopta la región inicial us-east-2, sujeta a la selección habilitada del proyecto. Una tarea ECS Fargate reúne la web Next.js y la API Go en modo awsvpc. El diseño utiliza RDS PostgreSQL Single-AZ en subredes privadas, almacenamiento gp3 cifrado y respaldo automático con retención de siete días. El procedimiento de aceptación verifica PITR, versión del motor, extensiones y recuperación. La Figura 12 representa este destino y distingue los componentes que requieren completar su configuración.
 
 **Figura 12**\
-*Topología regional y ruta de entrega de espaciGo en Google Cloud*
+*Topología objetivo y ruta de entrega de espaciGo en AWS*
 
-![](assets/figuras/fig17_topologia_objetivo.png){height=16cm}
+![](assets/imagenes/fig12_topologia_aws.png){height=16cm}
 
-*Nota.* Elaboración propia a partir de cloudbuild.yaml y del diseño de infraestructura de southamerica-west1. La separación entre medios públicos y objetos privados representa la topología objetivo.
+*Nota.* Elaboración propia a partir de los ADR-AWS-01 a ADR-AWS-05 y Terraform del corte 3dc1c18 [@espacigoaws2026]. La figura describe el destino de despliegue. La preparación de ECS/ECR, ingreso, TLS y entrega OIDC conserva comprobaciones pendientes.
 
 #### 10.6.1. Segmentación de red y comunicaciones privadas
-El diseño de red restringe el acceso a la base a través de la VPC y limita el acceso operativo mediante rutas y permisos definidos para cada entorno.
+La VPC declara dos subredes públicas y dos privadas, con zonas descubiertas desde la región configurada. La base acepta conexiones desde el grupo de seguridad de la tarea. El diseño restringe el origen web al borde autorizado y conserva la API en loopback. El Terraform inspeccionado aún declara ingreso amplio en el puerto 4000. Su endurecimiento y la prueba de acceso directo al origen constituyen condiciones previas de habilitación. Dos subredes para RDS permiten definir su grupo de subredes y conservan una instancia Single-AZ en el corte inicial.
 
 ### 10.7. Diagrama de Arquitectura
 
@@ -164,3 +164,9 @@ La Figura 16 representa el tratamiento objetivo de una solicitud de privacidad.
 ![](assets/figuras/fig10_privacidad_objetivo.png)
 
 *Nota.* Elaboración propia. El flujo objetivo distingue la solicitud, la decisión, la acción sobre datos y objetos y el registro del resultado.
+
+### 10.8. Construcción local y transición al destino
+
+El entorno local ejecuta Next.js en el puerto 3000, la API Go en 8080, PostgreSQL en Docker y aws-emulator en un endpoint HTTPS propio. Mailpit recibe correo de pruebas mediante SMTP y permite inspeccionar los mensajes. El emulador expone interfaces para S3, SSM, logs e IAM. Terraform separa cinco buckets de medios, evidencias, identidad, documentos del espacio y registro de supresiones, con versionado y SSE-S3. El almacenamiento documental conserva cifrado en la aplicación y autorización por finalidad.
+
+El diseño de operación utiliza CloudWatch para logs, SSM para parámetros y roles de ejecución y tarea con permisos delimitados. Zoho conserva el correo del destino. La preparación para Chile parametriza la región y descubre sus zonas. La decisión de traslado requiere confirmar habilitación del proyecto, catálogo de servicios, versión de PostgreSQL y PostGIS y una nueva validación de carga y recuperación. El acceso anticipado anunciado por Amazon fundamenta esa posibilidad, mientras la región inicial conserva el corte declarado [@awschile2026].

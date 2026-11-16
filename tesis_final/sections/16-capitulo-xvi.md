@@ -12,7 +12,9 @@
 
 La propuesta relaciona las reglas del arriendo con mecanismos verificables de ocupación, autorización por recurso, preservación contractual y conciliación de pagos. La arquitectura separa las reglas del dominio de los adaptadores que operan con servicios externos.
 
-El aporte en ciberseguridad incorpora autorización por recurso y por finalidad para proteger la evidencia privada, con la Ley 21.719 como referencia de diseño [@ley21719]. El control optimista mediante `If-Match` protege la selección de portada frente a actualizaciones concurrentes. El corte local F5 documenta verificaciones de escaneo, revocación, retención y permisos en el paquete documental. El ensayo GCP03 se detiene en la restauración de permisos de aplicación. El ensayo objetivo de recuperación conjunta conserva pendiente la comprobación de permisos sobre datos y archivos, según los capítulos XII y XIII y el Anexo F.
+El aporte en ciberseguridad incorpora autorización por recurso y por finalidad para proteger la evidencia privada, con la Ley 21.719 como referencia de diseño [@ley21719]. El control optimista mediante `If-Match` protege la selección de portada frente a actualizaciones concurrentes. El corte local F5 documenta verificaciones de escaneo, revocación, retención y permisos en el paquete documental. El ensayo histórico de recuperación de la infraestructura anterior se detiene en la restauración de permisos de aplicación. El ensayo objetivo de recuperación conjunta conserva pendiente la comprobación de permisos sobre datos y archivos, según los capítulos XII y XIII y el Anexo F.
+
+La decisión vigente orienta la infraestructura a AWS con desarrollo local mediante aws-emulator. Los adaptadores S3 y los módulos Terraform aportan una base construida para esa transición. La operación objetivo reúne web y API en Fargate y separa persistencia RDS y objetos S3. El despliegue y la validación cloud mantienen su propia evidencia pendiente. La región de Chile constituye una posibilidad de evolución respaldada por su anuncio oficial, sujeta a disponibilidad y habilitación del proyecto [@awschile2026].
 
 ### 16.3. Limitaciones
 
@@ -25,7 +27,7 @@ El siguiente incremento completa la demostración local del recorrido sin firma 
 **Figura 18**\
 *Dependencias de los siguientes incrementos*
 
-![](assets/figuras/fig23_hoja_ruta_tecnologica.png)
+![](assets/figuras/fig23_hoja_ruta_tecnologica.png){height=14cm}
 
 *Nota.* Elaboración propia. La figura muestra dependencias de verificación e integración.
 

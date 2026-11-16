@@ -21,3 +21,9 @@ El Capítulo X detalla los componentes y la comunicación entre la interfaz, el 
 | Adaptadores externos | La simulación y el proveedor utilizan criterios de habilitación distintos. | Registrar entorno, eventos y resultado por integración. |
 
 *Nota.* Elaboración propia con base en la arquitectura del repositorio y el ADR del 4 de noviembre de 2026. La Tabla D.1 identifica relaciones físicas, la Tabla E.1 identifica operaciones y las tablas F.1 y F.2 documentan escenarios de verificación.
+
+### 7.3. Decisión de plataforma y alcance construido
+
+Los ADR-AWS-01 a ADR-AWS-05 del 15 de noviembre fijan como destino Cloudflare en el borde, una tarea ECS Fargate con Next.js y Go, RDS PostgreSQL Single-AZ inicialmente, S3 por finalidad y Zoho para el correo. La región inicial declarada es us-east-2 y Chile queda sujeto a disponibilidad y habilitación. La selección busca reducir el costo de operación y aprovechar los créditos informados para el proyecto [@espacigoaws2026].
+
+La implementación local dispone de adaptadores S3 y de módulos Terraform para almacenamiento, parámetros, logs y roles emulados. La configuración aws-main declara red, RDS y componentes de soporte. Las definiciones ECS y ECR, la entrega OIDC, el ingreso seguro y la gestión de secretos forman parte de la preparación del despliegue. El Capítulo XIII establece las comprobaciones que permiten aceptar esa preparación.

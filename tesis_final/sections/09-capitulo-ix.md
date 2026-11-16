@@ -27,6 +27,14 @@ La Tabla 10 resume las responsabilidades del stack y la evidencia disponible par
 | PostGIS | Búsqueda por ubicación. | Serie 3.6 de diseño. |
 | OpenAPI | Contrato HTTP de la API. | Especificación 3.1 (Anexo E). |
 | Docker | Empaquetado en imágenes. | Receta `Dockerfile`. |
-| Cloud Build | Construcción y despliegue. | Archivo `cloudbuild.yaml`. |
+| AWS SDK para Go v2 | Acceso a objetos S3. | Adaptadores s3storage y documents3. |
+| aws-emulator | Servicios AWS locales. | Endpoints de S3, SSM, IAM y logs. |
+| Terraform | Infraestructura como código. | Entornos local-emulator y aws-main. |
+| GitHub Actions | Construcción y calidad. | Flujos de aplicación, frontend, base e IaC. |
+| ECS Fargate y ECR | Ejecución y registro de imágenes. | Destino de despliegue pendiente de completar. |
+| RDS, S3, SSM y CloudWatch | Datos, objetos, parámetros y logs. | Componentes cloud declarados por entorno. |
+| Cloudflare y Zoho | Borde, acceso y correo. | Servicios del diseño objetivo. |
 
-*Nota.* Elaboración propia. Las versiones de Go y Next.js constan en `go.mod` y `frontend/package.json` del corte `4289139`. Las recetas de construcción constan en el corte `93b59c8`. Los capítulos X, XII y XIII distinguen el diseño, el ensayo SQL y la configuración de despliegue.
+*Nota.* Elaboración propia a partir del repositorio espacigo-aws, corte 3dc1c18 del 16 de noviembre de 2026 [@espacigoaws2026]. Los capítulos X, XII y XIII distinguen el código local, la infraestructura declarada y las comprobaciones de despliegue.
+
+El entorno local utiliza Go 1.27.1 y Next.js 16.4.3, según sus manifiestos. PostgreSQL 18.6 corresponde al entorno de desarrollo y al ensayo SQL histórico. La configuración aws-main fija 18.1 para RDS, por lo que la selección de versión y PostGIS requiere conciliación con el catálogo regional antes del despliegue. El cliente S3 utiliza endpoints locales y autenticación del emulador por defecto. La ejecución en Fargate requiere configurar el endpoint regional y comprobar el uso del rol de tarea.

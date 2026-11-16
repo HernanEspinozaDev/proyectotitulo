@@ -1,0 +1,20 @@
+@startuml
+skinparam dpi 200
+skinparam shadowing false
+skinparam monochrome true
+skinparam defaultFontName "DejaVu Sans"
+skinparam defaultFontSize 15
+start
+:Identificar revisión de aplicación,\ncorte de esquema y punto recuperable;
+:Restaurar RDS mediante respaldo o PITR\nen un entorno aislado de la región habilitada;
+:Seleccionar versiones compatibles\nde documentos y evidencias en S3;
+:Comprobar integridad, referencias\ny acciones de supresión;
+:Verificar roles SQL, políticas IAM\ny autorización por recurso y finalidad;
+if (¿Supera las comprobaciones?) then (Sí)
+  :Medir RPO y RTO\ny ejecutar pruebas de aceptación;
+  :Autorizar reapertura\ny registrar evidencia del corte;
+else (No)
+  :Mantener aislado el destino\ny registrar divergencias;
+endif
+stop
+@enduml

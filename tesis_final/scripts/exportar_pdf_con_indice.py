@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Exporta el DOCX de DocSkill a PDF tras actualizar sus índices en LibreOffice."""
+import os
 import subprocess
 import sys
 import tempfile
@@ -76,10 +77,10 @@ def export_pdf(source, target):
     with tempfile.TemporaryDirectory(dir=target.parent) as directory:
         temporary = Path(directory)
         process = subprocess.Popen([
-            'libreoffice', '--headless', '--norestore',
+            os.environ.get('ESPACIGO_SOFFICE', 'libreoffice'), '--headless', '--norestore',
             f'-env:UserInstallation={(temporary / "profile").as_uri()}',
             f'--accept=pipe,name={pipe};urp;StarOffice.ComponentContext',
-        ])
+        ], env=os.environ.copy())
         try:
             for _ in range(100):
                 try:
