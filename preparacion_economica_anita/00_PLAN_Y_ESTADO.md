@@ -168,3 +168,18 @@ Se distingue el umbral operativo parcial del Año 1 (743 y 2.343 pagos) de los a
 La vista previa actual contiene 96 páginas y 94 tablas nativas. Se revisan visualmente las 13 páginas que cambian; otras 83 páginas mantienen identidad de píxeles con el corte anterior a igual resolución, incluyendo las 69 páginas de transcripción original. La disposición de los dos flujos vigentes permite leer cada tabla completa. Se verifican los originales y la propuesta interna de costos AWS por SHA-256, las fórmulas por métodos independientes, los enteros adyacentes de VAN y la regeneración sin cambios de contenido. Se conserva el contenido fuente de H.1 a H.26.
 
 El plan no está terminado: faltan mezcla comercial respaldada, desglose y oportunidad de recursos, costos completos, liquidaciones/IVA de compras, capital del ciclo, reposiciones y cierre. Se mantiene el material separado de la tesis principal hasta completar la conciliación. SP12 registra el avance calculado; no se declaran cerrados los padres de evaluación integral por tener sensibilidades de un subtotal.
+
+## Tercer corte ejecutado y ratificaciones de preoperación
+
+- [x] Completar déficit acumulado máximo, calendarios de aportes y cobertura de las cuotas de deuda.
+- [x] Completar indicadores interpretables, recuperación simple/descontada y escenario de quiebre sin asignaciones de 391 pagos.
+- [x] Incorporar capacidad de pago y conclusión delimitada en 14.7–14.8; respaldos H.37–H.39.
+- [x] Incluir constitución y trámites en el presupuesto de lanzamiento, sin duplicar ese gasto.
+- [x] Clasificar equipos personales compartidos sin compra ni transferencia presumida.
+- [x] Interpretar el desarrollo como valorización total preoperativa hacia enero de 2027, sin afirmar pago ni reparto pasado/futuro.
+- [x] Evaluar su recuperación por separado en H.40: quiebres parciales de 548, 948 y 2.548 pagos para etapa sin asignaciones y las dos metas.
+- [x] Reconstruir y auditar Word/PDF, comprobando cálculos y correspondencia cuerpo/anexo.
+
+La entrega contiene 101 páginas y 101 tablas editables. Las 69 páginas de transcripción del libro conservan identidad visual con el corte anterior. Se inspeccionan las páginas nuevas o modificadas, se corrigen cifras partidas y filas aisladas, y se conserva el formato del flujo de Anita. Los originales no cambian por SHA-256. La preparación sigue separada de la tesis principal.
+
+Se completan los cálculos disponibles y las tres aclaraciones recibidas. El cierre integral aún requiere entradas, no una nueva revisión genérica: mezcla y demanda respaldadas, reparto de esfuerzo pasado/futuro para evaluación incremental, condiciones y costos definitivos de proveedores, ciclo efectivo y valoración de reposiciones/cierre. Los padres SP04–SP13 no se marcan completos contrariando sus criterios. El presupuesto y las simulaciones no se presentan como contratos o demanda verificados.

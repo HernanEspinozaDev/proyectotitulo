@@ -176,6 +176,8 @@ Mezcla por categoría, adquisición y baja de oferta, ticket por modalidad, cost
     (ROOT/'02_contraste/tickets_para_remuneraciones.md').write_text('# Tickets actualizados para remuneraciones\n\nEl primer corte añade CLP 120.000 anuales de útiles identificados en Conciliacion costos!H9 y CLP 150.000 anuales de dirección tributaria ratificados como presupuesto provisional. El presupuesto parcial mensual sin fundadores es CLP 514.083,02. A ticket de CLP 50.000 se requieren 743 pagos para CLP 200.000 por fundador y 2.343 para CLP 1.000.000. Los cálculos anteriores sin esa partida quedan como antecedentes.\n\nLa memoria activa es H.27, las Tablas 20 y 21 del cuerpo y los parámetros de umbrales. El alcance sigue siendo parcial y el costo variable propio se añade cuando se determine. El soporte del flujo se encuentra en 04_modelo_sapag/INFORME_DE_AVANCE.md.\n')
     from ampliar_revision_sapag import main as ampliar
     ampliar()
-    print('Actualizados cuerpo y H.27/H.31–H.35, dos flujos parciales y memorias de ejecución.')
+    from completar_analisis_sapag import main as completar
+    completar()
+    print('Actualizados cuerpo, H.27 y H.31–H.40, flujos y memorias verificables.')
 
 if __name__=='__main__':main()

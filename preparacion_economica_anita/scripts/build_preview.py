@@ -46,7 +46,7 @@ for table_index,table in enumerate(doc.iter(w+'tbl')):
  if count==5 and first_header=='Escenario':
   weights=[.18,.15,.18,.22,.27]
  elif count==6 and first_header.startswith('Partida'):
-  weights=[.30]+[.14]*5
+  weights=[.28,.14,.14,.14,.14,.16] if len(table.findall(w+'tr'))>25 else [.30]+[.14]*5
  elif count==2 and first_header.startswith('Componente'):
   weights=[.65,.35]
  elif count==4 and first_header.startswith('Ticket medio'):
@@ -57,6 +57,12 @@ for table_index,table in enumerate(doc.iter(w+'tbl')):
   weights=[.25,.19,.28,.28]
  elif count==4 and first_header=='Año':
   weights=[.12,.24,.32,.32]
+ elif count==4 and first_header=='Escenario':
+  weights=[.28,.18,.27,.27]
+ elif count==3 and first_header=='Escenario':
+  weights=[.50,.25,.25]
+ elif count==3 and first_header.startswith('Días'):
+  weights=[.25,.37,.38]
  elif count==4 and (first_header.startswith('Modalidad') or first_header.startswith('Detalle de la Inversión')):
   weights=[.40,.20,.25,.15]
  else:
@@ -73,7 +79,7 @@ for table_index,table in enumerate(doc.iter(w+'tbl')):
    if cw is None:cw=E.SubElement(cp,w+'tcW')
    cw.set(w+'type','dxa');cw.set(w+'w',str(width))
  table_text=''.join(table.itertext())
- keep_full=(first_header.startswith('Componente') or 'Flujo neto parcial identificado' in table_text)
+ keep_full=(first_header.startswith(('Componente','Ticket medio')) or 'Flujo neto parcial identificado' in table_text or (first_header=='ID' and 'Subtotal parcial' in table_text))
  if keep_full:
   for para in table.iter(w+'p'):
    pp=para.find(w+'pPr')
@@ -81,7 +87,7 @@ for table_index,table in enumerate(doc.iter(w+'tbl')):
    spacing=pp.find(w+'spacing')
    if spacing is None:spacing=E.SubElement(pp,w+'spacing')
    for key,value in [('before','0'),('after','0'),('line','240'),('lineRule','auto')]:spacing.set(w+key,value)
- if table_index<2 or keep_full or (first_header in ('Año','Escenario') and len(table.findall(w+'tr'))<=6):
+ if table_index<2 or keep_full or (first_header in ('Año','Escenario') and len(table.findall(w+'tr'))<=8):
   paras=list(table.iter(w+'p'))
   for para in paras[:-1]:
    pp=para.find(w+'pPr')

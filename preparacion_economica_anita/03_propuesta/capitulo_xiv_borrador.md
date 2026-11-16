@@ -33,7 +33,7 @@ La proyección comercial requiere antecedentes que sustenten la demanda y el mé
 
 #### 14.2.1. Recursos
 
-La inversión distingue trabajo valorizado, lanzamiento y capital de trabajo. La evaluación de caja separa el trabajo aportado del desembolso efectivo. La hoja Maquinaria registra equipos por CLP 2.700.000 y depreciación anual de CLP 780.000. El propietario confirma que los tres notebooks y el teléfono ya existen y no se compran al inicio. Por ello, el desembolso inicial por estos equipos es CLP 0. Su eventual aporte, uso alternativo y tratamiento de depreciación permanecen por conciliar. El presupuesto de preparación y lanzamiento de CLP 1.200.000 se conserva como provisional, pendiente de desglose. Se clasifica cada recurso según desembolso incremental, costo ya comprometido o costo de oportunidad a la fecha de decisión. La ausencia de pago no elimina por sí sola el valor económico del trabajo, y un costo hundido no se vuelve pertinente por permanecer registrado en el informe (Sapag Chain & Sapag Chain, 2008, pp. 126, 259–262).
+La inversión distingue trabajo valorizado, lanzamiento y capital de trabajo. La evaluación de caja separa el trabajo aportado del desembolso efectivo. La hoja Maquinaria registra equipos por CLP 2.700.000 y depreciación anual de CLP 780.000. El propietario confirma que los tres notebooks y el teléfono ya existen y no se compran al inicio. Por ello, el desembolso inicial por estos equipos es CLP 0. Los equipos siguen siendo personales y compartidos: no se presume transferencia de dominio ni se imputa una venta final a la empresa. Su uso alternativo y posibles costos incrementales permanecen separados. El presupuesto de preparación y lanzamiento de CLP 1.200.000 incluye constitución y trámites, según ratificación del propietario. Se mantiene provisional y pendiente de desglose, sin añadir otra partida legal por los mismos conceptos. El lanzamiento objetivo es enero de 2027; H.40 evalúa por separado la recuperación del desarrollo valorizado. Se clasifica cada recurso según desembolso incremental, costo ya comprometido o costo de oportunidad a la fecha de decisión. La ausencia de pago no elimina por sí sola el valor económico del trabajo, y un costo hundido no se vuelve pertinente por permanecer registrado en el informe (Sapag Chain & Sapag Chain, 2008, pp. 126, 259–262).
 
 **Tabla 15**
 *Balance de inversión inicial del insumo recibido*
@@ -267,3 +267,31 @@ El análisis conserva la lógica costo-volumen-utilidad de Sapag, con sus límit
 A ticket de CLP 50.000, cubrir solo CLP 600.000 requiere 400 pagos. Con el costo parcial conciliado se requieren 743 pagos, CLP 37.150.000 transados y CLP 1.114.500 de comisión neta. El remanente sobre costos parciales y meta inicial es CLP 416,98, antes de partidas pendientes. Para CLP 1.000.000 por fundador se requieren 2.343 pagos y CLP 117.150.000 transados.
 
 La referencia comercial de 16 pagos mensuales conserva CLP 24.000 de comisión neta. La brecha para cubrir costo parcial y meta inicial es de 727 pagos y CLP 1.090.083,02 mensuales. Con dos pagos por espacio, 743 pagos equivalen aproximadamente a 372 espacios activos. Son equivalencias bajo supuestos, no captación comprobada. Los anexos H.27 y H.31–H.36 respaldan los cálculos y su alcance. Los 743 y 2.343 pagos son umbrales operativos parciales del Año 1; no incluyen el lanzamiento, la deuda ni la recuperación exigida por el VAN. El reajuste de costos eleva las cantidades de los años siguientes, como muestra H.36.2. Con 743 pagos constantes, la regla condicionada solo permite la meta inicial en el primer año bajo las partidas identificadas.
+
+### 14.7. Capacidad de pago y necesidades de financiación
+
+La capacidad de atender obligaciones se evalúa separada de la rentabilidad del proyecto y de los socios, de acuerdo con la distinción metodológica de Sapag Chain y Sapag Chain (2008, pp. 5–6, 297–298). El préstamo simulado aporta liquidez al inicio, pero no convierte las comisiones insuficientes en generación operativa. La caja disponible antes de pagar cuotas es negativa en los tres años con servicio de deuda. El indicador auxiliar de cobertura divide esa caja por intereses más principal; un resultado inferior a uno evidencia insuficiencia de generación propia bajo las partidas identificadas. H.37.2 contiene el cálculo.
+
+El calendario de financiación aplica aportes adicionales solo cuando el saldo de caja pasa a ser negativo. El aporte inicial del caso puro cubre el lanzamiento. En el caso financiado se utiliza primero el excedente inicial del préstamo. Se calcula el aporte mínimo necesario para sostener caja no negativa; no se afirma que los socios dispongan de esos recursos ni que el financiamiento esté contratado.
+
+**Tabla 22**
+*Necesidades adicionales de financiación del subtotal por año*
+
+| Año | Aporte mínimo sin deuda CLP | Aporte mínimo con deuda CLP |
+|---|---|---|
+| 2026 | 1.200.000 | 0 |
+| 2027 | 5.880.996 | 4.909.814 |
+| 2028 | 6.115.434 | 7.664.252 |
+| 2029 | 6.359.250 | 7.908.069 |
+| 2030 | 6.612.818 | 6.612.818 |
+| Total | 26.168.498 | 27.094.953 |
+
+*Nota.* Elaboración con el calendario prorrateado del caso base y cuota anual del insumo. El caso financiado ya incorpora el préstamo de CLP 3.720.000: los aportes adicionales no vuelven a sumar esa entrada. El resultado refleja el déficit persistente de las partidas identificadas, sin asignarlo nuevamente al Año 0 como capital de trabajo recuperable. El capital propio requerido no equivale al trabajo valorizado ni a fondos de publicadores. H.37.1 contiene los 49 momentos de cada escenario, incluido el momento cero.
+
+### 14.8. Conclusión de la evaluación delimitada y condiciones de cierre
+
+La referencia de 16 pagos mensuales no cubre los costos identificados, no activa remuneraciones ni recupera el lanzamiento en cuatro años. El flujo puro carece de TIR por presentar solo egresos netos. La entrada inicial del caso financiado no se interpreta como inversión convencional de los socios; los resultados históricos de Anita no se trasladan al corte vigente.
+
+El primer quiebre parcial sin asignaciones se obtiene con 391 pagos mensuales de CLP 50.000; la regla condicionada no activa remuneraciones durante el horizonte. Los quiebres de 791 y 2.391 pagos presupuestan las metas completas de CLP 200.000 y CLP 1.000.000 por persona. H.38 presenta su TIR y recuperación simple y descontada. El margen de VAN es reducido antes de costos excluidos y no acredita demanda, capacidad técnica ni viabilidad integral.
+
+El horizonte conserva cuatro años por la estructura docente. No se presume una perpetuidad ni una venta de activos sin valoración. H.39 documenta el procedimiento de cierre y las entradas pendientes: mezcla comercial, recursos aportados, costos completos, liquidaciones, reposiciones y valor final. El déficit persistente no se recupera como si fuera un activo. El análisis calculable queda ejecutado; la conclusión integral y la integración a la tesis requieren completar esos antecedentes, conservando la autoría económica de Anita.

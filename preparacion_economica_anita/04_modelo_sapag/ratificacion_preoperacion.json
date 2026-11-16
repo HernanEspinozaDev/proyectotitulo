@@ -1,0 +1,32 @@
+{
+  "alcance": "prueba de recuperación de valorización total preoperativa; no flujo de desembolso ni estimación validada de costo de oportunidad incremental",
+  "desarrollo_valorizado_clp": "6240000",
+  "lanzamiento_con_constitucion_clp": "1200000",
+  "equipos": "personales y compartidos, sin nueva compra ni transferencia de dominio presumida",
+  "valor_preoperativo_agregado_clp": "7440000",
+  "van_base_con_recuperacion_valorizacion_clp": "-26295029.94",
+  "quiebres": [
+    {
+      "modo": "condicionada",
+      "pagos_mes_minimos": 548,
+      "van_pago_anterior_clp": "-11552.77",
+      "van_minimo_clp": "28358.00"
+    },
+    {
+      "modo": "meta_200000",
+      "pagos_mes_minimos": 948,
+      "van_pago_anterior_clp": "-11552.77",
+      "van_minimo_clp": "28358.00"
+    },
+    {
+      "modo": "objetivo_millon",
+      "pagos_mes_minimos": 2548,
+      "van_pago_anterior_clp": "-11552.77",
+      "van_minimo_clp": "28358.00"
+    }
+  ],
+  "altera_caja_activa": false,
+  "desarrollo_efectivamente_pagado_clp": null,
+  "reparto_trabajo_pasado_futuro": null,
+  "deduccion_tributaria_por_valorizacion_aplicada": false
+}

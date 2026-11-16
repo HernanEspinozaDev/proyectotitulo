@@ -1,0 +1,20 @@
+{
+  "estado": "correcto",
+  "alcance": "tercer corte parcial; no confirma datos comerciales o contractuales",
+  "calendarios": 2,
+  "momentos_por_calendario": 49,
+  "indicadores_contrastados": 5,
+  "aportes_adicionales_sin_deuda_clp": 26168498.16,
+  "aportes_adicionales_con_deuda_clp": 27094953.16,
+  "incremento_por_intereses_clp": 926455.0,
+  "pruebas": [
+    "identidad de caja y aportes mínimos",
+    "déficit máximo sin aportes",
+    "cobertura negativa de deuda",
+    "VAN y raíces de TIR",
+    "recuperación nominal y descontada",
+    "ausencia de TIR convencional para financiación y múltiples signos",
+    "sensibilidad de cuentas por cobrar",
+    "umbral terminal sin incorporarlo como valor esperado"
+  ]
+}

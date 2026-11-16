@@ -12,12 +12,15 @@
     "compra_inicial_clp": "0",
     "valor_fuente_clp": "2700000",
     "aporte_patrimonial_y_uso_alternativo": null,
-    "fuente": "decisión del propietario: equipos existentes, sin compra inicial"
+    "fuente": "decisión del propietario: equipos existentes, sin compra inicial",
+    "uso": "personales y compartidos",
+    "transferencia_dominio_prevista": false
   },
   "lanzamiento": {
     "presupuesto_clp": "1200000",
-    "estado": "presupuesto provisional ratificado; desglose y tratamiento contable pendientes",
-    "asignacion": "momento cero, antes de operar; se excluye de OPEX para evitar repetirlo"
+    "estado": "presupuesto provisional ratificado, incluye constitución y trámites; desglose pendiente, sin sumar otro egreso legal",
+    "asignacion": "momento cero, antes de operar; se excluye de OPEX para evitar repetirlo",
+    "incluye_constitucion_tramites": true
   },
   "demanda": {
     "espacios_promedio": 8,
@@ -54,7 +57,6 @@
     "comisiones_seguros": null
   },
   "exclusiones_no_valoradas": [
-    "costos legales y de constitución sin desglose",
     "cargas de contratación y formalización de remuneraciones",
     "costos variables residuales propios y alcance definitivo de servicios",
     "capital de trabajo del ciclo de liquidación",
@@ -66,5 +68,13 @@
   "tributacion_referencia": "27 % académico y compensación de pérdidas según el criterio descrito por Anita; no liquidación fiscal de una empresa real",
   "iva": "separa débito de comisión y no lo considera caja libre; el crédito por compras y calendario de remisión permanecen pendientes",
   "pasarela": "se descuenta al publicador; tarifa y liquidación efectivas pendientes, sin inventar un porcentaje",
-  "capacidad": "el costo AWS de referencia no acredita capacidad para volúmenes mayores"
+  "capacidad": "el costo AWS de referencia no acredita capacidad para volúmenes mayores",
+  "desarrollo_valorizado": {
+    "valor_total_preoperativo_clp": "6240000",
+    "interpretacion": "valoración global del desarrollo para alcanzar funcionalidad antes del lanzamiento; interpretación propuesta a partir de la aclaración del propietario",
+    "reparto_trabajo_pasado_futuro": null,
+    "desembolso_confirmado_clp": null,
+    "capitalizacion_contable_confirmada": false
+  },
+  "fecha_lanzamiento_objetivo": "2027-01"
 }

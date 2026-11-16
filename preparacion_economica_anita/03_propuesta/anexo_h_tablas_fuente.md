@@ -1609,7 +1609,7 @@ La referencia conserva ocho espacios promedio, dos pagos mensuales por espacio y
 
 ## H.32. Recursos y presupuesto conciliado
 
-Los tres notebooks y el teléfono ya existen, según confirmación del propietario. Su compra inicial se fija en cero. El aporte patrimonial, uso alternativo y depreciación se mantienen separados y no se atribuyen automáticamente a una empresa aún no constituida. El presupuesto de CLP 1.200.000 de lanzamiento se mantiene provisional en el Año 0, sin duplicarlo con marketing operativo.
+Los tres notebooks y el teléfono son personales y compartidos, según el propietario. Su compra inicial se fija en cero y no se presume transferencia de dominio a la empresa proyectada. Se mantienen separados el uso alternativo y eventuales costos incrementales; no se asigna a la empresa una depreciación o venta de bienes personales sin respaldo. El presupuesto de CLP 1.200.000 de lanzamiento se mantiene provisional en el Año 0, sin duplicarlo con marketing operativo.
 
 **Tabla H.32.1**
 *Componentes del presupuesto identificado del Año 1*
@@ -1628,7 +1628,7 @@ Los tres notebooks y el teléfono ya existen, según confirmación del propietar
 
 *Nota.* Presupuestos de Base mensual!B21:B25 y Conciliacion costos!H9, con sustitución de GCP por el escenario AWS adoptado y dirección tributaria anual ratificada. Los útiles y la dirección se cuentan una sola vez. El importe anual de dirección se prorratea como referencia, sin afirmar facturación mensual efectiva. Se mantienen fuera los subtotales genéricos y los conceptos suspendidos de mantenimiento o respaldo sin alcance independiente. La tabla no equivale a costos contratados o facturados.
 
-Constitución, cargas de contratación, costos residuales propios, recursos de uso alternativo y reposiciones carecen de valoración completa. Se registran como pendientes y no como cero real. La depreciación no se reconoce en el subtotal hasta definir el eventual aporte de equipos. Los CLP 6.240.000 de desarrollo valorizado tampoco se suman como pago inicial: se debe distinguir trabajo pasado, compromiso irreversible y trabajo incremental futuro.
+La constitución y los trámites se incluyen en los CLP 1.200.000 de lanzamiento y no se suman otra vez. Las cargas de contratación, costos residuales propios, recursos de uso alternativo y reposiciones carecen de valoración completa. Se registran como pendientes y no como cero real. La depreciación no se reconoce en el subtotal hasta definir el eventual aporte de equipos. Los CLP 6.240.000 de desarrollo valorizado tampoco se suman como pago inicial: se debe distinguir trabajo pasado, compromiso irreversible y trabajo incremental futuro.
 
 ## H.33. Caja de referencia y necesidad de financiación
 
@@ -1742,3 +1742,111 @@ La tasa mensual equivalente es (1 + 0,12) elevado a 1/12 menos 1, equivalente a 
 Los flujos vigentes se vinculan con las Tablas 18 a 21, H.27 y H.31 a H.36. Las Tablas 15 a 17 y H.1 a H.26 preservan los antecedentes recibidos; sus valores GCP, tasas o inversiones anteriores no constituyen decisiones activas. La reconstrucción conserva su contenido para la comparación solicitada.
 
 El caso base no presenta recuperación simple ni descontada dentro de los cuatro años: sus flujos propios son negativos. El valor de cierre y el capital del ciclo siguen sin cuantificarse. El cierre no adopta cero como valor económico definitivo ni convierte automáticamente el déficit persistente en capital de trabajo recuperable. La conclusión se limita al subtotal modelado; la evaluación integral continúa abierta conforme a los criterios de Sapag.
+
+## H.37. Liquidez y memoria del déficit acumulado
+
+### H.37.1. Aportes mínimos y déficit persistente
+
+Se recorre el saldo mensual con lanzamiento, operación y deuda, cuando corresponde. Si el saldo antes de aporte es negativo, el aporte mínimo es su valor absoluto; si es positivo, el aporte es cero. La caja de cierre después del aporte se mantiene no negativa. La suma de aportes coincide con el déficit acumulado máximo antes de aportes. Se conservan los 49 momentos en aportes_minimos_condicionada_puro.csv y aportes_minimos_condicionada_financiado.csv. El cálculo distingue necesidad de financiación de pérdidas de capital de trabajo del ciclo (Sapag Chain & Sapag Chain, 2008, pp. 267–269).
+
+**Tabla H.37.1**
+*Conciliación de la financiación adicional acumulada*
+
+| Escenario | Aporte adicional Año 0 CLP | Aportes adicionales totales CLP | Caja final tras aportes CLP |
+|---|---|---|---|
+| Sin deuda | 1.200.000 | 26.168.498 | 0 |
+| Con deuda simulada | 0 | 27.094.953 | 0 |
+
+*Nota.* El aporte inicial de cero en la alternativa financiada se explica por el préstamo que excede el lanzamiento identificado. No significa ausencia de inversión o de aportes posteriores. Los aportes son una necesidad calculada, no un compromiso confirmado de los socios. El excedente prestado no es utilidad ni habilita remuneraciones por sí solo.
+
+### H.37.2. Cobertura de las cuotas de deuda
+
+**Tabla H.37.2**
+*Caja propia frente al servicio de la deuda simulada*
+
+| Año | Caja antes de cuota CLP | Intereses y principal CLP | Cobertura veces |
+|---|---|---|---|
+| 2027 | -5.880.996 | 1.548.818 | -3,797 |
+| 2028 | -6.115.434 | 1.548.818 | -3,948 |
+| 2029 | -6.359.250 | 1.548.819 | -4,106 |
+| 2030 | -6.612.818 | 0 | No aplica |
+
+*Nota.* La caja propia antes de cuota resta OPEX, asignaciones pagadas e impuesto académico de las comisiones netas. No incluye préstamo, aportes nuevos, IVA ni arriendos de terceros. La razón es un diagnóstico auxiliar; no se afirma que una entidad financiera apruebe el préstamo. La falta de cuota en 2030 no elimina el déficit operativo.
+
+### H.37.3. Sensibilidad aislada de la comisión por cobrar
+
+**Tabla H.37.3**
+*Efecto auxiliar de inmovilizar comisión neta por distintos plazos*
+
+| Días ilustrativos | Comisión por cobrar CLP | Efecto en VAN CLP |
+|---|---|---|
+| 0 | 0 | 0,00 |
+| 7 | 5.600 | -2.041,10 |
+| 30 | 24.000 | -8.747,57 |
+
+*Nota.* Se utiliza la comisión neta de CLP 24.000 mensuales y un mes de 30 días, con cobros uniformes. Los plazos 0, 7 y 30 días son pruebas, no condiciones de Mercado Pago. El stock auxiliar se aporta en el Año 0 y se recupera íntegro en el Año 4 para aislar su efecto: variación del VAN = menos stock más stock descontado al cierre. No se aplica este ajuste al caso activo ni se identifica como capital completo del ciclo. Faltan pagos anticipados, plazos de proveedores, IVA de compras y devoluciones. El IVA recaudado y los fondos de publicadores se excluyen de caja libre.
+
+## H.38. Indicadores y recuperación de los escenarios delimitados
+
+Se calcula VAN con momento cero sin descuento y cierres anuales al 12 %. La TIR solo se informa como rentabilidad cuando existe un flujo de inversión con un cambio de signo. Una serie de egresos no tiene TIR; una entrada inicial seguida de pagos corresponde a otro patrón y no se presenta como rentabilidad de los socios. La recuperación simple acumula importes nominales y la descontada acumula importes descontados (Sapag Chain & Sapag Chain, 2008, pp. 321–323, 329–330).
+
+**Tabla H.38.1**
+*VAN y TIR de la referencia y los quiebres parciales*
+
+| Escenario | Pagos al mes | VAN parcial CLP | TIR anual |
+|---|---|---|---|
+| Base sin deuda | 16 | -20.055.029,94 | No existe |
+| Base con deuda | 16 | -20.055.030,16 | No interpretable como inversión |
+| Quiebre sin asignaciones | 391 | 2.367,04 | 12,1225 % |
+| Meta CLP 200.000 por persona | 791 | 2.367,04 | 12,1225 % |
+| Meta CLP 1.000.000 por persona | 2.391 | 2.367,04 | 12,1225 % |
+
+*Nota.* El quiebre sin asignaciones es el primer entero con VAN no negativo antes de activarse la meta conjunta: se comprueba que con 390 pagos el VAN es negativo y con 391 no lo es. Los otros dos quiebres presuponen asignaciones completas como egreso académico; no reemplazan la decisión de pago condicionado del caso base. Sus flujos se conservan en liquidez_indicadores_y_cierre.json. El costo identificado no se reestima por volumen en estas pruebas, por lo que los resultados excluyen escalamiento, capital completo del ciclo, oportunidad y cierre. El VAN positivo de unos pocos miles de pesos no constituye margen para absorber partidas desconocidas. No se asume costo económico cero del trabajo por carecer de pago.
+
+**Tabla H.38.2**
+*Recuperación simple y descontada de las series anuales*
+
+| Escenario | Simple en años | Descontada en años |
+|---|---|---|
+| Base sin deuda | No se recupera | No se recupera |
+| Base con deuda | No aplica al patrón | No aplica al patrón |
+| Quiebre sin asignaciones | 2,359 | 3,963 |
+| Meta CLP 200.000 por persona | 2,359 | 3,963 |
+| Meta CLP 1.000.000 por persona | 2,359 | 3,963 |
+
+*Nota.* Se interpola linealmente entre cierres anuales para expresar fracciones de año. Esa interpolación no identifica una fecha contractual ni sustituye la convención anual del VAN. No se trasladan estas recuperaciones al caso comercial de 16 pagos ni se confunde recuperación nominal con cumplimiento de la tasa de descuento.
+
+## H.39. Horizonte y condiciones para cerrar la evaluación integral
+
+### H.39.1. Método de cierre y límite del cálculo
+
+El caso de referencia conserva cuatro años de operación. El procedimiento requiere inventariar activos y derechos efectivamente atribuibles al proyecto, su uso alternativo, vida remanente y posibles desembolsos de reposición. Después se estima un valor comercial neto de realización con respaldo o, si existe una proyección sostenible posterior, se evalúa un valor de continuidad que no duplique recuperaciones ya incluidas. El libro distingue métodos contable, comercial y económico; el valor contable no acredita por sí solo dinero de venta (Sapag Chain & Sapag Chain, 2008, pp. 277–282, 292–295).
+
+Para que un único cobro terminal neto adicional en el Año 4 neutralice el VAN del subtotal base, se requiere CLP 31.556.977,88. Se obtiene multiplicando el valor absoluto del VAN por (1 + 0,12) elevado a cuatro. Este umbral algebraico no tasa equipos, software o empresa; no demuestra la existencia de comprador ni de flujos posteriores. No se incorpora a las Tablas 18 y 19 como ingreso esperado.
+
+### H.39.2. Datos y decisiones que no se sustituyen por supuestos confirmados
+
+El cierre comercial requiere ratificar distribución de espacios, pagos, ticket y estacionalidad entre las nueve categorías. La referencia agregada no inventa ventas por categoría. Los CLP 1.200.000 de lanzamiento incluyen constitución y trámites por decisión del propietario; el desglose y la ejecución efectiva se documentan sin duplicar la partida.
+
+El desarrollo valorizado se separa en trabajo pasado, compromisos irreversibles y trabajo incremental futuro. Los equipos existentes no generan nueva compra; se precisa su propiedad, aporte y uso alternativo antes de asignar depreciación o valor de cierre. Ausencia de pago no equivale a costo de oportunidad cero.
+
+Antes de integrar se precisan costos y condiciones de proveedores, pasarela, devoluciones, retenciones, liquidaciones y formalización de asignaciones. Se conserva el impuesto académico del 27 % sin afirmar liquidación fiscal real. Con esas entradas se recalculan flujos, capital del ciclo, indicadores y conclusión. La preparación mantiene las reservas de la tesis principal y las secciones de planificación de Erick.
+
+## H.40. Ratificación de decisiones preoperativas
+
+El propietario ratifica que el lanzamiento se prevé en enero de 2027, los CLP 1.200.000 de preparación y lanzamiento incluyen constitución y trámites, y los equipos permanecen personales y compartidos. La inclusión de trámites evita duplicar el desembolso. El uso compartido no acredita transferencia patrimonial ni ingreso de venta final de equipos a la empresa.
+
+La aclaración interpreta los CLP 6.240.000 como valorización del esfuerzo total para desarrollar el producto funcional antes del lanzamiento. No determina cuánto está ejecutado, cuánto falta ni un pago contratado. Se distingue la valoración global de origen del costo incremental pertinente a la fecha de decisión. El caso de caja conserva cero desembolso de desarrollo adicional confirmado; ello no declara cero su costo económico (Sapag Chain & Sapag Chain, 2008, pp. 126, 259–262).
+
+Para observar qué volumen permitiría recuperar también esa valoración, se añade CLP 6.240.000 una sola vez al momento cero de una prueba separada, junto con el lanzamiento de CLP 1.200.000. El total de referencia pasa a CLP 7.440.000, sin sumar los equipos personales. No se incluye depreciación, amortización contable ni escudo tributario por esa valoración sin evidencia de su procedencia. No es una nueva salida de efectivo ni una valoración legal del software.
+
+**Tabla H.40.1**
+*Quiebre parcial al exigir recuperar la valoración global de desarrollo*
+
+| Escenario | Pagos mensuales mínimos | VAN con un pago menos CLP | VAN con el mínimo CLP |
+|---|---|---|---|
+| Sin asignaciones | 548 | -11.552,77 | 28.358,00 |
+| Meta CLP 200.000 por persona | 948 | -11.552,77 | 28.358,00 |
+| Meta CLP 1.000.000 por persona | 2.548 | -11.552,77 | 28.358,00 |
+
+*Nota.* Ticket constante de CLP 50.000, comisión neta del 3 %, cuatro años y descuento del 12 %. Los gastos de lanzamiento ya incluyen trámites. El caso de 16 pagos, al exigir recuperar además la valoración global, produce VAN de CLP -26.295.029,94. Esta prueba mantiene los costos identificados independientes del volumen y no sustituye la caja de las Tablas 18 y 19 ni estima el costo de oportunidad incremental real. Las partidas aún no valoradas continúan excluidas.

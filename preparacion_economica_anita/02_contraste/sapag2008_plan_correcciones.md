@@ -68,3 +68,27 @@ El soporte está en 04_modelo_sapag/INFORME_DE_AVANCE.md y estado_plan.json. Las
 - [x] Verificar que regenerar los documentos sin cambiar parámetros no altera su contenido.
 
 El subtotal de costos y la comisión de referencia no cambian en este corte. Los nuevos quiebres son escenarios de evaluación con asignaciones completas presupuestadas, no sustituyen la regla de pago condicionado. La sensibilidad mantiene el costo identificado independiente del volumen; antes de adoptar los umbrales se requieren datos de escalamiento. Los padres SP04–SP12 conservan sus criterios de cierre. La revisión no cuantifica partidas desconocidas ni integra aún la tesis publicada.
+
+## Tercer corte de ejecución de los cálculos restantes
+
+- [x] Ejecutar el déficit acumulado máximo con 49 momentos para cada alternativa, incluido el Año 0.
+- [x] Generar aportes mínimos adicionales y conciliar saldo antes y después del aporte, sin doble conteo de préstamos o trabajo valorizado.
+- [x] Cuantificar capacidad de servicio de deuda por año: la caja propia resulta negativa en la referencia.
+- [x] Calcular sensibilidad aislada de cuentas por cobrar de comisión neta a 0, 7 y 30 días; no atribuir esos plazos a la pasarela ni llamarla capital completo.
+- [x] Completar el primer quiebre parcial de la etapa sin asignaciones: 391 pagos constantes; comprobar que la regla no activa pagos a fundadores.
+- [x] Calcular VAN, TIR interpretable y recuperación simple/descontada para las cinco series presentadas.
+- [x] Incorporar el método de cierre y calcular el cobro terminal neto que neutralizaría el VAN; mantenerlo como umbral, no como ingreso esperado.
+- [x] Redactar capacidad de pago y conclusión del alcance delimitado en 14.7–14.8, con memorias H.37–H.39.
+- [x] Crear una cadena de reconstrucción y auditoría para fuentes → parámetros → modelo → texto → Word → PDF.
+
+Los cálculos disponibles quedan ejecutados. Los padres SP04–SP13 no se marcan terminados porque sus criterios incluyen datos aún no ratificados y la integración posterior a la conciliación. Se solicita aclarar desarrollo pasado/futuro, inclusión de trámites en lanzamiento y condición de los equipos. Siguen pendientes datos comerciales, condiciones efectivas de proveedores/pasarela, formalización de asignaciones, calendario del ciclo y evidencias de reposición/cierre. Esas entradas no se sustituyen por montos cero confirmados. El nuevo corte completa trabajo calculable, sin afirmar evaluación integral cerrada.
+
+## Ratificaciones posteriores del propietario
+
+- [x] Incluir constitución y trámites en CLP 1.200.000 de lanzamiento; no sumar un segundo egreso por ellos.
+- [x] Clasificar los equipos como personales y compartidos; no presumir compra o transferencia de dominio a la empresa.
+- [x] Registrar enero de 2027 como objetivo de lanzamiento.
+- [x] Interpretar CLP 6.240.000 como valorización global preoperativa; no atribuir al propietario una clasificación segura de trabajo pasado o futuro que no declara.
+- [x] Evaluar separadamente recuperar esa valorización, sin sumarla a aportes de caja ni deducirla tributariamente por el solo hecho de valorizarla: quiebres parciales 548, 948 y 2.548 pagos para etapa sin asignaciones y las dos metas.
+
+Las tres aclaraciones se incorporan. No se vuelve a pedir definición sobre inclusión de trámites o uso compartido. El reparto pasado/futuro y el costo de oportunidad incremental no se infieren del importe global. Las condiciones efectivas de proveedores y la valoración final continúan delimitadas en H.39; H.40 documenta la ratificación.

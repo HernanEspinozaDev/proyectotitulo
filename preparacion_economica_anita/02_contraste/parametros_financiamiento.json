@@ -4,7 +4,7 @@
   "principal_clp": 3720000,
   "tasa_anual_del_insumo": "0.12",
   "plazo_anios_del_insumo": 3,
-  "decision_uso_en_escenario_base": "pendiente; comparar con escenario sin deuda",
+  "decision_uso_en_escenario_base": "Referencia sin deuda; alternativa financiada separada para comparar, sin decisión de contratar préstamo",
   "remuneracion_mensual_por_fundador_clp": 200000,
   "alternativas_del_insumo_clp": [
     200000,
@@ -15,7 +15,7 @@
   "tratamiento_trabajo_fundadores": "registrar valorización por separado del desembolso",
   "meta_total_fundadores_mensual_clp": 600000,
   "regla_pago_propuesta": "pagar CLP 200000 a cada uno si existe caja suficiente para cubrir CLP 600000 después de obligaciones operativas; si no alcanza, no distribuir en ese período",
-  "estado_regla_pago": "interpretación de trabajo de la indicación del propietario; criterios de caja por precisar",
+  "estado_regla_pago": "implementada en escenario con costos identificados; formalización y costos completos aún por precisar",
   "sueldo_objetivo_por_fundador_clp": 1000000,
   "estado_sueldo_objetivo": "escenario solicitado; no compromiso contractual ni sueldo líquido verificado",
   "tasa_descuento_academica_anual": "0.12",
@@ -49,5 +49,9 @@
   "lanzamiento_presupuesto_provisional_clp": 1200000,
   "fuente_decisiones_inversion": "respuestas del propietario del 16 de noviembre de 2026; equipos existentes y lanzamiento provisional",
   "direccion_tributaria_presupuesto_anual_clp": 150000,
-  "marketing_operativo_separado_lanzamiento": true
+  "marketing_operativo_separado_lanzamiento": true,
+  "lanzamiento_incluye_constitucion_tramites": true,
+  "equipos_personales_compartidos": true,
+  "lanzamiento_objetivo": "enero de 2027",
+  "desarrollo_valorizado_interpretacion": "6240000 como valoración total preoperativa, sin reparto pasado/futuro ni obligación de pago confirmados"
 }

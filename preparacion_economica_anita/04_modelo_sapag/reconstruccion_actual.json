@@ -1,0 +1,18 @@
+{
+  "cadena": [
+    "verificar_fuentes_economicas.py",
+    "ejecutar_modelo_sapag.py",
+    "actualizar_documento_ejecucion.py",
+    "build_preview.py",
+    "verificar_modelo_sapag.py",
+    "verificar_coherencia_sapag.py",
+    "verificar_liquidez_indicadores.py"
+  ],
+  "estado_calculos": "correcto",
+  "revision_visual": "completada; tablas y páginas modificadas inspeccionadas, 69 páginas fuente idénticas",
+  "docx_sha256": "d0935badfedeec635a4db7a1b9c7a34fa09a9885699785fb6e55e1677ea702f4",
+  "pdf_sha256": "7c615ece5733e64a30dcd6aa3aa504d9daa6954985d6a18a2989dad52f0d0a07",
+  "paginas_pdf": 101,
+  "directorio_revision_visual": "/tmp/anita-sapag-entrega-verificada",
+  "tablas_word": 101
+}

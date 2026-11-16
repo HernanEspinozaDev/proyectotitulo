@@ -1,9 +1,10 @@
 [
   {
     "id": "P02",
-    "concepto": "Costos legales y de constitución",
+    "concepto": "Constitución y trámites dentro del lanzamiento",
     "importe": null,
-    "motivo": "sin desglose, no duplicar contabilidad"
+    "estado": "incluidos en el presupuesto agregado; no sumar egreso separado",
+    "motivo": "propietario confirma inclusión dentro de CLP 1200000; desglose pendiente"
   },
   {
     "id": "P03",

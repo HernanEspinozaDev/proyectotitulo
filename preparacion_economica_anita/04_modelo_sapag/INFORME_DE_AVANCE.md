@@ -36,3 +36,15 @@ Mezcla por categoría, adquisición y baja de oferta, ticket por modalidad, cost
 Se corrige la persistencia de 2.335 pagos en el generador: la cifra activa de la meta de un millón es 2.343 en el Año 1. Se explicitan los antecedentes frente al escenario vigente, la fecha de descuento y el prorrateo de costos. El generador conserva los parámetros de reajuste e inversión, sin asumir un porcentaje distinto del modelo.
 
 Se agregan once pruebas univariables, umbrales por año, dos cruces de VAN parcial y contraste temporal mensual/anual. H.36 y la sección 14.5 documentan métodos y límites. SP12 avanza, sin declararse completo mientras falten costos, demanda validada y rezagos.
+
+## Tercer corte de liquidez e indicadores
+
+Se completan dos calendarios de 49 momentos, aportes mínimos y cobertura de deuda. La referencia requiere CLP 26.168.498,16 de aportes sin deuda y CLP 27.094.953,16 adicionales al préstamo con deuda. La diferencia corresponde a intereses, no a una eliminación del déficit.
+
+Se evalúan cinco series. El primer quiebre parcial sin asignaciones es 391 pagos mensuales de CLP 50.000. Sus indicadores y los de las metas presupuestadas se presentan en H.38. Se calculan TIR y recuperación solo donde corresponde al patrón de flujos. Los costos omitidos, escalamiento y demanda no se dan por confirmados.
+
+H.39 documenta el cierre; el cobro terminal neto de CLP 31.556.977,88 solo es un umbral algebraico y no se incorpora como valor esperado. La cadena reproducible es scripts/reconstruir_preparacion_sapag.py; el material continúa separado de la tesis principal hasta conciliar las entradas.
+
+## Aclaraciones preoperativas incorporadas
+
+Lanzamiento objetivo enero de 2027; constitución y trámites dentro del presupuesto de CLP 1.200.000; equipos personales compartidos sin compra ni transferencia presumida. El desarrollo de CLP 6.240.000 se interpreta como valorización global preoperativa, sin atribuir reparto pasado/futuro ni pago efectivo. H.40 calcula una prueba separada de recuperación de esa valoración. No se altera la necesidad de efectivo ni se declara una deducción fiscal por el solo valorizar trabajo.

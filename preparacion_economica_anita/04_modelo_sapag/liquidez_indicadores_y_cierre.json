@@ -1,0 +1,987 @@
+{
+  "alcance": "cálculos disponibles de la evaluación parcial; no cierre comercial ni valoración legal",
+  "financiacion_mensual": {
+    "condicionada_puro": [
+      {
+        "periodo": 0,
+        "fecha": "2026-12",
+        "flujo_parcial_clp": "-1200000",
+        "aporte_minimo_adicional_clp": "1200000",
+        "caja_con_aportes_clp": "0",
+        "aportes_acumulados_clp": "1200000"
+      },
+      {
+        "periodo": 1,
+        "fecha": "2027-01",
+        "flujo_parcial_clp": "-490083.02",
+        "aporte_minimo_adicional_clp": "490083.02",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "1690083.02"
+      },
+      {
+        "periodo": 2,
+        "fecha": "2027-02",
+        "flujo_parcial_clp": "-490083.02",
+        "aporte_minimo_adicional_clp": "490083.02",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "2180166.04"
+      },
+      {
+        "periodo": 3,
+        "fecha": "2027-03",
+        "flujo_parcial_clp": "-490083.02",
+        "aporte_minimo_adicional_clp": "490083.02",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "2670249.06"
+      },
+      {
+        "periodo": 4,
+        "fecha": "2027-04",
+        "flujo_parcial_clp": "-490083.02",
+        "aporte_minimo_adicional_clp": "490083.02",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "3160332.08"
+      },
+      {
+        "periodo": 5,
+        "fecha": "2027-05",
+        "flujo_parcial_clp": "-490083.02",
+        "aporte_minimo_adicional_clp": "490083.02",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "3650415.10"
+      },
+      {
+        "periodo": 6,
+        "fecha": "2027-06",
+        "flujo_parcial_clp": "-490083.02",
+        "aporte_minimo_adicional_clp": "490083.02",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "4140498.12"
+      },
+      {
+        "periodo": 7,
+        "fecha": "2027-07",
+        "flujo_parcial_clp": "-490083.02",
+        "aporte_minimo_adicional_clp": "490083.02",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "4630581.14"
+      },
+      {
+        "periodo": 8,
+        "fecha": "2027-08",
+        "flujo_parcial_clp": "-490083.02",
+        "aporte_minimo_adicional_clp": "490083.02",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "5120664.16"
+      },
+      {
+        "periodo": 9,
+        "fecha": "2027-09",
+        "flujo_parcial_clp": "-490083.02",
+        "aporte_minimo_adicional_clp": "490083.02",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "5610747.18"
+      },
+      {
+        "periodo": 10,
+        "fecha": "2027-10",
+        "flujo_parcial_clp": "-490083.02",
+        "aporte_minimo_adicional_clp": "490083.02",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "6100830.20"
+      },
+      {
+        "periodo": 11,
+        "fecha": "2027-11",
+        "flujo_parcial_clp": "-490083.02",
+        "aporte_minimo_adicional_clp": "490083.02",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "6590913.22"
+      },
+      {
+        "periodo": 12,
+        "fecha": "2027-12",
+        "flujo_parcial_clp": "-490083.02",
+        "aporte_minimo_adicional_clp": "490083.02",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "7080996.24"
+      },
+      {
+        "periodo": 13,
+        "fecha": "2028-01",
+        "flujo_parcial_clp": "-509619.52",
+        "aporte_minimo_adicional_clp": "509619.52",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "7590615.76"
+      },
+      {
+        "periodo": 14,
+        "fecha": "2028-02",
+        "flujo_parcial_clp": "-509619.52",
+        "aporte_minimo_adicional_clp": "509619.52",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "8100235.28"
+      },
+      {
+        "periodo": 15,
+        "fecha": "2028-03",
+        "flujo_parcial_clp": "-509619.52",
+        "aporte_minimo_adicional_clp": "509619.52",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "8609854.80"
+      },
+      {
+        "periodo": 16,
+        "fecha": "2028-04",
+        "flujo_parcial_clp": "-509619.52",
+        "aporte_minimo_adicional_clp": "509619.52",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "9119474.32"
+      },
+      {
+        "periodo": 17,
+        "fecha": "2028-05",
+        "flujo_parcial_clp": "-509619.52",
+        "aporte_minimo_adicional_clp": "509619.52",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "9629093.84"
+      },
+      {
+        "periodo": 18,
+        "fecha": "2028-06",
+        "flujo_parcial_clp": "-509619.52",
+        "aporte_minimo_adicional_clp": "509619.52",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "10138713.36"
+      },
+      {
+        "periodo": 19,
+        "fecha": "2028-07",
+        "flujo_parcial_clp": "-509619.52",
+        "aporte_minimo_adicional_clp": "509619.52",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "10648332.88"
+      },
+      {
+        "periodo": 20,
+        "fecha": "2028-08",
+        "flujo_parcial_clp": "-509619.52",
+        "aporte_minimo_adicional_clp": "509619.52",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "11157952.40"
+      },
+      {
+        "periodo": 21,
+        "fecha": "2028-09",
+        "flujo_parcial_clp": "-509619.52",
+        "aporte_minimo_adicional_clp": "509619.52",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "11667571.92"
+      },
+      {
+        "periodo": 22,
+        "fecha": "2028-10",
+        "flujo_parcial_clp": "-509619.52",
+        "aporte_minimo_adicional_clp": "509619.52",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "12177191.44"
+      },
+      {
+        "periodo": 23,
+        "fecha": "2028-11",
+        "flujo_parcial_clp": "-509619.52",
+        "aporte_minimo_adicional_clp": "509619.52",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "12686810.96"
+      },
+      {
+        "periodo": 24,
+        "fecha": "2028-12",
+        "flujo_parcial_clp": "-509619.52",
+        "aporte_minimo_adicional_clp": "509619.52",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "13196430.48"
+      },
+      {
+        "periodo": 25,
+        "fecha": "2029-01",
+        "flujo_parcial_clp": "-529937.48",
+        "aporte_minimo_adicional_clp": "529937.48",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "13726367.96"
+      },
+      {
+        "periodo": 26,
+        "fecha": "2029-02",
+        "flujo_parcial_clp": "-529937.48",
+        "aporte_minimo_adicional_clp": "529937.48",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "14256305.44"
+      },
+      {
+        "periodo": 27,
+        "fecha": "2029-03",
+        "flujo_parcial_clp": "-529937.48",
+        "aporte_minimo_adicional_clp": "529937.48",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "14786242.92"
+      },
+      {
+        "periodo": 28,
+        "fecha": "2029-04",
+        "flujo_parcial_clp": "-529937.48",
+        "aporte_minimo_adicional_clp": "529937.48",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "15316180.40"
+      },
+      {
+        "periodo": 29,
+        "fecha": "2029-05",
+        "flujo_parcial_clp": "-529937.48",
+        "aporte_minimo_adicional_clp": "529937.48",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "15846117.88"
+      },
+      {
+        "periodo": 30,
+        "fecha": "2029-06",
+        "flujo_parcial_clp": "-529937.48",
+        "aporte_minimo_adicional_clp": "529937.48",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "16376055.36"
+      },
+      {
+        "periodo": 31,
+        "fecha": "2029-07",
+        "flujo_parcial_clp": "-529937.48",
+        "aporte_minimo_adicional_clp": "529937.48",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "16905992.84"
+      },
+      {
+        "periodo": 32,
+        "fecha": "2029-08",
+        "flujo_parcial_clp": "-529937.48",
+        "aporte_minimo_adicional_clp": "529937.48",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "17435930.32"
+      },
+      {
+        "periodo": 33,
+        "fecha": "2029-09",
+        "flujo_parcial_clp": "-529937.48",
+        "aporte_minimo_adicional_clp": "529937.48",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "17965867.80"
+      },
+      {
+        "periodo": 34,
+        "fecha": "2029-10",
+        "flujo_parcial_clp": "-529937.48",
+        "aporte_minimo_adicional_clp": "529937.48",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "18495805.28"
+      },
+      {
+        "periodo": 35,
+        "fecha": "2029-11",
+        "flujo_parcial_clp": "-529937.48",
+        "aporte_minimo_adicional_clp": "529937.48",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "19025742.76"
+      },
+      {
+        "periodo": 36,
+        "fecha": "2029-12",
+        "flujo_parcial_clp": "-529937.48",
+        "aporte_minimo_adicional_clp": "529937.48",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "19555680.24"
+      },
+      {
+        "periodo": 37,
+        "fecha": "2030-01",
+        "flujo_parcial_clp": "-551068.16",
+        "aporte_minimo_adicional_clp": "551068.16",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "20106748.40"
+      },
+      {
+        "periodo": 38,
+        "fecha": "2030-02",
+        "flujo_parcial_clp": "-551068.16",
+        "aporte_minimo_adicional_clp": "551068.16",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "20657816.56"
+      },
+      {
+        "periodo": 39,
+        "fecha": "2030-03",
+        "flujo_parcial_clp": "-551068.16",
+        "aporte_minimo_adicional_clp": "551068.16",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "21208884.72"
+      },
+      {
+        "periodo": 40,
+        "fecha": "2030-04",
+        "flujo_parcial_clp": "-551068.16",
+        "aporte_minimo_adicional_clp": "551068.16",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "21759952.88"
+      },
+      {
+        "periodo": 41,
+        "fecha": "2030-05",
+        "flujo_parcial_clp": "-551068.16",
+        "aporte_minimo_adicional_clp": "551068.16",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "22311021.04"
+      },
+      {
+        "periodo": 42,
+        "fecha": "2030-06",
+        "flujo_parcial_clp": "-551068.16",
+        "aporte_minimo_adicional_clp": "551068.16",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "22862089.20"
+      },
+      {
+        "periodo": 43,
+        "fecha": "2030-07",
+        "flujo_parcial_clp": "-551068.16",
+        "aporte_minimo_adicional_clp": "551068.16",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "23413157.36"
+      },
+      {
+        "periodo": 44,
+        "fecha": "2030-08",
+        "flujo_parcial_clp": "-551068.16",
+        "aporte_minimo_adicional_clp": "551068.16",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "23964225.52"
+      },
+      {
+        "periodo": 45,
+        "fecha": "2030-09",
+        "flujo_parcial_clp": "-551068.16",
+        "aporte_minimo_adicional_clp": "551068.16",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "24515293.68"
+      },
+      {
+        "periodo": 46,
+        "fecha": "2030-10",
+        "flujo_parcial_clp": "-551068.16",
+        "aporte_minimo_adicional_clp": "551068.16",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "25066361.84"
+      },
+      {
+        "periodo": 47,
+        "fecha": "2030-11",
+        "flujo_parcial_clp": "-551068.16",
+        "aporte_minimo_adicional_clp": "551068.16",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "25617430.00"
+      },
+      {
+        "periodo": 48,
+        "fecha": "2030-12",
+        "flujo_parcial_clp": "-551068.16",
+        "aporte_minimo_adicional_clp": "551068.16",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "26168498.16"
+      }
+    ],
+    "condicionada_financiado": [
+      {
+        "periodo": 0,
+        "fecha": "2026-12",
+        "flujo_parcial_clp": "2520000",
+        "aporte_minimo_adicional_clp": "0",
+        "caja_con_aportes_clp": "2520000",
+        "aportes_acumulados_clp": "0"
+      },
+      {
+        "periodo": 1,
+        "fecha": "2027-01",
+        "flujo_parcial_clp": "-490083.02",
+        "aporte_minimo_adicional_clp": "0",
+        "caja_con_aportes_clp": "2029916.98",
+        "aportes_acumulados_clp": "0"
+      },
+      {
+        "periodo": 2,
+        "fecha": "2027-02",
+        "flujo_parcial_clp": "-490083.02",
+        "aporte_minimo_adicional_clp": "0",
+        "caja_con_aportes_clp": "1539833.96",
+        "aportes_acumulados_clp": "0"
+      },
+      {
+        "periodo": 3,
+        "fecha": "2027-03",
+        "flujo_parcial_clp": "-490083.02",
+        "aporte_minimo_adicional_clp": "0",
+        "caja_con_aportes_clp": "1049750.94",
+        "aportes_acumulados_clp": "0"
+      },
+      {
+        "periodo": 4,
+        "fecha": "2027-04",
+        "flujo_parcial_clp": "-490083.02",
+        "aporte_minimo_adicional_clp": "0",
+        "caja_con_aportes_clp": "559667.92",
+        "aportes_acumulados_clp": "0"
+      },
+      {
+        "periodo": 5,
+        "fecha": "2027-05",
+        "flujo_parcial_clp": "-490083.02",
+        "aporte_minimo_adicional_clp": "0",
+        "caja_con_aportes_clp": "69584.90",
+        "aportes_acumulados_clp": "0"
+      },
+      {
+        "periodo": 6,
+        "fecha": "2027-06",
+        "flujo_parcial_clp": "-490083.02",
+        "aporte_minimo_adicional_clp": "420498.12",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "420498.12"
+      },
+      {
+        "periodo": 7,
+        "fecha": "2027-07",
+        "flujo_parcial_clp": "-490083.02",
+        "aporte_minimo_adicional_clp": "490083.02",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "910581.14"
+      },
+      {
+        "periodo": 8,
+        "fecha": "2027-08",
+        "flujo_parcial_clp": "-490083.02",
+        "aporte_minimo_adicional_clp": "490083.02",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "1400664.16"
+      },
+      {
+        "periodo": 9,
+        "fecha": "2027-09",
+        "flujo_parcial_clp": "-490083.02",
+        "aporte_minimo_adicional_clp": "490083.02",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "1890747.18"
+      },
+      {
+        "periodo": 10,
+        "fecha": "2027-10",
+        "flujo_parcial_clp": "-490083.02",
+        "aporte_minimo_adicional_clp": "490083.02",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "2380830.20"
+      },
+      {
+        "periodo": 11,
+        "fecha": "2027-11",
+        "flujo_parcial_clp": "-490083.02",
+        "aporte_minimo_adicional_clp": "490083.02",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "2870913.22"
+      },
+      {
+        "periodo": 12,
+        "fecha": "2027-12",
+        "flujo_parcial_clp": "-2038901.02",
+        "aporte_minimo_adicional_clp": "2038901.02",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "4909814.24"
+      },
+      {
+        "periodo": 13,
+        "fecha": "2028-01",
+        "flujo_parcial_clp": "-509619.52",
+        "aporte_minimo_adicional_clp": "509619.52",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "5419433.76"
+      },
+      {
+        "periodo": 14,
+        "fecha": "2028-02",
+        "flujo_parcial_clp": "-509619.52",
+        "aporte_minimo_adicional_clp": "509619.52",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "5929053.28"
+      },
+      {
+        "periodo": 15,
+        "fecha": "2028-03",
+        "flujo_parcial_clp": "-509619.52",
+        "aporte_minimo_adicional_clp": "509619.52",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "6438672.80"
+      },
+      {
+        "periodo": 16,
+        "fecha": "2028-04",
+        "flujo_parcial_clp": "-509619.52",
+        "aporte_minimo_adicional_clp": "509619.52",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "6948292.32"
+      },
+      {
+        "periodo": 17,
+        "fecha": "2028-05",
+        "flujo_parcial_clp": "-509619.52",
+        "aporte_minimo_adicional_clp": "509619.52",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "7457911.84"
+      },
+      {
+        "periodo": 18,
+        "fecha": "2028-06",
+        "flujo_parcial_clp": "-509619.52",
+        "aporte_minimo_adicional_clp": "509619.52",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "7967531.36"
+      },
+      {
+        "periodo": 19,
+        "fecha": "2028-07",
+        "flujo_parcial_clp": "-509619.52",
+        "aporte_minimo_adicional_clp": "509619.52",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "8477150.88"
+      },
+      {
+        "periodo": 20,
+        "fecha": "2028-08",
+        "flujo_parcial_clp": "-509619.52",
+        "aporte_minimo_adicional_clp": "509619.52",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "8986770.40"
+      },
+      {
+        "periodo": 21,
+        "fecha": "2028-09",
+        "flujo_parcial_clp": "-509619.52",
+        "aporte_minimo_adicional_clp": "509619.52",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "9496389.92"
+      },
+      {
+        "periodo": 22,
+        "fecha": "2028-10",
+        "flujo_parcial_clp": "-509619.52",
+        "aporte_minimo_adicional_clp": "509619.52",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "10006009.44"
+      },
+      {
+        "periodo": 23,
+        "fecha": "2028-11",
+        "flujo_parcial_clp": "-509619.52",
+        "aporte_minimo_adicional_clp": "509619.52",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "10515628.96"
+      },
+      {
+        "periodo": 24,
+        "fecha": "2028-12",
+        "flujo_parcial_clp": "-2058437.52",
+        "aporte_minimo_adicional_clp": "2058437.52",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "12574066.48"
+      },
+      {
+        "periodo": 25,
+        "fecha": "2029-01",
+        "flujo_parcial_clp": "-529937.48",
+        "aporte_minimo_adicional_clp": "529937.48",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "13104003.96"
+      },
+      {
+        "periodo": 26,
+        "fecha": "2029-02",
+        "flujo_parcial_clp": "-529937.48",
+        "aporte_minimo_adicional_clp": "529937.48",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "13633941.44"
+      },
+      {
+        "periodo": 27,
+        "fecha": "2029-03",
+        "flujo_parcial_clp": "-529937.48",
+        "aporte_minimo_adicional_clp": "529937.48",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "14163878.92"
+      },
+      {
+        "periodo": 28,
+        "fecha": "2029-04",
+        "flujo_parcial_clp": "-529937.48",
+        "aporte_minimo_adicional_clp": "529937.48",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "14693816.40"
+      },
+      {
+        "periodo": 29,
+        "fecha": "2029-05",
+        "flujo_parcial_clp": "-529937.48",
+        "aporte_minimo_adicional_clp": "529937.48",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "15223753.88"
+      },
+      {
+        "periodo": 30,
+        "fecha": "2029-06",
+        "flujo_parcial_clp": "-529937.48",
+        "aporte_minimo_adicional_clp": "529937.48",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "15753691.36"
+      },
+      {
+        "periodo": 31,
+        "fecha": "2029-07",
+        "flujo_parcial_clp": "-529937.48",
+        "aporte_minimo_adicional_clp": "529937.48",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "16283628.84"
+      },
+      {
+        "periodo": 32,
+        "fecha": "2029-08",
+        "flujo_parcial_clp": "-529937.48",
+        "aporte_minimo_adicional_clp": "529937.48",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "16813566.32"
+      },
+      {
+        "periodo": 33,
+        "fecha": "2029-09",
+        "flujo_parcial_clp": "-529937.48",
+        "aporte_minimo_adicional_clp": "529937.48",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "17343503.80"
+      },
+      {
+        "periodo": 34,
+        "fecha": "2029-10",
+        "flujo_parcial_clp": "-529937.48",
+        "aporte_minimo_adicional_clp": "529937.48",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "17873441.28"
+      },
+      {
+        "periodo": 35,
+        "fecha": "2029-11",
+        "flujo_parcial_clp": "-529937.48",
+        "aporte_minimo_adicional_clp": "529937.48",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "18403378.76"
+      },
+      {
+        "periodo": 36,
+        "fecha": "2029-12",
+        "flujo_parcial_clp": "-2078756.48",
+        "aporte_minimo_adicional_clp": "2078756.48",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "20482135.24"
+      },
+      {
+        "periodo": 37,
+        "fecha": "2030-01",
+        "flujo_parcial_clp": "-551068.16",
+        "aporte_minimo_adicional_clp": "551068.16",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "21033203.40"
+      },
+      {
+        "periodo": 38,
+        "fecha": "2030-02",
+        "flujo_parcial_clp": "-551068.16",
+        "aporte_minimo_adicional_clp": "551068.16",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "21584271.56"
+      },
+      {
+        "periodo": 39,
+        "fecha": "2030-03",
+        "flujo_parcial_clp": "-551068.16",
+        "aporte_minimo_adicional_clp": "551068.16",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "22135339.72"
+      },
+      {
+        "periodo": 40,
+        "fecha": "2030-04",
+        "flujo_parcial_clp": "-551068.16",
+        "aporte_minimo_adicional_clp": "551068.16",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "22686407.88"
+      },
+      {
+        "periodo": 41,
+        "fecha": "2030-05",
+        "flujo_parcial_clp": "-551068.16",
+        "aporte_minimo_adicional_clp": "551068.16",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "23237476.04"
+      },
+      {
+        "periodo": 42,
+        "fecha": "2030-06",
+        "flujo_parcial_clp": "-551068.16",
+        "aporte_minimo_adicional_clp": "551068.16",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "23788544.20"
+      },
+      {
+        "periodo": 43,
+        "fecha": "2030-07",
+        "flujo_parcial_clp": "-551068.16",
+        "aporte_minimo_adicional_clp": "551068.16",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "24339612.36"
+      },
+      {
+        "periodo": 44,
+        "fecha": "2030-08",
+        "flujo_parcial_clp": "-551068.16",
+        "aporte_minimo_adicional_clp": "551068.16",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "24890680.52"
+      },
+      {
+        "periodo": 45,
+        "fecha": "2030-09",
+        "flujo_parcial_clp": "-551068.16",
+        "aporte_minimo_adicional_clp": "551068.16",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "25441748.68"
+      },
+      {
+        "periodo": 46,
+        "fecha": "2030-10",
+        "flujo_parcial_clp": "-551068.16",
+        "aporte_minimo_adicional_clp": "551068.16",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "25992816.84"
+      },
+      {
+        "periodo": 47,
+        "fecha": "2030-11",
+        "flujo_parcial_clp": "-551068.16",
+        "aporte_minimo_adicional_clp": "551068.16",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "26543885.00"
+      },
+      {
+        "periodo": 48,
+        "fecha": "2030-12",
+        "flujo_parcial_clp": "-551068.16",
+        "aporte_minimo_adicional_clp": "551068.16",
+        "caja_con_aportes_clp": "0.00",
+        "aportes_acumulados_clp": "27094953.16"
+      }
+    ]
+  },
+  "financiacion_anual": [
+    {
+      "anio": 2026,
+      "aporte_minimo_puro_clp": "1200000",
+      "aporte_minimo_financiado_clp": "0"
+    },
+    {
+      "anio": 2027,
+      "aporte_minimo_puro_clp": "5880996.24",
+      "aporte_minimo_financiado_clp": "4909814.24"
+    },
+    {
+      "anio": 2028,
+      "aporte_minimo_puro_clp": "6115434.24",
+      "aporte_minimo_financiado_clp": "7664252.24"
+    },
+    {
+      "anio": 2029,
+      "aporte_minimo_puro_clp": "6359249.76",
+      "aporte_minimo_financiado_clp": "7908068.76"
+    },
+    {
+      "anio": 2030,
+      "aporte_minimo_puro_clp": "6612817.92",
+      "aporte_minimo_financiado_clp": "6612817.92"
+    }
+  ],
+  "cobertura_deuda": [
+    {
+      "anio": 2027,
+      "caja_propia_antes_deuda_clp": "-5880996.24",
+      "servicio_deuda_clp": "1548818",
+      "cobertura_caja_sobre_cuota": "-3.797086707411716547715741940",
+      "estado": "sin generación propia para atender la cuota"
+    },
+    {
+      "anio": 2028,
+      "caja_propia_antes_deuda_clp": "-6115434.24",
+      "servicio_deuda_clp": "1548818",
+      "cobertura_caja_sobre_cuota": "-3.948452458584546408938945699",
+      "estado": "sin generación propia para atender la cuota"
+    },
+    {
+      "anio": 2029,
+      "caja_propia_antes_deuda_clp": "-6359249.76",
+      "servicio_deuda_clp": "1548819",
+      "cobertura_caja_sobre_cuota": "-4.105870188834202059762954871",
+      "estado": "sin generación propia para atender la cuota"
+    },
+    {
+      "anio": 2030,
+      "caja_propia_antes_deuda_clp": "-6612817.92",
+      "servicio_deuda_clp": "0",
+      "cobertura_caja_sobre_cuota": null,
+      "estado": "sin cuota de deuda"
+    }
+  ],
+  "sensibilidad_cuentas_cobrar": [
+    {
+      "dias_supuesto": 0,
+      "comision_por_cobrar_clp": "0.00",
+      "inversion_inicial_auxiliar_clp": "0.00",
+      "recuperacion_auxiliar_anio4_clp": "0.00",
+      "efecto_van_clp": "0.00",
+      "alcance": "solo cuentas por cobrar de comisión neta con mes de 30 días y cobros uniformes; no capital de trabajo completo ni plazo del proveedor confirmado"
+    },
+    {
+      "dias_supuesto": 7,
+      "comision_por_cobrar_clp": "5600.00",
+      "inversion_inicial_auxiliar_clp": "-5600.00",
+      "recuperacion_auxiliar_anio4_clp": "5600.00",
+      "efecto_van_clp": "-2041.098760932944606413994169",
+      "alcance": "solo cuentas por cobrar de comisión neta con mes de 30 días y cobros uniformes; no capital de trabajo completo ni plazo del proveedor confirmado"
+    },
+    {
+      "dias_supuesto": 30,
+      "comision_por_cobrar_clp": "24000.00",
+      "inversion_inicial_auxiliar_clp": "-24000.00",
+      "recuperacion_auxiliar_anio4_clp": "24000.00",
+      "efecto_van_clp": "-8747.56611828404831320283215",
+      "alcance": "solo cuentas por cobrar de comisión neta con mes de 30 días y cobros uniformes; no capital de trabajo completo ni plazo del proveedor confirmado"
+    }
+  ],
+  "indicadores": [
+    {
+      "escenario": "Base sin deuda",
+      "pagos_mes": "16",
+      "modo": "condicionada",
+      "financiado": false,
+      "flujo_anual": [
+        "-1200000",
+        "-5880996.24",
+        "-6115434.24",
+        "-6359249.76",
+        "-6612817.92"
+      ],
+      "van_clp": "-20055029.94213348604748021657",
+      "tasa_descuento": "0.12",
+      "tir_anual": null,
+      "tir_estado": "No existe TIR: la serie no combina entradas y salidas",
+      "cambios_signo": 0,
+      "recuperacion_simple_anios": null,
+      "recuperacion_descontada_anios": null,
+      "convencion_recuperacion": "interpolación lineal auxiliar entre cierres anuales; no fecha contractual ni cronograma mensual observado"
+    },
+    {
+      "escenario": "Base con deuda",
+      "pagos_mes": "16",
+      "modo": "condicionada",
+      "financiado": true,
+      "flujo_anual": [
+        "2520000",
+        "-7429814.24",
+        "-7664252.24",
+        "-7908068.76",
+        "-6612817.92"
+      ],
+      "van_clp": "-20055030.15509813619325281133",
+      "tasa_descuento": "0.12",
+      "tir_anual": null,
+      "tir_estado": "Patrón de financiación; no se interpreta como rentabilidad de inversión",
+      "cambios_signo": 1,
+      "recuperacion_simple_anios": null,
+      "recuperacion_descontada_anios": null,
+      "convencion_recuperacion": "interpolación lineal auxiliar entre cierres anuales; no fecha contractual ni cronograma mensual observado"
+    },
+    {
+      "escenario": "Quiebre sin asignaciones",
+      "pagos_mes": 391,
+      "modo": "condicionada",
+      "financiado": false,
+      "flujo_anual": [
+        "-1200000",
+        "634372.74",
+        "463233.00",
+        "285247.68",
+        "100142.92"
+      ],
+      "van_clp": "2367.04406529831320283215323",
+      "tasa_descuento": "0.12",
+      "tir_anual": "0.1212246366982625065122370114",
+      "tir_estado": "TIR única del flujo de inversión con un cambio de signo",
+      "cambios_signo": 1,
+      "recuperacion_simple_anios": "2.358966144790380065492557205",
+      "recuperacion_descontada_anios": "3.962807259237897197325582278",
+      "convencion_recuperacion": "interpolación lineal auxiliar entre cierres anuales; no fecha contractual ni cronograma mensual observado"
+    },
+    {
+      "escenario": "Meta CLP 200.000 por persona",
+      "pagos_mes": 791,
+      "modo": "meta_200000",
+      "financiado": false,
+      "flujo_anual": [
+        "-1200000",
+        "634372.74",
+        "463233.00",
+        "285247.68",
+        "100142.92"
+      ],
+      "van_clp": "2367.04406529831320283215323",
+      "tasa_descuento": "0.12",
+      "tir_anual": "0.1212246366982625065122370114",
+      "tir_estado": "TIR única del flujo de inversión con un cambio de signo",
+      "cambios_signo": 1,
+      "recuperacion_simple_anios": "2.358966144790380065492557205",
+      "recuperacion_descontada_anios": "3.962807259237897197325582278",
+      "convencion_recuperacion": "interpolación lineal auxiliar entre cierres anuales; no fecha contractual ni cronograma mensual observado"
+    },
+    {
+      "escenario": "Meta CLP 1.000.000 por persona",
+      "pagos_mes": 2391,
+      "modo": "objetivo_millon",
+      "financiado": false,
+      "flujo_anual": [
+        "-1200000",
+        "634372.74",
+        "463233.00",
+        "285247.68",
+        "100142.92"
+      ],
+      "van_clp": "2367.04406529831320283215323",
+      "tasa_descuento": "0.12",
+      "tir_anual": "0.1212246366982625065122370114",
+      "tir_estado": "TIR única del flujo de inversión con un cambio de signo",
+      "cambios_signo": 1,
+      "recuperacion_simple_anios": "2.358966144790380065492557205",
+      "recuperacion_descontada_anios": "3.962807259237897197325582278",
+      "convencion_recuperacion": "interpolación lineal auxiliar entre cierres anuales; no fecha contractual ni cronograma mensual observado"
+    }
+  ],
+  "cobro_terminal_neto_para_van_cero_clp": "31556977.87932671999999999999",
+  "valor_terminal_estimado_clp": null,
+  "capital_trabajo_completo_clp": null,
+  "advertencia_terminal": "umbral algebraico, no tasación ni venta esperada; no se agrega al flujo activo"
+}

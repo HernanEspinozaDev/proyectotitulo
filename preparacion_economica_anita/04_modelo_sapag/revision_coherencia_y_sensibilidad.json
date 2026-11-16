@@ -128,7 +128,6 @@
     "alcance": "contraste temporal del subtotal prorrateado; no calendario real ni capital de trabajo validado"
   },
   "exclusiones": [
-    "costos legales y de constitución sin desglose",
     "cargas de contratación y formalización de remuneraciones",
     "costos variables residuales propios y alcance definitivo de servicios",
     "capital de trabajo del ciclo de liquidación",

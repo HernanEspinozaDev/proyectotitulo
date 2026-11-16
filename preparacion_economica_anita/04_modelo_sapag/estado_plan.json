@@ -1,6 +1,6 @@
 {
   "fecha_corte": "2026-11-16",
-  "tipo": "segundo corte de coherencia y sensibilidad parcial",
+  "tipo": "tercer corte: cálculos disponibles completos y datos de cierre por resolver",
   "terminadas": [
     "SP01",
     "SP02",
@@ -16,8 +16,8 @@
     {
       "id": "SP05",
       "estado": "en curso",
-      "avance": "Equipos existentes sin compra inicial; lanzamiento de CLP 1200000 ratificado como provisional.",
-      "resta": "Desglosar lanzamiento, uso alternativo y trabajo incremental, aportes y reposiciones."
+      "avance": "Sin compra ni transferencia presumida de equipos personales compartidos; CLP 1200000 incluye trámites. Desarrollo como valorización global preoperativa, con prueba separada de recuperación en H.40.",
+      "resta": "Desglose de ejecución del lanzamiento, trabajo pasado/futuro e incremental, uso alternativo y reposiciones."
     },
     {
       "id": "SP06",
@@ -28,37 +28,37 @@
     {
       "id": "SP07",
       "estado": "en curso",
-      "avance": "Caja mensual parcial e IVA separado; conciliación demostrativa del impuesto histórico al 27 %.",
+      "avance": "Caja parcial conciliada con calendario de aportes mínimos; IVA y fondos ajenos excluidos de recursos libres. Falta calendario real y base completa.",
       "resta": "Definir ciclo de liquidación, IVA de compras y base definitiva de impuestos."
     },
     {
       "id": "SP08",
       "estado": "en curso",
-      "avance": "Necesidad acumulada de financiación parcial calculada sin duplicarla como capital de trabajo inicial.",
+      "avance": "Método del déficit máximo ejecutado en 49 momentos por escenario; financiación de pérdidas separada de cuentas por cobrar y del capital completo del ciclo.",
       "resta": "Calcular capital del ciclo con desfases y condiciones completos."
     },
     {
       "id": "SP09",
-      "estado": "pendiente",
-      "avance": "Horizonte de cuatro años preservado; valor de cierre sin cuantificación.",
-      "resta": "Definir aporte de activos, reinversiones y método de cierre respaldado."
+      "estado": "en curso",
+      "avance": "Método de cierre documentado; cobro terminal neto de quiebre calculado como umbral algebraico, sin atribuir valor de mercado ni incorporarlo al flujo.",
+      "resta": "Inventariar derechos y activos atribuibles al proyecto, reposiciones y evidencia de valor comercial o continuidad; no sumar el umbral de quiebre como ingreso."
     },
     {
       "id": "SP10",
       "estado": "en curso",
-      "avance": "Dos flujos parciales con la estructura de Anita; deuda simulada corregida hasta cero.",
+      "avance": "Dos flujos parciales con formato de Anita; cuota a cero, aportes adicionales y capacidad de pagar deuda conciliados.",
       "resta": "Completar las partidas no determinadas y cerrar flujo puro y financiado definitivos."
     },
     {
       "id": "SP11",
       "estado": "en curso",
-      "avance": "VAN parciales al 12 % comprobados; se informa TIR no existente o no interpretable como inversión. Convenciones de VAN anual y mensual equivalente contrastadas; ausencia de recuperación en el caso base explícita.",
+      "avance": "VAN de cinco series, TIR válida de tres escenarios de quiebre y recuperación nominal/descontada calculados y contrastados independientemente.",
       "resta": "Recalcular indicadores definitivos y recuperación tras el cierre de entradas."
     },
     {
       "id": "SP12",
       "estado": "en curso",
-      "avance": "Tres casos de demanda, once pruebas individuales de cobros/ticket/costos/cambio/descuento, umbrales anuales y dos cruces de VAN parcial verificados con enteros adyacentes.",
+      "avance": "Sensibilidad univariable, tres quiebres operativos de fase, cuentas por cobrar y conclusión del alcance delimitado; sin probabilidades inventadas.",
       "resta": "Completar costos y escalamiento, validar mezcla/demanda, incorporar rezagos efectivos y cierre antes de concluir viabilidad integral."
     },
     {
@@ -67,5 +67,20 @@
       "avance": "Tesis principal sin cambios, según preparación separada acordada.",
       "resta": "Integrar cuando el material económico esté conciliado y listo para revisión."
     }
-  ]
+  ],
+  "calculos_disponibles_terminados": [
+    "aportes mínimos con y sin deuda",
+    "déficit acumulado máximo",
+    "cobertura de cuotas de deuda",
+    "VAN/TIR por patrón de signos",
+    "recuperación simple y descontada",
+    "sensibilidad aislada de comisión por cobrar",
+    "umbral terminal algebraico",
+    "conclusión del escenario delimitado"
+  ],
+  "aclaraciones_solicitadas": [
+    "respondidas e incorporadas: interpretación preoperativa del desarrollo, trámites incluidos y equipos personales compartidos"
+  ],
+  "lanzamiento_objetivo": "enero de 2027",
+  "desarrollo_reparto_pasado_futuro": "no determinado; el propietario expresa una interpretación del valor global, no un desglose"
 }

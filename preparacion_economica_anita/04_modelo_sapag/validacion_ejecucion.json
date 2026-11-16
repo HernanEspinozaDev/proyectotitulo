@@ -1,8 +1,8 @@
 {
   "fecha_corte": "2026-11-16",
   "alcance": "verificación de fórmulas y preservación de fuentes del primer corte parcial",
-  "paginas_pdf": 96,
-  "tablas_nativas_word": 94,
+  "paginas_pdf": 101,
+  "tablas_nativas_word": 101,
   "perfiles": 6,
   "meses_por_perfil": 48,
   "paginas_transcripcion_identicas_visualmente": 69,
@@ -24,7 +24,14 @@
     "tasa mensual equivalente y VAN mensual contrastados con convención anual",
     "aritmética visible de flujos y metas cotejada con memorias y Word",
     "regeneración idempotente y referencias cuerpo/anexo revisadas",
-    "propuesta interna AWS conserva su SHA-256; no se verifica tarifa efectiva"
+    "propuesta interna AWS conserva su SHA-256; no se verifica tarifa efectiva",
+    "49 momentos y aportes mínimos para alternativas pura y financiada",
+    "cobertura de deuda sin fondos ajenos",
+    "cinco series de VAN y TIR cuando es interpretable",
+    "recuperación nominal y descontada por cálculo independiente",
+    "quiebre sin asignaciones y prueba de recuperación de desarrollo valorizado",
+    "trámites incluidos en lanzamiento, equipos personales compartidos y objetivo enero 2027",
+    "originales conservados y 69 páginas fuente idénticas visualmente"
   ],
   "datos_no_verificados_como_hechos": [
     "demanda comercial futura",
@@ -33,7 +40,7 @@
     "base tributaria legal de una empresa constituida",
     "valor de cierre y oportunidad de recursos"
   ],
-  "corte": "segundo corte de coherencia y sensibilidad",
+  "corte": "tercer corte y ratificaciones preoperativas",
   "paginas_identicas_corte_anterior": 83,
   "paginas_modificadas_inspeccionadas": 13
 }
