@@ -17,5 +17,10 @@
   "regla_pago_propuesta": "pagar CLP 200000 a cada uno si existe caja suficiente para cubrir CLP 600000 después de obligaciones operativas; si no alcanza, no distribuir en ese período",
   "estado_regla_pago": "interpretación de trabajo de la indicación del propietario; criterios de caja por precisar",
   "sueldo_objetivo_por_fundador_clp": 1000000,
-  "estado_sueldo_objetivo": "escenario solicitado; no compromiso contractual ni sueldo líquido verificado"
+  "estado_sueldo_objetivo": "escenario solicitado; no compromiso contractual ni sueldo líquido verificado",
+  "tasa_descuento_academica_anual": "0.25",
+  "origen_tasa_descuento": "indicación del profesor de Planificación de Proyectos comunicada por el propietario el 16 de noviembre de 2026",
+  "alcance_tasa_descuento": "25 % anual total para evaluación académica; no probabilidad de pérdida ni 25 % adicional sobre costos; no costo de capital de mercado acreditado",
+  "regimen_tributario": "pendiente de confirmar",
+  "impuesto_27_por_ciento_del_insumo": "incluido en el flujo original; requiere parametrización por régimen y año antes de usarlo como impuesto del escenario actualizado"
 }

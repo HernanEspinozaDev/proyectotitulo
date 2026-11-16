@@ -42,7 +42,7 @@ Se mantienen VAN, TIR y recuperación después del flujo completo. Los indicador
 
 No existe un porcentaje que garantice rentabilidad. La tasa del VAN debe justificarse por el tipo de flujo, riesgo, moneda, horizonte y estructura de financiamiento; se propone conservar 10 % y 12 % como comparación histórica y someter el escenario nuevo a sensibilidad, sin declararlos costo de capital validado.
 
-## Reserva y margen operativo
+## Comparación previa de reserva y margen operativo
 
 Si se desea evaluar 25 % adicional de cobertura sobre costos, se utiliza ingreso objetivo = costo × 1,25. Si se desea un margen del 25 % sobre ingresos, se utiliza ingreso objetivo = costo / 0,75. Son objetivos diferentes y ninguno se incorpora como decisión ratificada.
 
@@ -55,3 +55,16 @@ Con ticket de CLP 50.000, comisión neta de CLP 1.500 y los costos parciales act
 - Antecedente pedagógico local: tesis_final/context/03_insumos_anita_erick_finanzas/INV-009_evaluacion_economica.md.
 - NYU Stern, Aswath Damodaran, Approaches to Valuation: https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/approach.html. Distingue tasa correspondiente a flujos de socios y a flujos de empresa.
 - SII, tasas de Primera Categoría: https://www.sii.cl/preguntas_frecuentes/declaracion_renta/001_140_4708.htm. Requiere diferenciar ejercicio y régimen.
+
+
+## Aclaración del criterio docente del 25 %
+
+El propietario aclara que el 25 % corresponde al criterio de riesgo indicado por su profesor de Planificación de Proyectos. Se adopta para la evaluación académica como tasa de descuento anual total del 25 %, sustituyendo el uso principal de las tasas referenciales de 10 % y 12 %. La fuente de la exigencia es la indicación docente comunicada por el propietario; no se atribuye a una norma financiera general ni a la rúbrica documental sin evidencia escrita.
+
+Esta tasa no representa una probabilidad de fracaso del 25 %, no se resta como gasto del flujo y no incrementa automáticamente costos o tickets en 25 %. Las comparaciones anteriores sobre cobertura y margen son conceptos distintos y no se aplican como consecuencia de esta aclaración. VAN utiliza 0,25 como tasa anual; TIR se calcula a partir del flujo y luego se compara con esa exigencia. La TIR no se fija en 25 % por decisión.
+
+Como comprobación exclusivamente histórica, el vector original de Anita, [−6.420.000, −1.278.818, 445.097, 2.104.062, 5.378.456], produce VAN al 25 % de CLP -3.877.897,00. Su TIR conserva aproximadamente 0,85 %. Este resultado no se atribuye al flujo nuevo de AWS y comisión del 3 %, que requiere cierre propio.
+
+El flujo original sí contiene la fila de impuesto a la renta del 27 %. Ese porcentaje corresponde a un supuesto del modelo recibido y no se extiende automáticamente a toda empresa chilena. Según la tabla del SII, Pro Pyme General presenta una tasa de 12,5 % para el año comercial 2026 y también para 2027, bajo las condiciones del régimen. La ley 21.850, artículo sexto transitorio, establece para el régimen general una secuencia de 27 % en 2026, 25,5 % en 2027, 24 % en 2028 y 23 % desde 2029, preservando las disposiciones señaladas para Pro Pyme. El cierre del flujo requiere régimen y año comercial por columna, así como la base imponible y pérdidas que efectivamente correspondan.
+
+Fuentes tributarias consultadas el 16 de noviembre de 2026: tabla SII https://www.sii.cl/preguntas_frecuentes/declaracion_renta/001_140_4708.htm y ley 21.850, artículo sexto transitorio, BCN https://www.bcn.cl/leychile/Navegar?idNorma=1229250&idParte=10613949&idVersion=2026-11-01.

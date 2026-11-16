@@ -99,3 +99,11 @@ La vista previa de remuneraciones contiene 79 páginas y 80 tablas nativas. Se c
 - [ ] Justificar la tasa de descuento del flujo actualizado, diferenciando socios y proyecto; conciliar régimen tributario y cierre de serie anual.
 
 El soporte de esta aclaración se registra en 02_contraste/usuarios_formato_y_tasas.md. Las tablas de tickets complementan el flujo de Anita y no reemplazan su formato. La comparación de cobertura adicional o margen del 25 % queda como explicación metodológica, sin ratificar un nuevo objetivo.
+
+## Aclaración de tasa de evaluación e impuesto
+
+- [x] Registrar el 25 % como tasa anual de descuento académica según la indicación docente comunicada por el propietario; las tasas de 10 % y 12 % quedan como antecedentes y sensibilidad.
+- [x] Confirmar presencia de impuesto del 27 % en el flujo original y contrastar su aplicación por régimen y año con SII y ley vigente.
+- [ ] Confirmar régimen de espaciGo y asignar años comerciales a las columnas antes de recalcular impuestos del flujo definitivo.
+
+El 25 % de descuento no se incorpora como recargo de costos ni se usa para fijar artificialmente la TIR. La preparación Word/PDF previa conserva su corte; esta aclaración se incorpora en el próximo cierre del flujo completo respetando el formato de Anita.
