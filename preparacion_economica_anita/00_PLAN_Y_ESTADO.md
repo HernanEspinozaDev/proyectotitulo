@@ -137,3 +137,14 @@ La vista previa del criterio fijo conserva 81 páginas y 81 tablas nativas. Se c
 El escenario actualizado continúa pendiente de cierre de costos y caja; los indicadores históricos al 12 % no se presentan como resultados del flujo AWS. La justificación documental de la tasa queda resuelta como supuesto metodológico adoptado, mientras la evidencia de mercado para calibrar el costo de capital no se atribuye al material recibido.
 
 La vista previa del descuento ratificado contiene 82 páginas y 81 tablas nativas. Se verifica descuento activo del 12 %, impuesto del 27 % en los cuatro períodos, VAN histórico al 12 % y coherencia entre 14.4, H.28 y H.29. Se revisan las páginas modificadas; las 69 páginas de transcripción fuente conservan identidad visual con el corte previo. La tesis principal permanece sin cambios en esta preparación separada.
+
+## Revisión y correcciones con Sapag 2008
+
+- [x] Verificar libro adjunto, edición, autores y correspondencia de páginas impresas/PDF.
+- [x] Comparar 16 criterios con originales, preparación separada y bloques de la tesis publicada.
+- [x] Incorporar Sapag como referencia metodológica principal y corregir clasificación del flujo financiado, capital de trabajo, cierre, tasa, indicadores y sensibilidad en XIV propuesto y H.29–H.30.
+- [ ] Ejecutar SP04–SP13 del plan Sapag: cerrar entradas comerciales y costos, inversión, caja mensual, capital de trabajo, cierre del horizonte, flujos, indicadores, sensibilidad e integración.
+
+Soportes: 02_contraste/sapag2008_fuente.json, sapag2008_matriz_brechas.md y sapag2008_plan_correcciones.md. Se respetan las decisiones del 12 % y 27 % y el formato de Anita. La revisión documental no se confunde con el cierre numérico del modelo.
+
+El corte Sapag contiene 86 páginas y 82 tablas nativas. Se verifican 16 criterios con referencias impresas/PDF y 13 tareas (3 documentales terminadas y 10 financieras o de integración abiertas), la huella del libro y las decisiones 12 % / 27 %. La revisión visual cubre el cuerpo modificado y H.27–H.30; las 69 páginas de transcripción fuente mantienen identidad visual con el corte anterior. Los insumos originales y la tesis principal conservan sus archivos.

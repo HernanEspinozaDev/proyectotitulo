@@ -1,0 +1,389 @@
+{
+  "fuente": {
+    "titulo": "Preparación y evaluación de proyectos",
+    "autores": [
+      "Nassir Sapag Chain",
+      "Reinaldo Sapag Chain"
+    ],
+    "edicion": "5.ª según portada y página editorial",
+    "anio": 2008,
+    "editorial": "McGraw-Hill Interamericana",
+    "archivo": "/home/nandev/Documentos/projects/Proyectotitulo/sapag-2008-preparacion-y-evaluacion-de-proyectos.pdf",
+    "sha256": "0cecb3b904e6fd2623cd550b2e0183a801d5804e0fe0925593478b869ea0f216",
+    "paginas_pdf": 463,
+    "desfase_pagina_pdf_sobre_impresa": 18,
+    "referencia_apa": "Sapag Chain, N., & Sapag Chain, R. (2008). Preparación y evaluación de proyectos (5.ª ed.). McGraw-Hill Interamericana.",
+    "verificacion_bibliografica": "Portada PDF 3 y página editorial PDF 4; año de edición 2008, no fecha técnica de creación del PDF 2010. La página editorial contiene una mención interna a cuarta edición; se adopta quinta conforme a portada y encabezado editorial.",
+    "alcance_lectura": "Índice y secciones pertinentes de capítulos 1, 2, 4, 5, 6, 12, 13, 14, 15, 16, 17 y 18; no se afirma lectura integral de las 463 páginas ni cumplimiento de todos los métodos alternativos del libro."
+  },
+  "criterios": [
+    {
+      "id": "S01",
+      "criterio": "Objeto y nivel de evaluación",
+      "paginas_impresas": [
+        5,
+        6,
+        21,
+        22,
+        29,
+        30,
+        291,
+        297,
+        298
+      ],
+      "paginas_pdf": [
+        23,
+        24,
+        39,
+        40,
+        47,
+        48,
+        309,
+        315,
+        316
+      ],
+      "diagnostico": "Parcial",
+      "evidencia_actual": "El borrador distingue inversión y caja, pero la Tabla 16 incluye deuda y no se identifica expresamente como flujo del inversionista. La tesis publicada mantiene bloques reservados.",
+      "correccion": "Identificar el flujo financiado como evaluación de socios, declarar el carácter preparatorio y añadir después un flujo puro completo en el cuerpo, con el mismo formato de Anita.",
+      "destino": "14.3 y H.30",
+      "estado": "Terminología aplicada; flujo puro pendiente"
+    },
+    {
+      "id": "S02",
+      "criterio": "Mercado y proyección comercial",
+      "paginas_impresas": [
+        64,
+        68,
+        81,
+        89,
+        90
+      ],
+      "paginas_pdf": [
+        82,
+        86,
+        99,
+        107,
+        108
+      ],
+      "diagnostico": "Incompleto",
+      "evidencia_actual": "La comisión del 3 % está decidida y existe mezcla ilustrativa; ocho espacios, dieciséis cobros y ticket de CLP 50.000 no acreditan demanda.",
+      "correccion": "Construir matriz de nueve categorías y modalidades, publicadores, espacios por publicador, pagos por espacio, ticket, estacionalidad y crecimiento; separar observado, estimado y escenario.",
+      "destino": "14.1 y memoria comercial en H",
+      "estado": "Pendiente de cuantificación respaldada"
+    },
+    {
+      "id": "S03",
+      "criterio": "Costos y capacidad técnica",
+      "paginas_impresas": [
+        29,
+        30,
+        126,
+        129,
+        130
+      ],
+      "paginas_pdf": [
+        47,
+        48,
+        144,
+        147,
+        148
+      ],
+      "diagnostico": "Parcial",
+      "evidencia_actual": "El presupuesto AWS de referencia se adopta aritméticamente y los costos mensuales son parciales; los mayores volúmenes calculados no tienen un costo escalado completo.",
+      "correccion": "Conciliar componentes fijos, variables y escalonados, alcance de cada servicio, consumos, soporte y cargas de personal; no extrapolar el perfil cloud mínimo a cualquier volumen.",
+      "destino": "14.2 y respaldo de costos en H",
+      "estado": "Pendiente de costos completos"
+    },
+    {
+      "id": "S04",
+      "criterio": "Punto de equilibrio y metas de remuneración",
+      "paginas_impresas": [
+        129,
+        130,
+        400
+      ],
+      "paginas_pdf": [
+        147,
+        148,
+        418
+      ],
+      "diagnostico": "Parcial",
+      "evidencia_actual": "Los 728 y 2.328 pagos cubren metas y costos parciales al ticket elegido, pero no inversión, impuestos, caja ni todos los costos.",
+      "correccion": "Mantenerlos como umbrales operativos parciales. Aplicar margen de contribución por cobro, descontando costos variables propios; calcular aparte volumen que lleva VAN a cero.",
+      "destino": "14.6 y H.27",
+      "estado": "Alcance y fórmula precisados; cierre pendiente"
+    },
+    {
+      "id": "S05",
+      "criterio": "Inversión, costos hundidos y oportunidad",
+      "paginas_impresas": [
+        126,
+        259,
+        260,
+        262
+      ],
+      "paginas_pdf": [
+        144,
+        277,
+        278,
+        280
+      ],
+      "diagnostico": "Incompleto",
+      "evidencia_actual": "CLP 6.240.000 de desarrollo valorizado aparece en inversión histórica y desembolso; no está separado lo ya incurrido de lo que requiere el proyecto desde la fecha de decisión.",
+      "correccion": "Definir fecha de decisión y matriz por recurso: pagado irreversible, pago incremental futuro, aporte existente con uso alternativo y trabajo futuro valorizado; separar caja y costo de oportunidad sin borrar automáticamente todo trabajo.",
+      "destino": "14.2.1 y memoria de inversión en H",
+      "estado": "Pendiente de clasificación por recurso"
+    },
+    {
+      "id": "S06",
+      "criterio": "Capital de trabajo",
+      "paginas_impresas": [
+        262,
+        267,
+        268,
+        269
+      ],
+      "paginas_pdf": [
+        280,
+        285,
+        286,
+        287
+      ],
+      "diagnostico": "Incompleto",
+      "evidencia_actual": "El insumo usa CLP 2.700.000 como un mes de OPEX y otra hoja usa CLP 2.400.000; no hay calendario actualizado que sustente el monto.",
+      "correccion": "Aplicar déficit acumulado máximo a cobros y pagos mensuales; explicitar rezago de liquidación, IVA, remuneraciones y crecimiento; registrar aportes, variaciones y condiciones de recuperación.",
+      "destino": "14.2 y 14.3; memoria mensual en H",
+      "estado": "Método incorporado; cifras pendientes"
+    },
+    {
+      "id": "S07",
+      "criterio": "Impuesto y gastos no desembolsables",
+      "paginas_impresas": [
+        134,
+        293,
+        294,
+        297,
+        353
+      ],
+      "paginas_pdf": [
+        152,
+        311,
+        312,
+        315,
+        371
+      ],
+      "diagnostico": "Incompleto",
+      "evidencia_actual": "Se fija 27 % académico; el informe habla de pérdidas de arrastre, pero los impuestos históricos de años positivos son 27 % del EBT sin compensación visible.",
+      "correccion": "Conservar 27 %, conciliar base, pérdidas, depreciación y amortizaciones; aplicar ahorro fiscal cuando corresponde y no confundir amortización de deuda con gasto deducible.",
+      "destino": "14.3 y H.28",
+      "estado": "Criterio y hallazgo documentados; conciliación pendiente"
+    },
+    {
+      "id": "S08",
+      "criterio": "IVA y desfase de caja",
+      "paginas_impresas": [
+        134,
+        135,
+        269
+      ],
+      "paginas_pdf": [
+        152,
+        153,
+        287
+      ],
+      "diagnostico": "Parcial",
+      "evidencia_actual": "El IVA de la comisión se separa del ingreso neto, pero no se modela el calendario de créditos, débitos y desembolsos de caja.",
+      "correccion": "Preparar puente mensual entre ingreso neto y cobros/pagos con IVA; no considerar el IVA recaudado ni el arriendo de terceros como dinero libre para remuneraciones.",
+      "destino": "14.3 y memoria mensual en H",
+      "estado": "Pendiente de calendario"
+    },
+    {
+      "id": "S09",
+      "criterio": "Reinversión y reposición",
+      "paginas_impresas": [
+        259,
+        269
+      ],
+      "paginas_pdf": [
+        277,
+        287
+      ],
+      "diagnostico": "Incompleto",
+      "evidencia_actual": "Los equipos se deprecian durante tres años; el cuarto año no presenta depreciación ni una política de reposición documentada.",
+      "correccion": "Registrar vida útil, estado de equipos existentes y compras o reposiciones durante la operación; distinguir fin de depreciación de fin de utilidad técnica.",
+      "destino": "14.2 y calendario de inversiones en H",
+      "estado": "Pendiente de recursos y fechas"
+    },
+    {
+      "id": "S10",
+      "criterio": "Horizonte y valor de cierre",
+      "paginas_impresas": [
+        277,
+        278,
+        279,
+        280,
+        281,
+        282,
+        292,
+        295
+      ],
+      "paginas_pdf": [
+        295,
+        296,
+        297,
+        298,
+        299,
+        300,
+        310,
+        313
+      ],
+      "diagnostico": "Incompleto",
+      "evidencia_actual": "Se conserva Año 0 a Año 4 y no se calcula valor de desecho; las proyecciones de continuidad todavía no acreditan flujos posteriores.",
+      "correccion": "Justificar horizonte; presentar cierre por activos o por continuidad económica con respaldo. Evitar doble conteo entre valor económico y recuperación de capital de trabajo; no añadir año o perpetuidad para fabricar VAN positivo.",
+      "destino": "14.3 y memoria de cierre en H",
+      "estado": "Método y cautela incorporados; valoración pendiente"
+    },
+    {
+      "id": "S11",
+      "criterio": "Flujo financiado y servicio de deuda",
+      "paginas_impresas": [
+        5,
+        6,
+        297,
+        298,
+        353
+      ],
+      "paginas_pdf": [
+        23,
+        24,
+        315,
+        316,
+        371
+      ],
+      "diagnostico": "Parcial",
+      "evidencia_actual": "El crédito de CLP 3.720.000 se confirma como simulación y el cuadro de amortización termina con diferencias de redondeo.",
+      "correccion": "Conservar la tabla financiada de Anita, reconciliar cuota, interés, principal y saldo final; calcular flujo puro en el cuerpo y financiado como escenario claramente identificado; valorar capacidad de pago además de rentabilidad.",
+      "destino": "14.3 y cuadro de deuda en H",
+      "estado": "Clasificación aplicada; cuadros finales pendientes"
+    },
+    {
+      "id": "S12",
+      "criterio": "Tasa de descuento",
+      "paginas_impresas": [
+        343,
+        344,
+        345,
+        353,
+        354,
+        355,
+        356
+      ],
+      "paginas_pdf": [
+        361,
+        362,
+        363,
+        371,
+        372,
+        373,
+        374
+      ],
+      "diagnostico": "Parcial",
+      "evidencia_actual": "Anita confirma 12 %; existe justificación de adopción, pero no una estimación del costo de oportunidad según riesgo.",
+      "correccion": "Mantener 12 % como supuesto académico decidido, citar a Sapag como método y documentar límites; completar evidencia de uso alternativo o un método pertinente si se pretende afirmar costo de capital estimado.",
+      "destino": "14.4 y H.29",
+      "estado": "Referencia principal y límite aplicados"
+    },
+    {
+      "id": "S13",
+      "criterio": "Inflación y homogeneidad",
+      "paginas_impresas": [
+        335,
+        336
+      ],
+      "paginas_pdf": [
+        353,
+        354
+      ],
+      "diagnostico": "Parcial",
+      "evidencia_actual": "La preparación define 12 % nominal y toma 4 % de reajuste de costos del insumo, pero faltan políticas de precios y tipos de cambio por período.",
+      "correccion": "Expresar fecha base, moneda y carácter nominal; separar crecimiento de cantidad y precio, componentes CLP/USD y reajustes; evitar deflactar flujos y descontar otra vez por inflación.",
+      "destino": "14.1, 14.2, 14.4 y supuestos en H",
+      "estado": "Homogeneidad declarada; series pendientes"
+    },
+    {
+      "id": "S14",
+      "criterio": "VAN, TIR y recuperación",
+      "paginas_impresas": [
+        321,
+        322,
+        323,
+        329,
+        330
+      ],
+      "paginas_pdf": [
+        339,
+        340,
+        341,
+        347,
+        348
+      ],
+      "diagnostico": "Parcial",
+      "evidencia_actual": "Se verifica VAN y TIR del vector histórico; el flujo actualizado está incompleto y no tiene recuperación simple y descontada cerradas.",
+      "correccion": "Calcular indicadores sobre cada serie completa y etiquetada; VAN incluye Año 0 sin descuento, TIR se interpreta según signos y recuperación distingue nominal y descontada.",
+      "destino": "14.4 y memoria de indicadores en H",
+      "estado": "Método aplicado; indicadores nuevos pendientes"
+    },
+    {
+      "id": "S15",
+      "criterio": "Riesgo, incertidumbre y sensibilidad",
+      "paginas_impresas": [
+        371,
+        373,
+        375,
+        379,
+        380,
+        398,
+        399,
+        400,
+        406
+      ],
+      "paginas_pdf": [
+        389,
+        391,
+        393,
+        397,
+        398,
+        416,
+        417,
+        418,
+        424
+      ],
+      "diagnostico": "Incompleto",
+      "evidencia_actual": "El borrador describe escenarios y tiene cálculo de umbrales parciales; no cuantifica sensibilidad del VAN del modelo actualizado.",
+      "correccion": "Variar cobros, ticket, costos, rezagos y tasa desde un mismo caso base; calcular puntos de quiebre; no asignar probabilidades sin datos. Monte Carlo es opcional y depende de distribuciones justificadas.",
+      "destino": "14.5 y memoria de sensibilidad en H",
+      "estado": "Distinción y método incorporados; cálculo pendiente"
+    },
+    {
+      "id": "S16",
+      "criterio": "Trazabilidad y conclusión de viabilidad",
+      "paginas_impresas": [
+        29,
+        30,
+        68,
+        406
+      ],
+      "paginas_pdf": [
+        47,
+        48,
+        86,
+        424
+      ],
+      "diagnostico": "Parcial",
+      "evidencia_actual": "Se extraen todas las hojas y se identifican antecedentes, pero no existe una única cadena cerrada de supuestos, flujos y conclusión.",
+      "correccion": "Vincular cada parámetro a decisión o evidencia y cada partida al anexo; mantener formatos y alertas de la tesis hasta integrar material conciliado; concluir viabilidad solo con alcance y condiciones explícitos.",
+      "destino": "XIV y H completos",
+      "estado": "Matriz y plan creados; cierre financiero pendiente"
+    }
+  ]
+}

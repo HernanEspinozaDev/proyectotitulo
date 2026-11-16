@@ -30,5 +30,18 @@
   "tasa_impuesto_academica": "0.27",
   "tasa_descuento_anterior_sustituida": "0.25",
   "estado_tasa_10": "referencia histórica del informe recibido; no tasa principal",
-  "relacion_con_interes_prestamo": "ambas tasas son 12 % en el escenario, pero corresponden a variables distintas; el préstamo no deriva automáticamente el descuento"
+  "relacion_con_interes_prestamo": "ambas tasas son 12 % en el escenario, pero corresponden a variables distintas; el préstamo no deriva automáticamente el descuento",
+  "referencia_metodologica_principal": {
+    "obra": "Sapag Chain y Sapag Chain, Preparación y evaluación de proyectos, 5.ª ed., 2008",
+    "paginas_impresas": [
+      343,
+      344,
+      345,
+      353,
+      354,
+      355,
+      356
+    ],
+    "alcance": "fundamenta costo de oportunidad y correspondencia flujo-tasa; no prescribe ni estima 12 % para espaciGo"
+  }
 }

@@ -2,6 +2,8 @@
 
 Fecha de corte: 16 de noviembre de 2026.
 
+**Referencia principal vigente:** Sapag Chain y Sapag Chain (2008), quinta edición; contraste documentado en sapag2008_matriz_brechas.md. Las referencias externas anteriores se conservan como historial.
+
 **Criterio vigente:** descuento nominal anual del 12 % confirmado por Anita y ratificado por el propietario; impuesto académico fijo del 27 %. Las entradas posteriores documentan la evolución y quedan subordinadas a esta decisión final. El 10 % y el 25 % no son tasas base. Este análisis complementa el cálculo de remuneraciones sin modificar la tesis publicada ni los datos recibidos de Anita.
 
 ## Usuarios y cobros

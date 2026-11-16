@@ -7,3 +7,7 @@ La fundamentación es una decisión metodológica del ejercicio; el insumo no pr
 El VAN utiliza 12 % anual; la TIR se obtiene del flujo y luego se compara con esa exigencia. El formato del flujo de Anita se conserva como estructura rectora, con indicadores posteriores a la tabla completa.
 
 La selección corresponde a la última decisión del propietario y sustituye el 25 % previamente registrado. El impuesto académico permanece fijo en 27 %. El horizonte conserva Año 0 a Año 4; la mención a cinco años se entiende como ejemplo, sin alterar automáticamente el formato solicitado. El detalle metodológico, fuentes y fórmula se incorpora en H.29.
+
+## Referencia metodológica principal
+
+Sapag Chain y Sapag Chain (2008, pp. 343–345 y 353–356) vinculan el costo de capital con oportunidades de riesgo similar y distinguen deuda y patrimonio. El 12 % sigue siendo el supuesto elegido por Anita, no una tasa prescrita por Sapag. El método de indicadores se respalda en pp. 321–323 y la homogeneidad con inflación en pp. 335–336. El contraste íntegro y las tareas pendientes se documentan en sapag2008_matriz_brechas.md y sapag2008_plan_correcciones.md.

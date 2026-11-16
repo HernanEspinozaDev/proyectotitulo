@@ -1524,7 +1524,7 @@ El ejercicio adopta 12 % nominal anual como tasa de descuento, según confirmaci
 
 La elección se fundamenta metodológicamente en mantener la tasa de referencia del estudio económico aportado y comparar los escenarios bajo una rentabilidad mínima común. La tasa se aplica con periodicidad anual y en términos nominales, coherentes con flujos que incorporan los reajustes de precios y costos definidos por el modelo. El valor del VAN es la suma de cada flujo anual dividido por (1 + 0,12) elevado al número de período; el flujo del Año 0 no se descuenta.
 
-La fuente recibida no deriva el 12 % a partir de un modelo propio de costo de capital. La confirmación de la autora acredita el parámetro elegido y no una estimación empírica del riesgo. El marco metodológico exige distinguir el flujo para los socios del flujo del proyecto y usar una tasa apropiada al destinatario del flujo. El estudio mantiene esa distinción al separar inversión, costo de oportunidad y financiamiento simulado. No se inventan primas de riesgo para obtener el porcentaje adoptado.
+La fuente recibida no deriva el 12 % a partir de un modelo propio de costo de capital. La confirmación de la autora acredita el parámetro elegido y no una estimación empírica del riesgo. Sapag exige distinguir rentabilidad del proyecto, rentabilidad del inversionista y capacidad de pago, y relaciona el costo de capital con alternativas de riesgo comparable (Sapag Chain & Sapag Chain, 2008, pp. 5–6, 343–345, 353–356). El marco metodológico exige distinguir el flujo para los socios del flujo del proyecto y usar una tasa apropiada al destinatario del flujo. El estudio mantiene esa distinción al separar inversión, costo de oportunidad y financiamiento simulado. No se inventan primas de riesgo para obtener el porcentaje adoptado.
 
 La coincidencia entre descuento del 12 % e interés del préstamo del 12 % no implica que sean el mismo concepto. El primero es la rentabilidad mínima de referencia para evaluar; el segundo corresponde al servicio de una deuda simulada. La incertidumbre comercial y tecnológica se examina con sensibilidad de demanda, precio, gastos y tasa. Un descuento menor no reduce el riesgo operativo ni aumenta por sí mismo las ventas: modifica el valor presente asignado a los flujos esperados.
 
@@ -1532,4 +1532,51 @@ El crecimiento en años posteriores se incorpora mediante cobros, comisiones y c
 
 Sobre el vector original [−6.420.000, −1.278.818, 445.097, 2.104.062, 5.378.456], el VAN al 12 % es CLP −2.291.237,39 y la TIR es aproximadamente 0,85115 %. Son comprobaciones históricas y no resultados del flujo nuevo pendiente de cierre. Para un flujo convencional de inversión, el criterio compara VAN con cero y TIR con el 12 %; si no existe TIR interpretable o hay múltiples soluciones, se informa esa condición.
 
-Fuentes: informe de Anita, sección 5.3; confirmación de la autora comunicada por el propietario el 16 de noviembre de 2026; Aswath Damodaran, NYU Stern, Approaches to Valuation, https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/approach.html. La referencia externa respalda el método y la correspondencia entre flujos y tasas; no prescribe un 12 % para espaciGo.
+Fuentes: informe de Anita, sección 5.3; confirmación de la autora comunicada por el propietario el 16 de noviembre de 2026; Sapag Chain y Sapag Chain (2008, pp. 321–323, 335–336, 343–356). El libro respalda el método y la correspondencia entre flujos y tasas; no prescribe un 12 % para espaciGo. El ejemplo del libro que utiliza 12 % en la página 296 es un caso ilustrativo, no una tasa general obligatoria.
+
+## H.30. Aplicación del método de Sapag al formato económico
+
+### H.30.1. Fuente y alcance
+
+La preparación utiliza como referencia principal Sapag Chain y Sapag Chain (2008), quinta edición. Las páginas citadas corresponden a la numeración impresa; en la copia local la página PDF equivale a la impresa más 18. El método se adapta a la intermediación digital y no impone partidas industriales que no correspondan al proyecto. La evaluación privada se concentra en los flujos de inversión, operación y financiamiento; no se presenta como evaluación social completa.
+
+### H.30.2. Correspondencia del flujo
+
+**Tabla H.30.1**
+*Correspondencia entre la estructura de Sapag y el flujo de Anita*
+
+| ID | Bloque metodológico | Aplicación al formato recibido | Respaldo impreso |
+|---|---|---|---|
+| 1 | Ingresos y egresos afectos | Comisiones y costos propios; separar IVA y arriendos de terceros. | pp. 293–294 |
+| 2 | Gastos no desembolsables | Depreciación y amortización: efecto fiscal y ajuste de caja. | pp. 293–297 |
+| 3 | Impuesto y resultado | 27 % académico; conciliar base y pérdidas. | pp. 293–297 |
+| 4 | Ajustes de caja | Reincorporar gastos sin desembolso; evitar duplicidades. | pp. 294–297 |
+| 5 | Inversión y capital de trabajo | Aportes iniciales, reinversión y capital de trabajo. | pp. 259–269, 295 |
+| 6 | Cierre del horizonte | Valor de desecho y recuperación sin duplicaciones. | pp. 277–282, 295 |
+| 7 | Flujo del inversionista | Préstamo, interés antes de impuesto y principal después. | pp. 297–298 |
+
+*Nota.* Elaboración propia a partir de Sapag Chain y Sapag Chain (2008). La tabla relaciona conceptos y conserva la secuencia del flujo de Anita. Las cifras originales se mantienen como antecedentes; la equivalencia metodológica no certifica sus supuestos ni la viabilidad del escenario actualizado.
+
+### H.30.3. Inversión y costos pertinentes
+
+La memoria de recursos distingue desembolso incremental futuro, pago irreversible ya comprometido y costo de oportunidad con uso alternativo. No se elimina todo trabajo valorizado por no ser efectivo ni se agrega a caja como si fuera una compra pagada. La clasificación se realiza a la fecha de decisión y se vincula con cada recurso. Se concilian equipos aportados, compras, depreciación y reposición durante la operación (Sapag Chain & Sapag Chain, 2008, pp. 126, 259–262, 269).
+
+### H.30.4. Calendario y capital de trabajo
+
+El método propuesto de déficit acumulado máximo calcula cobros y pagos mensuales, antes de aportes de financiamiento, y determina la máxima necesidad de recursos acumulada. Su aplicación requiere identificar rezagos, estacionalidad y el ciclo de liquidación. La inversión y los gastos de preparación se registran por separado para no financiarlos dos veces. Los arriendos de terceros y el IVA no se convierten en caja libre del negocio. La falta persistente de ingresos para cubrir operación también debe explicarse como necesidad de financiamiento de pérdidas (Sapag Chain & Sapag Chain, 2008, pp. 134–135, 262, 267–269).
+
+### H.30.5. Horizonte y valor de cierre
+
+El caso base conserva cuatro años de operación y un Año 0 de preparación. La evaluación debe resolver el valor remanente de activos o de continuidad y justificar sus datos. Si se usa un método económico que incorpora el negocio funcionando, no se añade nuevamente la recuperación de capital de trabajo. El valor patrimonial de cierre se distingue del efectivo disponible. Se puede estudiar un quinto año mediante un escenario completo, sin prolongar ingresos aisladamente ni introducir una perpetuidad para cambiar el signo del VAN (Sapag Chain & Sapag Chain, 2008, pp. 277–282, 292, 295).
+
+### H.30.6. Indicadores y sensibilidad
+
+El VAN se calcula sobre una serie identificada, con Año 0 sin descuento, y la TIR se interpreta según los signos del flujo. Se distingue recuperación simple de descontada. El umbral operativo de la sección 14.6 no equivale al volumen que produce VAN igual a cero. La sensibilidad modifica variables desde una base única y revela los puntos de quiebre; las probabilidades y distribuciones no se inventan cuando solo se dispone de escenarios ilustrativos (Sapag Chain & Sapag Chain, 2008, pp. 129–130, 321–323, 329–330, 371, 398–400, 406).
+
+### H.30.7. Condiciones de cierre de la preparación
+
+El escenario actualizado requiere completar demanda mensual, costos, inversión pertinente, caja con IVA, tratamiento de pérdidas con impuesto académico, capital de trabajo, valor de cierre y deuda simulada. Los flujos puro y financiado se presentan completos en el cuerpo cuando se concilien; el anexo respalda los supuestos y cálculos. Las tareas abiertas no se identifican como resultados financieros obtenidos. El 12 % de descuento y el 27 % de impuesto continúan como decisiones del ejercicio, sin atribuir su prescripción al libro.
+
+### H.30.8. Referencia metodológica
+
+Sapag Chain, N., & Sapag Chain, R. (2008). Preparación y evaluación de proyectos (5.ª ed.). McGraw-Hill Interamericana.
