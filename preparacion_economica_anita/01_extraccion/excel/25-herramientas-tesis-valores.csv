@@ -1,0 +1,10 @@
+﻿Tecnología / servicio,Uso en tesis,Costo de licencia asumido en modelo,Nota de validación
+Go,Backend y adaptadores,0,Sin licencia pagada identificada
+Next.js,Frontend y BFF,0,Sin licencia pagada identificada
+PostgreSQL y PostGIS,Persistencia y geolocalización,0,Infraestructura/operación se cotiza aparte
+OpenAPI,Contrato de API,0,Sin licencia pagada identificada
+Docker,Contenedores,0,Revisar condiciones según uso y producto
+GitHub o equivalente,Control de versiones,0,Plan gratuito provisional; verificar necesidades del equipo
+Cloud Build,CI/CD,,Consumo potencial dentro de Cloud; no sumarlo como licencia fija sin presupuesto
+JMeter/k6 y OWASP ZAP,Pruebas,0,No se identificó plan pagado; verificar modalidad
+Soporte externo,Mantenimiento contratado,,No identificado en tesis; no presupuestar sin alcance/cotización

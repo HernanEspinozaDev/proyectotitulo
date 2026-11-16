@@ -1,0 +1,19 @@
+﻿Balance Maquinaria (Equipamiento Informático EspaciGo),,,,,,
+,,,,,,
+Detalle,Cantidad,Costo Unitario,Costo Total,Vida Útil,Valor residual Total,Depreciación Total Anual
+Notebook (Desarrollo y Arquitectura),3,800000,2400000,3 años,300000,700000
+Smartphone (Pruebas UI/UX y QA),1,300000,300000,3 años,60000,80000
+Total,,1100000,2700000,,360000,780000
+,,,,,,
+,,,,,,
+"Detalle y Cantidad: Se asigna un Notebook estándar de desarrollo a cada uno de los 3 integrantes del equipo.
+ Se suma 1 Smartphone de prueba, fundamental para que tú (rol de UI/UX) valides el diseño responsivo de la plataforma.",,,,,,
+,,,,,,
+"Vida Útil: En Chile, el Servicio de Impuestos Internos (SII) establece que
+ los equipos computacionales tienen una vida útil normal de 3 años.",,,,,,
+,,,,,,
+"Costo Unitario y Valor Residual: Como el informe del proyecto no declara compra de hardware físico, se utilizan valores de mercado estimados (Notebooks a $800 mil y Smartphone a $300 mil).
+ El valor residual es el precio estimado de reventa de esos equipos usados al pasar los 3 años.",,,,,,
+,,,,,,
+"Depreciación Total Anual: Corresponde a la pérdida de valor anual del equipo, 
+que contablemente te sirve para rebajar impuestos. Se calcula con la fórmula: (Costo Total - Valor residual Total) / Vida Útil.",,,,,,

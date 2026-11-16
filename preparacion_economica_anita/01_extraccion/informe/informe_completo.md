@@ -1,0 +1,331 @@
+# Transcripción íntegra del informe económico recibido
+
+Se conserva el orden del documento fuente. Las imágenes se extraen para identificar su correspondencia con las hojas. La propuesta de tesis utiliza tablas editables.
+
+ESTUDIO ECONÓMICO Y FINANCIERO: PROYECTO ESPACIGO
+
+Evaluación de Prefactibilidad y Modelamiento Financiero de Plataforma SaaS Marketplace B2B2C para el Arriendo de Espacios Comerciales
+
+NOMBRE: Erick Silva, Hernán Espinoza, Anita Marchant
+
+CARRERA: Ingeniería en Informática
+
+ASIGNATURA: Evaluación de Proyectos
+
+PROFESOR: Teresa Jesús Tapia Soto
+
+FECHA: 15 de noviembre de 2026
+
+Introducción
+
+El presente informe desarrolla de manera integral la evaluación económica y financiera del proyecto tecnológico EspaciGo, una plataforma digital concebida bajo un modelo de negocio Software as a Service (SaaS) y Marketplace B2B2C (Business-to-Business-to-Consumer). La solución tiene por objetivo conectar de forma ágil, segura y digitalizada a propietarios o administradores de espacios comerciales subutilizados con emprendedores, marcas y empresas que requieren arrendar ubicaciones físicas por periodos flexibles.
+
+Dado que el proyecto es formulado por un equipo de tres estudiantes de Ingeniería en Informática en etapa de emprendimiento temprano, el estudio adopta un enfoque realista de restricción de capital (bootstrapping). En consecuencia, cada decisión financiera, tecnológica y operativa documentada en este informe distingue rigurosamente entre lo técnicamente deseable y lo económicamente viable en el mercado chileno. A lo largo de los cinco capítulos siguientes, se fundamentan los supuestos macroeconómicos utilizados, la estructura de inversión inicial y valorización del desarrollo, el esquema de financiamiento mixto, la proyección de costos operativos (OPEX) y, finalmente, el Flujo Neto de Caja a un horizonte de cuatro años, demostrando la sostenibilidad y capacidad de generación de valor del proyecto.
+
+CAPÍTULO 1: PARÁMETROS MACROECONÓMICOS Y SUPUESTOS BASE
+
+La formulación financiera de EspaciGo se sustenta sobre un conjunto de variables macroeconómicas y supuestos técnicos alineados con las condiciones vigentes del mercado chileno. Establecer estos parámetros de forma explícita permite aislar el análisis de distorsiones nominales y someter el modelo de negocio a condiciones realistas de operación.
+
+Proyección de Inflación y Mecanismo de Reajuste (IPC)
+
+Para proyectar el comportamiento de los egresos operativos a lo largo de los cuatro años de evaluación, se determinó aplicar un factor de reajuste anual del 4,0% basado en la variación del Índice de Precios al Consumidor (IPC). Esta decisión responde a la necesidad de proteger el margen operacional del proyecto frente a la pérdida del poder adquisitivo de la moneda y el encarecimiento progresivo de servicios y remuneraciones en Chile.
+
+En términos de alternativas evaluadas, se consideró trabajar el flujo en moneda constante (sin inflación, asumiendo que ingresos y costos crecen a la misma tasa) o utilizar la meta puntual del Banco Central de Chile (3,0% anual). Se descartó el modelo sin inflación debido a que, en emprendimientos tecnológicos tempranos, los contratos con proveedores externos y los ajustes salariales suelen indexarse al IPC antes de que la plataforma logre traspasar dichas alzas a sus tarifas de comisión. Asimismo, se optó por el 4,0% (límite superior del rango de tolerancia del Banco Central) por sobre el 3,0% para incorporar un margen de seguridad conservador ante eventuales presiones inflacionarias. La principal ventaja de este criterio es evitar la subestimación de los costos fijos futuros; su desventaja radica en castigar levemente la rentabilidad proyectada en los años 2 al 4. Si la inflación real superara este 4%, el proyecto enfrentaría una compresión de liquidez que obligaría a reajustar la comisión (take rate) cobrada a los arrendadores.
+
+![Imagen original 1](imagenes/image2.png)
+
+Figura 1. Parámetros macroeconómicos y cálculo de actualización por IPC. Fuente: Elaboración propia a partir de datos del INE y Banco Central de Chile.
+
+1.2 Horizonte de Evaluación y Tipo de Cambio (USD/CLP)
+
+El estudio financiero se estructuró bajo un horizonte de evaluación de 4 años (Año 0 de inversión más cuatro periodos anuales de operación). Se evaluaron horizontes tradicionales de 5 a 10 años utilizados en proyectos de infraestructura física, pero fueron descartados porque en la industria del software y los marketplaces digitales los ciclos de obsolescencia tecnológica y maduración comercial son acelerados; cuatro años permiten capturar tanto la fase de lanzamiento y déficit inicial como la consolidación operativa del negocio.
+
+Por otra parte, dado que los servicios críticos de infraestructura tecnológica de EspaciGo se contratan en dólares estadounidenses, se fijó un tipo de cambio referencial de $972 CLP/USD para la conversión de costos a moneda nacional. Al depender de proveedores internacionales, el emprendimiento queda expuesto al riesgo cambiario: una depreciación del peso chileno frente al dólar incrementaría directamente el costo mensual de operación en la nube, aunque el impacto global se mantiene acotado dado que el gasto cloud representa una fracción menor frente al costo de recursos humanos.
+
+![Imagen original 2](imagenes/image3.png)
+
+Figura 2. Conversión de costos tecnológicos internacionales (USD a CLP). Fuente: Elaboración propia.
+
+1.3 Tasa de Interés Referencial y Criterio de Indexación de Costos
+
+Para evaluar la viabilidad del apalancamiento financiero en el Año 0, se estableció una tasa de interés comercial referencial del 12,0% anual, acorde con las condiciones del mercado bancario chileno para créditos comerciales orientados a pequeñas empresas y emprendimientos formalizados con garantía estatal (como FOGAPE). Se descartaron tasas de créditos de consumo personales (que superan el 20% anual en Chile) por encarecer innecesariamente el costo de capital y comprometer el patrimonio personal de los estudiantes.
+
+Finalmente, respecto al criterio de evolución de los egresos, se aplicó el reajuste del 4% anual de forma homogénea sobre las partidas de costos fijos operativos y gastos generales, mientras que los costos variables asociados a comisiones bancarias evolucionan estrictamente en función del volumen de transacciones proyectado. Esta diferenciación evita distorsiones contables entre gastos estructurales y costos directamente vinculados a la escala comercial de la plataforma.
+
+![Imagen original 3](imagenes/image4.png)
+
+Figura 3. Análisis comparativo de tasas de financiamiento comercial en Chile. Fuente: Elaboración propia.
+
+CAPÍTULO 2: ESTUDIO DE INVERSIONES INICIALES Y MANO DE OBRA
+
+El estudio de inversiones iniciales cuantifica la totalidad de los recursos tangibles, intangibles y financieros requeridos en el Año 0 para diseñar, construir y poner en marcha la plataforma EspaciGo antes de generar su primera transacción comercial. Dado que el proyecto es formulado por tres estudiantes de Ingeniería en Informática con restricción de capital, la estructura de inversión distingue rigurosamente entre las salidas efectivas de caja (desembolso real) y los recursos aportados mediante trabajo especializado (valorización económica).
+
+2.1 Estructura del Balance de Inversión Inicial (Año 0)
+
+Para habilitar la operación del marketplace B2B2C, se definió una inversión inicial total de $10.140.000 CLP, estructurada en tres partidas fundamentales:
+
+Activos Intangibles (Desarrollo del Software): Valorizados en $6.240.000 CLP (61,54% del total), correspondientes al esfuerzo de ingeniería necesario para construir el Producto Mínimo Viable (MVP) funcional.
+
+Gastos Pre-operativos y Preparación: Cuantificados en $1.200.000 CLP (11,83% del total), destinados a la formalización inicial, habilitación tributaria y campaña de lanzamiento temprano para captar los primeros arrendadores de espacios.
+
+Capital de Trabajo Inicial: Fijado en $2.700.000 CLP (26,63% del total), equivalente a un mes de operación base (OPEX) para cubrir desfases iniciales de liquidez.
+
+En el análisis de alternativas, se evaluó subcontratar el desarrollo del software a una agencia o software factory externa en Chile, opción descartada porque el desarrollo a medida de un marketplace con integración de pasarelas de pago y firma electrónica supera fácilmente los $15.000.000 a $20.000.000 CLP, haciendo inviable el proyecto para un equipo estudiantil. También se evaluó omitir el valor del desarrollo en el Año 0 asumiendo costo cero por ser trabajo propio; sin embargo, se descartó porque ocultar el costo del desarrollo distorsiona la rentabilidad real del proyecto y subestima el patrimonio intelectual aportado por los socios. La ventaja de esta estructura es que transparenta el costo real de crear el activo tecnológico sin exigir desembolso de caja por desarrollo; su limitación es que exige un compromiso estricto de horas por parte de los fundadores para no retrasar la salida al mercado.
+
+![Imagen original 4](imagenes/image5.png)
+
+Figura 4. Balance de Inversión Inicial (Año 0) del proyecto EspaciGo. Fuente: Elaboración propia.
+
+2.2 Valorización de la Mano de Obra y Asignación de Roles 
+
+Para construir la plataforma en el Año 0, se planificó un periodo de desarrollo de 4 meses (16 semanas) con una dedicación parcial de 20 horas semanales por cada uno de los tres integrantes (320 horas por persona, totalizando 960 horas de ingeniería). Se fijó una remuneración bruta referencial de $520.000 CLP mensuales por integrante (equivalente a $6.500 CLP por hora en jornada part-time), totalizando $2.080.000 CLP por socio y $6.240.000 CLP en total.
+
+Esta valorización responde al concepto económico de costo de oportunidad: representa el ingreso mínimo que un estudiante avanzado o técnico en informática en Chile deja de percibir en prácticas remuneradas o trabajos part-time de soporte/desarrollo para dedicar esas horas a construir EspaciGo. Para maximizar la eficiencia técnica sin contratar personal externo, se asignaron tres roles complementarios:
+
+Gerencia / Arquitecto Cloud: Responsable del diseño de la infraestructura en Google Cloud, seguridad, despliegue continuo y coordinación comercial.
+
+Gestión de Personas y Análisis: Encargado del levantamiento de requerimientos funcionales, aseguramiento de calidad (QA), pruebas funcionales y gestión operativa.
+
+Desarrollo y Arquitectura / UI-UX: Responsable de la programación full-stack, diseño de interfaz de usuario e integración de APIs externas.
+
+Se descartó incorporar un cuarto integrante o contratar diseñadores y especialistas de marketing durante la etapa de desarrollo para evitar diluir la participación societaria y mantener el equipo ágil. Si el desarrollo sufriera un retraso de un mes adicional (pasando de 4 a 5 meses), el costo de oportunidad aumentaría en $1.560.000 CLP y se postergaría el inicio de ingresos, tensionando la liquidez del Año 1.
+
+![Imagen original 5](imagenes/image6.png)
+
+Figura 5. Desglose de horas, roles y valorización de la Mano de Obra en etapa de desarrollo. Fuente: Elaboración propia.
+
+2.3 Equipamiento Informático (Maquinaria), Herramientas y Hardware
+
+En concordancia con la naturaleza de un emprendimiento tecnológico universitario, se evaluó el requerimiento de activos físicos y licencias de desarrollo en tres dimensiones:
+
+Maquinaria (Equipos Informáticos): El proyecto contempla el uso de equipamiento computacional de desarrollo y un dispositivo móvil para pruebas de responsividad y experiencia de usuario, valorizados en la hoja de respaldo y sujetos a depreciación lineal en un horizonte de 3 años ($780.000 CLP anuales según la vida útil tributaria referencial del SII para equipos computacionales). Dado que los integrantes utilizan sus propios equipos personales aportados al proyecto, no se genera un desembolso efectivo adicional de caja en el Año 0 por compra de computadores nuevos, evitando descapitalizar el emprendimiento antes de validar el mercado.
+
+![Imagen original 6](imagenes/image7.png)
+
+Figura 6. Respaldo de activos computacionales (Maquinaria). Fuente: Elaboración propia.
+
+Hardware de Infraestructura: Se estableció en $0 CLP en inversión física. Se evaluó adquirir servidores propios (on-premise) para alojar la aplicación y la base de datos, pero se descartó inmediatamente por el alto costo inicial de adquisición, gastos de climatización, redundancia eléctrica y mantenimiento físico. En su lugar, toda la capacidad de cómputo y almacenamiento se traslada a la nube bajo esquema de gasto operativo (OPEX).
+
+![Imagen original 7](imagenes/image8.png)
+
+Figura 7. Respaldo de activos computacionales (Hardware). Fuente: Elaboración propia.
+
+Herramientas y Licencias de Software: Se presupuestó en $0 CLP para la etapa de desarrollo. Se descartó el pago de licencias propietarias costosas (como entornos corporativos de pago o motores de bases de datos licenciados) en favor de un ecosistema Open Source y capas gratuitas o estudiantiles (Visual Studio Code, GitHub, Python/Django, React y PostgreSQL), garantizando cero deudas técnicas por licenciamiento sin sacrificar estándares profesionales de seguridad y escalabilidad.
+
+![Imagen original 8](imagenes/image9.png)
+
+Figura 8 Respaldo de activos computacionales (Herramientas). Fuente: Elaboración propia.
+
+2.4 Justificación del Capital de Trabajo Inicial
+
+El capital de trabajo de $2.700.000 CLP corresponde a los recursos líquidos necesarios para financiar el desfase temporal entre el pago de los primeros compromisos operativos (servidores, difusión inicial y servicios básicos) y la recaudación efectiva de las comisiones por arriendo de espacios. Se calculó bajo el criterio de cubrir un mes completo de operación base, resguardando la continuidad operativa durante las primeras semanas de marcha blanca. Como riesgo financiero, dado que el flujo neto proyectado del Año 1 presenta un déficit acumulado producto de la curva de adopción inicial, este monto actúa como respaldo de arranque, asumiendo que los socios cubrirán de forma controlada cualquier brecha mensual mediante el aporte de capital propio remanente del financiamiento.
+
+![Imagen original 9](imagenes/image10.png)
+
+Figura 9. Determinación del Capital de Trabajo inicial del proyecto. Fuente: Elaboración propia.
+
+CAPÍTULO 3: FINANCIAMIENTO DE LA INVERSIÓN
+
+Una vez cuantificados los requerimientos de inversión inicial en el Año 0 ($10.140.000 CLP totales), resulta indispensable definir la estructura de capital mediante la cual se financiarán dichas partidas. Dado que el equipo fundador está compuesto por tres estudiantes de Ingeniería en Informática con liquidez limitada, el modelo financiero adopta un esquema de financiamiento mixto, combinando el aporte propio (tanto en capital valorizado como en efectivo) con apalancamiento externo a través de deuda comercial.
+
+3.1 Evaluación de Alternativas de Financiamiento en el Mercado Chileno
+
+Para cubrir las necesidades de liquidez inicial sin comprometer la propiedad intelectual ni la autonomía de gestión del proyecto, se evaluaron cuatro alternativas reales disponibles en el ecosistema emprendedor y financiero de Chile:
+
+Subsidios Públicos No Reembolsables (CORFO — Semilla Inicia / SERCOTEC — Capital Semilla Emprende): Se analizó la postulación a fondos concursables estatales que cofinancian hasta un 75% de proyectos innovadores (aportando entre $3.500.000 y $15.000.000 CLP). Si bien su principal ventaja es que representan capital a costo financiero cero (no requieren devolución ni generan intereses), fueron descartados como fuente base del flujo de caja por dos razones: primero, su adjudicación es altamente competitiva y no está garantizada, por lo que asumir un subsidio en una evaluación financiera violaría el principio de prudencia; segundo, los tiempos de postulación, evaluación y rendición administrativa retrasarían la salida al mercado (Time-to-Market) de EspaciGo. No obstante, se mantienen como una opción complementaria (Plan B) una vez constituida la sociedad.
+
+Crédito de Consumo Personal: Se evaluó que los integrantes solicitaran créditos de consumo a título personal en la banca comercial. Esta opción fue descartada porque las tasas de interés de consumo en Chile (Tasa Máxima Convencional y tasas de mercado cercanas al 18%–24% anual) encarecen excesivamente el costo del capital y exponen directamente el patrimonio personal de los estudiantes ante eventuales atrasos en la tracción comercial.
+
+Inversión Ángel o Capital de Riesgo (Venture Capital): Se descartó acudir a inversionistas privados en la etapa de Año 0 debido a que, sin métricas de tracción reales ni usuarios activos, la valorización de la empresa sería muy baja, obligando a los fundadores a ceder un porcentaje excesivo de participación societaria (equity) antes de validar el producto.
+
+Crédito Comercial PYME con Garantía Estatal (FOGAPE / FOGAIN): Se optó por modelar un crédito comercial bancario (referenciado en condiciones de BancoEstado o Banca PYME) respaldado por fondos de garantía estatal. Esta alternativa permite obtener tasas preferenciales cercanas al 12,0% anual y separa el riesgo jurídico de la persona jurídica (SpA) respecto de los socios.
+
+3.2 Estructura de Apalancamiento (50% Deuda) y Realismo Bancario
+
+En el modelo financiero se estableció un préstamo comercial de $3.720.000 CLP, monto equivalente al 50% de la suma entre el desarrollo valorizado y los gastos de preparación ($6.240.000 + $1.200.000 = $7.440.000 CLP), aportando los socios la diferencia mediante su trabajo valorizado y el remanente de liquidez inicial.
+
+Desde una perspectiva crítica y realista del sistema bancario chileno, es necesario precisar una condición fundamental: los bancos comerciales y los programas con garantía FOGAPE no otorgan créditos tomando como respaldo activos intangibles o trabajo valorizado (sweat equity), sino que evalúan la formalización tributaria (inicio de actividades en Primera Categoría ante el SII), la proyección de flujos futuros y la capacidad de respaldo de los avales. Por lo tanto, este crédito se presenta en el estudio como un supuesto de evaluación financiera (no como un crédito preaprobado), destinado estrictamente a financiar desembolsos reales de puesta en marcha, lanzamiento y capital de trabajo operativo.
+
+La elección de un 50% de apalancamiento responde a un equilibrio financiero: un porcentaje superior (por ejemplo, 80% o 100%) incrementaría peligrosamente la carga de cuotas fijas durante el Año 1 —cuando la empresa aún presenta flujo negativo—, elevando el riesgo de insolvencia; por el contrario, financiar el 100% con recursos propios exigiría a los estudiantes desembolsar $3.720.000 CLP adicionales en efectivo al inicio y privaría al proyecto del escudo fiscal (el ahorro tributario generado al deducir los intereses del préstamo como gasto necesario para producir la renta).
+
+![Imagen original 10](imagenes/image11.png)
+
+Figura 10. Estructura de financiamiento mixto y determinación del capital financiado. Fuente: Elaboración propia.
+
+3.3 Cuadro de Amortización de la Deuda (Sistema Francés)
+
+El servicio del préstamo de $3.720.000 CLP se modeló bajo el Sistema de Amortización Francés (cuota fija), a un plazo de 3 años y una tasa de interés efectiva anual del 12,0%, lo que determina una cuota anual constante de $1.548.818 CLP.
+
+En el análisis metodológico, se comparó el Sistema Francés frente al Sistema Alemán (amortización constante) y al Sistema Americano (pago de intereses periódicos y capital al vencimiento):
+
+Se descartó el Sistema Alemán porque exige cuotas mucho más elevadas en el primer año (al amortizar un tercio fijo del capital desde el inicio más el interés sobre el total de la deuda), lo que drenaría la caja de EspaciGo precisamente en su periodo más vulnerable.
+
+Se descartó el Sistema Americano porque, aunque alivia la caja en los primeros dos años, genera una obligación de pago íntegro del capital ($3.720.000 CLP) al finalizar el Año 3, creando un riesgo de refinanciamiento innecesario.
+
+Se seleccionó el Sistema Francés porque ofrece predictibilidad absoluta en la tesorería: al conocer de antemano una cuota anual invariable, el equipo puede planificar el presupuesto mensual sin sobresaltos. Además, como en los primeros años la proporción de intereses dentro de la cuota es mayor ($446.400 CLP en el Año 1 y $314.110 CLP en el Año 2), maximiza el beneficio del escudo fiscal en la etapa temprana y deja la empresa completamente libre de deuda bancaria al finalizar el Año 3.
+
+Como riesgo financiero, si las condiciones del mercado crediticio al momento de solicitar el financiamiento elevaran la tasa de interés desde el 12% al 16% anual, la cuota fija subiría a $1.656.364 CLP, incrementando el costo financiero total en $322.638 CLP a lo largo de los tres años y exigiendo una mayor disciplina en el control de gastos operativos.
+
+![Imagen original 11](imagenes/image12.png)
+
+Figura 11. Cuadro de amortización del crédito comercial bajo el Método Francés (3 años, 12% anual). Fuente: Elaboración propia.
+
+CAPÍTULO 4: COSTOS Y GASTOS OPERATIVOS (OPEX)
+
+El estudio de los costos y gastos operativos (OPEX) cuantifica los egresos recurrentes necesarios para mantener en funcionamiento, administrar, respaldar y comercializar la plataforma EspaciGo durante sus cuatro años de operación. En coherencia con la condición de emprendimiento estudiantil con recursos limitados, la estructura operativa se diseñó bajo principios de austeridad en costos fijos (lean startup) y variabilización del gasto, evitando compromisos estructurales rígidos (como arriendo de oficinas físicas o contratos de jornada completa) antes de consolidar una masa crítica de transacciones.
+
+4.1 Remuneraciones Operativas y Política de Bootstrapping (Balance Personal)
+
+Para asegurar la continuidad técnica, el mantenimiento evolutivo y el soporte comercial de la plataforma, se estructuró una nómina operativa integrada por los tres socios fundadores bajo modalidad Part-Time (20 horas semanales cada uno), asignando funciones críticas claramente delimitadas:
+
+Administración Cloud y DevOps: Gestión de servidores, despliegue continuo, monitoreo de disponibilidad y seguridad informática.
+
+Mantenimiento y Desarrollo Evolutivo: Corrección de incidencias, optimización de rendimiento y desarrollo de nuevas funcionalidades del marketplace.
+
+Soporte y Atención de Usuarios: Incorporación (onboarding) de propietarios de espacios comerciales, resolución de disputas y asistencia a arrendatarios.
+
+Se fijó una remuneración bruta mensual de $400.000 CLP por integrante ($4.800.000 CLP anuales individuales), totalizando $1.200.000 CLP mensuales y $14.400.000 CLP anuales en el Año 1, cifra que se reajusta acumulativamente en un 4,0% anual por IPC (alcanzando $14.976.000 CLP en el Año 2, $15.575.040 CLP en el Año 3 y $16.198.041 CLP en el Año 4).
+
+En el análisis de alternativas, se evaluó contratar personal externo especializado o asignar sueldos de mercado de jornada completa para ingenieros informáticos en Chile (que superan $1.200.000 a $1.500.000 CLP mensuales por profesional). Dicha opción fue descartada porque elevaría la nómina anual por sobre los $43.000.000 CLP, provocando la quiebra inmediata del proyecto en el Año 1. La decisión seleccionada responde a una estrategia deliberada de bootstrapping: los fundadores sacrifican retribución salarial de mercado en el corto plazo para preservar la liquidez de la empresa, compaginando sus estudios universitarios o actividades complementarias con la operación del negocio. Como riesgo operacional, mantener jornadas parciales limita la velocidad de respuesta comercial si la demanda crece abruptamente; por ello, se establece como umbral de decisión que, al superar el punto de equilibrio y consolidar el flujo positivo a partir del Año 3, el equipo podrá transicionar progresivamente hacia jornadas completas.
+
+![Imagen original 12](imagenes/image13.png)
+
+Figura 12. Balance de personal operativo y proyección salarial indexada al IPC. Fuente: Elaboración propia.
+
+4.2 Infraestructura Cloud y Servicios Tecnológicos (Insumos y Dominio)
+
+Para soportar la operación digital del marketplace sin invertir en servidores físicos propios, se seleccionaron servicios tecnológicos bajo modalidad de suscripción y pago por consumo (Pay-as-you-go):
+
+Infraestructura Cloud (Google Cloud Platform — GCP): Se presupuestó un gasto base de $150.000 CLP mensuales ($1.800.000 CLP anuales en el Año 1, indexados al 4% anual) para alojar la aplicación web, bases de datos relacionales y almacenamiento de imágenes de espacios comerciales. Se evaluaron alternativas como Amazon Web Services (AWS), Microsoft Azure y proveedores tradicionales de hosting compartido o VPS en Chile. Se descartó el hosting compartido por su baja tolerancia a picos de tráfico y limitaciones de seguridad; respecto a AWS y Azure, ambos ofrecen capacidades equivalentes, pero se seleccionó GCP por su familiaridad técnica previa del equipo, su integración nativa con contenedores y despliegue ágil (Cloud Run), y la disponibilidad de créditos iniciales para emprendimientos. La ventaja financiera radica en que el costo escala linealmente según el consumo real; su riesgo es que un aumento inesperado de tráfico o consultas no optimizadas a la base de datos eleve la facturación en dólares, lo cual se mitiga configurando alertas de presupuesto y límites de autoescalado.
+
+Firma Electrónica y Formalización Contractual (FirmaVirtual): Se asignó un presupuesto operativo de $50.000 CLP mensuales ($600.000 CLP anuales base) para la emisión y firma electrónica de contratos de arriendo de espacios comerciales. En el contexto normativo chileno, la Ley N° 19.799 sobre Documentos Electrónicos y Firma Electrónica otorga plena validez jurídica a los contratos celebrados por medios digitales. Para arriendos comerciales de corto y mediano plazo, una Firma Electrónica Simple (FES) con verificación de identidad resulta suficiente y ágil, reservando la Firma Electrónica Avanzada (FEA) solo para casos específicos que lo exijan. Se evaluó gestionar contratos en papel de forma presencial (descartado por fricción logística y lentitud) y contratar proveedores internacionales como DocuSign (descartado por su alto costo en dólares por sobre y menor adaptación a la validación de cédula de identidad chilena). FirmaVirtual ofrece integración vía API, tarifas locales competitivas y respaldo legal en Chile.
+
+Dominio Web (.cl) y Útiles Operativos: Se incluye la renovación anual del dominio en NIC Chile ($10.950 CLP base) para asegurar identidad local y confianza en el mercado nacional, junto con un fondo menor de $10.000 CLP mensuales ($120.000 CLP anuales) para papelería e insumos digitales administrativos.
+
+![Imagen original 13](imagenes/image14.png)
+
+Figura 13. Desglose de insumos tecnológicos, infraestructura Cloud y servicios digitales. Fuente: Elaboración propia.
+
+4.3 Pasarela de Pagos y Costos Variables Transaccionales (Mercado Pago)
+
+Dado que EspaciGo intermedia pagos entre arrendatarios y propietarios de espacios comerciales, requiere una pasarela de pagos integrada que procese tarjetas de crédito, débito y transferencias electrónicas en Chile. Se seleccionó Mercado Pago por su facilidad de integración técnica (SDKs y APIs documentadas), alta tasa de aprobación, confianza del consumidor chileno y ausencia de costos fijos mensuales de mantención (cobrando únicamente comisión por transacción exitosa).
+
+Se comparó frente a Transbank (Webpay Plus) y Flow: si bien Webpay es el estándar histórico en Chile, su proceso de afiliación comercial y requerimientos técnicos/administrativos suelen ser más rígidos para una startup en marcha blanca; Flow ofrece buena flexibilidad, pero Mercado Pago brinda herramientas nativas más robustas para modelos marketplace y gestión de dispersión de fondos.
+
+Desde el punto de vista financiero, este ítem constituye el único costo estrictamente variable del modelo: no genera egresos si no existen ventas, protegiendo la caja en meses de baja actividad. Aplicando la tarifa comercial vigente de Mercado Pago en Chile (~3,19% por transacción sobre el volumen bruto transado o GMV), este costo crece de manera directamente proporcional al volumen de reservas procesadas en la plataforma. (Nota de auditoría: En la hoja general de costos se mantuvo como referencia el cálculo inicial de $10.800.000 CLP en el Año 1, mientras que en el Flujo Neto auditado se ajustó al 3,19% exacto sobre el GMV proyectado de $350.000.000 CLP, equivalente a $11.165.000 CLP).
+
+4.4 Almacenamiento de Respaldo, Marketing, Administración y Gastos Conexos
+
+Para cubrir las exigencias legales, comerciales y logísticas de operar formalmente en Chile, el presupuesto operativo incorpora cuatro partidas complementarias:
+
+Servicio de Respaldo y Cumplimiento Normativo: Se destinan $80.000 CLP en el Año 1, incrementándose progresivamente ($124.800 CLP en Año 2, $205.504 CLP en Año 3 y $213.724 CLP en Año 4) conforme crece el volumen histórico acumulado de contratos firmados, registros de transacciones y evidencias fotográficas del estado de entrega y devolución de los espacios comerciales. Esta trazabilidad resulta indispensable para resolver eventuales disputas por daños entre arrendadores y arrendatarios, además de cumplir con los deberes de resguardo y seguridad exigidos por la Ley N° 19.628 (y su actualización bajo la Ley N° 21.719) sobre Protección de la Vida Privada y Datos Personales en Chile, así como con la obligación tributaria del SII de conservar documentación mercantil de respaldo por un mínimo de 6 años.
+
+Marketing, Publicidad y Adquisición de Usuarios: Se asignó un presupuesto operativo de $4.200.000 CLP en el Año 1 ($350.000 CLP mensuales, indexados al 4% anual). En un marketplace de dos lados (two-sided market), el principal riesgo es el problema de liquidez inicial ("huevo y la gallina": sin espacios publicados no llegan arrendatarios, y sin demanda los propietarios no publican). Por ello, el presupuesto se distribuye estratégicamente en campañas segmentadas en Meta Ads (Instagram/Facebook) y Google Search Ads, combinadas con prospección directa B2B en zonas comerciales de Santiago. Se descartó contratar agencias de publicidad tradicionales por sus altos fees mensuales, gestionando las campañas internamente para optimizar el Costo de Adquisición de Clientes (CAC).
+
+Oficina Virtual y Outsourcing Contable: Para operar de forma 100% remota (eliminando el gasto de arriendo de oficina comercial, que en Santiago superaría los $350.000 a $500.000 CLP mensuales más gastos comunes), se contrata un servicio de Oficina Virtual por $150.000 CLP anuales que provee domicilio tributario y comercial válido ante el Servicio de Impuestos Internos (SII) y la municipalidad respectiva para la obtención de patente comercial. Asimismo, se destina un presupuesto de $600.000 CLP anuales ($50.000 CLP mensuales) para Outsourcing Contable, asegurando el cumplimiento oportuno de declaraciones mensuales de IVA (Formulario 29), emisión de libros electrónicos, declaraciones juradas y declaración anual de Renta (Formulario 22), evitando multas tributarias sin contratar un contador de planta.
+
+Gastos Conexos de Coordinación: Se presupuestan $180.000 CLP anuales ($15.000 CLP mensuales) destinados a cubrir traslados y viáticos interurbanos desde la Región de Valparaíso (Cartagena) hacia Santiago para instancias presenciales críticas de coordinación del equipo, reuniones con propietarios de espacios estratégicos y trámites de formalización.
+
+![Imagen original 14](imagenes/image15.png)
+
+Figura 14. Proyección de costos de respaldo documental y gastos conexos de coordinación. Fuente: Elaboración propia.
+
+![Imagen original 15](imagenes/image16.png)
+
+Figura 15. Proyección de gastos conexos de coordinación (viáticos). Fuente: Elaboración propia.
+
+4.5 Consolidado General de Costos y Gastos Operativos
+
+La consolidación integral de todas las partidas descritas anteriormente se resume en el Balance de Costos y Gastos Generales, el cual articula el Año 0 (inversión y gastos pre-operativos) con los cuatro periodos de operación reajustados por inflación. Este cuadro maestro permite visualizar la estructura de costos del proyecto y alimenta directamente el cálculo del Resultado Operacional (EBIT) en el Flujo Neto de Caja.
+
+![Imagen original 16](imagenes/image17.png)
+
+Figura 16. Balance consolidado de Costos Fijos, Costos Variables y Gastos Generales (Años 0 al 4). Fuente: Elaboración propia.
+
+Capítulo 5: Evaluación Económica y Financiera
+
+La evaluación económica y financiera integra la totalidad de las variables desarrolladas en los capítulos anteriores —inversión inicial, financiamiento mixto, estructura de costos fijos y variables, depreciación e impuestos— mediante la construcción del Flujo Neto de Caja (FNC) proyectado a cuatro años. Este instrumento permite determinar la capacidad real de EspaciGo para generar liquidez, cubrir sus compromisos financieros y remunerar el capital invertido por los socios fundadores.
+
+5.1 Lógica Metodológica de Construcción del Flujo de Caja
+
+El flujo se estructuró bajo el criterio de caja incremental financiado (flujo del inversionista), distinguiendo rigurosamente entre el resultado contable y el movimiento efectivo de dinero:
+
+Ingresos Operacionales y Tracción Comercial: Se proyectan ingresos por comisiones de intermediación (take rate del 10% sobre el volumen bruto transado o GMV) partiendo en $35.000.000 CLP en el Año 1 y creciendo a una tasa del 10% anual ($38.500.000 CLP en el Año 2, $42.350.000 CLP en el Año 3 y $46.585.000 CLP en el Año 4), impulsados por la expansión progresiva de la base de espacios comerciales activos y la recurrencia de arriendos flexibles.
+
+Diferenciación entre Utilidad Contable y Flujo de Caja: Para determinar la base tributaria, primero se descuentan los costos variables (comisiones de Mercado Pago), los costos fijos operativos (OPEX reajustados al 4% de IPC), los gastos generales y la depreciación lineal de equipos ($780.000 CLP anuales durante los primeros tres años), obteniendo el Resultado Operativo (EBIT). Tras deducir los intereses del crédito bancario (que actúan como escudo fiscal), se obtiene la Utilidad Antes de Impuestos (EBT). Posteriormente, una vez calculado el impuesto, se reincorpora la depreciación (+$780.000 CLP) por tratarse de un gasto contable no desembolsable, y se resta la amortización de capital del préstamo (que sí constituye una salida real de efectivo pero no es gasto tributario).
+
+Tratamiento Tributario (SII — Impuesto de Primera Categoría y Pérdidas de Arrastre): Conforme a la Ley sobre Impuesto a la Renta en Chile, se modeló la tasa general del Impuesto de Primera Categoría del 27%. En estricto rigor tributario, en el Año 0 y Año 1 el proyecto registra pérdidas tributarias acumuladas debido a los gastos de puesta en marcha y tracción inicial, por lo que el impuesto a pagar en dichos periodos es $0 CLP. De acuerdo con el artículo 31 N° 3 de la Ley de la Renta (pérdidas tributarias de arrastre), estas pérdidas acumuladas se imputan contra las utilidades futuras, reduciendo o eliminando el pago de impuestos hasta absorber completamente el déficit previo antes de tributar plenamente en los periodos de madurez.
+
+5.2 Análisis del Comportamiento de Liquidez y la "Curva J"
+
+El comportamiento del Flujo Neto de Caja evidencia una trayectoria clásica de emprendimiento tecnológico SaaS (Curva J):
+
+Desembolso Inicial (Año 0 — -$6.420.000 CLP): Refleja la inversión inicial total ($10.140.000 CLP) menos el ingreso efectivo del préstamo bancario ($3.720.000 CLP). Si se aísla el costo de oportunidad del desarrollo valorizado ($6.240.000 CLP), la salida efectiva neta de caja de los socios en el Año 0 se acota a los gastos de lanzamiento y capital de trabajo no cubiertos por el crédito.
+
+Periodo de Maduración y "Valle de la Muerte" (Año 1 — -$1.278.818 CLP): Durante el primer año de operación, los ingresos por comisiones aún no alcanzan a cubrir la totalidad de la estructura operativa sumada al servicio de la deuda ($1.548.818 CLP anuales), generando un déficit de caja esperado. Esta situación exige una gestión estricta de liquidez y confirma la necesidad del capital de trabajo inicial.
+
+Punto de Inflexión Operativa (Año 2 — +$445.097 CLP): En el segundo periodo, el crecimiento de las transacciones permite superar el punto de equilibrio de caja, logrando cubrir todos los costos operativos y la cuota bancaria con saldo positivo.
+
+Consolidación y Liberación de Deuda (Años 3 y 4 — +$2.104.062 CLP y +$5.378.456 CLP): Al finalizar el Año 3 se extingue completamente el crédito comercial PYME. Libre de carga financiera y de depreciación contable, el Año 4 consolida la escalabilidad del modelo digital, generando más de $5,37 millones en flujo neto anual.
+
+![Imagen original 17](imagenes/image18.png)
+
+Figura 17. Flujo Neto de Caja consolidado de EspaciGo (Horizonte de 4 años). Fuente: Elaboración propia.
+
+5.3 Evaluación Crítica de Indicadores Financieros (VAN, TIR y Periodo de Recuperación)
+
+Para evitar afirmaciones automáticas sobre la rentabilidad del proyecto, se evaluaron los indicadores financieros clásicos sobre el flujo neto proyectado a 4 años (-$6.420.000, -$1.278.818, +$445.097, +$2.104.062, +$5.378.456):
+
+Periodo de Recuperación (Payback): La suma nominal acumulada de los flujos alcanza un saldo positivo de +$228.797 CLP recién al finalizar el Año 4 (recuperando la inversión nominal entre el mes 47 y 48).
+
+Valor Actual Neto (VAN) y Tasa Interna de Retorno (TIR): Al descontar los flujos en un horizonte estricto de 4 años utilizando una tasa de descuento referencial (COK) del 10% al 12% anual, la TIR del periodo explícito se sitúa en 0,85% y el VAN resulta negativo (-$1.960.342 CLP al 10% y -$2.291.237 CLP al 12%).
+
+Desde el punto de vista financiero y de evaluación de startups tecnológicas, este resultado no invalida el proyecto, sino que demuestra dos conclusiones técnicas fundamentales que deben considerarse en la toma de decisiones:
+
+Efecto del Costo de Oportunidad y Horizonte Acotado: El Año 0 incluye $6.240.000 CLP de mano de obra valorizada (costo de oportunidad de los estudiantes). Si se evalúa exclusivamente el flujo de caja efectivo desembolsado por los socios, la recuperación real ocurre en el Año 2.
+
+Necesidad de Valor Terminal o Horizonte de 5 a 6 Años: Un marketplace SaaS captura su mayor generación de valor a partir del Año 4 y 5, una vez amortizada la deuda y consolidada la base de usuarios. Para obtener un VAN positivo bajo criterios tradicionales de evaluación de proyectos, se requiere extender el horizonte de evaluación a 5 años (manteniendo el crecimiento del 10% anual en ingresos, lo que añadiría un flujo neto superior a $6.000.000 CLP en el Año 5) o incorporar el Valor Residual / Valor Terminal de la plataforma tecnológica al cierre del Año 4.
+
+5.4 Análisis de Sensibilidad y Gestión de Riesgos
+
+Dado que toda proyección financiera constituye una estimación sujeta a incertidumbre, se evaluó el impacto de tres escenarios sobre la liquidez y viabilidad de EspaciGo:
+
+Escenario Base (Proyectado): Crecimiento de ingresos del 10% anual, inflación del 4% y tasa de crédito del 12%. Alcanza equilibrio de caja en el Año 2 y liquidez acumulada positiva en el Año 4.
+
+Escenario Optimista (+15% en tracción comercial / tasa de crecimiento de ingresos del 15% anual): Una mayor adopción de espacios flexibles por parte de pymes y marcas eleva los ingresos del Año 1 a $36,7M y del Año 4 a más de $55,8M, adelantando la recuperación efectiva de la inversión al Año 3 y elevando la TIR por encima del 15%.
+
+Escenario Pesimista (Variables críticas de riesgo): El análisis identifica que EspaciGo es altamente sensible a dos variables críticas: (1) una menor captación de arrendadores y arrendatarios (si los ingresos del Año 1 caen un 15%, a $29.750.000 CLP, el déficit de caja del Año 1 se profundiza en más de $4.800.000 CLP, exigiendo inyección adicional de capital de los socios o recorte inmediato de marketing y sueldos); y (2) un retraso en la salida al mercado (Time-to-Market) superior a 2 meses, lo que postergaría los ingresos del Año 1 manteniendo los costos fijos activos. Por el contrario, variaciones moderadas en el tipo de cambio USD/CLP o en la tarifa de Google Cloud tienen un impacto marginal sobre el flujo total dado su bajo peso relativo frente a las remuneraciones.
+
+Conclusiones
+
+El desarrollo y análisis crítico del estudio económico-financiero del proyecto EspaciGo permite validar la viabilidad técnica y operativa de implementar una plataforma Marketplace B2B2C para el arriendo flexible de espacios comerciales en Chile, bajo una estructura de recursos acotada propia de un emprendimiento estudiantil de Ingeniería en Informática.
+
+A partir de la modelación financiera consolidada a cuatro años y el contraste de alternativas reales del mercado nacional, se establecen las siguientes conclusiones fundamentales:
+
+Coherencia entre Arquitectura Tecnológica y Estrategia Financiera: La adopción de una infraestructura Cloud-Native bajo esquema Pay-as-you-go (Google Cloud Platform), sumada al uso de herramientas Open Source en el desarrollo y la operación 100% remota mediante oficina virtual, permite eliminar por completo el CAPEX en servidores físicos y arriendo de inmuebles. Esta decisión transforma costos fijos rígidos en egresos escalables según demanda, protegiendo la liquidez del emprendimiento durante su etapa temprana.
+
+Realismo Económico mediante Bootstrapping y Valorización del Trabajo: La contabilización de las 960 horas de desarrollo inicial como costo de oportunidad ($6.240.000 CLP) sincera el valor patrimonial del software creado sin exigir desembolso inmediato de caja. Asimismo, la fijación de remuneraciones operativas en jornada part-time ($400.000 CLP brutos mensuales por socio, reajustados al 4% de IPC anual) resulta determinante para sostener la operación durante el primer año de maduración sin recurrir a endeudamiento insostenible.
+
+Optimización del Financiamiento Mixto y Carga Tributaria: El apalancamiento parcial del 50% mediante un crédito comercial PYME ($3.720.000 CLP a 3 años y 12% anual) bajo el Sistema de Amortización Francés equilibra la disponibilidad de liquidez inicial con la predictibilidad de cuotas fijas ($1.548.818 CLP anuales), aprovechando el escudo fiscal de los intereses y la depreciación de equipos ($780.000 CLP anuales) junto con la normativa chilena de pérdidas tributarias de arrastre ante el SII.
+
+Sostenibilidad Operativa y Horizonte de Maduración: El Flujo Neto de Caja demuestra que, tras superar el déficit esperado del Año 0 (-$6.420.000 CLP) y el Año 1 (-$1.278.818 CLP), EspaciGo alcanza su punto de equilibrio de caja en el Año 2 (+$445.097 CLP) y consolida su capacidad de generación de liquidez en el Año 4 (+$5.378.456 CLP), una vez extinguida la deuda bancaria. Si bien en un horizonte estricto de cuatro años el VAN descontado se mantiene negativo producto de la inclusión del costo de oportunidad inicial, el análisis crítico confirma que la recuperación efectiva del desembolso en efectivo ocurre en el Año 2 y que la rentabilidad plena del modelo SaaS se captura a partir del quinto año de operación o mediante la incorporación de su valor residual.
+
+Referencias Bibliográficas
+
+Banco Central de Chile. (2026). Informe de Política Monetaria (IPoM) y rango meta de inflación. https://www.bcentral.cl
+
+Comisión para el Mercado Financiero [CMF]. (2026). Estadísticas de tasas de interés y financiamiento comercial PYME en Chile. https://www.cmfchile.cl
+
+Google Cloud. (2026). Documentación de precios y modelo Pay-as-you-go de Google Cloud Platform (Cloud Run y Cloud SQL). https://cloud.google.com/pricing
+
+Instituto Nacional de Estadísticas [INE]. (2026). Calculadora de variación del Índice de Precios al Consumidor (IPC). https://calculadoraipc.ine.cl
+
+Ley N° 19.628. (1999). Sobre protección de la vida privada (y modificaciones de la Ley N° 21.719). Biblioteca del Congreso Nacional de Chile. https://www.bcn.cl/leychile
+
+Ley N° 19.799. (2002). Sobre documentos electrónicos, firma electrónica y servicios de certificación de dicha firma. Biblioteca del Congreso Nacional de Chile. https://www.bcn.cl/leychile
+
+Mercado Pago Chile. (2026). Tarifas, comisiones por transacción y condiciones comerciales para marketplaces. https://www.mercadopago.cl
+
+NIC Chile. (2026). Tarifas vigentes de inscripción y renovación de nombres de dominio .cl. https://www.nic.cl
+
+Servicio de Impuestos Internos [SII]. (2026). Ley sobre Impuesto a la Renta (DL N° 824): Impuesto de Primera Categoría, tabla de vida útil de bienes físicos y pérdidas tributarias de arrastre. https://www.sii.cl

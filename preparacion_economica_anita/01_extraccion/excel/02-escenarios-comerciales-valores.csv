@@ -1,0 +1,19 @@
+﻿ESCENARIOS COMERCIALES – AÑO 1,,,,
+Solo los parámetros confirmados por el usuario se presentan como decisiones; los demás son hipótesis que requieren validación.,,,,
+Variable,Conservador,Base,Optimista,Unidad / fundamento
+Espacios activos promedio,4,8,15,"espacios; base confirmado por usuario, extremos son hipótesis"
+Reservas pagadas por espacio/mes,1,2,3,"reservas; hipótesis de utilización comercial, no evidencia de demanda"
+Reservas pagadas año 1,48,192,540,reservas/año
+Ticket promedio,35000,50000,65000,"CLP/reserva; base confirmado por usuario, extremos hipótesis"
+GMV año 1,1680000,9600000,35100000,CLP; reservas × ticket
+Comisión plataforma,0.1,0.14,0.18,"% GMV; base 14% es referencia competitiva de Busho, no acuerdo EspaciGo"
+Ingreso bruto EspaciGo,168000,1344000.0000000002,6318000,CLP; GMV × comisión
+Promedio reservas/mes,4,16,45,reservas/mes
+GMV mensual promedio,140000,800000,2925000,CLP/mes
+Ingreso bruto mensual promedio,14000,112000.00000000001,526500,CLP/mes
+,,,,
+,,,,
+Lectura de evidencia,,,,
+Confirmado: 8 espacios promedio; lanzamiento A núcleo + B complemento; ticket base $50.000.,,,,
+"No confirmado: frecuencia de reservas, tasas de conversión, comisión definitiva, mix A/B y estacionalidad.",,,,
+"Los escenarios conservador y optimista son pruebas de sensibilidad, no pronósticos respaldados por demanda medida.",,,,

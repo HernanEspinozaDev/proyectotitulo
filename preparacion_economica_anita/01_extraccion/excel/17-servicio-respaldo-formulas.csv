@@ -1,0 +1,34 @@
+﻿1. Parámetros (Base del cálculo),,,,
+,,,,
+"Esta es la tabla inferior de tu imagen, adaptada a las reservas de EspaciGo.",,,,
+,,,,
+Parámetros,Valores,,,
+Peso Promedio por Reserva (Fotos Check-in/out + Contrato) en GB,"0,05 GB (aprox 50 MB)",,,
+Cantidad de Reservas Anuales Base,3600,,,
+Cantidad Reservas Periodo 1 (Año 1),3600,,,
+Cantidad Reservas Periodo 2 (Crecimiento 20%),4320,,,
+Cantidad Reservas Periodo 3 (Crecimiento 20%),5184,,,
+Cantidad Reservas Periodo 4 (Crecimiento 20%),6220,,,
+Base de Datos Operativa (PostgreSQL + Logs) por periodo,~10 GB fijos,,,
+,,,,
+2. Tramos de Almacenamiento y Consumo,,,,
+,,,,
+Esta es la tabla central de tu imagen. Cruzamos el consumo de GB acumulados con los planes de respaldo (ej. precios de tramos de Google Cloud Storage o Google Workspace).,,,,
+,,,,
+Cantidad Espacio,Valor Respaldo Anual (Base),,Periodos,GB Evidencias + Datos Acumulados
+100GB,50000,,Periodo 1 (Servicio 250GB),190 GB (180GB reservas + 10GB BD)
+250GB,80000,,Periodo 2 (Servicio 500GB),416 GB (190 + 216GB res. + 10GB BD)
+500GB,120000,,Periodo 3 (Servicio 1000GB),685 GB (416 + 259GB res. + 10GB BD)
+1000GB,190000,,Periodo 4 (Servicio 1000GB),996 GB (685 + 311GB res. + 10GB BD)
+,,,,
+3. Servicio de respaldo en la nube (Flujo ajustado),,,,
+,,,,
+"Esta es la tabla superior de tu imagen. Muestra el costo que irá a tu Flujo de Caja. Toma el plan que necesitas según los GB de arriba, y le aplica el 4% de inflación anual desde el Periodo 2 en adelante.",,,,
+,,,,
+Detalle,Periodo 1,Periodo 2,Periodo 3,Periodo 4
+Servicio de Respaldo GCP,80000,124800,205504,213724
+Total,80000,124800,205504,213724
+,,,,
+"¿Por qué aumentan los GB? A diferencia de un negocio tradicional, la plataforma por ley (Ley 21.719) y por operatividad debe guardar el historial inmutable (BigQuery), los contratos firmados y las fotos de daños de cada reserva por 5 años. Por ende, el almacenamiento se acumula año a año.",,,,
+,,,,
+"¿Cómo se calcula el valor del periodo? En el Periodo 1 necesitas el tramo de 250GB ($80.000). En el Periodo 2 saltas al tramo de 500GB ($120.000), pero como es el año 2, se le aplica el 4% de inflación ($120.000 * 1.04 = $124.800). En el Periodo 3 saltas a 1000GB ($190.000) aplicando dos años de inflación ($190.000 * 1.04^2 = $205.504).",,,,

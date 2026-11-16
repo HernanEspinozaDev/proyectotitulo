@@ -1,0 +1,209 @@
+{
+  "orden": 21,
+  "hoja": "capital de trabajo",
+  "estado": "visible",
+  "rango": "A1:D12",
+  "combinadas": [],
+  "celdas": [
+    {
+      "celda": "A1",
+      "fila": 1,
+      "columna": 1,
+      "valor_o_formula": "Se asume una inversión en Capital de Trabajo correspondiente a 1 mes de costos operativos (Aprox. $2.400.000 CLP).",
+      "tipo": "s",
+      "valor_guardado": "Se asume una inversión en Capital de Trabajo correspondiente a 1 mes de costos operativos (Aprox. $2.400.000 CLP).",
+      "formato_numerico": "General",
+      "hipervinculo": null,
+      "comentario": null
+    },
+    {
+      "celda": "A3",
+      "fila": 3,
+      "columna": 1,
+      "valor_o_formula": "Capital de Trabajo (Equivalente a 1 Mes de Operación)",
+      "tipo": "s",
+      "valor_guardado": "Capital de Trabajo (Equivalente a 1 Mes de Operación)",
+      "formato_numerico": "General",
+      "hipervinculo": null,
+      "comentario": null
+    },
+    {
+      "celda": "A5",
+      "fila": 5,
+      "columna": 1,
+      "valor_o_formula": "Ítem",
+      "tipo": "s",
+      "valor_guardado": "Ítem",
+      "formato_numerico": "General",
+      "hipervinculo": null,
+      "comentario": null
+    },
+    {
+      "celda": "B5",
+      "fila": 5,
+      "columna": 2,
+      "valor_o_formula": "Valor",
+      "tipo": "s",
+      "valor_guardado": "Valor",
+      "formato_numerico": "General",
+      "hipervinculo": null,
+      "comentario": null
+    },
+    {
+      "celda": "A6",
+      "fila": 6,
+      "columna": 1,
+      "valor_o_formula": "Remuneraciones (Personal Operativo - 1 Mes)",
+      "tipo": "s",
+      "valor_guardado": "Remuneraciones (Personal Operativo - 1 Mes)",
+      "formato_numerico": "General",
+      "hipervinculo": null,
+      "comentario": null
+    },
+    {
+      "celda": "B6",
+      "fila": 6,
+      "columna": 2,
+      "valor_o_formula": 1200000,
+      "tipo": "n",
+      "valor_guardado": 1200000,
+      "formato_numerico": "\\$#,##0;[Red]\"$-\"#,##0",
+      "hipervinculo": null,
+      "comentario": null
+    },
+    {
+      "celda": "D6",
+      "fila": 6,
+      "columna": 4,
+      "valor_o_formula": "Remuneraciones: Corresponde al sueldo de los 3 integrantes operando la plataforma part-time durante el primer mes ($400.000 x 3).",
+      "tipo": "s",
+      "valor_guardado": "Remuneraciones: Corresponde al sueldo de los 3 integrantes operando la plataforma part-time durante el primer mes ($400.000 x 3).",
+      "formato_numerico": "General",
+      "hipervinculo": null,
+      "comentario": null
+    },
+    {
+      "celda": "A7",
+      "fila": 7,
+      "columna": 1,
+      "valor_o_formula": "Costos Variables (Comisiones Mercado Pago - 1 Mes)",
+      "tipo": "s",
+      "valor_guardado": "Costos Variables (Comisiones Mercado Pago - 1 Mes)",
+      "formato_numerico": "General",
+      "hipervinculo": null,
+      "comentario": null
+    },
+    {
+      "celda": "B7",
+      "fila": 7,
+      "columna": 2,
+      "valor_o_formula": 900000,
+      "tipo": "n",
+      "valor_guardado": 900000,
+      "formato_numerico": "\\$#,##0;[Red]\"$-\"#,##0",
+      "hipervinculo": null,
+      "comentario": null
+    },
+    {
+      "celda": "A8",
+      "fila": 8,
+      "columna": 1,
+      "valor_o_formula": "Servicios Cloud e Infraestructura GCP (1 Mes)",
+      "tipo": "s",
+      "valor_guardado": "Servicios Cloud e Infraestructura GCP (1 Mes)",
+      "formato_numerico": "General",
+      "hipervinculo": null,
+      "comentario": null
+    },
+    {
+      "celda": "B8",
+      "fila": 8,
+      "columna": 2,
+      "valor_o_formula": 150000,
+      "tipo": "n",
+      "valor_guardado": 150000,
+      "formato_numerico": "\\$#,##0;[Red]\"$-\"#,##0",
+      "hipervinculo": null,
+      "comentario": null
+    },
+    {
+      "celda": "D8",
+      "fila": 8,
+      "columna": 4,
+      "valor_o_formula": "Costos Variables: Corresponde a 1 mes del costo variable total del Año 1 ($10.800.000 / 12 meses).",
+      "tipo": "s",
+      "valor_guardado": "Costos Variables: Corresponde a 1 mes del costo variable total del Año 1 ($10.800.000 / 12 meses).",
+      "formato_numerico": "General",
+      "hipervinculo": null,
+      "comentario": null
+    },
+    {
+      "celda": "A9",
+      "fila": 9,
+      "columna": 1,
+      "valor_o_formula": "Gastos de Administración, Marketing y Difusión (1 Mes)",
+      "tipo": "s",
+      "valor_guardado": "Gastos de Administración, Marketing y Difusión (1 Mes)",
+      "formato_numerico": "General",
+      "hipervinculo": null,
+      "comentario": null
+    },
+    {
+      "celda": "B9",
+      "fila": 9,
+      "columna": 2,
+      "valor_o_formula": 450000,
+      "tipo": "n",
+      "valor_guardado": 450000,
+      "formato_numerico": "\\$#,##0;[Red]\"$-\"#,##0",
+      "hipervinculo": null,
+      "comentario": null
+    },
+    {
+      "celda": "A10",
+      "fila": 10,
+      "columna": 1,
+      "valor_o_formula": "Total Capital de Trabajo",
+      "tipo": "s",
+      "valor_guardado": "Total Capital de Trabajo",
+      "formato_numerico": "General",
+      "hipervinculo": null,
+      "comentario": null
+    },
+    {
+      "celda": "B10",
+      "fila": 10,
+      "columna": 2,
+      "valor_o_formula": "=B6+B7+B8+B9",
+      "tipo": "f",
+      "valor_guardado": 2700000,
+      "formato_numerico": "\\$#,##0;[Red]\"$-\"#,##0",
+      "hipervinculo": null,
+      "comentario": null
+    },
+    {
+      "celda": "D10",
+      "fila": 10,
+      "columna": 4,
+      "valor_o_formula": "Servicios Cloud: 1 mes estimado de servidores para mantener la plataforma arriba.",
+      "tipo": "s",
+      "valor_guardado": "Servicios Cloud: 1 mes estimado de servidores para mantener la plataforma arriba.",
+      "formato_numerico": "General",
+      "hipervinculo": null,
+      "comentario": null
+    },
+    {
+      "celda": "D12",
+      "fila": 12,
+      "columna": 4,
+      "valor_o_formula": "Gastos de Administración: La suma prorrateada a un mes del resto de gastos fijos (publicidad, contador, insumos)",
+      "tipo": "s",
+      "valor_guardado": "Gastos de Administración: La suma prorrateada a un mes del resto de gastos fijos (publicidad, contador, insumos)",
+      "formato_numerico": "General",
+      "hipervinculo": null,
+      "comentario": null
+    }
+  ],
+  "graficos": 0,
+  "imagenes": 0
+}

@@ -1,0 +1,31 @@
+﻿1. Balance de Insumos (Operación Base),,,,,,
+,,,,,,
+Ítem,Unidad de Medida,Cantidad Mensual,Costo Unitario,Costo Mensual,Costo Anual,
+"Servicios Cloud (GCP: Hosting, BD, Storage)",Mes,1,150000,150000,1800000,
+Paquete Transacciones API FirmaVirtual,Lote,1,50000,50000,600000,
+Dominio Web (.cl),Año,"0,083*",10950,913,10950,
+"Útiles de Oficina (Apuntes, resmas y lápices para el equipo)",Kit,1,10000,10000,120000,
+Total,,,,210913,2530950,
+,,,,,,
+"*(Nota : El dominio se paga una vez al año, por lo que la cantidad mensual es 1/12 o 0,083 para reflejar el prorrateo del costo mensual).",,,,,,
+,,,,,,
+2. Insumos según Horizonte de Planeación SIN IVA,,,,,,
+,,,,,,
+Aquí aplicamos la tasa de reajuste por inflación del 4% anual definida en el estudio de antigrativy para proyectar los costos en los siguientes periodos.,,,,,,
+,,,,,,
+Ítem,Cantidad Anual,Precio Unitario,Periodo 1 (Año 1),Periodo 2 (+4%),Periodo 3 (+4%),Periodo 4 (+4%)
+Servicios Cloud GCP,12,150000,1800000,1872000,1946880,2024755
+API FirmaVirtual,12,50000,600000,624000,648960,674918
+Dominio Web (.cl),1,10950,10950,11388,11844,12318
+Útiles de Oficina,12,10000,120000,124800,129792,134984
+Total,,,2530950,2632188,2737476,2846975
+,,,,,,
+3. Detalle Fuentes y Precios,,,,,,
+,,,,,,
+"Tal como en tu ejemplo, esta tabla justifica de dónde sacaste los precios unitarios",,,,,,
+,,,,,,
+Artículo,Precios Sin Iva,URL / Fuente,,,,
+Servicios Cloud (GCP),150000,cloud.google.com/pricing (Estimado OPEX),,,,
+Dominio Web,10950,nic.cl / Informe del Proyecto,,deberia,,
+API FirmaVirtual,50000,firmavirtual.legal/planes,,,,
+Útiles de Oficina (Kit),10000,mercadolibre.cl/utiles-oficina,,,,

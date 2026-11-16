@@ -1,0 +1,28 @@
+﻿ESCENARIO BASE – DISTRIBUCIÓN MENSUAL AÑO 1,,,,,,,,,
+Distribución plana de 16 reservas/mes solo para mostrar el promedio anual; no representa estacionalidad ni una curva de captación validada.,,,,,,,,,
+Mes,Espacios activos promedio,Reservas/espacio/mes,Reservas completadas,Ticket promedio,GMV,Comisión,Ingreso EspaciGo,Costo pasarela,Ingreso tras pasarela
+Mes 1,='Escenarios comerciales'!$C$4,='Escenarios comerciales'!$C$5,=B4*C4,='Escenarios comerciales'!$C$7,=D4*E4,='Escenarios comerciales'!$C$9,=F4*G4,"=IF('Supuestos modelo'!$B$8="""","""",F4*'Supuestos modelo'!$B$8)","=IF(I4="""","""",H4-I4)"
+Mes 2,='Escenarios comerciales'!$C$4,='Escenarios comerciales'!$C$5,=B5*C5,='Escenarios comerciales'!$C$7,=D5*E5,='Escenarios comerciales'!$C$9,=F5*G5,"=IF('Supuestos modelo'!$B$8="""","""",F5*'Supuestos modelo'!$B$8)","=IF(I5="""","""",H5-I5)"
+Mes 3,='Escenarios comerciales'!$C$4,='Escenarios comerciales'!$C$5,=B6*C6,='Escenarios comerciales'!$C$7,=D6*E6,='Escenarios comerciales'!$C$9,=F6*G6,"=IF('Supuestos modelo'!$B$8="""","""",F6*'Supuestos modelo'!$B$8)","=IF(I6="""","""",H6-I6)"
+Mes 4,='Escenarios comerciales'!$C$4,='Escenarios comerciales'!$C$5,=B7*C7,='Escenarios comerciales'!$C$7,=D7*E7,='Escenarios comerciales'!$C$9,=F7*G7,"=IF('Supuestos modelo'!$B$8="""","""",F7*'Supuestos modelo'!$B$8)","=IF(I7="""","""",H7-I7)"
+Mes 5,='Escenarios comerciales'!$C$4,='Escenarios comerciales'!$C$5,=B8*C8,='Escenarios comerciales'!$C$7,=D8*E8,='Escenarios comerciales'!$C$9,=F8*G8,"=IF('Supuestos modelo'!$B$8="""","""",F8*'Supuestos modelo'!$B$8)","=IF(I8="""","""",H8-I8)"
+Mes 6,='Escenarios comerciales'!$C$4,='Escenarios comerciales'!$C$5,=B9*C9,='Escenarios comerciales'!$C$7,=D9*E9,='Escenarios comerciales'!$C$9,=F9*G9,"=IF('Supuestos modelo'!$B$8="""","""",F9*'Supuestos modelo'!$B$8)","=IF(I9="""","""",H9-I9)"
+Mes 7,='Escenarios comerciales'!$C$4,='Escenarios comerciales'!$C$5,=B10*C10,='Escenarios comerciales'!$C$7,=D10*E10,='Escenarios comerciales'!$C$9,=F10*G10,"=IF('Supuestos modelo'!$B$8="""","""",F10*'Supuestos modelo'!$B$8)","=IF(I10="""","""",H10-I10)"
+Mes 8,='Escenarios comerciales'!$C$4,='Escenarios comerciales'!$C$5,=B11*C11,='Escenarios comerciales'!$C$7,=D11*E11,='Escenarios comerciales'!$C$9,=F11*G11,"=IF('Supuestos modelo'!$B$8="""","""",F11*'Supuestos modelo'!$B$8)","=IF(I11="""","""",H11-I11)"
+Mes 9,='Escenarios comerciales'!$C$4,='Escenarios comerciales'!$C$5,=B12*C12,='Escenarios comerciales'!$C$7,=D12*E12,='Escenarios comerciales'!$C$9,=F12*G12,"=IF('Supuestos modelo'!$B$8="""","""",F12*'Supuestos modelo'!$B$8)","=IF(I12="""","""",H12-I12)"
+Mes 10,='Escenarios comerciales'!$C$4,='Escenarios comerciales'!$C$5,=B13*C13,='Escenarios comerciales'!$C$7,=D13*E13,='Escenarios comerciales'!$C$9,=F13*G13,"=IF('Supuestos modelo'!$B$8="""","""",F13*'Supuestos modelo'!$B$8)","=IF(I13="""","""",H13-I13)"
+Mes 11,='Escenarios comerciales'!$C$4,='Escenarios comerciales'!$C$5,=B14*C14,='Escenarios comerciales'!$C$7,=D14*E14,='Escenarios comerciales'!$C$9,=F14*G14,"=IF('Supuestos modelo'!$B$8="""","""",F14*'Supuestos modelo'!$B$8)","=IF(I14="""","""",H14-I14)"
+Mes 12,='Escenarios comerciales'!$C$4,='Escenarios comerciales'!$C$5,=B15*C15,='Escenarios comerciales'!$C$7,=D15*E15,='Escenarios comerciales'!$C$9,=F15*G15,"=IF('Supuestos modelo'!$B$8="""","""",F15*'Supuestos modelo'!$B$8)","=IF(I15="""","""",H15-I15)"
+TOTAL AÑO 1,,,=SUM(D4:D15),,=SUM(F4:F15),,=SUM(H4:H15),=SUM(I4:I15),=SUM(J4:J15)
+,,,,,,,,,
+Costos operativos conocidos (parciales),,,,,,,,,
+Remuneraciones equipo,='Supuestos modelo'!$B$11/12,,,,,,,,
+Cloud GCP,='Supuestos modelo'!$B$12/12,,,,,,,,
+FirmaVirtual/API,='Supuestos modelo'!$B$13/12,,,,,,,,
+Marketing,='Supuestos modelo'!$B$15/12,,,,,,,,
+Contabilidad,='Supuestos modelo'!$B$16/12,,,,,,,,
+Dominio,='Supuestos modelo'!$B$14/12,,,,,,,,
+Viajes coordinación,='Supuestos modelo'!$B$17/12,,,,,,,,
+Subtotal mensual conocido,=SUM(B19:B25),,,,,,,,
+Subtotal anual conocido,=B26*12,,,,,,,,
+Advertencia,"No incluye pasarela (tasa pendiente), oficina virtual, respaldo, mantención/licencias, costos legales/tributarios, gastos de puesta en marcha ni capital de trabajo. No es OPEX total.",,,,,,,,

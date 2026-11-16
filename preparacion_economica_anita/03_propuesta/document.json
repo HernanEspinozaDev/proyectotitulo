@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "id": "preparacion_economia_anita",
+  "metadata": {
+    "title": "Preparación económica de espaciGo",
+    "subtitle": "Documento de preparación para revisión",
+    "authors": [
+      "Espinoza Castillo, Hernán",
+      "Marchant Pacheco, Anita",
+      "Silva Quezada, Erick"
+    ],
+    "lang": "es-CL",
+    "date": "16 de noviembre de 2026"
+  },
+  "sections": [
+    "capitulo_xiv_borrador.md",
+    "anexo_h_tablas_fuente.md"
+  ],
+  "appendices": [],
+  "template": "templates/reference.docx",
+  "style_profile": "templates/style-profile.json",
+  "output": "Preparacion_economica_espaciGo.docx",
+  "toc": {
+    "enabled": false
+  }
+}

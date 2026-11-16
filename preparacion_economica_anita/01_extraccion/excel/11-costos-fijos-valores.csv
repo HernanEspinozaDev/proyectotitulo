@@ -1,0 +1,19 @@
+﻿1. Balance de Costos Fijos (Desglose OPEX - Año 1),,,
+,,,
+Aquí distribuimos los $18.000.000 anuales (que equivalen a $1.500.000 mensuales) en las categorías que menciona tu estudio.,,,
+,,,
+Detalle del Costo Fijo,Costo Mensual Estimado,Costo Total Anual (Año 1),% del Total
+Administración y Soporte (Personal/Honorarios),800000,$$9.600.000,0.533
+"Difusión, Marketing y Publicidad",350000,$$4200000,0.233
+Servicios Cloud (GCP) e Infraestructura,150000,1800000,0.1
+Mantención de Plataforma y Licencias,100000,1200000,0.067
+"Otros Externos (Contabilidad, Legal, etc.)",100000,1200000,
+Total Costos Fijos (OPEX),1500000,18000000,1
+,,,
+2. Proyección de Costos Fijos (Ajuste IPC 4%),,,
+,,,
+Esta es la tabla exacta que refleja la inflación proyectada en tu estudio para el Flujo de Caja,,,
+,,,
+Ítem,Año 1,Año 2,Año 3
+Costos Fijos Totales,18000000,18720000,19468800
+Tasa de Reajuste (IPC),Base,0.04,0.04

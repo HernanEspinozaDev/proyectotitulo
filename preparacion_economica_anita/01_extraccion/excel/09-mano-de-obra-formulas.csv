@@ -1,0 +1,30 @@
+﻿,,,,,,
+,Balance Mano de Obra (Desarrollo del Software),,,,,
+,Cargo,Cantidad,Horas,Tiempo (meses) ,Costo Unitario (Salario Bruto),Costo Total Proyecto (Salario Bruto)
+,Gerencia / Arquitecto Cloud,1,320,4,520000,2080000
+,Gestión de Personas y Análisis / Backend,1,320,4,520000,2080000
+,Desarrollo y Arquitectura / UI-UX,1,320,4,520000,2080000
+,Total,3,960,,=SUM(F4:F6),=SUM(G4:G6)
+,,,,,,
+,,,,,,
+,,,,,,
+,Hernán Espinoza: Gerencia / Arquitecto Cloud.,,,,,
+,,,,,,
+,Erick Silva: Gestión de Personas y Análisis / Backend.,,,,,
+,,,,,,
+,Anita Marchant: Desarrollo y Arquitectura / UI-UX.,,,,,
+,,,,,,
+,"En cuanto al plan de recursos, el documento detalla las siguientes métricas para el costo de oportunidad:",,,,,
+,,,,,,
+,Cantidad por cargo: 1 persona por cada rol.,,,,,
+,,,,,,
+,Tiempo del proyecto: 16 semanas (lo que equivale a 4 meses).,,,,,
+,,,,,,
+,Horas dedicadas: 20 horas a la semana por integrante. Esto se traduce en 320 horas totales por persona durante las 16 semanas.,,,,,
+,,,,,,
+,"Costo Unitario / Salario Bruto: El informe indica un costo de $6.500 por hora. 
+Si calculamos el salario mensual (80 horas al mes por $6.500), el costo unitario mensual sería de $520.000 por persona.",,,,,
+,,,,,,
+,Costo Total por persona: 320 horas por $6.500/hr da un total de $2.080.000 por cada integrante.,,,,,
+,,,,,,
+,Costo Total del Proyecto (RRHH): $6.240.000 CLP.,,,,,

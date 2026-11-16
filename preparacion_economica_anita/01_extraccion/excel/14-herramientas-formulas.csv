@@ -1,0 +1,16 @@
+﻿Detalle,Cantidad,Costo Unitario Sin IVA,Costo Total Sin IVA,Valor en Dólar USD,Vigencia,,"Cantidad: La mayoría de las herramientas tienen cantidad ""3"" porque son instaladas en los equipos de los tres integrantes del grupo para el desarrollo y documentación conjunta. Figma tiene cantidad ""1"" porque la matriz RACI asigna específicamente el ""Prototipado en Figma"" a Anita Marchant."
+Windows 10 / 11 (Sistema Operativo Base),3,0,- USD,(-)USD,Indefinida,,
+Visual Studio Code (IDE de Desarrollo),3,0,- USD,(-)USD,Indefinida,,"Costos ($0): Las tecnologías elegidas (Go, Next.js, PostgreSQL, Docker) son de uso libre y gratuito (Open Source).
+ Figma, GitHub y PlantUML cuentan con planes gratuitos o académicos que cubren completamente las necesidades 
+de un proyecto de título. Microsoft Office y Windows se asumen provistos por licencias académicas institucionales de INACAP."
+Go / Golang (Lenguaje Backend),3,0,- USD,(-)USD,Indefinida,,
+Next.js / React (Framework Frontend),3,0,- USD,(-)USD,Indefinida,,"Exclusión de Infraestructura: Es importante notar que Google Cloud Platform (Cloud Run, BigQuery), Mercado Pago
+ y FirmaVirtual no van en esta tabla. Esos son servicios en la nube de pago por uso o cobro por transacción, 
+por lo que pertenecen al Balance de Insumos o a los Costos Operativos (OPEX), no a las herramientas de desarrollo local."
+PostgreSQL + PostGIS (Base de Datos Local),3,0,- USD,(-)USD,Indefinida,,
+Docker (Empaquetado y Contenedores),3,0,- USD,(-)USD,Indefinida,,
+Figma (Diseño UI/UX y Prototipado),1,0,- USD,(-)USD,Indefinida,,
+PlantUML (Modelado de Casos de Uso y UML),3,0,- USD,(-)USD,Indefinida,,
+Git / GitHub (Control de Versiones),3,0,- USD,(-)USD,Indefinida,,
+Microsoft Office (Documentación del Proyecto),3,0,,(-)USD,Indefinida,,
+Total,,,,,,,

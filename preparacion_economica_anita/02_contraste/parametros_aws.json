@@ -1,0 +1,23 @@
+{
+  "perfil": "Fargate 1 GB, RDS Single-AZ, us-east-2",
+  "usd_mensuales": "26.41",
+  "clp_por_usd": "972",
+  "clp_mensuales": "25670.52",
+  "clp_anuales_brutos": "308046.24",
+  "clp_ano1_con_6_meses_cubiertos": "154023.12",
+  "estado": "parámetros de escenario; tarifas y elegibilidad requieren respaldo",
+  "componentes_usd": {
+    "RDS cómputo": "11.68",
+    "RDS almacenamiento": "2.30",
+    "Fargate 1 GB": "8.51",
+    "IPv4": "3.65",
+    "S3": "0.12",
+    "ECR": "0.15"
+  },
+  "fuente_costos": {
+    "archivo": "/home/nandev/Documentos/projects/espacigo-aws/docs/architecture/aws-proposal/05-cost-analysis.md",
+    "fecha_documento": "2026-11-15",
+    "ultimo_commit_documento": "7d78207",
+    "sha256": "3410c74dd01b21de7f709e31dc1aa198f18a905400b5d54a8be3c90be4aac3a1"
+  }
+}

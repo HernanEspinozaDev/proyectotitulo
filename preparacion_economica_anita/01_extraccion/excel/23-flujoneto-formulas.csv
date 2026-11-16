@@ -1,0 +1,58 @@
+﻿"La Lógica de Decisión detrás del 
+Flujo de Caja",,,,,,
+,,,,,,
+"1.Decisión de Inversión y Apalancamiento (Año 0):
+ El proyecto requiere un total de $10.140.000 (Desarrollo + Preparación + Capital de Trabajo).
+ Gracias a la decisión de apalancamiento financiero,
+ se solicita un crédito comercial PYME por el 50% de los activos e intangibles
+ ($3.720.000 a 3 años y 12% de interés). Esto reduce el esfuerzo en efectivo de los socios en el Año 0,
+ dejando un desembolso inicial real (Flujo de Caja Neto del Año 0) de -$6.420.000.",,"2.Decisión Operativa (Ingresos vs. Costos):
+ Los ingresos de EspaciGo provienen de la comisión de intermediación del marketplace B2B2C. Para que el negocio sea rentable, los ingresos deben cubrir holgadamente los costos variables (pasarela de pago Mercado Pago) y los costos fijos operativos (sueldos part-time de los 3 socios reajustados por el 4% de IPC anual, servidores GCP, marketing y respaldo).",,"3.Decisión Tributaria y Escudo Fiscal (Años 1 al 3):
+Aquí aplicamos la normativa chilena (Impuesto de Primera Categoría del 27%). La gracia financiera es que antes de pagar impuestos, restamos dos elementos que no son salidas de efectivo inmediatas o reducen base imponible:
+
+La depreciación de los equipos (780 mil anuales los primeros 3 años).
+
+Los intereses del préstamo (que actúan como ""escudo fiscal"", haciendo que pagues menos impuestos al rebajar la utilidad).",,"4.Flujo de Caja Neto (Disponibilidad Real):
+A la utilidad después de impuestos le sumamos nuevamente la depreciación (porque no es plata que salió de la caja) y restamos la amortización real del préstamo (la devolución del capital al banco). El resultado final es el dinero fresco que genera la plataforma año a año."
+,,,,,,
+Cuadro del Flujo Neto de Caja (EspaciGo),,,,,,
+,,,,,,
+Partida / Período (Años),Año 0,Año 1,Año 2 (+4% IPC),Año 3 (+4% IPC),Año 4 (+4% IPC),
+(+) Ingresos por Comisiones (GMV),0,35000000,38500000,42350000,46585000,
+(-) Costos Variables (Comisión Pasarela),0,10800000,11232000,11681280,12148531,
+(-) Costos Fijos Operativos (OPEX),0,18000000,18720000,19468800,20247552,
+(-) Gastos de Administración y Marketing,-1350000,5930000,6221280,6545843,6821169,
+(-) Depreciación de Activos (Maquinaria),0,780000,780000,780000,0,
+(=) Resultado Operativo (EBIT),-1350000,-510000,1546720,3874077,7367748,
+(-) Gastos Financieros (Intereses del Préstamo),0,446400,314110,165945,0,
+(=) Utilidad Antes de Impuestos (EBT),-1350000,956400,1232610,3708132,7367748,
+(-) Impuesto a la Renta (27%),0,0,332805,1001196,1989292,
+(=) Utilidad Neta,-1350000,-956400,899805,2706936,5378456,
+(+) Ajuste por Depreciación (No desembolsable),0,780000,780000,780000,0,
+(+) Préstamo Bancario Recibido,3720000,0,0,0,0,
+(-) Inversiones en Activos e Intangibles,-7440000,0,0,0,0,
+(-) Capital de Trabajo Inicial,-2700000,0,0,0,0,
+(-) Amortización de la Deuda (Abono Capital),0,1102418,1234708,1382874,0,
+(=) FLUJO DE CAJA NETO (FNC),-6420000,-1278818,445097,2104062,5378456,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+Partida / Período (Años),Año 0,Año 1,Año 2 (+4% IPC),Año 3 (+4% IPC),Año 4 (+4% IPC),
+(+) Ingresos por Comisiones (GMV),0,35000000,38500000,42350000,46585000,
+(-) Costos Variables (Comisión Pasarela),0,10800000,11232000,11681280,12148531,
+(-) Costos Fijos Operativos (OPEX),0,18000000,18720000,19468800,20247552,
+(-) Gastos de Administración y Marketing,0,5930000,6221280,6545843,6821169,
+(-) Depreciación de Activos (Maquinaria),0,780000,780000,780000,0,
+(=) Resultado Operativo (EBIT),0,-510000,1546720,3874077,7367748,
+(-) Gastos Financieros (Intereses Préstamo),0,446400,314110,165945,0,
+(=) Utilidad Antes de Impuestos (EBT),0,-956400,1232610,3708132,7367748,
+(-) Impuesto a la Renta (27%),0,0,332805,1001196,1989292,
+(=) Utilidad Neta,0,-956400,899805,2706936,5378456,
+(+) Ajuste por Depreciación (No desembolsable),0,780000,780000,780000,0,
+(+) Préstamo Bancario Recibido,3720000,0,0,0,0,
+(-) Inversiones en Activos e Intangibles,-7440000,0,0,0,0,
+(-) Capital de Trabajo Inicial,-2700000,0,0,0,0,
+(-) Amortización de la Deuda (Abono Capital),0,1102418,1234708,1382874,0,
+(=) FLUJO DE CAJA NETO (FNC),-6420000,-1278818,445097,2104062,5378456,

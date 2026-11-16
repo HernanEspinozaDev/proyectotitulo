@@ -1,0 +1,33 @@
+﻿SUPUESTOS DEL MODELO RECONSTRUIDO,,,,
+Completar solo con evidencia/decisión documentada. Las celdas amarillas requieren validación.,,,,
+Variable,Valor,Unidad,Estado,Criterio / evidencia necesaria
+Reservas pagadas completadas - Año 1,192,reservas/año,HIPÓTESIS BASE,Derivado provisionalmente de 8 espacios promedio × 2 reservas pagadas/espacio/mes × 12. Solo 8 espacios fue confirmado; frecuencia requiere validación.
+Crecimiento anual de reservas,0,%,HIPÓTESIS TÉCNICA,Sin crecimiento automático de reservas en el año 1; el crecimiento plurianual queda pendiente de plan de captación.
+Valor promedio por reserva (sin IVA),50000,CLP/reserva,DECISIÓN USUARIO,Ticket promedio fijado en $50.000 por reserva para el escenario base; validar con mix de categorías A y B.
+Comisión EspaciGo,0.14,% del GMV,HIPÓTESIS BASE,14% usado como referencia de trabajo por política pública observada de Busho; no es tarifa acordada por EspaciGo.
+Tarifa pasarela efectiva,,% del GMV,PENDIENTE,"Validar cotización/contrato y si incluye IVA, antifraude y cuotas."
+Crecimiento anual valor reserva,0,%,HIPÓTESIS TÉCNICA,Ticket nominal constante en el modelo inicial; no se aplica IPC automáticamente al precio.
+IPC / reajuste costos,0.04,%,REFERENCIAL,Se conserva el 4% del archivo original solo como supuesto editable.
+Remuneraciones equipo operativo Año 1,14400000,CLP/año,POR VALIDAR,La hoja Balance Personal estima $400.000 x 3 x 12; confirmar si se pagará desde Año 1.
+Cloud GCP Año 1,1800000,CLP/año,POR VALIDAR,Estimación interna de $150.000/mes; reemplazar por calculadora/cotización según arquitectura.
+FirmaVirtual/API Año 1,600000,CLP/año,POR VALIDAR,$50.000/mes en hoja Insumos; confirmar plan y costo por firma/transacción.
+Dominio Año 1,10950,CLP/año,POR VALIDAR,Precio indicado en hoja Insumos; validar renovación.
+Marketing Año 1,4200000,CLP/año,POR VALIDAR,Presupuesto de $350.000/mes; definir CAC y canales.
+Contabilidad Año 1,600000,CLP/año,POR VALIDAR,Presupuesto de $50.000/mes derivado de hoja consolidada.
+Viajes coordinación Año 1,180000,CLP/año,POR VALIDAR,15 viajes x $12.000; confirmar necesidad y frecuencia.
+Oficina virtual Año 1,,CLP/año,PENDIENTE,Se elimina $150.000 porque el archivo no especifica si es mensual o anual. No incorporar hasta confirmar periodicidad.
+Respaldo/almacenamiento Año 1,,CLP/año,PENDIENTE,Se elimina $80.000 hasta cotizar almacenamiento y validar política de respaldo/retención.
+Mantención/licencias Año 1,,CLP/año,PENDIENTE,Se elimina $1.200.000 hasta desglosar mantención/licencias y evitar duplicidad con otros servicios.
+Otros costos operativos Año 1,0,CLP/año,EDITABLE,Ingresar solo si están identificados y no duplicados.
+Depreciación anual Año 1-3,780000,CLP/año,POR VALIDAR,"Recalcular con costos, valores residuales y vidas útiles corregidos."
+Inversión inicial en equipos,2700000,CLP,POR VALIDAR,La hoja Maquinaria totaliza $2.700.000; confirmar compras efectivas.
+Gastos de puesta en marcha en efectivo,,CLP,PENDIENTE,No repetir automáticamente $1.200.000 de marketing/preparación: desglosar y evitar duplicidad.
+Capital de trabajo inicial,,CLP,PENDIENTE,"Calcular desde meses de caja y costos reales, no fijar $2,4m/$2,7m sin conciliación."
+Monto de deuda recibida Año 0,0,CLP,ESCENARIO,Dejar en cero hasta contar con oferta aprobada; la tasa 12% no es cotización.
+Tasa anual deuda,,%,PENDIENTE,"Reemplazar 12% por cotización bancaria con CAE, comisiones, seguros y calendario."
+Plazo deuda,3,años,ESCENARIO,Mantener 3 años solo como escenario editable.
+Tasa impuesto primera categoría,0.27,%,PENDIENTE,Validar régimen tributario aplicable; 27% no debe darse por supuesto.
+Caja recuperable al cierre (capital trabajo),0,CLP,ESCENARIO,Se deja en cero hasta definir horizonte y recuperación de capital de trabajo.
+,,,,
+Alcance comercial lanzamiento,A como núcleo; B como complemento,Decisión estratégica,CONFIRMADO POR USUARIO,A: espacios comerciales/profesionales temporales. B: espacios de disponibilidad prolongada como oferta complementaria.
+Espacios activos promedio Año 1,8,espacios,DECISIÓN USUARIO,"Promedio anual, no meta de cierre de año."

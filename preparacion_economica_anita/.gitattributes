@@ -1,0 +1,4 @@
+# La extracción conserva los finales de línea y espacios de los insumos.
+01_extraccion/excel/*.csv -whitespace
+01_extraccion/informe/*.xml whitespace=cr-at-eol
+01_extraccion/informe/informe_completo.md -whitespace

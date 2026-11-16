@@ -1,0 +1,12 @@
+﻿Se asume una inversión en Capital de Trabajo correspondiente a 1 mes de costos operativos (Aprox. $2.400.000 CLP).,,,
+,,,
+Capital de Trabajo (Equivalente a 1 Mes de Operación),,,
+,,,
+Ítem,Valor,,
+Remuneraciones (Personal Operativo - 1 Mes),1200000,,Remuneraciones: Corresponde al sueldo de los 3 integrantes operando la plataforma part-time durante el primer mes ($400.000 x 3).
+Costos Variables (Comisiones Mercado Pago - 1 Mes),900000,,
+Servicios Cloud e Infraestructura GCP (1 Mes),150000,,Costos Variables: Corresponde a 1 mes del costo variable total del Año 1 ($10.800.000 / 12 meses).
+"Gastos de Administración, Marketing y Difusión (1 Mes)",450000,,
+Total Capital de Trabajo,2700000,,Servicios Cloud: 1 mes estimado de servidores para mantener la plataforma arriba.
+,,,
+,,,"Gastos de Administración: La suma prorrateada a un mes del resto de gastos fijos (publicidad, contador, insumos)"

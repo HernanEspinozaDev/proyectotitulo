@@ -1,0 +1,59 @@
+﻿1. Balance de Costos y Gastos Generales (EspaciGo),,,,,
+,,,,,
+Detalle / Período Anual,0 (Inversión),1,2 (+4%),3 (+4%),4 (+4%)
+GASTOS,,,,,
+Co-Working / Oficina (100% Remoto),0,0,0,0,0
+Oficina Virtual (Dirección Tributaria SII),150000,150000,156000,162240,168730
+Servicio Respaldo (Evidencias/Contratos),0,80000,124800,205504,213724
+Insumos (API FirmaVirtual + Útiles),0,720000,748800,778752,809902
+Gastos Conexos (Viajes Coordinación),0,180000,199680,207667,229467
+"Marketing, Publicidad y Difusión",1200000,4200000,4368000,4542720,4724428
+Outsourcing Contador,0,600000,624000,648960,674918
+Gastos Totales,1350000,5930000,6221280,6545843,6821169
+,,,,,
+COSTOS VARIABLES,,,,,
+Costos por Hardware,0,0,0,0,0
+Comisión Pasarela (Mercado Pago),0,10800000,11232000,11681280,12148531
+Total Costos Variables,0,10800000,11232000,11681280,12148531
+,,,,,
+COSTOS FIJOS,,,,,
+Dominio NIC (.cl),10950,11388,11844,12318,12811
+Servicios Cloud y Hosting (GCP),0,1800000,1872000,1946880,2024755
+Depreciación (Equipos Informáticos),0,780000,780000,780000,0
+Mano de Obra (Desarrollo del Software),6240000,0,0,0,0
+Personal Operativo (Equipo Fundador),0,14400000,14976000,15575040,16198041
+Herramientas y Licencias de Software,0,0,0,0,0
+Total Costos Fijos,6250950,16991388,17639844,18314238,18235607
+,,,,,
+TOTAL GENERAL (Gastos + Costos),7600950,33721388,35093124,36541361,37205307
+,,,,,
+,,,,,
+(Nota: En el año 4 la depreciación baja a $0 porque la vida útil contable de los computadores es de 3 años).,,,,,
+,,,,,
+2. Cuadros Comparativos (Sección Derecha de tu Imagen),,,,,
+,,,,,
+,,,,,
+,,,,,
+Cuadro Comparativo Infraestructura Cloud 1.1,,,,,
+,,,,,
+Opción,Compañía,Plan / Modelo,Precio Anual (Estimado),Decisión,
+A,GCP Cloud Run,Serverless / Pago por uso,1800000,Seleccionado,
+B,AWS EC2,Instancias Fijas 24/7,2450000,Descartado,
+C,VPS Tradicional,Servidor Privado Virtual,1200000,Descartado (No escala),
+,,,,,
+Cuadro Comparativo Motor Legal (Ley 21.461) 1.2,,,,,
+,,,,,
+Opción,Compañía,Servicio,Validez Legal,Decisión,
+A,FirmaVirtual,Firma Electrónica Avanzada Remota,Alta (Permite desalojos),Seleccionado,
+B,DocuSign,Firma Simple Cloud,Cuestionable en Chile,Descartado,
+C,Notaría Presencial,Trámite Físico,Alta,Descartado (Rompe UX),
+,,,,,
+Cuadro Comparativo Pasarela de Pagos 1.3,,,,,
+,,,,,
+Opción,Compañía,Soporte Escrow (Retención),Soporte Split (División),Decisión,
+A,Mercado Pago,Sí (Nativo vía API),Sí,Seleccionado,
+B,Transbank Webpay,Burocrático / Lento,Complejo B2B2C,Descartado,
+C,Flow,No Nativo,Parcial,Descartado,
+,,,,,
+"Al presentar esta hoja consolidada, estás demostrando que los $14,4 millones iniciales
+ de ""Mano de Obra"" (construcción) solo ocurren en el Periodo 0, y que luego el modelo muta a un costo de ""Personal Operativo"" y ""Comisiones de Mercado Pago"", lo que refleja un profundo entendimiento de la diferencia entre crear una Startup y operarla financieramente",,,,,

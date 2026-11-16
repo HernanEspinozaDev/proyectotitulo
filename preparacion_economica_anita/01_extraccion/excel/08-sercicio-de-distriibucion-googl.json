@@ -1,0 +1,112 @@
+{
+  "orden": 8,
+  "hoja": "sercicio de distriibucion googl",
+  "estado": "visible",
+  "rango": "A1:C8",
+  "combinadas": [
+    "B2:C2"
+  ],
+  "celdas": [
+    {
+      "celda": "B2",
+      "fila": 2,
+      "columna": 2,
+      "valor_o_formula": "Servicio de Distribución de Aplicación Móvil por Google PlayStore",
+      "tipo": "s",
+      "valor_guardado": "Servicio de Distribución de Aplicación Móvil por Google PlayStore",
+      "formato_numerico": "General",
+      "hipervinculo": null,
+      "comentario": null
+    },
+    {
+      "celda": "B3",
+      "fila": 3,
+      "columna": 2,
+      "valor_o_formula": "Detalle",
+      "tipo": "s",
+      "valor_guardado": "Detalle",
+      "formato_numerico": "General",
+      "hipervinculo": null,
+      "comentario": null
+    },
+    {
+      "celda": "C3",
+      "fila": 3,
+      "columna": 3,
+      "valor_o_formula": "Valor Unitario SIN IVA",
+      "tipo": "s",
+      "valor_guardado": "Valor Unitario SIN IVA",
+      "formato_numerico": "General",
+      "hipervinculo": null,
+      "comentario": null
+    },
+    {
+      "celda": "B4",
+      "fila": 4,
+      "columna": 2,
+      "valor_o_formula": "Abono de Cuenta de Programador",
+      "tipo": "s",
+      "valor_guardado": "Abono de Cuenta de Programador",
+      "formato_numerico": "General",
+      "hipervinculo": null,
+      "comentario": null
+    },
+    {
+      "celda": "C4",
+      "fila": 4,
+      "columna": 3,
+      "valor_o_formula": "25 dólar",
+      "tipo": "s",
+      "valor_guardado": "25 dólar",
+      "formato_numerico": "_-[$$-340A]\\ * #,##0_-;\\-[$$-340A]\\ * #,##0_-;_-[$$-340A]\\ * \\-_-;_-@",
+      "hipervinculo": null,
+      "comentario": null
+    },
+    {
+      "celda": "B5",
+      "fila": 5,
+      "columna": 2,
+      "valor_o_formula": "Total",
+      "tipo": "s",
+      "valor_guardado": "Total",
+      "formato_numerico": "General",
+      "hipervinculo": null,
+      "comentario": null
+    },
+    {
+      "celda": "C5",
+      "fila": 5,
+      "columna": 3,
+      "valor_o_formula": 24183,
+      "tipo": "n",
+      "valor_guardado": 24183,
+      "formato_numerico": "General",
+      "hipervinculo": null,
+      "comentario": null
+    },
+    {
+      "celda": "B7",
+      "fila": 7,
+      "columna": 2,
+      "valor_o_formula": "https://www.google.com/search?q=dolar&rlz=1C1YTUH_esCL1155CL1155&oq=dolar&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7Mg0IARAAGIMBGLEDGIAEMg0IAhAAGIMBGLEDGIAEMgoIAxAAGLEDGIAEMg0IBBAAGIMBGLEDGIAEMgcIBRAAGIAEMg0IBhAAGIMBGLEDGIAEMg0IBxAAGIMBGLEDGIAEMg0ICBAAGIMBGLEDGIAEMg0ICRAAGJIDGIAEGIoF0gEIMTEwNGowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+      "tipo": "s",
+      "valor_guardado": "https://www.google.com/search?q=dolar&rlz=1C1YTUH_esCL1155CL1155&oq=dolar&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7Mg0IARAAGIMBGLEDGIAEMg0IAhAAGIMBGLEDGIAEMgoIAxAAGLEDGIAEMg0IBBAAGIMBGLEDGIAEMgcIBRAAGIAEMg0IBhAAGIMBGLEDGIAEMg0IBxAAGIMBGLEDGIAEMg0ICBAAGIMBGLEDGIAEMg0ICRAAGJIDGIAEGIoF0gEIMTEwNGowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+      "formato_numerico": "General",
+      "hipervinculo": null,
+      "comentario": null
+    },
+    {
+      "celda": "B8",
+      "fila": 8,
+      "columna": 2,
+      "valor_o_formula": "https://support.google.com/googleplay/android-developer/answer/6112435?hl=es&ref_topic=3450769&sjid=17686474820315071286-SA#zippy=%2Cpaso-reg%C3%ADstrate-para-obtener-una-cuenta-de-desarrollador-de-play-console%2Cpaso-acepta-el-acuerdo-de-distribuci%C3%B3n-para-desarrolladores%2Cpaso-paga-la-cuota-de-registro%2Cpaso-elige-un-tipo-de-cuenta-de-desarrollador",
+      "tipo": "s",
+      "valor_guardado": "https://support.google.com/googleplay/android-developer/answer/6112435?hl=es&ref_topic=3450769&sjid=17686474820315071286-SA#zippy=%2Cpaso-reg%C3%ADstrate-para-obtener-una-cuenta-de-desarrollador-de-play-console%2Cpaso-acepta-el-acuerdo-de-distribuci%C3%B3n-para-desarrolladores%2Cpaso-paga-la-cuota-de-registro%2Cpaso-elige-un-tipo-de-cuenta-de-desarrollador",
+      "formato_numerico": "General",
+      "hipervinculo": null,
+      "comentario": null
+    }
+  ],
+  "graficos": 0,
+  "imagenes": 0
+}

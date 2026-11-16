@@ -1,0 +1,19 @@
+﻿Cuadro Comparativo de Opciones de Financiamiento (EspaciGo),,,,
+Opción de Crédito,Institución / Instrumento,Tasa de Interés Anual (Referencial),Requisitos y Viabilidad para EspaciGo,Decisión
+Opción A: Crédito Comercial PYME (con Garantía Corfo),BancoEstado / Banco BCI (FOGAPE / FOGAIN),~12% a 14% nominal anual,Requiere iniciación de actividades y la garantía estatal (FOGAPE) cubre el riesgo al no tener historial de ventas.,Seleccionado. Es la vía formal más lógica para una Startup tecnológica.
+Opción B: Crédito de Consumo Personal,Bancos Comerciales (Evaluación como persona natural),~18% a 24% nominal anual,Los fundadores piden el crédito a su nombre y lo inyectan a la empresa. Tasa mucho más alta (TMC) y riesgo personal.,Descartado. Encarece el costo de capital de la empresa innecesariamente.
+Opción C: Capital Semilla / Fondos Concursables,CORFO / Sercotec (Semilla Inicia),0% (Subsidio no reembolsable),Aporte de hasta $15.000.000. Requiere cofinanciamiento del 25% y adjudicarse un concurso competitivo.,"Plan B. Se considera como alternativa, pero para el Flujo de Caja se evalúa el peor escenario (deuda bancaria)."
+,,,,
+Fuentes:,,,,
+,,,,
+1. Tasas de Interés Comercial: Banco Central de Chile (Estadísticas de Tasas de Interés del Sistema Financiero). La tasa promedio comercial en Chile fluctúa históricamente entre el 10% y el 14% dependiendo de la TPM (Tasa de Política Monetaria).,,,,
+,,,,
+2. Tasas de Crédito de Consumo: Comisión para el Mercado Financiero (CMF) - Simulador de Cuotas.,,,,
+,,,,
+3. Garantías PYME: Portal Corfo (Programas FOGAIN y Créditos Corfo PYME).,,,,
+,,,,
+Fuente de Financiamiento,Detalle / Base de Cálculo,Monto (CLP),Participación (%),
+Crédito Comercial PYME,50% de Desarrollo ($6.240.000) + Preparación ($1.200.000),3720000,0.3669,
+Aporte Propio Valorizado,50% restante del Desarrollo del Software (Costo oportunidad),3720000,0.3669,
+Aporte Propio en Efectivo,Financiamiento directo del Capital de Trabajo Inicial,2700000,0.2663,
+TOTAL FINANCIAMIENTO,Equivalente al 100% de la Inversión Inicial (Año 0),10140000,1,

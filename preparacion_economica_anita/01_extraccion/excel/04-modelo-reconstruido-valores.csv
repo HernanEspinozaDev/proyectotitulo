@@ -1,0 +1,38 @@
+﻿MODELO FINANCIERO RECONSTRUIDO – ESPACIGO,,,,,
+Las fórmulas se activan al completar los supuestos amarillos. Celdas vacías = no hay evidencia suficiente para proyectar aún.,,,,,
+Partida,Año 0,Año 1,Año 2,Año 3,Año 4
+Reservas pagadas completadas,,192,192,192,192
+Valor promedio por reserva (CLP),,50000,50000,50000,50000
+GMV (valor bruto transado),,9600000,9600000,9600000,9600000
+Comisión EspaciGo (%),,0.14,0.14,0.14,0.14
+Ingreso bruto de EspaciGo,,1344000.0000000002,1344000.0000000002,1344000.0000000002,1344000.0000000002
+Pasarela (% GMV),,,,,
+Costo pasarela,,,,,
+Contribución después de pasarela,,,,,
+Remuneraciones equipo operativo,,14400000,14976000,15575040.000000002,16198041.600000001
+Cloud GCP,,1800000,1872000,1946880.0000000002,2024755.2000000002
+FirmaVirtual/API,,600000,624000,648960.0000000001,674918.4
+Dominio,,10950,11388,11843.52,12317.260800000002
+Marketing,,4200000,4368000,4542720.000000001,4724428.800000001
+Contabilidad,,600000,624000,648960.0000000001,674918.4
+Viajes coordinación,,180000,187200,194688.00000000003,202475.52000000002
+Oficina virtual,,,,,
+Respaldo/almacenamiento,,,,,
+Mantención/licencias,,,,,
+Otros costos operativos,,0,0,0,0
+Total OPEX efectivo,,,,,
+EBITDA,,,,,
+Depreciación,,,,,
+EBIT,,,,,
+Intereses deuda,,0,0,0,0
+Resultado antes de impuesto,,,,,
+Impuesto estimado,,,,,
+Resultado neto,,,,,
+(+) Depreciación,,,,,
+(-) Abono a capital deuda,,0,0,0,0
+(+) Préstamo recibido,0,0,0,0,0
+(-) Inversión en equipos,-2700000,0,0,0,0
+(-) Gastos puesta en marcha,,0,0,0,0
+(-) Capital de trabajo inicial,,0,0,0,0
+(+) Recuperación capital trabajo,,0,0,0,0
+FLUJO DE CAJA NETO,-2700000,,,,

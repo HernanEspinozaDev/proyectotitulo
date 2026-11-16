@@ -1,0 +1,10 @@
+﻿Seccion,Descripcion del parametro,Valor,Unidad,Fuente/Justificacion
+MACROECONOMÍA,Año Base de Evaluación,2026,Año,Inicio de operaciones del proyecto.
+MACROECONOMÍA,Variación IPC Anual Proyectada,4.00,Porcentaje (%),Meta del Banco Central para proyectar OPEX (Años 1 al 4).
+MACROECONOMÍA,Tipo de Cambio USD a CLP,972,CLP / USD,Dólar observado para conversión de servicios Cloud.
+AJUSTE IPC,Costo Histórico (Ej. Licencias 2020),10000,CLP Antiguo,Valor referencial base.
+AJUSTE IPC,Variación IPC Acumulada 2020-2026,45.2,Porcentaje (%),Variación acumulada según calculadora INE
+AJUSTE IPC,Costo Ajustado a Hoy (2026),14520,CLP Actualizado,Actualización monetaria para la evaluación inicial.
+,,,,
+CONVERSION USD,Costo Mensual Cloud (GCP Cloud Run),154,USD,Consumo estimado de la arquitectura base.
+CONVERSION USD,Costo Mensual Cloud en CLP,149688,CLP Actualizado,$154  x 972$ (Aproximado a los $150.000 utilizados en el Flujo).

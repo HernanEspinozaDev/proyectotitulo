@@ -1,0 +1,9 @@
+﻿Costo Hardware (SaaS Cloud-Native),,,,,,,,,
+,,,,,,,,,
+Detalle,Valor Unitario SIN IVA,Periodo 1,Valor Periodo 1,Periodo 2,Valor Periodo 2,Periodo 3,Valor Periodo 3,Periodo 4,Valor periodo 4
+Dispositivos Físicos / IoT (No aplica),0,0,0,0,0,,,,
+Servidores Locales / On-Premise,0,0,0,0,0,,,,
+Total,0,,0,,0,,,,
+,,,,,,,,,
+"EspaciGo es un SaaS Cloud-Native. La infraestructura se procesa en la nube de Google (GCP) bajo un modelo de pago por uso (OPEX), por lo que no existe gasto en activos de hardware (CAPEX) más allá de la inversión i
+nicial en los computadores de desarrollo. Nuestros verdaderos costos variables son digitales (consultas a la API de FirmaVirtual y comisiones de la pasarela de pagos).",,,,,,,,,

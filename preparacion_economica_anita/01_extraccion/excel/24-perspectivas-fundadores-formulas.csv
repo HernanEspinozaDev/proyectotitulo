@@ -1,0 +1,23 @@
+﻿ESPACIGO | TRES NIVELES DE REMUNERACION,,,
+,,,
+Variable,Sin remuneracion,Reducida (base),Original (sensibilidad)
+Fundadores activos,3,3,3
+Pago mensual por fundador,0,200000,400000
+Pago mensual total,=B4*B5,=C4*C5,=D4*D5
+Pago anual total,=B6*12,=C6*12,=D6*12
+Otros costos mensuales parciales,615912.5,615912.5,615912.5
+Costos mensuales parciales,=B6+B8,=C6+C8,=D6+D8
+Ticket promedio,='Supuestos modelo'!B6,='Supuestos modelo'!B6,='Supuestos modelo'!B6
+Comision sobre ticket,='Supuestos modelo'!B7,='Supuestos modelo'!B7,='Supuestos modelo'!B7
+Ingreso bruto por reserva,=B10*B11,=C10*C11,=D10*D11
+Reservas equilibrio bruto/mes,"=IF(B12>0,ROUNDUP(B9/B12,0),"""")","=IF(C12>0,ROUNDUP(C9/C12,0),"""")","=IF(D12>0,ROUNDUP(D9/D12,0),"""")"
+Reservas actuales/mes (hipotesis),='Escenarios comerciales'!C11,='Escenarios comerciales'!C11,='Escenarios comerciales'!C11
+Brecha de reservas/mes,=B13-B14,=C13-C14,=D13-D14
+Ingresos mensuales brutos actuales,=B12*B14,=C12*C14,=D12*D14
+,,,
+IMPORTANTE: resultados preliminares; NO son punto de equilibrio definitivo,,,
+"No incluye pasarela, otros costos variables, ni costos fijos sin validar.",,,
+"Los $200.000 son una hipotesis financiera, no sueldo de mercado ni contrato laboral.",,,
+Los tres fundadores trabajan durante el primer ano; sin pago no significa trabajo sin valor.,,,
+"Antes de usar como remuneracion contractual, validar obligaciones laborales y tributarias.",,,
+La base comercial supone 2 reservas por espacio por mes; aun no validada.,,,
