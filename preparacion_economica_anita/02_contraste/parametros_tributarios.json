@@ -1,0 +1,54 @@
+{
+  "fecha_corte": "2026-11-16",
+  "regimen_proyectado": "Pro Pyme General, artículo 14 D N° 3 LIR",
+  "empresa_constituida": false,
+  "acogimiento_acreditado": false,
+  "seleccion_escenario": "indicación del propietario; elegibilidad real pendiente de formalización y requisitos",
+  "actividad_modelada": "servicio de intermediación mediante marketplace; los publicadores ofrecen y arriendan los espacios",
+  "ingreso_propio_modelado": "comisión neta de espaciGo; separar IVA y fondos de terceros",
+  "anio_0_preparacion": 2026,
+  "anio_1_operacion": 2027,
+  "tasas_idpc_por_periodo": [
+    {
+      "periodo": 1,
+      "anio_comercial": 2027,
+      "anio_tributario": 2028,
+      "tasa": "0.125"
+    },
+    {
+      "periodo": 2,
+      "anio_comercial": 2028,
+      "anio_tributario": 2029,
+      "tasa": "0.15"
+    },
+    {
+      "periodo": 3,
+      "anio_comercial": 2029,
+      "anio_tributario": 2030,
+      "tasa": "0.23"
+    },
+    {
+      "periodo": 4,
+      "anio_comercial": 2030,
+      "anio_tributario": 2031,
+      "tasa": "0.23"
+    }
+  ],
+  "estado_tasas": "parámetros de proyección según normativa consultada; revisar cambios y permanencia en régimen",
+  "base_imponible": "por conciliar según reglas Pro Pyme; no usar automáticamente GMV ni resultado contable antes de impuestos",
+  "precaucion_calculo": "conciliar percibido y pagado, pérdidas y diferencias tributarias; no duplicar depreciación si corresponde deducción inmediata; el costo de oportunidad no es por sí solo gasto tributario",
+  "fuentes": [
+    {
+      "titulo": "SII requisitos Pro Pyme General",
+      "url": "https://www.sii.cl/preguntas_frecuentes/declaracion_renta/001_140_7530.htm"
+    },
+    {
+      "titulo": "SII Circular 53 de 2025, rebaja transitoria",
+      "url": "https://www.sii.cl/normativa_legislacion/circulares/2025/circu53.pdf"
+    },
+    {
+      "titulo": "Ley 21.850 artículo 8 numeral 3 y sexto transitorio",
+      "url": "https://www.bcn.cl/leychile/Navegar?idNorma=1229250&idVersion=2026-10-17"
+    }
+  ]
+}

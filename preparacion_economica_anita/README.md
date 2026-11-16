@@ -6,6 +6,8 @@ La propuesta del Capítulo XIV contiene los dos flujos completos aportados para 
 
 La comisión vigente indicada por el propietario es del 3 % más IVA por cada pago procesado. Se descuenta del importe que recibe quien publica, junto con el cargo de Mercado Pago. El préstamo del insumo se identifica como simulación y se adopta provisionalmente una meta de CLP 200.000 mensuales por fundador, condicionada a disponibilidad, y CLP 1.000.000 como objetivo adicional por persona. La actualización y los escenarios recalculados se encuentran en 02_contraste/decisiones_modelo_ingresos.md. La vista previa incorpora el 3 % más IVA y el modelo mensual por modalidad, junto a los dos flujos recibidos como antecedentes.
 
-Para reconstruir la vista previa Word con DocSkill, ejecutar desde el repositorio `python3 preparacion_economica_anita/scripts/build_preview.py` con el entorno documental disponible. El PDF de revisión actual contiene 79 páginas y 80 tablas editables en su Word de origen.
+Para reconstruir la vista previa Word con DocSkill, ejecutar desde el repositorio `python3 preparacion_economica_anita/scripts/build_preview.py` con el entorno documental disponible. El PDF de revisión actual contiene 81 páginas y 81 tablas editables en su Word de origen.
 
 La sección 14.6 incorpora el cálculo de cobros para remuneraciones. El soporte y los límites se encuentran en 02_contraste/tickets_para_remuneraciones.md. El script scripts/calcular_tickets_remuneraciones.py permite variar el monto por fundador sin alterar las extracciones.
+
+Se incorpora Pro Pyme General como supuesto de una empresa proyectada, Año 1 de operación en 2027, y descuento académico del 25 %. El calendario y las fuentes tributarias se documentan en 02_contraste/parametros_tributarios.json y en H.28.

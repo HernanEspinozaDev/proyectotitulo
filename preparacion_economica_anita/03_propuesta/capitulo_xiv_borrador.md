@@ -57,6 +57,10 @@ El préstamo de CLP 3.720.000 al 12 % anual por tres años corresponde a una sim
 
 ### 14.3. Flujo de Caja
 
+La evaluación adopta una empresa proyectada que presta servicios de intermediación mediante un marketplace y prevé acogerse a Pro Pyme General, artículo 14 letra D número 3 de la Ley sobre Impuesto a la Renta. La empresa aún no se constituye; el acogimiento constituye un supuesto de planificación, sujeto a cumplir los requisitos del SII. Los publicadores ofrecen los espacios y reciben el saldo de sus arriendos. La comisión neta corresponde al ingreso propio modelado de espaciGo; los fondos de terceros y el IVA se registran por separado.
+
+El Año 0 corresponde a 2026 y el Año 1 de operación a 2027. Las tasas de Primera Categoría proyectadas son 12,5 % para 2027, 15 % para 2028 y 23 % para 2029 y 2030, conforme a las disposiciones consultadas al corte. El Anexo H.28 documenta calendario, fuentes y alcance. El impuesto se calcula sobre la base tributaria que corresponda al régimen, con sus ajustes y pérdidas, y no sobre el valor bruto de los arriendos. Las tablas históricas mantienen el 27 % original para comparación.
+
 
 #### 14.3.1. Flujo original aportado
 
@@ -135,7 +139,9 @@ La Tabla 17 presenta íntegramente el modelo reconstruido. Las celdas pendientes
 
 ### 14.4. Indicadores de Rentabilidad Financiera
 
-El recálculo del flujo original obtiene VAN de CLP −1.960.342,32 al 10 %, VAN de CLP −2.291.237,39 al 12 % y TIR de 0,85115 %. Ese resultado corresponde al vector original. El escenario AWS requiere un flujo actualizado antes de obtener sus indicadores.
+La evaluación académica adopta una tasa de descuento anual del 25 %, según la indicación docente comunicada por el propietario. Esta tasa sustituye como criterio principal las referencias del 10 % y 12 % del informe recibido. El VAN descuenta el flujo al 25 %; la TIR se calcula a partir de ese flujo y se compara con la exigencia. La tasa no representa una probabilidad de pérdida ni un recargo sobre costos. El formato del flujo de Anita se conserva como estructura rectora, con indicadores posteriores a la tabla completa.
+
+El recálculo del flujo original obtiene VAN de CLP −1.960.342,32 al 10 %, VAN de CLP −2.291.237,39 al 12 % y TIR de 0,85115 %. El mismo vector original produce VAN de CLP −3.877.897,00 al 25 % y conserva su TIR. Estos resultados son históricos. El escenario AWS requiere cerrar su propio flujo antes de obtener los indicadores al 25 %.
 
 ### 14.5. Análisis de Sensibilidad y Escenarios
 

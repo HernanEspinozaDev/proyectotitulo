@@ -67,7 +67,7 @@ Completar E06 y E07 produce el primer flujo único actualizado a AWS. Hasta ese 
 
 ## Verificación de la preparación
 
-Se comprueban 26 hojas, 2.081 celdas no vacías, 294 fórmulas, 219 párrafos y 17 imágenes. Las huellas SHA-256 confirman que los insumos originales conservan sus bytes. El documento de revisión contiene 80 tablas nativas; el número de páginas se comprueba en cada compilación. La vista previa se construye con DocSkill y se renderiza para revisar tablas, continuidad y presencia de los dos flujos completos. La carpeta de la tesis principal conserva sus archivos publicados.
+Se comprueban 26 hojas, 2.081 celdas no vacías, 294 fórmulas, 219 párrafos y 17 imágenes. Las huellas SHA-256 confirman que los insumos originales conservan sus bytes. El documento de revisión contiene 81 tablas nativas; el número de páginas se comprueba en cada compilación. La vista previa se construye con DocSkill y se renderiza para revisar tablas, continuidad y presencia de los dos flujos completos. La carpeta de la tesis principal conserva sus archivos publicados.
 
 El propietario mantiene provisionalmente ocho espacios, frecuencia de dos reservas por espacio y ticket de CLP 50.000. La preparación evoluciona hacia un modelo de cobros mensuales por modalidad. La aclaración posterior asigna los cargos a quien publica mediante descuento de su liquidación y fija la comisión por pago procesado. Esta decisión sustituye las selecciones anteriores.
 
@@ -104,6 +104,13 @@ El soporte de esta aclaración se registra en 02_contraste/usuarios_formato_y_ta
 
 - [x] Registrar el 25 % como tasa anual de descuento académica según la indicación docente comunicada por el propietario; las tasas de 10 % y 12 % quedan como antecedentes y sensibilidad.
 - [x] Confirmar presencia de impuesto del 27 % en el flujo original y contrastar su aplicación por régimen y año con SII y ley vigente.
-- [ ] Confirmar régimen de espaciGo y asignar años comerciales a las columnas antes de recalcular impuestos del flujo definitivo.
+- [x] Definir Pro Pyme General como régimen proyectado, empresa aún no constituida, Año 0 en 2026 y Año 1 en 2027.
+- [ ] Conciliar base tributaria y momento de pago por período; verificar acogimiento efectivo al formalizar la empresa.
 
 El 25 % de descuento no se incorpora como recargo de costos ni se usa para fijar artificialmente la TIR. La preparación Word/PDF previa conserva su corte; esta aclaración se incorpora en el próximo cierre del flujo completo respetando el formato de Anita.
+
+## Corte de incorporación tributaria
+
+Se incorporan el régimen proyectado y calendario en 14.3 y H.28 y el descuento académico del 25 % en 14.4. Se preservan las tablas y resultados originales como antecedentes. El formato del flujo de Anita continúa siendo rector. La comisión de intermediación se separa de fondos de terceros e IVA; el impuesto se parametriza por año y régimen, sin atribuir inscripción existente.
+
+La vista previa tributaria contiene 81 páginas y 81 tablas nativas. Se comprueban calendario 2027–2030, estado de empresa proyectada, tasas por año y descuento académico. Las 69 páginas de transcripción fuente conservan identidad visual con el corte anterior. Se revisan las páginas modificadas y el respaldo nuevo H.28; se conservan intactos los insumos recibidos y la tesis principal.

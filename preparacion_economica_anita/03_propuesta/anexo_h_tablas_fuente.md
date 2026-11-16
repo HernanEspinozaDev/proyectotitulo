@@ -1493,3 +1493,26 @@ La comprobación independiente verifica el mínimo entero: 727 pagos generan CLP
 El cálculo se reproduce con scripts/calcular_tickets_remuneraciones.py, usando --sueldo-objetivo 200000 o --sueldo-objetivo 1000000. Los parámetros y resultados se conservan en 02_contraste/umbrales_remuneraciones.json y 02_contraste/umbral_sueldo_objetivo.json. La regla de desembolso condicionado y el estado simulado del préstamo se registran en parametros_financiamiento.json.
 
 Los costos omitidos y el alcance de planificación se explicitan en 14.6. La comparación histórica de H.24 mantiene sus datos originales al 14 %, y este apartado identifica el recálculo al 3 %. No se declara un punto de equilibrio definitivo ni se presupone capacidad técnica o demanda acreditada para los volúmenes resultantes.
+
+
+## H.28. Régimen tributario proyectado y calendario de evaluación
+
+La empresa aún no se constituye. La preparación adopta Pro Pyme General como supuesto del escenario, sin afirmar inscripción vigente ante el SII. La actividad se modela como intermediación: los publicadores arriendan sus espacios y la plataforma cobra su comisión. La operación como sitio web no determina por sí sola la elegibilidad tributaria; deben cumplirse los requisitos de ingresos, capital y demás condiciones aplicables. El supuesto de intermediación requiere coherencia entre contratos, documentos tributarios y liquidaciones.
+
+**Tabla H.28.1**
+*Tasas de Primera Categoría por período del escenario proyectado*
+
+| Período | Año comercial | Año tributario | Tasa proyectada |
+|---|---|---|---|
+| 1 | 2027 | 2028 | 12,5 % |
+| 2 | 2028 | 2029 | 15 % |
+| 3 | 2029 | 2030 | 23 % |
+| 4 | 2030 | 2031 | 23 % |
+
+*Nota.* Elaboración a partir de la Circular 53 de 2025 del SII y del artículo 8, numeral 3, de la ley 21.850, respetando las tasas transitorias Pro Pyme. El Año 0 de preparación corresponde a 2026. Las tasas proyectadas reflejan normativa consultada al 16 de noviembre de 2026 y suponen permanencia en el régimen. Se revisan ante cambios legales o de elegibilidad.
+
+El flujo conserva las columnas y partidas de Anita. La fila de impuesto utiliza una conciliación tributaria auxiliar para distinguir ingreso propio, fondos de terceros, IVA, ingresos percibidos, egresos pagados, pérdidas y ajustes aplicables. La depreciación contable no se descuenta nuevamente si el régimen permite o exige reconocer la adquisición mediante otro tratamiento tributario. El trabajo valorizado tampoco se deduce automáticamente como si fuera un pago. La determinación de la base y del momento efectivo de pago de impuestos permanece dentro del cierre del flujo; no se presenta un recálculo completo con los demás parámetros pendientes.
+
+La tasa académica de descuento es 25 % anual según la indicación del profesor comunicada por el propietario. Se mantiene separada de la tasa de Primera Categoría, del IVA de la comisión y del interés del préstamo simulado. No se incrementan los costos operativos en 25 % por aplicar este criterio. El VAN del escenario actualizado se calcula después de cerrar su serie anual; la TIR no se fija de antemano.
+
+Fuentes: SII, requisitos para optar a Pro Pyme General, https://www.sii.cl/preguntas_frecuentes/declaracion_renta/001_140_7530.htm; SII, Circular 53 de 2025, https://www.sii.cl/normativa_legislacion/circulares/2025/circu53.pdf; ley 21.850, artículo 8 numeral 3 y artículo sexto transitorio, https://www.bcn.cl/leychile/Navegar?idNorma=1229250&idVersion=2026-10-17. Los parámetros estructurados se conservan en 02_contraste/parametros_tributarios.json.

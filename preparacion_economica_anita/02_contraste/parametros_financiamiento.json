@@ -21,6 +21,10 @@
   "tasa_descuento_academica_anual": "0.25",
   "origen_tasa_descuento": "indicación del profesor de Planificación de Proyectos comunicada por el propietario el 16 de noviembre de 2026",
   "alcance_tasa_descuento": "25 % anual total para evaluación académica; no probabilidad de pérdida ni 25 % adicional sobre costos; no costo de capital de mercado acreditado",
-  "regimen_tributario": "pendiente de confirmar",
-  "impuesto_27_por_ciento_del_insumo": "incluido en el flujo original; requiere parametrización por régimen y año antes de usarlo como impuesto del escenario actualizado"
+  "regimen_tributario": "Pro Pyme General, artículo 14 letra D número 3; supuesto del escenario proyectado",
+  "impuesto_27_por_ciento_del_insumo": "solo antecedente histórico; sustituir en el escenario actualizado por tasas Pro Pyme por año y base tributaria conciliada",
+  "estado_constitucion": "empresa aún no constituida, según el propietario",
+  "estado_acogimiento_tributario": "proyectado; no inscrito ni acreditado ante SII",
+  "anio_1_operacion": 2027,
+  "anio_0_preparacion": 2026
 }
