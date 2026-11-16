@@ -1,6 +1,8 @@
 # Usuarios activos, formato del flujo y significado de las tasas
 
-Fecha de corte: 16 de noviembre de 2026. Este análisis complementa el cálculo de remuneraciones sin modificar la tesis publicada ni los datos recibidos de Anita.
+Fecha de corte: 16 de noviembre de 2026.
+
+**Criterio vigente:** descuento nominal anual del 12 % confirmado por Anita y ratificado por el propietario; impuesto académico fijo del 27 %. Las entradas posteriores documentan la evolución y quedan subordinadas a esta decisión final. El 10 % y el 25 % no son tasas base. Este análisis complementa el cálculo de remuneraciones sin modificar la tesis publicada ni los datos recibidos de Anita.
 
 ## Usuarios y cobros
 
@@ -86,3 +88,7 @@ El 25 % comunicado por el profesor constituye una exigencia metodológica para e
 Por ejemplo, CLP 100.000 recibidos dentro de cuatro años tienen valor presente de CLP 68.301,35 al 10 %, frente a CLP 40.960 al 25 %. Los cobros proyectados permanecen iguales; cambia su valor para la evaluación actual. La TIR del mismo flujo no depende de la tasa elegida para el VAN. En el vector histórico de Anita, el VAN cambia de CLP −1.960.342,32 al 10 % a CLP −3.877.897 al 25 %, mientras la TIR permanece en aproximadamente 0,85 %.
 
 La base metodológica es el descuento de flujos con una tasa acorde a su riesgo y al destinatario del flujo: NYU Stern, Aswath Damodaran, https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/approach.html. Esta fuente respalda el método; no prescribe 25 % para espaciGo.
+
+## Ratificación final del 12 %
+
+El propietario confirma con Anita que la tasa utilizada es 12 % y solicita adoptarla y justificarla. Se sustituye el uso principal del 25 % y se retira el 10 % como alternativa base. La justificación metodológica y sus límites se documentan en justificacion_descuento12.md y H.29; la elección no se presenta como cálculo empírico de CAPM o WACC ni como equivalencia automática con el interés del préstamo. El mayor crecimiento esperado se refleja en el flujo y el menor descuento solo cambia su valoración presente.

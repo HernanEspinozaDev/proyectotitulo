@@ -1,6 +1,8 @@
 # Plan de preparación de la economía de espaciGo
 
-Fecha de corte 16 de noviembre de 2026. La preparación se realiza en este directorio independiente. Los insumos provienen de Anita y se conservan con su identificación y estado. La integración posterior requiere resolver las discrepancias entre sus modelos y actualizar los resultados que dependen de AWS.
+Fecha de corte 16 de noviembre de 2026.
+
+**Parámetros vigentes:** descuento nominal anual 12 % confirmado por Anita; impuesto académico fijo 27 %; Año 1 en 2027. Este corte sustituye la tasa base del 25 % registrada previamente. La preparación se realiza en este directorio independiente. Los insumos provienen de Anita y se conservan con su identificación y estado. La integración posterior requiere resolver las discrepancias entre sus modelos y actualizar los resultados que dependen de AWS.
 
 ## Resultado preparado para revisión
 
@@ -124,3 +126,14 @@ La vista previa tributaria contiene 81 páginas y 81 tablas nativas. Se comprueb
 El régimen Pro Pyme continúa como proyección y la empresa no se presenta como constituida. El cierre del flujo definitivo conserva sus tareas pendientes; esta ratificación no atribuye un recálculo completo a una serie aún no conciliada.
 
 La vista previa del criterio fijo conserva 81 páginas y 81 tablas nativas. Se comprueba 27 % en los cuatro períodos y correspondencia entre 14.3 y H.28. Las 69 páginas de transcripción original mantienen identidad visual. La revisión del informe y las hojas no identifica una derivación adicional de las tasas de descuento referenciales de Anita; la distinción con la exigencia académica del 25 % queda registrada.
+
+## Decisión vigente de descuento confirmado por Anita
+
+- [x] Registrar 12 % nominal anual como única tasa principal, según confirmación de Anita comunicada por el propietario.
+- [x] Sustituir el 25 % principal y retirar el 10 % como alternativa base en parámetros, 14.4, H.28 y README.
+- [x] Incorporar justificación metodológica y límites en H.29, sin inventar una derivación empírica de costo de capital.
+- [x] Conservar impuesto académico 27 % y formato original Año 0 a Año 4.
+
+El escenario actualizado continúa pendiente de cierre de costos y caja; los indicadores históricos al 12 % no se presentan como resultados del flujo AWS. La justificación documental de la tasa queda resuelta como supuesto metodológico adoptado, mientras la evidencia de mercado para calibrar el costo de capital no se atribuye al material recibido.
+
+La vista previa del descuento ratificado contiene 82 páginas y 81 tablas nativas. Se verifica descuento activo del 12 %, impuesto del 27 % en los cuatro períodos, VAN histórico al 12 % y coherencia entre 14.4, H.28 y H.29. Se revisan las páginas modificadas; las 69 páginas de transcripción fuente conservan identidad visual con el corte previo. La tesis principal permanece sin cambios en esta preparación separada.

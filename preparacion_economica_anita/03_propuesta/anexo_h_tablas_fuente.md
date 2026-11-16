@@ -1513,6 +1513,23 @@ La empresa aún no se constituye. La preparación mantiene Pro Pyme General como
 
 El flujo conserva las columnas, partidas y secuencia de Anita. El impuesto se calcula sobre la base de resultados y ajustes del ejercicio, considerando las pérdidas que correspondan al modelo. Los fondos de terceros y el IVA se separan del ingreso propio. El trabajo valorizado, la depreciación y los desembolsos se concilian para evitar doble conteo. La serie definitiva y sus indicadores requieren cerrar los demás parámetros pendientes.
 
-La tasa de descuento académico se mantiene en 25 % anual, según la indicación del profesor comunicada por el propietario. Se distingue del impuesto del 27 %, del IVA de la comisión y del interés del préstamo simulado del 12 %. La referencia original de Anita utiliza tasas de descuento del 10 % y 12 %; ambas permanecen como antecedentes. El VAN del escenario actualizado se calcula al 25 % cuando se cierre el flujo y la TIR se obtiene de sus resultados.
+La tasa de descuento del ejercicio es 12 % nominal anual, según confirmación de Anita comunicada por el propietario. Se distingue del impuesto fijo del 27 % y de la comisión del 3 % más IVA. El interés del préstamo simulado también es 12 %, pero no se confunde con la rentabilidad mínima de evaluación. El 10 % y el 25 % dejan de utilizarse como tasas principales. El Anexo H.29 fundamenta la elección metodológica y el alcance del criterio.
 
 Fuentes del supuesto académico: informe de Anita, sección 5.3; hoja FlujoNeto, A29:F45; instrucción del propietario del 16 de noviembre de 2026. Los parámetros se conservan en 02_contraste/parametros_tributarios.json. El contraste legal anterior permanece identificado como antecedente no aplicado al cálculo académico, para no confundirlo con el criterio adoptado.
+
+
+## H.29. Fundamentación de la tasa de descuento adoptada
+
+El ejercicio adopta 12 % nominal anual como tasa de descuento, según confirmación de Anita y ratificación del propietario del 16 de noviembre de 2026. Esta decisión sustituye el criterio previo del 25 % y fija una sola tasa base para los indicadores y escenarios de la preparación actualizada. El 10 % mencionado en el informe original se conserva únicamente en la extracción histórica, sin utilizarlo como criterio principal.
+
+La elección se fundamenta metodológicamente en mantener la tasa de referencia del estudio económico aportado y comparar los escenarios bajo una rentabilidad mínima común. La tasa se aplica con periodicidad anual y en términos nominales, coherentes con flujos que incorporan los reajustes de precios y costos definidos por el modelo. El valor del VAN es la suma de cada flujo anual dividido por (1 + 0,12) elevado al número de período; el flujo del Año 0 no se descuenta.
+
+La fuente recibida no deriva el 12 % a partir de un modelo propio de costo de capital. La confirmación de la autora acredita el parámetro elegido y no una estimación empírica del riesgo. El marco metodológico exige distinguir el flujo para los socios del flujo del proyecto y usar una tasa apropiada al destinatario del flujo. El estudio mantiene esa distinción al separar inversión, costo de oportunidad y financiamiento simulado. No se inventan primas de riesgo para obtener el porcentaje adoptado.
+
+La coincidencia entre descuento del 12 % e interés del préstamo del 12 % no implica que sean el mismo concepto. El primero es la rentabilidad mínima de referencia para evaluar; el segundo corresponde al servicio de una deuda simulada. La incertidumbre comercial y tecnológica se examina con sensibilidad de demanda, precio, gastos y tasa. Un descuento menor no reduce el riesgo operativo ni aumenta por sí mismo las ventas: modifica el valor presente asignado a los flujos esperados.
+
+El crecimiento en años posteriores se incorpora mediante cobros, comisiones y costos proyectados con sustento. El horizonte actual conserva los Años 0 a 4 del formato de Anita. Una eventual extensión al Año 5 requiere un escenario explícito, incluyendo capital de trabajo y demás partidas; no se añade un año o valor terminal únicamente para obtener un VAN positivo.
+
+Sobre el vector original [−6.420.000, −1.278.818, 445.097, 2.104.062, 5.378.456], el VAN al 12 % es CLP −2.291.237,39 y la TIR es aproximadamente 0,85115 %. Son comprobaciones históricas y no resultados del flujo nuevo pendiente de cierre. Para un flujo convencional de inversión, el criterio compara VAN con cero y TIR con el 12 %; si no existe TIR interpretable o hay múltiples soluciones, se informa esa condición.
+
+Fuentes: informe de Anita, sección 5.3; confirmación de la autora comunicada por el propietario el 16 de noviembre de 2026; Aswath Damodaran, NYU Stern, Approaches to Valuation, https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/approach.html. La referencia externa respalda el método y la correspondencia entre flujos y tasas; no prescribe un 12 % para espaciGo.

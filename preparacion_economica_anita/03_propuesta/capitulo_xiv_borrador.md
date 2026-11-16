@@ -139,9 +139,13 @@ La Tabla 17 presenta íntegramente el modelo reconstruido. Las celdas pendientes
 
 ### 14.4. Indicadores de Rentabilidad Financiera
 
-La evaluación académica adopta una tasa de descuento anual del 25 %, según la indicación docente comunicada por el propietario. Esta tasa sustituye como criterio principal las referencias del 10 % y 12 % del informe recibido. El VAN descuenta el flujo al 25 %; la TIR se calcula a partir de ese flujo y se compara con la exigencia. La tasa no representa una probabilidad de pérdida ni un recargo sobre costos. El formato del flujo de Anita se conserva como estructura rectora, con indicadores posteriores a la tabla completa.
+La evaluación adopta una tasa de descuento nominal anual del 12 %, confirmada por la autora del estudio económico y ratificada para este ejercicio. Se utiliza como rentabilidad mínima de referencia para expresar los flujos futuros en valor presente y comparar escenarios bajo un criterio común. Esta elección conserva la continuidad metodológica con el modelo de Anita y se aplica a flujos nominales, cuyos reajustes e inflación se explicitan en los supuestos.
 
-El recálculo del flujo original obtiene VAN de CLP −1.960.342,32 al 10 %, VAN de CLP −2.291.237,39 al 12 % y TIR de 0,85115 %. El mismo vector original produce VAN de CLP −3.877.897,00 al 25 % y conserva su TIR. Estos resultados son históricos. El escenario AWS requiere cerrar su propio flujo antes de obtener los indicadores al 25 %.
+La fundamentación es una decisión metodológica del ejercicio; el insumo no presenta una estimación propia mediante CAPM, WACC o primas de riesgo. Por ello, no se afirma que el 12 % mida empíricamente todo el riesgo de espaciGo. La incertidumbre se examina mediante sensibilidad de demanda, tickets, costos y tasa de descuento. El interés del préstamo simulado también es 12 %, pero corresponde a otra variable y no determina automáticamente el descuento. El Anexo H.29 documenta la elección, fórmula y alcance.
+
+El VAN utiliza 12 % anual; la TIR se obtiene del flujo y luego se compara con esa exigencia. El formato del flujo de Anita se conserva como estructura rectora, con indicadores posteriores a la tabla completa.
+
+El recálculo del vector original de Anita produce VAN de CLP −2.291.237,39 al 12 % y TIR de 0,85115 %. Estos indicadores pertenecen al flujo histórico. El escenario AWS con comisión del 3 % requiere cerrar su propia serie antes de obtener los indicadores al 12 %.
 
 ### 14.5. Análisis de Sensibilidad y Escenarios
 

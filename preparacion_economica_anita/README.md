@@ -6,10 +6,12 @@ La propuesta del Capítulo XIV contiene los dos flujos completos aportados para 
 
 La comisión vigente indicada por el propietario es del 3 % más IVA por cada pago procesado. Se descuenta del importe que recibe quien publica, junto con el cargo de Mercado Pago. El préstamo del insumo se identifica como simulación y se adopta provisionalmente una meta de CLP 200.000 mensuales por fundador, condicionada a disponibilidad, y CLP 1.000.000 como objetivo adicional por persona. La actualización y los escenarios recalculados se encuentran en 02_contraste/decisiones_modelo_ingresos.md. La vista previa incorpora el 3 % más IVA y el modelo mensual por modalidad, junto a los dos flujos recibidos como antecedentes.
 
-Para reconstruir la vista previa Word con DocSkill, ejecutar desde el repositorio `python3 preparacion_economica_anita/scripts/build_preview.py` con el entorno documental disponible. El PDF de revisión actual contiene 81 páginas y 81 tablas editables en su Word de origen.
+Para reconstruir la vista previa Word con DocSkill, ejecutar desde el repositorio `python3 preparacion_economica_anita/scripts/build_preview.py` con el entorno documental disponible. El PDF de revisión actual contiene 82 páginas y 81 tablas editables en su Word de origen.
 
 La sección 14.6 incorpora el cálculo de cobros para remuneraciones. El soporte y los límites se encuentran en 02_contraste/tickets_para_remuneraciones.md. El script scripts/calcular_tickets_remuneraciones.py permite variar el monto por fundador sin alterar las extracciones.
 
-Se incorpora Pro Pyme General como supuesto de una empresa proyectada, Año 1 de operación en 2027, y descuento académico del 25 %. El calendario y las fuentes tributarias se documentan en 02_contraste/parametros_tributarios.json y en H.28.
+Se incorpora Pro Pyme General como supuesto de una empresa proyectada, Año 1 de operación en 2027, y descuento nominal anual del 12 %. El calendario y las fuentes tributarias se documentan en 02_contraste/parametros_tributarios.json y en H.28.
 
-El criterio vigente del ejercicio conserva impuesto fijo del 27 % como Anita, por indicación docente comunicada por el propietario. Se distingue de la tasa de descuento académico del 25 % y de la tributación real del régimen proyectado. El calendario legal analizado antes queda como antecedente y no se aplica al cálculo académico.
+El criterio vigente del ejercicio conserva impuesto fijo del 27 % como Anita, por indicación docente comunicada por el propietario. Se distingue de la tasa de descuento nominal anual del 12 % y de la tributación real del régimen proyectado. El calendario legal analizado antes queda como antecedente y no se aplica al cálculo académico.
+
+La tasa base vigente es 12 % anual, confirmada por Anita y ratificada por el propietario. La justificación metodológica y sus límites se documentan en 02_contraste/justificacion_descuento12.md y en H.29. El 10 % y el 25 % quedan como antecedentes, no como tasas principales.
