@@ -1,0 +1,4 @@
+anio,saldo_inicial_clp,interes_clp,amortizacion_clp,cuota_clp,saldo_final_clp,ajuste_ultima_cuota_clp
+1,3720000,446400,1102418,1548818,2617582,0
+2,2617582,314110,1234708,1548818,1382874,0
+3,1382874,165945,1382874,1548819,0,1

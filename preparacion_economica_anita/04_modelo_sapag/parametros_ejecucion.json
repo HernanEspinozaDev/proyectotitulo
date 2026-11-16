@@ -1,0 +1,70 @@
+{
+  "fecha_corte": "2026-11-16",
+  "escenario_activo": "base_referencia_parcial",
+  "empresa_constituida": false,
+  "anio_0": 2026,
+  "anio_1": 2027,
+  "anios_operacion": 4,
+  "tasa_descuento_nominal": "0.12",
+  "tasa_impuesto_academica": "0.27",
+  "equipos": {
+    "existentes": true,
+    "compra_inicial_clp": "0",
+    "valor_fuente_clp": "2700000",
+    "aporte_patrimonial_y_uso_alternativo": null,
+    "fuente": "decisión del propietario: equipos existentes, sin compra inicial"
+  },
+  "lanzamiento": {
+    "presupuesto_clp": "1200000",
+    "estado": "presupuesto provisional ratificado; desglose y tratamiento contable pendientes",
+    "asignacion": "momento cero, antes de operar; se excluye de OPEX para evitar repetirlo"
+  },
+  "demanda": {
+    "espacios_promedio": 8,
+    "pagos_espacio_mes": "2",
+    "ticket_clp": "50000",
+    "crecimiento_anual_cobros": "0",
+    "crecimiento_anual_ticket": "0",
+    "estado": "referencia provisional ratificada en agregado, no demanda observada ni mezcla validada por categoría"
+  },
+  "costos": {
+    "reajuste_anual_presupuestos_clp": "0.04",
+    "aws_usd_constante": true,
+    "usd_clp_constante": true,
+    "creditos_aplicados": false,
+    "utiles_oficina": "incluir CLP 120000 anuales una vez, presupuesto de Conciliacion costos; confirmar necesidad en operación remota",
+    "marketing_separado_lanzamiento": true,
+    "marketing_presupuesto_base_mensual_clp": "350000",
+    "oficina_virtual_anual_clp": "150000",
+    "oficina_virtual_estado": "presupuesto provisional anual ratificado; fecha de pago y contratación pendientes"
+  },
+  "fundadores": {
+    "cantidad": 3,
+    "meta_mensual_persona_clp": "200000",
+    "objetivo_alternativo_persona_clp": "1000000",
+    "regla_escenario": "pago conjunto completo o cero; solo con excedente operativo propio después de costos identificados, reserva de servicio de deuda y provisión académica de impuesto; no se distribuyen préstamos, IVA ni fondos de publicadores",
+    "estado_regla": "implementación prudente de escenario; falta formalización y cierre de todos los costos",
+    "tratamiento_academico": "asignación presupuestada como egreso de personal para el ejercicio; modalidad jurídica y deducibilidad efectiva no determinadas"
+  },
+  "deuda_simulada": {
+    "principal_clp": "3720000",
+    "interes_anual": "0.12",
+    "anios": 3,
+    "cuotas": "anuales, al final de cada año, por convención del insumo",
+    "comisiones_seguros": null
+  },
+  "exclusiones_no_valoradas": [
+    "costos legales y de constitución sin desglose",
+    "cargas de contratación y formalización de remuneraciones",
+    "costos variables residuales propios y alcance definitivo de servicios",
+    "capital de trabajo del ciclo de liquidación",
+    "uso alternativo y aporte patrimonial de equipos existentes",
+    "trabajo incremental y costo de oportunidad del desarrollo",
+    "reinversiones y valor de cierre del horizonte"
+  ],
+  "criterio_partidas_pendientes": "no se convierten en costos cero confirmados; los flujos numéricos son subtotales de las partidas identificadas y excluyen estas partidas sin valoración",
+  "tributacion_referencia": "27 % académico y compensación de pérdidas según el criterio descrito por Anita; no liquidación fiscal de una empresa real",
+  "iva": "separa débito de comisión y no lo considera caja libre; el crédito por compras y calendario de remisión permanecen pendientes",
+  "pasarela": "se descuenta al publicador; tarifa y liquidación efectivas pendientes, sin inventar un porcentaje",
+  "capacidad": "el costo AWS de referencia no acredita capacidad para volúmenes mayores"
+}

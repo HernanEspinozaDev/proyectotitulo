@@ -1,0 +1,87 @@
+{
+  "partidas": [
+    {
+      "id": "C01",
+      "concepto": "AWS",
+      "moneda_modelada": "aws",
+      "tipo": "infraestructura",
+      "anual_1_clp": "308046.24",
+      "mensual_1_clp": "25670.52",
+      "fuente": "parametros_aws.json; USD 26,41 × 972 × 12",
+      "estado": "presupuesto provisional identificado; no contrato o factura verificados"
+    },
+    {
+      "id": "C02",
+      "concepto": "Firma y API",
+      "moneda_modelada": "clp",
+      "tipo": "suscripción presupuestada",
+      "anual_1_clp": "600000",
+      "mensual_1_clp": "50000",
+      "fuente": "Base mensual!B21",
+      "estado": "presupuesto provisional identificado; no contrato o factura verificados"
+    },
+    {
+      "id": "C03",
+      "concepto": "Marketing",
+      "moneda_modelada": "clp",
+      "tipo": "presupuesto de captación",
+      "anual_1_clp": "4200000",
+      "mensual_1_clp": "350000",
+      "fuente": "Base mensual!B22; presupuesto operativo ratificado",
+      "estado": "presupuesto provisional identificado; no contrato o factura verificados"
+    },
+    {
+      "id": "C04",
+      "concepto": "Contabilidad",
+      "moneda_modelada": "clp",
+      "tipo": "servicio presupuestado",
+      "anual_1_clp": "600000",
+      "mensual_1_clp": "50000",
+      "fuente": "Base mensual!B23",
+      "estado": "presupuesto provisional identificado; no contrato o factura verificados"
+    },
+    {
+      "id": "C05",
+      "concepto": "Dominio",
+      "moneda_modelada": "clp",
+      "tipo": "renovación anual prorrateada",
+      "anual_1_clp": "10950.0",
+      "mensual_1_clp": "912.5",
+      "fuente": "Base mensual!B24",
+      "estado": "presupuesto provisional identificado; no contrato o factura verificados"
+    },
+    {
+      "id": "C06",
+      "concepto": "Coordinación",
+      "moneda_modelada": "clp",
+      "tipo": "viajes presupuestados",
+      "anual_1_clp": "180000",
+      "mensual_1_clp": "15000",
+      "fuente": "Base mensual!B25",
+      "estado": "presupuesto provisional identificado; no contrato o factura verificados"
+    },
+    {
+      "id": "C07",
+      "concepto": "Útiles de oficina",
+      "moneda_modelada": "clp",
+      "tipo": "presupuesto auxiliar",
+      "anual_1_clp": "120000",
+      "mensual_1_clp": "10000",
+      "fuente": "Conciliacion costos!H9; importe anual 120000",
+      "estado": "presupuesto provisional identificado; no contrato o factura verificados"
+    },
+    {
+      "id": "C08",
+      "concepto": "Dirección tributaria",
+      "moneda_modelada": "clp",
+      "tipo": "servicio presupuestado",
+      "anual_1_clp": "150000",
+      "mensual_1_clp": "12500",
+      "fuente": "periodicidad anual ratificada por propietario; importe de la conciliación de Anita",
+      "estado": "presupuesto provisional identificado; no contrato o factura verificados"
+    }
+  ],
+  "total_anual_1_clp": "6168996.24",
+  "total_mensual_1_clp": "514083.02",
+  "estado_total": "parcial; partidas sin valoración fuera del subtotal"
+}

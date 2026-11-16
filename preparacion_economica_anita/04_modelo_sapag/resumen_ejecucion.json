@@ -1,0 +1,17 @@
+{
+  "alcance": "primer corte de ejecución con datos identificados y exclusiones explícitas",
+  "pagos_mes": "16",
+  "gmv_mes_clp": "800000",
+  "comision_neta_mes_clp": "24000.00",
+  "iva_comision_mes_restringido_clp": "4560.0000",
+  "opex_parcial_mes_clp": "514083.02",
+  "meta_fundadores_mes_clp": "600000",
+  "utiles_anuales_incorporados_clp": "120000",
+  "inversion_equipos_desembolso_clp": "0",
+  "lanzamiento_presupuestado_clp": "1200000",
+  "fundadores_pagados_anual_base_clp": "0",
+  "van_parcial_puro_12_clp": "-20055029.94",
+  "necesidad_financiacion_acumulada_parcial_clp": "26168498.16",
+  "capital_trabajo_ciclo_clp": null,
+  "advertencia": "el déficit persistente se presenta como necesidad de financiación, no se carga de nuevo al Año 0 como capital de trabajo además de las pérdidas operativas"
+}

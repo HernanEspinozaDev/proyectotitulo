@@ -1,0 +1,71 @@
+{
+  "fecha_corte": "2026-11-16",
+  "tipo": "primer corte de ejecución parcial, posterior a comparación Sapag",
+  "terminadas": [
+    "SP01",
+    "SP02",
+    "SP03"
+  ],
+  "tareas": [
+    {
+      "id": "SP04",
+      "estado": "en curso",
+      "avance": "Proyección agregada de 48 meses generada; nueve categorías conservadas sin asignación inventada.",
+      "resta": "Ratificar mezcla, captación, recurrencia y ticket por categoría/modalidad."
+    },
+    {
+      "id": "SP05",
+      "estado": "en curso",
+      "avance": "Equipos existentes sin compra inicial; lanzamiento de CLP 1200000 ratificado como provisional.",
+      "resta": "Desglosar lanzamiento, uso alternativo y trabajo incremental, aportes y reposiciones."
+    },
+    {
+      "id": "SP06",
+      "estado": "en curso",
+      "avance": "Ocho partidas conciliadas, subtotal CLP 514083,02 mensual; útiles incluidos una sola vez. Marketing separado del lanzamiento y dirección tributaria de CLP 150000 anuales ratificados como presupuestos.",
+      "resta": "Resolver conceptos sin monto o alcance y verificar contratación y consumo."
+    },
+    {
+      "id": "SP07",
+      "estado": "en curso",
+      "avance": "Caja mensual parcial e IVA separado; conciliación demostrativa del impuesto histórico al 27 %.",
+      "resta": "Definir ciclo de liquidación, IVA de compras y base definitiva de impuestos."
+    },
+    {
+      "id": "SP08",
+      "estado": "en curso",
+      "avance": "Necesidad acumulada de financiación parcial calculada sin duplicarla como capital de trabajo inicial.",
+      "resta": "Calcular capital del ciclo con desfases y condiciones completos."
+    },
+    {
+      "id": "SP09",
+      "estado": "pendiente",
+      "avance": "Horizonte de cuatro años preservado; valor de cierre sin cuantificación.",
+      "resta": "Definir aporte de activos, reinversiones y método de cierre respaldado."
+    },
+    {
+      "id": "SP10",
+      "estado": "en curso",
+      "avance": "Dos flujos parciales con la estructura de Anita; deuda simulada corregida hasta cero.",
+      "resta": "Completar las partidas no determinadas y cerrar flujo puro y financiado definitivos."
+    },
+    {
+      "id": "SP11",
+      "estado": "en curso",
+      "avance": "VAN parciales al 12 % comprobados; se informa TIR no existente o no interpretable como inversión.",
+      "resta": "Recalcular indicadores definitivos y recuperación tras el cierre de entradas."
+    },
+    {
+      "id": "SP12",
+      "estado": "en curso",
+      "avance": "Tres casos de demanda comparados sin probabilidades atribuidas.",
+      "resta": "Cerrar sensibilidad por costos, cambio, rezagos y puntos de quiebre de VAN."
+    },
+    {
+      "id": "SP13",
+      "estado": "pendiente",
+      "avance": "Tesis principal sin cambios, según preparación separada acordada.",
+      "resta": "Integrar cuando el material económico esté conciliado y listo para revisión."
+    }
+  ]
+}

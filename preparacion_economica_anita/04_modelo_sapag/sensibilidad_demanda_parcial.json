@@ -1,0 +1,26 @@
+[
+  {
+    "escenario": "conservador",
+    "pagos_mes": "4",
+    "ticket_clp": 35000,
+    "comision_neta_anual_1_clp": "50400.00",
+    "pago_fundadores_anual_1_clp": "0",
+    "van_parcial_12_clp": "-20776704.15"
+  },
+  {
+    "escenario": "base",
+    "pagos_mes": "16",
+    "ticket_clp": 50000,
+    "comision_neta_anual_1_clp": "288000.00",
+    "pago_fundadores_anual_1_clp": "0",
+    "van_parcial_12_clp": "-20055029.94"
+  },
+  {
+    "escenario": "optimista",
+    "pagos_mes": "45",
+    "ticket_clp": 65000,
+    "comision_neta_anual_1_clp": "1053000.00",
+    "pago_fundadores_anual_1_clp": "0",
+    "van_parcial_12_clp": "-17731457.69"
+  }
+]

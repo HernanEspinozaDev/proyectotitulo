@@ -1,0 +1,23 @@
+[
+  {
+    "recurso": "Tres notebooks y un teléfono",
+    "valor_fuente_clp": "2700000",
+    "desembolso_inicial_clp": "0",
+    "estado": "existentes, sin compra inicial confirmado por propietario",
+    "aporte_oportunidad_pendiente": true
+  },
+  {
+    "recurso": "Preparación y lanzamiento",
+    "valor_fuente_clp": "1200000",
+    "desembolso_inicial_clp": "1200000",
+    "estado": "presupuesto provisional ratificado; desglose y tratamiento pendientes",
+    "aporte_oportunidad_pendiente": false
+  },
+  {
+    "recurso": "Desarrollo valorizado",
+    "valor_fuente_clp": "6240000",
+    "desembolso_inicial_clp": null,
+    "estado": "no sumar como pago por el solo hecho de estar valorizado; separar pasado y trabajo incremental futuro",
+    "aporte_oportunidad_pendiente": true
+  }
+]

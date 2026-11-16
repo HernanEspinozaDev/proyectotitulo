@@ -43,5 +43,11 @@
       356
     ],
     "alcance": "fundamenta costo de oportunidad y correspondencia flujo-tasa; no prescribe ni estima 12 % para espaciGo"
-  }
+  },
+  "equipos_existentes_sin_compra_inicial": true,
+  "desembolso_inicial_equipos_clp": 0,
+  "lanzamiento_presupuesto_provisional_clp": 1200000,
+  "fuente_decisiones_inversion": "respuestas del propietario del 16 de noviembre de 2026; equipos existentes y lanzamiento provisional",
+  "direccion_tributaria_presupuesto_anual_clp": 150000,
+  "marketing_operativo_separado_lanzamiento": true
 }

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "P02",
+    "concepto": "Costos legales y de constitución",
+    "importe": null,
+    "motivo": "sin desglose, no duplicar contabilidad"
+  },
+  {
+    "id": "P03",
+    "concepto": "Cargas de contratación",
+    "importe": null,
+    "motivo": "sin modalidad ni base definidas"
+  },
+  {
+    "id": "P04",
+    "concepto": "Costo residual de pasarela",
+    "importe": null,
+    "motivo": "regla comercial a cargo del publicador, tarifa e implementación pendientes"
+  },
+  {
+    "id": "P05",
+    "concepto": "Capital de trabajo del ciclo",
+    "importe": null,
+    "motivo": "desfase de liquidación y pagos pendientes"
+  },
+  {
+    "id": "P06",
+    "concepto": "Reposición y cierre",
+    "importe": null,
+    "motivo": "equipos existentes, aportes y continuidad sin valoración"
+  }
+]

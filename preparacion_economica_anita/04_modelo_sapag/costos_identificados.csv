@@ -1,0 +1,9 @@
+id,concepto,moneda_modelada,tipo,anual_1_clp,mensual_1_clp,fuente,estado
+C01,AWS,aws,infraestructura,308046.24,25670.52,"parametros_aws.json; USD 26,41 × 972 × 12",presupuesto provisional identificado; no contrato o factura verificados
+C02,Firma y API,clp,suscripción presupuestada,600000,50000,Base mensual!B21,presupuesto provisional identificado; no contrato o factura verificados
+C03,Marketing,clp,presupuesto de captación,4200000,350000,Base mensual!B22; presupuesto operativo ratificado,presupuesto provisional identificado; no contrato o factura verificados
+C04,Contabilidad,clp,servicio presupuestado,600000,50000,Base mensual!B23,presupuesto provisional identificado; no contrato o factura verificados
+C05,Dominio,clp,renovación anual prorrateada,10950.0,912.5,Base mensual!B24,presupuesto provisional identificado; no contrato o factura verificados
+C06,Coordinación,clp,viajes presupuestados,180000,15000,Base mensual!B25,presupuesto provisional identificado; no contrato o factura verificados
+C07,Útiles de oficina,clp,presupuesto auxiliar,120000,10000,Conciliacion costos!H9; importe anual 120000,presupuesto provisional identificado; no contrato o factura verificados
+C08,Dirección tributaria,clp,servicio presupuestado,150000,12500,periodicidad anual ratificada por propietario; importe de la conciliación de Anita,presupuesto provisional identificado; no contrato o factura verificados

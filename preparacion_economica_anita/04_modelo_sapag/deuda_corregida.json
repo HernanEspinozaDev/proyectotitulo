@@ -1,0 +1,29 @@
+[
+  {
+    "anio": 1,
+    "saldo_inicial_clp": "3720000",
+    "interes_clp": "446400",
+    "amortizacion_clp": "1102418",
+    "cuota_clp": "1548818",
+    "saldo_final_clp": "2617582",
+    "ajuste_ultima_cuota_clp": "0"
+  },
+  {
+    "anio": 2,
+    "saldo_inicial_clp": "2617582",
+    "interes_clp": "314110",
+    "amortizacion_clp": "1234708",
+    "cuota_clp": "1548818",
+    "saldo_final_clp": "1382874",
+    "ajuste_ultima_cuota_clp": "0"
+  },
+  {
+    "anio": 3,
+    "saldo_inicial_clp": "1382874",
+    "interes_clp": "165945",
+    "amortizacion_clp": "1382874",
+    "cuota_clp": "1548819",
+    "saldo_final_clp": "0",
+    "ajuste_ultima_cuota_clp": "1"
+  }
+]

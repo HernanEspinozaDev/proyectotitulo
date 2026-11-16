@@ -1,0 +1,10 @@
+id,categoria,publicadores_activos,espacios_promedio,pagos_por_espacio_mes,ticket_clp,peso_modalidad_hora,peso_modalidad_dia,peso_modalidad_mes,estado
+1,Oficina,,,,,,,,categoría vigente; mezcla y volúmenes por ratificar
+2,Sala multipropósito,,,,,,,,categoría vigente; mezcla y volúmenes por ratificar
+3,Bodega,,,,,,,,categoría vigente; mezcla y volúmenes por ratificar
+4,Estacionamiento,,,,,,,,categoría vigente; mezcla y volúmenes por ratificar
+5,Local flexible,,,,,,,,categoría vigente; mezcla y volúmenes por ratificar
+6,Stand,,,,,,,,categoría vigente; mezcla y volúmenes por ratificar
+7,Quincho,,,,,,,,categoría vigente; mezcla y volúmenes por ratificar
+8,Parcela de eventos,,,,,,,,categoría vigente; mezcla y volúmenes por ratificar
+9,Inmuebles,,,,,,,,categoría vigente; mezcla y volúmenes por ratificar

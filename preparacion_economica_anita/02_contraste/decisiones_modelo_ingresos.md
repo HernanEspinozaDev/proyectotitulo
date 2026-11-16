@@ -64,4 +64,4 @@ La tasa se aplica a cada pago procesado. Un contrato con cuotas mensuales genera
 
 ## Tickets para las remuneraciones
 
-El cálculo reproducible se conserva en tickets_para_remuneraciones.md y en los archivos umbrales_remuneraciones.json y umbral_sueldo_objetivo.json. A CLP 50.000 por pago, las metas con costos parciales AWS son 728 pagos mensuales para CLP 200.000 por fundador y 2.328 para CLP 1.000.000. El cálculo no cierra el punto de equilibrio ni compromete pagos contractuales.
+El cálculo reproducible se conserva en tickets_para_remuneraciones.md y en los archivos umbrales_remuneraciones.json y umbral_sueldo_objetivo.json. A CLP 50.000 por pago, las metas con el presupuesto parcial conciliado son 743 pagos mensuales para CLP 200.000 por fundador y 2.343 para CLP 1.000.000. La inclusión de útiles explica el cambio respecto del corte anterior. El cálculo no cierra el punto de equilibrio ni compromete pagos contractuales.

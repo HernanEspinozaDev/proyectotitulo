@@ -33,7 +33,7 @@ La proyección comercial requiere antecedentes que sustenten la demanda y el mé
 
 #### 14.2.1. Recursos
 
-La inversión distingue trabajo valorizado, lanzamiento y capital de trabajo. La evaluación de caja separa el trabajo aportado del desembolso efectivo. La hoja Maquinaria registra equipos por CLP 2.700.000 y depreciación anual de CLP 780.000. La relación con la inversión inicial y el estado de compra requiere conciliación. Se clasifica cada recurso según desembolso incremental, costo ya comprometido o costo de oportunidad a la fecha de decisión. La ausencia de pago no elimina por sí sola el valor económico del trabajo, y un costo hundido no se vuelve pertinente por permanecer registrado en el informe (Sapag Chain & Sapag Chain, 2008, pp. 126, 259–262).
+La inversión distingue trabajo valorizado, lanzamiento y capital de trabajo. La evaluación de caja separa el trabajo aportado del desembolso efectivo. La hoja Maquinaria registra equipos por CLP 2.700.000 y depreciación anual de CLP 780.000. El propietario confirma que los tres notebooks y el teléfono ya existen y no se compran al inicio. Por ello, el desembolso inicial por estos equipos es CLP 0. Su eventual aporte, uso alternativo y tratamiento de depreciación permanecen por conciliar. El presupuesto de preparación y lanzamiento de CLP 1.200.000 se conserva como provisional, pendiente de desglose. Se clasifica cada recurso según desembolso incremental, costo ya comprometido o costo de oportunidad a la fecha de decisión. La ausencia de pago no elimina por sí sola el valor económico del trabajo, y un costo hundido no se vuelve pertinente por permanecer registrado en el informe (Sapag Chain & Sapag Chain, 2008, pp. 126, 259–262).
 
 **Tabla 15**
 *Balance de inversión inicial del insumo recibido*
@@ -53,7 +53,7 @@ La decisión vigente adopta provisionalmente CLP 200.000 mensuales por cada uno 
 
 El escenario AWS preparado adopta USD 26,41 mensuales y 972 CLP/USD, equivalentes a CLP 25.670,52 mensuales y CLP 308.046,24 anuales antes de créditos. El importe proviene de la propuesta interna del repositorio AWS. El contraste verifica la suma y la conversión.
 
-El capital de trabajo se determina mediante el calendario de ingresos y egresos mensuales y el método propuesto del déficit acumulado máximo. El importe histórico equivalente a un mes de OPEX queda como antecedente hasta verificar el ciclo de cobros y pagos. La inversión de arranque se distingue de las reinversiones y variaciones de capital durante la operación (Sapag Chain & Sapag Chain, 2008, pp. 262, 267–269).
+El capital de trabajo se determina mediante el calendario de ingresos y egresos mensuales y el método propuesto del déficit acumulado máximo. La proyección disponible muestra déficit operativo persistente y lo presenta como necesidad de financiación de partidas identificadas. No se suma ese déficit nuevamente al Año 0 como capital de trabajo, porque duplicaría las pérdidas. El capital del ciclo de liquidación continúa no determinado. El importe histórico equivalente a un mes de OPEX queda como antecedente hasta verificar el ciclo de cobros y pagos. La inversión de arranque se distingue de las reinversiones y variaciones de capital durante la operación (Sapag Chain & Sapag Chain, 2008, pp. 262, 267–269).
 
 Los créditos informados se aplican al consumo elegible según saldo y vigencia. La evaluación distingue el costo bruto y el desembolso cubierto por créditos. El cierre del costo requiere conciliar volumen S3, retención, procesamiento documental y nivel de servicio.
 
@@ -143,6 +143,66 @@ La Tabla 17 presenta íntegramente el modelo reconstruido. Las celdas pendientes
 
 El cierre del horizonte distingue valor de desecho por activos y valor económico de continuidad. La elección y su cuantía permanecen pendientes de respaldo. La recuperación de capital de trabajo se concilia con el método de cierre para evitar doble conteo; un valor patrimonial no equivale necesariamente a efectivo disponible para atender deuda (Sapag Chain & Sapag Chain, 2008, pp. 277–282, 292, 295).
 
+#### 14.3.3. Proyección parcial de las partidas identificadas
+
+El primer corte proyecta 48 meses entre 2027 y 2030. Conserva 16 pagos y CLP 50.000 por pago, sin crecimiento automático de volumen ni ticket. Los presupuestos CLP se reajustan al 4 % anual como supuesto de Anita; USD y tipo de cambio del presupuesto AWS se mantienen constantes. No se aplican créditos sin vigencia y elegibilidad verificadas para el período. La mezcla por categoría y el calendario de liquidación aún requieren definición; H.31 y H.33 contienen el detalle.
+
+En el Año 1 se presupuestan CLP 288.000 de comisión neta y CLP 6.168.996,24 de costos identificados. El pago condicionado a fundadores resulta cero por falta de excedente. No se confunde ese desembolso con la valorización del trabajo. Las proyecciones siguientes son subtotales de caja y no certifican viabilidad, porque faltan partidas de inversión, costos, capital de trabajo y cierre.
+
+**Tabla 18**
+*Flujo puro parcial del escenario de referencia*
+
+| Partida / período | Año 0 | Año 1 | Año 2 | Año 3 | Año 4 |
+|---|---|---|---|---|---|
+| (+) Ingresos por comisiones | 0 | 288.000 | 288.000 | 288.000 | 288.000 |
+| (-) Costos variables propios de pasarela | 0 | 0 | 0 | 0 | 0 |
+| (-) Costos fijos operativos (OPEX) | 0 | 1.218.996 | 1.255.434 | 1.293.330 | 1.332.741 |
+| (-) Gastos de administración y marketing | 0 | 4.950.000 | 5.148.000 | 5.353.920 | 5.568.077 |
+| (-) Depreciación de activos | 0 | 0 | 0 | 0 | 0 |
+| (=) Resultado operativo (EBIT) | 0 | -5.880.996 | -6.115.434 | -6.359.250 | -6.612.818 |
+| (-) Gastos financieros (intereses) | 0 | 0 | 0 | 0 | 0 |
+| (=) Utilidad antes de impuestos (EBT) | 0 | -5.880.996 | -6.115.434 | -6.359.250 | -6.612.818 |
+| (-) Impuesto académico (27 %) | 0 | 0 | 0 | 0 | 0 |
+| (=) Utilidad neta | 0 | -5.880.996 | -6.115.434 | -6.359.250 | -6.612.818 |
+| (+) Ajuste por depreciación | 0 | 0 | 0 | 0 | 0 |
+| (+) Préstamo simulado recibido | 0 | 0 | 0 | 0 | 0 |
+| (-) Inversión y preparación identificadas | -1.200.000 | 0 | 0 | 0 | 0 |
+| (-) Capital de trabajo del ciclo | n.d. | n.d. | n.d. | n.d. | n.d. |
+| (-) Amortización de deuda | 0 | 0 | 0 | 0 | 0 |
+| (=) Flujo neto parcial identificado | -1.200.000 | -5.880.996 | -6.115.434 | -6.359.250 | -6.612.818 |
+
+*Nota.* Elaboración con los supuestos del primer corte. CLP redondeados para presentación; la memoria conserva centavos de presupuesto. Se conserva la secuencia del flujo de Anita. El subtotal excluye partidas sin valoración, capital de trabajo del ciclo y valor de cierre. «n.d.» significa no determinado, no cero. La depreciación y el costo residual propio de pasarela no se reconocen en este escenario parcial hasta resolver aportes y condiciones; no se afirma que sean cero en la operación real. Los equipos existentes no generan compra inicial. El lanzamiento presupuestado se asigna al momento cero, con clasificación contable por conciliar.
+
+
+#### 14.3.4. Escenario parcial con financiamiento simulado
+
+El préstamo continúa como simulación de CLP 3.720.000, al 12 % anual, con tres cuotas al final de cada año. La última cuota se ajusta en CLP 1 para cerrar el saldo. La entrada del Año 0 es financiamiento y no ingreso del marketplace. Al superar el lanzamiento identificado, origina una entrada neta inicial; este patrón exige evitar interpretar una TIR de financiación como rentabilidad de inversión. H.34 documenta la amortización.
+
+**Tabla 19**
+*Flujo financiado parcial del escenario de referencia*
+
+| Partida / período | Año 0 | Año 1 | Año 2 | Año 3 | Año 4 |
+|---|---|---|---|---|---|
+| (+) Ingresos por comisiones | 0 | 288.000 | 288.000 | 288.000 | 288.000 |
+| (-) Costos variables propios de pasarela | 0 | 0 | 0 | 0 | 0 |
+| (-) Costos fijos operativos (OPEX) | 0 | 1.218.996 | 1.255.434 | 1.293.330 | 1.332.741 |
+| (-) Gastos de administración y marketing | 0 | 4.950.000 | 5.148.000 | 5.353.920 | 5.568.077 |
+| (-) Depreciación de activos | 0 | 0 | 0 | 0 | 0 |
+| (=) Resultado operativo (EBIT) | 0 | -5.880.996 | -6.115.434 | -6.359.250 | -6.612.818 |
+| (-) Gastos financieros (intereses) | 0 | 446.400 | 314.110 | 165.945 | 0 |
+| (=) Utilidad antes de impuestos (EBT) | 0 | -6.327.396 | -6.429.544 | -6.525.195 | -6.612.818 |
+| (-) Impuesto académico (27 %) | 0 | 0 | 0 | 0 | 0 |
+| (=) Utilidad neta | 0 | -6.327.396 | -6.429.544 | -6.525.195 | -6.612.818 |
+| (+) Ajuste por depreciación | 0 | 0 | 0 | 0 | 0 |
+| (+) Préstamo simulado recibido | 3.720.000 | 0 | 0 | 0 | 0 |
+| (-) Inversión y preparación identificadas | -1.200.000 | 0 | 0 | 0 | 0 |
+| (-) Capital de trabajo del ciclo | n.d. | n.d. | n.d. | n.d. | n.d. |
+| (-) Amortización de deuda | 0 | 1.102.418 | 1.234.708 | 1.382.874 | 0 |
+| (=) Flujo neto parcial identificado | 2.520.000 | -7.429.814 | -7.664.252 | -7.908.069 | -6.612.818 |
+
+*Nota.* Elaboración con los supuestos del primer corte. CLP redondeados para presentación; la memoria conserva centavos de presupuesto. Se conserva la secuencia del flujo de Anita. El subtotal excluye partidas sin valoración, capital de trabajo del ciclo y valor de cierre. «n.d.» significa no determinado, no cero. La depreciación y el costo residual propio de pasarela no se reconocen en este escenario parcial hasta resolver aportes y condiciones; no se afirma que sean cero en la operación real. Los equipos existentes no generan compra inicial. El lanzamiento presupuestado se asigna al momento cero, con clasificación contable por conciliar.
+
+
 ### 14.4. Indicadores de Rentabilidad Financiera
 
 La evaluación adopta una tasa de descuento nominal anual del 12 %, confirmada por la autora del estudio económico y ratificada para este ejercicio. Se utiliza como rentabilidad mínima de referencia para expresar los flujos futuros en valor presente y comparar escenarios bajo un criterio común. Esta elección conserva la continuidad metodológica con el modelo de Anita y se aplica a flujos nominales, cuyos reajustes e inflación se explicitan en los supuestos.
@@ -151,56 +211,54 @@ Sapag vincula el costo de capital con el rendimiento de usos alternativos de rie
 
 Se mantiene homogeneidad entre tasa nominal, moneda, fecha base y flujos reajustados; crecimiento de ventas e inflación se explicitan por separado (Sapag Chain & Sapag Chain, 2008, pp. 335–336). El VAN utiliza 12 % anual, incluye el Año 0 sin descuento y se obtiene de cada serie completa. La TIR se calcula del flujo y luego se compara con esa exigencia. La recuperación simple se distingue de la recuperación descontada; un saldo acumulado nominal positivo no demuestra por sí solo VAN positivo (Sapag Chain & Sapag Chain, 2008, pp. 321–323, 329–330). El formato del flujo de Anita se conserva como estructura rectora, con indicadores posteriores a la tabla completa.
 
-El recálculo del vector original de Anita produce VAN de CLP −2.291.237,39 al 12 % y TIR de 0,85115 %. Estos indicadores pertenecen al flujo histórico. El escenario AWS con comisión del 3 % requiere cerrar su propia serie antes de obtener los indicadores al 12 %.
+El recálculo del vector original de Anita produce VAN de CLP −2.291.237,39 al 12 % y TIR de 0,85115 %. Estos indicadores pertenecen al flujo histórico. La serie definitiva AWS requiere completar las partidas pendientes. Para el subtotal puro identificado se obtiene un VAN parcial al 12 % de CLP -20.055.029,94, y para el financiado, CLP -20.055.030,16. La serie pura solo presenta salidas y no tiene una TIR con signos opuestos. En la financiada, una entrada inicial seguida de salidas no se interpreta como rendimiento convencional de inversión. Estos resultados parciales no sustituyen el cierre del proyecto.
 
 ### 14.5. Análisis de Sensibilidad y Escenarios
 
 La evaluación distingue riesgo, cuando las probabilidades pueden estimarse, de incertidumbre, cuando no se dispone de ese respaldo. Los escenarios no acreditan por sí solos una probabilidad de éxito. La sensibilidad evalúa el efecto de cobros, ticket, costos, tipo de cambio, rezagos y tasa sobre el VAN y determina puntos de quiebre desde un caso base único. La simulación probabilística requiere distribuciones justificadas y no reemplaza el cierre de los datos de entrada (Sapag Chain & Sapag Chain, 2008, pp. 371, 375, 398–400, 406).
 
-La evaluación compara volumen de reservas, ticket, comisión, remuneración, pasarela e infraestructura. Los escenarios conservador, base y optimista del libro aportan los parámetros iniciales. La distribución plana mensual es una hipótesis de planificación. Se deben contrastar costo bruto y calendario de créditos y distinguir Single-AZ del nivel de servicio comercial previsto. Cada cifra del capítulo se vincula con la tabla y celda correspondiente del Anexo H. La transcripción de las 26 hojas permite revisar esa trazabilidad.
+La evaluación compara volumen de reservas, ticket, comisión, remuneración, pasarela e infraestructura. Los escenarios conservador, base y optimista del libro aportan los parámetros iniciales. La distribución plana mensual es una hipótesis de planificación. Se deben contrastar costo bruto y calendario de créditos y distinguir Single-AZ del nivel de servicio comercial previsto. Cada cifra del capítulo se vincula con la tabla y celda correspondiente del Anexo H. La transcripción de las 26 hojas permite revisar esa trazabilidad. El primer corte compara los tres escenarios de demanda originales con comisión común del 3 %, sin atribuir probabilidades. Los VAN de partidas identificadas continúan negativos; el cierre de costos y los puntos de quiebre definitivos permanecen pendientes. H.33 registra los resultados parciales.
 
 
 ### 14.6. Cobros necesarios para financiar remuneraciones
 
-La meta provisional es CLP 200.000 mensuales por fundador, CLP 600.000 entre tres integrantes. Se propone pagar el monto completo cuando existe caja suficiente después de las obligaciones operativas; si no alcanza, no se distribuye ese período. Se registran por separado la asignación prevista y el pago efectivo. Esta regla financiera no determina las obligaciones laborales.
+Se mantienen CLP 200.000 por fundador como meta inicial y CLP 1.000.000 como objetivo adicional. La regla de escenario prevé pago conjunto completo o cero, sujeto al excedente propio después de obligaciones identificadas. En la proyección de referencia no se activa el pago porque la comisión mensual es inferior al costo operativo parcial. Esto no elimina el costo económico del trabajo ni define obligaciones laborales.
 
-El objetivo adicional solicitado es CLP 1.000.000 mensuales por integrante. Se modela como asignación de referencia antes de definir cargas, retenciones o equivalencia líquida. El costo de contratación completo requiere una definición posterior.
+La conciliación incorpora una sola vez los útiles de oficina de CLP 120.000 anuales y la dirección tributaria de CLP 150.000 anuales, cuya periodicidad ratifica el propietario. El marketing operativo se mantiene separado del lanzamiento. Ambas partidas son presupuestarias y provisionales, sin acreditar contratación. Por ello, los umbrales previos de 728 y 2.328 pagos se actualizan a 743 y 2.343 al ticket de CLP 50.000.
 
-**Tabla 18**
-*Costos mensuales parciales utilizados en el cálculo de cobros*
+**Tabla 20**
+*Presupuesto mensual parcial conciliado para calcular las metas*
 
 | Componente | Importe mensual CLP |
 |---|---|
-| FirmaVirtual/API | 50.000 |
-| Marketing | 350.000 |
-| Contabilidad | 50.000 |
+| AWS | 25.670,52 |
+| Firma y API | 50.000,00 |
+| Marketing | 350.000,00 |
+| Contabilidad | 50.000,00 |
 | Dominio | 912,50 |
-| Viajes de coordinación | 15.000 |
-| AWS, escenario bruto adoptado | 25.670,52 |
-| Total parcial sin fundadores | 491.583,02 |
-| Meta inicial para tres fundadores | 600.000 |
-| Total parcial con meta inicial | 1.091.583,02 |
+| Coordinación | 15.000,00 |
+| Útiles de oficina | 10.000,00 |
+| Dirección tributaria | 12.500,00 |
+| Subtotal sin fundadores | 514.083,02 |
+| Meta conjunta inicial de fundadores | 600.000,00 |
+| Subtotal con meta inicial | 1.114.083,02 |
 
-*Nota.* Elaboración a partir de Base mensual, A20:B25, y del escenario AWS documentado. Se retiran CLP 150.000 de GCP y se incorporan CLP 25.670,52 de AWS. Los créditos temporales no reducen el umbral recurrente. La transcripción original permanece en H.3 y la comparación de remuneraciones de Anita en H.24. Las partidas conservan su condición de supuestos de planificación.
+*Nota.* Se utilizan Base mensual!B21:B25, Conciliacion costos!H9, el escenario AWS adoptado y la dirección tributaria anual ratificada. Cada componente se cuenta una sola vez. Se retiran GCP y subtotales duplicados; los presupuestos de útiles y dirección se suman separadamente. Los conceptos sin importe o alcance completos permanecen pendientes fuera de este subtotal. H.32 detalla fuentes, inversión y exclusiones.
 
-El análisis de esta sección corresponde a costo-volumen-utilidad y a metas de asignación, bajo los límites de los costos disponibles. Sapag distingue este umbral del análisis de inversión mediante VAN (Sapag Chain & Sapag Chain, 2008, pp. 129–130, 400). La comisión neta por pago es ticket medio multiplicado por 0,03. El número mínimo de cobros se obtiene redondeando hacia arriba el cociente entre costos parciales más remuneraciones objetivo y comisión neta por pago. El IVA de la comisión se separa del ingreso operativo. El costo de Mercado Pago se supone íntegramente descontado al publicador; cualquier costo residual para espaciGo debe agregarse al modelo cuando se determine.
+El análisis conserva la lógica costo-volumen-utilidad de Sapag, con sus límites respecto de inversión e impuestos (Sapag Chain & Sapag Chain, 2008, pp. 129–130). La contribución unitaria es la comisión neta por cobro menos costos variables propios cuando se determinen. Se redondea hacia arriba el cociente entre costos y asignaciones objetivo y esa contribución. El IVA no financia remuneraciones.
 
-**Tabla 19**
-*Pagos mensuales requeridos según ticket y remuneración objetivo*
+**Tabla 21**
+*Cobros requeridos por ticket para dos metas de remuneración*
 
-| Ticket medio CLP | Comisión neta por pago CLP | Pagos para CLP 200.000 por persona y costos parciales | Pagos para CLP 1.000.000 por persona y costos parciales |
+| Ticket medio CLP | Comisión neta por cobro CLP | Pagos para CLP 200.000 por persona | Pagos para CLP 1.000.000 por persona |
 |---|---|---|---|
-| 20.000 | 600 | 1.820 | 5.820 |
-| 50.000 | 1.500 | 728 | 2.328 |
-| 100.000 | 3.000 | 364 | 1.164 |
-| 200.000 | 6.000 | 182 | 582 |
+| 20.000 | 600 | 1.857 | 5.857 |
+| 50.000 | 1.500 | 743 | 2.343 |
+| 100.000 | 3.000 | 372 | 1.172 |
+| 200.000 | 6.000 | 186 | 586 |
 
-*Nota.* Elaboración propia mediante calcular_tickets_remuneraciones.py. Se consideran tres fundadores, comisión neta del 3 % y costos parciales de CLP 491.583,02 por mes. Son cantidades de pagos procesados y no necesariamente reservas ni contratos únicos. El ticket representa un promedio ponderado por cobros de las distintas modalidades y categorías. Los umbrales no constituyen una previsión de ventas ni un punto de equilibrio definitivo.
+*Nota.* Tres fundadores, comisión neta de 3 % y costos parciales de CLP 514.083,02 mensuales. Los cálculos excluyen partidas pendientes y variación de infraestructura por volumen. Son cantidades de pagos, no de contratos o personas únicas, y no equivalen a VAN cero.
 
-Con ticket medio de CLP 50.000, cubrir únicamente la meta inicial de CLP 600.000 exige 400 pagos y CLP 20.000.000 transados al mes. Al incorporar los costos parciales, se requieren 728 pagos y CLP 36.400.000 transados, que producen CLP 1.092.000 de comisión neta. Después de CLP 491.583,02 de costos parciales y CLP 600.000 para fundadores, el remanente es CLP 416,98 antes de partidas excluidas. Por ello, ese umbral no ofrece todavía un margen de seguridad.
+A ticket de CLP 50.000, cubrir solo CLP 600.000 requiere 400 pagos. Con el costo parcial conciliado se requieren 743 pagos, CLP 37.150.000 transados y CLP 1.114.500 de comisión neta. El remanente sobre costos parciales y meta inicial es CLP 416,98, antes de partidas pendientes. Para CLP 1.000.000 por fundador se requieren 2.343 pagos y CLP 117.150.000 transados.
 
-El objetivo de CLP 1.000.000 por fundador exige, con el mismo ticket, 2.328 pagos mensuales y CLP 116.400.000 transados. La comisión neta asciende a CLP 3.492.000 frente a CLP 3.491.583,02 de costos parciales y asignaciones objetivo. El volumen debe contrastarse con demanda, capacidad e infraestructura; el presupuesto AWS de referencia no acredita capacidad para ese nivel de actividad.
-
-La referencia inicial de 16 pagos mensuales genera CLP 24.000 de comisión neta. La brecha respecto de la meta inicial con costos parciales es de 712 pagos y CLP 1.067.583,02 mensuales. Si se conserva la hipótesis de dos pagos por espacio y mes, 728 pagos equivalen a 364 espacios activos. Es una equivalencia aritmética y no una demanda demostrada.
-
-Los anexos H.27 y H.30 respaldan fórmula y método. Los costos variables propios reducen la contribución por cobro. Los umbrales excluyen partidas pendientes, inversión, deuda, impuestos y capital de trabajo; no prueban VAN positivo.
+La referencia comercial de 16 pagos mensuales conserva CLP 24.000 de comisión neta. La brecha para cubrir costo parcial y meta inicial es de 727 pagos y CLP 1.090.083,02 mensuales. Con dos pagos por espacio, 743 pagos equivalen aproximadamente a 372 espacios activos. Son equivalencias bajo supuestos, no captación comprobada. Los anexos H.27 y H.31–H.35 respaldan los cálculos y su alcance.

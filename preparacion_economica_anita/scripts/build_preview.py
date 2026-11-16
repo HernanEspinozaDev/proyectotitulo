@@ -42,12 +42,17 @@ for table_index,table in enumerate(doc.iter(w+'tbl')):
   if rp is None:rp=E.SubElement(tr,w+'trPr')
   if rp.find(w+'cantSplit') is None:E.SubElement(rp,w+'cantSplit')
  count=len(table.find(w+'tr').findall(w+'tc'))
- if table_index==4:
+ first_header=''.join(table.find(w+'tr').findall(w+'tc')[0].itertext()).strip()
+ if count==5 and first_header=='Escenario':
+  weights=[.18,.15,.18,.22,.27]
+ elif count==6 and first_header.startswith('Partida'):
+  weights=[.30]+[.14]*5
+ elif count==2 and first_header.startswith('Componente'):
   weights=[.65,.35]
- elif table_index==5:
+ elif count==4 and first_header.startswith('Ticket medio'):
   weights=[.20,.20,.30,.30]
- elif table_index<4:
-  weights=([.40,.20,.25,.15] if count==4 else [.30]+[.70/(count-1)]*(count-1))
+ elif count==4 and (first_header.startswith('Modalidad') or first_header.startswith('Detalle de la Inversión')):
+  weights=[.40,.20,.25,.15]
  else:
   weights=[.08]+[.92/(count-1)]*(count-1) if count>1 else [1]
  widths=[round(8560*x) for x in weights]
@@ -61,7 +66,7 @@ for table_index,table in enumerate(doc.iter(w+'tbl')):
    cw=cp.find(w+'tcW')
    if cw is None:cw=E.SubElement(cp,w+'tcW')
    cw.set(w+'type','dxa');cw.set(w+'w',str(width))
- if table_index<2:
+ if table_index<2 or (first_header in ('Año','Escenario') and len(table.findall(w+'tr'))<=6):
   paras=list(table.iter(w+'p'))
   for para in paras[:-1]:
    pp=para.find(w+'pPr')

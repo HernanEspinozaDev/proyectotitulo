@@ -1480,20 +1480,13 @@ Fila 27. DECISIÓN PARA EL MODELO FINANCIERO
 *Nota.* Transcripción de la hoja «Revision respaldo» de EspaciGo.xlsx, filas 28–30. Se conservan los importes y el alcance del insumo.
 
 
-## H.27. Respaldo actualizado del cálculo de remuneraciones
+## H.27. Memoria actualizada de las metas de remuneración
 
-Este apartado complementa las 26 hojas transcritas. Contiene cálculos de preparación posteriores a la recepción del libro; no se atribuye a una hoja original de Anita. Respalda las Tablas 18 y 19 de la sección 14.6.
+Este apartado respalda las Tablas 20 y 21 y se actualiza con la conciliación de útiles de oficina. Los cálculos anteriores sin esa partida son un corte histórico. Se conserva su procedencia en la historia del repositorio.
 
-Los componentes de Base mensual, A20:B25, suman CLP 615.912,50 mensuales sin remuneraciones. Se retira el cloud GCP de CLP 150.000 y se incorpora el escenario AWS bruto de CLP 25.670,52. El costo parcial resultante es CLP 491.583,02. La meta de fundadores agrega tres veces CLP 200.000 o, en el objetivo adicional, tres veces CLP 1.000.000.
+El presupuesto mensual sin fundadores es CLP 514.083,02: la base parcial de CLP 491.583,02 más CLP 10.000 de útiles y CLP 12.500 de dirección tributaria. Los útiles proceden de Conciliacion costos!H9 y la periodicidad anual de la dirección es ratificada por el propietario. Con la meta conjunta inicial de CLP 600.000, se requieren CLP 1.114.083,02 de comisión neta. A ticket de CLP 50.000 y comisión neta de CLP 1.500 por cobro, el mínimo entero es 743 pagos: 742 producen CLP 1.113.000 y no alcanzan; 743 producen CLP 1.114.500. Para CLP 1.000.000 por fundador, el mínimo es 2.343 pagos.
 
-El costo parcial con la meta inicial es CLP 1.091.583,02 y con el objetivo adicional es CLP 3.491.583,02. La fórmula de pagos mínimos es redondeo hacia arriba de (costo parcial sin fundadores + tres veces la asignación por fundador) dividido por (ticket medio multiplicado por 0,03). A ticket de CLP 50.000, la comisión neta por cobro es CLP 1.500. Se obtienen 728 y 2.328 pagos mensuales respectivamente.
-
-La comprobación independiente verifica el mínimo entero: 727 pagos generan CLP 1.090.500 y no cubren la meta inicial con costos parciales; 728 generan CLP 1.092.000 y sí la cubren. Para el objetivo adicional, 2.327 pagos generan CLP 3.490.500 y no alcanzan, mientras 2.328 generan CLP 3.492.000. El IVA de la comisión se excluye del ingreso operativo.
-
-El cálculo se reproduce con scripts/calcular_tickets_remuneraciones.py, usando --sueldo-objetivo 200000 o --sueldo-objetivo 1000000. Los parámetros y resultados se conservan en 02_contraste/umbrales_remuneraciones.json y 02_contraste/umbral_sueldo_objetivo.json. La regla de desembolso condicionado y el estado simulado del préstamo se registran en parametros_financiamiento.json.
-
-Los costos omitidos y el alcance de planificación se explicitan en 14.6. La comparación histórica de H.24 mantiene sus datos originales al 14 %, y este apartado identifica el recálculo al 3 %. No se declara un punto de equilibrio definitivo ni se presupone capacidad técnica o demanda acreditada para los volúmenes resultantes.
-
+El cálculo redondea hacia arriba (costo parcial + tres asignaciones objetivo) dividido por (ticket multiplicado por 0,03). Los costos variables propios que se determinen reducen la contribución por cobro. El script calcular_tickets_remuneraciones.py lee los componentes y genera umbrales_remuneraciones.json y umbral_sueldo_objetivo.json. La comparación con fuente y las proyecciones se documentan en H.31–H.35.
 
 ## H.28. Supuesto fiscal académico y calendario de evaluación
 
@@ -1580,3 +1573,119 @@ El escenario actualizado requiere completar demanda mensual, costos, inversión 
 ### H.30.8. Referencia metodológica
 
 Sapag Chain, N., & Sapag Chain, R. (2008). Preparación y evaluación de proyectos (5.ª ed.). McGraw-Hill Interamericana.
+
+## H.31. Proyección comercial agregada y categorías
+
+La referencia conserva ocho espacios promedio, dos pagos mensuales por espacio y ticket de CLP 50.000. No se añade crecimiento de volumen o precio sin una decisión respaldada. El archivo proyeccion_mensual_2027_2030.csv registra los 48 meses con comisión, IVA y fondos de publicadores separados. La tabla siguiente no reparte los ocho espacios entre categorías, porque ese dato aún no está definido. Nueve categorías disponibles no implica nueve espacios activos ni demanda validada en todas ellas.
+
+**Tabla H.31.1**
+*Estado de asignación de la oferta por categoría*
+
+| ID | Categoría | Espacios y pagos | Ticket y mezcla |
+|---|---|---|---|
+| 1 | Oficina | Pendiente de asignar | Pendiente de ratificar |
+| 2 | Sala multipropósito | Pendiente de asignar | Pendiente de ratificar |
+| 3 | Bodega | Pendiente de asignar | Pendiente de ratificar |
+| 4 | Estacionamiento | Pendiente de asignar | Pendiente de ratificar |
+| 5 | Local flexible | Pendiente de asignar | Pendiente de ratificar |
+| 6 | Stand | Pendiente de asignar | Pendiente de ratificar |
+| 7 | Quincho | Pendiente de asignar | Pendiente de ratificar |
+| 8 | Parcela de eventos | Pendiente de asignar | Pendiente de ratificar |
+| 9 | Inmuebles | Pendiente de asignar | Pendiente de ratificar |
+
+*Nota.* Catálogo de nueve categorías comunicado por el propietario. No se sustituyen datos faltantes por ceros observados. La referencia agregada puede calcularse sin atribuir ventas a una categoría. La mezcla de modalidades previa se conserva como ejemplo no ratificado.
+
+**Tabla H.31.2**
+*Proyección comercial agregada sin crecimiento automático*
+
+| Año | Pagos anuales | GMV CLP | Comisión neta CLP | IVA de comisión CLP |
+|---|---|---|---|---|
+| 2027 | 192 | 9.600.000,00 | 288.000,00 | 54.720,00 |
+| 2028 | 192 | 9.600.000,00 | 288.000,00 | 54.720,00 |
+| 2029 | 192 | 9.600.000,00 | 288.000,00 | 54.720,00 |
+| 2030 | 192 | 9.600.000,00 | 288.000,00 | 54.720,00 |
+
+*Nota.* Elaboración con los parámetros agregados ratificados como referencia provisional. El total transado no es ingreso propio de espaciGo. Por mes, el saldo de publicadores antes de Mercado Pago es CLP 771.440; el abono final no se determina sin la tarifa y liquidación efectivas.
+
+## H.32. Recursos y presupuesto conciliado
+
+Los tres notebooks y el teléfono ya existen, según confirmación del propietario. Su compra inicial se fija en cero. El aporte patrimonial, uso alternativo y depreciación se mantienen separados y no se atribuyen automáticamente a una empresa aún no constituida. El presupuesto de CLP 1.200.000 de lanzamiento se mantiene provisional en el Año 0, sin duplicarlo con marketing operativo.
+
+**Tabla H.32.1**
+*Componentes del presupuesto identificado del Año 1*
+
+| ID | Componente | Mensual CLP | Anual CLP |
+|---|---|---|---|
+| C01 | AWS | 25.670,52 | 308.046,24 |
+| C02 | Firma y API | 50.000,00 | 600.000,00 |
+| C03 | Marketing | 350.000,00 | 4.200.000,00 |
+| C04 | Contabilidad | 50.000,00 | 600.000,00 |
+| C05 | Dominio | 912,50 | 10.950,00 |
+| C06 | Coordinación | 15.000,00 | 180.000,00 |
+| C07 | Útiles de oficina | 10.000,00 | 120.000,00 |
+| C08 | Dirección tributaria | 12.500,00 | 150.000,00 |
+| Total | Subtotal parcial | 514.083,02 | 6.168.996,24 |
+
+*Nota.* Presupuestos de Base mensual!B21:B25 y Conciliacion costos!H9, con sustitución de GCP por el escenario AWS adoptado y dirección tributaria anual ratificada. Los útiles y la dirección se cuentan una sola vez. El importe anual de dirección se prorratea como referencia, sin afirmar facturación mensual efectiva. Se mantienen fuera los subtotales genéricos y los conceptos suspendidos de mantenimiento o respaldo sin alcance independiente. La tabla no equivale a costos contratados o facturados.
+
+Constitución, cargas de contratación, costos residuales propios, recursos de uso alternativo y reposiciones carecen de valoración completa. Se registran como pendientes y no como cero real. La depreciación no se reconoce en el subtotal hasta definir el eventual aporte de equipos. Los CLP 6.240.000 de desarrollo valorizado tampoco se suman como pago inicial: se debe distinguir trabajo pasado, compromiso irreversible y trabajo incremental futuro.
+
+## H.33. Caja de referencia y necesidad de financiación
+
+Los costos identificados se proyectan mensualmente, con reajuste del 4 % anual para presupuestos CLP y costo AWS constante bajo el USD y cambio adoptados. La proyección no aplica créditos y no garantiza capacidad cloud para otros volúmenes. El IVA de comisión se reserva separado; el crédito por compras y las fechas efectivas de remisión permanecen pendientes. El impuesto del ejercicio se liquida al cierre anual por convención de la simulación, no como calendario fiscal real.
+
+El caso de pago condicionado a fundadores utiliza solo excedente propio después de costos identificados, reserva de servicio de deuda y provisión académica de impuesto. Nunca utiliza préstamos, IVA o fondos de publicadores para activar la distribución. En la referencia agregada, el pago es cero durante el horizonte. Los escenarios con CLP 200.000 y CLP 1.000.000 efectivamente presupuestados por persona se calculan por separado, sin afirmar que exista caja para pagarlos. En el ejercicio se tratan como egreso de personal; la modalidad jurídica y la deducibilidad real se mantienen pendientes.
+
+**Tabla H.33.1**
+*Resultados operativos parciales del escenario agregado*
+
+| Año | Comisión neta CLP | Costos identificados CLP | Pago condicionado CLP | Flujo operativo parcial CLP |
+|---|---|---|---|---|
+| 2027 | 288.000,00 | 6.168.996,24 | 0,00 | -5.880.996,24 |
+| 2028 | 288.000,00 | 6.403.434,24 | 0,00 | -6.115.434,24 |
+| 2029 | 288.000,00 | 6.647.249,76 | 0,00 | -6.359.249,76 |
+| 2030 | 288.000,00 | 6.900.817,92 | 0,00 | -6.612.817,92 |
+
+*Nota.* Caso sin deuda, antes de partidas excluidas. La compra de equipos es cero; el lanzamiento presupuestado de CLP 1.200.000 figura en el Año 0 del flujo del cuerpo. La necesidad acumulada de financiación parcial, incluyendo ese lanzamiento, alcanza CLP 26.168.498,16. Es financiación de déficit persistente, no capital de trabajo del ciclo determinado. No se suma nuevamente al Año 0 además de las pérdidas operativas.
+
+**Tabla H.33.2**
+*Comparación parcial de los escenarios de demanda del insumo*
+
+| Escenario | Pagos mensuales | Ticket CLP | Comisión Año 1 CLP | VAN parcial al 12 % CLP |
+|---|---|---|---|---|
+| conservador | 4 | 35.000 | 50.400,00 | -20.776.704,15 |
+| base | 16 | 50.000 | 288.000,00 | -20.055.029,94 |
+| optimista | 45 | 65.000 | 1.053.000,00 | -17.731.457,69 |
+
+*Nota.* Sin probabilidades atribuidas y sin ajuste de demanda para producir rentabilidad. El costo cloud y otros consumos deben reestimarse al cambiar el volumen; la comparación es un primer cálculo parcial, no una evaluación cerrada de capacidad o viabilidad.
+
+## H.34. Corrección de la deuda simulada
+
+Se calcula el préstamo de CLP 3.720.000 al 12 % anual y tres años con cuotas anuales, como el insumo. La cuota de referencia redondeada es CLP 1.548.818. La última cuota incorpora CLP 1 adicional para extinguir la deuda y conciliar capital amortizado con capital recibido. La simulación no acredita contratación, CAE, seguros ni comisiones.
+
+**Tabla H.34.1**
+*Amortización conciliada hasta saldo cero*
+
+| Año | Saldo inicial CLP | Interés CLP | Amortización CLP | Cuota CLP | Saldo final CLP |
+|---|---|---|---|---|---|
+| 1 | 3.720.000 | 446.400 | 1.102.418 | 1.548.818 | 2.617.582 |
+| 2 | 2.617.582 | 314.110 | 1.234.708 | 1.548.818 | 1.382.874 |
+| 3 | 1.382.874 | 165.945 | 1.382.874 | 1.548.819 | 0 |
+
+*Nota.* El principal amortizado totaliza CLP 3.720.000 y el saldo final es cero. La entrada del préstamo no se incluye como ingreso por comisiones. El flujo financiado del cuerpo presenta el efecto de la deuda y sus pagos.
+
+## H.35. Conciliación demostrativa de pérdidas históricas
+
+Esta comprobación conserva el 27 % y aplica el criterio de compensar pérdidas que describe el informe de Anita. Supone pérdidas iniciales cero y utiliza solo el EBT del bloque histórico corregido. No determina una base fiscal real ni reemplaza la conciliación del escenario actualizado.
+
+**Tabla H.35.1**
+*Impuesto histórico frente a compensación de pérdidas del ejercicio*
+
+| Año | EBT CLP | Pérdida compensada CLP | Impuesto fuente CLP | Impuesto recalculado CLP | Diferencia CLP |
+|---|---|---|---|---|---|
+| 1 | -956.400 | 0 | 0 | 0 | 0 |
+| 2 | 1.232.610 | 956.400 | 332.805 | 74.577 | 258.228 |
+| 3 | 3.708.132 | 0 | 1.001.196 | 1.001.196 | 0 |
+| 4 | 7.367.748 | 0 | 1.989.292 | 1.989.292 | 0 |
+
+*Nota.* En el Año 2, CLP 1.232.610 menos CLP 956.400 deja una base de CLP 276.210. Al 27 %, el impuesto es CLP 74.576,70, redondeado a CLP 74.577. La diferencia con CLP 332.805 del origen es CLP 258.228. La corrección concilia la explicación con la tabla bajo este supuesto, sin alterar la extracción original.

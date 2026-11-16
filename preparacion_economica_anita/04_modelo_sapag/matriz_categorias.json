@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "categoria": "Oficina",
+    "publicadores_activos": null,
+    "espacios_promedio": null,
+    "pagos_por_espacio_mes": null,
+    "ticket_clp": null,
+    "peso_modalidad_hora": null,
+    "peso_modalidad_dia": null,
+    "peso_modalidad_mes": null,
+    "estado": "categoría vigente; mezcla y volúmenes por ratificar"
+  },
+  {
+    "id": 2,
+    "categoria": "Sala multipropósito",
+    "publicadores_activos": null,
+    "espacios_promedio": null,
+    "pagos_por_espacio_mes": null,
+    "ticket_clp": null,
+    "peso_modalidad_hora": null,
+    "peso_modalidad_dia": null,
+    "peso_modalidad_mes": null,
+    "estado": "categoría vigente; mezcla y volúmenes por ratificar"
+  },
+  {
+    "id": 3,
+    "categoria": "Bodega",
+    "publicadores_activos": null,
+    "espacios_promedio": null,
+    "pagos_por_espacio_mes": null,
+    "ticket_clp": null,
+    "peso_modalidad_hora": null,
+    "peso_modalidad_dia": null,
+    "peso_modalidad_mes": null,
+    "estado": "categoría vigente; mezcla y volúmenes por ratificar"
+  },
+  {
+    "id": 4,
+    "categoria": "Estacionamiento",
+    "publicadores_activos": null,
+    "espacios_promedio": null,
+    "pagos_por_espacio_mes": null,
+    "ticket_clp": null,
+    "peso_modalidad_hora": null,
+    "peso_modalidad_dia": null,
+    "peso_modalidad_mes": null,
+    "estado": "categoría vigente; mezcla y volúmenes por ratificar"
+  },
+  {
+    "id": 5,
+    "categoria": "Local flexible",
+    "publicadores_activos": null,
+    "espacios_promedio": null,
+    "pagos_por_espacio_mes": null,
+    "ticket_clp": null,
+    "peso_modalidad_hora": null,
+    "peso_modalidad_dia": null,
+    "peso_modalidad_mes": null,
+    "estado": "categoría vigente; mezcla y volúmenes por ratificar"
+  },
+  {
+    "id": 6,
+    "categoria": "Stand",
+    "publicadores_activos": null,
+    "espacios_promedio": null,
+    "pagos_por_espacio_mes": null,
+    "ticket_clp": null,
+    "peso_modalidad_hora": null,
+    "peso_modalidad_dia": null,
+    "peso_modalidad_mes": null,
+    "estado": "categoría vigente; mezcla y volúmenes por ratificar"
+  },
+  {
+    "id": 7,
+    "categoria": "Quincho",
+    "publicadores_activos": null,
+    "espacios_promedio": null,
+    "pagos_por_espacio_mes": null,
+    "ticket_clp": null,
+    "peso_modalidad_hora": null,
+    "peso_modalidad_dia": null,
+    "peso_modalidad_mes": null,
+    "estado": "categoría vigente; mezcla y volúmenes por ratificar"
+  },
+  {
+    "id": 8,
+    "categoria": "Parcela de eventos",
+    "publicadores_activos": null,
+    "espacios_promedio": null,
+    "pagos_por_espacio_mes": null,
+    "ticket_clp": null,
+    "peso_modalidad_hora": null,
+    "peso_modalidad_dia": null,
+    "peso_modalidad_mes": null,
+    "estado": "categoría vigente; mezcla y volúmenes por ratificar"
+  },
+  {
+    "id": 9,
+    "categoria": "Inmuebles",
+    "publicadores_activos": null,
+    "espacios_promedio": null,
+    "pagos_por_espacio_mes": null,
+    "ticket_clp": null,
+    "peso_modalidad_hora": null,
+    "peso_modalidad_dia": null,
+    "peso_modalidad_mes": null,
+    "estado": "categoría vigente; mezcla y volúmenes por ratificar"
+  }
+]

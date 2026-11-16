@@ -24,4 +24,34 @@ Cerrar una evaluación trazable con el método de Sapag, preservando el formato 
 
 La ejecución financiera no se marca terminada solo por contar con el plan o con una vista previa. SP04–SP12 requieren entradas y cálculos completos. Los scripts y tablas originales se conservan como antecedentes; las cifras del escenario actualizado se distinguen explícitamente. La conclusión puede ser favorable, desfavorable o condicionada y debe corresponder al VAN y a la necesidad de financiación calculados. No se modifican supuestos solo para obtener rentabilidad.
 
-SP01–SP03 corresponden a esta revisión documental; SP04–SP13 quedan abiertos con dependencias explícitas y no representan trabajo ya ejecutado.
+SP01–SP03 corresponden a la revisión documental terminada. SP04–SP13 mantienen sus criterios de cierre; el avance numérico posterior se registra a continuación, sin confundir un subtotal parcial con una evaluación final.
+
+## Avance del primer corte de ejecución
+
+| Tarea | Estado | Ejecutado | Falta para cerrar |
+|---|---|---|---|
+| SP04 | en curso | Proyección agregada de 48 meses generada; nueve categorías conservadas sin asignación inventada. | Ratificar mezcla, captación, recurrencia y ticket por categoría/modalidad. |
+| SP05 | en curso | Equipos existentes sin compra inicial; lanzamiento de CLP 1200000 ratificado como provisional. | Desglosar lanzamiento, uso alternativo y trabajo incremental, aportes y reposiciones. |
+| SP06 | en curso | Ocho partidas conciliadas, subtotal CLP 514083,02 mensual; útiles incluidos una sola vez. | Resolver conceptos sin monto o alcance y verificar contratación y consumo. |
+| SP07 | en curso | Caja mensual parcial e IVA separado; conciliación demostrativa del impuesto histórico al 27 %. | Definir ciclo de liquidación, IVA de compras y base definitiva de impuestos. |
+| SP08 | en curso | Necesidad acumulada de financiación parcial calculada sin duplicarla como capital de trabajo inicial. | Calcular capital del ciclo con desfases y condiciones completos. |
+| SP09 | pendiente | Horizonte de cuatro años preservado; valor de cierre sin cuantificación. | Definir aporte de activos, reinversiones y método de cierre respaldado. |
+| SP10 | en curso | Dos flujos parciales con la estructura de Anita; deuda simulada corregida hasta cero. | Completar las partidas no determinadas y cerrar flujo puro y financiado definitivos. |
+| SP11 | en curso | VAN parciales al 12 % comprobados; se informa TIR no existente o no interpretable como inversión. | Recalcular indicadores definitivos y recuperación tras el cierre de entradas. |
+| SP12 | en curso | Tres casos de demanda comparados sin probabilidades atribuidas. | Cerrar sensibilidad por costos, cambio, rezagos y puntos de quiebre de VAN. |
+| SP13 | pendiente | Tesis principal sin cambios, según preparación separada acordada. | Integrar cuando el material económico esté conciliado y listo para revisión. |
+
+## Subtareas concretas terminadas en este corte
+
+- [x] Registrar las dos decisiones del propietario sobre equipos y lanzamiento.
+- [x] Generar 48 meses y cuatro resúmenes anuales sin crecimiento comercial añadido.
+- [x] Conservar las nueve categorías y registrar la mezcla como pendiente.
+- [x] Conciliar ocho partidas y corregir la omisión de útiles de oficina.
+- [x] Recalcular los umbrales de cobros: 743 y 2.343 al ticket de CLP 50.000.
+- [x] Preparar seis perfiles de caja parcial, distinguiendo pago condicionado y metas presupuestadas, con y sin deuda.
+- [x] Corregir la deuda simulada a saldo cero con ajuste de CLP 1.
+- [x] Reconciliar demostrativamente las pérdidas históricas descritas por Anita sin alterar la fuente.
+- [x] Integrar dos flujos parciales al cuerpo y memorias H.31–H.35, con cifras y límites explícitos.
+- [x] Verificar proyecciones, agregación anual, conciliación de fondos, impuesto, deuda, VAN y tickets.
+
+El soporte está en 04_modelo_sapag/INFORME_DE_AVANCE.md y estado_plan.json. Las tareas de nivel superior permanecen abiertas mientras existan partidas sin valoración, mezcla comercial por ratificar y decisiones de cierre.

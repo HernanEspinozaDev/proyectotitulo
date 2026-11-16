@@ -1,5 +1,7 @@
 # Comparación metodológica de la evaluación de espaciGo con Sapag
 
+**Corte del diagnóstico:** comparación inicial, anterior a la ejecución numérica. El avance y las correcciones posteriores se registran en 04_modelo_sapag/INFORME_DE_AVANCE.md y sapag2008_plan_correcciones.md; las cifras de 728 y 2.328 describen el subtotal previo a útiles.
+
 ## Conclusión y alcance
 
 La preparación conserva una estructura compatible con el flujo de Sapag, pero aún no constituye una evaluación financiera cerrada. Las fortalezas son la extracción íntegra, el ingreso propio separado de fondos de terceros, la identificación del escenario AWS y el formato financiado aportado por Anita. Las brechas decisivas son demanda y costos completos, inversión pertinente, capital de trabajo, cierre del horizonte, clasificación de flujos, respaldo de la tasa y sensibilidad calculada.

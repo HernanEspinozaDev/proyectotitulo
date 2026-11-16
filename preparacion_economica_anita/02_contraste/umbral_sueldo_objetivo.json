@@ -1,43 +1,43 @@
 {
   "estado": "escenario de planificación parcial; no punto de equilibrio definitivo",
   "fundadores": 3,
-  "meta_por_fundador_clp": 1000000,
+  "meta_por_fundador_clp": "1000000",
   "meta_total_fundadores_clp": "3000000",
   "comision_neta": "0.03",
-  "costos_fuente_sin_fundadores_con_gcp_clp": "615912.5",
+  "costos_fuente_sin_fundadores_con_gcp_clp": "638412.5",
   "gcp_retirado_clp": "150000",
   "aws_bruto_mensual_clp": "25670.52",
-  "costos_parciales_sin_fundadores_aws_clp": "491583.02",
-  "costo_parcial_con_meta_fundadores_clp": "3491583.02",
-  "gmv_minimo_teorico_clp": "116386100.6666666666666666667",
+  "costos_parciales_sin_fundadores_aws_clp": "514083.02",
+  "costo_parcial_con_meta_fundadores_clp": "3514083.02",
+  "gmv_minimo_teorico_clp": "117136100.6666666666666666667",
   "metas_por_ticket": [
     {
       "ticket_medio_clp": 20000,
       "comision_neta_por_pago_clp": "600.00",
-      "pagos_mes": 5820,
-      "gmv_redondeado_clp": 116400000,
-      "comision_neta_redondeada_clp": "3492000.00"
+      "pagos_mes": 5857,
+      "gmv_redondeado_clp": 117140000,
+      "comision_neta_redondeada_clp": "3514200.00"
     },
     {
       "ticket_medio_clp": 50000,
       "comision_neta_por_pago_clp": "1500.00",
-      "pagos_mes": 2328,
-      "gmv_redondeado_clp": 116400000,
-      "comision_neta_redondeada_clp": "3492000.00"
+      "pagos_mes": 2343,
+      "gmv_redondeado_clp": 117150000,
+      "comision_neta_redondeada_clp": "3514500.00"
     },
     {
       "ticket_medio_clp": 100000,
       "comision_neta_por_pago_clp": "3000.00",
-      "pagos_mes": 1164,
-      "gmv_redondeado_clp": 116400000,
-      "comision_neta_redondeada_clp": "3492000.00"
+      "pagos_mes": 1172,
+      "gmv_redondeado_clp": 117200000,
+      "comision_neta_redondeada_clp": "3516000.00"
     },
     {
       "ticket_medio_clp": 200000,
       "comision_neta_por_pago_clp": "6000.00",
-      "pagos_mes": 582,
-      "gmv_redondeado_clp": 116400000,
-      "comision_neta_redondeada_clp": "3492000.00"
+      "pagos_mes": 586,
+      "gmv_redondeado_clp": 117200000,
+      "comision_neta_redondeada_clp": "3516000.00"
     }
   ],
   "solo_meta_fundadores_ticket_50000": {
@@ -50,9 +50,9 @@
   "solo_costos_parciales_ticket_50000": {
     "ticket_medio_clp": 50000,
     "comision_neta_por_pago_clp": "1500.00",
-    "pagos_mes": 328,
-    "gmv_redondeado_clp": 16400000,
-    "comision_neta_redondeada_clp": "492000.00"
+    "pagos_mes": 343,
+    "gmv_redondeado_clp": 17150000,
+    "comision_neta_redondeada_clp": "514500.00"
   },
   "aws_y_meta_fundadores_ticket_50000": {
     "ticket_medio_clp": 50000,
@@ -61,19 +61,21 @@
     "gmv_redondeado_clp": 100900000,
     "comision_neta_redondeada_clp": "3027000.00"
   },
-  "espacios_equivalentes_a_dos_pagos_mes": 1164,
-  "brecha_sobre_16_pagos_mes": 2312,
-  "faltante_mensual_con_16_pagos_clp": "3467583.02",
+  "espacios_equivalentes_a_dos_pagos_mes": 1172,
+  "brecha_sobre_16_pagos_mes": 2327,
+  "faltante_mensual_con_16_pagos_clp": "3490083.02",
   "componentes_fuente_clp": {
     "Cloud GCP": "150000",
     "FirmaVirtual/API": "50000",
     "Marketing": "350000",
     "Contabilidad": "50000",
     "Dominio": "912.5",
-    "Viajes coordinación": "15000"
+    "Viajes coordinación": "15000",
+    "Útiles de oficina": "10000",
+    "Dirección tributaria": "12500"
   },
   "exclusiones": [
-    "oficina y otros costos fijos sin validar",
+    "otros costos fijos y alcances adicionales sin validar",
     "costos variables propios y crecimiento de infraestructura",
     "costos legales, tributarios y de contratación",
     "capital de trabajo, inversión y servicio de deuda",

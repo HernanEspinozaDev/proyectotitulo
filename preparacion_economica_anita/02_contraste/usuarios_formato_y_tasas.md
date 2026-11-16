@@ -94,3 +94,7 @@ La base metodológica es el descuento de flujos con una tasa acorde a su riesgo 
 ## Ratificación final del 12 %
 
 El propietario confirma con Anita que la tasa utilizada es 12 % y solicita adoptarla y justificarla. Se sustituye el uso principal del 25 % y se retira el 10 % como alternativa base. La justificación metodológica y sus límites se documentan en justificacion_descuento12.md y H.29; la elección no se presenta como cálculo empírico de CAPM o WACC ni como equivalencia automática con el interés del préstamo. El mayor crecimiento esperado se refleja en el flujo y el menor descuento solo cambia su valoración presente.
+
+## Umbrales vigentes tras la conciliación de costos
+
+El corte de ejecución incorpora útiles y dirección tributaria anual ratificada. A ticket de CLP 50.000, las metas vigentes son 743 y 2.343 pagos mensuales para las dos asignaciones por fundador. Las comparaciones previas de usuarios a partir de 728 y 2.328 pagos se conservan como antecedente del presupuesto anterior y no se presentan como cantidades actuales. La fórmula de usuarios sigue siendo pagos divididos por frecuencia por persona, redondeando hacia arriba.
