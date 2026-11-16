@@ -1,0 +1,139 @@
+{
+  "alcance": "segundo corte parcial, determinista y sin probabilidades asignadas",
+  "tasa_base": "0.12",
+  "caso_base_pagos_mes": "16",
+  "ticket_clp": "50000",
+  "sensibilidades": [
+    {
+      "variable": "pagos",
+      "variacion_pct": "-20.0",
+      "van_parcial_clp": "-20229981.26",
+      "diferencia_base_clp": "-174951.32"
+    },
+    {
+      "variable": "pagos",
+      "variacion_pct": "20.0",
+      "van_parcial_clp": "-19880078.62",
+      "diferencia_base_clp": "174951.32"
+    },
+    {
+      "variable": "ticket",
+      "variacion_pct": "-20.0",
+      "van_parcial_clp": "-20229981.26",
+      "diferencia_base_clp": "-174951.32"
+    },
+    {
+      "variable": "ticket",
+      "variacion_pct": "20.0",
+      "van_parcial_clp": "-19880078.62",
+      "diferencia_base_clp": "174951.32"
+    },
+    {
+      "variable": "costos",
+      "variacion_pct": "-20.0",
+      "van_parcial_clp": "-16109072.69",
+      "diferencia_base_clp": "3945957.25"
+    },
+    {
+      "variable": "costos",
+      "variacion_pct": "20.0",
+      "van_parcial_clp": "-24000987.19",
+      "diferencia_base_clp": "-3945957.25"
+    },
+    {
+      "variable": "cambio",
+      "variacion_pct": "-20.0",
+      "van_parcial_clp": "-19867901.20",
+      "diferencia_base_clp": "187128.74"
+    },
+    {
+      "variable": "cambio",
+      "variacion_pct": "20.0",
+      "van_parcial_clp": "-20242158.61",
+      "diferencia_base_clp": "-187128.66"
+    },
+    {
+      "variable": "descuento",
+      "variacion_pct": "10.00",
+      "van_parcial_clp": "-20894880.19",
+      "diferencia_base_clp": "-839850.24"
+    },
+    {
+      "variable": "descuento",
+      "variacion_pct": "12.00",
+      "van_parcial_clp": "-20055029.94",
+      "diferencia_base_clp": "0.00"
+    },
+    {
+      "variable": "descuento",
+      "variacion_pct": "25.00",
+      "van_parcial_clp": "-15783221.00",
+      "diferencia_base_clp": "4271808.94"
+    }
+  ],
+  "quiebres_van": [
+    {
+      "modo": "meta_200000",
+      "pagos_mes_teoricos": "790.940691662493137112366349",
+      "pagos_mes_enteros": 791,
+      "van_pago_anterior_clp": "-37543.73",
+      "van_pago_minimo_clp": "2367.04",
+      "interpretacion": "quiebre parcial de VAN anual; sin costos de escalamiento, capital del ciclo, oportunidad ni cierre"
+    },
+    {
+      "modo": "objetivo_millon",
+      "pagos_mes_teoricos": "2390.940691662493137126244137",
+      "pagos_mes_enteros": 2391,
+      "van_pago_anterior_clp": "-37543.73",
+      "van_pago_minimo_clp": "2367.04",
+      "interpretacion": "quiebre parcial de VAN anual; sin costos de escalamiento, capital del ciclo, oportunidad ni cierre"
+    }
+  ],
+  "umbrales_anuales": [
+    {
+      "anio": 2027,
+      "opex_mes_parcial_clp": "514083.02",
+      "pagos_meta_200000": 743,
+      "pagos_objetivo_millon": 2343,
+      "pago_condicionado_743_mes_clp": "600000"
+    },
+    {
+      "anio": 2028,
+      "opex_mes_parcial_clp": "533619.52",
+      "pagos_meta_200000": 756,
+      "pagos_objetivo_millon": 2356,
+      "pago_condicionado_743_mes_clp": "0"
+    },
+    {
+      "anio": 2029,
+      "opex_mes_parcial_clp": "553937.48",
+      "pagos_meta_200000": 770,
+      "pagos_objetivo_millon": 2370,
+      "pago_condicionado_743_mes_clp": "0"
+    },
+    {
+      "anio": 2030,
+      "opex_mes_parcial_clp": "575068.16",
+      "pagos_meta_200000": 784,
+      "pagos_objetivo_millon": 2384,
+      "pago_condicionado_743_mes_clp": "0"
+    }
+  ],
+  "temporalidad": {
+    "tasa_anual": "0.12",
+    "tasa_mensual_equivalente": "0.009488792934582974126355069",
+    "van_convencion_cierre_anual_clp": "-20055029.94",
+    "van_convencion_fin_mes_clp": "-21070841.39",
+    "diferencia_clp": "-1015811.45",
+    "alcance": "contraste temporal del subtotal prorrateado; no calendario real ni capital de trabajo validado"
+  },
+  "exclusiones": [
+    "costos legales y de constitución sin desglose",
+    "cargas de contratación y formalización de remuneraciones",
+    "costos variables residuales propios y alcance definitivo de servicios",
+    "capital de trabajo del ciclo de liquidación",
+    "uso alternativo y aporte patrimonial de equipos existentes",
+    "trabajo incremental y costo de oportunidad del desarrollo",
+    "reinversiones y valor de cierre del horizonte"
+  ]
+}

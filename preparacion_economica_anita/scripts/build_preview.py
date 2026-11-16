@@ -51,6 +51,12 @@ for table_index,table in enumerate(doc.iter(w+'tbl')):
   weights=[.65,.35]
  elif count==4 and first_header.startswith('Ticket medio'):
   weights=[.20,.20,.30,.30]
+ elif count==4 and first_header=='Variable':
+  weights=[.26,.22,.26,.26]
+ elif count==4 and first_header.startswith('Meta por persona'):
+  weights=[.25,.19,.28,.28]
+ elif count==4 and first_header=='Año':
+  weights=[.12,.24,.32,.32]
  elif count==4 and (first_header.startswith('Modalidad') or first_header.startswith('Detalle de la Inversión')):
   weights=[.40,.20,.25,.15]
  else:
@@ -66,7 +72,16 @@ for table_index,table in enumerate(doc.iter(w+'tbl')):
    cw=cp.find(w+'tcW')
    if cw is None:cw=E.SubElement(cp,w+'tcW')
    cw.set(w+'type','dxa');cw.set(w+'w',str(width))
- if table_index<2 or (first_header in ('Año','Escenario') and len(table.findall(w+'tr'))<=6):
+ table_text=''.join(table.itertext())
+ keep_full=(first_header.startswith('Componente') or 'Flujo neto parcial identificado' in table_text)
+ if keep_full:
+  for para in table.iter(w+'p'):
+   pp=para.find(w+'pPr')
+   if pp is None:pp=E.SubElement(para,w+'pPr')
+   spacing=pp.find(w+'spacing')
+   if spacing is None:spacing=E.SubElement(pp,w+'spacing')
+   for key,value in [('before','0'),('after','0'),('line','240'),('lineRule','auto')]:spacing.set(w+key,value)
+ if table_index<2 or keep_full or (first_header in ('Año','Escenario') and len(table.findall(w+'tr'))<=6):
   paras=list(table.iter(w+'p'))
   for para in paras[:-1]:
    pp=para.find(w+'pPr')
@@ -101,6 +116,8 @@ for para in doc.iter(w+'p'):
   for child in list(num):num.remove(child)
   E.SubElement(num,w+'numId',{w+'val':'0'})
   if style.get(w+'val') in ('Ttulo1','Heading1'):
+   E.SubElement(pr,w+'pageBreakBefore')
+  elif ''.join(para.itertext()).startswith('H.36. Coherencia'):
    E.SubElement(pr,w+'pageBreakBefore')
 payload['word/document.xml']=E.tostring(doc,xml_declaration=True,encoding='UTF-8',standalone=True)
 with zipfile.ZipFile(path,'w',zipfile.ZIP_DEFLATED) as z:

@@ -1689,3 +1689,56 @@ Esta comprobación conserva el 27 % y aplica el criterio de compensar pérdidas 
 | 4 | 7.367.748 | 0 | 1.989.292 | 1.989.292 | 0 |
 
 *Nota.* En el Año 2, CLP 1.232.610 menos CLP 956.400 deja una base de CLP 276.210. Al 27 %, el impuesto es CLP 74.576,70, redondeado a CLP 74.577. La diferencia con CLP 332.805 del origen es CLP 258.228. La corrección concilia la explicación con la tabla bajo este supuesto, sin alterar la extracción original.
+
+## H.36. Coherencia y sensibilidad del segundo corte
+
+La comprobación conserva la comisión neta del 3 %, la tasa de descuento base del 12 %, el impuesto académico del 27 % y los cuatro años 2027 a 2030. Cada sensibilidad cambia un solo parámetro y mantiene los demás. Los cambios de menos y más 20 % son rangos exploratorios definidos en esta revisión; no provienen de distribuciones observadas ni expresan certeza estadística. El caso base mantiene 16 cobros de CLP 50.000 al mes y pago condicionado cero.
+
+**Tabla H.36.1**
+*Sensibilidad individual del VAN parcial del caso base*
+
+| Variable | Prueba | VAN parcial CLP | Cambio del VAN CLP |
+|---|---|---|---|
+| Cobros mensuales | -20 % de variación | -20.229.981 | -174.951 |
+| Cobros mensuales | 20 % de variación | -19.880.079 | 174.951 |
+| Ticket medio | -20 % de variación | -20.229.981 | -174.951 |
+| Ticket medio | 20 % de variación | -19.880.079 | 174.951 |
+| Costos identificados | -20 % de variación | -16.109.073 | 3.945.957 |
+| Costos identificados | 20 % de variación | -24.000.987 | -3.945.957 |
+| CLP por USD | -20 % de variación | -19.867.901 | 187.129 |
+| CLP por USD | 20 % de variación | -20.242.159 | -187.129 |
+| Tasa de descuento | 10 % anual | -20.894.880 | -839.850 |
+| Tasa de descuento | 12 % anual | -20.055.030 | 0 |
+| Tasa de descuento | 25 % anual | -15.783.221 | 4.271.809 |
+
+*Nota.* Elaboración mediante el modelo reproducible. Valores redondeados a pesos para presentación. La variación cambiaria afecta solo a AWS; la de costos afecta a las ocho partidas identificadas. No se modifican el lanzamiento ni la comisión. Se mantienen las exclusiones del corte base. Un VAN menos negativo al elevar la tasa sobre flujos de salida no acredita menor riesgo. No se estiman costos cloud de escalamiento ni efectos de demanda cruzados.
+
+**Tabla H.36.2**
+*Umbrales operativos parciales por año sin deuda*
+
+| Año | Costo mensual CLP | Pagos para $200.000 por persona | Pagos para $1.000.000 por persona |
+|---|---|---|---|
+| 2027 | 514.083 | 743 | 2.343 |
+| 2028 | 533.620 | 756 | 2.356 |
+| 2029 | 553.937 | 770 | 2.370 |
+| 2030 | 575.068 | 784 | 2.384 |
+
+*Nota.* Ticket de CLP 50.000, comisión de CLP 1.500 por pago y tres personas. El costo mensual es un prorrateo presupuestario, no una fecha contractual de pago. Los útiles, la dirección tributaria y el dominio no acreditan facturación mensual. La meta se mantiene nominal constante y los costos CLP se reajustan 4 %. La regla de pago condicionado a 743 cobros activa CLP 600.000 al mes solo en el Año 1 y cero en los demás. Los umbrales cubren costos y asignaciones del año; no incorporan recuperación del lanzamiento, deuda, costos omitidos ni VAN cero.
+
+**Tabla H.36.3**
+*Quiebre del VAN anual parcial con asignaciones presupuestadas constantes*
+
+| Meta por persona CLP | Pagos mensuales mínimos | VAN con un pago menos CLP | VAN con el mínimo CLP |
+|---|---|---|---|
+| 200.000 | 791 | -37.544 | 2.367 |
+| 1.000.000 | 2.391 | -37.544 | 2.367 |
+
+*Nota.* Búsqueda numérica del volumen mensual uniforme a ticket de CLP 50.000. Se presupuestan las asignaciones completas como gasto académico, con independencia de que el escenario disponga de caja; no se cambia la decisión de pago condicionado. El flujo es puro, el Año 0 incluye CLP 1.200.000 de lanzamiento, el impuesto académico considera compensación de pérdidas y el VAN se descuenta al 12 % al cierre de cada año. El cálculo redondea hacia arriba el cruce y verifica los dos enteros adyacentes. El costo identificado no aumenta por volumen en esta prueba; antes de una decisión comercial se deben valorar escalamiento, recursos de oportunidad, cargas de contratación, capital del ciclo y cierre. El resultado no es una meta de captación validada.
+
+### H.36.4. Convenciones de fechas y límites de cierre
+
+La tasa mensual equivalente es (1 + 0,12) elevado a 1/12 menos 1, equivalente a 0,948879 %. El VAN anual rector del subtotal puro es CLP -20.055.029,94. Si los importes prorrateados se ubican al final de cada mes, el VAN es CLP -21.070.841,39, diferencia de CLP -1.015.811,45. Se informa el contraste porque adelantar egresos modifica su valor presente. No se reemplaza el formato anual docente ni se afirma que el prorrateo sea un calendario efectivo de caja.
+
+Los flujos vigentes se vinculan con las Tablas 18 a 21, H.27 y H.31 a H.36. Las Tablas 15 a 17 y H.1 a H.26 preservan los antecedentes recibidos; sus valores GCP, tasas o inversiones anteriores no constituyen decisiones activas. La reconstrucción conserva su contenido para la comparación solicitada.
+
+El caso base no presenta recuperación simple ni descontada dentro de los cuatro años: sus flujos propios son negativos. El valor de cierre y el capital del ciclo siguen sin cuantificarse. El cierre no adopta cero como valor económico definitivo ni convierte automáticamente el déficit persistente en capital de trabajo recuperable. La conclusión se limita al subtotal modelado; la evaluación integral continúa abierta conforme a los criterios de Sapag.

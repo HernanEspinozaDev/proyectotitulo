@@ -1,8 +1,8 @@
 {
   "fecha_corte": "2026-11-16",
   "alcance": "verificación de fórmulas y preservación de fuentes del primer corte parcial",
-  "paginas_pdf": 93,
-  "tablas_nativas_word": 91,
+  "paginas_pdf": 96,
+  "tablas_nativas_word": 94,
   "perfiles": 6,
   "meses_por_perfil": 48,
   "paginas_transcripcion_identicas_visualmente": 69,
@@ -17,7 +17,14 @@
     "respuesta del costo y VAN al cambiar marketing",
     "pago condicionado en cero con 742 cobros y activado con 743 en primer año",
     "documento regenerado sin duplicados",
-    "originales y libro de Sapag íntegros por SHA-256"
+    "originales y libro de Sapag íntegros por SHA-256",
+    "once sensibilidades deterministas contrastadas de forma independiente",
+    "umbrales operativos de 2027 a 2030 separados del quiebre de VAN",
+    "quiebres de VAN parcial verificados en enteros adyacentes",
+    "tasa mensual equivalente y VAN mensual contrastados con convención anual",
+    "aritmética visible de flujos y metas cotejada con memorias y Word",
+    "regeneración idempotente y referencias cuerpo/anexo revisadas",
+    "propuesta interna AWS conserva su SHA-256; no se verifica tarifa efectiva"
   ],
   "datos_no_verificados_como_hechos": [
     "demanda comercial futura",
@@ -25,5 +32,8 @@
     "elegibilidad futura de créditos AWS",
     "base tributaria legal de una empresa constituida",
     "valor de cierre y oportunidad de recursos"
-  ]
+  ],
+  "corte": "segundo corte de coherencia y sensibilidad",
+  "paginas_identicas_corte_anterior": 83,
+  "paginas_modificadas_inspeccionadas": 13
 }

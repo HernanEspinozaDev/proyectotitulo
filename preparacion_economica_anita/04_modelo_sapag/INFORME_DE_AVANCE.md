@@ -30,3 +30,9 @@ Ejecutar scripts/ejecutar_modelo_sapag.py, recalcular los umbrales con scripts/c
 ## Qué sigue abierto
 
 Mezcla por categoría, adquisición y baja de oferta, ticket por modalidad, costos residuales y servicios pendientes, forma de remuneración, ciclo de liquidación e IVA de compras, valor de uso alternativo del trabajo y equipos, reposiciones y cierre. SP04–SP12 tienen avances calculados y no se marcan completos mientras dependan de esos datos. La tesis principal conserva sus reservas de integración.
+
+## Segundo corte de coherencia y sensibilidad
+
+Se corrige la persistencia de 2.335 pagos en el generador: la cifra activa de la meta de un millón es 2.343 en el Año 1. Se explicitan los antecedentes frente al escenario vigente, la fecha de descuento y el prorrateo de costos. El generador conserva los parámetros de reajuste e inversión, sin asumir un porcentaje distinto del modelo.
+
+Se agregan once pruebas univariables, umbrales por año, dos cruces de VAN parcial y contraste temporal mensual/anual. H.36 y la sección 14.5 documentan métodos y límites. SP12 avanza, sin declararse completo mientras falten costos, demanda validada y rezagos.

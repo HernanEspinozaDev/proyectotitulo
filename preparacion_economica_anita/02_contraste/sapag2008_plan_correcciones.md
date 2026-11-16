@@ -38,7 +38,7 @@ SP01–SP03 corresponden a la revisión documental terminada. SP04–SP13 mantie
 | SP09 | pendiente | Horizonte de cuatro años preservado; valor de cierre sin cuantificación. | Definir aporte de activos, reinversiones y método de cierre respaldado. |
 | SP10 | en curso | Dos flujos parciales con la estructura de Anita; deuda simulada corregida hasta cero. | Completar las partidas no determinadas y cerrar flujo puro y financiado definitivos. |
 | SP11 | en curso | VAN parciales al 12 % comprobados; se informa TIR no existente o no interpretable como inversión. | Recalcular indicadores definitivos y recuperación tras el cierre de entradas. |
-| SP12 | en curso | Tres casos de demanda comparados sin probabilidades atribuidas. | Cerrar sensibilidad por costos, cambio, rezagos y puntos de quiebre de VAN. |
+| SP12 | en curso | Tres casos de demanda, once pruebas individuales, umbrales anuales y cruces de VAN parcial con 791 y 2.391 pagos constantes; contraste de fechas anual/mensual. | Cerrar costos de escalamiento, demanda, rezagos efectivos y cierre para resultados definitivos. |
 | SP13 | pendiente | Tesis principal sin cambios, según preparación separada acordada. | Integrar cuando el material económico esté conciliado y listo para revisión. |
 
 ## Subtareas concretas terminadas en este corte
@@ -55,3 +55,16 @@ SP01–SP03 corresponden a la revisión documental terminada. SP04–SP13 mantie
 - [x] Verificar proyecciones, agregación anual, conciliación de fondos, impuesto, deuda, VAN y tickets.
 
 El soporte está en 04_modelo_sapag/INFORME_DE_AVANCE.md y estado_plan.json. Las tareas de nivel superior permanecen abiertas mientras existan partidas sin valoración, mezcla comercial por ratificar y decisiones de cierre.
+
+## Segundo corte de coherencia y sensibilidad
+
+- [x] Corregir el umbral antiguo de 2.335 que conservaba el generador; la nota activa se construye desde JSON.
+- [x] Distinguir las Tablas 15–17 históricas de las Tablas 18–21 vigentes y corregir referencias auxiliares.
+- [x] Verificar los umbrales operativos por año: 743, 756, 770 y 784 para la meta inicial; 2.343, 2.356, 2.370 y 2.384 para el objetivo adicional.
+- [x] Calcular once sensibilidades deterministas desde el caso base, sin asignar probabilidades.
+- [x] Calcular quiebres parciales del VAN anual con metas fijas: 791 y 2.391 pagos al ticket de CLP 50.000; verificar los enteros adyacentes de forma independiente.
+- [x] Contrastar VAN anual al cierre frente a VAN con importes mensuales prorrateados y tasa equivalente; no mezclar convenciones.
+- [x] Verificar aritmética visible de las tablas, rótulos únicos, referencias al anexo y contenido compilado en Word.
+- [x] Verificar que regenerar los documentos sin cambiar parámetros no altera su contenido.
+
+El subtotal de costos y la comisión de referencia no cambian en este corte. Los nuevos quiebres son escenarios de evaluación con asignaciones completas presupuestadas, no sustituyen la regla de pago condicionado. La sensibilidad mantiene el costo identificado independiente del volumen; antes de adoptar los umbrales se requieren datos de escalamiento. Los padres SP04–SP12 conservan sus criterios de cierre. La revisión no cuantifica partidas desconocidas ni integra aún la tesis publicada.

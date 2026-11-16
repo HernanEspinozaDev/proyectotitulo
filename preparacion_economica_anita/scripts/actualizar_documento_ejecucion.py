@@ -14,7 +14,7 @@ def flow_table(model,params,costs,caption):
     annual=model['anual'];loan=params['deuda_simulada'];fin=model['financiado']
     admin=[];op=[]
     for a in annual:
-        year=a['periodo'];ad=sum(D(c['anual_1_clp'])*D('1.04')**(year-1) for c in costs if c['id'] in ('C03','C04','C08'))
+        year=a['periodo'];ad=sum(D(c['anual_1_clp'])*(1+D(params['costos']['reajuste_anual_presupuestos_clp']))**(year-1) for c in costs if c['id'] in ('C03','C04','C08'))
         admin.append(ad);op.append(D(a['opex_identificado_clp'])-ad+D(a['pago_fundadores_modelado_clp']))
     def series(key,initial=0):return [initial]+[D(a[key]) for a in annual]
     rows=[
@@ -30,7 +30,7 @@ def flow_table(model,params,costs,caption):
       ('(=) Utilidad neta',[0]+[D(a['ebt_clp'])-D(a['impuesto_clp']) for a in annual]),
       ('(+) Ajuste por depreciación',[0]*5),
       ('(+) Préstamo simulado recibido',[D(loan['principal_clp']) if fin else 0,0,0,0,0]),
-      ('(-) Inversión y preparación identificadas',[-D(params['lanzamiento']['presupuesto_clp']),0,0,0,0]),
+      ('(-) Inversión y preparación identificadas',[-D(params['lanzamiento']['presupuesto_clp'])-D(params['equipos']['compra_inicial_clp']),0,0,0,0]),
       ('(-) Capital de trabajo del ciclo',['n.d.']*5),
       ('(-) Amortización de deuda',series('amortizacion_deuda_clp')),
       ('(=) Flujo neto parcial identificado',model['flujo_anual'])]
@@ -173,7 +173,9 @@ Mezcla por categoría, adquisición y baja de oferta, ticket por modalidad, cost
 '''
     (MODEL/'INFORME_DE_AVANCE.md').write_text(report)
     # Actualizar notas activas de umbrales, sin editar antecedentes de extracción o auditorías fechadas.
-    (ROOT/'02_contraste/tickets_para_remuneraciones.md').write_text('# Tickets actualizados para remuneraciones\n\nEl primer corte añade CLP 120.000 anuales de útiles identificados en Conciliacion costos!H9 y CLP 150.000 anuales de dirección tributaria ratificados como presupuesto provisional. El presupuesto parcial mensual sin fundadores es CLP 514.083,02. A ticket de CLP 50.000 se requieren 743 pagos para CLP 200.000 por fundador y 2.335 para CLP 1.000.000. Los cálculos anteriores sin esa partida quedan como antecedentes.\n\nLa memoria activa es H.27, las Tablas 20 y 21 del cuerpo y los parámetros de umbrales. El alcance sigue siendo parcial y el costo variable propio se añade cuando se determine. El soporte del flujo se encuentra en 04_modelo_sapag/INFORME_DE_AVANCE.md.\n')
+    (ROOT/'02_contraste/tickets_para_remuneraciones.md').write_text('# Tickets actualizados para remuneraciones\n\nEl primer corte añade CLP 120.000 anuales de útiles identificados en Conciliacion costos!H9 y CLP 150.000 anuales de dirección tributaria ratificados como presupuesto provisional. El presupuesto parcial mensual sin fundadores es CLP 514.083,02. A ticket de CLP 50.000 se requieren 743 pagos para CLP 200.000 por fundador y 2.343 para CLP 1.000.000. Los cálculos anteriores sin esa partida quedan como antecedentes.\n\nLa memoria activa es H.27, las Tablas 20 y 21 del cuerpo y los parámetros de umbrales. El alcance sigue siendo parcial y el costo variable propio se añade cuando se determine. El soporte del flujo se encuentra en 04_modelo_sapag/INFORME_DE_AVANCE.md.\n')
+    from ampliar_revision_sapag import main as ampliar
+    ampliar()
     print('Actualizados cuerpo y H.27/H.31–H.35, dos flujos parciales y memorias de ejecución.')
 
 if __name__=='__main__':main()

@@ -10,18 +10,18 @@ Fecha de corte: 16 de noviembre de 2026.
 
 Un publicador puede administrar uno o varios espacios. Cada espacio puede generar uno o varios pagos; una reserva puede generar cuotas mensuales. La persona que reserva también puede pagar varias veces en un mes. Por ello, pagos, reservas, contratos, espacios y usuarios únicos son magnitudes distintas. Los usuarios registrados que no operan no se estiman a partir de transacciones sin una tasa de activación respaldada.
 
-El cálculo aproxima publicadores activos como pagos mensuales divididos por promedio de pagos por publicador, redondeado hacia arriba. Se suman todos los pagos de todos los espacios de cada publicador. Para usuarios que reservan se usa su propio promedio de pagos mensuales. Las estimaciones siguientes mantienen ticket medio ponderado de CLP 50.000 y las metas parciales de 728 y 2.328 pagos, respectivamente.
+El cálculo aproxima publicadores activos como pagos mensuales divididos por promedio de pagos por publicador, redondeado hacia arriba. Se suman todos los pagos de todos los espacios de cada publicador. Para quienes reservan se utiliza su propia frecuencia. Las equivalencias siguientes usan ticket ponderado de CLP 50.000 y umbrales operativos parciales del Año 1: 743 y 2.343 pagos. No son los quiebres de VAN de 791 y 2.391.
 
-| Promedio de pagos por publicador y mes | Publicadores para 728 pagos | Publicadores para 2.328 pagos |
+| Promedio de pagos por publicador y mes | Publicadores para 743 pagos | Publicadores para 2.343 pagos |
 |---|---|---|
-| 1 | 728 | 2.328 |
-| 4 | 182 | 582 |
-| 10 | 73 | 233 |
-| 20 | 37 | 117 |
+| 1 | 743 | 2.343 |
+| 4 | 186 | 586 |
+| 10 | 75 | 235 |
+| 20 | 38 | 118 |
 
-Los promedios son escenarios ilustrativos, no frecuencias observadas. Un promedio de cuatro pagos puede corresponder a un espacio con cuatro pagos, dos espacios con dos pagos cada uno o una mezcla heterogénea. Las cifras no suponen que todos los publicadores tengan el mismo comportamiento.
+Los promedios son escenarios ilustrativos, no frecuencias observadas. Cuatro pagos pueden provenir de un espacio con cuatro pagos, dos espacios con dos pagos cada uno o una mezcla heterogénea.
 
-Si cada persona que reserva genera dos pagos por mes, se requieren aproximadamente 364 o 1.164 arrendatarios activos. Combinados con cuatro pagos por publicador, el ejemplo resulta en 182 publicadores y 364 arrendatarios para la meta inicial, o 582 y 1.164 para el objetivo adicional. Sumar ambos da 546 y 1.746 participaciones por rol; solo serían usuarios únicos si las personas de ambos grupos no se superponen. No se incluyen usuarios inactivos, cancelaciones ni altas necesarias para compensar deserción.
+Con dos pagos por persona que reserva, las equivalencias son 372 y 1.172 arrendatarios activos. Combinadas con cuatro pagos por publicador, resultan 186 publicadores y 372 arrendatarios para la meta inicial, o 586 y 1.172 para el objetivo adicional. Sumar los roles produce 558 y 1.758 participaciones; solo corresponde a personas únicas si ambos grupos no se superponen. No incluye inactividad, cancelaciones ni reposición de usuarios que abandonan.
 
 La mezcla por categoría y modalidad determina tanto frecuencia como ticket. No se conserva automáticamente el ticket de CLP 50.000 si aumenta el peso de arriendos mensuales. Se requiere una matriz de publicadores, espacios, pagos efectivos y ticket por segmento para validar los promedios. Los ejemplos son equivalencias aritméticas y no demanda comprobada.
 
@@ -29,7 +29,7 @@ La mezcla por categoría y modalidad determina tanto frecuencia como ticket. No 
 
 Por instrucción del propietario, se conserva como formato rector el flujo que entrega Anita y que solicita la profesora: columnas Año 0 a Año 4 y secuencia de ingresos, costos variables, OPEX, administración/marketing, depreciación, EBIT, intereses, EBT, impuesto, utilidad neta, reincorporación de depreciación, préstamo recibido, inversiones, capital de trabajo, amortización y flujo neto de caja. No se sustituye por una tabla de tickets ni por una tabla mensual abreviada.
 
-Las Tablas 18 y 19 son auxiliares del flujo. La versión actualizada debe conservar la estructura original y corregir sus valores y notas: comisión del 3 %, cloud AWS, remuneraciones previstas y pagadas, pasarela a cargo del publicador y financiamiento simulado. Debe separar el ingreso propio de los fondos de terceros y el trabajo valorizado del desembolso, sin alterar arbitrariamente la secuencia requerida. La fuente es FlujoNeto A29:F45 y la Figura 17 del informe recibido.
+Las Tablas 18 y 19 contienen los flujos parciales vigentes, puro y financiado; las Tablas 20 y 21 son auxiliares de costos y cobros. El corte mantiene la estructura de Anita con: comisión del 3 %, cloud AWS, remuneraciones previstas y pagadas, pasarela a cargo del publicador y financiamiento simulado. Debe separar el ingreso propio de los fondos de terceros y el trabajo valorizado del desembolso, sin alterar arbitrariamente la secuencia requerida. La fuente es FlujoNeto A29:F45 y la Figura 17 del informe recibido.
 
 Se mantienen VAN, TIR y recuperación después del flujo completo. Los indicadores se recalculan cuando se cierre una serie única; no se trasladan los resultados históricos al escenario AWS. El flujo con préstamo y amortización exige distinguir la evaluación de los socios de la evaluación del proyecto antes de elegir la tasa de descuento.
 
@@ -61,7 +61,7 @@ Con ticket de CLP 50.000, comisión neta de CLP 1.500 y los costos parciales act
 - SII, tasas de Primera Categoría: https://www.sii.cl/preguntas_frecuentes/declaracion_renta/001_140_4708.htm. Requiere diferenciar ejercicio y régimen.
 
 
-## Aclaración del criterio docente del 25 %
+## Antecedente sustituido del criterio docente del 25 %
 
 El propietario aclara que el 25 % corresponde al criterio de riesgo indicado por su profesor de Planificación de Proyectos. Se adopta para la evaluación académica como tasa de descuento anual total del 25 %, sustituyendo el uso principal de las tasas referenciales de 10 % y 12 %. La fuente de la exigencia es la indicación docente comunicada por el propietario; no se atribuye a una norma financiera general ni a la rúbrica documental sin evidencia escrita.
 
@@ -77,7 +77,7 @@ Fuentes tributarias consultadas el 16 de noviembre de 2026: tabla SII https://ww
 
 El propietario confirma que la empresa aún no se constituye y elige modelar Pro Pyme General, con Año 1 de operación en 2027. Se registra como régimen proyectado, sin afirmar acogimiento formal. El ingreso propio modelado es la comisión de intermediación; los arriendos corresponden a los publicadores. El Anexo H.28 vincula este supuesto con las tasas proyectadas de 12,5 % en 2027, 15 % en 2028 y 23 % desde 2029, según normativa consultada. El calendario estructurado y las fuentes se conservan en parametros_tributarios.json. El estado tributario efectivo y la conciliación de la base siguen sujetos a formalización y cierre.
 
-## Criterio vigente del impuesto académico
+## Antecedente del impuesto académico y descuento posteriormente sustituido
 
 La última instrucción del propietario conserva 27 % fijo como impuesto del ejercicio, tal como lo presenta Anita y por el criterio de revisión de la profesora. Sustituye el uso de tasas legales por año en el cálculo académico. Se mantiene el régimen Pro Pyme General como proyección organizativa, con empresa aún no constituida, sin atribuir a ese régimen la tasa legal del 27 %. Las tasas legales consultadas antes quedan solo como antecedente de contraste. Se mantienen Año 1 en 2027 y descuento académico del 25 %; las tasas de descuento originales de Anita son 10 % y 12 % referenciales. El formato del flujo permanece intacto.
 
@@ -97,4 +97,4 @@ El propietario confirma con Anita que la tasa utilizada es 12 % y solicita adopt
 
 ## Umbrales vigentes tras la conciliación de costos
 
-El corte de ejecución incorpora útiles y dirección tributaria anual ratificada. A ticket de CLP 50.000, las metas vigentes son 743 y 2.343 pagos mensuales para las dos asignaciones por fundador. Las comparaciones previas de usuarios a partir de 728 y 2.328 pagos se conservan como antecedente del presupuesto anterior y no se presentan como cantidades actuales. La fórmula de usuarios sigue siendo pagos divididos por frecuencia por persona, redondeando hacia arriba.
+El corte de ejecución incorpora útiles y dirección tributaria anual ratificada. A ticket de CLP 50.000, las metas vigentes son 743 y 2.343 pagos mensuales para las dos asignaciones por fundador. Las comparaciones de usuarios de este archivo se actualizan a 743 y 2.343 pagos; los umbrales anteriores quedan únicamente en la historia del repositorio. La fórmula de usuarios sigue siendo pagos divididos por frecuencia por persona, redondeando hacia arriba.

@@ -1,6 +1,6 @@
 {
   "fecha_corte": "2026-11-16",
-  "tipo": "primer corte de ejecución parcial, posterior a comparación Sapag",
+  "tipo": "segundo corte de coherencia y sensibilidad parcial",
   "terminadas": [
     "SP01",
     "SP02",
@@ -52,14 +52,14 @@
     {
       "id": "SP11",
       "estado": "en curso",
-      "avance": "VAN parciales al 12 % comprobados; se informa TIR no existente o no interpretable como inversión.",
+      "avance": "VAN parciales al 12 % comprobados; se informa TIR no existente o no interpretable como inversión. Convenciones de VAN anual y mensual equivalente contrastadas; ausencia de recuperación en el caso base explícita.",
       "resta": "Recalcular indicadores definitivos y recuperación tras el cierre de entradas."
     },
     {
       "id": "SP12",
       "estado": "en curso",
-      "avance": "Tres casos de demanda comparados sin probabilidades atribuidas.",
-      "resta": "Cerrar sensibilidad por costos, cambio, rezagos y puntos de quiebre de VAN."
+      "avance": "Tres casos de demanda, once pruebas individuales de cobros/ticket/costos/cambio/descuento, umbrales anuales y dos cruces de VAN parcial verificados con enteros adyacentes.",
+      "resta": "Completar costos y escalamiento, validar mezcla/demanda, incorporar rezagos efectivos y cierre antes de concluir viabilidad integral."
     },
     {
       "id": "SP13",

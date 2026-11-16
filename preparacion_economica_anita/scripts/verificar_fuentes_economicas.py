@@ -17,5 +17,7 @@ def main():
     annex=(ROOT/'03_propuesta/anexo_h_tablas_fuente.md').read_text()
     for i,s in enumerate(book,1):assert f"## H.{i}. {s['hoja'].strip()}" in annex
     source=json.loads((ROOT/'02_contraste/sapag2008_fuente.json').read_text());assert hashlib.sha256(Path(source['archivo']).read_bytes()).hexdigest()==source['sha256']
+    aws=json.loads((ROOT/'02_contraste/parametros_aws.json').read_text())['fuente_costos']
+    assert hashlib.sha256(Path(aws['archivo']).read_bytes()).hexdigest()==aws['sha256'], 'Cambió la propuesta interna AWS: revisar su presupuesto antes de reproducir el corte'
     print('Originales intactos por SHA-256; 26 hojas, 2081 celdas, 294 fórmulas, 219 párrafos y 17 imágenes conservados.')
 if __name__=='__main__':main()
