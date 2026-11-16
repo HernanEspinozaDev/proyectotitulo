@@ -44,7 +44,7 @@ El escenario base produce CLP 24.000 mensuales de comisión neta y CLP 4.560 de 
 | Volumen y ticket del escenario base | Se conserva provisionalmente la referencia de 8 espacios, 2 reservas mensuales por espacio y CLP 50.000 de ticket medio. La mezcla por modalidad requiere definición. |
 | Base comisionable del arriendo | Definir si el ticket informado es neto de impuestos propios de la renta y qué conceptos quedan excluidos. |
 | Momento de la comisión | En cada pago procesado; mensual por cuota y anual una vez si existe un solo pago. |
-| Remuneraciones | Sin pagos al comienzo. Fecha o condición de inicio y monto posterior pendientes de definición. |
+| Remuneraciones | Meta provisional de CLP 200.000 por fundador; CLP 600.000 conjuntos, condicionados a disponibilidad. Se evalúa CLP 1.000.000 por persona como objetivo adicional. |
 | Financiamiento | El préstamo de CLP 3.720.000 al 12 % anual por tres años es una simulación, según confirmación del propietario. |
 
 
@@ -58,6 +58,10 @@ La tasa se aplica a cada pago procesado. Un contrato con cuotas mensuales genera
 
 ## Preguntas siguientes
 
-- Definir cuándo comienzan las remuneraciones y su monto posterior. El propietario decide que no existen pagos al comienzo. Las alternativas históricas del libro son CLP 200.000 o CLP 400.000 mensuales por persona. El trabajo aportado se valoriza separado del desembolso y no se supone remuneración nula durante todo el horizonte.
+- Precisar fecha de evaluación de caja y condiciones de activación. La última decisión fija CLP 200.000 por fundador como meta provisional y CLP 1.000.000 como objetivo adicional. Se propone exigir disponibilidad después de obligaciones operativas para pagar el monto conjunto completo. La última decisión sustituye la ausencia inicial de monto objetivo.
 - Reemplazar la distribución ilustrativa por una mezcla de transacciones y tickets acorde con las categorías y modalidades.
 - Precisar tarifa y base de Mercado Pago, conceptos incluidos en la base comisionable, y condiciones de devoluciones y cancelaciones antes de cerrar el flujo.
+
+## Tickets para las remuneraciones
+
+El cálculo reproducible se conserva en tickets_para_remuneraciones.md y en los archivos umbrales_remuneraciones.json y umbral_sueldo_objetivo.json. A CLP 50.000 por pago, las metas con costos parciales AWS son 728 pagos mensuales para CLP 200.000 por fundador y 2.328 para CLP 1.000.000. El cálculo no cierra el punto de equilibrio ni compromete pagos contractuales.

@@ -42,7 +42,11 @@ for table_index,table in enumerate(doc.iter(w+'tbl')):
   if rp is None:rp=E.SubElement(tr,w+'trPr')
   if rp.find(w+'cantSplit') is None:E.SubElement(rp,w+'cantSplit')
  count=len(table.find(w+'tr').findall(w+'tc'))
- if table_index<4:
+ if table_index==4:
+  weights=[.65,.35]
+ elif table_index==5:
+  weights=[.20,.20,.30,.30]
+ elif table_index<4:
   weights=([.40,.20,.25,.15] if count==4 else [.30]+[.70/(count-1)]*(count-1))
  else:
   weights=[.08]+[.92/(count-1)]*(count-1) if count>1 else [1]

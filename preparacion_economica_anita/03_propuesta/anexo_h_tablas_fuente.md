@@ -1478,3 +1478,18 @@ Fila 27. DECISIÓN PARA EL MODELO FINANCIERO
 | 30 | Brecha RNF-010 | Pendiente | — | PITR y restauración conjunta deben validarse; cualquier costo incremental se agregará después de cotizar/configurar. |
 
 *Nota.* Transcripción de la hoja «Revision respaldo» de EspaciGo.xlsx, filas 28–30. Se conservan los importes y el alcance del insumo.
+
+
+## H.27. Respaldo actualizado del cálculo de remuneraciones
+
+Este apartado complementa las 26 hojas transcritas. Contiene cálculos de preparación posteriores a la recepción del libro; no se atribuye a una hoja original de Anita. Respalda las Tablas 18 y 19 de la sección 14.6.
+
+Los componentes de Base mensual, A20:B25, suman CLP 615.912,50 mensuales sin remuneraciones. Se retira el cloud GCP de CLP 150.000 y se incorpora el escenario AWS bruto de CLP 25.670,52. El costo parcial resultante es CLP 491.583,02. La meta de fundadores agrega tres veces CLP 200.000 o, en el objetivo adicional, tres veces CLP 1.000.000.
+
+El costo parcial con la meta inicial es CLP 1.091.583,02 y con el objetivo adicional es CLP 3.491.583,02. La fórmula de pagos mínimos es redondeo hacia arriba de (costo parcial sin fundadores + tres veces la asignación por fundador) dividido por (ticket medio multiplicado por 0,03). A ticket de CLP 50.000, la comisión neta por cobro es CLP 1.500. Se obtienen 728 y 2.328 pagos mensuales respectivamente.
+
+La comprobación independiente verifica el mínimo entero: 727 pagos generan CLP 1.090.500 y no cubren la meta inicial con costos parciales; 728 generan CLP 1.092.000 y sí la cubren. Para el objetivo adicional, 2.327 pagos generan CLP 3.490.500 y no alcanzan, mientras 2.328 generan CLP 3.492.000. El IVA de la comisión se excluye del ingreso operativo.
+
+El cálculo se reproduce con scripts/calcular_tickets_remuneraciones.py, usando --sueldo-objetivo 200000 o --sueldo-objetivo 1000000. Los parámetros y resultados se conservan en 02_contraste/umbrales_remuneraciones.json y 02_contraste/umbral_sueldo_objetivo.json. La regla de desembolso condicionado y el estado simulado del préstamo se registran en parametros_financiamiento.json.
+
+Los costos omitidos y el alcance de planificación se explicitan en 14.6. La comparación histórica de H.24 mantiene sus datos originales al 14 %, y este apartado identifica el recálculo al 3 %. No se declara un punto de equilibrio definitivo ni se presupone capacidad técnica o demanda acreditada para los volúmenes resultantes.

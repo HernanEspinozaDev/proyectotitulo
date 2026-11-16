@@ -5,12 +5,17 @@
   "tasa_anual_del_insumo": "0.12",
   "plazo_anios_del_insumo": 3,
   "decision_uso_en_escenario_base": "pendiente; comparar con escenario sin deuda",
-  "remuneracion_mensual_por_fundador_clp": 0,
+  "remuneracion_mensual_por_fundador_clp": 200000,
   "alternativas_del_insumo_clp": [
     200000,
     400000
   ],
-  "inicio_remuneracion": "pendiente de definir fecha o condición de activación",
-  "alcance_remuneracion_cero": "solo etapa inicial; no extrapolar a todo el horizonte",
-  "tratamiento_trabajo_fundadores": "registrar valorización por separado del desembolso"
+  "inicio_remuneracion": "meta provisional condicionada a disponibilidad; fecha no fijada",
+  "alcance_remuneracion_cero": "sin distribución en períodos que no cubran la meta completa; registrar trabajo aportado por separado",
+  "tratamiento_trabajo_fundadores": "registrar valorización por separado del desembolso",
+  "meta_total_fundadores_mensual_clp": 600000,
+  "regla_pago_propuesta": "pagar CLP 200000 a cada uno si existe caja suficiente para cubrir CLP 600000 después de obligaciones operativas; si no alcanza, no distribuir en ese período",
+  "estado_regla_pago": "interpretación de trabajo de la indicación del propietario; criterios de caja por precisar",
+  "sueldo_objetivo_por_fundador_clp": 1000000,
+  "estado_sueldo_objetivo": "escenario solicitado; no compromiso contractual ni sueldo líquido verificado"
 }
