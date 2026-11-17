@@ -1,0 +1,46 @@
+{
+  "estado": "verificado",
+  "paginas_pdf": 567,
+  "comillas_y_punto": "comillas dobles tipográficas y punto unido al cierre en fuente, Word y PDF",
+  "capitalizacion_tabla_10": "Entorno con mayúscula",
+  "pci_dss": "guion ASCII, término íntegro en una línea en detalle y resumen",
+  "paginas_pci_dss": [
+    151,
+    158
+  ],
+  "tabla_contenido_rnf": "espaciGo comprobado dentro del índice",
+  "entradas_verificadas": {
+    "Tabla 4": {
+      "titulo": "Lienzo del modelo de negocio de espaciGo",
+      "indice_correcto": true,
+      "pagina_pdf_cuerpo": 43,
+      "destino_enlazado": true
+    },
+    "Tabla H.2.1": {
+      "titulo": "Categorías de espacios de espaciGo",
+      "indice_correcto": true,
+      "pagina_pdf_cuerpo": 558,
+      "destino_enlazado": true
+    },
+    "Tabla H.10.2": {
+      "titulo": "Escenarios de volumen y ticket de espaciGo",
+      "indice_correcto": true,
+      "pagina_pdf_cuerpo": 563,
+      "destino_enlazado": true
+    },
+    "Figura 10": {
+      "titulo": "Componentes de aplicación y adaptadores de espaciGo",
+      "indice_correcto": true,
+      "pagina_pdf_cuerpo": 68,
+      "destino_enlazado": true
+    },
+    "Figura 13": {
+      "titulo": "Topología objetivo y ruta de entrega de espaciGo en AWS",
+      "indice_correcto": true,
+      "pagina_pdf_cuerpo": 73,
+      "destino_enlazado": true
+    }
+  },
+  "docx_sha256": "2c45db039f7737555cfcaba1574c123bbb2f3c2e9c626544f9986aad6a9486ed",
+  "pdf_sha256": "0950817c25c430427bc23dabb28cd7fb02e783738444884f123ef058864b340b"
+}

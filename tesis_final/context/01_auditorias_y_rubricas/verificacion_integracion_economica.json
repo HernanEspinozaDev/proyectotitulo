@@ -12,7 +12,7 @@
     "tesis_final/templates/reference-tihi84.docx": "b804dddcb37e4563ec7276765ae96c681c8d9a7e267e9eb6e1f87e5622b8a43a",
     "tesis_final/templates/style-profile-inacap.json": "b5bb7ab296acd9bff16d68a1bf4da654a1113556ced1f922e7c8fc707fd7f453"
   },
-  "docx_sha256": "190fb0a94e556a012ff25470c9ab7a7809ea9719a222d90bf18aab400a1d1220",
+  "docx_sha256": "2c45db039f7737555cfcaba1574c123bbb2f3c2e9c626544f9986aad6a9486ed",
   "paginas_pdf": 567,
   "paginas_tablas": {
     "14": 93,
@@ -46,5 +46,5 @@
   "flujos_completos_en_una_pagina": true,
   "destinos_indice_tablas_verificados": true,
   "total_tablas_word": 256,
-  "pdf_sha256": "48b7b94ebf8d8c826a26910c21c59db440432ef76df695d45352dde2d2b19f6a"
+  "pdf_sha256": "0950817c25c430427bc23dabb28cd7fb02e783738444884f123ef058864b340b"
 }

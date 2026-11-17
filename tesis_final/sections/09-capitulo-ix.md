@@ -28,7 +28,7 @@ La Tabla 10 resume las responsabilidades del stack y la evidencia disponible par
 | OpenAPI | Contrato HTTP de la API. | Especificación 3.1 (Anexo E). |
 | Docker | Empaquetado en imágenes. | Definición de contenedor. |
 | AWS SDK para Go v2 | Acceso a objetos S3. | Adaptadores de almacenamiento de objetos y documentos. |
-| entorno local de emulación compatible con AWS | Servicios AWS locales. | Endpoints de S3, SSM, IAM y logs. |
+| Entorno local de emulación compatible con AWS | Servicios AWS locales. | Endpoints de S3, SSM, IAM y logs. |
 | Terraform | Infraestructura como código. | Entornos local y principal en AWS. |
 | GitHub Actions | Construcción y calidad. | Flujos de aplicación, frontend, base e IaC. |
 | ECS Fargate y ECR | Ejecución y registro de imágenes. | Destino de despliegue pendiente de completar. |

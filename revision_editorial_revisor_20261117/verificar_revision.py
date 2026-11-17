@@ -10,7 +10,7 @@ assert 'las figuras 11 y 12 describen persistencia' in alltext
 c=sources['appendices/c-casos-de-uso.md'];assert 'HU05 · Figura 14' in c and c.count('Figura 15 del Capítulo X')==2
 for pattern in [r'aws-emulator|Mailpit|espacigo-aws|aws-main|local-emulator|cmd/api|s3storage|documents3|Dockerfile',r'\bcommits?\b',r'\brepositorio(?:s)?\b',r'\bV[0-9]{1,6}\b',r'\b(?:3dc1c18|b1b38d1|8d33dcf|cc2fdc3|93b59c8)\b']:
  assert not re.search(pattern,alltext),pattern
-x=sources['sections/10-capitulo-x.md'];assert 'operador de rangos `&&`' in x and '«Este contrato se guarda sin firma electrónica de las partes».' in x
+x=sources['sections/10-capitulo-x.md'];assert 'operador de rangos `&&`' in x and '“Este contrato se guarda sin firma electrónica de las partes”.' in x
 for k in ['sections/06-capitulo-vi.md','sections/15-capitulo-xv.md']:
  assert not re.search(r'2009|2010|1\.320',sources[k])
 assert 'outbox_evento_local' not in body
@@ -42,7 +42,7 @@ with zipfile.ZipFile(T/'build/Tesis_Final_espaciGo.docx') as z:
  assert found
  visible=' '.join(''.join(xml.itertext()).split());assert 'operador de rangos &&' in visible
 reader=PdfReader(T/'build/Tesis_Final_espaciGo.pdf');pages=[p.extract_text() or '' for p in reader.pages];flat=' '.join('\n'.join(pages).split())
-for expected in ['Lienzo del modelo de negocio de espaciGo','Componentes de aplicación y adaptadores de espaciGo','Topología objetivo y ruta de entrega de espaciGo en AWS','Categorías de espacios de espaciGo','Escenarios de volumen y ticket de espaciGo','Sistema espaciGo','las figuras 11 y 12 describen persistencia','operador de rangos &&','«Este contrato se guarda sin firma electrónica de las partes».']:
+for expected in ['Lienzo del modelo de negocio de espaciGo','Componentes de aplicación y adaptadores de espaciGo','Topología objetivo y ruta de entrega de espaciGo en AWS','Categorías de espacios de espaciGo','Escenarios de volumen y ticket de espaciGo','Sistema espaciGo','las figuras 11 y 12 describen persistencia','operador de rangos &&','“Este contrato se guarda sin firma electrónica de las partes”.']:
  assert expected in flat,expected
 assert 'B.022 Tabla public.gcp06_test_access_batch_audit' not in flat
 assert 'gcp06' not in '\n'.join(pages[:25])
