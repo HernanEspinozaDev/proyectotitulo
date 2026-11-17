@@ -20,3 +20,6 @@ La revisión visual utiliza el render oficial de Word y las páginas del PDF con
 
 - Evidencia automatizada: VERIFICACION_FINAL.json y verificar_portada_indices.py.
 - Evidencia visual: portadas, contenido, tablas, figuras y Figura 13 en evidencia_visual.
+
+
+Actualización de entrega única: se retiran las copias con sufijos por instrucción del propietario. La entrega vigente es exclusivamente Tesis_Final_espaciGo.docx y Tesis_Final_espaciGo.pdf. Los tres índices ya quedan persistidos en el Word, además de actualizarse para el PDF. Véase el plan de entrega única y la auditoría correspondiente en la documentación de trabajo.

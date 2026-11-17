@@ -37,6 +37,8 @@ Asistir al equipo de desarrollo (Hernán Espinoza, Anita Marchant, Erick Silva) 
 ## 3. Compilación y Contexto
 - Para compilar el documento completo: `python3 ../build_thesis.py` desde `tesis_final/` o `python3 build_thesis.py` desde la raíz.
 - Consulta toda la información histórica, rúbricas e insumos para Anita y Erick en la carpeta `context/`.
+- Por instrucción del propietario, la entrega oficial utiliza exclusivamente `build/Tesis_Final_espaciGo.docx` y `build/Tesis_Final_espaciGo.pdf`. No crear copias de entrega con fechas, versiones o sufijos; la historia se conserva en Git y en los registros de revisión.
+- La exportación actualiza los tres índices y persiste sus resultados en el Word mediante `persistir_indices_word.py`, conservando el XML académico fuera de los índices y sus marcadores de navegación. No basta con actualizar los campos solo en memoria para el PDF.
 
 
 

@@ -23,3 +23,6 @@ Los cinco puntos quedan comprobados en la entrega de 567 páginas. La frase cont
 El subtítulo RNF con Sistema espaciGo se verifica dentro de la tabla de contenido. Las dos celdas PCI-DSS corresponden a las páginas físicas 151 y 158 (numeración impresa 124 y 131). Los datos financieros y la estructura institucional se conservan.
 
 Se prepara una copia de entrega con nombre de versión: Tesis_Final_espaciGo_cierre_5_detalles_20261117.pdf y su Word correspondiente. Las copias son idénticas a los archivos principales verificados. El archivo VERIFICACION_FINAL.json conserva sus huellas y la comprobación de destinos de índice.
+
+
+Actualización de entrega única: se retiran las copias con sufijos por instrucción del propietario. La entrega vigente es exclusivamente Tesis_Final_espaciGo.docx y Tesis_Final_espaciGo.pdf. Los tres índices ya quedan persistidos en el Word, además de actualizarse para el PDF. Véase el plan de entrega única y la auditoría correspondiente en la documentación de trabajo.

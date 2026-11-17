@@ -1,0 +1,2209 @@
+{
+  "estado": "verificado",
+  "fuentes_iguales": 28,
+  "anexos_preservados": 8,
+  "xml_academico_fuera_de_indices_y_marcadores": "idéntico a la entrega anterior",
+  "imagenes_word": "bytes idénticos a la entrega anterior",
+  "indices_guardados_en_word": 3,
+  "entradas_enlazadas": 591,
+  "lineas_observadas": "seis entradas de índices y título de Figura 13 con espaciGo",
+  "comparacion_pdf": "567 páginas cotejadas carácter por carácter; diferencias visuales cuantificadas para revisión",
+  "diferencias_rasterizacion": [
+    {
+      "pagina": 2,
+      "pixeles_distintos": 268,
+      "proporcion": 0.0005529147686010431
+    },
+    {
+      "pagina": 32,
+      "pixeles_distintos": 2457,
+      "proporcion": 0.005069073083778966
+    },
+    {
+      "pagina": 34,
+      "pixeles_distintos": 2167,
+      "proporcion": 0.004470769789397241
+    },
+    {
+      "pagina": 35,
+      "pixeles_distintos": 2546,
+      "proporcion": 0.00525269030170991
+    },
+    {
+      "pagina": 36,
+      "pixeles_distintos": 1264,
+      "proporcion": 0.002607777117581039
+    },
+    {
+      "pagina": 43,
+      "pixeles_distintos": 403,
+      "proporcion": 0.0008314352677097775
+    },
+    {
+      "pagina": 44,
+      "pixeles_distintos": 909,
+      "proporcion": 0.0018753713606654784
+    },
+    {
+      "pagina": 47,
+      "pixeles_distintos": 566,
+      "proporcion": 0.0011677229814484717
+    },
+    {
+      "pagina": 52,
+      "pixeles_distintos": 1445,
+      "proporcion": 0.0029812008978675644
+    },
+    {
+      "pagina": 55,
+      "pixeles_distintos": 594,
+      "proporcion": 0.0012254901960784314
+    },
+    {
+      "pagina": 57,
+      "pixeles_distintos": 1790,
+      "proporcion": 0.003692975506700997
+    },
+    {
+      "pagina": 58,
+      "pixeles_distintos": 539,
+      "proporcion": 0.0011120188816267247
+    },
+    {
+      "pagina": 60,
+      "pixeles_distintos": 1377,
+      "proporcion": 0.002840909090909091
+    },
+    {
+      "pagina": 61,
+      "pixeles_distintos": 1042,
+      "proporcion": 0.002149765630157787
+    },
+    {
+      "pagina": 63,
+      "pixeles_distintos": 3338,
+      "proporcion": 0.006886677229814485
+    },
+    {
+      "pagina": 64,
+      "pixeles_distintos": 858,
+      "proporcion": 0.001770152505446623
+    },
+    {
+      "pagina": 83,
+      "pixeles_distintos": 1248,
+      "proporcion": 0.0025747672806496337
+    },
+    {
+      "pagina": 84,
+      "pixeles_distintos": 2063,
+      "proporcion": 0.004256205849343104
+    },
+    {
+      "pagina": 85,
+      "pixeles_distintos": 2933,
+      "proporcion": 0.006051115732488281
+    },
+    {
+      "pagina": 90,
+      "pixeles_distintos": 893,
+      "proporcion": 0.0018423615237340726
+    },
+    {
+      "pagina": 93,
+      "pixeles_distintos": 284,
+      "proporcion": 0.0005859246055324487
+    },
+    {
+      "pagina": 94,
+      "pixeles_distintos": 209,
+      "proporcion": 0.0004311909949164851
+    },
+    {
+      "pagina": 95,
+      "pixeles_distintos": 284,
+      "proporcion": 0.0005859246055324487
+    },
+    {
+      "pagina": 96,
+      "pixeles_distintos": 529,
+      "proporcion": 0.0010913877335445962
+    },
+    {
+      "pagina": 97,
+      "pixeles_distintos": 529,
+      "proporcion": 0.0010913877335445962
+    },
+    {
+      "pagina": 98,
+      "pixeles_distintos": 529,
+      "proporcion": 0.0010913877335445962
+    },
+    {
+      "pagina": 99,
+      "pixeles_distintos": 529,
+      "proporcion": 0.0010913877335445962
+    },
+    {
+      "pagina": 100,
+      "pixeles_distintos": 143,
+      "proporcion": 0.0002950254175744372
+    },
+    {
+      "pagina": 101,
+      "pixeles_distintos": 451,
+      "proporcion": 0.0009304647785039942
+    },
+    {
+      "pagina": 102,
+      "pixeles_distintos": 165,
+      "proporcion": 0.00034041394335511985
+    },
+    {
+      "pagina": 103,
+      "pixeles_distintos": 396,
+      "proporcion": 0.0008169934640522876
+    },
+    {
+      "pagina": 115,
+      "pixeles_distintos": 826,
+      "proporcion": 0.001704132831583812
+    },
+    {
+      "pagina": 116,
+      "pixeles_distintos": 1202,
+      "proporcion": 0.0024798639994718426
+    },
+    {
+      "pagina": 117,
+      "pixeles_distintos": 1176,
+      "proporcion": 0.0024262230144583086
+    },
+    {
+      "pagina": 118,
+      "pixeles_distintos": 1189,
+      "proporcion": 0.0024530435069650756
+    },
+    {
+      "pagina": 119,
+      "pixeles_distintos": 1176,
+      "proporcion": 0.0024262230144583086
+    },
+    {
+      "pagina": 120,
+      "pixeles_distintos": 1190,
+      "proporcion": 0.0024551066217732885
+    },
+    {
+      "pagina": 121,
+      "pixeles_distintos": 1199,
+      "proporcion": 0.002473674655047204
+    },
+    {
+      "pagina": 122,
+      "pixeles_distintos": 1167,
+      "proporcion": 0.002407654981184393
+    },
+    {
+      "pagina": 123,
+      "pixeles_distintos": 1205,
+      "proporcion": 0.002486053343896481
+    },
+    {
+      "pagina": 124,
+      "pixeles_distintos": 1167,
+      "proporcion": 0.002407654981184393
+    },
+    {
+      "pagina": 125,
+      "pixeles_distintos": 1204,
+      "proporcion": 0.0024839902290882685
+    },
+    {
+      "pagina": 126,
+      "pixeles_distintos": 1200,
+      "proporcion": 0.002475737769855417
+    },
+    {
+      "pagina": 127,
+      "pixeles_distintos": 1192,
+      "proporcion": 0.002459232851389714
+    },
+    {
+      "pagina": 128,
+      "pixeles_distintos": 1204,
+      "proporcion": 0.0024839902290882685
+    },
+    {
+      "pagina": 129,
+      "pixeles_distintos": 1162,
+      "proporcion": 0.0023973394071433287
+    },
+    {
+      "pagina": 130,
+      "pixeles_distintos": 1185,
+      "proporcion": 0.0024447910477322244
+    },
+    {
+      "pagina": 131,
+      "pixeles_distintos": 1207,
+      "proporcion": 0.002490179573512907
+    },
+    {
+      "pagina": 132,
+      "pixeles_distintos": 1205,
+      "proporcion": 0.002486053343896481
+    },
+    {
+      "pagina": 133,
+      "pixeles_distintos": 1176,
+      "proporcion": 0.0024262230144583086
+    },
+    {
+      "pagina": 134,
+      "pixeles_distintos": 1205,
+      "proporcion": 0.002486053343896481
+    },
+    {
+      "pagina": 135,
+      "pixeles_distintos": 838,
+      "proporcion": 0.0017288902092823662
+    },
+    {
+      "pagina": 136,
+      "pixeles_distintos": 1200,
+      "proporcion": 0.002475737769855417
+    },
+    {
+      "pagina": 137,
+      "pixeles_distintos": 1199,
+      "proporcion": 0.002473674655047204
+    },
+    {
+      "pagina": 138,
+      "pixeles_distintos": 1080,
+      "proporcion": 0.0022281639928698753
+    },
+    {
+      "pagina": 139,
+      "pixeles_distintos": 902,
+      "proporcion": 0.0018609295570079884
+    },
+    {
+      "pagina": 140,
+      "pixeles_distintos": 1205,
+      "proporcion": 0.002486053343896481
+    },
+    {
+      "pagina": 141,
+      "pixeles_distintos": 1049,
+      "proporcion": 0.002164207433815277
+    },
+    {
+      "pagina": 142,
+      "pixeles_distintos": 222,
+      "proporcion": 0.0004580114874232521
+    },
+    {
+      "pagina": 143,
+      "pixeles_distintos": 1187,
+      "proporcion": 0.00244891727734865
+    },
+    {
+      "pagina": 144,
+      "pixeles_distintos": 1212,
+      "proporcion": 0.002500495147553971
+    },
+    {
+      "pagina": 145,
+      "pixeles_distintos": 1167,
+      "proporcion": 0.002407654981184393
+    },
+    {
+      "pagina": 146,
+      "pixeles_distintos": 1175,
+      "proporcion": 0.0024241598996500957
+    },
+    {
+      "pagina": 147,
+      "pixeles_distintos": 1189,
+      "proporcion": 0.0024530435069650756
+    },
+    {
+      "pagina": 148,
+      "pixeles_distintos": 1188,
+      "proporcion": 0.0024509803921568627
+    },
+    {
+      "pagina": 149,
+      "pixeles_distintos": 1212,
+      "proporcion": 0.002500495147553971
+    },
+    {
+      "pagina": 150,
+      "pixeles_distintos": 1212,
+      "proporcion": 0.002500495147553971
+    },
+    {
+      "pagina": 151,
+      "pixeles_distintos": 1188,
+      "proporcion": 0.0024509803921568627
+    },
+    {
+      "pagina": 152,
+      "pixeles_distintos": 1187,
+      "proporcion": 0.00244891727734865
+    },
+    {
+      "pagina": 153,
+      "pixeles_distintos": 1179,
+      "proporcion": 0.002432412358882947
+    },
+    {
+      "pagina": 154,
+      "pixeles_distintos": 1189,
+      "proporcion": 0.0024530435069650756
+    },
+    {
+      "pagina": 155,
+      "pixeles_distintos": 1188,
+      "proporcion": 0.0024509803921568627
+    },
+    {
+      "pagina": 156,
+      "pixeles_distintos": 1179,
+      "proporcion": 0.002432412358882947
+    },
+    {
+      "pagina": 157,
+      "pixeles_distintos": 2284,
+      "proporcion": 0.004712154221958143
+    },
+    {
+      "pagina": 158,
+      "pixeles_distintos": 2328,
+      "proporcion": 0.004802931273519509
+    },
+    {
+      "pagina": 159,
+      "pixeles_distintos": 3475,
+      "proporcion": 0.007169323958539645
+    },
+    {
+      "pagina": 160,
+      "pixeles_distintos": 2035,
+      "proporcion": 0.0041984386347131445
+    },
+    {
+      "pagina": 161,
+      "pixeles_distintos": 928,
+      "proporcion": 0.0019145705420215225
+    },
+    {
+      "pagina": 162,
+      "pixeles_distintos": 213,
+      "proporcion": 0.0004394434541493365
+    },
+    {
+      "pagina": 188,
+      "pixeles_distintos": 351,
+      "proporcion": 0.0007241532976827095
+    },
+    {
+      "pagina": 189,
+      "pixeles_distintos": 1198,
+      "proporcion": 0.0024716115402389914
+    },
+    {
+      "pagina": 190,
+      "pixeles_distintos": 1182,
+      "proporcion": 0.0024386017033075857
+    },
+    {
+      "pagina": 191,
+      "pixeles_distintos": 1165,
+      "proporcion": 0.0024035287515679674
+    },
+    {
+      "pagina": 192,
+      "pixeles_distintos": 2401,
+      "proporcion": 0.004953538654519047
+    },
+    {
+      "pagina": 193,
+      "pixeles_distintos": 1805,
+      "proporcion": 0.00372392222882419
+    },
+    {
+      "pagina": 194,
+      "pixeles_distintos": 662,
+      "proporcion": 0.001365782003036905
+    },
+    {
+      "pagina": 195,
+      "pixeles_distintos": 1685,
+      "proporcion": 0.003476348451838648
+    },
+    {
+      "pagina": 196,
+      "pixeles_distintos": 2080,
+      "proporcion": 0.004291278801082723
+    },
+    {
+      "pagina": 197,
+      "pixeles_distintos": 1844,
+      "proporcion": 0.003804383706344491
+    },
+    {
+      "pagina": 198,
+      "pixeles_distintos": 624,
+      "proporcion": 0.0012873836403248168
+    },
+    {
+      "pagina": 199,
+      "pixeles_distintos": 182,
+      "proporcion": 0.00037548689509473825
+    },
+    {
+      "pagina": 200,
+      "pixeles_distintos": 1027,
+      "proporcion": 0.0021188189080345943
+    },
+    {
+      "pagina": 201,
+      "pixeles_distintos": 2881,
+      "proporcion": 0.005943833762461213
+    },
+    {
+      "pagina": 202,
+      "pixeles_distintos": 1102,
+      "proporcion": 0.0022735525186505577
+    },
+    {
+      "pagina": 203,
+      "pixeles_distintos": 1108,
+      "proporcion": 0.0022859312074998347
+    },
+    {
+      "pagina": 204,
+      "pixeles_distintos": 1107,
+      "proporcion": 0.0022838680926916223
+    },
+    {
+      "pagina": 205,
+      "pixeles_distintos": 1112,
+      "proporcion": 0.0022941836667326864
+    },
+    {
+      "pagina": 206,
+      "pixeles_distintos": 1075,
+      "proporcion": 0.002217848418828811
+    },
+    {
+      "pagina": 207,
+      "pixeles_distintos": 1025,
+      "proporcion": 0.0021146926784181685
+    },
+    {
+      "pagina": 208,
+      "pixeles_distintos": 1129,
+      "proporcion": 0.0023292566184723047
+    },
+    {
+      "pagina": 209,
+      "pixeles_distintos": 650,
+      "proporcion": 0.0013410246253383509
+    },
+    {
+      "pagina": 210,
+      "pixeles_distintos": 1751,
+      "proporcion": 0.003612514029180696
+    },
+    {
+      "pagina": 211,
+      "pixeles_distintos": 1114,
+      "proporcion": 0.0022983098963491122
+    },
+    {
+      "pagina": 212,
+      "pixeles_distintos": 1076,
+      "proporcion": 0.0022199115336370237
+    },
+    {
+      "pagina": 213,
+      "pixeles_distintos": 654,
+      "proporcion": 0.0013492770845712023
+    },
+    {
+      "pagina": 214,
+      "pixeles_distintos": 1338,
+      "proporcion": 0.00276044761338879
+    },
+    {
+      "pagina": 215,
+      "pixeles_distintos": 2634,
+      "proporcion": 0.00543424440483264
+    },
+    {
+      "pagina": 216,
+      "pixeles_distintos": 1088,
+      "proporcion": 0.002244668911335578
+    },
+    {
+      "pagina": 217,
+      "pixeles_distintos": 1103,
+      "proporcion": 0.0022756156334587706
+    },
+    {
+      "pagina": 218,
+      "pixeles_distintos": 1098,
+      "proporcion": 0.0022653000594177065
+    },
+    {
+      "pagina": 219,
+      "pixeles_distintos": 1095,
+      "proporcion": 0.0022591107149930677
+    },
+    {
+      "pagina": 220,
+      "pixeles_distintos": 435,
+      "proporcion": 0.0008974549415725887
+    },
+    {
+      "pagina": 221,
+      "pixeles_distintos": 748,
+      "proporcion": 0.0015432098765432098
+    },
+    {
+      "pagina": 222,
+      "pixeles_distintos": 2052,
+      "proporcion": 0.004233511586452763
+    },
+    {
+      "pagina": 223,
+      "pixeles_distintos": 1068,
+      "proporcion": 0.002203406615171321
+    },
+    {
+      "pagina": 224,
+      "pixeles_distintos": 1101,
+      "proporcion": 0.002271489403842345
+    },
+    {
+      "pagina": 225,
+      "pixeles_distintos": 1114,
+      "proporcion": 0.0022983098963491122
+    },
+    {
+      "pagina": 226,
+      "pixeles_distintos": 775,
+      "proporcion": 0.0015989139763649567
+    },
+    {
+      "pagina": 227,
+      "pixeles_distintos": 1716,
+      "proporcion": 0.003540305010893246
+    },
+    {
+      "pagina": 228,
+      "pixeles_distintos": 1457,
+      "proporcion": 0.0030059582755661185
+    },
+    {
+      "pagina": 229,
+      "pixeles_distintos": 1118,
+      "proporcion": 0.0023065623555819635
+    },
+    {
+      "pagina": 230,
+      "pixeles_distintos": 1081,
+      "proporcion": 0.0022302271076780882
+    },
+    {
+      "pagina": 231,
+      "pixeles_distintos": 332,
+      "proporcion": 0.0006849541163266653
+    },
+    {
+      "pagina": 233,
+      "pixeles_distintos": 939,
+      "proporcion": 0.0019372648049118637
+    },
+    {
+      "pagina": 234,
+      "pixeles_distintos": 1002,
+      "proporcion": 0.002067241037829273
+    },
+    {
+      "pagina": 235,
+      "pixeles_distintos": 1031,
+      "proporcion": 0.0021270713672674455
+    },
+    {
+      "pagina": 236,
+      "pixeles_distintos": 1084,
+      "proporcion": 0.0022364164521027265
+    },
+    {
+      "pagina": 237,
+      "pixeles_distintos": 1069,
+      "proporcion": 0.002205469729979534
+    },
+    {
+      "pagina": 238,
+      "pixeles_distintos": 1114,
+      "proporcion": 0.0022983098963491122
+    },
+    {
+      "pagina": 239,
+      "pixeles_distintos": 1109,
+      "proporcion": 0.0022879943223080477
+    },
+    {
+      "pagina": 240,
+      "pixeles_distintos": 1036,
+      "proporcion": 0.00213738694130851
+    },
+    {
+      "pagina": 241,
+      "pixeles_distintos": 776,
+      "proporcion": 0.0016009770911731697
+    },
+    {
+      "pagina": 242,
+      "pixeles_distintos": 150,
+      "proporcion": 0.0003094672212319271
+    },
+    {
+      "pagina": 243,
+      "pixeles_distintos": 1072,
+      "proporcion": 0.0022116590744041724
+    },
+    {
+      "pagina": 244,
+      "pixeles_distintos": 1068,
+      "proporcion": 0.002203406615171321
+    },
+    {
+      "pagina": 245,
+      "pixeles_distintos": 1101,
+      "proporcion": 0.002271489403842345
+    },
+    {
+      "pagina": 246,
+      "pixeles_distintos": 255,
+      "proporcion": 0.0005260942760942761
+    },
+    {
+      "pagina": 247,
+      "pixeles_distintos": 3330,
+      "proporcion": 0.006870172311348782
+    },
+    {
+      "pagina": 248,
+      "pixeles_distintos": 1368,
+      "proporcion": 0.002822341057635175
+    },
+    {
+      "pagina": 249,
+      "pixeles_distintos": 1115,
+      "proporcion": 0.0023003730111573247
+    },
+    {
+      "pagina": 250,
+      "pixeles_distintos": 965,
+      "proporcion": 0.001990905789925398
+    },
+    {
+      "pagina": 253,
+      "pixeles_distintos": 3096,
+      "proporcion": 0.006387403446226975
+    },
+    {
+      "pagina": 254,
+      "pixeles_distintos": 1188,
+      "proporcion": 0.0024509803921568627
+    },
+    {
+      "pagina": 255,
+      "pixeles_distintos": 1031,
+      "proporcion": 0.0021270713672674455
+    },
+    {
+      "pagina": 256,
+      "pixeles_distintos": 1110,
+      "proporcion": 0.0022900574371162606
+    },
+    {
+      "pagina": 257,
+      "pixeles_distintos": 1026,
+      "proporcion": 0.0021167557932263814
+    },
+    {
+      "pagina": 258,
+      "pixeles_distintos": 836,
+      "proporcion": 0.0017247639796659404
+    },
+    {
+      "pagina": 259,
+      "pixeles_distintos": 150,
+      "proporcion": 0.0003094672212319271
+    },
+    {
+      "pagina": 260,
+      "pixeles_distintos": 1117,
+      "proporcion": 0.0023044992407737505
+    },
+    {
+      "pagina": 261,
+      "pixeles_distintos": 1117,
+      "proporcion": 0.0023044992407737505
+    },
+    {
+      "pagina": 262,
+      "pixeles_distintos": 1117,
+      "proporcion": 0.0023044992407737505
+    },
+    {
+      "pagina": 263,
+      "pixeles_distintos": 332,
+      "proporcion": 0.0006849541163266653
+    },
+    {
+      "pagina": 265,
+      "pixeles_distintos": 1998,
+      "proporcion": 0.004122103386809269
+    },
+    {
+      "pagina": 266,
+      "pixeles_distintos": 1087,
+      "proporcion": 0.0022426057965273653
+    },
+    {
+      "pagina": 267,
+      "pixeles_distintos": 1089,
+      "proporcion": 0.0022467320261437907
+    },
+    {
+      "pagina": 268,
+      "pixeles_distintos": 1118,
+      "proporcion": 0.0023065623555819635
+    },
+    {
+      "pagina": 269,
+      "pixeles_distintos": 1048,
+      "proporcion": 0.002162144319007064
+    },
+    {
+      "pagina": 270,
+      "pixeles_distintos": 2599,
+      "proporcion": 0.00536203538654519
+    },
+    {
+      "pagina": 271,
+      "pixeles_distintos": 3434,
+      "proporcion": 0.007084736251402918
+    },
+    {
+      "pagina": 272,
+      "pixeles_distintos": 4735,
+      "proporcion": 0.009768848616887833
+    },
+    {
+      "pagina": 273,
+      "pixeles_distintos": 2524,
+      "proporcion": 0.005207301775929227
+    },
+    {
+      "pagina": 274,
+      "pixeles_distintos": 2386,
+      "proporcion": 0.004922591932395854
+    },
+    {
+      "pagina": 275,
+      "pixeles_distintos": 2037,
+      "proporcion": 0.00420256486432957
+    },
+    {
+      "pagina": 276,
+      "pixeles_distintos": 1178,
+      "proporcion": 0.0024303492440747344
+    },
+    {
+      "pagina": 277,
+      "pixeles_distintos": 1109,
+      "proporcion": 0.0022879943223080477
+    },
+    {
+      "pagina": 278,
+      "pixeles_distintos": 1190,
+      "proporcion": 0.0024551066217732885
+    },
+    {
+      "pagina": 279,
+      "pixeles_distintos": 412,
+      "proporcion": 0.0008500033009836932
+    },
+    {
+      "pagina": 281,
+      "pixeles_distintos": 2458,
+      "proporcion": 0.005071136198587179
+    },
+    {
+      "pagina": 282,
+      "pixeles_distintos": 744,
+      "proporcion": 0.0015349574173103586
+    },
+    {
+      "pagina": 283,
+      "pixeles_distintos": 811,
+      "proporcion": 0.0016731861094606193
+    },
+    {
+      "pagina": 284,
+      "pixeles_distintos": 873,
+      "proporcion": 0.0018010992275698159
+    },
+    {
+      "pagina": 285,
+      "pixeles_distintos": 830,
+      "proporcion": 0.0017123852908166634
+    },
+    {
+      "pagina": 286,
+      "pixeles_distintos": 1197,
+      "proporcion": 0.0024695484254307785
+    },
+    {
+      "pagina": 287,
+      "pixeles_distintos": 788,
+      "proporcion": 0.0016257344688717238
+    },
+    {
+      "pagina": 288,
+      "pixeles_distintos": 1211,
+      "proporcion": 0.0024984320327457584
+    },
+    {
+      "pagina": 289,
+      "pixeles_distintos": 444,
+      "proporcion": 0.0009160229748465043
+    },
+    {
+      "pagina": 290,
+      "pixeles_distintos": 1183,
+      "proporcion": 0.0024406648181157986
+    },
+    {
+      "pagina": 291,
+      "pixeles_distintos": 1199,
+      "proporcion": 0.002473674655047204
+    },
+    {
+      "pagina": 292,
+      "pixeles_distintos": 1184,
+      "proporcion": 0.0024427279329240115
+    },
+    {
+      "pagina": 293,
+      "pixeles_distintos": 351,
+      "proporcion": 0.0007241532976827095
+    },
+    {
+      "pagina": 294,
+      "pixeles_distintos": 1163,
+      "proporcion": 0.0023994025219515416
+    },
+    {
+      "pagina": 295,
+      "pixeles_distintos": 1184,
+      "proporcion": 0.0024427279329240115
+    },
+    {
+      "pagina": 296,
+      "pixeles_distintos": 689,
+      "proporcion": 0.001421486102858652
+    },
+    {
+      "pagina": 297,
+      "pixeles_distintos": 1184,
+      "proporcion": 0.0024427279329240115
+    },
+    {
+      "pagina": 298,
+      "pixeles_distintos": 889,
+      "proporcion": 0.0018341090645012214
+    },
+    {
+      "pagina": 299,
+      "pixeles_distintos": 1207,
+      "proporcion": 0.002490179573512907
+    },
+    {
+      "pagina": 300,
+      "pixeles_distintos": 798,
+      "proporcion": 0.0016463656169538523
+    },
+    {
+      "pagina": 301,
+      "pixeles_distintos": 986,
+      "proporcion": 0.0020342312008978674
+    },
+    {
+      "pagina": 302,
+      "pixeles_distintos": 859,
+      "proporcion": 0.001772215620254836
+    },
+    {
+      "pagina": 303,
+      "pixeles_distintos": 1080,
+      "proporcion": 0.0022281639928698753
+    },
+    {
+      "pagina": 304,
+      "pixeles_distintos": 1177,
+      "proporcion": 0.0024282861292665215
+    },
+    {
+      "pagina": 305,
+      "pixeles_distintos": 777,
+      "proporcion": 0.0016030402059813824
+    },
+    {
+      "pagina": 306,
+      "pixeles_distintos": 556,
+      "proporcion": 0.0011470918333663432
+    },
+    {
+      "pagina": 307,
+      "pixeles_distintos": 1198,
+      "proporcion": 0.0024716115402389914
+    },
+    {
+      "pagina": 308,
+      "pixeles_distintos": 1116,
+      "proporcion": 0.0023024361259655376
+    },
+    {
+      "pagina": 309,
+      "pixeles_distintos": 192,
+      "proporcion": 0.0003961180431768667
+    },
+    {
+      "pagina": 310,
+      "pixeles_distintos": 1178,
+      "proporcion": 0.0024303492440747344
+    },
+    {
+      "pagina": 311,
+      "pixeles_distintos": 1183,
+      "proporcion": 0.0024406648181157986
+    },
+    {
+      "pagina": 312,
+      "pixeles_distintos": 917,
+      "proporcion": 0.001891876279131181
+    },
+    {
+      "pagina": 313,
+      "pixeles_distintos": 644,
+      "proporcion": 0.0013286459364890738
+    },
+    {
+      "pagina": 314,
+      "pixeles_distintos": 1178,
+      "proporcion": 0.0024303492440747344
+    },
+    {
+      "pagina": 315,
+      "pixeles_distintos": 691,
+      "proporcion": 0.0014256123324750776
+    },
+    {
+      "pagina": 316,
+      "pixeles_distintos": 1199,
+      "proporcion": 0.002473674655047204
+    },
+    {
+      "pagina": 317,
+      "pixeles_distintos": 1007,
+      "proporcion": 0.0020775566118703373
+    },
+    {
+      "pagina": 318,
+      "pixeles_distintos": 556,
+      "proporcion": 0.0011470918333663432
+    },
+    {
+      "pagina": 319,
+      "pixeles_distintos": 1198,
+      "proporcion": 0.0024716115402389914
+    },
+    {
+      "pagina": 320,
+      "pixeles_distintos": 752,
+      "proporcion": 0.0015514623357760612
+    },
+    {
+      "pagina": 321,
+      "pixeles_distintos": 1177,
+      "proporcion": 0.0024282861292665215
+    },
+    {
+      "pagina": 322,
+      "pixeles_distintos": 808,
+      "proporcion": 0.0016669967650359808
+    },
+    {
+      "pagina": 323,
+      "pixeles_distintos": 1208,
+      "proporcion": 0.0024922426883211197
+    },
+    {
+      "pagina": 324,
+      "pixeles_distintos": 642,
+      "proporcion": 0.001324519706872648
+    },
+    {
+      "pagina": 325,
+      "pixeles_distintos": 1176,
+      "proporcion": 0.0024262230144583086
+    },
+    {
+      "pagina": 326,
+      "pixeles_distintos": 1183,
+      "proporcion": 0.0024406648181157986
+    },
+    {
+      "pagina": 327,
+      "pixeles_distintos": 611,
+      "proporcion": 0.0012605631478180498
+    },
+    {
+      "pagina": 328,
+      "pixeles_distintos": 448,
+      "proporcion": 0.0009242754340793557
+    },
+    {
+      "pagina": 329,
+      "pixeles_distintos": 1190,
+      "proporcion": 0.0024551066217732885
+    },
+    {
+      "pagina": 330,
+      "pixeles_distintos": 1204,
+      "proporcion": 0.0024839902290882685
+    },
+    {
+      "pagina": 331,
+      "pixeles_distintos": 567,
+      "proporcion": 0.0011697860962566844
+    },
+    {
+      "pagina": 332,
+      "pixeles_distintos": 906,
+      "proporcion": 0.0018691820162408397
+    },
+    {
+      "pagina": 333,
+      "pixeles_distintos": 1039,
+      "proporcion": 0.0021435762857331484
+    },
+    {
+      "pagina": 334,
+      "pixeles_distintos": 921,
+      "proporcion": 0.0019001287383640325
+    },
+    {
+      "pagina": 335,
+      "pixeles_distintos": 748,
+      "proporcion": 0.0015432098765432098
+    },
+    {
+      "pagina": 336,
+      "pixeles_distintos": 1203,
+      "proporcion": 0.0024819271142800556
+    },
+    {
+      "pagina": 337,
+      "pixeles_distintos": 1187,
+      "proporcion": 0.00244891727734865
+    },
+    {
+      "pagina": 338,
+      "pixeles_distintos": 1199,
+      "proporcion": 0.002473674655047204
+    },
+    {
+      "pagina": 339,
+      "pixeles_distintos": 888,
+      "proporcion": 0.0018320459496930085
+    },
+    {
+      "pagina": 340,
+      "pixeles_distintos": 630,
+      "proporcion": 0.001299762329174094
+    },
+    {
+      "pagina": 341,
+      "pixeles_distintos": 1184,
+      "proporcion": 0.0024427279329240115
+    },
+    {
+      "pagina": 342,
+      "pixeles_distintos": 825,
+      "proporcion": 0.0017020697167755992
+    },
+    {
+      "pagina": 343,
+      "pixeles_distintos": 616,
+      "proporcion": 0.001270878721859114
+    },
+    {
+      "pagina": 344,
+      "pixeles_distintos": 1198,
+      "proporcion": 0.0024716115402389914
+    },
+    {
+      "pagina": 345,
+      "pixeles_distintos": 487,
+      "proporcion": 0.0010047369115996567
+    },
+    {
+      "pagina": 346,
+      "pixeles_distintos": 1199,
+      "proporcion": 0.002473674655047204
+    },
+    {
+      "pagina": 347,
+      "pixeles_distintos": 859,
+      "proporcion": 0.001772215620254836
+    },
+    {
+      "pagina": 348,
+      "pixeles_distintos": 1171,
+      "proporcion": 0.0024159074404172445
+    },
+    {
+      "pagina": 349,
+      "pixeles_distintos": 1198,
+      "proporcion": 0.0024716115402389914
+    },
+    {
+      "pagina": 350,
+      "pixeles_distintos": 611,
+      "proporcion": 0.0012605631478180498
+    },
+    {
+      "pagina": 351,
+      "pixeles_distintos": 586,
+      "proporcion": 0.0012089852776127287
+    },
+    {
+      "pagina": 352,
+      "pixeles_distintos": 747,
+      "proporcion": 0.001541146761734997
+    },
+    {
+      "pagina": 353,
+      "pixeles_distintos": 1169,
+      "proporcion": 0.0024117812108008186
+    },
+    {
+      "pagina": 354,
+      "pixeles_distintos": 1199,
+      "proporcion": 0.002473674655047204
+    },
+    {
+      "pagina": 355,
+      "pixeles_distintos": 459,
+      "proporcion": 0.000946969696969697
+    },
+    {
+      "pagina": 356,
+      "pixeles_distintos": 1208,
+      "proporcion": 0.0024922426883211197
+    },
+    {
+      "pagina": 357,
+      "pixeles_distintos": 1208,
+      "proporcion": 0.0024922426883211197
+    },
+    {
+      "pagina": 358,
+      "pixeles_distintos": 1183,
+      "proporcion": 0.0024406648181157986
+    },
+    {
+      "pagina": 359,
+      "pixeles_distintos": 413,
+      "proporcion": 0.000852066415791906
+    },
+    {
+      "pagina": 360,
+      "pixeles_distintos": 892,
+      "proporcion": 0.00184029840892586
+    },
+    {
+      "pagina": 361,
+      "pixeles_distintos": 980,
+      "proporcion": 0.0020218525120485904
+    },
+    {
+      "pagina": 362,
+      "pixeles_distintos": 879,
+      "proporcion": 0.001813477916419093
+    },
+    {
+      "pagina": 363,
+      "pixeles_distintos": 826,
+      "proporcion": 0.001704132831583812
+    },
+    {
+      "pagina": 364,
+      "pixeles_distintos": 1199,
+      "proporcion": 0.002473674655047204
+    },
+    {
+      "pagina": 365,
+      "pixeles_distintos": 1208,
+      "proporcion": 0.0024922426883211197
+    },
+    {
+      "pagina": 366,
+      "pixeles_distintos": 549,
+      "proporcion": 0.0011326500297088532
+    },
+    {
+      "pagina": 367,
+      "pixeles_distintos": 1040,
+      "proporcion": 0.0021456394005413613
+    },
+    {
+      "pagina": 368,
+      "pixeles_distintos": 859,
+      "proporcion": 0.001772215620254836
+    },
+    {
+      "pagina": 369,
+      "pixeles_distintos": 1208,
+      "proporcion": 0.0024922426883211197
+    },
+    {
+      "pagina": 370,
+      "pixeles_distintos": 1178,
+      "proporcion": 0.0024303492440747344
+    },
+    {
+      "pagina": 371,
+      "pixeles_distintos": 304,
+      "proporcion": 0.0006271869016967056
+    },
+    {
+      "pagina": 372,
+      "pixeles_distintos": 1166,
+      "proporcion": 0.00240559186637618
+    },
+    {
+      "pagina": 373,
+      "pixeles_distintos": 1163,
+      "proporcion": 0.0023994025219515416
+    },
+    {
+      "pagina": 374,
+      "pixeles_distintos": 977,
+      "proporcion": 0.002015663167623952
+    },
+    {
+      "pagina": 375,
+      "pixeles_distintos": 758,
+      "proporcion": 0.0015638410246253383
+    },
+    {
+      "pagina": 376,
+      "pixeles_distintos": 1177,
+      "proporcion": 0.0024282861292665215
+    },
+    {
+      "pagina": 377,
+      "pixeles_distintos": 542,
+      "proporcion": 0.0011182082260513633
+    },
+    {
+      "pagina": 378,
+      "pixeles_distintos": 1203,
+      "proporcion": 0.0024819271142800556
+    },
+    {
+      "pagina": 379,
+      "pixeles_distintos": 1068,
+      "proporcion": 0.002203406615171321
+    },
+    {
+      "pagina": 380,
+      "pixeles_distintos": 788,
+      "proporcion": 0.0016257344688717238
+    },
+    {
+      "pagina": 381,
+      "pixeles_distintos": 738,
+      "proporcion": 0.0015225787284610813
+    },
+    {
+      "pagina": 382,
+      "pixeles_distintos": 841,
+      "proporcion": 0.0017350795537070048
+    },
+    {
+      "pagina": 383,
+      "pixeles_distintos": 1207,
+      "proporcion": 0.002490179573512907
+    },
+    {
+      "pagina": 384,
+      "pixeles_distintos": 809,
+      "proporcion": 0.0016690598798441937
+    },
+    {
+      "pagina": 385,
+      "pixeles_distintos": 877,
+      "proporcion": 0.001809351686802667
+    },
+    {
+      "pagina": 386,
+      "pixeles_distintos": 1198,
+      "proporcion": 0.0024716115402389914
+    },
+    {
+      "pagina": 387,
+      "pixeles_distintos": 1199,
+      "proporcion": 0.002473674655047204
+    },
+    {
+      "pagina": 388,
+      "pixeles_distintos": 444,
+      "proporcion": 0.0009160229748465043
+    },
+    {
+      "pagina": 389,
+      "pixeles_distintos": 840,
+      "proporcion": 0.0017330164388987919
+    },
+    {
+      "pagina": 390,
+      "pixeles_distintos": 1069,
+      "proporcion": 0.002205469729979534
+    },
+    {
+      "pagina": 391,
+      "pixeles_distintos": 963,
+      "proporcion": 0.001986779560308972
+    },
+    {
+      "pagina": 392,
+      "pixeles_distintos": 814,
+      "proporcion": 0.0016793754538852578
+    },
+    {
+      "pagina": 393,
+      "pixeles_distintos": 770,
+      "proporcion": 0.0015885984023238926
+    },
+    {
+      "pagina": 394,
+      "pixeles_distintos": 1199,
+      "proporcion": 0.002473674655047204
+    },
+    {
+      "pagina": 395,
+      "pixeles_distintos": 444,
+      "proporcion": 0.0009160229748465043
+    },
+    {
+      "pagina": 396,
+      "pixeles_distintos": 1177,
+      "proporcion": 0.0024282861292665215
+    },
+    {
+      "pagina": 397,
+      "pixeles_distintos": 673,
+      "proporcion": 0.0013884762659272464
+    },
+    {
+      "pagina": 398,
+      "pixeles_distintos": 902,
+      "proporcion": 0.0018609295570079884
+    },
+    {
+      "pagina": 399,
+      "pixeles_distintos": 1178,
+      "proporcion": 0.0024303492440747344
+    },
+    {
+      "pagina": 400,
+      "pixeles_distintos": 504,
+      "proporcion": 0.0010398098633392751
+    },
+    {
+      "pagina": 401,
+      "pixeles_distintos": 968,
+      "proporcion": 0.0019970951343500363
+    },
+    {
+      "pagina": 402,
+      "pixeles_distintos": 1190,
+      "proporcion": 0.0024551066217732885
+    },
+    {
+      "pagina": 403,
+      "pixeles_distintos": 1188,
+      "proporcion": 0.0024509803921568627
+    },
+    {
+      "pagina": 404,
+      "pixeles_distintos": 1177,
+      "proporcion": 0.0024282861292665215
+    },
+    {
+      "pagina": 405,
+      "pixeles_distintos": 1185,
+      "proporcion": 0.0024447910477322244
+    },
+    {
+      "pagina": 406,
+      "pixeles_distintos": 1204,
+      "proporcion": 0.0024839902290882685
+    },
+    {
+      "pagina": 407,
+      "pixeles_distintos": 1188,
+      "proporcion": 0.0024509803921568627
+    },
+    {
+      "pagina": 408,
+      "pixeles_distintos": 399,
+      "proporcion": 0.0008231828084769261
+    },
+    {
+      "pagina": 409,
+      "pixeles_distintos": 462,
+      "proporcion": 0.0009531590413943355
+    },
+    {
+      "pagina": 410,
+      "pixeles_distintos": 1179,
+      "proporcion": 0.002432412358882947
+    },
+    {
+      "pagina": 411,
+      "pixeles_distintos": 840,
+      "proporcion": 0.0017330164388987919
+    },
+    {
+      "pagina": 412,
+      "pixeles_distintos": 840,
+      "proporcion": 0.0017330164388987919
+    },
+    {
+      "pagina": 413,
+      "pixeles_distintos": 1080,
+      "proporcion": 0.0022281639928698753
+    },
+    {
+      "pagina": 414,
+      "pixeles_distintos": 810,
+      "proporcion": 0.0016711229946524064
+    },
+    {
+      "pagina": 415,
+      "pixeles_distintos": 1083,
+      "proporcion": 0.0022343533372945136
+    },
+    {
+      "pagina": 416,
+      "pixeles_distintos": 1183,
+      "proporcion": 0.0024406648181157986
+    },
+    {
+      "pagina": 417,
+      "pixeles_distintos": 1198,
+      "proporcion": 0.0024716115402389914
+    },
+    {
+      "pagina": 418,
+      "pixeles_distintos": 810,
+      "proporcion": 0.0016711229946524064
+    },
+    {
+      "pagina": 419,
+      "pixeles_distintos": 549,
+      "proporcion": 0.0011326500297088532
+    },
+    {
+      "pagina": 420,
+      "pixeles_distintos": 1031,
+      "proporcion": 0.0021270713672674455
+    },
+    {
+      "pagina": 421,
+      "pixeles_distintos": 632,
+      "proporcion": 0.0013038885587905195
+    },
+    {
+      "pagina": 422,
+      "pixeles_distintos": 1200,
+      "proporcion": 0.002475737769855417
+    },
+    {
+      "pagina": 423,
+      "pixeles_distintos": 749,
+      "proporcion": 0.0015452729913514227
+    },
+    {
+      "pagina": 424,
+      "pixeles_distintos": 946,
+      "proporcion": 0.0019517066085693536
+    },
+    {
+      "pagina": 425,
+      "pixeles_distintos": 953,
+      "proporcion": 0.0019661484122268434
+    },
+    {
+      "pagina": 426,
+      "pixeles_distintos": 888,
+      "proporcion": 0.0018320459496930085
+    },
+    {
+      "pagina": 427,
+      "pixeles_distintos": 992,
+      "proporcion": 0.0020466098897471445
+    },
+    {
+      "pagina": 428,
+      "pixeles_distintos": 1038,
+      "proporcion": 0.0021415131709249355
+    },
+    {
+      "pagina": 429,
+      "pixeles_distintos": 1178,
+      "proporcion": 0.0024303492440747344
+    },
+    {
+      "pagina": 430,
+      "pixeles_distintos": 629,
+      "proporcion": 0.001297699214365881
+    },
+    {
+      "pagina": 431,
+      "pixeles_distintos": 1207,
+      "proporcion": 0.002490179573512907
+    },
+    {
+      "pagina": 432,
+      "pixeles_distintos": 1198,
+      "proporcion": 0.0024716115402389914
+    },
+    {
+      "pagina": 433,
+      "pixeles_distintos": 1202,
+      "proporcion": 0.0024798639994718426
+    },
+    {
+      "pagina": 434,
+      "pixeles_distintos": 1177,
+      "proporcion": 0.0024282861292665215
+    },
+    {
+      "pagina": 435,
+      "pixeles_distintos": 704,
+      "proporcion": 0.0014524328249818446
+    },
+    {
+      "pagina": 436,
+      "pixeles_distintos": 475,
+      "proporcion": 0.0009799795339011025
+    },
+    {
+      "pagina": 437,
+      "pixeles_distintos": 1202,
+      "proporcion": 0.0024798639994718426
+    },
+    {
+      "pagina": 438,
+      "pixeles_distintos": 792,
+      "proporcion": 0.0016339869281045752
+    },
+    {
+      "pagina": 439,
+      "pixeles_distintos": 1207,
+      "proporcion": 0.002490179573512907
+    },
+    {
+      "pagina": 440,
+      "pixeles_distintos": 444,
+      "proporcion": 0.0009160229748465043
+    },
+    {
+      "pagina": 441,
+      "pixeles_distintos": 1164,
+      "proporcion": 0.0024014656367597545
+    },
+    {
+      "pagina": 442,
+      "pixeles_distintos": 864,
+      "proporcion": 0.0017825311942959
+    },
+    {
+      "pagina": 443,
+      "pixeles_distintos": 907,
+      "proporcion": 0.0018712451310490526
+    },
+    {
+      "pagina": 444,
+      "pixeles_distintos": 1184,
+      "proporcion": 0.0024427279329240115
+    },
+    {
+      "pagina": 445,
+      "pixeles_distintos": 1184,
+      "proporcion": 0.0024427279329240115
+    },
+    {
+      "pagina": 446,
+      "pixeles_distintos": 656,
+      "proporcion": 0.001353403314187628
+    },
+    {
+      "pagina": 447,
+      "pixeles_distintos": 1039,
+      "proporcion": 0.0021435762857331484
+    },
+    {
+      "pagina": 448,
+      "pixeles_distintos": 945,
+      "proporcion": 0.0019496434937611407
+    },
+    {
+      "pagina": 449,
+      "pixeles_distintos": 1040,
+      "proporcion": 0.0021456394005413613
+    },
+    {
+      "pagina": 450,
+      "pixeles_distintos": 871,
+      "proporcion": 0.00179697299795339
+    },
+    {
+      "pagina": 451,
+      "pixeles_distintos": 1164,
+      "proporcion": 0.0024014656367597545
+    },
+    {
+      "pagina": 452,
+      "pixeles_distintos": 1176,
+      "proporcion": 0.0024262230144583086
+    },
+    {
+      "pagina": 453,
+      "pixeles_distintos": 1199,
+      "proporcion": 0.002473674655047204
+    },
+    {
+      "pagina": 454,
+      "pixeles_distintos": 1184,
+      "proporcion": 0.0024427279329240115
+    },
+    {
+      "pagina": 455,
+      "pixeles_distintos": 611,
+      "proporcion": 0.0012605631478180498
+    },
+    {
+      "pagina": 456,
+      "pixeles_distintos": 816,
+      "proporcion": 0.0016835016835016834
+    },
+    {
+      "pagina": 457,
+      "pixeles_distintos": 909,
+      "proporcion": 0.0018753713606654784
+    },
+    {
+      "pagina": 458,
+      "pixeles_distintos": 778,
+      "proporcion": 0.0016051033207895953
+    },
+    {
+      "pagina": 459,
+      "pixeles_distintos": 1183,
+      "proporcion": 0.0024406648181157986
+    },
+    {
+      "pagina": 460,
+      "pixeles_distintos": 907,
+      "proporcion": 0.0018712451310490526
+    },
+    {
+      "pagina": 461,
+      "pixeles_distintos": 1115,
+      "proporcion": 0.0023003730111573247
+    },
+    {
+      "pagina": 462,
+      "pixeles_distintos": 916,
+      "proporcion": 0.0018898131643229682
+    },
+    {
+      "pagina": 463,
+      "pixeles_distintos": 1179,
+      "proporcion": 0.002432412358882947
+    },
+    {
+      "pagina": 464,
+      "pixeles_distintos": 464,
+      "proporcion": 0.0009572852710107612
+    },
+    {
+      "pagina": 465,
+      "pixeles_distintos": 917,
+      "proporcion": 0.001891876279131181
+    },
+    {
+      "pagina": 466,
+      "pixeles_distintos": 1101,
+      "proporcion": 0.002271489403842345
+    },
+    {
+      "pagina": 467,
+      "pixeles_distintos": 971,
+      "proporcion": 0.002003284478774675
+    },
+    {
+      "pagina": 468,
+      "pixeles_distintos": 1198,
+      "proporcion": 0.0024716115402389914
+    },
+    {
+      "pagina": 469,
+      "pixeles_distintos": 917,
+      "proporcion": 0.001891876279131181
+    },
+    {
+      "pagina": 470,
+      "pixeles_distintos": 786,
+      "proporcion": 0.0016216082392552982
+    },
+    {
+      "pagina": 471,
+      "pixeles_distintos": 857,
+      "proporcion": 0.0017680893906384103
+    },
+    {
+      "pagina": 472,
+      "pixeles_distintos": 1184,
+      "proporcion": 0.0024427279329240115
+    },
+    {
+      "pagina": 473,
+      "pixeles_distintos": 1198,
+      "proporcion": 0.0024716115402389914
+    },
+    {
+      "pagina": 474,
+      "pixeles_distintos": 945,
+      "proporcion": 0.0019496434937611407
+    },
+    {
+      "pagina": 475,
+      "pixeles_distintos": 476,
+      "proporcion": 0.0009820426487093155
+    },
+    {
+      "pagina": 476,
+      "pixeles_distintos": 810,
+      "proporcion": 0.0016711229946524064
+    },
+    {
+      "pagina": 477,
+      "pixeles_distintos": 977,
+      "proporcion": 0.002015663167623952
+    },
+    {
+      "pagina": 478,
+      "pixeles_distintos": 873,
+      "proporcion": 0.0018010992275698159
+    },
+    {
+      "pagina": 479,
+      "pixeles_distintos": 964,
+      "proporcion": 0.001988842675117185
+    },
+    {
+      "pagina": 480,
+      "pixeles_distintos": 1183,
+      "proporcion": 0.0024406648181157986
+    },
+    {
+      "pagina": 481,
+      "pixeles_distintos": 779,
+      "proporcion": 0.0016071664355978082
+    },
+    {
+      "pagina": 482,
+      "pixeles_distintos": 1182,
+      "proporcion": 0.0024386017033075857
+    },
+    {
+      "pagina": 483,
+      "pixeles_distintos": 675,
+      "proporcion": 0.001392602495543672
+    },
+    {
+      "pagina": 484,
+      "pixeles_distintos": 945,
+      "proporcion": 0.0019496434937611407
+    },
+    {
+      "pagina": 485,
+      "pixeles_distintos": 1079,
+      "proporcion": 0.0022261008780616624
+    },
+    {
+      "pagina": 486,
+      "pixeles_distintos": 771,
+      "proporcion": 0.0015906615171321053
+    },
+    {
+      "pagina": 487,
+      "pixeles_distintos": 1008,
+      "proporcion": 0.0020796197266785502
+    },
+    {
+      "pagina": 488,
+      "pixeles_distintos": 842,
+      "proporcion": 0.0017371426685152175
+    },
+    {
+      "pagina": 489,
+      "pixeles_distintos": 921,
+      "proporcion": 0.0019001287383640325
+    },
+    {
+      "pagina": 490,
+      "pixeles_distintos": 894,
+      "proporcion": 0.0018444246385422856
+    },
+    {
+      "pagina": 491,
+      "pixeles_distintos": 1212,
+      "proporcion": 0.002500495147553971
+    },
+    {
+      "pagina": 492,
+      "pixeles_distintos": 633,
+      "proporcion": 0.0013059516735987324
+    },
+    {
+      "pagina": 493,
+      "pixeles_distintos": 1177,
+      "proporcion": 0.0024282861292665215
+    },
+    {
+      "pagina": 494,
+      "pixeles_distintos": 733,
+      "proporcion": 0.0015122631544200172
+    },
+    {
+      "pagina": 495,
+      "pixeles_distintos": 1183,
+      "proporcion": 0.0024406648181157986
+    },
+    {
+      "pagina": 496,
+      "pixeles_distintos": 1007,
+      "proporcion": 0.0020775566118703373
+    },
+    {
+      "pagina": 497,
+      "pixeles_distintos": 620,
+      "proporcion": 0.0012791311810919654
+    },
+    {
+      "pagina": 498,
+      "pixeles_distintos": 1199,
+      "proporcion": 0.002473674655047204
+    },
+    {
+      "pagina": 499,
+      "pixeles_distintos": 812,
+      "proporcion": 0.0016752492242688322
+    },
+    {
+      "pagina": 500,
+      "pixeles_distintos": 1008,
+      "proporcion": 0.0020796197266785502
+    },
+    {
+      "pagina": 501,
+      "pixeles_distintos": 1040,
+      "proporcion": 0.0021456394005413613
+    },
+    {
+      "pagina": 502,
+      "pixeles_distintos": 1182,
+      "proporcion": 0.0024386017033075857
+    },
+    {
+      "pagina": 503,
+      "pixeles_distintos": 643,
+      "proporcion": 0.001326582821680861
+    },
+    {
+      "pagina": 504,
+      "pixeles_distintos": 1008,
+      "proporcion": 0.0020796197266785502
+    },
+    {
+      "pagina": 505,
+      "pixeles_distintos": 1079,
+      "proporcion": 0.0022261008780616624
+    },
+    {
+      "pagina": 506,
+      "pixeles_distintos": 580,
+      "proporcion": 0.0011966065887634514
+    },
+    {
+      "pagina": 507,
+      "pixeles_distintos": 1184,
+      "proporcion": 0.0024427279329240115
+    },
+    {
+      "pagina": 508,
+      "pixeles_distintos": 611,
+      "proporcion": 0.0012605631478180498
+    },
+    {
+      "pagina": 509,
+      "pixeles_distintos": 1206,
+      "proporcion": 0.002488116458704694
+    },
+    {
+      "pagina": 510,
+      "pixeles_distintos": 1208,
+      "proporcion": 0.0024922426883211197
+    },
+    {
+      "pagina": 511,
+      "pixeles_distintos": 1178,
+      "proporcion": 0.0024303492440747344
+    },
+    {
+      "pagina": 512,
+      "pixeles_distintos": 504,
+      "proporcion": 0.0010398098633392751
+    },
+    {
+      "pagina": 514,
+      "pixeles_distintos": 1184,
+      "proporcion": 0.0024427279329240115
+    },
+    {
+      "pagina": 515,
+      "pixeles_distintos": 865,
+      "proporcion": 0.001784594309104113
+    },
+    {
+      "pagina": 516,
+      "pixeles_distintos": 1199,
+      "proporcion": 0.002473674655047204
+    },
+    {
+      "pagina": 517,
+      "pixeles_distintos": 381,
+      "proporcion": 0.0007860467419290949
+    },
+    {
+      "pagina": 518,
+      "pixeles_distintos": 1183,
+      "proporcion": 0.0024406648181157986
+    },
+    {
+      "pagina": 519,
+      "pixeles_distintos": 1040,
+      "proporcion": 0.0021456394005413613
+    },
+    {
+      "pagina": 521,
+      "pixeles_distintos": 1677,
+      "proporcion": 0.003459843533372945
+    },
+    {
+      "pagina": 522,
+      "pixeles_distintos": 968,
+      "proporcion": 0.0019970951343500363
+    },
+    {
+      "pagina": 523,
+      "pixeles_distintos": 3618,
+      "proporcion": 0.007464349376114082
+    },
+    {
+      "pagina": 524,
+      "pixeles_distintos": 633,
+      "proporcion": 0.0013059516735987324
+    },
+    {
+      "pagina": 525,
+      "pixeles_distintos": 2416,
+      "proporcion": 0.004984485376642239
+    },
+    {
+      "pagina": 526,
+      "pixeles_distintos": 3612,
+      "proporcion": 0.0074519706872648046
+    },
+    {
+      "pagina": 527,
+      "pixeles_distintos": 2773,
+      "proporcion": 0.005721017363174226
+    },
+    {
+      "pagina": 528,
+      "pixeles_distintos": 2296,
+      "proporcion": 0.0047369115996566975
+    },
+    {
+      "pagina": 529,
+      "pixeles_distintos": 2863,
+      "proporcion": 0.005906697695913382
+    },
+    {
+      "pagina": 530,
+      "pixeles_distintos": 3609,
+      "proporcion": 0.007445781342840166
+    },
+    {
+      "pagina": 531,
+      "pixeles_distintos": 1948,
+      "proporcion": 0.004018947646398627
+    },
+    {
+      "pagina": 532,
+      "pixeles_distintos": 301,
+      "proporcion": 0.0006209975572720671
+    },
+    {
+      "pagina": 540,
+      "pixeles_distintos": 404,
+      "proporcion": 0.0008334983825179904
+    },
+    {
+      "pagina": 541,
+      "pixeles_distintos": 805,
+      "proporcion": 0.0016608074206113422
+    },
+    {
+      "pagina": 542,
+      "pixeles_distintos": 805,
+      "proporcion": 0.0016608074206113422
+    },
+    {
+      "pagina": 543,
+      "pixeles_distintos": 124,
+      "proporcion": 0.00025582623621839306
+    },
+    {
+      "pagina": 549,
+      "pixeles_distintos": 1587,
+      "proporcion": 0.0032741632006337887
+    },
+    {
+      "pagina": 550,
+      "pixeles_distintos": 1587,
+      "proporcion": 0.0032741632006337887
+    },
+    {
+      "pagina": 551,
+      "pixeles_distintos": 670,
+      "proporcion": 0.0013822869215026079
+    },
+    {
+      "pagina": 552,
+      "pixeles_distintos": 464,
+      "proporcion": 0.0009572852710107612
+    },
+    {
+      "pagina": 553,
+      "pixeles_distintos": 241,
+      "proporcion": 0.0004972106687792963
+    },
+    {
+      "pagina": 554,
+      "pixeles_distintos": 838,
+      "proporcion": 0.0017288902092823662
+    },
+    {
+      "pagina": 555,
+      "pixeles_distintos": 639,
+      "proporcion": 0.0013183303624480095
+    },
+    {
+      "pagina": 556,
+      "pixeles_distintos": 349,
+      "proporcion": 0.0007200270680662838
+    },
+    {
+      "pagina": 557,
+      "pixeles_distintos": 342,
+      "proporcion": 0.0007055852644087938
+    },
+    {
+      "pagina": 558,
+      "pixeles_distintos": 485,
+      "proporcion": 0.001000610681983231
+    },
+    {
+      "pagina": 559,
+      "pixeles_distintos": 466,
+      "proporcion": 0.0009614115006271869
+    },
+    {
+      "pagina": 561,
+      "pixeles_distintos": 344,
+      "proporcion": 0.0007097114940252195
+    },
+    {
+      "pagina": 562,
+      "pixeles_distintos": 165,
+      "proporcion": 0.00034041394335511985
+    },
+    {
+      "pagina": 563,
+      "pixeles_distintos": 467,
+      "proporcion": 0.0009634746154353998
+    },
+    {
+      "pagina": 564,
+      "pixeles_distintos": 235,
+      "proporcion": 0.00048483197993001915
+    },
+    {
+      "pagina": 565,
+      "pixeles_distintos": 313,
+      "proporcion": 0.0006457549349706212
+    },
+    {
+      "pagina": 566,
+      "pixeles_distintos": 253,
+      "proporcion": 0.0005219680464778504
+    }
+  ],
+  "entrega_unica": [
+    "Tesis_Final_espaciGo.docx",
+    "Tesis_Final_espaciGo.pdf"
+  ],
+  "docx_sha256": "5ccbd8449fc64a1616d4d9c22599ef598e88761e217a13aca0eb94ab1bc9cb35",
+  "pdf_sha256": "7ba55982eb38d22223b89d9453c316429d122d9b659a0260feb20cc1785f3ddb"
+}

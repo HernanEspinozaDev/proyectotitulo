@@ -9,6 +9,7 @@ import uuid
 from pathlib import Path
 
 import uno
+from persistir_indices_word import persist_indexes
 from com.sun.star.beans import PropertyValue
 from com.sun.star.connection import NoConnectException
 
@@ -22,8 +23,11 @@ def update_indexes(document):
     existing = [indexes.getByIndex(index) for index in range(indexes.getCount())]
     visual_index_style = 'Entradas del índice visual'
     styles = document.getStyleFamilies().getByName('ParagraphStyles')
-    entry_style = document.createInstance('com.sun.star.style.ParagraphStyle')
-    styles.insertByName(visual_index_style, entry_style)
+    if styles.hasByName(visual_index_style):
+        entry_style = styles.getByName(visual_index_style)
+    else:
+        entry_style = document.createInstance('com.sun.star.style.ParagraphStyle')
+        styles.insertByName(visual_index_style, entry_style)
     entry_style.ParentStyle = 'Contents 1'
     entry_style.ParaTopMargin = 0
     entry_style.ParaBottomMargin = 45
@@ -113,6 +117,11 @@ def export_pdf(source, target):
                         )),
                     )
                 )
+                calculated = temporary / 'indices-calculados.docx'
+                document.storeToURL(
+                    calculated.as_uri(), properties(FilterName='Office Open XML Text')
+                )
+                print(persist_indexes(source, calculated))
             finally:
                 document.close(True)
             output.replace(target)
