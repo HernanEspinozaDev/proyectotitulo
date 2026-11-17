@@ -1,0 +1,205 @@
+{
+  "archivo": "/home/nandev/Documentos/INACAP/8vo semestre/pt/PMBOK_6ta_Edicion_Espanol.pdf",
+  "sha256": "9d2a6acc5d6a6cb29fab913153209447e3970051697d83c32c1dbe449dc8a70b",
+  "paginas_pdf": 762,
+  "edicion_verificada": 6,
+  "anio": 2017,
+  "autor_corporativo": "Project Management Institute",
+  "titulo": "Guía de los fundamentos para la dirección de proyectos (Guía del PMBOK)",
+  "verificacion_edicion": [
+    "Portada PDF 1: Sixth edition; capa de texto identifica Sexta edición",
+    "Datos editoriales PDF 2: Sexta edición, PMI, 2017"
+  ],
+  "paginacion": "Parte 1: página PDF = página impresa + 36; no aplicar automáticamente a secciones que reinician paginación",
+  "metodo": "Extracción con pdftotext -layout; portada y páginas seleccionadas renderizadas con pypdfium2",
+  "temas_revisados": [
+    {
+      "tema": "adaptacion",
+      "paginas_impresas": [
+        19,
+        23,
+        28
+      ],
+      "paginas_pdf": [
+        55,
+        59,
+        64
+      ]
+    },
+    {
+      "tema": "gobierno",
+      "paginas_impresas": [
+        75,
+        81,
+        82,
+        86,
+        89
+      ],
+      "paginas_pdf": [
+        111,
+        117,
+        118,
+        122,
+        125
+      ]
+    },
+    {
+      "tema": "cambios_cierre",
+      "paginas_impresas": [
+        113,
+        120,
+        121,
+        127
+      ],
+      "paginas_pdf": [
+        149,
+        156,
+        157,
+        163
+      ]
+    },
+    {
+      "tema": "alcance_edt",
+      "paginas_impresas": [
+        156,
+        161,
+        162
+      ],
+      "paginas_pdf": [
+        192,
+        197,
+        198
+      ]
+    },
+    {
+      "tema": "cronograma",
+      "paginas_impresas": [
+        179,
+        181,
+        182,
+        185,
+        187,
+        195,
+        200,
+        201,
+        210,
+        211,
+        212,
+        213,
+        217,
+        219,
+        220,
+        221,
+        225,
+        226
+      ],
+      "paginas_pdf": [
+        215,
+        217,
+        218,
+        221,
+        223,
+        231,
+        236,
+        237,
+        246,
+        247,
+        248,
+        249,
+        253,
+        255,
+        256,
+        257,
+        261,
+        262
+      ]
+    },
+    {
+      "tema": "costos",
+      "paginas_impresas": [
+        247,
+        254,
+        261
+      ],
+      "paginas_pdf": [
+        283,
+        290,
+        297
+      ]
+    },
+    {
+      "tema": "calidad",
+      "paginas_impresas": [
+        287
+      ],
+      "paginas_pdf": [
+        323
+      ]
+    },
+    {
+      "tema": "recursos",
+      "paginas_impresas": [
+        318,
+        319,
+        320,
+        325
+      ],
+      "paginas_pdf": [
+        354,
+        355,
+        356,
+        361
+      ]
+    },
+    {
+      "tema": "comunicaciones",
+      "paginas_impresas": [
+        377
+      ],
+      "paginas_pdf": [
+        413
+      ]
+    },
+    {
+      "tema": "riesgos",
+      "paginas_impresas": [
+        417,
+        419,
+        437,
+        442
+      ],
+      "paginas_pdf": [
+        453,
+        455,
+        473,
+        478
+      ]
+    },
+    {
+      "tema": "adquisiciones",
+      "paginas_impresas": [
+        466
+      ],
+      "paginas_pdf": [
+        502
+      ]
+    },
+    {
+      "tema": "interesados",
+      "paginas_impresas": [
+        512,
+        514,
+        516
+      ],
+      "paginas_pdf": [
+        548,
+        550,
+        552
+      ]
+    }
+  ],
+  "referencia_apa": "Project Management Institute. (2017). Guía de los fundamentos para la dirección de proyectos (Guía del PMBOK) (6.ª ed.). Project Management Institute.",
+  "cita_bib_propuesta": "pmbok6",
+  "fuente_sin_cambios": true,
+  "observacion": "La séptima edición de 2021 ya figura en la bibliografía de la tesis; el adjunto analizado corresponde a la sexta. No se atribuyen páginas del adjunto a la séptima edición."
+}

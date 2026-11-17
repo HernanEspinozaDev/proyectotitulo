@@ -1,0 +1,16 @@
+{
+  "estado": "correcto",
+  "fuente_pdf_sin_cambios": true,
+  "edicion_verificada": 6,
+  "paginas_pdf": 762,
+  "brechas_documentadas": 21,
+  "tareas_plan": 12,
+  "tareas_analisis_completadas": 2,
+  "inicio_y_dedicacion_confirmados": true,
+  "fechas_entrega_defensa_comercial_verificadas": true,
+  "capacidad_base_nominal_horas": 960,
+  "valoracion_base_clp": 6240000,
+  "tesis_y_compilados_sin_cambios_en_este_corte": true,
+  "siguiente_tarea": "P03",
+  "alcance": "Control del análisis y del plan; no verifica todavía una Gantt reconstruida ni ejecución de correcciones."
+}

@@ -1,0 +1,54 @@
+{
+  "fecha_registro": "2026-11-16",
+  "fuente_decisiones": "instrucción del propietario y confirmación de inicio/dedicación en esta conversación",
+  "desarrollo_academico": {
+    "inicio": "2026-08-11",
+    "fin_bloque_base": "2026-11-30",
+    "entrega": "2026-12-01",
+    "estado": "fechas confirmadas"
+  },
+  "ajustes_y_defensa": {
+    "inicio_ajustes": "2026-12-02",
+    "hito_defensa": "2026-12-09",
+    "estado": "hito confirmado; esfuerzo por actividad a estimar"
+  },
+  "transicion_precomercial": {
+    "inicio_propuesto": "2026-12-10",
+    "fin_propuesto": "2026-12-31",
+    "estado": "propuesta de ordenación; no ejecución acreditada"
+  },
+  "fase_comercial": {
+    "inicio": "2027-01-01",
+    "fin_horizonte": "2030-12-31",
+    "anio_0": 2026,
+    "estado": "frontera económica confirmada"
+  },
+  "equipo": {
+    "integrantes": [
+      "Hernán Espinoza Castillo",
+      "Anita Marchant Pacheco",
+      "Erick Silva Quezada"
+    ],
+    "horas_semana_persona": 20,
+    "personas": 3,
+    "horas_semana_equipo": 60,
+    "estado": "dedicación académica confirmada"
+  },
+  "capacidad_nominal_bloque_base": {
+    "dias_inclusive": 112,
+    "semanas": 16,
+    "horas": 960,
+    "tarifa_valoracion_clp_hora": 6500,
+    "valoracion_clp": 6240000,
+    "caracter": "capacidad nominal y valoración de referencia, no horas ejecutadas",
+    "regla": "gestión, construcción, pruebas y documentación comparten la capacidad; excepciones y distribución se documentan en calendarios"
+  },
+  "horas_reales": null,
+  "horas_ajustes_defensa": null,
+  "horas_transicion": null,
+  "capacidad_antigua_por_rectificar": {
+    "horas": 360,
+    "valoracion_clp": 2340000,
+    "ventana": "seis semanas hasta fines de diciembre; incompatible como ventana del desarrollo académico actualizado"
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "objetivo": "corregir planificación y Gantt conforme a la adaptación PMBOK, manteniendo la plantilla y sincronización económica",
+  "alcance_actual": "análisis y plan completados; ejecución posterior desde P03",
+  "fuente_metodologica": "PMBOK 6.ª edición, PMI 2017",
+  "fechas_y_dedicacion": "confirmadas; ver cronologia_rectora.json",
+  "tareas": [
+    {
+      "id": "P01",
+      "descripcion": "Revisar fuente PMBOK y edición",
+      "depende_de": [],
+      "estado": "terminada",
+      "criterio_finalizacion": "Referencia verificada, huella del PDF y mapa de páginas de los temas utilizados. **Completada en este corte.**"
+    },
+    {
+      "id": "P02",
+      "descripcion": "Contrastar tesis, Gantt y evaluación económica",
+      "depende_de": [
+        "P01"
+      ],
+      "estado": "terminada",
+      "criterio_finalizacion": "Matriz B01–B21, diagnóstico de tiempos/costos y fechas rectoras confirmadas. **Completada en este corte.**"
+    },
+    {
+      "id": "P03",
+      "descripcion": "Definir adaptación de gestión y entregables",
+      "depende_de": [
+        "P02"
+      ],
+      "estado": "pendiente",
+      "criterio_finalizacion": "Cuadro de prácticas aplicadas, ficha de gobierno, alcance de entrega/defensa y arquitectura documental. Diferencia entre acta del proyecto y constitución societaria."
+    },
+    {
+      "id": "P04",
+      "descripcion": "Completar EDT y diccionario",
+      "depende_de": [
+        "P03"
+      ],
+      "estado": "pendiente",
+      "criterio_finalizacion": "Los 28 paquetes quedan descritos y vinculados a actividades, responsables, aceptación y evidencia. Si se revisa un paquete, se registra el motivo y su relación con el alcance anterior."
+    },
+    {
+      "id": "P05",
+      "descripcion": "Consolidar calendario y registro maestro",
+      "depende_de": [
+        "P04"
+      ],
+      "estado": "pendiente",
+      "criterio_finalizacion": "Fechas 11-08, 01-12, 09-12 y 01-01; recursos con nombre y disponibilidad; actividades con ID estable, esfuerzo, duración, tipo y criterio de aceptación. Evidencia histórica separada de estimaciones."
+    },
+    {
+      "id": "P06",
+      "descripcion": "Reconstruir Gantt y comprobar factibilidad",
+      "depende_de": [
+        "P05"
+      ],
+      "estado": "pendiente",
+      "criterio_finalizacion": "Red sin ciclos, cierres vinculados, calendario consistente, cálculos de ruta/holgura y control de sobrecarga. Fechas objetivo contrastadas con el resultado; ninguna demora se oculta cambiando un rótulo."
+    },
+    {
+      "id": "P07",
+      "descripcion": "Conciliar tiempos y evaluación económica",
+      "depende_de": [
+        "P06"
+      ],
+      "estado": "pendiente",
+      "criterio_finalizacion": "Matriz de horas/costos, tratamiento del tramo posterior a entrega y reemplazo de la ventana antigua de 360 h. Sin cambios injustificados en caja, comisión o impuestos; recálculo de indicadores si cambia una partida pertinente."
+    },
+    {
+      "id": "P08",
+      "descripcion": "Preparar figuras y exportaciones editables",
+      "depende_de": [
+        "P06",
+        "P07"
+      ],
+      "estado": "pendiente",
+      "criterio_finalizacion": "Fuentes de datos, código generador, SVG/PNG y exportación compatible con Project. Vistas legibles al tamaño de la plantilla, no capturas extensas reducidas."
+    },
+    {
+      "id": "P09",
+      "descripcion": "Corregir Capítulo VI y Anexo G",
+      "depende_de": [
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07",
+        "P08"
+      ],
+      "estado": "pendiente",
+      "criterio_finalizacion": "Metodología, EDT, riesgos, 6.2, equipo y recursos completos; anexo con detalle y remisiones verificadas. Se retiran sus marcadores de reserva al integrar el contenido."
+    },
+    {
+      "id": "P10",
+      "descripcion": "Corregir XV y sincronizar capítulos y anexos",
+      "depende_de": [
+        "P09"
+      ],
+      "estado": "pendiente",
+      "criterio_finalizacion": "Registro de cambios, cronograma vigente y cortes de entrega/defensa. V, XI–XIV, XVI, XVIII y H coinciden con el plan. Referencias PMBOK correctas."
+    },
+    {
+      "id": "P11",
+      "descripcion": "Compilar y revisar Word/PDF",
+      "depende_de": [
+        "P10"
+      ],
+      "estado": "pendiente",
+      "criterio_finalizacion": "DocSkill genera Word/PDF; índices y numeración coinciden; figuras legibles y tablas completas. Revisión de páginas modificadas y comprobaciones de integridad de las demás secciones."
+    },
+    {
+      "id": "P12",
+      "descripcion": "Publicar y entregar en main",
+      "depende_de": [
+        "P11"
+      ],
+      "estado": "pendiente",
+      "criterio_finalizacion": "Fuentes, informe, Gantt y verificación versionados en `main`; Word/PDF completos enlazados y registro claro de lo integrado y de las comprobaciones que dependen del desarrollo."
+    }
+  ],
+  "criterio_estado": "marcar terminada solo con entregable verificable y comprobación de aceptación",
+  "autorizacion": "el propietario autoriza elaborar la planificación previamente reservada, sin esperar material adicional de Erick",
+  "proximas_entradas": "evidencia histórica por entregable y estimaciones del trabajo restante; no bloquean la definición del plan",
+  "siguiente_tarea": "P03",
+  "tesis_modificada_en_este_corte": false,
+  "mpp_original_modificado": false
+}
