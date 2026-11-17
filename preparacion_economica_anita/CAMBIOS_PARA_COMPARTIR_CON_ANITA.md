@@ -1,7 +1,9 @@
 # Cambios de la evaluación económica integrada en la tesis de espaciGo
 
-**Fecha:** 16 de noviembre de 2026.  
-**Versión de referencia:** tesis integrada en el commit `0a1bad6`.  
+**Fecha:** 16 de noviembre de 2026.
+
+**Versión de referencia:** tesis integrada en el commit `0a1bad6`.
+
 **Material de origen:** `EspaciGo.xlsx` y `estudio_financiero_EspaciGo.docx` entregados por Anita.
 
 ## 1. Resumen para informar al equipo
