@@ -29,3 +29,7 @@ La denominación física histórica de auditoría se conserva dentro del Anexo D
 - Revisión visual: Word renderizado con la habilidad de documentos; PDF completo renderizado y páginas modificadas inspeccionadas, incluidas las tablas corregidas.
 
 La corrección documental no acredita habilitación productiva de proveedores ni ejecución de ensayos pendientes del desarrollo. Esos límites se conservan en XII–XIII y el Anexo F.
+
+## Publicación
+
+Contenido publicado en origin/main, commit 371bf83. Las doce tareas quedan cerradas con Word/PDF, fuentes, diagramas y comprobaciones versionados.

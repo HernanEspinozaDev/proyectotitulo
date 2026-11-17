@@ -13,8 +13,12 @@ Cada tarea se cierra contra la fuente, el Word y el PDF cuando corresponde. Las 
 - [x] **T09. Depurar anexos y aclarar auditoría histórica.** Encabezado descriptivo B.022; nombres físicos conservados en fichas DDL, sin falsificar esquema.
 - [x] **T10. Corregir presentación de URLs AWS.** URLs completas, guiones ASCII y destino íntegro tras exportación; conservar comprobación de los enlaces anteriores.
 - [x] **T11. Evitar reintroducción desde generadores.** Generadores coherentes y control ampliado en fuentes, XML y PDF; preservar finanzas y estructura.
-- [ ] **T12. Compilar, verificar visualmente y publicar.** DocSkill, Word/PDF revisados, tareas cerradas con evidencias y push confirmado a main.
+- [x] **T12. Compilar, verificar visualmente y publicar.** DocSkill, Word/PDF revisados, tareas cerradas con evidencias y push confirmado a main.
 
 ## Precisiones del contraste
 
 CU-15 y los módulos M06/M07 ya remiten a las figuras correctas en las fuentes actuales. El operador `&&`, las comillas contractuales y varios títulos espaciGo también están correctos en Markdown: se comprobará su representación en el PDF. La frase de persistencia de 10.7 sí requiere corrección. Los enlaces AWS contienen los guiones correctos en bibliografía y requieren controlar su presentación. Se conserva el resultado negativo del piloto y se priorizan los umbrales sin ocultar la necesidad de aportes.
+
+## Cierre
+
+Las doce tareas quedan terminadas y verificadas. La entrega de 567 páginas se publica en main, commit de contenido 371bf83. El informe y VERIFICACION_FINAL.json documentan los resultados y los puntos que ya estaban correctos en la fuente.

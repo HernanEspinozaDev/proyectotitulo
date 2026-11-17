@@ -1,7 +1,7 @@
 {
   "revision": "2026-11-17",
   "fuente": "Informe del revisor aportado por el propietario",
-  "estado_global": "en ejecución",
+  "estado_global": "terminado",
   "criterios": [
     "La evidencia técnica se conserva con denominación académica.",
     "392/793 corresponden a umbrales de VAN al 12 %, no a demanda observada.",
@@ -90,10 +90,15 @@
       "id": "T12",
       "tarea": "Compilar, verificar visualmente y publicar",
       "criterio": "DocSkill, Word/PDF revisados, tareas cerradas con evidencias y push confirmado a main.",
-      "estado": "verificación terminada; publicación en curso",
-      "evidencia": "Word renderizado; PDF 567 páginas; comprobaciones finales correctas"
+      "estado": "terminada",
+      "evidencia": "Word/PDF verificados y publicados en origin/main: commit de contenido 371bf83"
     }
   ],
   "baseline": "dd62e8c",
-  "fuente_sha256": "f916bb407a75f4ef72613b951c2b2538d296ebda96c654120e544498361cbdde"
+  "fuente_sha256": "f916bb407a75f4ef72613b951c2b2538d296ebda96c654120e544498361cbdde",
+  "publicacion": {
+    "rama": "main",
+    "commit_contenido": "371bf83",
+    "estado": "push confirmado"
+  }
 }
