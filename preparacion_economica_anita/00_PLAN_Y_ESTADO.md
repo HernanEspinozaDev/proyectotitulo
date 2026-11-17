@@ -1,3 +1,5 @@
+> **Estado vigente:** aplicación de la propuesta económica en 06_escenario_adoptado; consultar su estado_plan.json y ESCENARIO_ACTIVO.json. Los cortes anteriores de este archivo son historial.
+
 # Plan de preparación de la economía de espaciGo
 
 Fecha de corte 16 de noviembre de 2026.
@@ -183,3 +185,19 @@ El plan no está terminado: faltan mezcla comercial respaldada, desglose y oport
 La entrega contiene 101 páginas y 101 tablas editables. Las 69 páginas de transcripción del libro conservan identidad visual con el corte anterior. Se inspeccionan las páginas nuevas o modificadas, se corrigen cifras partidas y filas aisladas, y se conserva el formato del flujo de Anita. Los originales no cambian por SHA-256. La preparación sigue separada de la tesis principal.
 
 Se completan los cálculos disponibles y las tres aclaraciones recibidas. El cierre integral aún requiere entradas, no una nueva revisión genérica: mezcla y demanda respaldadas, reparto de esfuerzo pasado/futuro para evaluación incremental, condiciones y costos definitivos de proveedores, ciclo efectivo y valoración de reposiciones/cierre. Los padres SP04–SP13 no se marcan completos contrariando sus criterios. El presupuesto y las simulaciones no se presentan como contratos o demanda verificados.
+
+## Aplicación del escenario académico adoptado
+
+Se adopta la propuesta por instrucción del propietario: dominio de CLP 9990 para 2027, pagos de dominio y dirección tributaria en enero, siete días de cobro de comisión con estrés de treinta, compra de reposición de estrés por CLP 900000 en 2029 y cierre prudente sin venta ni perpetuidad. La liquidación posterior de CxC se descuenta en su fecha propia, sin inventar un quinto año de nueva operación. El presupuesto medio es CLP 514003,02 por mes; el desembolso de enero es distinto.
+
+Se calculan ocho perfiles de 48 meses y cuatro flujos completos visibles en el cuerpo, preservando la secuencia de Anita. Los umbrales promedio costo-volumen se distinguen de los mínimos de VAN y de la activación mensual de asignaciones. Los mínimos de VAN con cierres anuales y liquidación son 392, 793 y 2397 pagos mensuales al ticket de CLP 50000 para las tres metas. El caso de 16 pagos mantiene resultado negativo y no habilita asignaciones.
+
+Los presupuestos y métodos del escenario quedan adoptados; no se atribuyen contratos, pagos observados, entrevistas realizadas ni horas ejecutadas. La simulación académica puede revisarse como resultado delimitado. La integración a la tesis principal y las validaciones reales se mantienen diferenciadas del cálculo terminado. El historial numérico anterior se conserva en 04_modelo_sapag y en 06_escenario_adoptado/historial.
+
+## Cierre de la aplicación y verificación
+
+- [x] A01–A08: adopción, costos, calendario, cobro, reservas, escenarios, indicadores, cuerpo/anexo y auditoría numérica.
+- [x] A09: Word/PDF inspeccionados; 96 páginas y 103 tablas nativas. Se conservan las 69 páginas de transcripción fuente con identidad visual y H.1–H.26 sin cambios.
+- [x] A10: entrega preparada para commit y publicación en main, con verificación del remoto al finalizar.
+
+La referencia activa es 06_escenario_adoptado. Se conservan los archivos originales; no se altera la tesis principal. Las evidencias de demanda, horas realizadas, cotizaciones y condiciones efectivas continúan identificadas; no se sustituyen por afirmaciones de verificación. El método de simulación está aplicado y auditado, sin declarar viabilidad comercial.

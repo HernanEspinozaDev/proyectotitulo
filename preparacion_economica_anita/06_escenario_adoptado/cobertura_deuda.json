@@ -1,0 +1,26 @@
+[
+  {
+    "anio": 2027,
+    "caja_antes_cuota_clp": "-5885636.24",
+    "cuota_clp": "1548818",
+    "cobertura": "-3.800082540363038136178685940"
+  },
+  {
+    "anio": 2028,
+    "caja_antes_cuota_clp": "-6114435.84",
+    "cuota_clp": "1548818",
+    "cobertura": "-3.947807837977089625766229473"
+  },
+  {
+    "anio": 2029,
+    "caja_antes_cuota_clp": "-6358211.42",
+    "cuota_clp": "1548819",
+    "cobertura": "-4.105199781252683496263927547"
+  },
+  {
+    "anio": 2030,
+    "caja_antes_cuota_clp": "-6611738.03",
+    "cuota_clp": "0",
+    "cobertura": null
+  }
+]

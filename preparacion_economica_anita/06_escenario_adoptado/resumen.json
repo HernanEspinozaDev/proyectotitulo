@@ -1,0 +1,14 @@
+{
+  "subtotal_mensual_prorrateado_clp": "514003.02",
+  "subtotal_anual_1_clp": "6168036.24",
+  "cxc_supuesto_base_clp": "5600.00",
+  "van_base_con_liquidacion_clp": "-20053400.45",
+  "aportes_minimos_base_clp": "26170021.53",
+  "enero_opex_clp": "660660.52",
+  "enero_comision_cobrada_clp": "18400.00",
+  "reposicion_efecto_van_clp": "-640602.23",
+  "dias30_efecto_van_clp": "-4870.58",
+  "raiz_sin_asignaciones": 392,
+  "raiz_meta_200000": 793,
+  "raiz_meta_millon": 2397
+}

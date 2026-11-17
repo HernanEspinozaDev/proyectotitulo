@@ -1480,13 +1480,11 @@ Fila 27. DECISIÓN PARA EL MODELO FINANCIERO
 *Nota.* Transcripción de la hoja «Revision respaldo» de EspaciGo.xlsx, filas 28–30. Se conservan los importes y el alcance del insumo.
 
 
-## H.27. Memoria actualizada de las metas de remuneración
+## H.27. Umbrales y regla de asignaciones adoptados
 
-Este apartado respalda las Tablas 20 y 21 y se actualiza con la conciliación de útiles de oficina. Los cálculos anteriores sin esa partida son un corte histórico. Se conserva su procedencia en la historia del repositorio.
+Este apartado respalda las Tablas 24 y 25. El presupuesto medio identificado es CLP 514.003,02. A ticket de CLP 50.000, los umbrales promedio siguen siendo 743 y 2.343 pagos para las dos metas por persona. La caja del mes puede no permitirlas, aunque el promedio las cubra: enero paga anualidades y el lanzamiento tiene comisión por cobrar.
 
-El presupuesto mensual sin fundadores es CLP 514.083,02: la base parcial de CLP 491.583,02 más CLP 10.000 de útiles y CLP 12.500 de dirección tributaria. Los útiles proceden de Conciliacion costos!H9 y la periodicidad anual de la dirección es ratificada por el propietario. Con la meta conjunta inicial de CLP 600.000, se requieren CLP 1.114.083,02 de comisión neta. A ticket de CLP 50.000 y comisión neta de CLP 1.500 por cobro, el mínimo entero es 743 pagos: 742 producen CLP 1.113.000 y no alcanzan; 743 producen CLP 1.114.500. Para CLP 1.000.000 por fundador, el mínimo es 2.343 pagos.
-
-El cálculo redondea hacia arriba (costo parcial + tres asignaciones objetivo) dividido por (ticket multiplicado por 0,03). Los costos variables propios que se determinen reducen la contribución por cobro. El script calcular_tickets_remuneraciones.py lee los componentes y genera umbrales_remuneraciones.json y umbral_sueldo_objetivo.json. La comparación con fuente y las proyecciones se documentan en H.31–H.35.
+La regla verifica recaudación del mes menos OPEX pagado, reserva de cuota y provisión académica de impuesto después de la meta; en estrés también reserva CLP 25.000 durante 36 meses para reposición. Si alcanza, paga la meta completa; en otro caso paga cero. Las reservas no se suman a los egresos de caja ya registrados por sus conceptos. La provisión no utiliza pérdidas fiscales para aumentar disponibilidad; el impuesto anual sí concilia las pérdidas del ejercicio académico. No se presupone relación laboral formal ni costo económico cero del trabajo.
 
 ## H.28. Supuesto fiscal académico y calendario de evaluación
 
@@ -1504,7 +1502,7 @@ La empresa aún no se constituye. La preparación mantiene Pro Pyme General como
 
 *Nota.* Elaboración a partir del modelo de Anita y del criterio docente comunicado por el propietario el 16 de noviembre de 2026. Se utiliza 27 % fijo como supuesto de evaluación académica. El Año 0 de preparación corresponde a 2026. La tabla no constituye una determinación de la tasa legal aplicable al régimen proyectado.
 
-El flujo conserva las columnas, partidas y secuencia de Anita. El impuesto se calcula sobre la base de resultados y ajustes del ejercicio, considerando las pérdidas que correspondan al modelo. Los fondos de terceros y el IVA se separan del ingreso propio. El trabajo valorizado, la depreciación y los desembolsos se concilian para evitar doble conteo. La serie definitiva y sus indicadores requieren cerrar los demás parámetros pendientes.
+El flujo conserva las columnas, partidas y secuencia de Anita. El impuesto se calcula sobre la base de resultados y ajustes del ejercicio, considerando las pérdidas que correspondan al modelo. Los fondos de terceros y el IVA se separan del ingreso propio. El trabajo valorizado, la depreciación y los desembolsos se concilian para evitar doble conteo. La simulación adoptada completa las fechas y partidas definidas; las condiciones reales no respaldadas permanecen identificadas.
 
 La tasa de descuento del ejercicio es 12 % nominal anual, según confirmación de Anita comunicada por el propietario. Se distingue del impuesto fijo del 27 % y de la comisión del 3 % más IVA. El interés del préstamo simulado también es 12 %, pero no se confunde con la rentabilidad mínima de evaluación. El 10 % y el 25 % dejan de utilizarse como tasas principales. El Anexo H.29 fundamenta la elección metodológica y el alcance del criterio.
 
@@ -1513,9 +1511,9 @@ Fuentes del supuesto académico: informe de Anita, sección 5.3; hoja FlujoNeto,
 
 ## H.29. Fundamentación de la tasa de descuento adoptada
 
-El ejercicio adopta 12 % nominal anual como tasa de descuento, según confirmación de Anita y ratificación del propietario del 16 de noviembre de 2026. Esta decisión sustituye el criterio previo del 25 % y fija una sola tasa base para los indicadores y escenarios de la preparación actualizada. El 10 % mencionado en el informe original se conserva únicamente en la extracción histórica, sin utilizarlo como criterio principal.
+El ejercicio adopta 12 % nominal anual como tasa de descuento, según confirmación de Anita y ratificación del propietario del 16 de noviembre de 2026. Esta decisión sustituye el criterio previo del 25 % y fija una sola tasa base para los indicadores y escenarios de la preparación actualizada. El 10 % mencionado en el informe original se conserva como antecedente y prueba de sensibilidad, sin utilizarlo como criterio principal.
 
-La elección se fundamenta metodológicamente en mantener la tasa de referencia del estudio económico aportado y comparar los escenarios bajo una rentabilidad mínima común. La tasa se aplica con periodicidad anual y en términos nominales, coherentes con flujos que incorporan los reajustes de precios y costos definidos por el modelo. El valor del VAN es la suma de cada flujo anual dividido por (1 + 0,12) elevado al número de período; el flujo del Año 0 no se descuenta.
+La elección se fundamenta metodológicamente en mantener la tasa de referencia del estudio económico aportado y comparar los escenarios bajo una rentabilidad mínima común. La tasa se aplica con periodicidad anual y en términos nominales, coherentes con flujos que incorporan los reajustes de precios y costos definidos por el modelo. El valor del VAN es la suma de cada flujo anual dividido por (1 + 0,12) elevado al número de período; el flujo del Año 0 no se descuenta. El escenario adoptado añade el cobro posterior de comisión en su momento 4 + días/360. H.38 distingue el VAN sin liquidación, el VAN con liquidación y el control mensual.
 
 La fuente recibida no deriva el 12 % a partir de un modelo propio de costo de capital. La confirmación de la autora acredita el parámetro elegido y no una estimación empírica del riesgo. Sapag exige distinguir rentabilidad del proyecto, rentabilidad del inversionista y capacidad de pago, y relaciona el costo de capital con alternativas de riesgo comparable (Sapag Chain & Sapag Chain, 2008, pp. 5–6, 343–345, 353–356). El marco metodológico exige distinguir el flujo para los socios del flujo del proyecto y usar una tasa apropiada al destinatario del flujo. El estudio mantiene esa distinción al separar inversión, costo de oportunidad y financiamiento simulado. No se inventan primas de riesgo para obtener el porcentaje adoptado.
 
@@ -1523,156 +1521,115 @@ La coincidencia entre descuento del 12 % e interés del préstamo del 12 % no im
 
 El crecimiento en años posteriores se incorpora mediante cobros, comisiones y costos proyectados con sustento. El horizonte actual conserva los Años 0 a 4 del formato de Anita. Una eventual extensión al Año 5 requiere un escenario explícito, incluyendo capital de trabajo y demás partidas; no se añade un año o valor terminal únicamente para obtener un VAN positivo.
 
-Sobre el vector original [−6.420.000, −1.278.818, 445.097, 2.104.062, 5.378.456], el VAN al 12 % es CLP −2.291.237,39 y la TIR es aproximadamente 0,85115 %. Son comprobaciones históricas y no resultados del flujo nuevo pendiente de cierre. Para un flujo convencional de inversión, el criterio compara VAN con cero y TIR con el 12 %; si no existe TIR interpretable o hay múltiples soluciones, se informa esa condición.
+Sobre el vector original [−6.420.000, −1.278.818, 445.097, 2.104.062, 5.378.456], el VAN al 12 % es CLP −2.291.237,39 y la TIR es aproximadamente 0,85115 %. Son comprobaciones históricas y no resultados de la simulación adoptada. Para un flujo convencional de inversión, el criterio compara VAN con cero y TIR con el 12 %; si no existe TIR interpretable o hay múltiples soluciones, se informa esa condición.
 
 Fuentes: informe de Anita, sección 5.3; confirmación de la autora comunicada por el propietario el 16 de noviembre de 2026; Sapag Chain y Sapag Chain (2008, pp. 321–323, 335–336, 343–356). El libro respalda el método y la correspondencia entre flujos y tasas; no prescribe un 12 % para espaciGo. El ejemplo del libro que utiliza 12 % en la página 296 es un caso ilustrativo, no una tasa general obligatoria.
 
-## H.30. Aplicación del método de Sapag al formato económico
+## H.30. Aplicación metodológica y alcance
 
-### H.30.1. Fuente y alcance
+La preparación utiliza Sapag Chain y Sapag Chain (2008), quinta edición. La referencia diferencia rentabilidad del proyecto, de los socios y capacidad de servicio de deuda; clasifica inversión, costos pertinentes, capital del ciclo y valor final (pp. 5–6, 126, 259–269, 277–282, 291–298). Los indicadores se calculan por flujos y fechas coherentes, distinguiendo recuperación nominal y descontada (pp. 321–323, 329–330).
 
-La preparación utiliza como referencia principal Sapag Chain y Sapag Chain (2008), quinta edición. Las páginas citadas corresponden a la numeración impresa; en la copia local la página PDF equivale a la impresa más 18. El método se adapta a la intermediación digital y no impone partidas industriales que no correspondan al proyecto. La evaluación privada se concentra en los flujos de inversión, operación y financiamiento; no se presenta como evaluación social completa.
+Las hipótesis elegidas permiten terminar la simulación académica sin denominarlas demanda observada, facturas, contratos o tasas de mercado estimadas. Las salidas de partidas desconocidas quedan fuera de su alcance. Los originales H.1–H.26 conservan diferencias históricas de GCP, porcentajes y recursos para el contraste solicitado; los cálculos vigentes de H.27–H.40 utilizan el nuevo escenario. Los cortes calculados anteriores se conservan en el historial de preparación y en Git, separados de los resultados activos.
 
-### H.30.2. Correspondencia del flujo
+Referencia: Sapag Chain, N., & Sapag Chain, R. (2008). Preparación y evaluación de proyectos (5.ª ed.). McGraw-Hill Interamericana. En la copia aportada, la página PDF equivale a la impresa más 18.
 
-**Tabla H.30.1**
-*Correspondencia entre la estructura de Sapag y el flujo de Anita*
+## H.31. Referencia comercial y plan de validación
 
-| ID | Bloque metodológico | Aplicación al formato recibido | Respaldo impreso |
-|---|---|---|---|
-| 1 | Ingresos y egresos afectos | Comisiones y costos propios; separar IVA y arriendos de terceros. | pp. 293–294 |
-| 2 | Gastos no desembolsables | Depreciación y amortización: efecto fiscal y ajuste de caja. | pp. 293–297 |
-| 3 | Impuesto y resultado | 27 % académico; conciliar base y pérdidas. | pp. 293–297 |
-| 4 | Ajustes de caja | Reincorporar gastos sin desembolso; evitar duplicidades. | pp. 294–297 |
-| 5 | Inversión y capital de trabajo | Aportes iniciales, reinversión y capital de trabajo. | pp. 259–269, 295 |
-| 6 | Cierre del horizonte | Valor de desecho y recuperación sin duplicaciones. | pp. 277–282, 295 |
-| 7 | Flujo del inversionista | Préstamo, interés antes de impuesto y principal después. | pp. 297–298 |
-
-*Nota.* Elaboración propia a partir de Sapag Chain y Sapag Chain (2008). La tabla relaciona conceptos y conserva la secuencia del flujo de Anita. Las cifras originales se mantienen como antecedentes; la equivalencia metodológica no certifica sus supuestos ni la viabilidad del escenario actualizado.
-
-### H.30.3. Inversión y costos pertinentes
-
-La memoria de recursos distingue desembolso incremental futuro, pago irreversible ya comprometido y costo de oportunidad con uso alternativo. No se elimina todo trabajo valorizado por no ser efectivo ni se agrega a caja como si fuera una compra pagada. La clasificación se realiza a la fecha de decisión y se vincula con cada recurso. Se concilian equipos aportados, compras, depreciación y reposición durante la operación (Sapag Chain & Sapag Chain, 2008, pp. 126, 259–262, 269).
-
-### H.30.4. Calendario y capital de trabajo
-
-El método propuesto de déficit acumulado máximo calcula cobros y pagos mensuales, antes de aportes de financiamiento, y determina la máxima necesidad de recursos acumulada. Su aplicación requiere identificar rezagos, estacionalidad y el ciclo de liquidación. La inversión y los gastos de preparación se registran por separado para no financiarlos dos veces. Los arriendos de terceros y el IVA no se convierten en caja libre del negocio. La falta persistente de ingresos para cubrir operación también debe explicarse como necesidad de financiamiento de pérdidas (Sapag Chain & Sapag Chain, 2008, pp. 134–135, 262, 267–269).
-
-### H.30.5. Horizonte y valor de cierre
-
-El caso base conserva cuatro años de operación y un Año 0 de preparación. La evaluación debe resolver el valor remanente de activos o de continuidad y justificar sus datos. Si se usa un método económico que incorpora el negocio funcionando, no se añade nuevamente la recuperación de capital de trabajo. El valor patrimonial de cierre se distingue del efectivo disponible. Se puede estudiar un quinto año mediante un escenario completo, sin prolongar ingresos aisladamente ni introducir una perpetuidad para cambiar el signo del VAN (Sapag Chain & Sapag Chain, 2008, pp. 277–282, 292, 295).
-
-### H.30.6. Indicadores y sensibilidad
-
-El VAN se calcula sobre una serie identificada, con Año 0 sin descuento, y la TIR se interpreta según los signos del flujo. Se distingue recuperación simple de descontada. El umbral operativo de la sección 14.6 no equivale al volumen que produce VAN igual a cero. La sensibilidad modifica variables desde una base única y revela los puntos de quiebre; las probabilidades y distribuciones no se inventan cuando solo se dispone de escenarios ilustrativos (Sapag Chain & Sapag Chain, 2008, pp. 129–130, 321–323, 329–330, 371, 398–400, 406).
-
-### H.30.7. Condiciones de cierre de la preparación
-
-El escenario actualizado requiere completar demanda mensual, costos, inversión pertinente, caja con IVA, tratamiento de pérdidas con impuesto académico, capital de trabajo, valor de cierre y deuda simulada. Los flujos puro y financiado se presentan completos en el cuerpo cuando se concilien; el anexo respalda los supuestos y cálculos. Las tareas abiertas no se identifican como resultados financieros obtenidos. El 12 % de descuento y el 27 % de impuesto continúan como decisiones del ejercicio, sin atribuir su prescripción al libro.
-
-### H.30.8. Referencia metodológica
-
-Sapag Chain, N., & Sapag Chain, R. (2008). Preparación y evaluación de proyectos (5.ª ed.). McGraw-Hill Interamericana.
-
-## H.31. Proyección comercial agregada y categorías
-
-La referencia conserva ocho espacios promedio, dos pagos mensuales por espacio y ticket de CLP 50.000. No se añade crecimiento de volumen o precio sin una decisión respaldada. El archivo proyeccion_mensual_2027_2030.csv registra los 48 meses con comisión, IVA y fondos de publicadores separados. La tabla siguiente no reparte los ocho espacios entre categorías, porque ese dato aún no está definido. Nueve categorías disponibles no implica nueve espacios activos ni demanda validada en todas ellas.
+Se conservan ocho espacios activos promedio, dos pagos por espacio y mes y ticket de CLP 50.000. Las nueve categorías son catálogo disponible; no se reparten los ocho espacios ni se atribuyen ventas a todas ellas sin evidencia. El crecimiento de cobros y precio se mantiene en cero como referencia, y no como certeza comercial.
 
 **Tabla H.31.1**
-*Estado de asignación de la oferta por categoría*
+*Categorías y evidencia por recopilar*
 
-| ID | Categoría | Espacios y pagos | Ticket y mezcla |
-|---|---|---|---|
-| 1 | Oficina | Pendiente de asignar | Pendiente de ratificar |
-| 2 | Sala multipropósito | Pendiente de asignar | Pendiente de ratificar |
-| 3 | Bodega | Pendiente de asignar | Pendiente de ratificar |
-| 4 | Estacionamiento | Pendiente de asignar | Pendiente de ratificar |
-| 5 | Local flexible | Pendiente de asignar | Pendiente de ratificar |
-| 6 | Stand | Pendiente de asignar | Pendiente de ratificar |
-| 7 | Quincho | Pendiente de asignar | Pendiente de ratificar |
-| 8 | Parcela de eventos | Pendiente de asignar | Pendiente de ratificar |
-| 9 | Inmuebles | Pendiente de asignar | Pendiente de ratificar |
+| ID | Categoría | Estado de oferta y pagos |
+|---|---|---|
+| 1 | Oficina | Por validar con fichas y pagos observados |
+| 2 | Sala multipropósito | Por validar con fichas y pagos observados |
+| 3 | Bodega | Por validar con fichas y pagos observados |
+| 4 | Estacionamiento | Por validar con fichas y pagos observados |
+| 5 | Local flexible | Por validar con fichas y pagos observados |
+| 6 | Stand | Por validar con fichas y pagos observados |
+| 7 | Quincho | Por validar con fichas y pagos observados |
+| 8 | Parcela de eventos | Por validar con fichas y pagos observados |
+| 9 | Inmuebles | Por validar con fichas y pagos observados |
 
-*Nota.* Catálogo de nueve categorías comunicado por el propietario. No se sustituyen datos faltantes por ceros observados. La referencia agregada puede calcularse sin atribuir ventas a una categoría. La mezcla de modalidades previa se conserva como ejemplo no ratificado.
+*Nota.* Catálogo indicado por el propietario. Los registros vacíos no se sustituyen por ceros observados.
 
 **Tabla H.31.2**
-*Proyección comercial agregada sin crecimiento automático*
+*Objetivos exploratorios de validación*
 
-| Año | Pagos anuales | GMV CLP | Comisión neta CLP | IVA de comisión CLP |
-|---|---|---|---|---|
-| 2027 | 192 | 9.600.000,00 | 288.000,00 | 54.720,00 |
-| 2028 | 192 | 9.600.000,00 | 288.000,00 | 54.720,00 |
-| 2029 | 192 | 9.600.000,00 | 288.000,00 | 54.720,00 |
-| 2030 | 192 | 9.600.000,00 | 288.000,00 | 54.720,00 |
+| Registro | Objetivo | Evidencia disponible |
+|---|---|---|
+| Fichas de oferta | 8 | Sin fichas de campo en esta preparación |
+| Entrevistas a publicadores | 10 | Objetivo, no entrevistas realizadas |
+| Entrevistas a arrendatarios | 20 | Objetivo, sin representatividad estadística atribuida |
 
-*Nota.* Elaboración con los parámetros agregados ratificados como referencia provisional. El total transado no es ingreso propio de espaciGo. Por mes, el saldo de publicadores antes de Mercado Pago es CLP 771.440; el abono final no se determina sin la tarifa y liquidación efectivas.
+*Nota.* El piloto observa enero-marzo de 2027. Se registra categoría, modalidad, disponibilidad, precio, pagos completos, devoluciones, GMV y recurrencia. Una intención no equivale a un pago. Los datos generales del INE sobre alojamiento solo contextualizan ese segmento, no la captación ni todas las categorías.
 
-## H.32. Recursos y presupuesto conciliado
-
-Los tres notebooks y el teléfono son personales y compartidos, según el propietario. Su compra inicial se fija en cero y no se presume transferencia de dominio a la empresa proyectada. Se mantienen separados el uso alternativo y eventuales costos incrementales; no se asigna a la empresa una depreciación o venta de bienes personales sin respaldo. El presupuesto de CLP 1.200.000 de lanzamiento se mantiene provisional en el Año 0, sin duplicarlo con marketing operativo.
+## H.32. Costos y lanzamiento adoptados
 
 **Tabla H.32.1**
-*Componentes del presupuesto identificado del Año 1*
+*Componentes del Año 1*
 
-| ID | Componente | Mensual CLP | Anual CLP |
+| ID | Componente | Promedio mensual CLP | Presupuesto anual CLP |
 |---|---|---|---|
 | C01 | AWS | 25.670,52 | 308.046,24 |
 | C02 | Firma y API | 50.000,00 | 600.000,00 |
 | C03 | Marketing | 350.000,00 | 4.200.000,00 |
 | C04 | Contabilidad | 50.000,00 | 600.000,00 |
-| C05 | Dominio | 912,50 | 10.950,00 |
+| C05 | Dominio | 832,50 | 9.990,00 |
 | C06 | Coordinación | 15.000,00 | 180.000,00 |
 | C07 | Útiles de oficina | 10.000,00 | 120.000,00 |
 | C08 | Dirección tributaria | 12.500,00 | 150.000,00 |
-| Total | Subtotal parcial | 514.083,02 | 6.168.996,24 |
+| Total | Subtotal identificado | 514.003,02 | 6.168.036,24 |
 
-*Nota.* Presupuestos de Base mensual!B21:B25 y Conciliacion costos!H9, con sustitución de GCP por el escenario AWS adoptado y dirección tributaria anual ratificada. Los útiles y la dirección se cuentan una sola vez. El importe anual de dirección se prorratea como referencia, sin afirmar facturación mensual efectiva. Se mantienen fuera los subtotales genéricos y los conceptos suspendidos de mantenimiento o respaldo sin alcance independiente. La tabla no equivale a costos contratados o facturados.
+*Nota.* Presupuestos originales conciliados sin duplicar subtotales, más dirección tributaria ratificada. El dominio usa la tarifa pública NIC directo. Los servicios siguen sin contratación acreditada. Útiles y dirección se contabilizan una vez.
 
-La constitución y los trámites se incluyen en los CLP 1.200.000 de lanzamiento y no se suman otra vez. Las cargas de contratación, costos residuales propios, recursos de uso alternativo y reposiciones carecen de valoración completa. Se registran como pendientes y no como cero real. La depreciación no se reconoce en el subtotal hasta definir el eventual aporte de equipos. Los CLP 6.240.000 de desarrollo valorizado tampoco se suman como pago inicial: se debe distinguir trabajo pasado, compromiso irreversible y trabajo incremental futuro.
+NIC Chile publica CLP 9.990 por año .cl, exento de IVA, consultado el 16 de noviembre de 2026: https://www.nic.cl/dominios/tarifas.html. Se asume continuidad para 2027 y reajuste presupuestario posterior del 4 %; no se garantiza la tarifa futura. El presupuesto cloud conserva USD 26,41 del perfil piloto Single-AZ de la propuesta interna, convertido a 972 CLP/USD. La descripción Multi-AZ con balanceador del README requiere presupuesto separado; el importe piloto no acredita ese alcance o capacidad de carga. No se verifica facturación AWS ni se aplican créditos sin evidencia de vigencia.
 
-## H.33. Caja de referencia y necesidad de financiación
+**Tabla H.32.2**
+*Desglose presupuestario de lanzamiento*
 
-Los costos identificados se proyectan mensualmente, con reajuste del 4 % anual para presupuestos CLP y costo AWS constante bajo el USD y cambio adoptados. La proyección no aplica créditos y no garantiza capacidad cloud para otros volúmenes. El IVA de comisión se reserva separado; el crédito por compras y las fechas efectivas de remisión permanecen pendientes. El impuesto del ejercicio se liquida al cierre anual por convención de la simulación, no como calendario fiscal real.
+| Componente | CLP |
+|---|---|
+| Formalización y asesoría | 300.000 |
+| Contenidos y materiales | 300.000 |
+| Campaña previa | 400.000 |
+| Contingencia preoperativa | 200.000 |
+| Total | 1.200.000 |
 
-El caso de pago condicionado a fundadores utiliza solo excedente propio después de costos identificados, reserva de servicio de deuda y provisión académica de impuesto. Nunca utiliza préstamos, IVA o fondos de publicadores para activar la distribución. En la referencia agregada, el pago es cero durante el horizonte. Los escenarios con CLP 200.000 y CLP 1.000.000 efectivamente presupuestados por persona se calculan por separado, sin afirmar que exista caja para pagarlos. En el ejercicio se tratan como egreso de personal; la modalidad jurídica y la deducibilidad real se mantienen pendientes.
+*Nota.* Asignaciones del presupuesto, no cotizaciones o gastos realizados. La campaña previa corresponde al Año 0 y se distingue del marketing operativo de 2027. El caso máximo utiliza todo el presupuesto en el Año 0; un margen no ejecutado se ajusta cuando existe evidencia. No se suma otra constitución por separado.
+
+## H.33. Devengo, pagos y comisión por cobrar
+
+El dominio y la dirección tributaria se pagan en enero de cada año; los demás componentes se distribuyen mensualmente, conciliando centavos en el último mes. El gasto devengado permite calcular resultado e impuesto; el calendario pagado determina caja. Los importes CLP aumentan 4 % al año y AWS permanece constante en los USD y cambio adoptados.
+
+Para la comisión se adopta siete días y mes de treinta días. Saldo por cobrar = comisión mensual devengada × días/30. Cobro del mes = comisión devengada + saldo inicial por cobrar − saldo final por cobrar. No se agregan otra vez esos saldos al Año 0 como capital de trabajo. Se mide un componente del ciclo; IVA de compras, retenciones y condiciones reales sin respaldo no se convierten en cifras confirmadas.
 
 **Tabla H.33.1**
-*Resultados operativos parciales del escenario agregado*
+*Calendario de los primeros tres meses*
 
-| Año | Comisión neta CLP | Costos identificados CLP | Pago condicionado CLP | Flujo operativo parcial CLP |
+| Mes | Comisión cobrada CLP | OPEX pagado CLP | CxC final CLP | Flujo neto CLP |
 |---|---|---|---|---|
-| 2027 | 288.000,00 | 6.168.996,24 | 0,00 | -5.880.996,24 |
-| 2028 | 288.000,00 | 6.403.434,24 | 0,00 | -6.115.434,24 |
-| 2029 | 288.000,00 | 6.647.249,76 | 0,00 | -6.359.249,76 |
-| 2030 | 288.000,00 | 6.900.817,92 | 0,00 | -6.612.817,92 |
+| 2027-01 | 18.400,00 | 660.660,52 | 5.600,00 | -642.260,52 |
+| 2027-02 | 24.000,00 | 500.670,52 | 5.600,00 | -476.670,52 |
+| 2027-03 | 24.000,00 | 500.670,52 | 5.600,00 | -476.670,52 |
 
-*Nota.* Caso sin deuda, antes de partidas excluidas. La compra de equipos es cero; el lanzamiento presupuestado de CLP 1.200.000 figura en el Año 0 del flujo del cuerpo. La necesidad acumulada de financiación parcial, incluyendo ese lanzamiento, alcanza CLP 26.168.498,16. Es financiación de déficit persistente, no capital de trabajo del ciclo determinado. No se suma nuevamente al Año 0 además de las pérdidas operativas.
+*Nota.* Referencia sin deuda ni asignaciones pagadas. El IVA de la comisión y los fondos de publicadores se mantienen fuera de caja libre. El abono final al publicador no se determina sin tarifa de pasarela. Las fechas son convenciones de simulación, no facturas o plazos contratados.
 
-**Tabla H.33.2**
-*Comparación parcial de los escenarios de demanda del insumo*
+La última comisión por cobrar se cobra siete días después del corte de diciembre de 2030. En estrés se utilizan treinta días. La Tabla 22 muestra ambos saldos. Este cobro liquida operaciones del horizonte y no supone un quinto año de nuevos arriendos. Para el descuento, la fecha financiera es 4 + días/360. La documentación de Split 1:1 no confirma el plazo particular de espaciGo; se mantiene como hipótesis adoptada.
 
-| Escenario | Pagos mensuales | Ticket CLP | Comisión Año 1 CLP | VAN parcial al 12 % CLP |
-|---|---|---|---|---|
-| conservador | 4 | 35.000 | 50.400,00 | -20.776.704,15 |
-| base | 16 | 50.000 | 288.000,00 | -20.055.029,94 |
-| optimista | 45 | 65.000 | 1.053.000,00 | -17.731.457,69 |
-
-*Nota.* Sin probabilidades atribuidas y sin ajuste de demanda para producir rentabilidad. El costo cloud y otros consumos deben reestimarse al cambiar el volumen; la comparación es un primer cálculo parcial, no una evaluación cerrada de capacidad o viabilidad.
-
-## H.34. Corrección de la deuda simulada
-
-Se calcula el préstamo de CLP 3.720.000 al 12 % anual y tres años con cuotas anuales, como el insumo. La cuota de referencia redondeada es CLP 1.548.818. La última cuota incorpora CLP 1 adicional para extinguir la deuda y conciliar capital amortizado con capital recibido. La simulación no acredita contratación, CAE, seguros ni comisiones.
+## H.34. Servicio de la deuda simulada
 
 **Tabla H.34.1**
-*Amortización conciliada hasta saldo cero*
+*Amortización hasta saldo cero*
 
-| Año | Saldo inicial CLP | Interés CLP | Amortización CLP | Cuota CLP | Saldo final CLP |
+| Año | Saldo inicial CLP | Interés CLP | Capital CLP | Cuota CLP | Saldo final CLP |
 |---|---|---|---|---|---|
 | 1 | 3.720.000 | 446.400 | 1.102.418 | 1.548.818 | 2.617.582 |
 | 2 | 2.617.582 | 314.110 | 1.234.708 | 1.548.818 | 1.382.874 |
 | 3 | 1.382.874 | 165.945 | 1.382.874 | 1.548.819 | 0 |
 
-*Nota.* El principal amortizado totaliza CLP 3.720.000 y el saldo final es cero. La entrada del préstamo no se incluye como ingreso por comisiones. El flujo financiado del cuerpo presenta el efecto de la deuda y sus pagos.
+*Nota.* Principal CLP 3.720.000, interés 12 % y tres cuotas anuales. La última suma CLP 1 por redondeo. No se acredita contratación, seguros o comisiones financieras. El capital amortizado coincide con el recibido.
 
 ## H.35. Conciliación demostrativa de pérdidas históricas
 
@@ -1690,163 +1647,126 @@ Esta comprobación conserva el 27 % y aplica el criterio de compensar pérdidas 
 
 *Nota.* En el Año 2, CLP 1.232.610 menos CLP 956.400 deja una base de CLP 276.210. Al 27 %, el impuesto es CLP 74.576,70, redondeado a CLP 74.577. La diferencia con CLP 332.805 del origen es CLP 258.228. La corrección concilia la explicación con la tabla bajo este supuesto, sin alterar la extracción original.
 
-## H.36. Coherencia y sensibilidad del segundo corte
-
-La comprobación conserva la comisión neta del 3 %, la tasa de descuento base del 12 %, el impuesto académico del 27 % y los cuatro años 2027 a 2030. Cada sensibilidad cambia un solo parámetro y mantiene los demás. Los cambios de menos y más 20 % son rangos exploratorios definidos en esta revisión; no provienen de distribuciones observadas ni expresan certeza estadística. El caso base mantiene 16 cobros de CLP 50.000 al mes y pago condicionado cero.
+## H.36. Sensibilidad y quiebres de VAN
 
 **Tabla H.36.1**
-*Sensibilidad individual del VAN parcial del caso base*
+*Sensibilidad desde la misma referencia*
 
-| Variable | Prueba | VAN parcial CLP | Cambio del VAN CLP |
+| Variable | Prueba | VAN con liquidación CLP | Cambio CLP |
 |---|---|---|---|
-| Cobros mensuales | -20 % de variación | -20.229.981 | -174.951 |
-| Cobros mensuales | 20 % de variación | -19.880.079 | 174.951 |
-| Ticket medio | -20 % de variación | -20.229.981 | -174.951 |
-| Ticket medio | 20 % de variación | -19.880.079 | 174.951 |
-| Costos identificados | -20 % de variación | -16.109.073 | 3.945.957 |
-| Costos identificados | 20 % de variación | -24.000.987 | -3.945.957 |
-| CLP por USD | -20 % de variación | -19.867.901 | 187.129 |
-| CLP por USD | 20 % de variación | -20.242.159 | -187.129 |
-| Tasa de descuento | 10 % anual | -20.894.880 | -839.850 |
-| Tasa de descuento | 12 % anual | -20.055.030 | 0 |
-| Tasa de descuento | 25 % anual | -15.783.221 | 4.271.809 |
+| Cobros | -20 % | -20.228.062 | -174.662 |
+| Cobros | 20 % | -19.878.739 | 174.662 |
+| Ticket | -20 % | -20.228.062 | -174.662 |
+| Ticket | 20 % | -19.878.739 | 174.662 |
+| Costos | -20 % | -16.108.059 | 3.945.342 |
+| Costos | 20 % | -23.998.742 | -3.945.342 |
+| CLP/USD | -20 % | -19.866.272 | 187.129 |
+| CLP/USD | 20 % | -20.240.529 | -187.129 |
+| Descuento | 10 % anual | -20.892.938 | -839.537 |
+| Descuento | 12 % anual | -20.053.400 | 0 |
+| Descuento | 25 % anual | -15.783.036 | 4.270.364 |
 
-*Nota.* Elaboración mediante el modelo reproducible. Valores redondeados a pesos para presentación. La variación cambiaria afecta solo a AWS; la de costos afecta a las ocho partidas identificadas. No se modifican el lanzamiento ni la comisión. Se mantienen las exclusiones del corte base. Un VAN menos negativo al elevar la tasa sobre flujos de salida no acredita menor riesgo. No se estiman costos cloud de escalamiento ni efectos de demanda cruzados.
+*Nota.* Pruebas deterministas sin probabilidades. Se altera una variable cada vez y se conserva la comisión del 3 %. El cambio afecta solo AWS; los rangos no acreditan capacidad de escalamiento. Cambiar descuento no modifica el riesgo ni las ventas.
 
 **Tabla H.36.2**
-*Umbrales operativos parciales por año sin deuda*
+*Primer entero de pagos mensuales con VAN no negativo*
 
-| Año | Costo mensual CLP | Pagos para $200.000 por persona | Pagos para $1.000.000 por persona |
+| Meta por persona | Pagos al mes | VAN con un pago menos CLP | VAN con el mínimo CLP |
 |---|---|---|---|
-| 2027 | 514.083 | 743 | 2.343 |
-| 2028 | 533.620 | 756 | 2.356 |
-| 2029 | 553.937 | 770 | 2.370 |
-| 2030 | 575.068 | 784 | 2.384 |
+| Sin asignaciones | 392 | -30.794,00 | 9.026,21 |
+| $200.000 | 793 | -27.197,10 | 12.623,11 |
+| $1.000.000 | 2.397 | -12.809,51 | 27.010,70 |
 
-*Nota.* Ticket de CLP 50.000, comisión de CLP 1.500 por pago y tres personas. El costo mensual es un prorrateo presupuestario, no una fecha contractual de pago. Los útiles, la dirección tributaria y el dominio no acreditan facturación mensual. La meta se mantiene nominal constante y los costos CLP se reajustan 4 %. La regla de pago condicionado a 743 cobros activa CLP 600.000 al mes solo en el Año 1 y cero en los demás. Los umbrales cubren costos y asignaciones del año; no incorporan recuperación del lanzamiento, deuda, costos omitidos ni VAN cero.
+*Nota.* Ticket CLP 50.000. Incluye liquidación diferida y descuento 12 %. La búsqueda usa escenarios de asignaciones fijas para evitar saltos de la regla condicionada. Los mínimos son analíticos y no demanda proyectada. Se mantienen fuera costos residuales y escalamiento.
 
 **Tabla H.36.3**
-*Quiebre del VAN anual parcial con asignaciones presupuestadas constantes*
+*Escenarios comerciales de Anita con comisión común del 3 %*
 
-| Meta por persona CLP | Pagos mensuales mínimos | VAN con un pago menos CLP | VAN con el mínimo CLP |
+| Escenario | Pagos al mes | Ticket CLP | VAN con liquidación CLP |
 |---|---|---|---|
-| 200.000 | 791 | -37.544 | 2.367 |
-| 1.000.000 | 2.391 | -37.544 | 2.367 |
+| conservador | 4 | 35.000 | -20.773.879 |
+| base | 16 | 50.000 | -20.053.400 |
+| optimista | 45 | 65.000 | -17.733.677 |
 
-*Nota.* Búsqueda numérica del volumen mensual uniforme a ticket de CLP 50.000. Se presupuestan las asignaciones completas como gasto académico, con independencia de que el escenario disponga de caja; no se cambia la decisión de pago condicionado. El flujo es puro, el Año 0 incluye CLP 1.200.000 de lanzamiento, el impuesto académico considera compensación de pérdidas y el VAN se descuenta al 12 % al cierre de cada año. El cálculo redondea hacia arriba el cruce y verifica los dos enteros adyacentes. El costo identificado no aumenta por volumen en esta prueba; antes de una decisión comercial se deben valorar escalamiento, recursos de oportunidad, cargas de contratación, capital del ciclo y cierre. El resultado no es una meta de captación validada.
+*Nota.* Se conservan los volúmenes y tickets del insumo y se aplican el mismo calendario y la comisión del 3 %. No son probabilidades ni ventas observadas. Se mantiene el costo piloto sin validar capacidad de escalamiento. La fila base coincide con la referencia adoptada.
 
-### H.36.4. Convenciones de fechas y límites de cierre
+## H.37. Aportes mínimos y cobertura de cuotas
 
-La tasa mensual equivalente es (1 + 0,12) elevado a 1/12 menos 1, equivalente a 0,948879 %. El VAN anual rector del subtotal puro es CLP -20.055.029,94. Si los importes prorrateados se ubican al final de cada mes, el VAN es CLP -21.070.841,39, diferencia de CLP -1.015.811,45. Se informa el contraste porque adelantar egresos modifica su valor presente. No se reemplaza el formato anual docente ni se afirma que el prorrateo sea un calendario efectivo de caja.
-
-Los flujos vigentes se vinculan con las Tablas 18 a 21, H.27 y H.31 a H.36. Las Tablas 15 a 17 y H.1 a H.26 preservan los antecedentes recibidos; sus valores GCP, tasas o inversiones anteriores no constituyen decisiones activas. La reconstrucción conserva su contenido para la comparación solicitada.
-
-El caso base no presenta recuperación simple ni descontada dentro de los cuatro años: sus flujos propios son negativos. El valor de cierre y el capital del ciclo siguen sin cuantificarse. El cierre no adopta cero como valor económico definitivo ni convierte automáticamente el déficit persistente en capital de trabajo recuperable. La conclusión se limita al subtotal modelado; la evaluación integral continúa abierta conforme a los criterios de Sapag.
-
-## H.37. Liquidez y memoria del déficit acumulado
-
-### H.37.1. Aportes mínimos y déficit persistente
-
-Se recorre el saldo mensual con lanzamiento, operación y deuda, cuando corresponde. Si el saldo antes de aporte es negativo, el aporte mínimo es su valor absoluto; si es positivo, el aporte es cero. La caja de cierre después del aporte se mantiene no negativa. La suma de aportes coincide con el déficit acumulado máximo antes de aportes. Se conservan los 49 momentos en aportes_minimos_condicionada_puro.csv y aportes_minimos_condicionada_financiado.csv. El cálculo distingue necesidad de financiación de pérdidas de capital de trabajo del ciclo (Sapag Chain & Sapag Chain, 2008, pp. 267–269).
+Se recorren los 49 momentos de caja, incluido Año 0. Aporte mínimo = máximo entre cero y reserva objetivo menos caja antes del aporte. Se acumula la reserva de cuota durante cada año y la de reposición hasta la compra; al pagar se libera el monto reservado. La suma se concilia con el déficit máximo respecto de ese piso de liquidez, sin restar las reservas de nuevo como gasto. En la referencia sin reservas, el piso es cero. Después se cobra la cuenta pendiente, dejando caja al corte ampliado; ese retorno no borra los déficits que antes requieren financiamiento.
 
 **Tabla H.37.1**
-*Conciliación de la financiación adicional acumulada*
+*Aportes y caja después de la liquidación*
 
-| Escenario | Aporte adicional Año 0 CLP | Aportes adicionales totales CLP | Caja final tras aportes CLP |
+| Escenario | Aporte mínimo acumulado CLP | CxC liquidada CLP | Caja final con aportes CLP |
 |---|---|---|---|
-| Sin deuda | 1.200.000 | 26.168.498 | 0 |
-| Con deuda simulada | 0 | 27.094.953 | 0 |
+| Base sin deuda | 26.170.021,53 | 5.600,00 | 5.600,00 |
+| Base financiado | 27.096.476,53 | 5.600,00 | 5.600,00 |
+| Reposición 2029 | 27.070.021,53 | 5.600,00 | 5.600,00 |
+| Cobro a 30 días | 26.188.421,53 | 24.000,00 | 24.000,00 |
 
-*Nota.* El aporte inicial de cero en la alternativa financiada se explica por el préstamo que excede el lanzamiento identificado. No significa ausencia de inversión o de aportes posteriores. Los aportes son una necesidad calculada, no un compromiso confirmado de los socios. El excedente prestado no es utilidad ni habilita remuneraciones por sí solo.
-
-### H.37.2. Cobertura de las cuotas de deuda
+*Nota.* Aportes no confirmados. La alternativa financiada incluye su préstamo antes de calcular necesidades adicionales. La liquidación de comisión recupera un activo del ciclo; no es beneficio operativo adicional ni una venta de equipos.
 
 **Tabla H.37.2**
-*Caja propia frente al servicio de la deuda simulada*
+*Cobertura propia antes de cuotas*
 
-| Año | Caja antes de cuota CLP | Intereses y principal CLP | Cobertura veces |
+| Año | Caja antes de cuota CLP | Cuota CLP | Cobertura veces |
 |---|---|---|---|
-| 2027 | -5.880.996 | 1.548.818 | -3,797 |
-| 2028 | -6.115.434 | 1.548.818 | -3,948 |
-| 2029 | -6.359.250 | 1.548.819 | -4,106 |
-| 2030 | -6.612.818 | 0 | No aplica |
+| 2027 | -5.885.636 | 1.548.818 | -3,800 |
+| 2028 | -6.114.436 | 1.548.818 | -3,948 |
+| 2029 | -6.358.211 | 1.548.819 | -4,105 |
+| 2030 | -6.611.738 | 0 | No aplica |
 
-*Nota.* La caja propia antes de cuota resta OPEX, asignaciones pagadas e impuesto académico de las comisiones netas. No incluye préstamo, aportes nuevos, IVA ni arriendos de terceros. La razón es un diagnóstico auxiliar; no se afirma que una entidad financiera apruebe el préstamo. La falta de cuota en 2030 no elimina el déficit operativo.
+*Nota.* Caja propia cobrada menos OPEX, asignaciones e impuesto, dividida por intereses más capital cuando hay cuota. Un resultado negativo no acredita capacidad propia de pago, aunque existan aportes o un préstamo inicial.
 
-### H.37.3. Sensibilidad aislada de la comisión por cobrar
+## H.38. Indicadores y fechas
 
-**Tabla H.37.3**
-*Efecto auxiliar de inmovilizar comisión neta por distintos plazos*
-
-| Días ilustrativos | Comisión por cobrar CLP | Efecto en VAN CLP |
-|---|---|---|
-| 0 | 0 | 0,00 |
-| 7 | 5.600 | -2.041,10 |
-| 30 | 24.000 | -8.747,57 |
-
-*Nota.* Se utiliza la comisión neta de CLP 24.000 mensuales y un mes de 30 días, con cobros uniformes. Los plazos 0, 7 y 30 días son pruebas, no condiciones de Mercado Pago. El stock auxiliar se aporta en el Año 0 y se recupera íntegro en el Año 4 para aislar su efecto: variación del VAN = menos stock más stock descontado al cierre. No se aplica este ajuste al caso activo ni se identifica como capital completo del ciclo. Faltan pagos anticipados, plazos de proveedores, IVA de compras y devoluciones. El IVA recaudado y los fondos de publicadores se excluyen de caja libre.
-
-## H.38. Indicadores y recuperación de los escenarios delimitados
-
-Se calcula VAN con momento cero sin descuento y cierres anuales al 12 %. La TIR solo se informa como rentabilidad cuando existe un flujo de inversión con un cambio de signo. Una serie de egresos no tiene TIR; una entrada inicial seguida de pagos corresponde a otro patrón y no se presenta como rentabilidad de los socios. La recuperación simple acumula importes nominales y la descontada acumula importes descontados (Sapag Chain & Sapag Chain, 2008, pp. 321–323, 329–330).
+El VAN rector considera los cierres anuales del formato docente y la comisión liquidada en su fecha diferida. No se adelanta esa recuperación al último cierre anual. Se informa además un control que descuenta cada importe mensual con (1 + 0,12) elevado a período/12, y la liquidación con su momento en años. La diferencia responde a fechas de egresos e ingresos, no a dos tasas base.
 
 **Tabla H.38.1**
-*VAN y TIR de la referencia y los quiebres parciales*
+*Convenciones de valoración del caso de referencia*
 
-| Escenario | Pagos al mes | VAN parcial CLP | TIR anual |
-|---|---|---|---|
-| Base sin deuda | 16 | -20.055.029,94 | No existe |
-| Base con deuda | 16 | -20.055.030,16 | No interpretable como inversión |
-| Quiebre sin asignaciones | 391 | 2.367,04 | 12,1225 % |
-| Meta CLP 200.000 por persona | 791 | 2.367,04 | 12,1225 % |
-| Meta CLP 1.000.000 por persona | 2.391 | 2.367,04 | 12,1225 % |
+| Cálculo | VAN CLP |
+|---|---|
+| Operación hasta diciembre de 2030 | -20.056.951,52 |
+| Cierres anuales más liquidación | -20.053.400,45 |
+| Control mensual más liquidación | -21.098.116,97 |
 
-*Nota.* El quiebre sin asignaciones es el primer entero con VAN no negativo antes de activarse la meta conjunta: se comprueba que con 390 pagos el VAN es negativo y con 391 no lo es. Los otros dos quiebres presuponen asignaciones completas como egreso académico; no reemplazan la decisión de pago condicionado del caso base. Sus flujos se conservan en liquidez_indicadores_y_cierre.json. El costo identificado no se reestima por volumen en estas pruebas, por lo que los resultados excluyen escalamiento, capital completo del ciclo, oportunidad y cierre. El VAN positivo de unos pocos miles de pesos no constituye margen para absorber partidas desconocidas. No se asume costo económico cero del trabajo por carecer de pago.
+*Nota.* Los tres importes corresponden a convenciones identificadas de la misma referencia. Las raíces de H.36 utilizan cierres anuales más liquidación, al igual que la Tabla 23. No se comparan como si tuvieran las mismas fechas.
+
+En la referencia, los flujos operativos son negativos. Añadir el cobro final del pequeño saldo por cobrar genera una entrada positiva tardía, pero no se publica una raíz negativa extrema como indicador útil de inversión. El VAN y la ausencia de recuperación dentro del horizonte ampliado describen su resultado. El patrón de la alternativa financiada tampoco es una inversión convencional.
 
 **Tabla H.38.2**
-*Recuperación simple y descontada de las series anuales*
+*Recuperación de los volúmenes de quiebre*
 
-| Escenario | Simple en años | Descontada en años |
-|---|---|---|
-| Base sin deuda | No se recupera | No se recupera |
-| Base con deuda | No aplica al patrón | No aplica al patrón |
-| Quiebre sin asignaciones | 2,359 | 3,963 |
-| Meta CLP 200.000 por persona | 2,359 | 3,963 |
-| Meta CLP 1.000.000 por persona | 2,359 | 3,963 |
+| Escenario | Pagos al mes | Recuperación simple años | Recuperación descontada años |
+|---|---|---|---|
+| Sin asignaciones | 392 | 2,708 | 4,017 |
+| Meta $200.000 | 793 | 3,107 | 4,018 |
+| Meta $1.000.000 | 2.397 | 4,006 | 4,018 |
 
-*Nota.* Se interpola linealmente entre cierres anuales para expresar fracciones de año. Esa interpolación no identifica una fecha contractual ni sustituye la convención anual del VAN. No se trasladan estas recuperaciones al caso comercial de 16 pagos ni se confunde recuperación nominal con cumplimiento de la tasa de descuento.
+*Nota.* Interpolación auxiliar entre momentos anuales y, si corresponde, liquidación. No es fecha contractual. La referencia y los dos estreses no recuperan la inversión; las metas de quiebre no acreditan oferta, adquisición de usuarios o costos completos de operación.
 
-## H.39. Horizonte y condiciones para cerrar la evaluación integral
+## H.39. Reposición y cierre prudente
 
-### H.39.1. Método de cierre y límite del cálculo
+Los equipos existentes permanecen personales y compartidos. La referencia no compra ni vende esos bienes como si fueran propiedad de la empresa. El estrés sí programa una nueva compra de CLP 900.000 en 2029, sin deducción o depreciación fiscal atribuida. El importe deriva del notebook de CLP 800.000 del insumo, reajustado con el supuesto del 4 % durante tres años y redondeado presupuestariamente; no es cotización futura.
 
-El caso de referencia conserva cuatro años de operación. El procedimiento requiere inventariar activos y derechos efectivamente atribuibles al proyecto, su uso alternativo, vida remanente y posibles desembolsos de reposición. Después se estima un valor comercial neto de realización con respaldo o, si existe una proyección sostenible posterior, se evalúa un valor de continuidad que no duplique recuperaciones ya incluidas. El libro distingue métodos contable, comercial y económico; el valor contable no acredita por sí solo dinero de venta (Sapag Chain & Sapag Chain, 2008, pp. 277–282, 292–295).
+La reserva objetivo de CLP 25.000 durante 36 meses mantiene un piso de liquidez para la compra y restringe asignaciones. Si la operación no la financia, el calendario de aportes cubre ese piso. No es gasto adicional y se libera al pagar la adquisición. La salida de caja se registra una vez al adquirir. El caso prudente establece cero cobro por venta de activos y software y no incorpora perpetuidad. No se afirma que la empresa o sus activos valgan cero. Sapag diferencia valoración de desecho de caja disponible (2008, pp. 277–282, 292–295).
 
-Para que un único cobro terminal neto adicional en el Año 4 neutralice el VAN del subtotal base, se requiere CLP 31.556.977,88. Se obtiene multiplicando el valor absoluto del VAN por (1 + 0,12) elevado a cuatro. Este umbral algebraico no tasa equipos, software o empresa; no demuestra la existencia de comprador ni de flujos posteriores. No se incorpora a las Tablas 18 y 19 como ingreso esperado.
+El capital modelado de comisión por cobrar ya está en el flujo por variación de saldos y se recupera en su fecha diferida. No se recuperan pérdidas persistentes como si fueran un activo. El resto del ciclo —IVA de compras, retenciones, devoluciones y proveedores— exige evidencia para una evaluación operativa real; no se confirma por adoptar esta simulación.
 
-### H.39.2. Datos y decisiones que no se sustituyen por supuestos confirmados
+## H.40. Desarrollo, decisiones y trazabilidad
 
-El cierre comercial requiere ratificar distribución de espacios, pagos, ticket y estacionalidad entre las nueve categorías. La referencia agregada no inventa ventas por categoría. Los CLP 1.200.000 de lanzamiento incluyen constitución y trámites por decisión del propietario; el desglose y la ejecución efectiva se documentan sin duplicar la partida.
+Anita fundamenta los CLP 6.240.000 en 16 semanas × 20 horas × tres integrantes = 960 horas, a CLP 6.500 por hora. El importe es valorización preoperativa global y no un desembolso contratado. No se atribuye un porcentaje realizado a partir de commits, funciones o semanas transcurridas. Las horas ejecutadas y restantes continúan sin registro verificado.
 
-El desarrollo valorizado se separa en trabajo pasado, compromisos irreversibles y trabajo incremental futuro. Los equipos existentes no generan nueva compra; se precisa su propiedad, aporte y uso alternativo antes de asignar depreciación o valor de cierre. Ausencia de pago no equivale a costo de oportunidad cero.
-
-Antes de integrar se precisan costos y condiciones de proveedores, pasarela, devoluciones, retenciones, liquidaciones y formalización de asignaciones. Se conserva el impuesto académico del 27 % sin afirmar liquidación fiscal real. Con esas entradas se recalculan flujos, capital del ciclo, indicadores y conclusión. La preparación mantiene las reservas de la tesis principal y las secciones de planificación de Erick.
-
-## H.40. Ratificación de decisiones preoperativas
-
-El propietario ratifica que el lanzamiento se prevé en enero de 2027, los CLP 1.200.000 de preparación y lanzamiento incluyen constitución y trámites, y los equipos permanecen personales y compartidos. La inclusión de trámites evita duplicar el desembolso. El uso compartido no acredita transferencia patrimonial ni ingreso de venta final de equipos a la empresa.
-
-La aclaración interpreta los CLP 6.240.000 como valorización del esfuerzo total para desarrollar el producto funcional antes del lanzamiento. No determina cuánto está ejecutado, cuánto falta ni un pago contratado. Se distingue la valoración global de origen del costo incremental pertinente a la fecha de decisión. El caso de caja conserva cero desembolso de desarrollo adicional confirmado; ello no declara cero su costo económico (Sapag Chain & Sapag Chain, 2008, pp. 126, 259–262).
-
-Para observar qué volumen permitiría recuperar también esa valoración, se añade CLP 6.240.000 una sola vez al momento cero de una prueba separada, junto con el lanzamiento de CLP 1.200.000. El total de referencia pasa a CLP 7.440.000, sin sumar los equipos personales. No se incluye depreciación, amortización contable ni escudo tributario por esa valoración sin evidencia de su procedencia. No es una nueva salida de efectivo ni una valoración legal del software.
+La propuesta adoptada reserva como capacidad de planificación seis semanas hasta fines de diciembre, veinte horas por integrante y semana: 360 horas, valorizadas en CLP 2.340.000. Capacidad disponible no significa estimación del backlog. El registro de tareas distingue ejecutado con evidencia, restante mínimo/central/máximo e incertidumbre. No se modifica la planificación de Erick.
 
 **Tabla H.40.1**
-*Quiebre parcial al exigir recuperar la valoración global de desarrollo*
+*Quiebre al exigir recuperar también la valorización global*
 
-| Escenario | Pagos mensuales mínimos | VAN con un pago menos CLP | VAN con el mínimo CLP |
+| Meta por persona | Pagos al mes | VAN con un pago menos CLP | VAN con el mínimo CLP |
 |---|---|---|---|
-| Sin asignaciones | 548 | -11.552,77 | 28.358,00 |
-| Meta CLP 200.000 por persona | 948 | -11.552,77 | 28.358,00 |
-| Meta CLP 1.000.000 por persona | 2.548 | -11.552,77 | 28.358,00 |
+| Sin asignaciones | 549 | -19.020,69 | 20.799,52 |
+| $200.000 | 950 | -15.423,80 | 24.396,42 |
+| $1.000.000 | 2.554 | -1.036,20 | 38.784,01 |
 
-*Nota.* Ticket constante de CLP 50.000, comisión neta del 3 %, cuatro años y descuento del 12 %. Los gastos de lanzamiento ya incluyen trámites. El caso de 16 pagos, al exigir recuperar además la valoración global, produce VAN de CLP -26.295.029,94. Esta prueba mantiene los costos identificados independientes del volumen y no sustituye la caja de las Tablas 18 y 19 ni estima el costo de oportunidad incremental real. Las partidas aún no valoradas continúan excluidas.
+*Nota.* La prueba añade CLP 6.240.000 una vez al momento cero, sin deducción fiscal ni incorporación a aportes de efectivo. No estima el costo de oportunidad incremental a la fecha de decisión. Los flujos de caja de las Tablas 18–21 permanecen separados de esa valorización.

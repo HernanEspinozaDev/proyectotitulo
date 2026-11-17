@@ -1,3 +1,5 @@
+> Propuesta adoptada para la simulación el 16 de noviembre de 2026. Este archivo conserva la formulación previa; los cálculos vigentes están en 06_escenario_adoptado. Adopción no equivale a contratación o demanda verificada.
+
 # Propuesta para cerrar las entradas de la evaluación económica
 
 Fecha de consulta: 16 de noviembre de 2026. Esta propuesta distingue decisiones vigentes, presupuestos por adoptar y evidencia pendiente. No sustituye el escenario activo ni presenta datos estimados como observados. La tesis principal permanece sin modificaciones.

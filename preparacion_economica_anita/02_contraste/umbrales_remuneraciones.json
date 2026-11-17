@@ -1,15 +1,15 @@
 {
   "estado": "escenario de planificación parcial; no punto de equilibrio definitivo",
   "fundadores": 3,
-  "meta_por_fundador_clp": "200000",
+  "meta_por_fundador_clp": 200000,
   "meta_total_fundadores_clp": "600000",
   "comision_neta": "0.03",
-  "costos_fuente_sin_fundadores_con_gcp_clp": "638412.5",
+  "costos_fuente_sin_fundadores_con_gcp_clp": "638332.5",
   "gcp_retirado_clp": "150000",
   "aws_bruto_mensual_clp": "25670.52",
-  "costos_parciales_sin_fundadores_aws_clp": "514083.02",
-  "costo_parcial_con_meta_fundadores_clp": "1114083.02",
-  "gmv_minimo_teorico_clp": "37136100.66666666666666666667",
+  "costos_parciales_sin_fundadores_aws_clp": "514003.02",
+  "costo_parcial_con_meta_fundadores_clp": "1114003.02",
+  "gmv_minimo_teorico_clp": "37133434",
   "metas_por_ticket": [
     {
       "ticket_medio_clp": 20000,
@@ -63,13 +63,13 @@
   },
   "espacios_equivalentes_a_dos_pagos_mes": 372,
   "brecha_sobre_16_pagos_mes": 727,
-  "faltante_mensual_con_16_pagos_clp": "1090083.02",
+  "faltante_mensual_con_16_pagos_clp": "1090003.02",
   "componentes_fuente_clp": {
     "Cloud GCP": "150000",
     "FirmaVirtual/API": "50000",
     "Marketing": "350000",
     "Contabilidad": "50000",
-    "Dominio": "912.5",
+    "Dominio": "832.5",
     "Viajes coordinación": "15000",
     "Útiles de oficina": "10000",
     "Dirección tributaria": "12500"
@@ -77,7 +77,7 @@
   "exclusiones": [
     "otros costos fijos y alcances adicionales sin validar",
     "costos variables propios y crecimiento de infraestructura",
-    "costos legales, tributarios y de contratación",
+    "cargas y condiciones tributarias y de contratación sin soporte",
     "capital de trabajo, inversión y servicio de deuda",
     "cancelaciones y devoluciones"
   ],

@@ -1,3 +1,5 @@
+> Corte histórico anterior a la adopción. El escenario activo y su estado se consultan en 06_escenario_adoptado y ESCENARIO_ACTIVO.json.
+
 # Primer corte de ejecución del plan Sapag
 
 ## Correcciones aplicadas

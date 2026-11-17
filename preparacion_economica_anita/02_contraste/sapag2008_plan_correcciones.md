@@ -1,3 +1,5 @@
+> La propuesta se aplica en 06_escenario_adoptado. El estado de aplicación se sigue en su estado_plan.json. Este plan conserva los criterios y cortes previos: completar la simulación con hipótesis adoptadas se distingue de validar empíricamente demanda, contratos e integración a la tesis principal.
+
 # Plan de corrección económica según Sapag
 
 ## Objetivo y restricciones
@@ -96,3 +98,14 @@ Las tres aclaraciones se incorporan. No se vuelve a pedir definición sobre incl
 ## Propuesta concreta para resolver entradas restantes
 
 Se prepara 05_propuesta_cierre/PROPUESTA_DE_DECISIONES.md con propuestas de demanda y validación, calendario de costos y comisión por cobrar, desglose presupuestario de lanzamiento, horas de desarrollo y reposición/cierre. Se recupera la base de Anita de 960 horas × CLP6500, sin inferir ejecución. Se consulta tarifa pública NIC de CLP9990 y se detecta diferencia de alcance entre perfil piloto del presupuesto cloud y diseño Multi-AZ del README. Las hipótesis de siete días, compra de estrés y cierre sin venta se identifican como propuestas, no decisiones ratificadas ni contratos. Los resultados auxiliares no reemplazan parámetros activos.
+
+## Aplicación de la propuesta adoptada
+
+- [x] Adoptar presupuestos, calendario, desfase, reposición de estrés y cierre prudente como hipótesis explícitas.
+- [x] Recalcular ocho perfiles de 48 meses y su liquidación posterior, sin doble conteo de CxC o reservas.
+- [x] Mantener formato de Anita y actualizar cuatro flujos completos en el cuerpo, más liquidación, indicadores, costos, metas y aportes.
+- [x] Reemplazar las memorias activas H.27–H.40 y preservar H.1–H.26; conservar cálculos anteriores en historial.
+- [x] Calcular sensibilidad, quiebres con y sin valorización, indicadores y control mensual independiente.
+- [x] Crear controles para que los comandos anteriores de reconstrucción no restauren resultados históricos.
+
+Los parámetros del caso académico quedan cerrados en el alcance adoptado. Las validaciones de campo y condiciones reales no se declaran realizadas. El reparto de horas efectivamente trabajadas no se deduce de la capacidad disponible. La integración a la tesis principal sigue separada de esta preparación.

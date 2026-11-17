@@ -7,6 +7,9 @@ from pathlib import Path
 import argparse,hashlib,json,shutil,subprocess,sys
 ROOT=Path(__file__).resolve().parents[1]
 def main():
+ if (ROOT/'06_escenario_adoptado/adopcion.json').exists():
+  subprocess.run([sys.executable,str(ROOT/'scripts/reconstruir_escenario_adoptado.py'),*sys.argv[1:]],check=True,cwd=ROOT.parent)
+  return
  p=argparse.ArgumentParser();p.add_argument('--render',action='store_true');p.add_argument('--output-dir',default='/tmp/espacigo-economia-sapag-render');args=p.parse_args()
  scripts=['verificar_fuentes_economicas.py','ejecutar_modelo_sapag.py','actualizar_documento_ejecucion.py','build_preview.py','verificar_modelo_sapag.py','verificar_coherencia_sapag.py','verificar_liquidez_indicadores.py']
  for name in scripts:subprocess.run([sys.executable,str(ROOT/'scripts'/name)],check=True,cwd=ROOT.parent)

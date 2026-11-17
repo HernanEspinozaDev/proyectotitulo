@@ -1,0 +1,9 @@
+{
+  "fecha": "2026-11-16",
+  "modelo": "06_escenario_adoptado/parametros.json",
+  "resultados": "06_escenario_adoptado/resultados.json",
+  "pipeline": "scripts/reconstruir_escenario_adoptado.py",
+  "auditoria": "06_escenario_adoptado/auditoria.json",
+  "historial": "04_modelo_sapag conserva el corte anterior; 05_propuesta_cierre documenta la propuesta adoptada",
+  "alcance": "preparación separada de la tesis; simulación con hipótesis identificadas"
+}

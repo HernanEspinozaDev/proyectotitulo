@@ -1,0 +1,26 @@
+[
+  {
+    "ticket_clp": 20000,
+    "comision_unitaria_clp": "600.00",
+    "pagos_promedio_meta_200000": 1857,
+    "pagos_promedio_meta_millon": 5857
+  },
+  {
+    "ticket_clp": 50000,
+    "comision_unitaria_clp": "1500.00",
+    "pagos_promedio_meta_200000": 743,
+    "pagos_promedio_meta_millon": 2343
+  },
+  {
+    "ticket_clp": 100000,
+    "comision_unitaria_clp": "3000.00",
+    "pagos_promedio_meta_200000": 372,
+    "pagos_promedio_meta_millon": 1172
+  },
+  {
+    "ticket_clp": 200000,
+    "comision_unitaria_clp": "6000.00",
+    "pagos_promedio_meta_200000": 186,
+    "pagos_promedio_meta_millon": 586
+  }
+]

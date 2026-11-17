@@ -1,3 +1,5 @@
+> Referencia activa: **06_escenario_adoptado**. La propuesta se aplica por instrucción del propietario del 16 de noviembre de 2026. Los apartados inferiores conservan el historial de preparación; la reconstrucción vigente está en el README del escenario adoptado y en ESCENARIO_ACTIVO.json.
+
 # Preparación de la parte económica de Anita
 
 El plan y estado de trabajo se encuentra en 00_PLAN_Y_ESTADO.md. La extracción conserva las 26 hojas del libro y el informe íntegro con sus 17 imágenes. El contraste identifica las diferencias entre modelos y la sustitución de costos de GCP por el escenario AWS.
@@ -6,7 +8,7 @@ La propuesta del Capítulo XIV contiene los dos flujos completos aportados para 
 
 La comisión vigente indicada por el propietario es del 3 % más IVA por cada pago procesado. Se descuenta del importe que recibe quien publica, junto con el cargo de Mercado Pago. El préstamo del insumo se identifica como simulación y se adopta provisionalmente una meta de CLP 200.000 mensuales por fundador, condicionada a disponibilidad, y CLP 1.000.000 como objetivo adicional por persona. La actualización y los escenarios recalculados se encuentran en 02_contraste/decisiones_modelo_ingresos.md. La vista previa incorpora el 3 % más IVA y el modelo mensual por modalidad, junto a los dos flujos recibidos como antecedentes.
 
-Para reconstruir la vista previa Word con DocSkill, ejecutar desde el repositorio `python3 preparacion_economica_anita/scripts/build_preview.py` con el entorno documental disponible. El PDF de revisión actual contiene 101 páginas y 101 tablas editables en su Word de origen.
+Para reconstruir la vista previa Word con DocSkill, ejecutar desde el repositorio `python3 preparacion_economica_anita/scripts/build_preview.py` con el entorno documental disponible. La entrega vigente contiene 96 páginas en PDF y 103 tablas editables en Word. El escenario activo se reconstruye mediante `scripts/reconstruir_escenario_adoptado.py --render`; las cifras de los cortes descritos más abajo son históricas.
 
 La sección 14.6 incorpora el cálculo de cobros para remuneraciones. El soporte y los límites se encuentran en 02_contraste/tickets_para_remuneraciones.md. El script scripts/calcular_tickets_remuneraciones.py permite variar el monto por fundador sin alterar las extracciones.
 
@@ -16,7 +18,7 @@ El criterio vigente del ejercicio conserva impuesto fijo del 27 % como Anita, po
 
 La tasa base vigente es 12 % anual, confirmada por Anita y ratificada por el propietario. La justificación metodológica y sus límites se documentan en 02_contraste/justificacion_descuento12.md y en H.29. El 10 % y el 25 % quedan como antecedentes, no como tasas principales.
 
-La referencia metodológica principal es Sapag Chain y Sapag Chain (2008), quinta edición. La revisión con páginas impresas y PDF se encuentra en 02_contraste/sapag2008_matriz_brechas.md; la ejecución pendiente se ordena en 02_contraste/sapag2008_plan_correcciones.md. Se incorporan citas y precisiones metodológicas en XIV propuesto y en H.29–H.30. El flujo financiero actualizado aún requiere cierre; la tesis principal conserva sus bloques reservados.
+La referencia metodológica principal es Sapag Chain y Sapag Chain (2008), quinta edición. La revisión con páginas impresas y PDF se encuentra en 02_contraste/sapag2008_matriz_brechas.md; la ejecución pendiente se ordena en 02_contraste/sapag2008_plan_correcciones.md. Se incorporan citas y precisiones metodológicas en XIV propuesto y en H.29–H.30. El escenario académico actualizado incorpora cierre prudente y liquidación diferida; su validación comercial y contractual permanece pendiente. La tesis principal conserva sus bloques reservados.
 
 El primer corte de ejecución está en 04_modelo_sapag/INFORME_DE_AVANCE.md. Integra la compra inicial de equipos en cero, lanzamiento provisional, costos conciliados, 48 meses, flujos parciales y memorias de deuda e impuesto. Los umbrales activos se actualizan a 743 y 2.343 cobros al ticket de CLP 50.000 por la inclusión de útiles y dirección tributaria anual presupuestados. Las referencias anteriores de 728 y 2.328 corresponden al corte sin esas partidas.
 

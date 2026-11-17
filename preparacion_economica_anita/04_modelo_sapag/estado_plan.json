@@ -82,5 +82,7 @@
     "respondidas e incorporadas: interpretación preoperativa del desarrollo, trámites incluidos y equipos personales compartidos"
   ],
   "lanzamiento_objetivo": "enero de 2027",
-  "desarrollo_reparto_pasado_futuro": "no determinado; el propietario expresa una interpretación del valor global, no un desglose"
+  "desarrollo_reparto_pasado_futuro": "no determinado; el propietario expresa una interpretación del valor global, no un desglose",
+  "vigencia": "histórico, sustituido como referencia numérica por 06_escenario_adoptado",
+  "estado_activo": "06_escenario_adoptado/estado_plan.json"
 }

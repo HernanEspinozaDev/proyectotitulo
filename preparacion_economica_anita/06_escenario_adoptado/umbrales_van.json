@@ -1,0 +1,194 @@
+[
+  {
+    "modo": "sin_asignaciones",
+    "recupera_valorizacion": false,
+    "pagos_mes": 392,
+    "van_anterior_clp": "-30794.00",
+    "van_minimo_clp": "9026.21",
+    "indicadores": {
+      "van_con_liquidacion_clp": "9026.21",
+      "tir_anual": "0.1240776800239036598523467258",
+      "tir_estado": "TIR única de inversión, con liquidación diferida incluida",
+      "cambios_signo": 1,
+      "recuperacion_simple_anios": "2.708299161017412052710375273",
+      "recuperacion_descontada_anios": "4.017427117998302508712136402",
+      "convencion": "cierres anuales más liquidación de comisión a 4 + días/360; recuperación interpolada entre momentos, no fecha de pago contractual"
+    },
+    "flujos_clp": [
+      "-1200000",
+      "511013.54",
+      "477101.84",
+      "299145.66",
+      "114071.24",
+      "137200.00"
+    ],
+    "momentos_anios": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "4.019444444444444444444444444"
+    ]
+  },
+  {
+    "modo": "meta_200000",
+    "recupera_valorizacion": false,
+    "pagos_mes": 793,
+    "van_anterior_clp": "-27197.10",
+    "van_minimo_clp": "12623.11",
+    "indicadores": {
+      "van_con_liquidacion_clp": "12623.11",
+      "tir_anual": "0.1250535213166273751615508720",
+      "tir_estado": "TIR única de inversión, con liquidación diferida incluida",
+      "cambios_signo": 1,
+      "recuperacion_simple_anios": "3.107450882484912496725918244",
+      "recuperacion_descontada_anios": "4.018049843796807264960184391",
+      "convencion": "cierres anuales más liquidación de comisión a 4 + días/360; recuperación interpolada entre momentos, no fecha de pago contractual"
+    },
+    "flujos_clp": [
+      "-1200000",
+      "383803.54",
+      "490241.84",
+      "312285.66",
+      "127211.24",
+      "277550.00"
+    ],
+    "momentos_anios": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "4.019444444444444444444444444"
+    ]
+  },
+  {
+    "modo": "objetivo_millon",
+    "recupera_valorizacion": false,
+    "pagos_mes": 2397,
+    "van_anterior_clp": "-12809.51",
+    "van_minimo_clp": "27010.70",
+    "indicadores": {
+      "van_con_liquidacion_clp": "27010.70",
+      "tir_anual": "0.1274375221027834804040659014",
+      "tir_estado": "TIR única de inversión, con liquidación diferida incluida",
+      "cambios_signo": 1,
+      "recuperacion_simple_anios": "4.005507294303064015204190423",
+      "recuperacion_descontada_anios": "4.018457200514394022489153621",
+      "convencion": "cierres anuales más liquidación de comisión a 4 + días/360; recuperación interpolada entre momentos, no fecha de pago contractual"
+    },
+    "flujos_clp": [
+      "-1200000",
+      "-125036.46",
+      "542801.84",
+      "364845.66",
+      "179771.24",
+      "838950.00"
+    ],
+    "momentos_anios": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "4.019444444444444444444444444"
+    ]
+  },
+  {
+    "modo": "sin_asignaciones",
+    "recupera_valorizacion": true,
+    "pagos_mes": 549,
+    "van_anterior_clp": "-19020.69",
+    "van_minimo_clp": "20799.52",
+    "indicadores": {
+      "van_con_liquidacion_clp": "20799.52",
+      "tir_anual": "0.1213444728783622059528681280",
+      "tir_estado": "TIR única de inversión, con liquidación diferida incluida",
+      "cambios_signo": 1,
+      "recuperacion_simple_anios": "3.008612089442598512288576175",
+      "recuperacion_descontada_anios": "4.016125212941734997319348180",
+      "convencion": "cierres anuales más liquidación de comisión a 4 + días/360; recuperación interpolada entre momentos, no fecha de pago contractual"
+    },
+    "flujos_clp": [
+      "-7440000",
+      "2519043.54",
+      "2540081.84",
+      "2362125.66",
+      "2177051.24",
+      "192150.00"
+    ],
+    "momentos_anios": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "4.019444444444444444444444444"
+    ]
+  },
+  {
+    "modo": "meta_200000",
+    "recupera_valorizacion": true,
+    "pagos_mes": 950,
+    "van_anterior_clp": "-15423.80",
+    "van_minimo_clp": "24396.42",
+    "indicadores": {
+      "van_con_liquidacion_clp": "24396.42",
+      "tir_anual": "0.1215484516965031792287989360",
+      "tir_estado": "TIR única de inversión, con liquidación diferida incluida",
+      "cambios_signo": 1,
+      "recuperacion_simple_anios": "3.054643155270769871219099570",
+      "recuperacion_descontada_anios": "4.017194566084785359185885161",
+      "convencion": "cierres anuales más liquidación de comisión a 4 + días/360; recuperación interpolada entre momentos, no fecha de pago contractual"
+    },
+    "flujos_clp": [
+      "-7440000",
+      "2391833.54",
+      "2553221.84",
+      "2375265.66",
+      "2190191.24",
+      "332500.00"
+    ],
+    "momentos_anios": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "4.019444444444444444444444444"
+    ]
+  },
+  {
+    "modo": "objetivo_millon",
+    "recupera_valorizacion": true,
+    "pagos_mes": 2554,
+    "van_anterior_clp": "-1036.20",
+    "van_minimo_clp": "38784.01",
+    "indicadores": {
+      "van_con_liquidacion_clp": "38784.01",
+      "tir_anual": "0.1222956886701071588132531948",
+      "tir_estado": "TIR única de inversión, con liquidación diferida incluida",
+      "cambios_signo": 1,
+      "recuperacion_simple_anios": "3.233373613027185306561239489",
+      "recuperacion_descontada_anios": "4.018114025560955521542547342",
+      "convencion": "cierres anuales más liquidación de comisión a 4 + días/360; recuperación interpolada entre momentos, no fecha de pago contractual"
+    },
+    "flujos_clp": [
+      "-7440000",
+      "1882993.54",
+      "2605781.84",
+      "2427825.66",
+      "2242751.24",
+      "893900.00"
+    ],
+    "momentos_anios": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "4.019444444444444444444444444"
+    ]
+  }
+]

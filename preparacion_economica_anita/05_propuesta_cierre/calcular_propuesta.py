@@ -18,7 +18,7 @@ def main():
   received=netfee-receivable if m==1 else netfee
   flow=received-opex;cum+=flow
   rows.append(dict(mes=f'2027-{m:02}',egresos_identificados_propuestos_clp=q(opex),comision_neta_devengada_clp=netfee,comision_neta_cobrada_supuesto_clp=q(received),cuenta_por_cobrar_clp=receivable,flujo_parcial_supuesto_clp=q(flow),caja_sin_aportes_clp=q(cum)))
- results=dict(estado='propuesta no adoptada; no modifica parámetros vigentes',
+ results=dict(estado=('propuesta histórica adoptada; cálculos vigentes en 06_escenario_adoptado' if (ROOT/'06_escenario_adoptado/adopcion.json').exists() else 'propuesta no adoptada; no modifica parámetros vigentes'),
   dominio_tarifa_publicada_clp=9990,dominio_presupuesto_previo_clp=10950,
   subtotal_mensual_prorrateado_propuesto_clp=q(proposed),presupuesto_anual_identificado_propuesto_clp=q(proposed*12),
   lag_dias_propuesto=7,lag_estres_dias=30,comision_por_cobrar_supuesto_clp=receivable,

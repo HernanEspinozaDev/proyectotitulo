@@ -45,10 +45,16 @@ for table_index,table in enumerate(doc.iter(w+'tbl')):
  first_header=''.join(table.find(w+'tr').findall(w+'tc')[0].itertext()).strip()
  if count==5 and first_header=='Escenario':
   weights=[.18,.15,.18,.22,.27]
+ elif count==5 and first_header=='Mes':
+  weights=[.16,.21,.21,.21,.21]
  elif count==6 and first_header.startswith('Partida'):
   weights=[.28,.14,.14,.14,.14,.16] if len(table.findall(w+'tr'))>25 else [.30]+[.14]*5
  elif count==2 and first_header.startswith('Componente'):
   weights=[.65,.35]
+ elif count==2 and first_header=='Cálculo':
+  weights=[.65,.35]
+ elif count==3 and first_header=='Registro':
+  weights=[.31,.13,.56]
  elif count==4 and first_header.startswith('Ticket medio'):
   weights=[.20,.20,.30,.30]
  elif count==4 and first_header=='Variable':
@@ -79,7 +85,7 @@ for table_index,table in enumerate(doc.iter(w+'tbl')):
    if cw is None:cw=E.SubElement(cp,w+'tcW')
    cw.set(w+'type','dxa');cw.set(w+'w',str(width))
  table_text=''.join(table.itertext())
- keep_full=(first_header.startswith(('Componente','Ticket medio')) or 'Flujo neto parcial identificado' in table_text or (first_header=='ID' and 'Subtotal parcial' in table_text))
+ keep_full=(first_header.startswith(('Componente','Ticket medio')) or first_header in ('Registro','Variable','Cálculo') or 'Flujo neto parcial identificado' in table_text or 'Flujo de caja simulado' in table_text or (first_header=='ID' and ('Subtotal parcial' in table_text or 'Subtotal identificado' in table_text)))
  if keep_full:
   for para in table.iter(w+'p'):
    pp=para.find(w+'pPr')
@@ -124,6 +130,8 @@ for para in doc.iter(w+'p'):
   if style.get(w+'val') in ('Ttulo1','Heading1'):
    E.SubElement(pr,w+'pageBreakBefore')
   elif ''.join(para.itertext()).startswith('H.36. Coherencia'):
+   E.SubElement(pr,w+'pageBreakBefore')
+  elif ''.join(para.itertext()).startswith('H.27.'):
    E.SubElement(pr,w+'pageBreakBefore')
 payload['word/document.xml']=E.tostring(doc,xml_declaration=True,encoding='UTF-8',standalone=True)
 with zipfile.ZipFile(path,'w',zipfile.ZIP_DEFLATED) as z:

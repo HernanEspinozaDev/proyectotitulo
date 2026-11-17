@@ -1,0 +1,8 @@
+{
+  "fecha": "2026-11-16",
+  "autorizacion": "instrucción del propietario de iniciar la propuesta",
+  "alcance": "preparación económica separada; adopta supuestos para evaluar, no confirma contratos ni demanda",
+  "historial_repositorio": "755df58",
+  "pipeline_activo": "scripts/reconstruir_escenario_adoptado.py",
+  "parametros": "06_escenario_adoptado/parametros.json"
+}

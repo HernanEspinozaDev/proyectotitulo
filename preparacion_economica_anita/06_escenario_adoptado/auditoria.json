@@ -1,0 +1,19 @@
+{
+  "estado": "correcto",
+  "alcance": "simulación adoptada, no prueba comercial o contractual",
+  "escenarios": 8,
+  "meses_por_escenario": 48,
+  "tablas_word": 103,
+  "verificaciones": [
+    "fuente H.1–H.26 íntegra",
+    "costos y anualidades conciliados",
+    "devengo/cobro/CxC y liquidación sin doble conteo",
+    "IVA y fondos ajenos separados",
+    "caja y déficit máximo por escenario",
+    "reserva de reposición sin gasto duplicado",
+    "VAN independiente anual y mensual",
+    "raíces adyacentes, TIR y recuperación con fechas",
+    "cuatro flujos completos visibles y referencias únicas",
+    "cifras antiguas retiradas de memorias activas"
+  ]
+}

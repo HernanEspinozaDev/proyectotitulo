@@ -1,0 +1,68 @@
+[
+  {
+    "variable": "pagos",
+    "variacion_pct": "-20.0",
+    "van_con_liquidacion_clp": "-20228061.99",
+    "diferencia_base_clp": "-174661.54"
+  },
+  {
+    "variable": "pagos",
+    "variacion_pct": "20.0",
+    "van_con_liquidacion_clp": "-19878738.92",
+    "diferencia_base_clp": "174661.53"
+  },
+  {
+    "variable": "ticket",
+    "variacion_pct": "-20.0",
+    "van_con_liquidacion_clp": "-20228061.99",
+    "diferencia_base_clp": "-174661.54"
+  },
+  {
+    "variable": "ticket",
+    "variacion_pct": "20.0",
+    "van_con_liquidacion_clp": "-19878738.92",
+    "diferencia_base_clp": "174661.53"
+  },
+  {
+    "variable": "costos",
+    "variacion_pct": "-20.0",
+    "van_con_liquidacion_clp": "-16108058.82",
+    "diferencia_base_clp": "3945341.63"
+  },
+  {
+    "variable": "costos",
+    "variacion_pct": "20.0",
+    "van_con_liquidacion_clp": "-23998742.09",
+    "diferencia_base_clp": "-3945341.64"
+  },
+  {
+    "variable": "cambio",
+    "variacion_pct": "-20.0",
+    "van_con_liquidacion_clp": "-19866271.64",
+    "diferencia_base_clp": "187128.81"
+  },
+  {
+    "variable": "cambio",
+    "variacion_pct": "20.0",
+    "van_con_liquidacion_clp": "-20240529.27",
+    "diferencia_base_clp": "-187128.82"
+  },
+  {
+    "variable": "descuento",
+    "variacion_pct": "10.00",
+    "van_con_liquidacion_clp": "-20892937.75",
+    "diferencia_base_clp": "-839537.30"
+  },
+  {
+    "variable": "descuento",
+    "variacion_pct": "12.00",
+    "van_con_liquidacion_clp": "-20053400.45",
+    "diferencia_base_clp": "0.00"
+  },
+  {
+    "variable": "descuento",
+    "variacion_pct": "25.00",
+    "van_con_liquidacion_clp": "-15783036.24",
+    "diferencia_base_clp": "4270364.21"
+  }
+]

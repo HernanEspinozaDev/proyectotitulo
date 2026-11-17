@@ -65,3 +65,7 @@ La tasa se aplica a cada pago procesado. Un contrato con cuotas mensuales genera
 ## Tickets para las remuneraciones
 
 El cálculo reproducible se conserva en tickets_para_remuneraciones.md y en los archivos umbrales_remuneraciones.json y umbral_sueldo_objetivo.json. A CLP 50.000 por pago, las metas con el presupuesto parcial conciliado son 743 pagos mensuales para CLP 200.000 por fundador y 2.343 para CLP 1.000.000. La incorporación de útiles y dirección tributaria anual explica el cambio respecto del corte inicial. Son umbrales del Año 1; H.36 distingue reajustes posteriores y quiebres de VAN. El cálculo no cierra el punto de equilibrio ni compromete pagos contractuales.
+
+## Simulación adoptada de calendario y cierre
+
+Se aplica la propuesta por instrucción del propietario: dominio CLP 9990 para la referencia de 2027, anualidades en enero, comisión propia por cobrar a siete días y estrés a treinta, reposición de estrés CLP900000 en 2029 y cierre sin venta o perpetuidad. El saldo de comisión se cobra después del horizonte en su fecha financiera; no se pierde ni se suma como venta. Las asignaciones se habilitan por capacidad propia mensual y no por caja de préstamos/aportes. Los plazos no se atribuyen a un proveedor contratado. La comisión y su IVA mantienen la regla de descuento al publicador por cada pago procesado.

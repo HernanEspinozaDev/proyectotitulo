@@ -1,0 +1,23 @@
+[
+  {
+    "escenario": "conservador",
+    "pagos_mes": "4",
+    "ticket_clp": 35000,
+    "comision_anual_1_clp": "50400.00",
+    "van_con_liquidacion_clp": "-20773879.29"
+  },
+  {
+    "escenario": "base",
+    "pagos_mes": "16",
+    "ticket_clp": 50000,
+    "comision_anual_1_clp": "288000.00",
+    "van_con_liquidacion_clp": "-20053400.45"
+  },
+  {
+    "escenario": "optimista",
+    "pagos_mes": "45",
+    "ticket_clp": 65000,
+    "comision_anual_1_clp": "1053000.00",
+    "van_con_liquidacion_clp": "-17733676.93"
+  }
+]

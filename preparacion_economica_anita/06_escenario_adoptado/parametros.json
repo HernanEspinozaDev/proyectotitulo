@@ -1,0 +1,130 @@
+{
+  "fecha_corte": "2026-11-16",
+  "escenario_activo": "referencia_academica_adoptada_20261116",
+  "empresa_constituida": false,
+  "anio_0": 2026,
+  "anio_1": 2027,
+  "anios_operacion": 4,
+  "tasa_descuento_nominal": "0.12",
+  "tasa_impuesto_academica": "0.27",
+  "equipos": {
+    "existentes": true,
+    "compra_inicial_clp": "0",
+    "valor_fuente_clp": "2700000",
+    "aporte_patrimonial_y_uso_alternativo": null,
+    "fuente": "decisión del propietario: equipos existentes, sin compra inicial",
+    "uso": "personales y compartidos",
+    "transferencia_dominio_prevista": false
+  },
+  "lanzamiento": {
+    "presupuesto_clp": "1200000",
+    "estado": "presupuesto provisional ratificado, con desglose adoptado para simulación; incluye constitución y trámites sin duplicarlos; ejecución real pendiente",
+    "asignacion": "momento cero, antes de operar; se excluye de OPEX para evitar repetirlo",
+    "incluye_constitucion_tramites": true,
+    "desglose_presupuesto_clp": {
+      "formalizacion_y_asesoria": 300000,
+      "preparacion_contenidos_y_materiales": 300000,
+      "campana_lanzamiento": 400000,
+      "contingencia_preoperativa": 200000
+    },
+    "contingencia": "margen presupuestario de 200000; el caso máximo programa la utilización completa del presupuesto en Año 0, sin afirmar ejecución real"
+  },
+  "demanda": {
+    "espacios_promedio": 8,
+    "pagos_espacio_mes": "2",
+    "ticket_clp": "50000",
+    "crecimiento_anual_cobros": "0",
+    "crecimiento_anual_ticket": "0",
+    "estado": "referencia provisional ratificada en agregado, no demanda observada ni mezcla validada por categoría"
+  },
+  "costos": {
+    "reajuste_anual_presupuestos_clp": "0.04",
+    "aws_usd_constante": true,
+    "usd_clp_constante": true,
+    "creditos_aplicados": false,
+    "utiles_oficina": "incluir CLP 120000 anuales una vez, presupuesto de Conciliacion costos; confirmar necesidad en operación remota",
+    "marketing_separado_lanzamiento": true,
+    "marketing_presupuesto_base_mensual_clp": "350000",
+    "oficina_virtual_anual_clp": "150000",
+    "oficina_virtual_estado": "presupuesto provisional anual ratificado; pago modelado en enero, contratación y fecha efectiva pendientes",
+    "dominio_anual_clp": "9990"
+  },
+  "fundadores": {
+    "cantidad": 3,
+    "meta_mensual_persona_clp": "200000",
+    "objetivo_alternativo_persona_clp": "1000000",
+    "regla_escenario": "pago conjunto completo o cero; solo con excedente operativo propio después de costos identificados, reserva de servicio de deuda y provisión académica de impuesto; no se distribuyen préstamos, IVA ni fondos de publicadores",
+    "estado_regla": "implementación prudente de escenario; falta formalización y cierre de todos los costos",
+    "tratamiento_academico": "asignación presupuestada como egreso de personal para el ejercicio; modalidad jurídica y deducibilidad efectiva no determinadas"
+  },
+  "deuda_simulada": {
+    "principal_clp": "3720000",
+    "interes_anual": "0.12",
+    "anios": 3,
+    "cuotas": "anuales, al final de cada año, por convención del insumo",
+    "comisiones_seguros": null
+  },
+  "exclusiones_no_valoradas": [
+    "cargas completas y modalidad jurídica de asignaciones a fundadores",
+    "costos variables propios residuales y escalamiento de infraestructura",
+    "IVA de compras, devoluciones y condiciones efectivas de proveedores",
+    "uso alternativo de equipos personales y esfuerzo incremental sin registro"
+  ],
+  "criterio_partidas_pendientes": "no se convierten en costos cero confirmados; los flujos numéricos son subtotales de las partidas identificadas y excluyen estas partidas sin valoración",
+  "tributacion_referencia": "27 % académico y compensación de pérdidas según el criterio descrito por Anita; no liquidación fiscal de una empresa real",
+  "iva": "separa débito de comisión y no lo considera caja libre; el crédito por compras y calendario de remisión permanecen pendientes",
+  "pasarela": "se descuenta al publicador; tarifa y liquidación efectivas pendientes, sin inventar un porcentaje",
+  "capacidad": "el costo AWS de referencia no acredita capacidad para volúmenes mayores",
+  "desarrollo_valorizado": {
+    "valor_total_preoperativo_clp": "6240000",
+    "interpretacion": "valoración global del desarrollo para alcanzar funcionalidad antes del lanzamiento; interpretación propuesta a partir de la aclaración del propietario",
+    "reparto_trabajo_pasado_futuro": null,
+    "desembolso_confirmado_clp": null,
+    "capitalizacion_contable_confirmada": false,
+    "horas_fuente": 960,
+    "tarifa_hora_fuente_clp": 6500,
+    "capacidad_planificada_horas": 360,
+    "valor_capacidad_planificada_clp": 2340000,
+    "horas_ejecutadas_con_evidencia": null,
+    "horas_pendientes_estimadas": null
+  },
+  "fecha_lanzamiento_objetivo": "2027-01",
+  "estado": "hipótesis de simulación adoptadas por instrucción del propietario; no ventas ni contratos verificados",
+  "calendario": {
+    "meses_facturacion_anual": [
+      "C05",
+      "C08"
+    ],
+    "mes_pago_anual": 1,
+    "dias_cobro_comision": 7,
+    "dias_estres": 30,
+    "base_tiempo": "30/360",
+    "liquidacion_cxc": "cobro íntegro tras el último mes, a cuatro años más plazo/360; sin quinto año de operación",
+    "iva": "fuera de caja libre; no se estima crédito de compras no respaldado",
+    "impuesto": "liquidación académica al cierre anual, no calendario legal"
+  },
+  "reposicion": {
+    "base_compra_clp": "0",
+    "estres_compra_clp": "900000",
+    "anio_estres": 3,
+    "mes_estres": 12,
+    "reserva_interna_mes_clp": "25000",
+    "meses_reserva": 36,
+    "depreciacion_y_escudo_fiscal": "no reconocidos sin soporte; prueba de compra sin escudo fiscal"
+  },
+  "cierre": {
+    "venta_activos_clp": "0",
+    "venta_software_clp": "0",
+    "perpetuidad": false,
+    "estado": "convención prudente adoptada; no valor de mercado cero",
+    "recupera_cuentas_por_cobrar": true
+  },
+  "validacion_demanda": {
+    "fichas_oferta_objetivo": 8,
+    "entrevistas_publicadores_objetivo": 10,
+    "entrevistas_arrendatarios_objetivo": 20,
+    "caracter": "exploratorio, sin representatividad estadística atribuida",
+    "periodo_observacion": "enero-marzo de 2027",
+    "pagos_observados": null
+  }
+}

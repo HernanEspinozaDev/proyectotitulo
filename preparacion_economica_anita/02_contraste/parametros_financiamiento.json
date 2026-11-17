@@ -14,8 +14,8 @@
   "alcance_remuneracion_cero": "sin distribución en períodos que no cubran la meta completa; registrar trabajo aportado por separado",
   "tratamiento_trabajo_fundadores": "registrar valorización por separado del desembolso",
   "meta_total_fundadores_mensual_clp": 600000,
-  "regla_pago_propuesta": "pagar CLP 200000 a cada uno si existe caja suficiente para cubrir CLP 600000 después de obligaciones operativas; si no alcanza, no distribuir en ese período",
-  "estado_regla_pago": "implementada en escenario con costos identificados; formalización y costos completos aún por precisar",
+  "regla_pago_propuesta": "capacidad propia mensual después de pagos, provisión académica y reservas; meta completa o cero; excluir préstamos, aportes, IVA y fondos del publicador",
+  "estado_regla_pago": "implementada como regla de simulación mensual; formalización real pendiente",
   "sueldo_objetivo_por_fundador_clp": 1000000,
   "estado_sueldo_objetivo": "escenario solicitado; no compromiso contractual ni sueldo líquido verificado",
   "tasa_descuento_academica_anual": "0.12",
@@ -53,5 +53,10 @@
   "lanzamiento_incluye_constitucion_tramites": true,
   "equipos_personales_compartidos": true,
   "lanzamiento_objetivo": "enero de 2027",
-  "desarrollo_valorizado_interpretacion": "6240000 como valoración total preoperativa, sin reparto pasado/futuro ni obligación de pago confirmados"
+  "desarrollo_valorizado_interpretacion": "6240000 como valoración total preoperativa, sin reparto pasado/futuro ni obligación de pago confirmados",
+  "modelo_activo": "06_escenario_adoptado/parametros.json",
+  "plazo_cobro_comision_supuesto_dias": 7,
+  "plazo_estres_dias": 30,
+  "estado_plazos": "hipótesis adoptadas, no condiciones contractuales verificadas",
+  "dominio_anual_referencia_clp": 9990
 }

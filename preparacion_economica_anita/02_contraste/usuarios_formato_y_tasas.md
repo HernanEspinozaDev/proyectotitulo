@@ -29,7 +29,7 @@ La mezcla por categoría y modalidad determina tanto frecuencia como ticket. No 
 
 Por instrucción del propietario, se conserva como formato rector el flujo que entrega Anita y que solicita la profesora: columnas Año 0 a Año 4 y secuencia de ingresos, costos variables, OPEX, administración/marketing, depreciación, EBIT, intereses, EBT, impuesto, utilidad neta, reincorporación de depreciación, préstamo recibido, inversiones, capital de trabajo, amortización y flujo neto de caja. No se sustituye por una tabla de tickets ni por una tabla mensual abreviada.
 
-Las Tablas 18 y 19 contienen los flujos parciales vigentes, puro y financiado; las Tablas 20 y 21 son auxiliares de costos y cobros. El corte mantiene la estructura de Anita con: comisión del 3 %, cloud AWS, remuneraciones previstas y pagadas, pasarela a cargo del publicador y financiamiento simulado. Debe separar el ingreso propio de los fondos de terceros y el trabajo valorizado del desembolso, sin alterar arbitrariamente la secuencia requerida. La fuente es FlujoNeto A29:F45 y la Figura 17 del informe recibido.
+Las Tablas 18 y 19 contienen la referencia adoptada, pura y financiada; las Tablas 20 y 21 presentan los estreses, y las Tablas 24 y 25 son auxiliares de costos y cobros. El corte mantiene la estructura de Anita con: comisión del 3 %, cloud AWS, remuneraciones previstas y pagadas, pasarela a cargo del publicador y financiamiento simulado. Debe separar el ingreso propio de los fondos de terceros y el trabajo valorizado del desembolso, sin alterar arbitrariamente la secuencia requerida. La fuente es FlujoNeto A29:F45 y la Figura 17 del informe recibido.
 
 Se mantienen VAN, TIR y recuperación después del flujo completo. Los indicadores se recalculan cuando se cierre una serie única; no se trasladan los resultados históricos al escenario AWS. El flujo con préstamo y amortización exige distinguir la evaluación de los socios de la evaluación del proyecto antes de elegir la tasa de descuento.
 
@@ -98,3 +98,8 @@ El propietario confirma con Anita que la tasa utilizada es 12 % y solicita adopt
 ## Umbrales vigentes tras la conciliación de costos
 
 El corte de ejecución incorpora útiles y dirección tributaria anual ratificada. A ticket de CLP 50.000, las metas vigentes son 743 y 2.343 pagos mensuales para las dos asignaciones por fundador. Las comparaciones de usuarios de este archivo se actualizan a 743 y 2.343 pagos; los umbrales anteriores quedan únicamente en la historia del repositorio. La fórmula de usuarios sigue siendo pagos divididos por frecuencia por persona, redondeando hacia arriba.
+
+
+## Aplicación de la propuesta al escenario activo
+
+El modelo rector está en 06_escenario_adoptado. Los umbrales promedio de 743 y 2.343 siguen siendo equivalencias de costo-volumen, con CLP 514.003,02 de costo medio identificado. El VAN con cobro diferido cambia los mínimos analíticos a 392 sin asignaciones, 793 con meta inicial y 2.397 con la meta adicional. Las Tablas 18–21 son flujos completos de cuatro alternativas, la Tabla 22 liquida CxC, la 23 presenta indicadores, la 24 costos, la 25 umbrales y la 26 aportes. Las secciones anteriores sobre decisiones sustituidas conservan su condición histórica.

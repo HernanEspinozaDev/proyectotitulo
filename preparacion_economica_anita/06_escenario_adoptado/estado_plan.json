@@ -1,0 +1,65 @@
+{
+  "fecha": "2026-11-16",
+  "objetivo": "aplicar la propuesta económica a la preparación separada",
+  "alcance": "simulación académica; evidencia comercial/contractual se distingue de parametrización",
+  "tareas": [
+    {
+      "id": "A01",
+      "descripcion": "Registrar adopción y conservar historial",
+      "estado": "terminada"
+    },
+    {
+      "id": "A02",
+      "descripcion": "Actualizar dominio, costos y calendario de anualidades",
+      "estado": "terminada"
+    },
+    {
+      "id": "A03",
+      "descripcion": "Implementar devengo, cobro, CxC y liquidación diferida",
+      "estado": "terminada"
+    },
+    {
+      "id": "A04",
+      "descripcion": "Aplicar regla mensual de asignaciones y reservas sin duplicar gastos",
+      "estado": "terminada"
+    },
+    {
+      "id": "A05",
+      "descripcion": "Calcular ocho perfiles y estreses de reposición y plazo",
+      "estado": "terminada"
+    },
+    {
+      "id": "A06",
+      "descripcion": "Calcular VAN, TIR útil, recuperación, sensibilidad y quiebres",
+      "estado": "terminada"
+    },
+    {
+      "id": "A07",
+      "descripcion": "Actualizar cuerpo y memorias H.27–H.40 con referencias coherentes",
+      "estado": "terminada"
+    },
+    {
+      "id": "A08",
+      "descripcion": "Auditar resultados y preservar las 26 hojas originales",
+      "estado": "terminada"
+    },
+    {
+      "id": "A09",
+      "descripcion": "Inspeccionar Word/PDF con DocSkill",
+      "estado": "terminada"
+    },
+    {
+      "id": "A10",
+      "descripcion": "Publicar el avance en main",
+      "estado": "terminada"
+    }
+  ],
+  "evidencia_por_recopilar": [
+    "fichas y entrevistas del piloto, pagos observados",
+    "horas ejecutadas y estimación real de tareas restantes",
+    "contratación y tarifas efectivas, devoluciones y escalamiento",
+    "modalidad de asignaciones y cargas completas",
+    "pruebas técnicas dependientes del desarrollo"
+  ],
+  "integracion_tesis_principal": "pendiente, fuera de esta preparación separada"
+}

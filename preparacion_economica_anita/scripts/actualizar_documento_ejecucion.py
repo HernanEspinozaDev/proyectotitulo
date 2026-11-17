@@ -41,6 +41,9 @@ def flow_table(model,params,costs,caption):
     return result
 
 def main():
+    if (ROOT/'06_escenario_adoptado/adopcion.json').exists():
+        from actualizar_escenario_adoptado import main as adopted
+        return adopted()
     params=load(MODEL/'parametros_ejecucion.json');models=load(MODEL/'resultados_proyeccion.json');costinfo=load(MODEL/'costos_conciliados.json');costs=costinfo['partidas'];pure=models['condicionada_puro'];fin=models['condicionada_financiado']
     base=load(ROOT/'02_contraste/umbrales_remuneraciones.json');target=load(ROOT/'02_contraste/umbral_sueldo_objetivo.json')
     bodypath=ROOT/'03_propuesta/capitulo_xiv_borrador.md';annexpath=ROOT/'03_propuesta/anexo_h_tablas_fuente.md'

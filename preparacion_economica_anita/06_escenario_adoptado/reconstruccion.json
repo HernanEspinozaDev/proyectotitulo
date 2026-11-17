@@ -1,0 +1,18 @@
+{
+  "cadena": [
+    "verificar_fuentes_economicas.py",
+    "escenario_adoptado.py",
+    "actualizar_escenario_adoptado.py",
+    "build_preview.py",
+    "verificar_escenario_adoptado.py"
+  ],
+  "modelo": "06_escenario_adoptado/parametros.json",
+  "docx_sha256": "659cef4e0d257fea078bba07f805d0dbfd81f1dff5e81305efc808bcaf307420",
+  "revision_visual": "completada; páginas modificadas inspeccionadas, sin tablas activas partidas ni cifras truncadas",
+  "pdf_sha256": "b95c9b819261b6d9b1b6cdb07ea85901baee5ed071c1e455b84c0dbdca1539c2",
+  "paginas_pdf": 96,
+  "directorio_revision_visual": "/tmp/espacigo-adoptado-final",
+  "tablas_word": 103,
+  "paginas_fuente_con_identidad_visual": 69,
+  "ultima_iteracion": "se elimina párrafo final redundante que generaba una página de tres líneas; las 96 páginas restantes conservan identidad visual"
+}
