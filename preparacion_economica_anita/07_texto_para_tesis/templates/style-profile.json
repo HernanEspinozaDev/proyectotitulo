@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "name": "inacap-tihi84-final",
+  "version": "1.0.0",
+  "template": {
+    "file": "templates/reference.docx"
+  },
+  "roles": {
+    "body": {
+      "word_styles": [
+        "FirstParagraph",
+        "BodyText",
+        "Normal",
+        "Compact",
+        "BlockText"
+      ]
+    },
+    "heading_1": {
+      "word_styles": [
+        "Ttulo1"
+      ]
+    },
+    "heading_2": {
+      "word_styles": [
+        "Ttulo2"
+      ]
+    },
+    "heading_3": {
+      "word_styles": [
+        "Ttulo3"
+      ]
+    },
+    "caption": {
+      "word_styles": [
+        "ImageCaption",
+        "TableCaption"
+      ]
+    },
+    "toc_heading": {
+      "word_styles": [
+        "TOCHeading"
+      ]
+    },
+    "heading_4": {
+      "word_styles": [
+        "Ttulo4"
+      ]
+    },
+    "heading_5": {
+      "word_styles": [
+        "Ttulo5"
+      ]
+    }
+  },
+  "compatibility": {
+    "pandoc_style_aliases": {
+      "FirstParagraph": "Normal",
+      "BodyText": "Normal",
+      "Compact": "Normal",
+      "ImageCaption": "FiguraoTablaTtulo",
+      "TableCaption": "FiguraoTablaTtulo",
+      "Table": "Tablanormal",
+      "TOCHeading": "Ttulodendice",
+      "BlockText": "Normal"
+    }
+  }
+}

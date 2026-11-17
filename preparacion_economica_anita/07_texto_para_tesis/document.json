@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "id": "evaluacion_economica_espacigo",
+  "metadata": {
+    "title": "Evaluación económica de espaciGo",
+    "subtitle": "Capítulo XIV y Anexo H",
+    "authors": [
+      "Espinoza Castillo, Hernán",
+      "Marchant Pacheco, Anita",
+      "Silva Quezada, Erick"
+    ],
+    "lang": "es-CL",
+    "date": "16 de noviembre de 2026"
+  },
+  "sections": [
+    "capitulo_xiv_evaluacion_economica.md",
+    "anexo_h_evaluacion_economica.md"
+  ],
+  "appendices": [],
+  "template": "templates/reference.docx",
+  "style_profile": "templates/style-profile.json",
+  "output": "Evaluacion_economica_espaciGo.docx",
+  "toc": {
+    "enabled": false
+  }
+}

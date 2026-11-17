@@ -1,0 +1,3 @@
+build/*
+!build/Evaluacion_economica_espaciGo.docx
+!build/Evaluacion_economica_espaciGo.pdf

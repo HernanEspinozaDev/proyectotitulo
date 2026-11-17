@@ -1,8 +1,11 @@
 from pathlib import Path
-import json,sys,os,shutil,zipfile,tempfile
+import json,sys,os,shutil,zipfile,tempfile,argparse
 from lxml import etree as E
 root=Path(__file__).resolve().parents[2]
-p=root/'preparacion_economica_anita/03_propuesta'
+parser=argparse.ArgumentParser()
+parser.add_argument('--project-dir',type=Path)
+args=parser.parse_args()
+p=args.project_dir.resolve() if args.project_dir else root/'preparacion_economica_anita/03_propuesta'
 templates=p/'templates'
 templates.mkdir(exist_ok=True)
 shutil.copyfile(root/'tesis_final/templates/reference-tihi84.docx',templates/'reference.docx')
@@ -10,7 +13,10 @@ profile=json.loads((root/'tesis_final/templates/style-profile-inacap.json').read
 profile['template']['file']='templates/reference.docx'
 (templates/'style-profile.json').write_text(json.dumps(profile,ensure_ascii=False,indent=2))
 m={'version':1,'id':'preparacion_economia_anita','metadata':{'title':'Preparación económica de espaciGo','subtitle':'Documento de preparación para revisión','authors':['Espinoza Castillo, Hernán','Marchant Pacheco, Anita','Silva Quezada, Erick'],'lang':'es-CL','date':'16 de noviembre de 2026'},'sections':['capitulo_xiv_borrador.md','anexo_h_tablas_fuente.md'],'appendices':[],'template':'templates/reference.docx','style_profile':'templates/style-profile.json','output':'Preparacion_economica_espaciGo.docx','toc':{'enabled':False}}
-(p/'document.json').write_text(json.dumps(m,ensure_ascii=False,indent=2))
+if args.project_dir:
+ m=json.loads((p/'document.json').read_text())
+else:
+ (p/'document.json').write_text(json.dumps(m,ensure_ascii=False,indent=2))
 sys.path.insert(0,str(root/'docskill'))
 os.environ.setdefault('DOCSKILL_PANDOC',str(root/'docskill/.tools/pandoc/bin/pandoc'))
 from docskill.api import DocSkillProject
@@ -19,7 +25,7 @@ v=project.validate()
 assert v.success,v.to_dict()
 result=project.build()
 assert result.success,result.to_dict()
-path=p/'build/Preparacion_economica_espaciGo.docx'
+path=p/'build'/m['output']
 w='{http://schemas.openxmlformats.org/wordprocessingml/2006/main}'
 with zipfile.ZipFile(path) as z:
  payload={name:z.read(name) for name in z.namelist()}
@@ -37,6 +43,12 @@ for table_index,table in enumerate(doc.iter(w+'tbl')):
   pp=previous.find(w+'pPr')
   if pp is None:pp=E.SubElement(previous,w+'pPr')
   if pp.find(w+'keepNext') is None:E.SubElement(pp,w+'keepNext')
+  if args.project_dir:
+   label=previous.getprevious()
+   if label is not None and label.tag==w+'p' and ''.join(label.itertext()).startswith('Tabla '):
+    labelpr=label.find(w+'pPr')
+    if labelpr is None:labelpr=E.SubElement(label,w+'pPr')
+    if labelpr.find(w+'keepNext') is None:E.SubElement(labelpr,w+'keepNext')
  for tr in table.findall(w+'tr'):
   rp=tr.find(w+'trPr')
   if rp is None:rp=E.SubElement(tr,w+'trPr')
@@ -72,7 +84,14 @@ for table_index,table in enumerate(doc.iter(w+'tbl')):
  elif count==4 and (first_header.startswith('Modalidad') or first_header.startswith('Detalle de la Inversión')):
   weights=[.40,.20,.25,.15]
  else:
-  weights=[.08]+[.92/(count-1)]*(count-1) if count>1 else [1]
+  if args.project_dir and count==2:
+   weights=[.30,.70] if first_header=='Categoría' else [.42,.58]
+  elif args.project_dir and count==3 and first_header=='Recurso':
+   weights=[.30,.20,.50]
+  elif args.project_dir and count==3 and first_header=='Concepto':
+   weights=[.48,.26,.26]
+  else:
+   weights=[.08]+[.92/(count-1)]*(count-1) if count>1 else [1]
  widths=[round(8560*x) for x in weights]
  grid=table.find(w+'tblGrid')
  if grid is not None:
@@ -85,7 +104,7 @@ for table_index,table in enumerate(doc.iter(w+'tbl')):
    if cw is None:cw=E.SubElement(cp,w+'tcW')
    cw.set(w+'type','dxa');cw.set(w+'w',str(width))
  table_text=''.join(table.itertext())
- keep_full=(first_header.startswith(('Componente','Ticket medio')) or first_header in ('Registro','Variable','Cálculo') or 'Flujo neto parcial identificado' in table_text or 'Flujo de caja simulado' in table_text or (first_header=='ID' and ('Subtotal parcial' in table_text or 'Subtotal identificado' in table_text)))
+ keep_full=(first_header.startswith(('Componente','Ticket medio')) or first_header in ('Registro','Variable','Cálculo') or 'Flujo neto parcial identificado' in table_text or 'Flujo de caja simulado' in table_text or 'Flujo de caja proyectado' in table_text or (first_header=='ID' and ('Subtotal parcial' in table_text or 'Subtotal identificado' in table_text or 'Total operativo' in table_text)))
  if keep_full:
   for para in table.iter(w+'p'):
    pp=para.find(w+'pPr')
@@ -93,9 +112,9 @@ for table_index,table in enumerate(doc.iter(w+'tbl')):
    spacing=pp.find(w+'spacing')
    if spacing is None:spacing=E.SubElement(pp,w+'spacing')
    for key,value in [('before','0'),('after','0'),('line','240'),('lineRule','auto')]:spacing.set(w+key,value)
- if table_index<2 or keep_full or (first_header in ('Año','Escenario') and len(table.findall(w+'tr'))<=8):
+ if table_index<2 or keep_full or (first_header in ('Año','Escenario') and len(table.findall(w+'tr'))<=8) or (args.project_dir and len(table.findall(w+'tr'))<=15):
   paras=list(table.iter(w+'p'))
-  for para in paras[:-1]:
+  for para in (paras if args.project_dir else paras[:-1]):
    pp=para.find(w+'pPr')
    if pp is None:pp=E.SubElement(para,w+'pPr')
    if pp.find(w+'keepNext') is None:E.SubElement(pp,w+'keepNext')

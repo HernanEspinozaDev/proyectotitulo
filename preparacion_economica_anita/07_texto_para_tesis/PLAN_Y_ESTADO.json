@@ -1,0 +1,50 @@
+{
+  "fecha": "2026-11-16",
+  "objetivo": "Redacción académica de la evaluación económica para integrar en la tesis",
+  "tareas": [
+    {
+      "id": "R01",
+      "tarea": "Reformular voz del proyecto y eliminar atribuciones personales del contenido",
+      "estado": "terminada"
+    },
+    {
+      "id": "R02",
+      "tarea": "Presentar decisiones adoptadas como criterios y presupuestos de la proyección",
+      "estado": "terminada"
+    },
+    {
+      "id": "R03",
+      "tarea": "Normalizar rótulos, títulos, notas de elaboración propia y estructura de tablas",
+      "estado": "terminada"
+    },
+    {
+      "id": "R04",
+      "tarea": "Separar cuadros históricos del capítulo y anexo publicables sin perder originales",
+      "estado": "terminada"
+    },
+    {
+      "id": "R05",
+      "tarea": "Comprobar cifras del escenario activo y referencias entre cuerpo y anexo",
+      "estado": "terminada"
+    },
+    {
+      "id": "R06",
+      "tarea": "Renderizar Word/PDF e inspeccionar todas las páginas",
+      "estado": "terminada"
+    },
+    {
+      "id": "R07",
+      "tarea": "Publicar cambios en main y entregar archivos para revisión",
+      "estado": "terminada"
+    }
+  ],
+  "restricciones": [
+    "No modificar cifras del modelo financiero ni afirmar demanda observada a partir de proyecciones",
+    "Conservar los nombres correctos de los autores en los metadatos",
+    "Mantener la integración a la tesis principal como paso separado"
+  ],
+  "publicacion": {
+    "rama": "main",
+    "verificacion": "HEAD local y origin/main se comparan después del push"
+  }
+}

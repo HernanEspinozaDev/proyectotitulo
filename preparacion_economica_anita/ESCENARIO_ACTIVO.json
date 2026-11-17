@@ -5,5 +5,8 @@
   "pipeline": "scripts/reconstruir_escenario_adoptado.py",
   "auditoria": "06_escenario_adoptado/auditoria.json",
   "historial": "04_modelo_sapag conserva el corte anterior; 05_propuesta_cierre documenta la propuesta adoptada",
-  "alcance": "preparación separada de la tesis; simulación con hipótesis identificadas"
+  "alcance": "preparación separada de la tesis; simulación con hipótesis identificadas",
+  "documento_editorial": "07_texto_para_tesis/document.json",
+  "pipeline_editorial": "scripts/reconstruir_texto_tesis.py",
+  "entrega_vigente": "07_texto_para_tesis/build/Evaluacion_economica_espaciGo.pdf"
 }

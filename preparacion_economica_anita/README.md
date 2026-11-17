@@ -1,3 +1,5 @@
+> **Entrega editorial vigente:** [Evaluación económica para tesis](07_texto_para_tesis/README.md). El capítulo y el anexo se presentan con voz académica de espaciGo, notas de elaboración propia y cifras del escenario 06. Los cortes inferiores conservan el historial documental.
+
 > Referencia activa: **06_escenario_adoptado**. La propuesta se aplica por instrucción del propietario del 16 de noviembre de 2026. Los apartados inferiores conservan el historial de preparación; la reconstrucción vigente está en el README del escenario adoptado y en ESCENARIO_ACTIVO.json.
 
 # Preparación de la parte económica de Anita

@@ -201,3 +201,9 @@ Los presupuestos y métodos del escenario quedan adoptados; no se atribuyen cont
 - [x] A10: entrega preparada para commit y publicación en main, con verificación del remoto al finalizar.
 
 La referencia activa es 06_escenario_adoptado. Se conservan los archivos originales; no se altera la tesis principal. Las evidencias de demanda, horas realizadas, cotizaciones y condiciones efectivas continúan identificadas; no se sustituyen por afirmaciones de verificación. El método de simulación está aplicado y auditado, sin declarar viabilidad comercial.
+
+## Edición académica para integración
+
+Se completa la redacción del Capítulo XIV y del Anexo H en 07_texto_para_tesis. El contenido presenta la evaluación como elaboración del equipo de espaciGo, elimina atribuciones personales y notas de transcripción de hojas/celdas, y expresa las decisiones adoptadas como criterios de la proyección. Las 27 tablas poseen numeración, título y nota de elaboración propia. Las fuentes externas mantienen su cita metodológica o bibliográfica.
+
+La entrega editorial contiene 25 páginas y 27 tablas editables. Se comprueban cifras y referencias cuerpo/anexo, se inspeccionan las páginas y se elimina una página final con un solo párrafo. El modelo 06 y sus resultados permanecen idénticos. Las transcripciones de las 26 hojas y el informe original se conservan fuera de la edición publicable; la tesis principal no se modifica todavía.

@@ -1,0 +1,22 @@
+{
+  "estado": "correcto",
+  "tablas": 27,
+  "tablas_con_cifras_comparadas": 23,
+  "notas_elaboracion_propia": 27,
+  "criterios": [
+    "voz académica del proyecto, sin atribuciones personales",
+    "decisiones adoptadas expresadas como criterios y presupuestos",
+    "proyecciones diferenciadas de resultados observados",
+    "referencias cuerpo/anexo resueltas",
+    "cifras del escenario financiero conservadas",
+    "bordes y encabezados nativos de Word",
+    "antecedentes originales conservados fuera del texto publicable"
+  ],
+  "docx_sha256": "3c3994216539d1ef8409235364869fdab8b184577e6e8163859d85b718f3e655",
+  "revision_visual": "completada; 25 páginas inspeccionadas; última iteración conserva identidad de 24 páginas y se revisa la conclusión corregida",
+  "paginas_pdf": 25,
+  "pdf_sha256": "ab22a94e08ca728f77bda7814e7a82bb94a79847b8a09a431e3987da5dffbd85",
+  "directorio_render": "/tmp/espacigo-redaccion-tesis-final",
+  "modelo_numerico_sin_cambios": true,
+  "regeneracion_texto_idempotente": true
+}
