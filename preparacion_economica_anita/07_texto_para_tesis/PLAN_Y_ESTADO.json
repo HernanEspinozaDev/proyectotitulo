@@ -46,5 +46,12 @@
   "publicacion": {
     "rama": "main",
     "verificacion": "HEAD local y origin/main se comparan después del push"
+  },
+  "integracion_posterior": {
+    "estado": "integrada por instrucción explícita",
+    "capitulo": "tesis_final/sections/14-capitulo-xiv.md",
+    "anexo": "tesis_final/appendices/h-evaluacion-economica-detallada.md",
+    "tablas_cuerpo": "14–24",
+    "restriccion": "las cifras y las partidas de los flujos se conservan"
   }
 }

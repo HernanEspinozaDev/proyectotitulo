@@ -1,0 +1,77 @@
+{
+  "estado": "correcto",
+  "tablas_cuerpo": 11,
+  "tablas_anexo": 16,
+  "flujos_completos_plantilla": 4,
+  "partidas_por_flujo": 16,
+  "estructura_y_plantilla_conservadas": true,
+  "cifras_iguales_edicion_aprobada": true,
+  "referencias_y_notas_verificadas": true,
+  "archivos_protegidos_sha256": {
+    "tesis_final/document.json": "6ccd1826ad870b39a4e9020707f0fe2926417895b0d08b54a763d606a3c46239",
+    "tesis_final/templates/reference-tihi84.docx": "b804dddcb37e4563ec7276765ae96c681c8d9a7e267e9eb6e1f87e5622b8a43a",
+    "tesis_final/templates/style-profile-inacap.json": "b5bb7ab296acd9bff16d68a1bf4da654a1113556ced1f922e7c8fc707fd7f453",
+    "tesis_final/sections/06-capitulo-vi.md": "e1f159ae3d43b31a1edcdb9c8a658e856236213624c4bc66f78821dcef1fdada",
+    "tesis_final/sections/15-capitulo-xv.md": "c983579941bfdd9c5fb3913f0ba3ab7ffd826da95fe8eb5574cdf3c42c693342",
+    "tesis_final/appendices/g-carta-gantt-detallada.md": "105ea3a665352f2594e04d9915b469df20083bef5b9501f886d3e8f0d86f7099"
+  },
+  "docx_sha256": "a4cc28299892e8990d8b7c5b3f176d5b429fdc26e3671288c39190abeaecb5f0",
+  "paginas_pdf": 543,
+  "paginas_tablas": {
+    "14": 91,
+    "15": 92,
+    "16": 93,
+    "17": 94,
+    "18": 95,
+    "19": 96,
+    "20": 97,
+    "21": 98,
+    "22": 99,
+    "23": 100,
+    "24": 101,
+    "H.1.1": 533,
+    "H.2.1": 534,
+    "H.2.2": 534,
+    "H.3.1": 535,
+    "H.4.1": 535,
+    "H.6.1": 536,
+    "H.7.1": 537,
+    "H.8.1": 538,
+    "H.10.1": 539,
+    "H.10.2": 539,
+    "H.11.1": 540,
+    "H.11.2": 540,
+    "H.12.1": 541,
+    "H.12.2": 541,
+    "H.13.1": 542,
+    "H.13.2": 542
+  },
+  "flujos_completos_en_una_pagina": true,
+  "destinos_indice_tablas_verificados": true,
+  "total_tablas_word": 237,
+  "pdf_sha256": "a941ecea312dfc8f86dcf8d767217addc3fceb2f4bf0346913ce7809f61c374e",
+  "revision_visual": {
+    "estado": "completada",
+    "paginas_renderizadas_pdf": 543,
+    "paginas_comparadas_texto_sin_cambios": 491,
+    "paginas_nuevas_o_modificadas_inspeccionadas": 52,
+    "ultima_correccion": "La fila OE5 queda completa con su nota en la página 80 del PDF; se comprueban páginas 80–81 de la última compilación.",
+    "capitulo_xiv_pdf": [
+      90,
+      101
+    ],
+    "anexo_h_pdf": [
+      533,
+      543
+    ],
+    "render_docx": "/tmp/espacigo-integracion-finanzas/render-final-docx",
+    "render_pdf": "/tmp/espacigo-integracion-finanzas/qa-final",
+    "render_ultima_correccion": "/tmp/espacigo-integracion-finanzas/qa-final-corregida"
+  },
+  "exportacion": {
+    "motor": "LibreOffice del runtime documental; misma sustitución de fuentes que el render oficial",
+    "indices": "actualizados durante la exportación",
+    "actualizacion_campos_word": true
+  },
+  "alcance": "Integración documental y verificación de cifras del escenario aprobado; sin alterar la planificación Gantt ni los cálculos de origen."
+}

@@ -42,7 +42,7 @@ La matriz vincula objetivo, RQF o RNF, historia o caso de uso, contrato técnico
 | OE2 | Vistas de arquitectura y modelo lógico de VII, VIII y X. Correspondencia física en Tabla D.1. | Diseño documentado. PT-02 aporta evidencia local de exclusión temporal para el corte ensayado. |
 | OE3 | LOCAL-1, F5/F6 y contrato del Anexo E. | Evidencia de ensayo local según el alcance de cada perfil del Capítulo XII. |
 | OE4 | Tablas 3 y 12 y pruebas de las tablas F.1 y F.2. | Evidencia parcial en F.3. Carga de extremo a extremo y recuperación conjunta pendientes. |
-| OE5 | Capítulo XIII y Tabla 13. Apartados de factibilidad en Capítulo XIV y Anexo H. | Diseño de operación documentado. La factibilidad económica queda pendiente de integración reservada. |
+| OE5 | Capítulo XIII y Tabla 13. Capítulo XIV, Tablas 14–24 y Anexo H. | Evaluación económica integrada: VAN base negativo al 12 % con 16 pagos mensuales. Se calculan aportes, sensibilidad y metas de volumen. |
 
 *Nota.* Elaboración propia a partir de los entregables y evidencias de la memoria.
 

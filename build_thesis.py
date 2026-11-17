@@ -81,6 +81,11 @@ def main():
         pdf_path = docx_path.with_suffix(".pdf")
         exporter = TESIS_DIR / "scripts" / "exportar_pdf_con_indice.py"
         uno_python = os.environ.get("ESPACIGO_UNO_PYTHON", "/usr/bin/python3")
+        # Usar la misma distribución y sustitución de fuentes que la revisión
+        # visual de DocSkill; el binario del sistema puede cambiar la paginación.
+        runtime_soffice = Path(sys.executable).parents[2] / "bin" / "override" / "soffice"
+        if runtime_soffice.is_file():
+            os.environ.setdefault("ESPACIGO_SOFFICE", str(runtime_soffice))
         try:
             subprocess.run(
                 [uno_python, str(exporter), str(docx_path), str(pdf_path)],

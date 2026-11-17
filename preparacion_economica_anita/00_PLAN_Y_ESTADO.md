@@ -207,3 +207,11 @@ La referencia activa es 06_escenario_adoptado. Se conservan los archivos origina
 Se completa la redacción del Capítulo XIV y del Anexo H en 07_texto_para_tesis. El contenido presenta la evaluación como elaboración del equipo de espaciGo, elimina atribuciones personales y notas de transcripción de hojas/celdas, y expresa las decisiones adoptadas como criterios de la proyección. Las 27 tablas poseen numeración, título y nota de elaboración propia. Las fuentes externas mantienen su cita metodológica o bibliográfica.
 
 La entrega editorial contiene 25 páginas y 27 tablas editables. Se comprueban cifras y referencias cuerpo/anexo, se inspeccionan las páginas y se elimina una página final con un solo párrafo. El modelo 06 y sus resultados permanecen idénticos. Las transcripciones de las 26 hojas y el informe original se conservan fuera de la edición publicable; la tesis principal no se modifica todavía.
+
+## Integración autorizada a la tesis principal
+
+El propietario solicita incorporar la evaluación respetando la estructura de la tesis y la plantilla del flujo de caja. Se integran el Capítulo XIV y el Anexo H, con once tablas del cuerpo numeradas 14–24 y dieciséis tablas del anexo. Se mantienen las cuatro alternativas de flujo y sus dieciséis partidas; las cifras coinciden con la edición académica corregida. La bibliografía se centraliza en el Capítulo XVII.
+
+El Canvas, el seguimiento de OE5, las conclusiones y la organización de anexos se actualizan para reflejar la evaluación integrada. El manifiesto, la plantilla institucional y los apartados de Gantt permanecen intactos. El seguimiento y las comprobaciones se registran en tesis_final/context/01_auditorias_y_rubricas/TASK_integracion_economica.md y verificacion_integracion_economica.json.
+
+La integración final queda compilada y revisada: 543 páginas, 237 tablas nativas y 27 tablas económicas. Los flujos completos y las referencias del índice se verifican en el PDF. La entrega principal ya corresponde a tesis_final/build/Tesis_Final_espaciGo.docx y .pdf.

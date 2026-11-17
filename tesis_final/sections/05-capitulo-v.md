@@ -63,11 +63,11 @@ El lienzo sintetiza las hipótesis de intermediación y las dependencias del ser
 | Segmentos | Personas y organizaciones que ofrecen o requieren espacios para alojamiento, recreación, comercio, industria u otros usos contemplados. |
 | Canales | Aplicación web y publicación de espacios por su titular. |
 | Relación | Autoservicio y soporte para incidencias y conciliación. |
-| Ingresos | Comisión de intermediación como hipótesis del modelo. |
+| Ingresos | Comisión neta del 3 % más IVA por cada pago procesado, descontada al arrendador junto con el cargo de pasarela. El Capítulo XIV desarrolla la proyección. |
 | Recursos | Plataforma web, registro de ocupación y evidencias privadas. |
 | Actividades | Mantener el catálogo y coordinar contratación, cobros y operación. |
 | Socios | Proveedores de pagos y firma sujetos a validación de integración. |
-| Costos | Infraestructura, integraciones y operación. El análisis detallado se integra en los apartados reservados del Capítulo XIV y el Anexo H. |
+| Costos | Infraestructura, integraciones y operación. El Capítulo XIV y el Anexo H presentan el presupuesto, los flujos de caja y su evaluación financiera. |
 
 *Nota.* Elaboración propia. El lienzo describe el modelo propuesto para evaluación.
 

@@ -10,6 +10,6 @@ Para reconstruir con el Python del entorno documental: `scripts/reconstruir_text
 
 El documento presenta presupuestos y resultados proyectados; no los convierte en ventas, pagos, contratos o constitución efectiva. Se eliminan expresiones de ratificación pendiente de las decisiones ya adoptadas. La tasa del 27 % mantiene su carácter de criterio financiero del ejercicio, sin atribuirla a la tributación legal efectiva.
 
-La tesis principal no se altera en esta entrega. La numeración del capítulo y del anexo se conserva como unidad para la posterior integración.
+La edición se integra por instrucción del propietario en el Capítulo XIV y Anexo H de tesis_final. La tesis conserva su numeración correlativa de tablas del cuerpo: las once tablas económicas se incorporan como Tablas 14–24. El formato y las cifras de los flujos se conservan; la bibliografía se integra en el Capítulo XVII. El Word y PDF principales se regeneran con build_thesis.py.
 
 Entrega verificada: 25 páginas en PDF y 27 tablas nativas en Word. El cálculo del escenario 06 permanece idéntico al corte numérico anterior.
