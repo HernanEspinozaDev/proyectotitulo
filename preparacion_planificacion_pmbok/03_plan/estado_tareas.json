@@ -122,16 +122,23 @@
       "depende_de": [
         "P11"
       ],
-      "estado": "en curso",
+      "estado": "terminada",
       "criterio_finalizacion": "Fuentes, informe, Gantt y verificación versionados en `main`; Word/PDF completos enlazados y registro claro de lo integrado y de las comprobaciones que dependen del desarrollo.",
-      "evidencia": "Entrega compilada y comprobada; publicación en main en curso."
+      "evidencia": "Publicación confirmada en origin/main, commit de contenido bfbff94; Word/PDF y archivos editables incluidos."
     }
   ],
   "criterio_estado": "marcar terminada solo con entregable verificable y comprobación de aceptación",
   "autorizacion": "el propietario autoriza elaborar la planificación previamente reservada, sin esperar material adicional de Erick",
   "proximas_entradas": "evidencia histórica por entregable y estimaciones del trabajo restante; no bloquean la definición del plan",
-  "siguiente_tarea": "P12",
+  "siguiente_tarea": null,
   "tesis_modificada_en_este_corte": true,
   "mpp_original_modificado": false,
-  "fecha_actualizacion": "2026-11-17"
+  "fecha_actualizacion": "2026-11-17",
+  "estado_global": "plan de corrección documental terminado",
+  "publicacion": {
+    "rama": "main",
+    "commit_contenido": "bfbff94",
+    "estado": "push confirmado",
+    "fecha": "2026-11-17"
+  }
 }

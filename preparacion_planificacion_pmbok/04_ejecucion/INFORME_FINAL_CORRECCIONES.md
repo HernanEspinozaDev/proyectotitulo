@@ -45,3 +45,7 @@ El intercambio `Cronograma_espaciGo_Project.xml` contiene 28 resúmenes EDT, 63 
 - Word renderizado mediante `render_docx.py`; PDF completo renderizado y páginas modificadas inspeccionadas. Se corrigen diagramas divididos, columnas estrechas y títulos de ficha huérfanos.
 
 Los archivos `CIERRE_DE_BRECHAS.md`, `verificacion_integracion_planificacion.json`, `verificacion_word_pdf.json` y `REVISION_INDEPENDIENTE.md` permiten revisar cada corrección y sus límites. `FUENTES_Y_REGENERACION.md` explica cómo regenerar los entregables.
+
+## Cierre del plan
+
+Las doce tareas quedan terminadas. La publicación de contenido se confirma en `origin/main`, commit `bfbff94`. El estado de las tareas conserva el cierre P01–P12 y enlaza sus evidencias. La terminación corresponde a la corrección documental; no acredita ejecución futura de las actividades ni habilitación productiva.
