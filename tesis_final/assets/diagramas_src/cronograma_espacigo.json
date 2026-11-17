@@ -731,8 +731,8 @@
       "responsable": "H",
       "horas": 8,
       "predecesoras": [
-        "A02",
-        "A03"
+        "G02",
+        "G03"
       ],
       "grupo": "Análisis y diseño",
       "mpp_ids": [
@@ -1461,7 +1461,7 @@
       "responsable": "E",
       "horas": 8,
       "predecesoras": [
-        "M05"
+        "M02"
       ],
       "grupo": "AWS y aceptación",
       "mpp_ids": [
@@ -1483,7 +1483,7 @@
       "responsable": "E",
       "horas": 8,
       "predecesoras": [
-        "Q06"
+        "M03"
       ],
       "grupo": "AWS y aceptación",
       "mpp_ids": [
@@ -1505,6 +1505,8 @@
       "responsable": "E",
       "horas": 8,
       "predecesoras": [
+        "M05",
+        "Q06",
         "Q07",
         "W02"
       ],
@@ -1592,7 +1594,6 @@
       "responsable": "A",
       "horas": 24,
       "predecesoras": [
-        "M03",
         "A05"
       ],
       "grupo": "Informe y evaluación",
@@ -1900,7 +1901,13 @@
   "origen_mpp": {
     "sha256": "5140243dc56e6c7555ef9e7b0899b7e2ee11f9f12ac7b067d3116191ed5ba2a3",
     "filas": 33,
-    "horas_asignaciones": 1320
+    "horas_asignaciones": 1320,
+    "tratamiento_hitos": {
+      "14": "antecedente de evaluación no trasladado a fecha nueva no confirmada",
+      "23": "antecedente de evaluación no trasladado a fecha nueva no confirmada",
+      "28": "ENT: entrega del 01-12-2026",
+      "33": "separación en ENT y DEF: defensa del 09-12-2026"
+    }
   },
   "evidencias_corte": [
     {

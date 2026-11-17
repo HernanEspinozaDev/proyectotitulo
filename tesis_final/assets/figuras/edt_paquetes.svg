@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="543.109091pt" height="651.96pt" viewBox="0 0 543.109091 651.96" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-17T00:09:31.761675</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 651.96
+L 543.109091 651.96
+L 543.109091 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start" x="7.2" y="17.077969" transform="rotate(-0 7.2 17.077969)">1.1 · Gobierno</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start" x="12.183413" y="48.918926" transform="rotate(-0 12.183413 48.918926)">1.1.1 Acuerdo de gobierno y equipo</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start" x="12.183413" y="81.519727" transform="rotate(-0 12.183413 81.519727)">1.1.2 Enunciado de alcance y EDT</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start" x="12.183413" y="114.120529" transform="rotate(-0 12.183413 114.120529)">1.1.3 Modelo del cronograma</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(12.183413 147.922502)">1.1.4 Presupuesto y criterios de</text>
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(12.183413 162.805783)">adquisición</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(12.183413 180.523303)">1.1.5 Registro de riesgos y</text>
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(12.183413 194.926584)">cambios</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start" x="286.738466" y="17.597969" transform="rotate(-0 286.738466 17.597969)">1.2 · Análisis</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(291.721878 50.600098)">1.2.1 Diagnóstico y procesos de</text>
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(291.721878 65.003379)">referencia</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start" x="291.721878" y="81.999727" transform="rotate(-0 291.721878 81.999727)">1.2.2 Especificación funcional</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start" x="291.721878" y="114.600529" transform="rotate(-0 291.721878 114.600529)">1.2.3 Especificación de calidad</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start" x="291.721878" y="146.72133" transform="rotate(-0 291.721878 146.72133)">1.2.4 Historias y casos de uso</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start" x="291.721878" y="179.322131" transform="rotate(-0 291.721878 179.322131)">1.2.5 Matriz de trazabilidad</text>
+   </g>
+  </g>
+  <g id="axes_3">
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start" x="7.2" y="233.980465" transform="rotate(-0 7.2 233.980465)">1.3 · Arquitectura y datos</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(12.183413 267.022594)">1.3.1 Vistas de arquitectura</text>
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(12.183413 281.425876)">empresarial</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start" x="12.183413" y="298.422224" transform="rotate(-0 12.183413 298.422224)">1.3.2 Arquitectura de software</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(12.183413 332.224197)">1.3.3 Modelo relacional y</text>
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(12.183413 346.627478)">geoespacial</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(12.183413 365.029373)">1.3.4 Diseño de seguridad y</text>
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(12.183413 379.432654)">privacidad</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start" x="12.183413" y="396.224627" transform="rotate(-0 12.183413 396.224627)">1.3.5 Contratos de interfaz</text>
+   </g>
+  </g>
+  <g id="axes_4">
+   <g id="text_19">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start" x="286.738466" y="234.500465" transform="rotate(-0 286.738466 234.500465)">1.4 · Construcción incremental</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(291.721878 267.022594)">1.4.1 Incremento de identidad y</text>
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(291.721878 281.424938)">acceso</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(291.721878 300.103396)">1.4.2 Incremento de catálogo y</text>
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(291.721878 314.986677)">búsqueda</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(291.721878 332.704197)">1.4.3 Incremento de contratación y</text>
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(291.721878 347.107478)">cobros</text>
+   </g>
+   <g id="text_23">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(291.721878 364.824998)">1.4.4 Incremento documental y</text>
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(291.721878 379.228279)">avisos</text>
+   </g>
+   <g id="text_24">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(291.721878 397.905799)">1.4.5 Incremento de administración</text>
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(291.721878 412.78908)">y auditoría</text>
+   </g>
+  </g>
+  <g id="axes_5">
+   <g id="text_25">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start" x="7.2" y="450.882961" transform="rotate(-0 7.2 450.882961)">1.5 · Calidad</text>
+   </g>
+   <g id="text_26">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start" x="12.183413" y="483.203919" transform="rotate(-0 12.183413 483.203919)">1.5.1 Verificación de incrementos</text>
+   </g>
+   <g id="text_27">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start" x="12.183413" y="515.80472" transform="rotate(-0 12.183413 515.80472)">1.5.2 Evaluación de rendimiento</text>
+   </g>
+   <g id="text_28">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start" x="12.183413" y="548.405521" transform="rotate(-0 12.183413 548.405521)">1.5.3 Evaluación de recuperación</text>
+   </g>
+   <g id="text_29">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(12.183413 582.207494)">1.5.4 Verificación de</text>
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(12.183413 596.610775)">ciberseguridad</text>
+   </g>
+  </g>
+  <g id="axes_6">
+   <g id="text_30">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start" x="286.738466" y="451.402961" transform="rotate(-0 286.738466 451.402961)">1.6 · Transición y cierre</text>
+   </g>
+   <g id="text_31">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(291.721878 484.405091)">1.6.1 Configuración y entrega</text>
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(291.721878 499.288372)">técnica</text>
+   </g>
+   <g id="text_32">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start" x="291.721878" y="515.80472" transform="rotate(-0 291.721878 515.80472)">1.6.2 Evaluación económica</text>
+   </g>
+   <g id="text_33">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(291.721878 549.606693)">1.6.3 Preparación societaria y</text>
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(291.721878 564.009974)">tributaria</text>
+   </g>
+   <g id="text_34">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(291.721878 582.207494)">1.6.4 Informe, demostración y</text>
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'" transform="translate(291.721878 596.610775)">defensa</text>
+   </g>
+  </g>
+ </g>
+</svg>

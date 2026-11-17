@@ -77,18 +77,25 @@
   "capacidad": "el costo AWS de referencia no acredita capacidad para volúmenes mayores",
   "desarrollo_valorizado": {
     "valor_total_preoperativo_clp": "6240000",
-    "interpretacion": "valoración global del desarrollo para alcanzar funcionalidad antes del lanzamiento; interpretación propuesta a partir de la aclaración del propietario",
+    "interpretacion": "Presupuesto global de 960 horas valorizadas: 632 académicas, 36 defensa, 40 transición y 252 de reserva; no acredita trabajo real ni pagos.",
     "reparto_trabajo_pasado_futuro": null,
     "desembolso_confirmado_clp": null,
     "capitalizacion_contable_confirmada": false,
     "horas_fuente": 960,
     "tarifa_hora_fuente_clp": 6500,
-    "capacidad_planificada_horas": 360,
-    "valor_capacidad_planificada_clp": 2340000,
+    "capacidad_planificada_horas": 960,
+    "valor_capacidad_planificada_clp": 6240000,
     "horas_ejecutadas_con_evidencia": null,
-    "horas_pendientes_estimadas": null
+    "horas_pendientes_estimadas": null,
+    "horas_asignadas_academicas": 632,
+    "horas_asignadas_defensa": 36,
+    "horas_asignadas_transicion": 40,
+    "horas_asignadas_totales": 708,
+    "horas_reserva_presupuestaria": 252,
+    "horas_capacidad_base_sin_asignar": 328,
+    "fuente_programacion": "preparacion_planificacion_pmbok/04_ejecucion/calculo_cronograma.json"
   },
-  "fecha_lanzamiento_objetivo": "2027-01",
+  "fecha_lanzamiento_objetivo": "2027-01-01",
   "estado": "hipótesis de simulación adoptadas por instrucción del propietario; no ventas ni contratos verificados",
   "calendario": {
     "meses_facturacion_anual": [

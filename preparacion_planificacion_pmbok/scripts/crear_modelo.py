@@ -73,7 +73,7 @@ def main():
     add('A03','1.2.3','Especificar requisitos de calidad','E',12,'A01 G05','Análisis y diseño',[2])
     add('A04','1.2.4','Modelar historias y casos de uso','A',20,'A02','Análisis y diseño',[2])
     add('A05','1.2.5','Relacionar requisitos, casos y pruebas','A',8,'A04 A03','Análisis y diseño')
-    add('D01','1.3.1','Definir vistas de arquitectura empresarial','H',8,'A02 A03','Análisis y diseño',[3])
+    add('D01','1.3.1','Definir vistas de arquitectura empresarial','H',8,'G02 G03','Análisis y diseño',[3])
     add('D02','1.3.2','Diseñar dominio y adaptadores','H',12,'D01','Análisis y diseño',[3])
     add('D03','1.3.3','Modelar datos y restricciones geoespaciales','H',20,'D02','Análisis y diseño',[3])
     add('D04','1.3.4','Diseñar sesiones, permisos y privacidad','E',12,'D02 A03','Análisis y diseño',[3])
@@ -108,14 +108,14 @@ def main():
     # La transición AWS no se sitúa retrospectivamente antes de su decisión.
     add('W01','1.6.1','Conciliar diseño con decisión AWS','H',8,'D05','AWS y aceptación',[4], '2026-11-16')
     add('W02','1.6.1','Revisar adaptadores e IaC del corte AWS','E',12,'W01 L01','AWS y aceptación',[4], '2026-11-16')
-    add('Q06','1.5.2','Revisar rendimiento local y plan integrado','E',8,'M05','AWS y aceptación',[31])
-    add('Q07','1.5.3','Revisar recuperación local y criterios RPO/RTO','E',8,'Q06','AWS y aceptación',[31])
-    add('Q08','1.5.4','Revisar permisos, regresión y hallazgos','E',8,'Q07 W02','AWS y aceptación',[31])
+    add('Q06','1.5.2','Revisar rendimiento local y plan integrado','E',8,'M02','AWS y aceptación',[31])
+    add('Q07','1.5.3','Revisar recuperación local y criterios RPO/RTO','E',8,'M03','AWS y aceptación',[31])
+    add('Q08','1.5.4','Revisar permisos, regresión y hallazgos','E',8,'M05 Q06 Q07 W02','AWS y aceptación',[31])
     add('Q09','1.5.1','Conciliar aceptación del corte académico','H',8,'Q08 M05','AWS y aceptación',[31])
     # Documentación y evaluación corren en paralelo, pero el cierre reúne ambas.
     add('F01','1.6.2','Conciliar flujos y sensibilidad financiera','A',16,'G04 A05','Informe y evaluación', [], '2026-11-16')
     add('F02','1.6.3','Definir preparación societaria y presupuesto','A',4,'G04','Informe y evaluación')
-    add('R01','1.6.4','Redactar y revisar capítulos y anexos','A',24,'M03 A05','Informe y evaluación',[32])
+    add('R01','1.6.4','Redactar y revisar capítulos y anexos','A',24,'A05','Informe y evaluación',[32])
     add('R02','1.6.4','Revisar trazabilidad de arquitectura y datos','H',8,'M05 W01','Informe y evaluación',[32])
     add('R03','1.1.3','Revisar red, recursos e hitos del plan','E',8,'Q08','Informe y evaluación',[32])
     add('R04','1.6.4','Integrar informe y evidencia de entrega','A',8,'F01 F02 R01 R02 R03 Q09','Informe y evaluación',[32])
@@ -146,6 +146,7 @@ def main():
               {'fecha':'2026-11-16','hecho':'Evaluación económica integrada en XIV/H.','fuente':'Commit 0a1bad6 del repositorio de tesis.'}],
           'criterio_proveedores':'Los ensayos controlados del corte académico se distinguen de habilitación y prueba productiva; las tareas programadas no acreditan ejecución.',
           'estado_transicion':'Preparación propuesta del 10–31 de diciembre, con aceptación propia y comienzo comercial financiero el 01-01-2027.'}
+    data['origen_mpp']['tratamiento_hitos']={'14':'antecedente de evaluación no trasladado a fecha nueva no confirmada','23':'antecedente de evaluación no trasladado a fecha nueva no confirmada','28':'ENT: entrega del 01-12-2026','33':'separación en ENT y DEF: defensa del 09-12-2026'}
     TARGET.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
     print('Paquetes',len(packages),'actividades',len(tasks),'horas',sum(t['horas'] for t in tasks))
 

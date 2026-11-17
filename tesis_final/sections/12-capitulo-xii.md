@@ -36,3 +36,7 @@ El modelo de calidad se organiza según ISO/IEC 25010 [@iso25010]. Los criterios
 El corte 3dc1c18 incorpora adaptadores S3, configuración Terraform local y flujos de calidad de aplicación, frontend, base de datos e infraestructura. La inspección documental identifica esos artefactos y los endpoints del emulador. La aceptación exige registrar la ejecución de las pruebas del adaptador, las denegaciones de acceso y el ciclo de carga, lectura y borrado de documentos cifrados por versión.
 
 El despliegue AWS requiere ensayos independientes sobre Fargate, RDS y S3. PT-09 y PT-10 miden capacidad y latencia de extremo a extremo. PT-11 y PT-16 comprueban recuperación conjunta, permisos y supresiones. El estado de las pruebas del entorno objetivo se registra en la Tabla F.4. Las cifras históricas de F5, F6 y carga SQL permanecen asociadas a su corte de origen.
+
+### 12.4. Vinculación con la planificación de calidad
+
+Las actividades Q01–Q05 del Anexo G verifican integración por incremento; Q06/Q07 revisan evidencia local de rendimiento y recuperación y los criterios del ensayo integrado. Q08 reúne regresión y permisos, y Q09 concilia la aceptación del corte académico. Las fechas de esas actividades representan programación; los resultados efectivamente comprobados se conservan en este capítulo y en el Anexo F. La aceptación de la entrega académica identifica sus límites y no cierra por calendario las verificaciones externas pendientes.

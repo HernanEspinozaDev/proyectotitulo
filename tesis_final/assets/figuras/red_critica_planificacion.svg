@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="515.52pt" height="568.694988pt" viewBox="0 0 515.52 568.694988" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-17T00:09:31.336575</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 568.694988
+L 515.52 568.694988
+L 515.52 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="text_1">
+    <g id="patch_2">
+     <path d="M 229.698047 93.033445
+L 340.541953 93.033445
+Q 344.941953 93.033445 344.941953 88.633445
+L 344.941953 35.195789
+Q 344.941953 30.795789 340.541953 30.795789
+L 229.698047 30.795789
+Q 225.298047 30.795789 225.298047 35.195789
+L 225.298047 88.633445
+Q 225.298047 93.033445 229.698047 93.033445
+z
+" style="fill: #eef2f5; stroke: #222222; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(272.683125 44.654285)">W01</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(229.698047 58.044636)">Conciliar diseño con</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(248.308672 71.687644)">decisión AWS</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(256.518281 84.889793)">16–17 nov</text>
+   </g>
+   <g id="text_2">
+    <g id="patch_3">
+     <path d="M 212.922188 165.672596
+L 357.317813 165.672596
+Q 361.717813 165.672596 361.717813 161.272596
+L 361.717813 108.462283
+Q 361.717813 104.062283 357.317813 104.062283
+L 212.922188 104.062283
+Q 208.522188 104.062283 208.522188 108.462283
+L 208.522188 161.272596
+Q 208.522188 165.672596 212.922188 165.672596
+z
+" style="fill: #eef2f5; stroke: #222222; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(272.683125 117.920779)">W02</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(212.922188 131.123787)">Revisar adaptadores e IaC</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(246.638047 144.326795)">del corte AWS</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(256.518281 157.528943)">18–20 nov</text>
+   </g>
+   <g id="text_3">
+    <g id="patch_4">
+     <path d="M 208.831563 238.845418
+L 361.408437 238.845418
+Q 365.808438 238.845418 365.808438 234.445418
+L 365.808438 181.195105
+Q 365.808438 176.795105 361.408437 176.795105
+L 208.831563 176.795105
+Q 204.431563 176.795105 204.431563 181.195105
+L 204.431563 234.445418
+Q 204.431563 238.845418 208.831563 238.845418
+z
+" style="fill: #eef2f5; stroke: #222222; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(273.791719 190.653602)">Q08</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(208.831563 204.296609)">Revisar permisos, regresión</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(254.225469 217.499617)">y hallazgos</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(256.518281 230.701766)">23–24 nov</text>
+   </g>
+   <g id="text_4">
+    <g id="patch_5">
+     <path d="M 107.489062 321.137343
+L 239.550937 321.137343
+Q 243.950938 321.137343 243.950938 316.737343
+L 243.950938 263.047031
+Q 243.950938 258.647031 239.550937 258.647031
+L 107.489062 258.647031
+Q 103.089062 258.647031 103.089062 263.047031
+L 103.089062 316.737343
+Q 103.089062 321.137343 107.489062 321.137343
+z
+" style="fill: #eef2f5; stroke: #222222; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(162.191719 272.505527)">Q09</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(107.489062 286.148535)">Conciliar aceptación del</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(127.665469 299.791542)">corte académico</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(144.918281 312.993691)">25–26 nov</text>
+   </g>
+   <g id="text_5">
+    <g id="patch_6">
+     <path d="M 333.698594 320.697343
+L 459.741406 320.697343
+Q 464.141406 320.697343 464.141406 316.297343
+L 464.141406 263.487031
+Q 464.141406 259.087031 459.741406 259.087031
+L 333.698594 259.087031
+Q 329.298594 259.087031 329.298594 263.487031
+L 329.298594 316.297343
+Q 329.298594 320.697343 333.698594 320.697343
+z
+" style="fill: #eef2f5; stroke: #222222; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(385.899609 272.945527)">R03</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(333.698594 286.148535)">Revisar red, recursos e</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(359.544297 299.351542)">hitos del plan</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(368.118281 312.553691)">25–26 nov</text>
+   </g>
+   <g id="text_6">
+    <g id="patch_7">
+     <path d="M 226.884453 411.888371
+L 343.355547 411.888371
+Q 347.755547 411.888371 347.755547 407.488371
+L 347.755547 354.678059
+Q 347.755547 350.278059 343.355547 350.278059
+L 226.884453 350.278059
+Q 222.484453 350.278059 222.484453 354.678059
+L 222.484453 407.488371
+Q 222.484453 411.888371 226.884453 411.888371
+z
+" style="fill: #eef2f5; stroke: #222222; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(274.299609 364.136555)">R04</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(235.114688 377.339563)">Integrar informe y</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(226.884453 390.54257)">evidencia de entrega</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(256.518281 403.744719)">27–30 nov</text>
+   </g>
+   <g id="text_7">
+    <g id="patch_8">
+     <path d="M 208.334844 478.45969
+L 361.905156 478.45969
+Q 366.305156 478.45969 366.305156 474.05969
+L 366.305156 434.012385
+Q 366.305156 429.612385 361.905156 429.612385
+L 208.334844 429.612385
+Q 203.934844 429.612385 203.934844 434.012385
+L 203.934844 474.05969
+Q 203.934844 478.45969 208.334844 478.45969
+z
+" style="fill: #eef2f5; stroke: #222222; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(277.780078 443.470881)">C0</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(208.334844 457.113889)">Corte académico preparado</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'" transform="translate(266.267031 470.316037)">30 nov</text>
+   </g>
+   <g id="patch_9">
+    <path d="M 285.12 96.534784
+Q 285.12 98.547061 285.12 99.441304
+" style="fill: none; stroke: #000000; stroke-linecap: round"/>
+    <path d="M 287.42 94.841304
+L 285.12 99.441304
+L 282.82 94.841304
+" style="fill: none; stroke: #000000; stroke-linecap: round"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 285.12 169.173472
+Q 285.12 171.233332 285.12 172.175158
+" style="fill: none; stroke: #000000; stroke-linecap: round"/>
+    <path d="M 287.42 167.575158
+L 285.12 172.175158
+L 282.82 167.575158
+" style="fill: none; stroke: #000000; stroke-linecap: round"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 239.83295 241.12488
+Q 229.466931 248.748169 220.001607 255.709078
+" style="fill: none; stroke: #000000; stroke-linecap: round"/>
+    <path d="M 225.070033 254.836693
+L 220.001607 255.709078
+L 222.344755 251.130906
+" style="fill: none; stroke: #000000; stroke-linecap: round"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 330.40592 241.124048
+Q 341.07109 248.967338 350.835567 256.148246
+" style="fill: none; stroke: #000000; stroke-linecap: round"/>
+    <path d="M 348.492419 251.570074
+L 350.835567 256.148246
+L 345.76714 255.275861
+" style="fill: none; stroke: #000000; stroke-linecap: round"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 356.083691 323.097086
+Q 340.918039 335.489304 326.618145 347.174089
+" style="fill: none; stroke: #000000; stroke-linecap: round"/>
+    <path d="M 331.635513 346.044478
+L 326.618145 347.174089
+L 328.724877 342.482428
+" style="fill: none; stroke: #000000; stroke-linecap: round"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 214.69209 323.534886
+Q 229.587956 335.706655 243.618064 347.170991
+" style="fill: none; stroke: #000000; stroke-linecap: round"/>
+    <path d="M 241.511332 342.47933
+L 243.618064 347.170991
+L 238.600696 346.04138
+" style="fill: none; stroke: #000000; stroke-linecap: round"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 285.12 415.39088
+Q 285.12 420.752763 285.12 424.996612
+" style="fill: none; stroke: #000000; stroke-linecap: round"/>
+    <path d="M 287.42 420.396612
+L 285.12 424.996612
+L 282.82 420.396612
+" style="fill: none; stroke: #000000; stroke-linecap: round"/>
+   </g>
+  </g>
+  <g id="text_8">
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'" transform="translate(7.2 547.269539)">Dos ramas críticas convergen en R04. El cuadro G.5 contiene toda la red y sus holguras.</text>
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'" transform="translate(7.2 558.432)">Liberación AWS: 16-11-2026. La disponibilidad de personas se incluye en el cálculo.</text>
+  </g>
+ </g>
+</svg>

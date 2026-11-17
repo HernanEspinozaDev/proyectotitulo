@@ -1,0 +1,12 @@
+{
+  "naturaleza": "Ensayo de secuenciación inicial; no línea base histórica aprobada",
+  "horas_totales": 708,
+  "horas_base": 632,
+  "hitos_calculados": {
+    "C0": "2026-12-14T13:00:00",
+    "ENT": "2026-12-14T13:00:00",
+    "DEF": "2026-12-17T13:00:00",
+    "COM": "2027-01-01T09:00:00"
+  },
+  "problema": "Diseño espera especificación completa y pruebas transversales se concentran al final."
+}

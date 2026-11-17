@@ -10,7 +10,7 @@ Se aplica la propuesta en una preparación separada, preservando la secuencia de
 - Ocho perfiles de 48 meses, escenarios comerciales de Anita comparables y once sensibilidades.
 - Asignaciones conjuntas condicionadas a caja propia; deuda y reposición con reservas de liquidez, sin duplicar el gasto efectivo.
 - Reposición de estrés de CLP 900.000 en 2029 y cierre prudente sin ingreso por venta ni perpetuidad.
-- Valorización de desarrollo de CLP 6.240.000 trazada a 960 horas; capacidad propuesta de 360 horas diferenciada de trabajo restante demostrado.
+- Valorización presupuestaria de CLP 6.240.000 para 960 horas nominales; el plan vigente asigna 632 horas académicas, 36 de defensa y 40 de transición. La reserva presupuestaria de 252 horas se distingue de las 328 horas de capacidad base libre. No se acreditan horas ejecutadas, remuneraciones ni egresos de caja.
 - Demanda: plan de fichas, entrevistas y observación del piloto, con plantillas disponibles; no se inventan resultados.
 
 ## Resultado y límites

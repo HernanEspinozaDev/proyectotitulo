@@ -39,7 +39,7 @@ El escenario mantiene constantes el número de pagos y el ticket durante el hori
 
 El equipo de espaciGo aporta el trabajo de desarrollo y utiliza tres notebooks y un teléfono de propiedad personal y uso compartido. La evaluación no contempla su compra inicial ni su transferencia al patrimonio de la empresa. En consecuencia, el flujo registra CLP 0 de desembolso inicial por estos equipos y no incorpora su venta al cierre.
 
-El desarrollo se valoriza en CLP 6.240.000, equivalentes a 960 horas a CLP 6.500 por hora. Esta valorización mide el trabajo preoperativo del equipo y se analiza separadamente de los desembolsos de caja. El presupuesto de preparación y lanzamiento asciende a CLP 1.200.000 e incluye formalización, asesoría, contenidos, campaña de lanzamiento y contingencia. La Tabla 14.2 distingue el tratamiento de cada recurso.
+El presupuesto de valoración del desarrollo asciende a CLP 6.240.000 y corresponde a 960 horas nominales a CLP 6.500 por hora. De esa capacidad, el plan vigente asigna 632 horas al bloque académico hasta el 30 de noviembre, 36 horas a la defensa y 40 horas a la transición preoperativa. No hay horas reales acreditadas; la valoración no constituye remuneración ni egreso de caja. El presupuesto de preparación y lanzamiento asciende a CLP 1.200.000 e incluye formalización, asesoría, contenidos, campaña de lanzamiento y contingencia. La Tabla 14.2 distingue el tratamiento de cada recurso.
 
 **Tabla 14.2**
 

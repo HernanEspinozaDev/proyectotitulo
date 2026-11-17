@@ -16,6 +16,8 @@ El aporte en ciberseguridad incorpora autorización por recurso y por finalidad 
 
 La decisión vigente orienta la infraestructura a AWS con desarrollo local mediante aws-emulator. Los adaptadores S3 y los módulos Terraform aportan una base construida para esa transición. La operación objetivo reúne web y API en Fargate y separa persistencia RDS y objetos S3. El despliegue y la validación cloud mantienen su propia evidencia pendiente. La región de Chile constituye una posibilidad de evolución respaldada por su anuncio oficial, sujeta a disponibilidad y habilitación del proyecto [@awschile2026].
 
+La planificación integra 28 paquetes de entregables y una programación trazable con responsables, calendario y dependencias. El programa asigna 632 horas académicas y 76 de defensa y transición, diferenciadas de las horas reales y de los desembolsos. El cierre calculado al 30 de noviembre permite la entrega del 1 de diciembre bajo el calendario nominal, con cero jornadas completas de margen; esta condición exige control del tramo crítico y revisión ante cambios de disponibilidad. La evaluación comercial conserva su inicio en enero de 2027.
+
 ### 16.3. Limitaciones
 
 La evidencia se concentra en escenarios sintéticos y cortes de ensayo. El catálogo vigente incluye Inmuebles, con los tipos casa, departamento, habitación y cabaña. Una casa de veraneo puede describirse como casa según la modalidad publicada. Los hostales ilustran un uso objetivo. El Anexo E describe el catálogo y el Capítulo XII delimita la evidencia de ejecución. El modelo conserva una unidad reservable exclusiva y el inventario compartido o de múltiples unidades requiere una especificación propia. La operación con clientes requiere verificar integraciones, recuperación conjunta de datos y archivos y el comportamiento bajo carga del entorno objetivo.
@@ -24,11 +26,11 @@ La evidencia se concentra en escenarios sintéticos y cortes de ensayo. El catá
 
 El siguiente incremento completa la demostración local del recorrido sin firma ni garantía. La integración de firma y la habilitación de garantía requieren verificaciones separadas. La preparación de un piloto también exige un ensayo de recuperación conjunta y medición de carga en el entorno objetivo.
 
-**Figura 18**\
+**Figura 19**\
 *Dependencias de los siguientes incrementos*
 
 ![](assets/figuras/fig23_hoja_ruta_tecnologica.png){height=14cm}
 
 *Nota.* Elaboración propia. La figura muestra dependencias de verificación e integración.
 
-La Figura 18 relaciona los incrementos de integración y los ensayos necesarios para preparar el piloto. El piloto puede medir conversión, tiempo de coordinación e incidencias por segmento. La recurrencia, la subdivisión, el aforo compartido y la validación de firmas externas permanecen diferidos según el ADR vigente.
+La Figura 19 relaciona los incrementos de integración y los ensayos necesarios para preparar el piloto. El piloto puede medir conversión, tiempo de coordinación e incidencias por segmento. La recurrencia, la subdivisión, el aforo compartido y la validación de firmas externas permanecen diferidos según el ADR vigente.

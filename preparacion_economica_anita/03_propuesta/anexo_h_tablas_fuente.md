@@ -1756,9 +1756,9 @@ El capital modelado de comisión por cobrar ya está en el flujo por variación 
 
 ## H.40. Desarrollo, decisiones y trazabilidad
 
-Anita fundamenta los CLP 6.240.000 en 16 semanas × 20 horas × tres integrantes = 960 horas, a CLP 6.500 por hora. El importe es valorización preoperativa global y no un desembolso contratado. No se atribuye un porcentaje realizado a partir de commits, funciones o semanas transcurridas. Las horas ejecutadas y restantes continúan sin registro verificado.
+El cronograma académico vigente asigna 632 horas entre el 11 de agosto y el 30 de noviembre de 2026. La capacidad nominal del bloque es de 960 horas, equivalente a 320 por integrante y veinte horas semanales durante dieciséis semanas. A CLP 6.500 por hora, el presupuesto valorizado asciende a CLP 6.240.000. No existen horas reales acreditadas; el importe no representa remuneraciones ni egreso de caja.
 
-La propuesta adoptada reserva como capacidad de planificación seis semanas hasta fines de diciembre, veinte horas por integrante y semana: 360 horas, valorizadas en CLP 2.340.000. Capacidad disponible no significa estimación del backlog. El registro de tareas distingue ejecutado con evidencia, restante mínimo/central/máximo e incertidumbre. No se modifica la planificación de Erick.
+Después del bloque académico se asignan 36 horas a la defensa y 40 horas a la transición preoperativa, para un total de 708 horas. La reserva presupuestaria es de 252 horas, equivalente a CLP 1.638.000, mientras que el valor de las horas asignadas asciende a CLP 4.602.000. La capacidad nominal base libre es de 328 horas, 76 horas superior a la reserva, porque esta última también descuenta las actividades posteriores a la entrega. La transición se programa del 10 al 31 de diciembre y la operación comienza el 1 de enero de 2027. El registro no acredita ejecución ni pago.
 
 **Tabla H.40.1**
 *Quiebre al exigir recuperar también la valorización global*

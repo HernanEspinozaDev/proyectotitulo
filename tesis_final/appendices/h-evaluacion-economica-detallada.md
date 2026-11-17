@@ -101,7 +101,9 @@ El dominio utiliza como referencia la tarifa anual de CLP 9.990 publicada por @e
 
 El equipo de espaciGo valoriza el desarrollo preoperativo mediante 16 semanas × 20 horas semanales × 3 integrantes = 960 horas. La tarifa de evaluación es CLP 6.500 por hora, para un total de CLP 6.240.000. La valorización permite examinar la recuperación del trabajo aportado; no se incorpora como salida de efectivo del flujo base.
 
-El tramo de planificación hasta fines de diciembre de 2026 considera seis semanas × veinte horas × tres integrantes, equivalentes a 360 horas y CLP 2.340.000 de capacidad valorizada. La capacidad disponible representa una asignación de recursos del equipo, diferenciada de las horas efectivamente ejecutadas y de la estimación del trabajo por tarea.
+El cronograma académico vigente asigna 632 horas entre el 11 de agosto y el 30 de noviembre de 2026. La capacidad nominal de ese bloque es de 960 horas: 320 por integrante, a veinte horas semanales durante dieciséis semanas. El presupuesto de valoración, calculado sobre las 960 horas a CLP 6.500 por hora, asciende a CLP 6.240.000. No existen horas reales acreditadas; por ello, la valorización es presupuestaria y no representa remuneraciones, contratación ni egreso de caja.
+
+Después del bloque académico se asignan 36 horas a la defensa y 40 horas a la transición preoperativa, para un total de 708 horas asignadas. La reserva presupuestaria es de 252 horas, equivalentes a CLP 1.638.000, y el valor de las 708 horas asignadas es CLP 4.602.000. La capacidad nominal base libre asciende a 328 horas; supera la reserva presupuestaria en 76 horas porque esta última se calcula contra la asignación total e incluye las actividades posteriores a la entrega. La transición se programa del 10 al 31 de diciembre de 2026 y el inicio de la operación se fija para el 1 de enero de 2027. Estas capacidades y asignaciones son estimaciones de planificación, no registros de trabajo ejecutado ni pagos.
 
 Los tres notebooks y el teléfono, valorados conjuntamente en CLP 2.700.000, mantienen su carácter personal y compartido. La evaluación no registra compra inicial, aporte patrimonial, depreciación fiscal ni venta de estos bienes por parte de la empresa. La Tabla H.11.2 presenta por separado el volumen necesario para recuperar también la valorización global del desarrollo. Esta distinción evita confundir costo de oportunidad, costo hundido y desembolso de caja [@es2sapag2008, pp. 126, 259–262].
 
@@ -195,7 +197,7 @@ La tasa de descuento, el interés del préstamo y el impuesto tienen funciones d
 
 *Nota.* Elaboración propia. Los escenarios conservador, base y optimista utilizan la misma comisión y el mismo calendario de costos. Los volúmenes representan proyecciones alternativas. La fila base coincide con el flujo de la Tabla 17.
 
-Los tres escenarios mantienen VAN negativo con el presupuesto operativo definido. La sensibilidad identifica la importancia del gasto recurrente frente al ingreso por comisión y permite evaluar cambios de volumen y ticket sin atribuirles probabilidades de ocurrencia. La reposición y el plazo de cobro se presentan en las Tablas 14.6 y 14.7.
+Los tres escenarios mantienen VAN negativo con el presupuesto operativo definido. La sensibilidad identifica la importancia del gasto recurrente frente al ingreso por comisión y permite evaluar cambios de volumen y ticket sin atribuirles probabilidades de ocurrencia. La reposición y el plazo de cobro se presentan en las Tablas 19 y 20.
 
 ## H.11. Volúmenes de quiebre del VAN
 

@@ -1,0 +1,3076 @@
+{
+  "modelo_sha256": "b8d5ce8beeba1a2839b49a4f16b79349cbf5df32b6ed3ce05c70d12fdbbf0929",
+  "actividades": [
+    {
+      "id": "G01",
+      "edt": "1.1.1",
+      "nombre": "Definir gobierno y acuerdo del equipo",
+      "responsable": "A",
+      "horas": 8,
+      "predecesoras": [],
+      "grupo": "Gestión y alcance",
+      "mpp_ids": [],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Propósito, responsables, restricciones y decisiones identificados.",
+      "duracion_dias": 2,
+      "es": 0,
+      "ef": 2,
+      "inicio": "2026-08-11T09:00:00",
+      "fin": "2026-08-12T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 2
+    },
+    {
+      "id": "G02",
+      "edt": "1.1.2",
+      "nombre": "Delimitar alcance y descomponer EDT",
+      "responsable": "A",
+      "horas": 8,
+      "predecesoras": [
+        "G01"
+      ],
+      "grupo": "Gestión y alcance",
+      "mpp_ids": [],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "28 paquetes identificados y relacionados con los objetivos.",
+      "duracion_dias": 2,
+      "es": 2,
+      "ef": 4,
+      "inicio": "2026-08-13T09:00:00",
+      "fin": "2026-08-14T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 2
+    },
+    {
+      "id": "G03",
+      "edt": "1.1.3",
+      "nombre": "Preparar calendario y modelo de cronograma",
+      "responsable": "E",
+      "horas": 12,
+      "predecesoras": [
+        "G01"
+      ],
+      "grupo": "Gestión y alcance",
+      "mpp_ids": [],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Calendarios, dependencias, hitos, holguras y recursos comprobados.",
+      "duracion_dias": 3,
+      "es": 2,
+      "ef": 5,
+      "inicio": "2026-08-13T09:00:00",
+      "fin": "2026-08-17T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 3
+    },
+    {
+      "id": "G04",
+      "edt": "1.1.4",
+      "nombre": "Identificar presupuesto y adquisiciones",
+      "responsable": "A",
+      "horas": 8,
+      "predecesoras": [
+        "G02"
+      ],
+      "grupo": "Gestión y alcance",
+      "mpp_ids": [],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Partidas y servicios diferenciados sin duplicar valor y caja.",
+      "duracion_dias": 2,
+      "es": 4,
+      "ef": 6,
+      "inicio": "2026-08-17T09:00:00",
+      "fin": "2026-08-18T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 2
+    },
+    {
+      "id": "G05",
+      "edt": "1.1.5",
+      "nombre": "Definir riesgos y control de cambios",
+      "responsable": "E",
+      "horas": 8,
+      "predecesoras": [
+        "G03"
+      ],
+      "grupo": "Gestión y alcance",
+      "mpp_ids": [],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Dueño, disparador, respuesta y versión de cada cambio registrados.",
+      "duracion_dias": 2,
+      "es": 5,
+      "ef": 7,
+      "inicio": "2026-08-18T09:00:00",
+      "fin": "2026-08-19T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 5
+    },
+    {
+      "id": "A01",
+      "edt": "1.2.1",
+      "nombre": "Caracterizar el problema y los procesos",
+      "responsable": "A",
+      "horas": 12,
+      "predecesoras": [
+        "G02"
+      ],
+      "grupo": "Análisis y diseño",
+      "mpp_ids": [
+        2
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Problema, segmentos y BPMN vinculados con la solución.",
+      "duracion_dias": 3,
+      "es": 6,
+      "ef": 9,
+      "inicio": "2026-08-19T09:00:00",
+      "fin": "2026-08-21T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [
+        "G04"
+      ],
+      "holgura_red_nivelada": 2
+    },
+    {
+      "id": "A02",
+      "edt": "1.2.2",
+      "nombre": "Especificar requisitos funcionales",
+      "responsable": "A",
+      "horas": 20,
+      "predecesoras": [
+        "A01"
+      ],
+      "grupo": "Análisis y diseño",
+      "mpp_ids": [
+        2
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "236 RQF identificados con alcance verificable y trazabilidad.",
+      "duracion_dias": 5,
+      "es": 9,
+      "ef": 14,
+      "inicio": "2026-08-24T09:00:00",
+      "fin": "2026-08-28T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 2
+    },
+    {
+      "id": "A03",
+      "edt": "1.2.3",
+      "nombre": "Especificar requisitos de calidad",
+      "responsable": "E",
+      "horas": 12,
+      "predecesoras": [
+        "A01",
+        "G05"
+      ],
+      "grupo": "Análisis y diseño",
+      "mpp_ids": [
+        2
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "43 RNF relacionados con medición, escenario y aceptación.",
+      "duracion_dias": 3,
+      "es": 9,
+      "ef": 12,
+      "inicio": "2026-08-24T09:00:00",
+      "fin": "2026-08-26T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 3
+    },
+    {
+      "id": "A04",
+      "edt": "1.2.4",
+      "nombre": "Modelar historias y casos de uso",
+      "responsable": "A",
+      "horas": 20,
+      "predecesoras": [
+        "A02"
+      ],
+      "grupo": "Análisis y diseño",
+      "mpp_ids": [
+        2
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "35 HU y 52 CU identificados, con escenarios y aceptación.",
+      "duracion_dias": 5,
+      "es": 14,
+      "ef": 19,
+      "inicio": "2026-08-31T09:00:00",
+      "fin": "2026-09-04T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 2
+    },
+    {
+      "id": "A05",
+      "edt": "1.2.5",
+      "nombre": "Relacionar requisitos, casos y pruebas",
+      "responsable": "A",
+      "horas": 8,
+      "predecesoras": [
+        "A04",
+        "A03"
+      ],
+      "grupo": "Análisis y diseño",
+      "mpp_ids": [],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Objetivo, requisito, caso, componente y prueba relacionados.",
+      "duracion_dias": 2,
+      "es": 19,
+      "ef": 21,
+      "inicio": "2026-09-07T09:00:00",
+      "fin": "2026-09-08T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 2
+    },
+    {
+      "id": "D01",
+      "edt": "1.3.1",
+      "nombre": "Definir vistas de arquitectura empresarial",
+      "responsable": "H",
+      "horas": 8,
+      "predecesoras": [
+        "G02",
+        "G03"
+      ],
+      "grupo": "Análisis y diseño",
+      "mpp_ids": [
+        3
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Procesos, aplicaciones, datos e infraestructura diferenciados.",
+      "duracion_dias": 2,
+      "es": 5,
+      "ef": 7,
+      "inicio": "2026-08-18T09:00:00",
+      "fin": "2026-08-19T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 3
+    },
+    {
+      "id": "D02",
+      "edt": "1.3.2",
+      "nombre": "Diseñar dominio y adaptadores",
+      "responsable": "H",
+      "horas": 12,
+      "predecesoras": [
+        "D01"
+      ],
+      "grupo": "Análisis y diseño",
+      "mpp_ids": [
+        3
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Dominio y adaptadores identificados en Go y Next.js.",
+      "duracion_dias": 3,
+      "es": 7,
+      "ef": 10,
+      "inicio": "2026-08-20T09:00:00",
+      "fin": "2026-08-24T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 3
+    },
+    {
+      "id": "D03",
+      "edt": "1.3.3",
+      "nombre": "Modelar datos y restricciones geoespaciales",
+      "responsable": "H",
+      "horas": 20,
+      "predecesoras": [
+        "D02"
+      ],
+      "grupo": "Análisis y diseño",
+      "mpp_ids": [
+        3
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "DDL, restricciones e inventario documentados por versión.",
+      "duracion_dias": 5,
+      "es": 10,
+      "ef": 15,
+      "inicio": "2026-08-25T09:00:00",
+      "fin": "2026-08-31T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 3
+    },
+    {
+      "id": "D04",
+      "edt": "1.3.4",
+      "nombre": "Diseñar sesiones, permisos y privacidad",
+      "responsable": "E",
+      "horas": 12,
+      "predecesoras": [
+        "D02",
+        "A03"
+      ],
+      "grupo": "Análisis y diseño",
+      "mpp_ids": [
+        3
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Sesiones, autorización por recurso y finalidad especificadas.",
+      "duracion_dias": 3,
+      "es": 12,
+      "ef": 15,
+      "inicio": "2026-08-27T09:00:00",
+      "fin": "2026-08-31T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 3
+    },
+    {
+      "id": "D05",
+      "edt": "1.3.5",
+      "nombre": "Especificar operaciones de interfaz",
+      "responsable": "H",
+      "horas": 12,
+      "predecesoras": [
+        "D03",
+        "D04"
+      ],
+      "grupo": "Análisis y diseño",
+      "mpp_ids": [
+        3
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Operaciones, errores y controles asociados al corte OpenAPI.",
+      "duracion_dias": 3,
+      "es": 15,
+      "ef": 18,
+      "inicio": "2026-09-01T09:00:00",
+      "fin": "2026-09-03T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 3
+    },
+    {
+      "id": "L01",
+      "edt": "1.6.1",
+      "nombre": "Preparar contenedores y calidad local",
+      "responsable": "E",
+      "horas": 12,
+      "predecesoras": [
+        "G03",
+        "D02"
+      ],
+      "grupo": "Análisis y diseño",
+      "mpp_ids": [
+        4
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Entorno y automatización documentados por corte; destino AWS validado aparte.",
+      "duracion_dias": 3,
+      "es": 15,
+      "ef": 18,
+      "inicio": "2026-09-01T09:00:00",
+      "fin": "2026-09-03T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [
+        "D04"
+      ],
+      "holgura_red_nivelada": 3
+    },
+    {
+      "id": "I1H",
+      "edt": "1.4.1",
+      "nombre": "Construir cuenta, perfil y control de acceso",
+      "responsable": "H",
+      "horas": 32,
+      "predecesoras": [
+        "D05",
+        "L01"
+      ],
+      "grupo": "Identidad y acceso",
+      "mpp_ids": [
+        6,
+        7
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Recorrido local de cuenta, perfil y controles de identidad comprobable.",
+      "duracion_dias": 8,
+      "es": 18,
+      "ef": 26,
+      "inicio": "2026-09-04T09:00:00",
+      "fin": "2026-09-15T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 3
+    },
+    {
+      "id": "I1A",
+      "edt": "1.4.1",
+      "nombre": "Construir pantallas de cuenta y perfil",
+      "responsable": "A",
+      "horas": 24,
+      "predecesoras": [
+        "D05",
+        "A04"
+      ],
+      "grupo": "Identidad y acceso",
+      "mpp_ids": [
+        9
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Recorrido local de cuenta, perfil y controles de identidad comprobable.",
+      "duracion_dias": 6,
+      "es": 21,
+      "ef": 27,
+      "inicio": "2026-09-09T09:00:00",
+      "fin": "2026-09-16T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [
+        "A05"
+      ],
+      "holgura_red_nivelada": 2
+    },
+    {
+      "id": "I1E",
+      "edt": "1.4.1",
+      "nombre": "Definir verificación de identidad controlada",
+      "responsable": "E",
+      "horas": 8,
+      "predecesoras": [
+        "D04"
+      ],
+      "grupo": "Identidad y acceso",
+      "mpp_ids": [
+        8
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Recorrido local de cuenta, perfil y controles de identidad comprobable.",
+      "duracion_dias": 2,
+      "es": 18,
+      "ef": 20,
+      "inicio": "2026-09-04T09:00:00",
+      "fin": "2026-09-07T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [
+        "L01"
+      ],
+      "holgura_red_nivelada": 9
+    },
+    {
+      "id": "Q01",
+      "edt": "1.5.1",
+      "nombre": "Verificar integración de identidad",
+      "responsable": "E",
+      "horas": 8,
+      "predecesoras": [
+        "I1H",
+        "I1A",
+        "I1E"
+      ],
+      "grupo": "Identidad y acceso",
+      "mpp_ids": [],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Cada incremento cierra con registro de alcance, versión y pruebas.",
+      "duracion_dias": 2,
+      "es": 27,
+      "ef": 29,
+      "inicio": "2026-09-17T09:00:00",
+      "fin": "2026-09-18T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 2
+    },
+    {
+      "id": "M01",
+      "edt": "1.5.1",
+      "nombre": "Incremento 1 integrado",
+      "responsable": null,
+      "horas": 0,
+      "predecesoras": [
+        "Q01"
+      ],
+      "grupo": "Identidad y acceso",
+      "mpp_ids": [],
+      "liberacion": null,
+      "fecha_compromiso": null,
+      "etapa": "base",
+      "tipo": "hito",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Hito programado; aceptación real documentada por separado.",
+      "criterio": "Cierre de las predecesoras y registro de versión y evidencia.",
+      "duracion_dias": 0,
+      "es": 29,
+      "ef": 29,
+      "inicio": "2026-09-18T13:00:00",
+      "fin": "2026-09-18T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 2
+    },
+    {
+      "id": "I2H",
+      "edt": "1.4.2",
+      "nombre": "Construir publicación y disponibilidad",
+      "responsable": "H",
+      "horas": 24,
+      "predecesoras": [
+        "M01"
+      ],
+      "grupo": "Catálogo y búsqueda",
+      "mpp_ids": [
+        11
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Publicación, categorías, disponibilidad y búsqueda verificables por corte.",
+      "duracion_dias": 6,
+      "es": 29,
+      "ef": 35,
+      "inicio": "2026-09-21T09:00:00",
+      "fin": "2026-09-28T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [
+        "I1H"
+      ],
+      "holgura_red_nivelada": 2
+    },
+    {
+      "id": "I2B",
+      "edt": "1.4.2",
+      "nombre": "Construir búsqueda y cotización PostGIS",
+      "responsable": "H",
+      "horas": 16,
+      "predecesoras": [
+        "I2H"
+      ],
+      "grupo": "Catálogo y búsqueda",
+      "mpp_ids": [
+        12
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Publicación, categorías, disponibilidad y búsqueda verificables por corte.",
+      "duracion_dias": 4,
+      "es": 35,
+      "ef": 39,
+      "inicio": "2026-09-29T09:00:00",
+      "fin": "2026-10-02T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 2
+    },
+    {
+      "id": "I2A",
+      "edt": "1.4.2",
+      "nombre": "Construir catálogo, mapa y detalle",
+      "responsable": "A",
+      "horas": 24,
+      "predecesoras": [
+        "M01"
+      ],
+      "grupo": "Catálogo y búsqueda",
+      "mpp_ids": [
+        13
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Publicación, categorías, disponibilidad y búsqueda verificables por corte.",
+      "duracion_dias": 6,
+      "es": 29,
+      "ef": 35,
+      "inicio": "2026-09-21T09:00:00",
+      "fin": "2026-09-28T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [
+        "F02"
+      ],
+      "holgura_red_nivelada": 6
+    },
+    {
+      "id": "Q02",
+      "edt": "1.5.1",
+      "nombre": "Verificar catálogo y búsqueda integrada",
+      "responsable": "E",
+      "horas": 8,
+      "predecesoras": [
+        "I2B",
+        "I2A"
+      ],
+      "grupo": "Catálogo y búsqueda",
+      "mpp_ids": [],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Cada incremento cierra con registro de alcance, versión y pruebas.",
+      "duracion_dias": 2,
+      "es": 39,
+      "ef": 41,
+      "inicio": "2026-10-05T09:00:00",
+      "fin": "2026-10-06T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [
+        "Q01"
+      ],
+      "holgura_red_nivelada": 2
+    },
+    {
+      "id": "M02",
+      "edt": "1.5.1",
+      "nombre": "Incremento 2 integrado",
+      "responsable": null,
+      "horas": 0,
+      "predecesoras": [
+        "Q02"
+      ],
+      "grupo": "Catálogo y búsqueda",
+      "mpp_ids": [],
+      "liberacion": null,
+      "fecha_compromiso": null,
+      "etapa": "base",
+      "tipo": "hito",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Hito programado; aceptación real documentada por separado.",
+      "criterio": "Cierre de las predecesoras y registro de versión y evidencia.",
+      "duracion_dias": 0,
+      "es": 41,
+      "ef": 41,
+      "inicio": "2026-10-06T13:00:00",
+      "fin": "2026-10-06T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 2
+    },
+    {
+      "id": "I3H",
+      "edt": "1.4.3",
+      "nombre": "Construir aceptación y ocupación exclusiva",
+      "responsable": "H",
+      "horas": 24,
+      "predecesoras": [
+        "M02"
+      ],
+      "grupo": "Contratación y cobros",
+      "mpp_ids": [
+        16
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Aceptación bilateral y conciliación controlada separan renta y comisión.",
+      "duracion_dias": 6,
+      "es": 41,
+      "ef": 47,
+      "inicio": "2026-10-07T09:00:00",
+      "fin": "2026-10-14T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [
+        "I2B"
+      ],
+      "holgura_red_nivelada": 2
+    },
+    {
+      "id": "I3B",
+      "edt": "1.4.3",
+      "nombre": "Construir conciliación y pagos controlados",
+      "responsable": "H",
+      "horas": 12,
+      "predecesoras": [
+        "I3H"
+      ],
+      "grupo": "Contratación y cobros",
+      "mpp_ids": [
+        17
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Aceptación bilateral y conciliación controlada separan renta y comisión.",
+      "duracion_dias": 3,
+      "es": 47,
+      "ef": 50,
+      "inicio": "2026-10-15T09:00:00",
+      "fin": "2026-10-19T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 2
+    },
+    {
+      "id": "I3A",
+      "edt": "1.4.3",
+      "nombre": "Construir recorrido de acuerdo y cobro",
+      "responsable": "A",
+      "horas": 20,
+      "predecesoras": [
+        "M02"
+      ],
+      "grupo": "Contratación y cobros",
+      "mpp_ids": [
+        18
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Aceptación bilateral y conciliación controlada separan renta y comisión.",
+      "duracion_dias": 5,
+      "es": 41,
+      "ef": 46,
+      "inicio": "2026-10-07T09:00:00",
+      "fin": "2026-10-13T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [
+        "R01"
+      ],
+      "holgura_red_nivelada": 6
+    },
+    {
+      "id": "Q03",
+      "edt": "1.5.1",
+      "nombre": "Verificar renta y comisión por separado",
+      "responsable": "E",
+      "horas": 8,
+      "predecesoras": [
+        "I3B",
+        "I3A"
+      ],
+      "grupo": "Contratación y cobros",
+      "mpp_ids": [],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Cada incremento cierra con registro de alcance, versión y pruebas.",
+      "duracion_dias": 2,
+      "es": 50,
+      "ef": 52,
+      "inicio": "2026-10-20T09:00:00",
+      "fin": "2026-10-21T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [
+        "Q06"
+      ],
+      "holgura_red_nivelada": 2
+    },
+    {
+      "id": "M03",
+      "edt": "1.5.1",
+      "nombre": "Incremento 3 integrado",
+      "responsable": null,
+      "horas": 0,
+      "predecesoras": [
+        "Q03"
+      ],
+      "grupo": "Contratación y cobros",
+      "mpp_ids": [],
+      "liberacion": null,
+      "fecha_compromiso": null,
+      "etapa": "base",
+      "tipo": "hito",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Hito programado; aceptación real documentada por separado.",
+      "criterio": "Cierre de las predecesoras y registro de versión y evidencia.",
+      "duracion_dias": 0,
+      "es": 52,
+      "ef": 52,
+      "inicio": "2026-10-21T13:00:00",
+      "fin": "2026-10-21T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 2
+    },
+    {
+      "id": "I4H",
+      "edt": "1.4.4",
+      "nombre": "Construir documentos, avisos y evidencias",
+      "responsable": "H",
+      "horas": 24,
+      "predecesoras": [
+        "M03"
+      ],
+      "grupo": "Documentos y operación",
+      "mpp_ids": [
+        20,
+        21
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Documentos, permisos y eventos conservan su evidencia; firma externa separada.",
+      "duracion_dias": 6,
+      "es": 52,
+      "ef": 58,
+      "inicio": "2026-10-22T09:00:00",
+      "fin": "2026-10-29T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [
+        "I3B"
+      ],
+      "holgura_red_nivelada": 2
+    },
+    {
+      "id": "I4A",
+      "edt": "1.4.4",
+      "nombre": "Construir vistas documentales y entrega",
+      "responsable": "A",
+      "horas": 20,
+      "predecesoras": [
+        "M03"
+      ],
+      "grupo": "Documentos y operación",
+      "mpp_ids": [
+        22
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Documentos, permisos y eventos conservan su evidencia; firma externa separada.",
+      "duracion_dias": 5,
+      "es": 52,
+      "ef": 57,
+      "inicio": "2026-10-22T09:00:00",
+      "fin": "2026-10-28T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [
+        "I3A"
+      ],
+      "holgura_red_nivelada": 3
+    },
+    {
+      "id": "I4E",
+      "edt": "1.4.4",
+      "nombre": "Definir aceptación de firma opcional",
+      "responsable": "E",
+      "horas": 8,
+      "predecesoras": [
+        "M03"
+      ],
+      "grupo": "Documentos y operación",
+      "mpp_ids": [
+        20
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Documentos, permisos y eventos conservan su evidencia; firma externa separada.",
+      "duracion_dias": 2,
+      "es": 52,
+      "ef": 54,
+      "inicio": "2026-10-22T09:00:00",
+      "fin": "2026-10-23T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [
+        "Q03"
+      ],
+      "holgura_red_nivelada": 4
+    },
+    {
+      "id": "Q04",
+      "edt": "1.5.1",
+      "nombre": "Verificar documentos y entrega controlada",
+      "responsable": "E",
+      "horas": 8,
+      "predecesoras": [
+        "I4H",
+        "I4A",
+        "I4E"
+      ],
+      "grupo": "Documentos y operación",
+      "mpp_ids": [],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Cada incremento cierra con registro de alcance, versión y pruebas.",
+      "duracion_dias": 2,
+      "es": 58,
+      "ef": 60,
+      "inicio": "2026-10-30T09:00:00",
+      "fin": "2026-11-02T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [
+        "Q07"
+      ],
+      "holgura_red_nivelada": 2
+    },
+    {
+      "id": "M04",
+      "edt": "1.5.1",
+      "nombre": "Incremento 4 integrado",
+      "responsable": null,
+      "horas": 0,
+      "predecesoras": [
+        "Q04"
+      ],
+      "grupo": "Documentos y operación",
+      "mpp_ids": [],
+      "liberacion": null,
+      "fecha_compromiso": null,
+      "etapa": "base",
+      "tipo": "hito",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Hito programado; aceptación real documentada por separado.",
+      "criterio": "Cierre de las predecesoras y registro de versión y evidencia.",
+      "duracion_dias": 0,
+      "es": 60,
+      "ef": 60,
+      "inicio": "2026-11-02T13:00:00",
+      "fin": "2026-11-02T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 2
+    },
+    {
+      "id": "I5H",
+      "edt": "1.4.5",
+      "nombre": "Construir administración e incidencias",
+      "responsable": "H",
+      "horas": 20,
+      "predecesoras": [
+        "M04"
+      ],
+      "grupo": "Administración y auditoría",
+      "mpp_ids": [
+        25,
+        26,
+        30
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Acciones privilegiadas y consulta de incidencias autorizadas por recurso.",
+      "duracion_dias": 5,
+      "es": 60,
+      "ef": 65,
+      "inicio": "2026-11-03T09:00:00",
+      "fin": "2026-11-09T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [
+        "I4H"
+      ],
+      "holgura_red_nivelada": 2
+    },
+    {
+      "id": "I5A",
+      "edt": "1.4.5",
+      "nombre": "Construir vistas de administración",
+      "responsable": "A",
+      "horas": 16,
+      "predecesoras": [
+        "M04"
+      ],
+      "grupo": "Administración y auditoría",
+      "mpp_ids": [
+        27,
+        30
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Acciones privilegiadas y consulta de incidencias autorizadas por recurso.",
+      "duracion_dias": 4,
+      "es": 60,
+      "ef": 64,
+      "inicio": "2026-11-03T09:00:00",
+      "fin": "2026-11-06T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [
+        "I4A"
+      ],
+      "holgura_red_nivelada": 5
+    },
+    {
+      "id": "I5E",
+      "edt": "1.4.5",
+      "nombre": "Revisar autorización y registro de auditoría",
+      "responsable": "E",
+      "horas": 8,
+      "predecesoras": [
+        "I5H"
+      ],
+      "grupo": "Administración y auditoría",
+      "mpp_ids": [
+        30
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Acciones privilegiadas y consulta de incidencias autorizadas por recurso.",
+      "duracion_dias": 2,
+      "es": 65,
+      "ef": 67,
+      "inicio": "2026-11-10T09:00:00",
+      "fin": "2026-11-11T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [
+        "Q04"
+      ],
+      "holgura_red_nivelada": 2
+    },
+    {
+      "id": "Q05",
+      "edt": "1.5.1",
+      "nombre": "Verificar incremento de administración",
+      "responsable": "E",
+      "horas": 8,
+      "predecesoras": [
+        "I5E",
+        "I5A"
+      ],
+      "grupo": "Administración y auditoría",
+      "mpp_ids": [],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Cada incremento cierra con registro de alcance, versión y pruebas.",
+      "duracion_dias": 2,
+      "es": 67,
+      "ef": 69,
+      "inicio": "2026-11-12T09:00:00",
+      "fin": "2026-11-13T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 2
+    },
+    {
+      "id": "M05",
+      "edt": "1.5.1",
+      "nombre": "Incremento 5 integrado",
+      "responsable": null,
+      "horas": 0,
+      "predecesoras": [
+        "Q05"
+      ],
+      "grupo": "Administración y auditoría",
+      "mpp_ids": [],
+      "liberacion": null,
+      "fecha_compromiso": null,
+      "etapa": "base",
+      "tipo": "hito",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Hito programado; aceptación real documentada por separado.",
+      "criterio": "Cierre de las predecesoras y registro de versión y evidencia.",
+      "duracion_dias": 0,
+      "es": 69,
+      "ef": 69,
+      "inicio": "2026-11-13T13:00:00",
+      "fin": "2026-11-13T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 5
+    },
+    {
+      "id": "W01",
+      "edt": "1.6.1",
+      "nombre": "Conciliar diseño con decisión AWS",
+      "responsable": "H",
+      "horas": 8,
+      "predecesoras": [
+        "D05"
+      ],
+      "grupo": "AWS y aceptación",
+      "mpp_ids": [
+        4
+      ],
+      "liberacion": "2026-11-16",
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Entorno y automatización documentados por corte; destino AWS validado aparte.",
+      "duracion_dias": 2,
+      "es": 69,
+      "ef": 71,
+      "inicio": "2026-11-16T09:00:00",
+      "fin": "2026-11-17T13:00:00",
+      "liberacion_indice": 69,
+      "predecesoras_recursos": [
+        "I5H"
+      ],
+      "holgura_red_nivelada": 0
+    },
+    {
+      "id": "W02",
+      "edt": "1.6.1",
+      "nombre": "Revisar adaptadores e IaC del corte AWS",
+      "responsable": "E",
+      "horas": 12,
+      "predecesoras": [
+        "W01",
+        "L01"
+      ],
+      "grupo": "AWS y aceptación",
+      "mpp_ids": [
+        4
+      ],
+      "liberacion": "2026-11-16",
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Entorno y automatización documentados por corte; destino AWS validado aparte.",
+      "duracion_dias": 3,
+      "es": 71,
+      "ef": 74,
+      "inicio": "2026-11-18T09:00:00",
+      "fin": "2026-11-20T13:00:00",
+      "liberacion_indice": 69,
+      "predecesoras_recursos": [
+        "Q05"
+      ],
+      "holgura_red_nivelada": 0
+    },
+    {
+      "id": "Q06",
+      "edt": "1.5.2",
+      "nombre": "Revisar rendimiento local y plan integrado",
+      "responsable": "E",
+      "horas": 8,
+      "predecesoras": [
+        "M02"
+      ],
+      "grupo": "AWS y aceptación",
+      "mpp_ids": [
+        31
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Ensayo local y plan de carga integrada distinguen población y entorno.",
+      "duracion_dias": 2,
+      "es": 41,
+      "ef": 43,
+      "inicio": "2026-10-07T09:00:00",
+      "fin": "2026-10-08T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [
+        "Q02"
+      ],
+      "holgura_red_nivelada": 9
+    },
+    {
+      "id": "Q07",
+      "edt": "1.5.3",
+      "nombre": "Revisar recuperación local y criterios RPO/RTO",
+      "responsable": "E",
+      "horas": 8,
+      "predecesoras": [
+        "M03"
+      ],
+      "grupo": "AWS y aceptación",
+      "mpp_ids": [
+        31
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Restauración local y criterios de recuperación conjunta documentados.",
+      "duracion_dias": 2,
+      "es": 54,
+      "ef": 56,
+      "inicio": "2026-10-26T09:00:00",
+      "fin": "2026-10-27T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [
+        "I4E"
+      ],
+      "holgura_red_nivelada": 4
+    },
+    {
+      "id": "Q08",
+      "edt": "1.5.4",
+      "nombre": "Revisar permisos, regresión y hallazgos",
+      "responsable": "E",
+      "horas": 8,
+      "predecesoras": [
+        "M05",
+        "Q06",
+        "Q07",
+        "W02"
+      ],
+      "grupo": "AWS y aceptación",
+      "mpp_ids": [
+        31
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Permisos y escenarios de denegación conservan resultados y límites.",
+      "duracion_dias": 2,
+      "es": 74,
+      "ef": 76,
+      "inicio": "2026-11-23T09:00:00",
+      "fin": "2026-11-24T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 0
+    },
+    {
+      "id": "Q09",
+      "edt": "1.5.1",
+      "nombre": "Conciliar aceptación del corte académico",
+      "responsable": "H",
+      "horas": 8,
+      "predecesoras": [
+        "Q08",
+        "M05"
+      ],
+      "grupo": "AWS y aceptación",
+      "mpp_ids": [
+        31
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Cada incremento cierra con registro de alcance, versión y pruebas.",
+      "duracion_dias": 2,
+      "es": 76,
+      "ef": 78,
+      "inicio": "2026-11-25T09:00:00",
+      "fin": "2026-11-26T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [
+        "R02"
+      ],
+      "holgura_red_nivelada": 0
+    },
+    {
+      "id": "F01",
+      "edt": "1.6.2",
+      "nombre": "Conciliar flujos y sensibilidad financiera",
+      "responsable": "A",
+      "horas": 16,
+      "predecesoras": [
+        "G04",
+        "A05"
+      ],
+      "grupo": "Informe y evaluación",
+      "mpp_ids": [],
+      "liberacion": "2026-11-16",
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Flujos, VAN, TIR interpretables y sensibilidad conciliados con G/H.",
+      "duracion_dias": 4,
+      "es": 69,
+      "ef": 73,
+      "inicio": "2026-11-16T09:00:00",
+      "fin": "2026-11-19T13:00:00",
+      "liberacion_indice": 69,
+      "predecesoras_recursos": [
+        "I5A"
+      ],
+      "holgura_red_nivelada": 5
+    },
+    {
+      "id": "F02",
+      "edt": "1.6.3",
+      "nombre": "Definir preparación societaria y presupuesto",
+      "responsable": "A",
+      "horas": 4,
+      "predecesoras": [
+        "G04"
+      ],
+      "grupo": "Informe y evaluación",
+      "mpp_ids": [],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Actividades y presupuesto identificados; no equivale a sociedad constituida.",
+      "duracion_dias": 1,
+      "es": 27,
+      "ef": 28,
+      "inicio": "2026-09-17T09:00:00",
+      "fin": "2026-09-17T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [
+        "I1A"
+      ],
+      "holgura_red_nivelada": 7
+    },
+    {
+      "id": "R01",
+      "edt": "1.6.4",
+      "nombre": "Redactar y revisar capítulos y anexos",
+      "responsable": "A",
+      "horas": 24,
+      "predecesoras": [
+        "A05"
+      ],
+      "grupo": "Informe y evaluación",
+      "mpp_ids": [
+        32
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Cortes del 01-12 y 09-12 identifican entregables, evidencia y cambios.",
+      "duracion_dias": 6,
+      "es": 35,
+      "ef": 41,
+      "inicio": "2026-09-29T09:00:00",
+      "fin": "2026-10-06T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [
+        "I2A"
+      ],
+      "holgura_red_nivelada": 6
+    },
+    {
+      "id": "R02",
+      "edt": "1.6.4",
+      "nombre": "Revisar trazabilidad de arquitectura y datos",
+      "responsable": "H",
+      "horas": 8,
+      "predecesoras": [
+        "M05",
+        "W01"
+      ],
+      "grupo": "Informe y evaluación",
+      "mpp_ids": [
+        32
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Cortes del 01-12 y 09-12 identifican entregables, evidencia y cambios.",
+      "duracion_dias": 2,
+      "es": 71,
+      "ef": 73,
+      "inicio": "2026-11-18T09:00:00",
+      "fin": "2026-11-19T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 3
+    },
+    {
+      "id": "R03",
+      "edt": "1.1.3",
+      "nombre": "Revisar red, recursos e hitos del plan",
+      "responsable": "E",
+      "horas": 8,
+      "predecesoras": [
+        "Q08"
+      ],
+      "grupo": "Informe y evaluación",
+      "mpp_ids": [
+        32
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Calendarios, dependencias, hitos, holguras y recursos comprobados.",
+      "duracion_dias": 2,
+      "es": 76,
+      "ef": 78,
+      "inicio": "2026-11-25T09:00:00",
+      "fin": "2026-11-26T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 0
+    },
+    {
+      "id": "R04",
+      "edt": "1.6.4",
+      "nombre": "Integrar informe y evidencia de entrega",
+      "responsable": "A",
+      "horas": 8,
+      "predecesoras": [
+        "F01",
+        "F02",
+        "R01",
+        "R02",
+        "R03",
+        "Q09"
+      ],
+      "grupo": "Informe y evaluación",
+      "mpp_ids": [
+        32
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Cortes del 01-12 y 09-12 identifican entregables, evidencia y cambios.",
+      "duracion_dias": 2,
+      "es": 78,
+      "ef": 80,
+      "inicio": "2026-11-27T09:00:00",
+      "fin": "2026-11-30T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 0
+    },
+    {
+      "id": "C0",
+      "edt": "1.5.1",
+      "nombre": "Corte académico preparado",
+      "responsable": null,
+      "horas": 0,
+      "predecesoras": [
+        "R04"
+      ],
+      "grupo": "Informe y evaluación",
+      "mpp_ids": [],
+      "liberacion": null,
+      "fecha_compromiso": null,
+      "etapa": "base",
+      "tipo": "hito",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Hito programado; aceptación real documentada por separado.",
+      "criterio": "Cierre de las predecesoras y registro de versión y evidencia.",
+      "duracion_dias": 0,
+      "es": 80,
+      "ef": 80,
+      "inicio": "2026-11-30T13:00:00",
+      "fin": "2026-11-30T13:00:00",
+      "liberacion_indice": 0,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": 0
+    },
+    {
+      "id": "ENT",
+      "edt": "1.6.4",
+      "nombre": "Entrega de proyecto e informe",
+      "responsable": null,
+      "horas": 0,
+      "predecesoras": [
+        "C0"
+      ],
+      "grupo": "Entrega y defensa",
+      "mpp_ids": [],
+      "liberacion": "2026-12-01",
+      "fecha_compromiso": "2026-12-01",
+      "etapa": "base",
+      "tipo": "hito",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Hito programado; aceptación real documentada por separado.",
+      "criterio": "Cierre de las predecesoras y registro de versión y evidencia.",
+      "duracion_dias": 0,
+      "es": 80,
+      "ef": 80,
+      "inicio": "2026-12-01T09:00:00",
+      "fin": "2026-12-01T09:00:00",
+      "liberacion_indice": 80,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": null
+    },
+    {
+      "id": "DFH",
+      "edt": "1.6.4",
+      "nombre": "Estabilizar demostración técnica",
+      "responsable": "H",
+      "horas": 12,
+      "predecesoras": [
+        "ENT"
+      ],
+      "grupo": "Entrega y defensa",
+      "mpp_ids": [
+        33
+      ],
+      "liberacion": "2026-12-02",
+      "etapa": "defensa",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Cortes del 01-12 y 09-12 identifican entregables, evidencia y cambios.",
+      "duracion_dias": 3,
+      "es": 81,
+      "ef": 84,
+      "inicio": "2026-12-02T09:00:00",
+      "fin": "2026-12-04T13:00:00",
+      "liberacion_indice": 81,
+      "predecesoras_recursos": [
+        "Q09"
+      ],
+      "holgura_red_nivelada": null
+    },
+    {
+      "id": "DFA",
+      "edt": "1.6.4",
+      "nombre": "Preparar presentación y revisión de informe",
+      "responsable": "A",
+      "horas": 12,
+      "predecesoras": [
+        "ENT"
+      ],
+      "grupo": "Entrega y defensa",
+      "mpp_ids": [
+        33
+      ],
+      "liberacion": "2026-12-02",
+      "etapa": "defensa",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Cortes del 01-12 y 09-12 identifican entregables, evidencia y cambios.",
+      "duracion_dias": 3,
+      "es": 81,
+      "ef": 84,
+      "inicio": "2026-12-02T09:00:00",
+      "fin": "2026-12-04T13:00:00",
+      "liberacion_indice": 81,
+      "predecesoras_recursos": [
+        "R04"
+      ],
+      "holgura_red_nivelada": null
+    },
+    {
+      "id": "DFE",
+      "edt": "1.6.4",
+      "nombre": "Revisar entorno de demostración y contingencias",
+      "responsable": "E",
+      "horas": 12,
+      "predecesoras": [
+        "ENT"
+      ],
+      "grupo": "Entrega y defensa",
+      "mpp_ids": [
+        33
+      ],
+      "liberacion": "2026-12-02",
+      "etapa": "defensa",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Cortes del 01-12 y 09-12 identifican entregables, evidencia y cambios.",
+      "duracion_dias": 3,
+      "es": 81,
+      "ef": 84,
+      "inicio": "2026-12-02T09:00:00",
+      "fin": "2026-12-04T13:00:00",
+      "liberacion_indice": 81,
+      "predecesoras_recursos": [
+        "R03"
+      ],
+      "holgura_red_nivelada": null
+    },
+    {
+      "id": "DEF",
+      "edt": "1.6.4",
+      "nombre": "Defensa de título",
+      "responsable": null,
+      "horas": 0,
+      "predecesoras": [
+        "DFH",
+        "DFA",
+        "DFE"
+      ],
+      "grupo": "Entrega y defensa",
+      "mpp_ids": [],
+      "liberacion": "2026-12-09",
+      "fecha_compromiso": "2026-12-09",
+      "etapa": "defensa",
+      "tipo": "hito",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Hito programado; aceptación real documentada por separado.",
+      "criterio": "Cierre de las predecesoras y registro de versión y evidencia.",
+      "duracion_dias": 0,
+      "es": 86,
+      "ef": 86,
+      "inicio": "2026-12-09T09:00:00",
+      "fin": "2026-12-09T09:00:00",
+      "liberacion_indice": 86,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": null
+    },
+    {
+      "id": "TPH",
+      "edt": "1.6.1",
+      "nombre": "Verificar condiciones técnicas del piloto",
+      "responsable": "H",
+      "horas": 12,
+      "predecesoras": [
+        "DEF"
+      ],
+      "grupo": "Transición comercial",
+      "mpp_ids": [],
+      "liberacion": "2026-12-10",
+      "etapa": "transicion",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Entorno y automatización documentados por corte; destino AWS validado aparte.",
+      "duracion_dias": 3,
+      "es": 87,
+      "ef": 90,
+      "inicio": "2026-12-10T09:00:00",
+      "fin": "2026-12-14T13:00:00",
+      "liberacion_indice": 87,
+      "predecesoras_recursos": [
+        "DFH"
+      ],
+      "holgura_red_nivelada": null
+    },
+    {
+      "id": "TPA",
+      "edt": "1.6.3",
+      "nombre": "Preparar formalización y captación inicial",
+      "responsable": "A",
+      "horas": 12,
+      "predecesoras": [
+        "DEF"
+      ],
+      "grupo": "Transición comercial",
+      "mpp_ids": [],
+      "liberacion": "2026-12-10",
+      "etapa": "transicion",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Actividades y presupuesto identificados; no equivale a sociedad constituida.",
+      "duracion_dias": 3,
+      "es": 87,
+      "ef": 90,
+      "inicio": "2026-12-10T09:00:00",
+      "fin": "2026-12-14T13:00:00",
+      "liberacion_indice": 87,
+      "predecesoras_recursos": [
+        "DFA"
+      ],
+      "holgura_red_nivelada": null
+    },
+    {
+      "id": "TPE",
+      "edt": "1.6.1",
+      "nombre": "Preparar ensayo de despliegue y proveedores",
+      "responsable": "E",
+      "horas": 16,
+      "predecesoras": [
+        "DEF"
+      ],
+      "grupo": "Transición comercial",
+      "mpp_ids": [],
+      "liberacion": "2026-12-10",
+      "etapa": "transicion",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Entorno y automatización documentados por corte; destino AWS validado aparte.",
+      "duracion_dias": 4,
+      "es": 87,
+      "ef": 91,
+      "inicio": "2026-12-10T09:00:00",
+      "fin": "2026-12-15T13:00:00",
+      "liberacion_indice": 87,
+      "predecesoras_recursos": [
+        "DFE"
+      ],
+      "holgura_red_nivelada": null
+    },
+    {
+      "id": "COM",
+      "edt": "1.6.4",
+      "nombre": "Inicio de fase comercial",
+      "responsable": null,
+      "horas": 0,
+      "predecesoras": [
+        "TPH",
+        "TPA",
+        "TPE"
+      ],
+      "grupo": "Transición comercial",
+      "mpp_ids": [],
+      "liberacion": "2027-01-01",
+      "fecha_compromiso": "2027-01-01",
+      "etapa": "comercial",
+      "tipo": "hito",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Hito programado; aceptación real documentada por separado.",
+      "criterio": "Cierre de las predecesoras y registro de versión y evidencia.",
+      "duracion_dias": 0,
+      "es": 103,
+      "ef": 103,
+      "inicio": "2027-01-01T09:00:00",
+      "fin": "2027-01-01T09:00:00",
+      "liberacion_indice": 103,
+      "predecesoras_recursos": [],
+      "holgura_red_nivelada": null
+    }
+  ],
+  "calendario_dias": [
+    "2026-08-11",
+    "2026-08-12",
+    "2026-08-13",
+    "2026-08-14",
+    "2026-08-17",
+    "2026-08-18",
+    "2026-08-19",
+    "2026-08-20",
+    "2026-08-21",
+    "2026-08-24",
+    "2026-08-25",
+    "2026-08-26",
+    "2026-08-27",
+    "2026-08-28",
+    "2026-08-31",
+    "2026-09-01",
+    "2026-09-02",
+    "2026-09-03",
+    "2026-09-04",
+    "2026-09-07",
+    "2026-09-08",
+    "2026-09-09",
+    "2026-09-10",
+    "2026-09-11",
+    "2026-09-14",
+    "2026-09-15",
+    "2026-09-16",
+    "2026-09-17",
+    "2026-09-18",
+    "2026-09-21",
+    "2026-09-22",
+    "2026-09-23",
+    "2026-09-24",
+    "2026-09-25",
+    "2026-09-28",
+    "2026-09-29",
+    "2026-09-30",
+    "2026-10-01",
+    "2026-10-02",
+    "2026-10-05",
+    "2026-10-06",
+    "2026-10-07",
+    "2026-10-08",
+    "2026-10-09",
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-14",
+    "2026-10-15",
+    "2026-10-16",
+    "2026-10-19",
+    "2026-10-20",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-28",
+    "2026-10-29",
+    "2026-10-30",
+    "2026-11-02",
+    "2026-11-03",
+    "2026-11-04",
+    "2026-11-05",
+    "2026-11-06",
+    "2026-11-09",
+    "2026-11-10",
+    "2026-11-11",
+    "2026-11-12",
+    "2026-11-13",
+    "2026-11-16",
+    "2026-11-17",
+    "2026-11-18",
+    "2026-11-19",
+    "2026-11-20",
+    "2026-11-23",
+    "2026-11-24",
+    "2026-11-25",
+    "2026-11-26",
+    "2026-11-27",
+    "2026-11-30",
+    "2026-12-01",
+    "2026-12-02",
+    "2026-12-03",
+    "2026-12-04",
+    "2026-12-07",
+    "2026-12-08",
+    "2026-12-09",
+    "2026-12-10",
+    "2026-12-11",
+    "2026-12-14",
+    "2026-12-15",
+    "2026-12-16",
+    "2026-12-17",
+    "2026-12-18",
+    "2026-12-21",
+    "2026-12-22",
+    "2026-12-23",
+    "2026-12-24",
+    "2026-12-25",
+    "2026-12-28",
+    "2026-12-29",
+    "2026-12-30",
+    "2026-12-31",
+    "2027-01-01",
+    "2027-01-04",
+    "2027-01-05",
+    "2027-01-06",
+    "2027-01-07",
+    "2027-01-08",
+    "2027-01-11",
+    "2027-01-12",
+    "2027-01-13",
+    "2027-01-14",
+    "2027-01-15",
+    "2027-01-18",
+    "2027-01-19",
+    "2027-01-20",
+    "2027-01-21",
+    "2027-01-22",
+    "2027-01-25",
+    "2027-01-26",
+    "2027-01-27",
+    "2027-01-28",
+    "2027-01-29",
+    "2027-02-01",
+    "2027-02-02",
+    "2027-02-03",
+    "2027-02-04",
+    "2027-02-05",
+    "2027-02-08",
+    "2027-02-09",
+    "2027-02-10",
+    "2027-02-11",
+    "2027-02-12",
+    "2027-02-15",
+    "2027-02-16",
+    "2027-02-17",
+    "2027-02-18",
+    "2027-02-19",
+    "2027-02-22",
+    "2027-02-23",
+    "2027-02-24",
+    "2027-02-25",
+    "2027-02-26",
+    "2027-03-01",
+    "2027-03-02",
+    "2027-03-03",
+    "2027-03-04",
+    "2027-03-05",
+    "2027-03-08",
+    "2027-03-09",
+    "2027-03-10",
+    "2027-03-11",
+    "2027-03-12",
+    "2027-03-15",
+    "2027-03-16",
+    "2027-03-17",
+    "2027-03-18",
+    "2027-03-19",
+    "2027-03-22",
+    "2027-03-23",
+    "2027-03-24",
+    "2027-03-25",
+    "2027-03-26",
+    "2027-03-29",
+    "2027-03-30",
+    "2027-03-31"
+  ],
+  "horas_por_etapa": {
+    "base": 632,
+    "defensa": 36,
+    "transicion": 40,
+    "comercial": 0
+  },
+  "horas_base_por_persona": {
+    "H": 228,
+    "A": 240,
+    "E": 164
+  },
+  "horas_totales_por_persona": {
+    "H": 252,
+    "A": 264,
+    "E": 192
+  },
+  "capacidad_base_por_persona": 320,
+  "capacidad_base_equipo": 960,
+  "capacidad_no_asignada_base": 328,
+  "presupuesto_valorizado_horas": 960,
+  "esfuerzo_asignado_total": 708,
+  "saldo_presupuesto_horas": 252,
+  "valoracion_actividades_clp": 4602000,
+  "reserva_presupuestaria_valorizada_clp": 1638000,
+  "cpm_logico": {
+    "fin_indice": 80,
+    "fin": "2026-11-30T13:00:00",
+    "ids_criticos": [
+      "W01",
+      "W02",
+      "Q08",
+      "Q09",
+      "R03",
+      "R04",
+      "C0"
+    ],
+    "filas": {
+      "G01": {
+        "es": 0,
+        "ef": 2,
+        "ls": 6,
+        "lf": 8,
+        "holgura": 6
+      },
+      "G02": {
+        "es": 2,
+        "ef": 4,
+        "ls": 9,
+        "lf": 11,
+        "holgura": 7
+      },
+      "G03": {
+        "es": 2,
+        "ef": 5,
+        "ls": 8,
+        "lf": 11,
+        "holgura": 6
+      },
+      "G04": {
+        "es": 4,
+        "ef": 6,
+        "ls": 72,
+        "lf": 74,
+        "holgura": 68
+      },
+      "G05": {
+        "es": 5,
+        "ef": 7,
+        "ls": 13,
+        "lf": 15,
+        "holgura": 8
+      },
+      "A01": {
+        "es": 4,
+        "ef": 7,
+        "ls": 12,
+        "lf": 15,
+        "holgura": 8
+      },
+      "A02": {
+        "es": 7,
+        "ef": 12,
+        "ls": 16,
+        "lf": 21,
+        "holgura": 9
+      },
+      "A03": {
+        "es": 7,
+        "ef": 10,
+        "ls": 15,
+        "lf": 18,
+        "holgura": 8
+      },
+      "A04": {
+        "es": 12,
+        "ef": 17,
+        "ls": 21,
+        "lf": 26,
+        "holgura": 9
+      },
+      "A05": {
+        "es": 17,
+        "ef": 19,
+        "ls": 70,
+        "lf": 72,
+        "holgura": 53
+      },
+      "D01": {
+        "es": 5,
+        "ef": 7,
+        "ls": 11,
+        "lf": 13,
+        "holgura": 6
+      },
+      "D02": {
+        "es": 7,
+        "ef": 10,
+        "ls": 13,
+        "lf": 16,
+        "holgura": 6
+      },
+      "D03": {
+        "es": 10,
+        "ef": 15,
+        "ls": 16,
+        "lf": 21,
+        "holgura": 6
+      },
+      "D04": {
+        "es": 10,
+        "ef": 13,
+        "ls": 18,
+        "lf": 21,
+        "holgura": 8
+      },
+      "D05": {
+        "es": 15,
+        "ef": 18,
+        "ls": 21,
+        "lf": 24,
+        "holgura": 6
+      },
+      "L01": {
+        "es": 10,
+        "ef": 13,
+        "ls": 21,
+        "lf": 24,
+        "holgura": 11
+      },
+      "I1H": {
+        "es": 18,
+        "ef": 26,
+        "ls": 24,
+        "lf": 32,
+        "holgura": 6
+      },
+      "I1A": {
+        "es": 18,
+        "ef": 24,
+        "ls": 26,
+        "lf": 32,
+        "holgura": 8
+      },
+      "I1E": {
+        "es": 13,
+        "ef": 15,
+        "ls": 30,
+        "lf": 32,
+        "holgura": 17
+      },
+      "Q01": {
+        "es": 26,
+        "ef": 28,
+        "ls": 32,
+        "lf": 34,
+        "holgura": 6
+      },
+      "M01": {
+        "es": 28,
+        "ef": 28,
+        "ls": 34,
+        "lf": 34,
+        "holgura": 6
+      },
+      "I2H": {
+        "es": 28,
+        "ef": 34,
+        "ls": 34,
+        "lf": 40,
+        "holgura": 6
+      },
+      "I2B": {
+        "es": 34,
+        "ef": 38,
+        "ls": 40,
+        "lf": 44,
+        "holgura": 6
+      },
+      "I2A": {
+        "es": 28,
+        "ef": 34,
+        "ls": 38,
+        "lf": 44,
+        "holgura": 10
+      },
+      "Q02": {
+        "es": 38,
+        "ef": 40,
+        "ls": 44,
+        "lf": 46,
+        "holgura": 6
+      },
+      "M02": {
+        "es": 40,
+        "ef": 40,
+        "ls": 46,
+        "lf": 46,
+        "holgura": 6
+      },
+      "I3H": {
+        "es": 40,
+        "ef": 46,
+        "ls": 46,
+        "lf": 52,
+        "holgura": 6
+      },
+      "I3B": {
+        "es": 46,
+        "ef": 49,
+        "ls": 52,
+        "lf": 55,
+        "holgura": 6
+      },
+      "I3A": {
+        "es": 40,
+        "ef": 45,
+        "ls": 50,
+        "lf": 55,
+        "holgura": 10
+      },
+      "Q03": {
+        "es": 49,
+        "ef": 51,
+        "ls": 55,
+        "lf": 57,
+        "holgura": 6
+      },
+      "M03": {
+        "es": 51,
+        "ef": 51,
+        "ls": 57,
+        "lf": 57,
+        "holgura": 6
+      },
+      "I4H": {
+        "es": 51,
+        "ef": 57,
+        "ls": 57,
+        "lf": 63,
+        "holgura": 6
+      },
+      "I4A": {
+        "es": 51,
+        "ef": 56,
+        "ls": 58,
+        "lf": 63,
+        "holgura": 7
+      },
+      "I4E": {
+        "es": 51,
+        "ef": 53,
+        "ls": 61,
+        "lf": 63,
+        "holgura": 10
+      },
+      "Q04": {
+        "es": 57,
+        "ef": 59,
+        "ls": 63,
+        "lf": 65,
+        "holgura": 6
+      },
+      "M04": {
+        "es": 59,
+        "ef": 59,
+        "ls": 65,
+        "lf": 65,
+        "holgura": 6
+      },
+      "I5H": {
+        "es": 59,
+        "ef": 64,
+        "ls": 65,
+        "lf": 70,
+        "holgura": 6
+      },
+      "I5A": {
+        "es": 59,
+        "ef": 63,
+        "ls": 68,
+        "lf": 72,
+        "holgura": 9
+      },
+      "I5E": {
+        "es": 64,
+        "ef": 66,
+        "ls": 70,
+        "lf": 72,
+        "holgura": 6
+      },
+      "Q05": {
+        "es": 66,
+        "ef": 68,
+        "ls": 72,
+        "lf": 74,
+        "holgura": 6
+      },
+      "M05": {
+        "es": 68,
+        "ef": 68,
+        "ls": 74,
+        "lf": 74,
+        "holgura": 6
+      },
+      "W01": {
+        "es": 69,
+        "ef": 71,
+        "ls": 69,
+        "lf": 71,
+        "holgura": 0
+      },
+      "W02": {
+        "es": 71,
+        "ef": 74,
+        "ls": 71,
+        "lf": 74,
+        "holgura": 0
+      },
+      "Q06": {
+        "es": 40,
+        "ef": 42,
+        "ls": 72,
+        "lf": 74,
+        "holgura": 32
+      },
+      "Q07": {
+        "es": 51,
+        "ef": 53,
+        "ls": 72,
+        "lf": 74,
+        "holgura": 21
+      },
+      "Q08": {
+        "es": 74,
+        "ef": 76,
+        "ls": 74,
+        "lf": 76,
+        "holgura": 0
+      },
+      "Q09": {
+        "es": 76,
+        "ef": 78,
+        "ls": 76,
+        "lf": 78,
+        "holgura": 0
+      },
+      "F01": {
+        "es": 69,
+        "ef": 73,
+        "ls": 74,
+        "lf": 78,
+        "holgura": 5
+      },
+      "F02": {
+        "es": 6,
+        "ef": 7,
+        "ls": 77,
+        "lf": 78,
+        "holgura": 71
+      },
+      "R01": {
+        "es": 19,
+        "ef": 25,
+        "ls": 72,
+        "lf": 78,
+        "holgura": 53
+      },
+      "R02": {
+        "es": 71,
+        "ef": 73,
+        "ls": 76,
+        "lf": 78,
+        "holgura": 5
+      },
+      "R03": {
+        "es": 76,
+        "ef": 78,
+        "ls": 76,
+        "lf": 78,
+        "holgura": 0
+      },
+      "R04": {
+        "es": 78,
+        "ef": 80,
+        "ls": 78,
+        "lf": 80,
+        "holgura": 0
+      },
+      "C0": {
+        "es": 80,
+        "ef": 80,
+        "ls": 80,
+        "lf": 80,
+        "holgura": 0
+      }
+    }
+  },
+  "cpm_nivelado": {
+    "fin_indice": 80,
+    "fin": "2026-11-30T13:00:00",
+    "ids_criticos": [
+      "W01",
+      "W02",
+      "Q08",
+      "Q09",
+      "R03",
+      "R04",
+      "C0"
+    ],
+    "filas": {
+      "G01": {
+        "es": 0,
+        "ef": 2,
+        "ls": 2,
+        "lf": 4,
+        "holgura": 2
+      },
+      "G02": {
+        "es": 2,
+        "ef": 4,
+        "ls": 4,
+        "lf": 6,
+        "holgura": 2
+      },
+      "G03": {
+        "es": 2,
+        "ef": 5,
+        "ls": 5,
+        "lf": 8,
+        "holgura": 3
+      },
+      "G04": {
+        "es": 4,
+        "ef": 6,
+        "ls": 6,
+        "lf": 8,
+        "holgura": 2
+      },
+      "G05": {
+        "es": 5,
+        "ef": 7,
+        "ls": 10,
+        "lf": 12,
+        "holgura": 5
+      },
+      "A01": {
+        "es": 6,
+        "ef": 9,
+        "ls": 8,
+        "lf": 11,
+        "holgura": 2
+      },
+      "A02": {
+        "es": 9,
+        "ef": 14,
+        "ls": 11,
+        "lf": 16,
+        "holgura": 2
+      },
+      "A03": {
+        "es": 9,
+        "ef": 12,
+        "ls": 12,
+        "lf": 15,
+        "holgura": 3
+      },
+      "A04": {
+        "es": 14,
+        "ef": 19,
+        "ls": 16,
+        "lf": 21,
+        "holgura": 2
+      },
+      "A05": {
+        "es": 19,
+        "ef": 21,
+        "ls": 21,
+        "lf": 23,
+        "holgura": 2
+      },
+      "D01": {
+        "es": 5,
+        "ef": 7,
+        "ls": 8,
+        "lf": 10,
+        "holgura": 3
+      },
+      "D02": {
+        "es": 7,
+        "ef": 10,
+        "ls": 10,
+        "lf": 13,
+        "holgura": 3
+      },
+      "D03": {
+        "es": 10,
+        "ef": 15,
+        "ls": 13,
+        "lf": 18,
+        "holgura": 3
+      },
+      "D04": {
+        "es": 12,
+        "ef": 15,
+        "ls": 15,
+        "lf": 18,
+        "holgura": 3
+      },
+      "D05": {
+        "es": 15,
+        "ef": 18,
+        "ls": 18,
+        "lf": 21,
+        "holgura": 3
+      },
+      "L01": {
+        "es": 15,
+        "ef": 18,
+        "ls": 18,
+        "lf": 21,
+        "holgura": 3
+      },
+      "I1H": {
+        "es": 18,
+        "ef": 26,
+        "ls": 21,
+        "lf": 29,
+        "holgura": 3
+      },
+      "I1A": {
+        "es": 21,
+        "ef": 27,
+        "ls": 23,
+        "lf": 29,
+        "holgura": 2
+      },
+      "I1E": {
+        "es": 18,
+        "ef": 20,
+        "ls": 27,
+        "lf": 29,
+        "holgura": 9
+      },
+      "Q01": {
+        "es": 27,
+        "ef": 29,
+        "ls": 29,
+        "lf": 31,
+        "holgura": 2
+      },
+      "M01": {
+        "es": 29,
+        "ef": 29,
+        "ls": 31,
+        "lf": 31,
+        "holgura": 2
+      },
+      "I2H": {
+        "es": 29,
+        "ef": 35,
+        "ls": 31,
+        "lf": 37,
+        "holgura": 2
+      },
+      "I2B": {
+        "es": 35,
+        "ef": 39,
+        "ls": 37,
+        "lf": 41,
+        "holgura": 2
+      },
+      "F02": {
+        "es": 27,
+        "ef": 28,
+        "ls": 34,
+        "lf": 35,
+        "holgura": 7
+      },
+      "I2A": {
+        "es": 29,
+        "ef": 35,
+        "ls": 35,
+        "lf": 41,
+        "holgura": 6
+      },
+      "Q02": {
+        "es": 39,
+        "ef": 41,
+        "ls": 41,
+        "lf": 43,
+        "holgura": 2
+      },
+      "M02": {
+        "es": 41,
+        "ef": 41,
+        "ls": 43,
+        "lf": 43,
+        "holgura": 2
+      },
+      "I3H": {
+        "es": 41,
+        "ef": 47,
+        "ls": 43,
+        "lf": 49,
+        "holgura": 2
+      },
+      "I3B": {
+        "es": 47,
+        "ef": 50,
+        "ls": 49,
+        "lf": 52,
+        "holgura": 2
+      },
+      "Q06": {
+        "es": 41,
+        "ef": 43,
+        "ls": 50,
+        "lf": 52,
+        "holgura": 9
+      },
+      "R01": {
+        "es": 35,
+        "ef": 41,
+        "ls": 41,
+        "lf": 47,
+        "holgura": 6
+      },
+      "I3A": {
+        "es": 41,
+        "ef": 46,
+        "ls": 47,
+        "lf": 52,
+        "holgura": 6
+      },
+      "Q03": {
+        "es": 50,
+        "ef": 52,
+        "ls": 52,
+        "lf": 54,
+        "holgura": 2
+      },
+      "M03": {
+        "es": 52,
+        "ef": 52,
+        "ls": 54,
+        "lf": 54,
+        "holgura": 2
+      },
+      "I4H": {
+        "es": 52,
+        "ef": 58,
+        "ls": 54,
+        "lf": 60,
+        "holgura": 2
+      },
+      "I4A": {
+        "es": 52,
+        "ef": 57,
+        "ls": 55,
+        "lf": 60,
+        "holgura": 3
+      },
+      "I4E": {
+        "es": 52,
+        "ef": 54,
+        "ls": 56,
+        "lf": 58,
+        "holgura": 4
+      },
+      "Q07": {
+        "es": 54,
+        "ef": 56,
+        "ls": 58,
+        "lf": 60,
+        "holgura": 4
+      },
+      "Q04": {
+        "es": 58,
+        "ef": 60,
+        "ls": 60,
+        "lf": 62,
+        "holgura": 2
+      },
+      "M04": {
+        "es": 60,
+        "ef": 60,
+        "ls": 62,
+        "lf": 62,
+        "holgura": 2
+      },
+      "I5H": {
+        "es": 60,
+        "ef": 65,
+        "ls": 62,
+        "lf": 67,
+        "holgura": 2
+      },
+      "I5A": {
+        "es": 60,
+        "ef": 64,
+        "ls": 65,
+        "lf": 69,
+        "holgura": 5
+      },
+      "I5E": {
+        "es": 65,
+        "ef": 67,
+        "ls": 67,
+        "lf": 69,
+        "holgura": 2
+      },
+      "Q05": {
+        "es": 67,
+        "ef": 69,
+        "ls": 69,
+        "lf": 71,
+        "holgura": 2
+      },
+      "M05": {
+        "es": 69,
+        "ef": 69,
+        "ls": 74,
+        "lf": 74,
+        "holgura": 5
+      },
+      "W01": {
+        "es": 69,
+        "ef": 71,
+        "ls": 69,
+        "lf": 71,
+        "holgura": 0
+      },
+      "W02": {
+        "es": 71,
+        "ef": 74,
+        "ls": 71,
+        "lf": 74,
+        "holgura": 0
+      },
+      "Q08": {
+        "es": 74,
+        "ef": 76,
+        "ls": 74,
+        "lf": 76,
+        "holgura": 0
+      },
+      "F01": {
+        "es": 69,
+        "ef": 73,
+        "ls": 74,
+        "lf": 78,
+        "holgura": 5
+      },
+      "R02": {
+        "es": 71,
+        "ef": 73,
+        "ls": 74,
+        "lf": 76,
+        "holgura": 3
+      },
+      "Q09": {
+        "es": 76,
+        "ef": 78,
+        "ls": 76,
+        "lf": 78,
+        "holgura": 0
+      },
+      "R03": {
+        "es": 76,
+        "ef": 78,
+        "ls": 76,
+        "lf": 78,
+        "holgura": 0
+      },
+      "R04": {
+        "es": 78,
+        "ef": 80,
+        "ls": 78,
+        "lf": 80,
+        "holgura": 0
+      },
+      "C0": {
+        "es": 80,
+        "ef": 80,
+        "ls": 80,
+        "lf": 80,
+        "holgura": 0
+      }
+    }
+  },
+  "vinculos_recursos": [
+    [
+      "I1H",
+      "I2H"
+    ],
+    [
+      "I2B",
+      "I3H"
+    ],
+    [
+      "I3B",
+      "I4H"
+    ],
+    [
+      "I4H",
+      "I5H"
+    ],
+    [
+      "I5H",
+      "W01"
+    ],
+    [
+      "R02",
+      "Q09"
+    ],
+    [
+      "Q09",
+      "DFH"
+    ],
+    [
+      "DFH",
+      "TPH"
+    ],
+    [
+      "G04",
+      "A01"
+    ],
+    [
+      "A05",
+      "I1A"
+    ],
+    [
+      "I1A",
+      "F02"
+    ],
+    [
+      "F02",
+      "I2A"
+    ],
+    [
+      "I2A",
+      "R01"
+    ],
+    [
+      "R01",
+      "I3A"
+    ],
+    [
+      "I3A",
+      "I4A"
+    ],
+    [
+      "I4A",
+      "I5A"
+    ],
+    [
+      "I5A",
+      "F01"
+    ],
+    [
+      "R04",
+      "DFA"
+    ],
+    [
+      "DFA",
+      "TPA"
+    ],
+    [
+      "D04",
+      "L01"
+    ],
+    [
+      "L01",
+      "I1E"
+    ],
+    [
+      "Q01",
+      "Q02"
+    ],
+    [
+      "Q02",
+      "Q06"
+    ],
+    [
+      "Q06",
+      "Q03"
+    ],
+    [
+      "Q03",
+      "I4E"
+    ],
+    [
+      "I4E",
+      "Q07"
+    ],
+    [
+      "Q07",
+      "Q04"
+    ],
+    [
+      "Q04",
+      "I5E"
+    ],
+    [
+      "Q05",
+      "W02"
+    ],
+    [
+      "R03",
+      "DFE"
+    ],
+    [
+      "DFE",
+      "TPE"
+    ]
+  ],
+  "margen_entrega_jornadas": 0,
+  "sobrecargas": [],
+  "avance_real": "no inferido; campos reales se mantienen sin atribuir ejecución",
+  "naturaleza": "Estimación de esfuerzo por juicio técnico adaptado al corte académico, no reconstrucción de horas reales.",
+  "conciliacion_economica": {
+    "capacidad_base_horas": 960,
+    "horas_base_asignadas": 632,
+    "horas_defensa": 36,
+    "horas_transicion": 40,
+    "horas_asignadas_total": 708,
+    "presupuesto_valorizado_horas": 960,
+    "tarifa_clp_hora": 6500,
+    "presupuesto_valorizado_clp": 6240000,
+    "valor_asignaciones_clp": 4602000,
+    "reserva_presupuestaria_horas": 252,
+    "reserva_presupuestaria_clp": 1638000,
+    "capacidad_base_libre_horas": 328,
+    "inicio_operacion": "2027-01-01",
+    "horas_reales_acreditadas": null,
+    "nota": "Estimación de planificación; la valoración no acredita trabajo real, remuneración ni egreso de caja."
+  }
+}

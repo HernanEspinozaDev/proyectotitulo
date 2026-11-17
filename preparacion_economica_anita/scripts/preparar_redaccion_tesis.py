@@ -11,6 +11,7 @@ from actualizar_escenario_adoptado import money, table, flow
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / '07_texto_para_tesis'
 DATA = ROOT / '06_escenario_adoptado'
+PLAN = ROOT.parent / 'preparacion_planificacion_pmbok/04_ejecucion/calculo_cronograma.json'
 
 
 def load(name):
@@ -26,6 +27,34 @@ def source_table(text, number):
 
 def cuadro(number, title, grid, note):
     return f'**Tabla {number}**\n\n*{title}*\n\n{grid}\n*Nota.* Elaboración propia. {note}\n\n'
+
+
+def clp(value):
+    return f'{value:,}'.replace(',', '.')
+
+
+def texto_h5():
+    plan = json.loads(PLAN.read_text())
+    c = plan['conciliacion_economica']
+    return (f"El cronograma académico vigente asigna {c['horas_base_asignadas']} horas entre el "
+            f"{c['inicio_base']} y el {c['fin_base']}. La capacidad nominal de ese bloque es de "
+            f"{c['capacidad_base_horas']} horas: {c['capacidad_por_integrante_horas']} por integrante, "
+            f"a {c['horas_semana_persona']} horas semanales durante {c['semanas_base']} semanas. "
+            f"El presupuesto de valoración, calculado sobre las {c['presupuesto_valorizado_horas']} horas "
+            f"a CLP {clp(c['tarifa_clp_hora'])} por hora, asciende a CLP {clp(c['presupuesto_valorizado_clp'])}. "
+            "No existen horas reales acreditadas; por ello, la valorización es presupuestaria y no representa "
+            "remuneraciones, contratación ni egreso de caja.\n\n"
+            f"Después del bloque académico se asignan {c['horas_defensa']} horas a la defensa y "
+            f"{c['horas_transicion']} horas a la transición preoperativa, para un total de "
+            f"{c['horas_asignadas_total']} horas asignadas. La reserva presupuestaria es de "
+            f"{c['reserva_presupuestaria_horas']} horas, equivalentes a CLP {clp(c['reserva_presupuestaria_clp'])}, "
+            f"y el valor de las horas asignadas es CLP {clp(c['valor_asignaciones_clp'])}. La capacidad nominal "
+            f"base libre asciende a {c['capacidad_base_libre_horas']} horas; supera la reserva presupuestaria "
+            f"en {c['diferencia_capacidad_reserva_horas']} horas porque esta última se calcula contra la "
+            "asignación total e incluye actividades posteriores a la entrega. La transición se programa del "
+            f"{c['inicio_transicion']} al {c['fin_transicion']} y el inicio de la operación se fija para el "
+            f"{c['inicio_operacion']}. Estas capacidades y asignaciones son estimaciones de planificación, "
+            "no registros de trabajo ejecutado ni pagos.")
 
 
 def main():
@@ -66,7 +95,7 @@ La Tabla 14.1 presenta la distribución de pagos utilizada en la planificación 
 
 El equipo de espaciGo aporta el trabajo de desarrollo y utiliza tres notebooks y un teléfono de propiedad personal y uso compartido. La evaluación no contempla su compra inicial ni su transferencia al patrimonio de la empresa. En consecuencia, el flujo registra CLP 0 de desembolso inicial por estos equipos y no incorpora su venta al cierre.
 
-El desarrollo se valoriza en CLP 6.240.000, equivalentes a 960 horas a CLP 6.500 por hora. Esta valorización mide el trabajo preoperativo del equipo y se analiza separadamente de los desembolsos de caja. El presupuesto de preparación y lanzamiento asciende a CLP 1.200.000 e incluye formalización, asesoría, contenidos, campaña de lanzamiento y contingencia. La Tabla 14.2 distingue el tratamiento de cada recurso.
+El presupuesto de valoración del desarrollo asciende a CLP 6.240.000 y corresponde a 960 horas nominales a CLP 6.500 por hora. De esa capacidad, el plan vigente asigna 632 horas al bloque académico hasta el 30 de noviembre, 36 horas a la defensa y 40 horas a la transición preoperativa. No hay horas reales acreditadas; la valoración no constituye remuneración ni egreso de caja. El presupuesto de preparación y lanzamiento asciende a CLP 1.200.000 e incluye formalización, asesoría, contenidos, campaña de lanzamiento y contingencia. La Tabla 14.2 distingue el tratamiento de cada recurso.
 
 '''
     body += cuadro('14.2', 'Recursos preoperativos y tratamiento en la evaluación', table(
@@ -233,9 +262,7 @@ El umbral operativo promedio divide costo mensual más asignaciones por la comis
                     'El presupuesto se registra en el Año 0. La formalización incluye constitución y trámites. La campaña previa se diferencia de los CLP 350.000 mensuales de marketing operativo. La contingencia forma parte del límite de CLP 1.200.000, sin sumar otro egreso por igual concepto.')
     annex += '''## H.5. Valorización del desarrollo y recursos compartidos
 
-El equipo de espaciGo valoriza el desarrollo preoperativo mediante 16 semanas × 20 horas semanales × 3 integrantes = 960 horas. La tarifa de evaluación es CLP 6.500 por hora, para un total de CLP 6.240.000. La valorización permite examinar la recuperación del trabajo aportado; no se incorpora como salida de efectivo del flujo base.
-
-El tramo de planificación hasta fines de diciembre de 2026 considera seis semanas × veinte horas × tres integrantes, equivalentes a 360 horas y CLP 2.340.000 de capacidad valorizada. La capacidad disponible representa una asignación de recursos del equipo, diferenciada de las horas efectivamente ejecutadas y de la estimación del trabajo por tarea.
+'''+texto_h5()+'''
 
 Los tres notebooks y el teléfono, valorados conjuntamente en CLP 2.700.000, mantienen su carácter personal y compartido. La evaluación no registra compra inicial, aporte patrimonial, depreciación fiscal ni venta de estos bienes por parte de la empresa. La Tabla H.11.2 presenta por separado el volumen necesario para recuperar también la valorización global del desarrollo. Esta distinción evita confundir costo de oportunidad, costo hundido y desembolso de caja (Sapag Chain & Sapag Chain, 2008, pp. 126, 259–262).
 

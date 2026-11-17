@@ -46,6 +46,7 @@ def main():
 
     if args.diagrams:
         render_diagrams()
+        subprocess.run([sys.executable, str(TESIS_DIR / "scripts/render_planificacion.py")], cwd=ROOT, check=True)
 
     print("📖 Abriendo proyecto DocSkill en tesis_final...")
     project = DocSkillProject.open(TESIS_DIR)

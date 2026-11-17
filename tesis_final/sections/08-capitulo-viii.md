@@ -18,9 +18,9 @@ La organización prioriza comprobar el recorrido de arriendo, establecer criteri
 
 ### 8.3. Estructura funcional
 
-La Figura 6 presenta las funciones de gestión, desarrollo y operación del equipo de titulación.
+La Figura 7 presenta las funciones de gestión, desarrollo y operación del equipo de titulación.
 
-**Figura 6**\
+**Figura 7**\
 *Estructura funcional del proyecto*
 
 ![](assets/figuras/fig05_organigrama_espacigo.png)
@@ -43,6 +43,6 @@ La Figura 6 presenta las funciones de gestión, desarrollo y operación del equi
 
 ### 8.5. Vistas de arquitectura empresarial
 
-La estructura de la Figura 6 asigna responsabilidades internas. En la operación, una persona puede actuar por cuenta propia o con representación acreditada cuando corresponde. El diseño exige evaluar su relación con el recurso y la capacidad de la acción. La estructura del Anexo D identifica relaciones de referencia. El registro de representación y su alcance operativo requieren evidencia específica por corte. La Tabla 9 orienta los controles de operación.
+La estructura de la Figura 7 asigna responsabilidades internas. En la operación, una persona puede actuar por cuenta propia o con representación acreditada cuando corresponde. El diseño exige evaluar su relación con el recurso y la capacidad de la acción. La estructura del Anexo D identifica relaciones de referencia. El registro de representación y su alcance operativo requieren evidencia específica por corte. La Tabla 9 orienta los controles de operación.
 
 La vista de negocio organiza oferta, búsqueda, contratación y soporte. La vista de aplicaciones asigna esas funciones a los módulos y a sus interfaces externas. La vista de datos identifica los responsables de titularidad, ocupación, emisiones y pagos. La vista tecnológica separa el prototipo y los entornos de ensayo del entorno objetivo. Las cuatro vistas conectan una operación de negocio con el módulo que la ejecuta, los datos que respaldan su resultado y el entorno que sostiene su operación. Los capítulos VII, X y XIII desarrollan esa correspondencia.

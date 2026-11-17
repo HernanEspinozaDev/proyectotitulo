@@ -1,0 +1,16 @@
+{
+  "estado": "verificado",
+  "paquetes_edt": 28,
+  "actividades": 54,
+  "hitos": 9,
+  "horas": 708,
+  "sobrecargas": 0,
+  "horas_reales_inferidas": false,
+  "margen_entrega_jornadas": 0,
+  "tablas_financieras_preservadas": 27,
+  "tablas_fuente": 67,
+  "figuras_fuente": 35,
+  "plantilla_institucional": "preservada",
+  "xml": "fechas, 63 hojas, 54 asignaciones y 708 horas comprobadas",
+  "limitacion": "Calendario nominal de dedicación sin excepciones personales acreditadas; cero margen de entrega; no implica producción habilitada."
+}

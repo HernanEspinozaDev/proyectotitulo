@@ -10,6 +10,7 @@ TESIS = ROOT / 'tesis_final'
 def adapt(text):
     # El cuerpo de la tesis usa numeración correlativa de tablas (1–13 existentes).
     text = re.sub(r'\bTabla 14\.(\d+)\b', lambda m: 'Tabla ' + str(13 + int(m[1])), text)
+    text = re.sub(r'\bTablas 14\.(\d+) y 14\.(\d+)\b', lambda m: 'Tablas '+str(13+int(m[1]))+' y '+str(13+int(m[2])), text)
     # Un párrafo de rótulo y título con salto de línea, como las otras tablas TIHI84.
     text = re.sub(r'(\*\*Tabla [\d.H]+\*\*)\n\n(\*[^\n]+\*)', r'\1\\\n\2', text)
     # La bibliografía general se produce desde el manifiesto y el Capítulo XVII.

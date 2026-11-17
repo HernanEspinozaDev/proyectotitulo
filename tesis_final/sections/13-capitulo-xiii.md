@@ -12,9 +12,9 @@ El diseño establece mínimo privilegio para aplicación, migraciones y operaci�
 
 El procedimiento objetivo recupera RDS PostgreSQL mediante respaldo o PITR y selecciona las versiones compatibles de los objetos privados en S3 dentro de la región habilitada. La restauración se realiza en un entorno aislado. La aceptación exige comprobar referencias, permisos y acciones de supresión que el respaldo antecede. La medición compara el punto recuperado y el tiempo de recuperación con el RNF-010. El operador registra las divergencias y conserva aislado el destino cuando falla una comprobación.
 
-La Figura 17 resume el ensayo objetivo de restauración. La comprobación de permisos es una condición de reapertura del servicio, porque la recuperación de los datos por sí sola no acredita que se conserva su control de acceso. La Tabla F.3 conserva la falla histórica observada en esa etapa. El ensayo AWS requiere su propio resultado.
+La Figura 18 resume el ensayo objetivo de restauración. La comprobación de permisos es una condición de reapertura del servicio, porque la recuperación de los datos por sí sola no acredita que se conserva su control de acceso. La Tabla F.3 conserva la falla histórica observada en esa etapa. El ensayo AWS requiere su propio resultado.
 
-**Figura 17**\
+**Figura 18**\
 *Actividad objetivo de restauración y verificación*
 
 ![](assets/imagenes/fig17_recuperacion_aws.png){height=13cm}
@@ -57,3 +57,5 @@ La política de retención identifica finalidad, evento inicial, excepción, res
 6. Habilitar el servicio cuando se acredita el criterio de cada control. Registrar disponibilidad, incidentes y consumo de recursos durante la operación.
 
 La configuración inicial Single-AZ exige valorar el efecto de una interrupción zonal en el objetivo de disponibilidad. El paso a Multi-AZ conserva su condición de compuerta del diseño para la operación comercial. La configuración de respaldo, por sí sola, requiere un ensayo para acreditar RPO y RTO.
+
+La programación W01/W02 del Anexo G relaciona esta secuencia con la revisión del diseño y los artefactos de infraestructura; la transición TPH/TPA/TPE identifica responsables de preparación técnica, legal y de proveedores. La frontera comercial del 1 de enero de 2027 corresponde al estudio económico. La puesta en servicio efectiva exige acreditar los controles de este capítulo y no se presume por llegar a esa fecha.

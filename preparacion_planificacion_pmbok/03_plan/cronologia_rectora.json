@@ -10,7 +10,7 @@
   "ajustes_y_defensa": {
     "inicio_ajustes": "2026-12-02",
     "hito_defensa": "2026-12-09",
-    "estado": "hito confirmado; esfuerzo por actividad a estimar"
+    "estado": "hito confirmado; 36 horas programadas entre tres integrantes, sin atribuir ejecución"
   },
   "transicion_precomercial": {
     "inicio_propuesto": "2026-12-10",
@@ -44,11 +44,12 @@
     "regla": "gestión, construcción, pruebas y documentación comparten la capacidad; excepciones y distribución se documentan en calendarios"
   },
   "horas_reales": null,
-  "horas_ajustes_defensa": null,
-  "horas_transicion": null,
+  "horas_ajustes_defensa": 36,
+  "horas_transicion": 40,
   "capacidad_antigua_por_rectificar": {
-    "horas": 360,
-    "valoracion_clp": 2340000,
-    "ventana": "seis semanas hasta fines de diciembre; incompatible como ventana del desarrollo académico actualizado"
-  }
+    "estado": "antecedente histórico sustituido; no vigente para H.5 ni para la planificación actual",
+    "ventana_vigente": "Bloque base académico del 11 de agosto al 30 de noviembre de 2026; defensa y transición se programan en bloques separados.",
+    "fuente_vigente": "preparacion_planificacion_pmbok/04_ejecucion/calculo_cronograma.json"
+  },
+  "programacion_vigente": "../04_ejecucion/calculo_cronograma.json"
 }

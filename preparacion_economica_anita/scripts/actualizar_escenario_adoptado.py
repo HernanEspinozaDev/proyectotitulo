@@ -114,7 +114,7 @@ El déficit acumulado máximo se obtiene recorriendo el saldo antes de aportes. 
 
 La simulación adoptada completa el calendario y los cálculos del escenario académico, con límites explícitos. La referencia de 16 pagos mensuales no cubre los costos identificados, no activa asignaciones y necesita aportes. El resultado no se altera mediante crecimiento comercial o venta de activos sin respaldo. La muestra de entrevistas y las fichas de oferta son objetivos de validación, no resultados obtenidos.
 
-El lanzamiento objetivo se mantiene en enero de 2027. Los equipos son personales y compartidos; la constitución se incluye en el presupuesto de CLP 1.200.000. La valorización global del desarrollo conserva 960 horas a CLP 6.500, sin atribuir un reparto de ejecución no demostrado. La capacidad de planificación de 360 horas hasta fines de diciembre se distingue de la estimación real del trabajo restante. H.39–H.40 documentan decisiones, límites y trazabilidad.
+El inicio de la operación se fija para el 1 de enero de 2027. Los equipos son personales y compartidos; la constitución se incluye en el presupuesto de CLP 1.200.000. El presupuesto de valoración conserva 960 horas a CLP 6.500 por hora. El plan vigente asigna 632 horas al bloque académico del 11 de agosto al 30 de noviembre, 36 horas a la defensa y 40 horas a la transición preoperativa, para 708 horas asignadas y una reserva presupuestaria de 252 horas. No existen horas reales acreditadas; la valorización no representa remuneraciones ni egreso de caja. H.39–H.40 documentan decisiones, límites y trazabilidad.
 
 La validación real requiere demanda, costos, escalamiento y condiciones de proveedores respaldados. El cierre sin venta es una convención, no una tasación. La preparación se mantiene separada de la tesis principal y conserva la planificación de Erick.
 '''
@@ -200,9 +200,9 @@ El capital modelado de comisión por cobrar ya está en el flujo por variación 
 
 ## H.40. Desarrollo, decisiones y trazabilidad
 
-Anita fundamenta los CLP 6.240.000 en 16 semanas × 20 horas × tres integrantes = 960 horas, a CLP 6.500 por hora. El importe es valorización preoperativa global y no un desembolso contratado. No se atribuye un porcentaje realizado a partir de commits, funciones o semanas transcurridas. Las horas ejecutadas y restantes continúan sin registro verificado.
+El cronograma académico vigente asigna 632 horas entre el 11 de agosto y el 30 de noviembre de 2026. La capacidad nominal del bloque es de 960 horas, equivalente a 320 por integrante y veinte horas semanales durante dieciséis semanas. A CLP 6.500 por hora, el presupuesto valorizado asciende a CLP 6.240.000. No existen horas reales acreditadas; el importe no representa remuneraciones ni egreso de caja.
 
-La propuesta adoptada reserva como capacidad de planificación seis semanas hasta fines de diciembre, veinte horas por integrante y semana: 360 horas, valorizadas en CLP 2.340.000. Capacidad disponible no significa estimación del backlog. El registro de tareas distingue ejecutado con evidencia, restante mínimo/central/máximo e incertidumbre. No se modifica la planificación de Erick.
+Después del bloque académico se asignan 36 horas a la defensa y 40 horas a la transición preoperativa, para un total de 708 horas. La reserva presupuestaria es de 252 horas, equivalente a CLP 1.638.000, mientras que el valor de las horas asignadas asciende a CLP 4.602.000. La capacidad nominal base libre es de 328 horas, 76 horas superior a la reserva, porque esta última también descuenta las actividades posteriores a la entrega. La transición se programa del 10 al 31 de diciembre y la operación comienza el 1 de enero de 2027. El registro no acredita ejecución ni pago.
 
 '''
  annex+=cuadro('H.40.1','Quiebre al exigir recuperar también la valorización global',['Meta por persona','Pagos al mes','VAN con un pago menos CLP','VAN con el mínimo CLP'],[[label,money(x['pagos_mes']),money(x['van_anterior_clp'],2),money(x['van_minimo_clp'],2)] for label,x in zip(['Sin asignaciones','$200.000','$1.000.000'],roots[3:])],

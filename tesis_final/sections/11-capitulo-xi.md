@@ -23,7 +23,7 @@ El Anexo F identifica las mediciones pendientes. Los resultados locales acredita
 
 ### 11.3. Control por incremento
 
-El enfoque híbrido del Capítulo VI vincula los entregables de la EDT con incrementos verificables. Cada revisión registra alcance, versión, entorno, evidencia y decisión de cierre. La Tabla 11 utiliza esos antecedentes para distinguir por objetivo el diseño documentado, la ejecución de pruebas y la conformidad observada. El indicador de desempeño del cronograma se informa cuando existe una línea base y registros de avance que sustentan su cálculo.
+El enfoque híbrido del Capítulo VI vincula los entregables de la EDT con incrementos verificables. Cada revisión registra alcance, versión, entorno, evidencia y decisión de cierre. La Tabla 11 utiliza esos antecedentes para distinguir por objetivo el diseño documentado, la ejecución de pruebas y la conformidad observada. El Anexo G.7 define el registro por actividad: fecha de estado, esfuerzo real y restante, versión, entorno, revisión y fecha prevista. Los hitos M01–M05 de la programación son compuertas y no porcentajes de avance observados. El indicador de desempeño del cronograma y los indicadores de costo se informan como no calculables hasta contar con línea base y mediciones reales comparables. El Capítulo XV conserva los ajustes del programa de referencia.
 
 ### 11.4. Control de decisiones y configuración
 

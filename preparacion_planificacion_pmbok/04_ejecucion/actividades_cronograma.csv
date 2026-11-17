@@ -1,0 +1,64 @@
+ID,EDT,Actividad,Responsable,Inicio programado,Fin programado,Días 4h,Horas,Predecesoras lógicas,Predecesoras recurso,Holgura base,Etapa
+G01,1.1.1,Definir gobierno y acuerdo del equipo,Anita Marchant Pacheco,2026-08-11T09:00:00,2026-08-12T13:00:00,2,8,,,2,base
+G02,1.1.2,Delimitar alcance y descomponer EDT,Anita Marchant Pacheco,2026-08-13T09:00:00,2026-08-14T13:00:00,2,8,G01,,2,base
+G03,1.1.3,Preparar calendario y modelo de cronograma,Erick Silva Quezada,2026-08-13T09:00:00,2026-08-17T13:00:00,3,12,G01,,3,base
+G04,1.1.4,Identificar presupuesto y adquisiciones,Anita Marchant Pacheco,2026-08-17T09:00:00,2026-08-18T13:00:00,2,8,G02,,2,base
+G05,1.1.5,Definir riesgos y control de cambios,Erick Silva Quezada,2026-08-18T09:00:00,2026-08-19T13:00:00,2,8,G03,,5,base
+A01,1.2.1,Caracterizar el problema y los procesos,Anita Marchant Pacheco,2026-08-19T09:00:00,2026-08-21T13:00:00,3,12,G02,G04,2,base
+A02,1.2.2,Especificar requisitos funcionales,Anita Marchant Pacheco,2026-08-24T09:00:00,2026-08-28T13:00:00,5,20,A01,,2,base
+A03,1.2.3,Especificar requisitos de calidad,Erick Silva Quezada,2026-08-24T09:00:00,2026-08-26T13:00:00,3,12,"A01,G05",,3,base
+A04,1.2.4,Modelar historias y casos de uso,Anita Marchant Pacheco,2026-08-31T09:00:00,2026-09-04T13:00:00,5,20,A02,,2,base
+A05,1.2.5,"Relacionar requisitos, casos y pruebas",Anita Marchant Pacheco,2026-09-07T09:00:00,2026-09-08T13:00:00,2,8,"A04,A03",,2,base
+D01,1.3.1,Definir vistas de arquitectura empresarial,Hernán Espinoza Castillo,2026-08-18T09:00:00,2026-08-19T13:00:00,2,8,"G02,G03",,3,base
+D02,1.3.2,Diseñar dominio y adaptadores,Hernán Espinoza Castillo,2026-08-20T09:00:00,2026-08-24T13:00:00,3,12,D01,,3,base
+D03,1.3.3,Modelar datos y restricciones geoespaciales,Hernán Espinoza Castillo,2026-08-25T09:00:00,2026-08-31T13:00:00,5,20,D02,,3,base
+D04,1.3.4,"Diseñar sesiones, permisos y privacidad",Erick Silva Quezada,2026-08-27T09:00:00,2026-08-31T13:00:00,3,12,"D02,A03",,3,base
+D05,1.3.5,Especificar operaciones de interfaz,Hernán Espinoza Castillo,2026-09-01T09:00:00,2026-09-03T13:00:00,3,12,"D03,D04",,3,base
+L01,1.6.1,Preparar contenedores y calidad local,Erick Silva Quezada,2026-09-01T09:00:00,2026-09-03T13:00:00,3,12,"G03,D02",D04,3,base
+I1H,1.4.1,"Construir cuenta, perfil y control de acceso",Hernán Espinoza Castillo,2026-09-04T09:00:00,2026-09-15T13:00:00,8,32,"D05,L01",,3,base
+I1A,1.4.1,Construir pantallas de cuenta y perfil,Anita Marchant Pacheco,2026-09-09T09:00:00,2026-09-16T13:00:00,6,24,"D05,A04",A05,2,base
+I1E,1.4.1,Definir verificación de identidad controlada,Erick Silva Quezada,2026-09-04T09:00:00,2026-09-07T13:00:00,2,8,D04,L01,9,base
+Q01,1.5.1,Verificar integración de identidad,Erick Silva Quezada,2026-09-17T09:00:00,2026-09-18T13:00:00,2,8,"I1H,I1A,I1E",,2,base
+M01,1.5.1,Incremento 1 integrado,Hito,2026-09-18T13:00:00,2026-09-18T13:00:00,0,0,Q01,,2,base
+I2H,1.4.2,Construir publicación y disponibilidad,Hernán Espinoza Castillo,2026-09-21T09:00:00,2026-09-28T13:00:00,6,24,M01,I1H,2,base
+I2B,1.4.2,Construir búsqueda y cotización PostGIS,Hernán Espinoza Castillo,2026-09-29T09:00:00,2026-10-02T13:00:00,4,16,I2H,,2,base
+I2A,1.4.2,"Construir catálogo, mapa y detalle",Anita Marchant Pacheco,2026-09-21T09:00:00,2026-09-28T13:00:00,6,24,M01,F02,6,base
+Q02,1.5.1,Verificar catálogo y búsqueda integrada,Erick Silva Quezada,2026-10-05T09:00:00,2026-10-06T13:00:00,2,8,"I2B,I2A",Q01,2,base
+M02,1.5.1,Incremento 2 integrado,Hito,2026-10-06T13:00:00,2026-10-06T13:00:00,0,0,Q02,,2,base
+I3H,1.4.3,Construir aceptación y ocupación exclusiva,Hernán Espinoza Castillo,2026-10-07T09:00:00,2026-10-14T13:00:00,6,24,M02,I2B,2,base
+I3B,1.4.3,Construir conciliación y pagos controlados,Hernán Espinoza Castillo,2026-10-15T09:00:00,2026-10-19T13:00:00,3,12,I3H,,2,base
+I3A,1.4.3,Construir recorrido de acuerdo y cobro,Anita Marchant Pacheco,2026-10-07T09:00:00,2026-10-13T13:00:00,5,20,M02,R01,6,base
+Q03,1.5.1,Verificar renta y comisión por separado,Erick Silva Quezada,2026-10-20T09:00:00,2026-10-21T13:00:00,2,8,"I3B,I3A",Q06,2,base
+M03,1.5.1,Incremento 3 integrado,Hito,2026-10-21T13:00:00,2026-10-21T13:00:00,0,0,Q03,,2,base
+I4H,1.4.4,"Construir documentos, avisos y evidencias",Hernán Espinoza Castillo,2026-10-22T09:00:00,2026-10-29T13:00:00,6,24,M03,I3B,2,base
+I4A,1.4.4,Construir vistas documentales y entrega,Anita Marchant Pacheco,2026-10-22T09:00:00,2026-10-28T13:00:00,5,20,M03,I3A,3,base
+I4E,1.4.4,Definir aceptación de firma opcional,Erick Silva Quezada,2026-10-22T09:00:00,2026-10-23T13:00:00,2,8,M03,Q03,4,base
+Q04,1.5.1,Verificar documentos y entrega controlada,Erick Silva Quezada,2026-10-30T09:00:00,2026-11-02T13:00:00,2,8,"I4H,I4A,I4E",Q07,2,base
+M04,1.5.1,Incremento 4 integrado,Hito,2026-11-02T13:00:00,2026-11-02T13:00:00,0,0,Q04,,2,base
+I5H,1.4.5,Construir administración e incidencias,Hernán Espinoza Castillo,2026-11-03T09:00:00,2026-11-09T13:00:00,5,20,M04,I4H,2,base
+I5A,1.4.5,Construir vistas de administración,Anita Marchant Pacheco,2026-11-03T09:00:00,2026-11-06T13:00:00,4,16,M04,I4A,5,base
+I5E,1.4.5,Revisar autorización y registro de auditoría,Erick Silva Quezada,2026-11-10T09:00:00,2026-11-11T13:00:00,2,8,I5H,Q04,2,base
+Q05,1.5.1,Verificar incremento de administración,Erick Silva Quezada,2026-11-12T09:00:00,2026-11-13T13:00:00,2,8,"I5E,I5A",,2,base
+M05,1.5.1,Incremento 5 integrado,Hito,2026-11-13T13:00:00,2026-11-13T13:00:00,0,0,Q05,,5,base
+W01,1.6.1,Conciliar diseño con decisión AWS,Hernán Espinoza Castillo,2026-11-16T09:00:00,2026-11-17T13:00:00,2,8,D05,I5H,0,base
+W02,1.6.1,Revisar adaptadores e IaC del corte AWS,Erick Silva Quezada,2026-11-18T09:00:00,2026-11-20T13:00:00,3,12,"W01,L01",Q05,0,base
+Q06,1.5.2,Revisar rendimiento local y plan integrado,Erick Silva Quezada,2026-10-07T09:00:00,2026-10-08T13:00:00,2,8,M02,Q02,9,base
+Q07,1.5.3,Revisar recuperación local y criterios RPO/RTO,Erick Silva Quezada,2026-10-26T09:00:00,2026-10-27T13:00:00,2,8,M03,I4E,4,base
+Q08,1.5.4,"Revisar permisos, regresión y hallazgos",Erick Silva Quezada,2026-11-23T09:00:00,2026-11-24T13:00:00,2,8,"M05,Q06,Q07,W02",,0,base
+Q09,1.5.1,Conciliar aceptación del corte académico,Hernán Espinoza Castillo,2026-11-25T09:00:00,2026-11-26T13:00:00,2,8,"Q08,M05",R02,0,base
+F01,1.6.2,Conciliar flujos y sensibilidad financiera,Anita Marchant Pacheco,2026-11-16T09:00:00,2026-11-19T13:00:00,4,16,"G04,A05",I5A,5,base
+F02,1.6.3,Definir preparación societaria y presupuesto,Anita Marchant Pacheco,2026-09-17T09:00:00,2026-09-17T13:00:00,1,4,G04,I1A,7,base
+R01,1.6.4,Redactar y revisar capítulos y anexos,Anita Marchant Pacheco,2026-09-29T09:00:00,2026-10-06T13:00:00,6,24,A05,I2A,6,base
+R02,1.6.4,Revisar trazabilidad de arquitectura y datos,Hernán Espinoza Castillo,2026-11-18T09:00:00,2026-11-19T13:00:00,2,8,"M05,W01",,3,base
+R03,1.1.3,"Revisar red, recursos e hitos del plan",Erick Silva Quezada,2026-11-25T09:00:00,2026-11-26T13:00:00,2,8,Q08,,0,base
+R04,1.6.4,Integrar informe y evidencia de entrega,Anita Marchant Pacheco,2026-11-27T09:00:00,2026-11-30T13:00:00,2,8,"F01,F02,R01,R02,R03,Q09",,0,base
+C0,1.5.1,Corte académico preparado,Hito,2026-11-30T13:00:00,2026-11-30T13:00:00,0,0,R04,,0,base
+ENT,1.6.4,Entrega de proyecto e informe,Hito,2026-12-01T09:00:00,2026-12-01T09:00:00,0,0,C0,,,base
+DFH,1.6.4,Estabilizar demostración técnica,Hernán Espinoza Castillo,2026-12-02T09:00:00,2026-12-04T13:00:00,3,12,ENT,Q09,,defensa
+DFA,1.6.4,Preparar presentación y revisión de informe,Anita Marchant Pacheco,2026-12-02T09:00:00,2026-12-04T13:00:00,3,12,ENT,R04,,defensa
+DFE,1.6.4,Revisar entorno de demostración y contingencias,Erick Silva Quezada,2026-12-02T09:00:00,2026-12-04T13:00:00,3,12,ENT,R03,,defensa
+DEF,1.6.4,Defensa de título,Hito,2026-12-09T09:00:00,2026-12-09T09:00:00,0,0,"DFH,DFA,DFE",,,defensa
+TPH,1.6.1,Verificar condiciones técnicas del piloto,Hernán Espinoza Castillo,2026-12-10T09:00:00,2026-12-14T13:00:00,3,12,DEF,DFH,,transicion
+TPA,1.6.3,Preparar formalización y captación inicial,Anita Marchant Pacheco,2026-12-10T09:00:00,2026-12-14T13:00:00,3,12,DEF,DFA,,transicion
+TPE,1.6.1,Preparar ensayo de despliegue y proveedores,Erick Silva Quezada,2026-12-10T09:00:00,2026-12-15T13:00:00,4,16,DEF,DFE,,transicion
+COM,1.6.4,Inicio de fase comercial,Hito,2027-01-01T09:00:00,2027-01-01T09:00:00,0,0,"TPH,TPA,TPE",,,comercial

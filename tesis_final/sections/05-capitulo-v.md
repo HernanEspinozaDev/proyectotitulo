@@ -72,3 +72,5 @@ El lienzo sintetiza las hipótesis de intermediación y las dependencias del ser
 *Nota.* Elaboración propia. El lienzo describe el modelo propuesto para evaluación.
 
 La selección de AWS mantiene esos objetivos y añade como condición de habilitación la comprobación de red, permisos, almacenamiento y recuperación en el destino. La configuración local permite construir y probar cada incremento. El despliegue cloud requiere un registro de versión, región, recursos y resultados que sustente su aceptación.
+
+El registro de interesados del Anexo G.9 relaciona estas partes con interés, influencia, expectativas y estrategia de participación. La comunicación por hito distingue evaluación académica, coordinación del equipo y validación de producto; no atribuye aprobación de funciones o fechas sin evidencia institucional.

@@ -21,6 +21,7 @@ import re
 
 from tihi84_frontmatter import apply_frontmatter
 from format_economic_tables import format_economic_tables
+from format_planning_tables import format_planning_tables
 
 ROOT = Path(__file__).resolve().parent.parent
 DOCX_PATH = ROOT / 'build/Tesis_Final_espaciGo.docx'
@@ -280,6 +281,8 @@ def postprocess():
 
         economic_tables = format_economic_tables(body)
         print(f"Postprocesamiento: {economic_tables} tablas económicas ajustadas a la plantilla y al ancho de página.")
+        planning_tables = format_planning_tables(body)
+        print(f"Postprocesamiento: {planning_tables} tablas de planificación ajustadas.")
         insert_caption_indexes(body)
         extra_parts['word/document.xml'] = ET.tostring(root, encoding='utf-8', xml_declaration=True)
 

@@ -50,7 +50,7 @@ def main():
     for match in re.finditer(r'\bTabla ((?:H\.)?\d+(?:\.\d+)?)', body+annex):
         assert match[1] in all_ids, match[0]
     baseline = '2d410cd'
-    protected = ['tesis_final/document.json', 'tesis_final/templates/reference-tihi84.docx', 'tesis_final/templates/style-profile-inacap.json', 'tesis_final/sections/06-capitulo-vi.md', 'tesis_final/sections/15-capitulo-xv.md', 'tesis_final/appendices/g-carta-gantt-detallada.md']
+    protected = ['tesis_final/document.json', 'tesis_final/templates/reference-tihi84.docx', 'tesis_final/templates/style-profile-inacap.json']
     preserved = {}
     for name in protected:
         before = subprocess.check_output(['git', 'show', baseline+':'+name], cwd=ROOT)

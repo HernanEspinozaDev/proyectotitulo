@@ -157,3 +157,7 @@ El plan no utilizará las 960 h para ocultar horas adicionales ni sumará las 1.
 ## Estado de esta entrega
 
 Este corte **completa el análisis y el plan**, con las fechas y dedicación confirmadas. La ejecución comienza en P03 y se sigue por capítulo y anexo. La tesis y el MPP recibido conservan todavía su contenido mientras se prepara esa corrección; no se presenta este plan como una Gantt ya reconstruida.
+
+## Ejecución del plan
+
+La aplicación desarrolla las tareas P03–P12 con el registro actualizado en `estado_tareas.json`. Las 21 correcciones y sus destinos se documentan en `../04_ejecucion/CIERRE_DE_BRECHAS.md`. La programación mantiene explícitos el margen temporal cero, el calendario nominal y la ausencia de horas reales por actividad. Las verificaciones de estructura, finanzas, XML y Word/PDF se conservan junto a los entregables; las tareas se cierran con esas evidencias.

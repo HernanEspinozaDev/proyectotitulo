@@ -4,9 +4,9 @@
 
 ### 10.1. Diagrama BPMN
 
-La Figura 7 representa el proceso de contratación objetivo mediante tareas, compuertas y participantes. Los diagramas posteriores detallan publicación, estados, ventanas y privacidad.
+La Figura 8 representa el proceso de contratación objetivo mediante tareas, compuertas y participantes. Los diagramas posteriores detallan publicación, estados, ventanas y privacidad.
 
-**Figura 7**\
+**Figura 8**\
 *Proceso de contratación objetivo en BPMN*
 
 ![](assets/figuras/bpmn_contratacion_tihi84.png){height=16.5cm}
@@ -17,9 +17,9 @@ La Figura 7 representa el proceso de contratación objetivo mediante tareas, com
 
 La especificación de requerimientos de la plataforma **espaciGo** se articula en torno a la interacción de roles de arrendamiento definidos por operación, capacidades de administración e integraciones externas:
 
-La Figura 8 sintetiza los papeles de la cuenta y la administración.
+La Figura 9 sintetiza los papeles de la cuenta y la administración.
 
-**Figura 8**\
+**Figura 9**\
 *Diagrama de Interacción entre Actores y Módulos de la Plataforma*
 
 ![](assets/figuras/anexo_c/cu_actores.png)
@@ -32,9 +32,9 @@ El Anexo C organiza los casos de uso por módulo. Arrendador y arrendatario repr
 
 ### 10.3. Diagrama de componentes
 
-La Figura 9 detalla la vista de aplicaciones y el enlace entre la interfaz, el núcleo y sus adaptadores AWS. La aplicación utiliza S3 y PostgreSQL local durante el desarrollo. El destino Fargate conserva los mismos límites de dominio. El Anexo E conserva el contrato OpenAPI de referencia.
+La Figura 10 detalla la vista de aplicaciones y el enlace entre la interfaz, el núcleo y sus adaptadores AWS. La aplicación utiliza S3 y PostgreSQL local durante el desarrollo. El destino Fargate conserva los mismos límites de dominio. El Anexo E conserva el contrato OpenAPI de referencia.
 
-**Figura 9**\
+**Figura 10**\
 *Componentes de aplicación y adaptadores de espaciGo*
 
 ![](assets/imagenes/fig09_componentes_aws.png){height=15.5cm}
@@ -55,16 +55,16 @@ El modelo separa los aportes de firma, la renta y la garantía en obligaciones i
 
 #### 10.4.2. Modelo Físico
 
-La Figura 10 relaciona las entidades lógicas. La Figura 11 presenta un recorte del esquema físico de ensayo y la Tabla D.1 documenta la correspondencia entre ambos niveles.
+La Figura 11 relaciona las entidades lógicas. La Figura 12 presenta un recorte del esquema físico de ensayo y la Tabla D.1 documenta la correspondencia entre ambos niveles.
 
-**Figura 10**\
+**Figura 11**\
 *Modelo lógico del núcleo transaccional*
 
 ![](assets/figuras/fig13_modelo_logico_objetivo.png){height=11cm}
 
 *Nota.* Elaboración propia. La figura representa relaciones lógicas objetivo. La reserva se vincula con cero o una ocupación en el núcleo representado. Una ocupación manual puede existir sin reserva. La aceptación se registra por parte y por emisión. El Anexo D documenta las tablas derivadas del DDL y el alcance de su comparación con el catálogo local.
 
-**Figura 11**\
+**Figura 12**\
 *Esquema físico del núcleo transaccional de ensayo*
 
 ![](assets/figuras/erd_fisico_ensayo.png){height=17cm}
@@ -89,9 +89,9 @@ El navegador accede al borde Cloudflare por HTTPS. El origen web requiere config
 
 ### 10.6. Diagrama de Infraestructura
 
-La topología objetivo adopta la región inicial us-east-2, sujeta a la selección habilitada del proyecto. Una tarea ECS Fargate reúne la web Next.js y la API Go en modo awsvpc. El diseño utiliza RDS PostgreSQL Single-AZ en subredes privadas, almacenamiento gp3 cifrado y respaldo automático con retención de siete días. El procedimiento de aceptación verifica PITR, versión del motor, extensiones y recuperación. La Figura 12 representa este destino y distingue los componentes que requieren completar su configuración.
+La topología objetivo adopta la región inicial us-east-2, sujeta a la selección habilitada del proyecto. Una tarea ECS Fargate reúne la web Next.js y la API Go en modo awsvpc. El diseño utiliza RDS PostgreSQL Single-AZ en subredes privadas, almacenamiento gp3 cifrado y respaldo automático con retención de siete días. El procedimiento de aceptación verifica PITR, versión del motor, extensiones y recuperación. La Figura 13 representa este destino y distingue los componentes que requieren completar su configuración.
 
-**Figura 12**\
+**Figura 13**\
 *Topología objetivo y ruta de entrega de espaciGo en AWS*
 
 ![](assets/imagenes/fig12_topologia_aws.png){height=16cm}
@@ -103,7 +103,7 @@ La VPC declara dos subredes públicas y dos privadas, con zonas descubiertas des
 
 ### 10.7. Diagrama de Arquitectura
 
-La arquitectura integrada se lee en tres vistas complementarias. La Figura 9 muestra la interacción de componentes, las figuras 10 y 11 describen persistencia y la Figura 12 sitúa la solución en su infraestructura. Las figuras siguientes precisan el comportamiento que conecta estas vistas.
+La arquitectura integrada se lee en tres vistas complementarias. La Figura 10 muestra la interacción de componentes, las figuras 10 y 11 describen persistencia y la Figura 13 sitúa la solución en su infraestructura. Las figuras siguientes precisan el comportamiento que conecta estas vistas.
 
 El catálogo versionado utiliza OpenAPI 3.1. La galería admite hasta 30 posiciones por espacio, incluidas las cargas reservadas. La selección de portada exige enviar en `If-Match` el ETag fuerte de la revisión que leyó el editor. Si otra operación cambia el espacio antes de guardar, la revisión queda desactualizada y la solicitud se rechaza. Esto evita que una elección basada en una galería anterior sobrescriba una actualización posterior. El Anexo E identifica la versión del contrato y el alcance de la evidencia.
 
@@ -113,9 +113,9 @@ La especificación utiliza diagramas de actividad UML para la publicación, los 
 
 El flujo objetivo valida la titularidad y las reglas del anuncio al publicar. La verificación de identidad de ambas partes corresponde a la emisión contractual.
 
-La Figura 13 separa las condiciones de publicación de la verificación contractual.
+La Figura 14 separa las condiciones de publicación de la verificación contractual.
 
-**Figura 13**\
+**Figura 14**\
 *Actividad de publicación y control de titularidad*
 
 ![](assets/figuras/fig08_publicacion_objetivo.png)
@@ -124,9 +124,9 @@ La Figura 13 separa las condiciones de publicación de la verificación contract
 
 #### 10.7.2. Contratación, cobros y cierre
 
-La Figura 14 representa los estados y transiciones del recorrido objetivo. El Anexo E identifica rutas de ensayo y el Capítulo XIII establece condiciones para habilitar proveedores.
+La Figura 15 representa los estados y transiciones del recorrido objetivo. El Anexo E identifica rutas de ensayo y el Capítulo XIII establece condiciones para habilitar proveedores.
 
-**Figura 14**\
+**Figura 15**\
 *Máquina de estados objetivo de la reserva y su ocupación*
 
 ![](assets/figuras/fig09_contratacion_objetivo.png){height=16.5cm}
@@ -145,9 +145,9 @@ El vencimiento libera el bloqueo mediante una transición atómica. Un pago tard
 
 Si vence un aporte antes de abrir la solicitud de firma, la plataforma devuelve los aportes acreditados. Si la solicitud ya está abierta y vence sin ambas firmas, la política del piloto devuelve los aportes y contempla el cargo irrecuperable del proveedor según el presupuesto aprobado. Si ambas firmas se completan y vence la renta, se conserva el servicio de firma y su cargo según las condiciones informadas. Los errores de plataforma se tramitan por la ruta de devolución aplicable.
 
-La Figura 15 muestra los plazos de ensayo ratificados y el punto de inicio de cada etapa.
+La Figura 16 muestra los plazos de ensayo ratificados y el punto de inicio de cada etapa.
 
-**Figura 15**\
+**Figura 16**\
 *Ventanas de ensayo de contratación y cobros*
 
 ![](assets/figuras/fig09_ventanas_contratacion.png){height=11cm}
@@ -156,9 +156,9 @@ La Figura 15 muestra los plazos de ensayo ratificados y el punto de inicio de ca
 
 #### 10.7.3. Gestión de una solicitud de privacidad
 
-La Figura 16 representa el tratamiento objetivo de una solicitud de privacidad.
+La Figura 17 representa el tratamiento objetivo de una solicitud de privacidad.
 
-**Figura 16**\
+**Figura 17**\
 *Actividad de evaluación y tratamiento de una solicitud de privacidad*
 
 ![](assets/figuras/fig10_privacidad_objetivo.png)

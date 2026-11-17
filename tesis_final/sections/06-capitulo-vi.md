@@ -4,18 +4,15 @@
 
 ### 6.1. Metodología y Desarrollo de la solución
 
-En el ámbito de la Ingeniería de Software contemporánea, la gestión de proyectos no debe confundirse con el modelo de desarrollo de código. La literatura especializada y los estándares internacionales [@pmbok7] recomiendan desacoplar la **gobernanza directiva del proyecto** del **ciclo de vida constructivo del producto informático**.
+#### 6.1.1. Gobierno y ciclo de vida
 
-#### 6.1.1. Gobernanza (PMBOK) y Ciclo de Vida del Software (Iterativo-Incremental)
+La gestión se fundamenta en prácticas adaptadas de la Guía del PMBOK, sexta edición de 2017 [@pmbok6, pp. 19, 23, 28]. La guía organiza procesos de inicio, planificación, ejecución, monitoreo/control y cierre; estos procesos se aplican durante el proyecto y no equivalen a fases consecutivas de construcción del software. El desarrollo adopta un ciclo iterativo e incremental, con análisis, diseño, construcción y verificación por incremento.
 
-Para garantizar el cumplimiento de los objetivos académicos e industriales de **espaciGo**, se adopta formalmente un **Enfoque Metodológico Híbrido**:
+El enfoque híbrido combina entregables y fechas académicas definidas con refinamiento técnico progresivo. El registro distingue especificación del producto, evidencia local e integración en el entorno objetivo. La programación consolidada al 16 de noviembre de 2026 constituye una referencia de trabajo; no se presenta como una línea base aprobada en agosto ni como reconstrucción de horas efectivamente trabajadas.
 
-1. **Marco de Gobernanza y Gestión:** Se fundamenta en las mejores prácticas del estándar **PMBOK** (*Project Management Body of Knowledge*, 7ma Edición). Este marco proporciona la estructura formal para definir y controlar la **Línea Base del Alcance** mediante la **Estructura de Desglose del Trabajo (EDT/WBS)**, la gestión de riesgos sistémicos, la asignación de recursos y el aseguramiento del cronograma.
-2. **Modelo de Ciclo de Vida de Construcción:** Se adopta un modelo **Iterativo e Incremental**. La ingeniería de detalle, codificación y pruebas se organizan en ciclos sucesivos e incrementales donde cada fase entrega un incremento funcional, verificable e integrable de la plataforma, mitigando riesgos de arquitectura de forma temprana.
+#### 6.1.2. Selección del enfoque
 
-#### 6.1.2. Matriz Multicriterio de Decisión Metodológica
-
-Para fundamentar la selección del enfoque híbrido frente a alternativas (Cascada tradicional y Scrum ágil puro), se formula la siguiente matriz multicriterio ponderada:
+La matriz compara el ajuste de tres enfoques a las restricciones de este proyecto. La aplicación utiliza controles de alcance y recursos proporcionados a un equipo de tres integrantes.
 
 **Tabla 5**\
 *Matriz Multicriterio Ponderada de Selección Metodológica*
@@ -29,158 +26,128 @@ Para fundamentar la selección del enfoque híbrido frente a alternativas (Casca
 | **Trazabilidad de Pruebas y Calidad (QA)** | 15% | 2/5 · 4/5 · **5/5** | Permite vincular cada paquete de trabajo de la EDT con matrices de prueba unitarias, de integración y rendimiento. |
 | **Puntaje Ponderado Total** | **100%** | **2,85/5,00** · **2,75/5,00** · **4,80/5,00** | **Selección Ganadora: Modelo Híbrido** |
 
-*Nota.* Elaboración propia. Cada criterio se valora de 1 a 5 para este proyecto, donde 1 indica ajuste bajo y 5 ajuste alto. Las valoraciones se presentan en el orden cascada, Scrum y modelo híbrido. El total suma cada valoración multiplicada por su ponderación [@pmbok7].
+*Nota.* Elaboración propia. Cada criterio se valora de 1 a 5 para este proyecto, donde 1 indica ajuste bajo y 5 ajuste alto. Las valoraciones se presentan en el orden cascada, Scrum y modelo híbrido. El total suma cada valoración multiplicada por su ponderación. Las ponderaciones y valoraciones corresponden al juicio técnico del proyecto; PMI no prescribe estos puntajes.
 
-#### 6.1.3. Modelo de Fases e Incrementos del Ciclo de Vida
+#### 6.1.3. Fases e incrementos
 
-El ciclo de desarrollo se estructura en las etapas de planificación, análisis, diseño, construcción, pruebas e implementación, manteniendo la coherencia terminológica entre la gestión y la ingeniería del proyecto:
+La Figura 3 representa las actividades que se repiten y revisan en el ciclo de construcción. La secuencia se concreta en cinco incrementos: identidad y cuenta; catálogo y búsqueda; aceptación y cobros; documentos y avisos; administración y auditoría. Cada incremento integra componentes y una revisión identificada Q01–Q05 antes del hito M01–M05. Las revisiones locales de rendimiento y recuperación pueden ejecutarse sobre componentes disponibles; la aceptación del sistema integrado conserva su evidencia propia.
 
 **Figura 3**\
-*Modelo de Proceso del Ciclo de Vida Híbrido por Fases e Incrementos*
+*Ciclo de construcción y revisión por incremento*
 
 ![](assets/figuras/fig04_ciclo_vida_objetivo.png){height=11cm}
 
-*Nota.* Elaboración propia según el marco de gestión del proyecto [@pmbok7].
+*Nota.* Elaboración propia. El ciclo se aplica a cada incremento; los procesos de gestión acompañan su desarrollo [@pmbok6].
 
----
+#### 6.1.4. Gestión del alcance y diccionario EDT
 
-#### 6.1.4. Gestión del alcance
-
-La gestión del alcance asegura que el proyecto incluya todo el trabajo requerido, y únicamente el trabajo necesario, para culminar con éxito la plataforma **espaciGo**.
-
-##### 6.1.4.1. Criterios de Delimitación y Línea Base del Alcance
-
-La Línea Base del Alcance se integra por tres componentes oficiales:
-
-1. El Enunciado del Alcance del Proyecto (detallado en el Capítulo V).
-2. La **Estructura de Desglose del Trabajo (EDT/WBS)**.
-3. El **Diccionario de la EDT**.
-
-##### 6.1.4.2. Estructura de Desglose del Trabajo (EDT / WBS) a 3 Niveles
-
-La Figura 4 organiza los paquetes de trabajo en seis ramas. El desglose textual conserva el nombre completo de cada paquete.
+El alcance del Capítulo V, la EDT y su diccionario organizan la referencia de alcance del proyecto [@pmbok6, pp. 156, 161–162]. La Figura 4 conserva seis ramas y 28 paquetes de entregables. La actualización precisa sus nombres, distingue el acuerdo de gobierno de la constitución societaria y separa la preparación comercial de su realización efectiva.
 
 **Figura 4**\
 *Estructura de desglose del trabajo de espaciGo*
 
 ![](assets/figuras/edt_paquetes.png){width=16cm}
 
-*Nota.* Elaboración propia a partir de la EDT del proyecto. Los identificadores vinculan cada entregable con su rama de trabajo.
+*Nota.* Elaboración propia. Los 28 identificadores se conservan y vinculan el diccionario G.2 con las actividades G.3.
 
-```text
-1. PROYECTO DE TITULACIÓN "espaciGo"
-├── 1.1. Gestión y Gobernanza del Proyecto (PMBOK)
-│   ├── 1.1.1. Acta de Constitución y Formalización del Equipo
-│   ├── 1.1.2. Plan de Gestión del Alcance y Línea Base (EDT)
-│   ├── 1.1.3. Cronograma Maestro y Ruta Crítica (Carta Gantt)
-│   ├── 1.1.4. Gestión de Costos, Presupuesto y Adquisiciones Cloud
-│   └── 1.1.5. Matriz de Gestión de Riesgos y Control de Cambios
-├── 1.2. Diagnóstico, Análisis y Requerimientos
-│   ├── 1.2.1. Levantamiento de Procesos Actuales (BPMN As-Is) y Contexto
-│   ├── 1.2.2. Especificación Formal de Requerimientos Funcionales (236 RF)
-│   ├── 1.2.3. Especificación de Requerimientos No Funcionales (43 RNF / SLAs)
-│   ├── 1.2.4. Modelado de Casos de Uso (52 CU) e Historias de Usuario (35 HU)
-│   └── 1.2.5. Matriz de Trazabilidad de Requerimientos
-├── 1.3. Arquitectura del Sistema y Diseño de Ingeniería
-│   ├── 1.3.1. Arquitectura Empresarial (TOGAF 4 Capas: Procesos, Datos, Apps, Infra)
-│   ├── 1.3.2. Diseño de Arquitectura de Software (Hexagonal en Go / BFF Next.js)
-│   ├── 1.3.3. Modelado de Datos Relacional y Geoespacial (PostgreSQL / PostGIS)
-│   ├── 1.3.4. Diseño de Seguridad, Sesiones, Autorización por Recurso y Ley 21.719
-│   └── 1.3.5. Especificación de Contratos de Interfaz (Catálogo OpenAPI / REST)
-├── 1.4. Construcción y Desarrollo Incremental
-│   ├── 1.4.1. Iteración 1: Núcleo de Autenticación, Usuarios y Control de Acceso (RBAC)
-│   ├── 1.4.2. Iteración 2: Catálogo de Espacios, Publicación y Búsqueda Geoespacial
-│   ├── 1.4.3. Iteración 3: Contratación y Cobros Diferenciados
-│   ├── 1.4.4. Iteración 4: Módulo de Contratos Digitales y Notificaciones
-│   └── 1.4.5. Iteración 5: Panel de Administración, Métricas y Auditoría
-├── 1.5. Aseguramiento de Calidad y Pruebas (QA)
-│   ├── 1.5.1. Pruebas Unitarias y de Integración (Backend Go y Frontend React)
-│   ├── 1.5.2. Pruebas de Carga y Rendimiento (JMeter / K6 con métricas P95)
-│   ├── 1.5.3. Pruebas de Resiliencia, Respaldo y Recuperación (Validación RPO/RTO)
-│   └── 1.5.4. Auditoría de Ciberseguridad y Escaneo de Vulnerabilidades (OWASP ZAP)
-└── 1.6. Puesta en Marcha, Evaluación Económica y Cierre
-    ├── 1.6.1. Automatización de Despliegue CI/CD y Topología en AWS
-    ├── 1.6.2. Evaluación Financiera (Flujo de Caja, VAN, TIR, Payback)
-    ├── 1.6.3. Constitución Societaria (SpA) y Aspectos Legales Tributarios
-    └── 1.6.4. Informe Final de Titulación y Defensa de Grado
-```
-
-##### 6.1.4.3. Diccionario de la EDT y Entregables Principales
-
-Cada paquete de trabajo de nivel 3 cuenta con una ficha técnica que define su alcance y criterios de aceptación. A modo de síntesis ejecutiva:
-
-*   **Paquete 1.3.3 (Modelado de Datos Geoespacial):** Entrega el esquema DDL de 110 tablas en PostgreSQL con índices GiST para operadores espaciales y rangos `tstzrange`. Criterio de aceptación: consultas y restricciones verificadas contra los criterios del Capítulo III.
-*   **Paquete 1.4.3 (Contratación y Cobros Diferenciados):** Entrega un recorrido sintético de reserva y conciliación y define los criterios de habilitación externa. Criterio de aceptación: La aceptación requiere comprobar la conciliación según el alcance del ensayo y los criterios del Anexo F.
-
-El Capítulo XI registra el avance y la evidencia de cada incremento.
-
----
+El Anexo G.2 desarrolla una ficha para cada paquete: responsable de coordinación, producto, criterio de aceptación, actividades, esfuerzo, recursos, límites, riesgo y referencia de evidencia. El responsable del paquete coordina su aceptación; las actividades pueden asignarse a otro integrante según su especialidad. El modelo separa entregables de la EDT y tareas del cronograma. Ninguna ficha se considera aceptada por la sola existencia de una fecha programada.
 
 #### 6.1.5. Gestión de riesgos
 
-La gestión de riesgos identifica, evalúa y mitiga tempranamente amenazas técnicas y operacionales:
-
-##### 6.1.5.1. Matriz de Probabilidad e Impacto de Riesgos
-
-La Figura 5 sitúa los riesgos por probabilidad e impacto. La Tabla 6 desarrolla las medidas de mitigación.
+La evaluación utiliza probabilidad de 1 (muy baja) a 5 (muy alta) e impacto de 1 (menor) a 5 (crítico). El producto de ambos valores define prioridad baja entre 1 y 4, media entre 5 y 10 y alta entre 11 y 25. La escala es ordinal y no representa probabilidades estadísticas. El Anexo G.9 agrega dueño, disparador y seguimiento. El responsable revisa los riesgos por corte y cuando cambia su disparador [@pmbok6, pp. 417, 419, 437, 442].
 
 **Figura 5**\
 *Mapa de probabilidad e impacto de los riesgos*
 
-![](assets/figuras/mapa_riesgos.png)
+![](assets/figuras/mapa_riesgos.png){width=13cm}
 
-*Nota.* Elaboración propia a partir de la Tabla 6. Cada celda indica el producto de probabilidad e impacto. Los códigos identifican los riesgos evaluados. Los niveles bajo, medio y alto corresponden a la clasificación de la Tabla 6.
+*Nota.* Elaboración propia a partir de la Tabla 6. Las posiciones muestran valoraciones cualitativas del proyecto.
 
 **Tabla 6**\
-*Matriz de Probabilidad e Impacto de Riesgos del Proyecto*
+*Registro resumido de riesgos*
 
-| ID | Riesgo y categoría | Evaluación | Estrategia de mitigación |
-|:---------:|--------------------------|-------------------------|-------------------------------------|
-| **R-01** | Doble reserva concurrente en espacios de alta demanda. Categoría: Técnico. | Media (3) · Crítico (5) · **Alta (15)** | Implementación de índices de exclusión GiST (`tstzrange`) a nivel de motor de datos en PostgreSQL 18. |
-| **R-02** | Caída o degradación de la pasarela de pagos durante un arriendo. Categoría: Externo. | Baja (2) · Crítico (5) · **Media (10)** | Manejo de reintentos idempotentes y registro de transacciones con estado *Pending* para conciliación asíncrona. |
-| **R-03** | Vulnerabilidad de datos personales sensibles (Ley 21.719). Categoría: Ciberseguridad. | Baja (2) · Crítico (5) · **Media (10)** | Control de acceso por finalidad, protección de archivos y comprobación de permisos tras restaurar. |
-| **R-04** | Desajuste en el calendario académico y fechas de entrega. Categoría: Gestión. | Media (3) · Mayor (4) · **Alta (12)** | Control estricto de la EDT y congelamiento de alcance en compuertas de fase (*phase gates*). |
-| **R-05** | Rechazo legal de contratos generados dinámicamente. Categoría: Legal. | Baja (1) · Mayor (4) · **Baja (4)** | Revisar las modalidades, sus condiciones y la evidencia requerida antes de habilitar integraciones. |
+| ID | Riesgo | Evaluación | Respuesta |
+| --- | --- | --- | --- |
+| R01 | Doble reserva concurrente | 3 × 5 = 15; alta | Exclusión temporal e idempotencia; verificar concurrencia antes de aceptar el flujo. |
+| R02 | Degradación del proveedor de pagos | 2 × 5 = 10; media | Reintentos idempotentes, conciliación y reversos; mantener la habilitación externa condicionada. |
+| R03 | Exposición de datos privados | 2 × 5 = 10; media | Autorización por recurso y finalidad, pruebas negativas y verificación tras restauración. |
+| R04 | Incumplimiento de entrega | 3 × 4 = 12; alta | Revisión semanal y diaria del tramo crítico; congelar alcance del corte y registrar impacto. |
+| R05 | Inadecuación de evidencia contractual | 1 × 4 = 4; baja | Revisar modalidades y documentos; separar aceptación bilateral y firma opcional. |
+| R06 | Disponibilidad personal inferior al calendario | 3 × 4 = 12; alta | Registrar excepciones y recalcular; reasignar solo con competencias y capacidad verificadas. |
+| R07 | Diferencia entre entorno local y entorno objetivo | 2 × 4 = 8; media | Revisar artefactos y preparar ensayo independiente; no inferir aceptación cloud del emulador. |
+| R08 | Volumen comercial insuficiente | 2 × 4 = 8; media | Contrastar demanda y sensibilidad del Capítulo XIV; escalonar gasto según caja disponible. |
 
-*Nota.* Elaboración propia según la metodología de gestión de riesgos PMBOK [@pmbok7]. La evaluación presenta la probabilidad, el impacto y la severidad en ese orden.
+*Nota.* Elaboración propia a partir del registro maestro del cronograma, corte 16-11-2026.
+
+#### 6.1.6. Gobierno, integración y control
+
+El propósito académico consiste en entregar el informe institucional, el repositorio identificable, la demostración del corte y sus evidencias de ingeniería. El equipo decide los ajustes técnicos dentro del alcance documentado; la evaluación y cualquier cambio de fecha institucional corresponden a la autoridad académica. La ficha de gobierno del Anexo G no sustituye un acta institucional firmada. El acuerdo de funcionamiento del proyecto y la futura constitución de la empresa tienen finalidades diferentes.
+
+La adaptación integra las diez áreas de gestión: integración mediante control de versiones y cambios; alcance mediante EDT y requisitos; cronograma mediante dependencias y recursos; costos mediante conciliación de G/H; calidad mediante criterios del Anexo F; recursos mediante responsables y calendario; comunicaciones e interesados mediante G.9; riesgos mediante la Tabla 6; y adquisiciones mediante los criterios de habilitación y presupuesto. Esta aplicación evita atribuir cumplimiento integral o certificación PMI al proyecto.
+
+Una solicitud de cambio registra origen, motivo, entregables afectados, impacto en horas, fechas, caja y riesgos, decisión y versión. El responsable del frente analiza el impacto y el equipo resuelve el ajuste técnico; una fecha académica no se modifica sin la autorización correspondiente. El Capítulo XV conserva la comparación de versiones. El plan de comunicaciones de G.9 define destinatarios y frecuencia, sin atribuir comunicaciones o aprobaciones aún no realizadas.
 
 ### 6.2. Duración y cronograma
 
-> [!TIP]
-> 🟢 **[SECCIÓN RESERVADA PARA INTEGRACIÓN — ANITA MARCHANT Y ERICK SILVA]**  
-> Anita y Erick agregarán esta parte (planificación detallada con Carta Gantt, ruta crítica CPM, dependencias y duraciones de tareas).
+#### 6.2.1. Calendario, fechas y estimación
 
----
+El desarrollo se programa desde el 11 de agosto hasta el 30 de noviembre de 2026. La entrega corresponde al 1 de diciembre, la defensa al 9 de diciembre y el inicio de la fase comercial al 1 de enero de 2027. El tramo del 2 al 9 de diciembre se reserva para preparación de defensa; la transición posterior se distingue de la entrega académica.
+
+Cada integrante dispone de veinte horas semanales. El calendario nominal distribuye cuatro horas diarias de lunes a viernes, de 09:00 a 13:00, como unidad de programación de dedicación personal. No representa un horario contractual ni acredita trabajo en feriados. No se registran excepciones de disponibilidad en esta referencia; cualquier excepción efectiva requiere incorporarse y recalcular antes de usar el programa como compromiso de ejecución. Entre el 11 de agosto y el 30 de noviembre existen ochenta jornadas nominales: 320 horas por persona y 960 del equipo.
+
+El esfuerzo se estima por juicio técnico y desglose de entregables, en bloques de cuatro horas. La duración de una actividad corresponde al esfuerzo dividido por cuatro cuando una persona concentra su ejecución; el tiempo calendario incluye fines de semana, liberaciones y esperas. Las fechas previas al corte son posiciones del programa reconstruido y no fechas reales verificadas. Los campos reales permanecen sin atribución hasta contar con registro por actividad.
+
+#### 6.2.2. Programación, dependencias y recursos
+
+El registro maestro contiene 63 nodos, con actividades y hitos de duración cero. La red utiliza relaciones fin a comienzo. La revisión de arquitectura puede comenzar con el alcance preliminar y se concilia después con requisitos; la documentación progresa durante los incrementos. Las compuertas reúnen frontend, backend y revisión. Las tareas W01/W02 conservan una liberación el 16 de noviembre para conciliar la decisión AWS documentada en el corte, sin trasladarla ficticiamente a agosto.
+
+El cálculo determina fechas tempranas y tardías y holgura; después reproduce la secuencia de cada persona mediante vínculos de disponibilidad. El Anexo G distingue predecesoras lógicas y de recurso, verifica ausencia de ciclos y comprueba que ninguna persona supera cuatro horas diarias o veinte semanales. La selección de esta secuencia factible no demuestra que sea la única ni la óptima [@pmbok6, pp. 210–215].
+
+**Figura 6**\
+*Cronograma maestro del desarrollo, defensa y transición*
+
+![](assets/figuras/gantt_maestro.png){width=16cm}
+
+*Nota.* Elaboración propia a partir del modelo de programación de espaciGo. Las barras representan fechas programadas y no avance real.
+
+#### 6.2.3. Ruta crítica y límites de factibilidad
+
+El cierre del desarrollo se calcula para el 30 de noviembre de 2026 a las 13:00. La entrega se mantiene el 1 de diciembre. La holgura disponible en jornadas completas antes de esa entrega es cero. El tramo crítico del cierre reúne W01, W02, Q08, las ramas Q09 y R03, R04 y el hito C0. El Anexo G.5 presenta la red y la holgura de todas las actividades académicas. Las fechas de defensa e inicio comercial se tratan como hitos fijos; no se utilizan para inflar la holgura del trabajo académico.
+
+La factibilidad es condicionada: una jornada adicional en W01 o W02 desplaza el cierre al 1 de diciembre y compromete la preparación previa a la entrega. La capacidad sin asignar no constituye reserva temporal en la ruta crítica y la reserva presupuestaria no compra automáticamente disponibilidad especializada. El control prioriza ese tramo, limita nuevas funciones y recalcula ante una ausencia o cambio. Las pruebas externas no terminadas se conservan como condiciones de habilitación; sus resultados no se sustituyen con un hito de calendario.
 
 ### 6.3. Equipo de trabajo
 
-La ejecución del proyecto está a cargo del equipo fundador, conformado por tres ingenieros con roles de responsabilidad complementarios:
+#### 6.3.1. Responsabilidad y revisión
 
-#### 6.3.1. Roles y Matriz de Asignación de Responsabilidades (RACI)
-
-La asignación de responsabilidades sobre los paquetes principales de la EDT se define bajo la matriz RACI (*Responsible, Accountable, Consulted, Informed*):
+El equipo está formado por Hernán Espinoza Castillo, Anita Marchant Pacheco y Erick Silva Quezada. La siguiente matriz sintetiza responsabilidad de coordinación; G.2/G.3 conserva la asignación por paquete y actividad.
 
 **Tabla 7**\
-*Matriz de Asignación de Responsabilidades (RACI) del Equipo Fundador*
+*Asignación de responsabilidades del equipo*
 
-| Paquete de Trabajo de la EDT | Hernán Espinoza | Anita Marchant | Erick Silva |
-|----------------------------------------|:------------------:|:------------------:|:------------------:|
-| **1.1. Gestión y Gobernanza del Proyecto** | **C** | **A / R** | **C** |
-| **1.2. Requerimientos y Modelado BPMN** | **R** | **A / R** | **C** |
-| **1.3. Arquitectura TOGAF y Hexagonal** | **A / R** | **C** | **R** |
-| **1.4. Construcción Backend (Go / PostGIS)** | **A / R** | **I** | **C** |
-| **1.4. Construcción Frontend (Next.js)** | **C** | **A / R** | **I** |
-| **1.5. Pruebas de Rendimiento y Seguridad** | **R** | **C** | **A / R** |
-| **1.6.1. Automatización de despliegue y topología** | **C** | **C** | **A / R** |
+| Frente | Hernán Espinoza Castillo | Anita Marchant Pacheco | Erick Silva Quezada |
+| --- | --- | --- | --- |
+| Gobierno, alcance y costos | C | A/R | C |
+| Análisis y requisitos | C | A/R | R |
+| Arquitectura, backend y datos | A/R | C | R |
+| Frontend y experiencia | C | A/R | C |
+| Calidad, seguridad y cronograma | R | C | A/R |
+| Infraestructura y despliegue | R | C | A/R |
+| Economía y preparación legal | C | A/R | C |
+| Informe y defensa | R | A/R | R |
 
-*Convención: **R** = Responsable de ejecutar la tarea; **A** = Aprobador último / Responsable final; **C** = Consultado técnicamente; **I** = Informado.*
+*Nota.* Elaboración propia. R: ejecuta; A: coordina la conformidad del frente; C: consulta. Cada fila tiene una sola A. La aceptación académica corresponde a la autoridad institucional.
 
-*Nota.* Elaboración propia. Hernán Espinoza lidera arquitectura y backend. Anita Marchant lidera frontend y negocio. Erick Silva lidera ciberseguridad y DevOps. La fila 1.6.1 identifica el responsable operativo de despliegue. La planificación y evaluación económica detalladas se conservan en la sección 6.2, el Capítulo XIV y los anexos G y H.
+#### 6.3.2. Esfuerzo y seguimiento
 
-#### 6.3.2. Registro de esfuerzo
+La programación asigna 228 horas académicas a Hernán Espinoza, 240 a Anita Marchant y 164 a Erick Silva: 632 en total. La preparación de defensa asigna doce horas a cada integrante, y la transición agrega doce, doce y dieciséis, respectivamente. El total del programa es 708 horas estimadas. El Anexo G.6 verifica carga y distribución semanal. Estas cifras no se presentan como horas reales ni como remuneraciones.
 
-La EDT identifica los paquetes que requieren estimación. La comparación entre esfuerzo previsto y observado requiere un registro por paquete, responsable y período. La sección 6.2 conserva el espacio de integración de la planificación detallada.
+El registro de seguimiento identifica actividad, fecha de estado, esfuerzo real, esfuerzo restante, evidencia, revisión y fecha prevista de cierre. El avance se reconoce por entregable comprobado; una fecha pasada no acredita terminación. Sin línea base aprobada y medidas reales comparables, SPI, CPI y variaciones de ejecución se informan como no calculables. Los indicadores operativos del Capítulo XI mantienen su finalidad propia.
 
 ### 6.4. Plan de recursos
 
-La matriz RACI identifica los roles. El plan técnico considera entornos de desarrollo y ensayo, control de versiones, cómputo, persistencia y almacenamiento de objetos. La estimación y los costos de recursos y adquisiciones corresponden al Capítulo XIV.
+El trabajo utiliza equipos personales compartidos, repositorio, herramientas de desarrollo y entornos de ensayo. La capacidad nominal académica de 960 horas deja 328 horas sin asignar en esa etapa. El presupuesto de trabajo valorizado conserva 960 horas a CLP 6.500: CLP 6.240.000. Al asignar expresamente 76 horas a defensa y transición, el programa completo consume 708 horas valorizadas en CLP 4.602.000 y conserva una reserva presupuestaria de 252 horas, CLP 1.638.000. La capacidad libre académica y la reserva de todo el programa tienen bases temporales diferentes.
+
+La valorización mide recursos del proyecto y se separa de pagos al equipo y del flujo de caja comercial. El Capítulo XIV y el Anexo H mantienen la inversión monetaria y los costos comerciales desde enero de 2027. La conciliación no modifica el flujo por convertir horas disponibles en egresos ficticios.
+
+La planificación de adquisiciones identifica los servicios previstos, responsable, partida y prueba de aceptación en G.9. La arquitectura AWS y sus adaptadores se revisan como artefactos; la configuración regional, contratación, despliegue y aceptación externa siguen los controles del Capítulo XIII. La modalidad opcional de firma y los pagos requieren validación independiente de sus proveedores antes de habilitación.

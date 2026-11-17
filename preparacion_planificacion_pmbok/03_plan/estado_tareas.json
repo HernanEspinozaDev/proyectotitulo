@@ -46,8 +46,9 @@
       "depende_de": [
         "P04"
       ],
-      "estado": "en curso",
-      "criterio_finalizacion": "Fechas 11-08, 01-12, 09-12 y 01-01; recursos con nombre y disponibilidad; actividades con ID estable, esfuerzo, duración, tipo y criterio de aceptación. Evidencia histórica separada de estimaciones."
+      "estado": "terminada",
+      "criterio_finalizacion": "Fechas 11-08, 01-12, 09-12 y 01-01; recursos con nombre y disponibilidad; actividades con ID estable, esfuerzo, duración, tipo y criterio de aceptación. Evidencia histórica separada de estimaciones.",
+      "evidencia": "04_ejecucion/; tesis_final/sections/06-capitulo-vi.md; tesis_final/appendices/g-carta-gantt-detallada.md"
     },
     {
       "id": "P06",
@@ -55,8 +56,9 @@
       "depende_de": [
         "P05"
       ],
-      "estado": "pendiente",
-      "criterio_finalizacion": "Red sin ciclos, cierres vinculados, calendario consistente, cálculos de ruta/holgura y control de sobrecarga. Fechas objetivo contrastadas con el resultado; ninguna demora se oculta cambiando un rótulo."
+      "estado": "terminada",
+      "criterio_finalizacion": "Red sin ciclos, cierres vinculados, calendario consistente, cálculos de ruta/holgura y control de sobrecarga. Fechas objetivo contrastadas con el resultado; ninguna demora se oculta cambiando un rótulo.",
+      "evidencia": "04_ejecucion/; tesis_final/sections/06-capitulo-vi.md; tesis_final/appendices/g-carta-gantt-detallada.md"
     },
     {
       "id": "P07",
@@ -64,8 +66,9 @@
       "depende_de": [
         "P06"
       ],
-      "estado": "pendiente",
-      "criterio_finalizacion": "Matriz de horas/costos, tratamiento del tramo posterior a entrega y reemplazo de la ventana antigua de 360 h. Sin cambios injustificados en caja, comisión o impuestos; recálculo de indicadores si cambia una partida pertinente."
+      "estado": "terminada",
+      "criterio_finalizacion": "Matriz de horas/costos, tratamiento del tramo posterior a entrega y reemplazo de la ventana antigua de 360 h. Sin cambios injustificados en caja, comisión o impuestos; recálculo de indicadores si cambia una partida pertinente.",
+      "evidencia": "04_ejecucion/; tesis_final/sections/06-capitulo-vi.md; tesis_final/appendices/g-carta-gantt-detallada.md"
     },
     {
       "id": "P08",
@@ -74,8 +77,9 @@
         "P06",
         "P07"
       ],
-      "estado": "pendiente",
-      "criterio_finalizacion": "Fuentes de datos, código generador, SVG/PNG y exportación compatible con Project. Vistas legibles al tamaño de la plantilla, no capturas extensas reducidas."
+      "estado": "terminada",
+      "criterio_finalizacion": "Fuentes de datos, código generador, SVG/PNG y exportación compatible con Project. Vistas legibles al tamaño de la plantilla, no capturas extensas reducidas.",
+      "evidencia": "04_ejecucion/; tesis_final/sections/06-capitulo-vi.md; tesis_final/appendices/g-carta-gantt-detallada.md"
     },
     {
       "id": "P09",
@@ -88,8 +92,9 @@
         "P07",
         "P08"
       ],
-      "estado": "pendiente",
-      "criterio_finalizacion": "Metodología, EDT, riesgos, 6.2, equipo y recursos completos; anexo con detalle y remisiones verificadas. Se retiran sus marcadores de reserva al integrar el contenido."
+      "estado": "terminada",
+      "criterio_finalizacion": "Metodología, EDT, riesgos, 6.2, equipo y recursos completos; anexo con detalle y remisiones verificadas. Se retiran sus marcadores de reserva al integrar el contenido.",
+      "evidencia": "04_ejecucion/; tesis_final/sections/06-capitulo-vi.md; tesis_final/appendices/g-carta-gantt-detallada.md"
     },
     {
       "id": "P10",
@@ -97,8 +102,9 @@
       "depende_de": [
         "P09"
       ],
-      "estado": "pendiente",
-      "criterio_finalizacion": "Registro de cambios, cronograma vigente y cortes de entrega/defensa. V, XI–XIV, XVI, XVIII y H coinciden con el plan. Referencias PMBOK correctas."
+      "estado": "terminada",
+      "criterio_finalizacion": "Registro de cambios, cronograma vigente y cortes de entrega/defensa. V, XI–XIV, XVI, XVIII y H coinciden con el plan. Referencias PMBOK correctas.",
+      "evidencia": "04_ejecucion/; tesis_final/sections/06-capitulo-vi.md; tesis_final/appendices/g-carta-gantt-detallada.md"
     },
     {
       "id": "P11",
@@ -106,8 +112,9 @@
       "depende_de": [
         "P10"
       ],
-      "estado": "pendiente",
-      "criterio_finalizacion": "DocSkill genera Word/PDF; índices y numeración coinciden; figuras legibles y tablas completas. Revisión de páginas modificadas y comprobaciones de integridad de las demás secciones."
+      "estado": "terminada",
+      "criterio_finalizacion": "DocSkill genera Word/PDF; índices y numeración coinciden; figuras legibles y tablas completas. Revisión de páginas modificadas y comprobaciones de integridad de las demás secciones.",
+      "evidencia": "04_ejecucion/verificacion_word_pdf.json; tesis_final/context/01_auditorias_y_rubricas/verificacion_integracion_economica.json"
     },
     {
       "id": "P12",
@@ -115,14 +122,16 @@
       "depende_de": [
         "P11"
       ],
-      "estado": "pendiente",
-      "criterio_finalizacion": "Fuentes, informe, Gantt y verificación versionados en `main`; Word/PDF completos enlazados y registro claro de lo integrado y de las comprobaciones que dependen del desarrollo."
+      "estado": "en curso",
+      "criterio_finalizacion": "Fuentes, informe, Gantt y verificación versionados en `main`; Word/PDF completos enlazados y registro claro de lo integrado y de las comprobaciones que dependen del desarrollo.",
+      "evidencia": "Entrega compilada y comprobada; publicación en main en curso."
     }
   ],
   "criterio_estado": "marcar terminada solo con entregable verificable y comprobación de aceptación",
   "autorizacion": "el propietario autoriza elaborar la planificación previamente reservada, sin esperar material adicional de Erick",
   "proximas_entradas": "evidencia histórica por entregable y estimaciones del trabajo restante; no bloquean la definición del plan",
-  "siguiente_tarea": "P05",
-  "tesis_modificada_en_este_corte": false,
-  "mpp_original_modificado": false
+  "siguiente_tarea": "P12",
+  "tesis_modificada_en_este_corte": true,
+  "mpp_original_modificado": false,
+  "fecha_actualizacion": "2026-11-17"
 }

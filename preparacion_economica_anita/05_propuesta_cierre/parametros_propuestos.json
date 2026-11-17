@@ -12,9 +12,7 @@
   "horas_totales_valorizacion_fuente": 960,
   "tarifa_hora_fuente_clp": 6500,
   "valor_desarrollo_fuente_clp": 6240000,
-  "capacidad_seis_semanas_horas": 360,
-  "valor_capacidad_seis_semanas_clp": 2340000,
-  "advertencia_capacidad": "capacidad propuesta, no backlog estimado ni evidencia de horas ya realizadas",
+  "advertencia_capacidad": "Capacidad vigente: 960 h académicas nominales; 632 h base, 36 h defensa y 40 h transición asignadas, con 252 h de reserva del presupuesto global. Ver 06_escenario_adoptado/parametros.json.",
   "reposicion_estres_referencia_clp": 900000,
   "precio_fuente_notebook_clp": 800000,
   "referencia_reajustada_tres_anios_clp": "899891.20",
@@ -29,5 +27,10 @@
     "preparacion_contenidos_y_materiales": 300000,
     "campana_lanzamiento": 400000,
     "contingencia_preoperativa": 200000
+  },
+  "antecedente_capacidad_sustituido": {
+    "horas": 360,
+    "valor_clp": 2340000,
+    "estado": "histórico no vigente; sustituido por cronograma académico y transición separados"
   }
 }
