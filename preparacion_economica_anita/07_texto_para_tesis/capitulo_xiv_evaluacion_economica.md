@@ -298,4 +298,3 @@ La referencia sin deuda requiere CLP 26.170.021,53 de aportes acumulados. La alt
 La proyección base de dieciséis pagos mensuales genera CLP 288.000 de ingreso neto anual frente a CLP 6.168.036,24 de costo operativo en el primer año. El VAN sin deuda es −CLP 20.053.400,45 al 12 %, las asignaciones iniciales no se activan y la operación requiere aportes durante todo el horizonte. La alternativa con préstamo modifica el calendario de financiamiento, pero no corrige el déficit de la actividad.
 
 El proyecto prioriza aumentar el volumen de pagos, revisar el gasto de captación y controlar la caja antes de habilitar asignaciones. Los umbrales permiten medir la distancia respecto de esas metas. La evaluación de desarrollo, reposición y cierre complementa el análisis financiero. El presupuesto del piloto se actualiza con los registros de actividad y el alcance tecnológico implementado.
-

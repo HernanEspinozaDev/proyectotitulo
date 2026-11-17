@@ -175,7 +175,7 @@ La proyección base de dieciséis pagos mensuales genera CLP 288.000 de ingreso 
 El proyecto prioriza aumentar el volumen de pagos, revisar el gasto de captación y controlar la caja antes de habilitar asignaciones. Los umbrales permiten medir la distancia respecto de esas metas. La evaluación de desarrollo, reposición y cierre complementa el análisis financiero. El presupuesto del piloto se actualiza con los registros de actividad y el alcance tecnológico implementado.
 
 '''
-    (OUT / 'capitulo_xiv_evaluacion_economica.md').write_text(body)
+    (OUT / 'capitulo_xiv_evaluacion_economica.md').write_text(body.rstrip() + '\n')
 
     annex = '''# Anexo H Evaluación económica detallada
 
@@ -327,7 +327,7 @@ NIC Chile. (2026). *Tarifas de dominios .cl*. https://www.nic.cl/dominios/tarifa
 
 Sapag Chain, N., & Sapag Chain, R. (2008). *Preparación y evaluación de proyectos* (5.ª ed.). McGraw-Hill Interamericana.
 '''
-    (OUT / 'anexo_h_evaluacion_economica.md').write_text(annex)
+    (OUT / 'anexo_h_evaluacion_economica.md').write_text(annex.rstrip() + '\n')
     manifest = {'version': 1, 'id': 'evaluacion_economica_espacigo', 'metadata': {
         'title': 'Evaluación económica de espaciGo',
         'subtitle': 'Capítulo XIV y Anexo H',
