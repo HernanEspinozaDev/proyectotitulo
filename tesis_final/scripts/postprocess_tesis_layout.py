@@ -23,6 +23,7 @@ from tihi84_frontmatter import apply_frontmatter
 from format_economic_tables import format_economic_tables
 from format_planning_tables import format_planning_tables
 from format_reference_links import format_reference_links
+from format_review_tables import format_review_tables
 
 ROOT = Path(__file__).resolve().parent.parent
 DOCX_PATH = ROOT / 'build/Tesis_Final_espaciGo.docx'
@@ -284,6 +285,8 @@ def postprocess():
         print(f"Postprocesamiento: {economic_tables} tablas económicas ajustadas a la plantilla y al ancho de página.")
         planning_tables = format_planning_tables(body)
         print(f"Postprocesamiento: {planning_tables} tablas de planificación ajustadas.")
+        review_tables = format_review_tables(body)
+        print(f"Postprocesamiento: {review_tables} tablas de revisión con filas completas.")
         reference_links = format_reference_links(body)
         print(f"Postprocesamiento: {reference_links} enlaces bibliográficos preservados en una línea propia.")
         insert_caption_indexes(body)

@@ -1,12 +1,28 @@
 {
   "estado": "verificado",
-  "alcance": "dos referencias bibliográficas señaladas en la revisión de la versión 9; comprobación sobre la tesis actual",
+  "alcance": "referencias de Ley 21.719, PostGIS y AWS; comprobación sobre la tesis actual",
   "enlaces": {
+    "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/fargate-task-networking.html": {
+      "xml_texto_integro": true,
+      "destino_correcto": true,
+      "referencia_sin_division_de_pagina": true,
+      "pagina_pdf": 111,
+      "url_completo_en_una_linea": true,
+      "destino_pdf_correcto": true
+    },
+    "https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/managing-backup-restore.html": {
+      "xml_texto_integro": true,
+      "destino_correcto": true,
+      "referencia_sin_division_de_pagina": true,
+      "pagina_pdf": 112,
+      "url_completo_en_una_linea": true,
+      "destino_pdf_correcto": true
+    },
     "https://www.bcn.cl/leychile/navegar?idNorma=1209272": {
       "xml_texto_integro": true,
       "destino_correcto": true,
       "referencia_sin_division_de_pagina": true,
-      "pagina_pdf": 113,
+      "pagina_pdf": 112,
       "url_completo_en_una_linea": true,
       "destino_pdf_correcto": true
     },
@@ -14,7 +30,7 @@
       "xml_texto_integro": true,
       "destino_correcto": true,
       "referencia_sin_division_de_pagina": true,
-      "pagina_pdf": 114,
+      "pagina_pdf": 113,
       "url_completo_en_una_linea": true,
       "destino_pdf_correcto": true
     }

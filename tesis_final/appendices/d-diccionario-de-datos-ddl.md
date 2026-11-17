@@ -1,16 +1,16 @@
 # ANEXO D: DICCIONARIO DE DATOS DEL ESQUEMA FÍSICO POSTGRESQL Y POSTGIS
 
-Este catálogo conserva el corte histórico reconstruido desde las migraciones SQL estructurales disponibles al 4 de noviembre de 2026. Las claves y nulabilidades corresponden al estado resultante de esas definiciones; no implica que se haya consultado una base persistente.
+Este catálogo documenta el corte histórico reconstruido desde las migraciones SQL estructurales disponibles al 4 de noviembre de 2026. Las claves y nulabilidades corresponden al estado resultante de esas definiciones; no implica que se haya consultado una base persistente.
 
-El inventario derivado del DDL contiene **110 tablas de aplicación** y excluye el ledger `schema_migrations`. La versión de creación más alta registrada en las fichas es V000079. En la comparación por nombre con la captura local V000075 del 4 de noviembre de 2026, coinciden 104 tablas de aplicación. Las otras seis corresponden al dominio de verificación documental y se declaran en V000079. Esta comparación identifica relaciones por nombre. La comparación de esas 104 tablas con la captura V75 identifica 879 columnas coincidentes por nombre, tipo base y nulabilidad. La comparación normaliza los alias PostgreSQL y trata bigserial como bigint para comparar el tipo base. La comprobación de valores por defecto, restricciones y permisos requiere evidencia separada por versión y entorno.
+El inventario derivado del DDL contiene **110 tablas de aplicación** y excluye el ledger `schema_migrations`. En la comparación por nombre con la captura local del esquema de desarrollo del 4 de noviembre de 2026, coinciden 104 tablas de aplicación. Las otras seis corresponden al dominio de verificación documental y se declaran en las revisiones de verificación documental. Esta comparación identifica relaciones por nombre. La comparación de esas 104 tablas con la captura del esquema de desarrollo identifica 879 columnas coincidentes por nombre, tipo base y nulabilidad. La comparación normaliza los alias PostgreSQL y trata bigserial como bigint para comparar el tipo base. La comprobación de valores por defecto, restricciones y permisos requiere evidencia separada por versión y entorno.
 
 El modelo lógico objetivo se describe en la sección 10.4. La capacidad registrada describe el recurso y no acredita un inventario compartido ni la disponibilidad de una categoría en un entorno. El inventario físico registra las claves y relaciones declaradas en SQL. Las relaciones foráneas identifican las columnas de origen y destino declaradas en `REFERENCES`, y las claves compuestas se presentan como conjuntos.
 
 ## Evolución del esquema en la construcción AWS
 
-El repositorio espacigo-aws, corte 3dc1c18 del 16 de noviembre de 2026, incorpora migraciones hasta V000098. La migración a S3 modifica los adaptadores de objetos y conserva PostgreSQL como autoridad de datos. El inventario de 110 tablas y la comparación de 879 columnas que siguen pertenecen al corte histórico identificado. La actualización del motor de inventario y los cambios de identidad posteriores se registran en sus migraciones y requieren un nuevo contraste físico por entorno [@espacigoaws2026].
+El corte técnico de infraestructura del 16 de noviembre de 2026 incorpora la evolución versionada del esquema relacional. La migración a S3 modifica los adaptadores de objetos y conserva PostgreSQL como autoridad de datos. El inventario de 110 tablas y la comparación de 879 columnas que siguen pertenecen al corte histórico identificado. La actualización del motor de inventario y los cambios de identidad posteriores se registran en sus migraciones y requieren un nuevo contraste físico por entorno [@espacigoaws2026].
 
-Las migraciones del repositorio AWS todavía contienen identificadores heredados como gcp06_test_access_batch_audit, cli_gcp06 y literales de proveedor gcs. Su presencia en las fichas reproduce el SQL de referencia. El adaptador de ejecución actual admite S3 y sistema de archivos. La compatibilidad entre metadatos de medios, restricciones heredadas y el proveedor S3 requiere conciliación y prueba en el corte de despliegue.
+El DDL histórico conserva identificadores y literales de proveedores anteriores en las fichas de referencia. Su presencia en las fichas reproduce el SQL de referencia. El adaptador de ejecución actual admite S3 y sistema de archivos. La compatibilidad entre metadatos de medios, restricciones heredadas y el proveedor S3 requiere conciliación y prueba en el corte de despliegue.
 
 RDS conserva el esquema relacional y exige validar extensiones, roles y funciones al restaurar o migrar. El entorno cloud requiere comprobar la versión PostgreSQL disponible y sus extensiones PostGIS, btree_gist y unaccent antes de aplicar el esquema. La conexión de aplicación utiliza TLS y permisos por rol. El Anexo F especifica la recuperación y comprobación de autorización.
 
@@ -22,19 +22,18 @@ RDS conserva el esquema relacional y exige validar extensiones, roles y funcione
 | Concepto lógico | Relaciones de referencia | Criterio de evolución |
 |---|---|---|
 | Oferta y titularidad | `espacio`, `espacio_publicacion_historial_local` | Verificar quién puede publicar y recuperar el historial del titular. |
-| Categoría y perfil | `categoria_espacio`, `categoria_perfil_atributos` | V000067 registra Inmuebles como novena categoría y siembra la versión 1 de su perfil. |
+| Categoría y perfil | `categoria_espacio`, `categoria_perfil_atributos` | La actualización versionada del esquema registra Inmuebles como novena categoría y siembra la versión 1 de su perfil. |
 | Disponibilidad | `ocupacion`, `cotizacion_reserva_ensayo`, `reserva_ensayo_local` | Conservar una autoridad de ocupación y comprobar concurrencia y vencimiento. |
 | Emisión | `contrato_ensayo_local`, `contrato_ensayo_firma` | Identificar emisión, aceptación por parte y firma opcional. |
 | Cobros | `reserva_pago_ensayo` y relaciones de eventos | Identificar obligación, pagador, acreditación y reverso. |
 
 *Nota.* Elaboración propia. El mapeo identifica puntos de partida y criterios de evolución física por corte.
 
-V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en el catálogo existente. El perfil de la memoria comprende casa, departamento, habitación y cabaña. El enum físico de tipo de inmueble también registra otras opciones. El campo físico sobre qué se arrienda incluye habitación y cama compartidas. Esos valores sembrados se registran como parte del esquema de referencia. El ADR mantiene el alcance objetivo de una unidad reservable exclusiva y difiere el aforo compartido. Las opciones compartidas sembradas quedan fuera del alcance ratificado de oferta y reserva. La disponibilidad efectiva de un perfil requiere comprobación por entorno.
+La actualización versionada del esquema incorpora la categoría `inmuebles` y su perfil mediante inserciones en el catálogo existente. El perfil de la memoria comprende casa, departamento, habitación y cabaña. El enum físico de tipo de inmueble también registra otras opciones. El campo físico sobre qué se arrienda incluye habitación y cama compartidas. Esos valores sembrados se registran como parte del esquema de referencia. El ADR mantiene el alcance objetivo de una unidad reservable exclusiva y difiere el aforo compartido. Las opciones compartidas sembradas quedan fuera del alcance ratificado de oferta y reserva. La disponibilidad efectiva de un perfil requiere comprobación por entorno.
 
 ## Dominio: Gobernanza, privacidad y administración
 
 ### B.001 Tabla `public.aceptacion_terminos`
-- **Migración de creación:** `V000001`
 - **Atributos:** 6
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -56,7 +55,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.002 Tabla `public.administrador_global`
-- **Migración de creación:** `V000058`
 - **Atributos:** 4
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -72,7 +70,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.003 Tabla `public.administrador_global_bootstrap`
-- **Migración de creación:** `V000058`
 - **Atributos:** 3
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -87,7 +84,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.004 Tabla `public.administrador_global_bootstrap_evento`
-- **Migración de creación:** `V000058`
 - **Atributos:** 8
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -110,7 +106,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.005 Tabla `public.atributo_filtro_publico`
-- **Migración de creación:** `V000055`
 - **Atributos:** 6
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -135,7 +130,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.006 Tabla `public.aviso_local`
-- **Migración de creación:** `V000036`
 - **Atributos:** 18
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -171,7 +165,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.007 Tabla `public.aviso_local_ciclo`
-- **Migración de creación:** `V000036`
 - **Atributos:** 11
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -199,7 +192,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.008 Tabla `public.aviso_local_recuperacion_auditoria`
-- **Migración de creación:** `V000036`
 - **Atributos:** 8
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -221,7 +213,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.009 Tabla `public.baja_archivo_pendiente_local`
-- **Migración de creación:** `V000025`
 - **Atributos:** 9
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -245,7 +236,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.010 Tabla `public.catalogo_ubicacion_publica`
-- **Migración de creación:** `V000055`
 - **Atributos:** 4
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -261,7 +251,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.011 Tabla `public.comuna_publica`
-- **Migración de creación:** `V000055`
 - **Atributos:** 4
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -281,7 +270,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.012 Tabla `public.document_verification_case`
-- **Migración de creación:** `V000079`
 - **Atributos:** 14
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -316,7 +304,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.013 Tabla `public.document_verification_event`
-- **Migración de creación:** `V000079`
 - **Atributos:** 14
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -351,7 +338,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.014 Tabla `public.document_verification_file`
-- **Migración de creación:** `V000079`
 - **Atributos:** 16
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -388,7 +374,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.015 Tabla `public.document_verification_job`
-- **Migración de creación:** `V000079`
 - **Atributos:** 10
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -414,7 +399,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.016 Tabla `public.document_verification_reviewer_grant`
-- **Migración de creación:** `V000079`
 - **Atributos:** 12
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -444,7 +428,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.017 Tabla `public.document_verification_reviewer_grant_event`
-- **Migración de creación:** `V000079`
 - **Atributos:** 10
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -469,7 +452,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.018 Tabla `public.documento_privado_sintetico_local`
-- **Migración de creación:** `V000034`
 - **Atributos:** 8
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -492,7 +474,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.019 Tabla `public.ejecucion_baja_local`
-- **Migración de creación:** `V000025`
 - **Atributos:** 11
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -522,7 +503,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.020 Tabla `public.evento_auditoria_local`
-- **Migración de creación:** `V000022`
 - **Atributos:** 14
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -557,7 +537,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.021 Tabla `public.gallery_item_order`
-- **Migración de creación:** `V000068`
 - **Atributos:** 6
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -581,8 +560,9 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 - `CONSTRAINT gallery_item_order_position_check CHECK (position BETWEEN 1 AND 30)`
 
 
-### B.022 Tabla `public.gcp06_test_access_batch_audit`
-- **Migración de creación:** `V000066`
+### B.022 Auditoría histórica por lotes de control de acceso
+
+La ficha documenta la tabla física histórica `public.gcp06_test_access_batch_audit`. Su denominación se conserva para interpretar el DDL de referencia; registra auditorías por lotes de pruebas de control de acceso y no identifica la infraestructura cloud vigente.
 - **Atributos:** 4
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -599,7 +579,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.023 Tabla `public.historial_clave_local`
-- **Migración de creación:** `V000022`
 - **Atributos:** 6
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -618,7 +597,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.024 Tabla `public.m02_operacion_idempotente_local`
-- **Migración de creación:** `V000030`
 - **Atributos:** 6
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -639,7 +617,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.025 Tabla `public.media_asset`
-- **Migración de creación:** `V000068`
 - **Atributos:** 14
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -675,7 +652,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.026 Tabla `public.media_variant`
-- **Migración de creación:** `V000068`
 - **Atributos:** 12
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -712,7 +688,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.027 Tabla `public.media_variant_intent`
-- **Migración de creación:** `V000070`
 - **Atributos:** 9
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -739,7 +714,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.028 Tabla `public.operacion_arriendo_archivo_candidato_local`
-- **Migración de creación:** `V000035`
 - **Atributos:** 10
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -763,7 +737,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.029 Tabla `public.operacion_arriendo_ensayo_local`
-- **Migración de creación:** `V000035`
 - **Atributos:** 13
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -805,7 +778,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.030 Tabla `public.operacion_arriendo_historial_ensayo_local`
-- **Migración de creación:** `V000035`
 - **Atributos:** 6
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -824,7 +796,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.031 Tabla `public.outbox_evento_ciclo_local`
-- **Migración de creación:** `V000027`
 - **Atributos:** 11
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -855,7 +826,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.032 Tabla `public.outbox_evento_local`
-- **Migración de creación:** `V000022`
 - **Atributos:** 19
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -896,7 +866,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.033 Tabla `public.profile_media`
-- **Migración de creación:** `V000068`
 - **Atributos:** 3
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -911,7 +880,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.034 Tabla `public.reaplicacion_baja_local`
-- **Migración de creación:** `V000026`
 - **Atributos:** 6
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -931,7 +899,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.035 Tabla `public.region_publica`
-- **Migración de creación:** `V000055`
 - **Atributos:** 3
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -949,7 +916,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.036 Tabla `public.reporte_resena_ensayo_local`
-- **Migración de creación:** `V000036`
 - **Atributos:** 13
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -979,7 +945,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.037 Tabla `public.reporte_resena_historial_local`
-- **Migración de creación:** `V000036`
 - **Atributos:** 7
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -999,7 +964,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.038 Tabla `public.resena_autoria_marca_local`
-- **Migración de creación:** `V000037`
 - **Atributos:** 3
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1014,7 +978,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.039 Tabla `public.resena_ensayo_local`
-- **Migración de creación:** `V000036`
 - **Atributos:** 13
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1048,7 +1011,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.040 Tabla `public.simulacion_precio_privada`
-- **Migración de creación:** `V000010`
 - **Atributos:** 13
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1081,7 +1043,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.041 Tabla `public.solicitud_titular`
-- **Migración de creación:** `V000002`
 - **Atributos:** 9
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1108,7 +1069,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.042 Tabla `public.space_media`
-- **Migración de creación:** `V000068`
 - **Atributos:** 8
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1132,7 +1092,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.043 Tabla `public.version_terminos`
-- **Migración de creación:** `V000001`
 - **Atributos:** 5
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1154,7 +1113,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 ## Dominio: Identidad, autenticación y cuentas
 
 ### B.044 Tabla `public.bloqueo_cuenta_administrativo_local`
-- **Migración de creación:** `V000041`
 - **Atributos:** 5
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1172,7 +1130,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.045 Tabla `public.bloqueo_cuenta_historial_local`
-- **Migración de creación:** `V000041`
 - **Atributos:** 7
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1193,7 +1150,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.046 Tabla `public.categoria_perfil_atributos`
-- **Migración de creación:** `V000006`
 - **Atributos:** 4
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1211,7 +1167,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.047 Tabla `public.foto_perfil_sintetica_local`
-- **Migración de creación:** `V000030`
 - **Atributos:** 15
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1243,7 +1198,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.048 Tabla `public.perfil_usuario`
-- **Migración de creación:** `V000002`
 - **Atributos:** 4
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1262,7 +1216,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.049 Tabla `public.registro_replay_baja_local`
-- **Migración de creación:** `V000062`
 - **Atributos:** 5
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1275,7 +1228,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.050 Tabla `public.rol_usuario`
-- **Migración de creación:** `V000001`
 - **Atributos:** 4
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1294,7 +1246,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.051 Tabla `public.rol_usuario_evento`
-- **Migración de creación:** `V000074`
 - **Atributos:** 6
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1315,7 +1266,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.052 Tabla `public.sesion`
-- **Migración de creación:** `V000001`
 - **Atributos:** 8
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1341,7 +1291,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.053 Tabla `public.token_accion`
-- **Migración de creación:** `V000001`
 - **Atributos:** 9
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1371,7 +1320,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.054 Tabla `public.usuario`
-- **Migración de creación:** `V000001`
 - **Atributos:** 12
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1401,7 +1349,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 ## Dominio: Espacios, publicaciones y catálogo
 
 ### B.055 Tabla `public.categoria_espacio`
-- **Migración de creación:** `V000005`
 - **Atributos:** 4
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1417,7 +1364,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.056 Tabla `public.espacio`
-- **Migración de creación:** `V000005`
 - **Atributos:** 21
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1468,7 +1414,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.057 Tabla `public.espacio_caracteristicas`
-- **Migración de creación:** `V000006`
 - **Atributos:** 5
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1487,7 +1432,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.058 Tabla `public.espacio_eliminacion_historial_local`
-- **Migración de creación:** `V000050`
 - **Atributos:** 8
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1514,7 +1458,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.059 Tabla `public.espacio_galeria_archivo_candidato_local`
-- **Migración de creación:** `V000033`
 - **Atributos:** 8
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1537,7 +1480,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.060 Tabla `public.espacio_galeria_sintetica_local`
-- **Migración de creación:** `V000032`
 - **Atributos:** 17
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1578,7 +1520,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.061 Tabla `public.espacio_horario_semanal`
-- **Migración de creación:** `V000019`
 - **Atributos:** 3
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1589,7 +1530,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.062 Tabla `public.espacio_horario_semanal_tramo`
-- **Migración de creación:** `V000019`
 - **Atributos:** 5
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1612,7 +1552,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.063 Tabla `public.espacio_publicacion_historial_local`
-- **Migración de creación:** `V000031`
 - **Atributos:** 8
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1635,7 +1574,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.064 Tabla `public.tarifa_espacio`
-- **Migración de creación:** `V000010`
 - **Atributos:** 6
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1659,7 +1597,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 ## Dominio: Contratación digital
 
 ### B.065 Tabla `public.contrato_ensayo_firma`
-- **Migración de creación:** `V000034`
 - **Atributos:** 6
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1679,7 +1616,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.066 Tabla `public.contrato_ensayo_historial`
-- **Migración de creación:** `V000034`
 - **Atributos:** 7
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1700,7 +1636,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.067 Tabla `public.contrato_ensayo_local`
-- **Migración de creación:** `V000034`
 - **Atributos:** 11
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1730,7 +1665,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 ## Dominio: Reservas, disponibilidad y agendas
 
 ### B.068 Tabla `public.cotizacion_reserva_ensayo`
-- **Migración de creación:** `V000011`
 - **Atributos:** 26
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1780,7 +1714,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.069 Tabla `public.mensaje_reserva_ensayo`
-- **Migración de creación:** `V000016`
 - **Atributos:** 8
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1803,7 +1736,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.070 Tabla `public.ocupacion`
-- **Migración de creación:** `V000009`
 - **Atributos:** 10
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1831,7 +1763,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.071 Tabla `public.reserva_cancelacion_ensayo`
-- **Migración de creación:** `V000020`
 - **Atributos:** 7
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1852,7 +1783,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.072 Tabla `public.reserva_comprobante_ensayo_local`
-- **Migración de creación:** `V000044`
 - **Atributos:** 5
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1871,7 +1801,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.073 Tabla `public.reserva_decision_financiera_ensayo_local`
-- **Migración de creación:** `V000040`
 - **Atributos:** 14
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1906,7 +1835,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.074 Tabla `public.reserva_devolucion_ensayo`
-- **Migración de creación:** `V000020`
 - **Atributos:** 10
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1932,7 +1860,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.075 Tabla `public.reserva_devolucion_intento_ensayo`
-- **Migración de creación:** `V000020`
 - **Atributos:** 5
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -1951,7 +1878,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.076 Tabla `public.reserva_ensayo_local`
-- **Migración de creación:** `V000011`
 - **Atributos:** 29
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2000,7 +1926,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.077 Tabla `public.reserva_ensayo_local_fixture`
-- **Migración de creación:** `V000011`
 - **Atributos:** 6
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2019,7 +1944,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.078 Tabla `public.reserva_ensayo_local_ubicacion_sintetica`
-- **Migración de creación:** `V000018`
 - **Atributos:** 5
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2038,7 +1962,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.079 Tabla `public.reserva_ensayo_transicion`
-- **Migración de creación:** `V000011`
 - **Atributos:** 8
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2059,7 +1982,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.080 Tabla `public.reserva_finanzas_historial_ensayo_local`
-- **Migración de creación:** `V000040`
 - **Atributos:** 7
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2078,7 +2000,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.081 Tabla `public.reserva_garantia_ensayo_local`
-- **Migración de creación:** `V000040`
 - **Atributos:** 11
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2113,7 +2034,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.082 Tabla `public.reserva_garantia_evento_aplicacion_ensayo_local`
-- **Migración de creación:** `V000040`
 - **Atributos:** 5
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2130,7 +2050,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.083 Tabla `public.reserva_garantia_evento_ensayo_local`
-- **Migración de creación:** `V000040`
 - **Atributos:** 5
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2149,7 +2068,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.084 Tabla `public.reserva_garantia_operacion_ensayo_local`
-- **Migración de creación:** `V000040`
 - **Atributos:** 14
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2183,7 +2101,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.085 Tabla `public.reserva_garantia_resultado_fake_ensayo_local`
-- **Migración de creación:** `V000040`
 - **Atributos:** 5
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2202,7 +2119,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.086 Tabla `public.reserva_liquidacion_ensayo_local`
-- **Migración de creación:** `V000044`
 - **Atributos:** 17
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2244,7 +2160,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.087 Tabla `public.reserva_liquidacion_historial_ensayo_local`
-- **Migración de creación:** `V000044`
 - **Atributos:** 6
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2262,7 +2177,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.088 Tabla `public.reserva_liquidacion_operacion_ensayo_local`
-- **Migración de creación:** `V000044`
 - **Atributos:** 5
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2279,7 +2193,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.089 Tabla `public.reserva_liquidacion_resultado_fake_ensayo_local`
-- **Migración de creación:** `V000044`
 - **Atributos:** 4
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2297,7 +2210,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.090 Tabla `public.reserva_mensaje_lectura`
-- **Migración de creación:** `V000017`
 - **Atributos:** 4
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2314,7 +2226,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.091 Tabla `public.reserva_pago_ensayo`
-- **Migración de creación:** `V000011`
 - **Atributos:** 6
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2335,7 +2246,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.092 Tabla `public.reserva_pago_ensayo_operacion`
-- **Migración de creación:** `V000021`
 - **Atributos:** 10
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2363,7 +2273,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.093 Tabla `public.reserva_pago_evento_aplicacion_ensayo`
-- **Migración de creación:** `V000021`
 - **Atributos:** 5
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2382,7 +2291,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.094 Tabla `public.reserva_pago_evento_ensayo`
-- **Migración de creación:** `V000021`
 - **Atributos:** 7
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2405,7 +2313,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.095 Tabla `public.reserva_pago_fake_resultado_ensayo`
-- **Migración de creación:** `V000021`
 - **Atributos:** 5
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2426,7 +2333,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.096 Tabla `public.reserva_vinculo_purgado_local`
-- **Migración de creación:** `V000026`
 - **Atributos:** 4
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2445,7 +2351,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 ## Dominio: Transacciones financieras
 
 ### B.097 Tabla `public.cuenta_cobro_sintetica_historial_local`
-- **Migración de creación:** `V000030`
 - **Atributos:** 7
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2465,7 +2370,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.098 Tabla `public.cuenta_cobro_sintetica_local`
-- **Migración de creación:** `V000030`
 - **Atributos:** 8
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2490,7 +2394,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 ## Dominio: Operaciones en recinto y disputas
 
 ### B.099 Tabla `public.disputa_ensayo_historial`
-- **Migración de creación:** `V000024`
 - **Atributos:** 7
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2512,7 +2415,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.100 Tabla `public.disputa_ensayo_local`
-- **Migración de creación:** `V000024`
 - **Atributos:** 13
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2545,7 +2447,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.101 Tabla `public.operacion_arriendo_evidencia_ensayo_local`
-- **Migración de creación:** `V000035`
 - **Atributos:** 9
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2569,7 +2470,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.102 Tabla `public.reclamo_dano_descargo_ensayo_local`
-- **Migración de creación:** `V000035`
 - **Atributos:** 7
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2591,7 +2491,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.103 Tabla `public.reclamo_dano_ensayo_local`
-- **Migración de creación:** `V000035`
 - **Atributos:** 12
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2621,7 +2520,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.104 Tabla `public.reclamo_dano_historial_ensayo_local`
-- **Migración de creación:** `V000035`
 - **Atributos:** 5
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2638,7 +2536,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.105 Tabla `public.reclamo_dano_resolucion_ensayo_local`
-- **Migración de creación:** `V000038`
 - **Atributos:** 7
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2664,7 +2561,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 ## Dominio: Verificación KYC/KYB
 
 ### B.106 Tabla `public.elegibilidad_verificacion_local`
-- **Migración de creación:** `V000028`
 - **Atributos:** 8
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2687,7 +2583,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.107 Tabla `public.verificacion`
-- **Migración de creación:** `V000003`
 - **Atributos:** 18
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2733,7 +2628,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.108 Tabla `public.verificacion_archivo_retiro_pendiente_local`
-- **Migración de creación:** `V000047`
 - **Atributos:** 6
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2752,7 +2646,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.109 Tabla `public.verificacion_evidencia_sintetica`
-- **Migración de creación:** `V000008`
 - **Atributos:** 10
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |
@@ -2780,7 +2673,6 @@ V000067 incorpora la categoría `inmuebles` y su perfil mediante inserciones en 
 
 
 ### B.110 Tabla `public.verificacion_historial_local`
-- **Migración de creación:** `V000028`
 - **Atributos:** 10
 
 | Columna | Tipo | Restricción y nulabilidad | Descripción basada en DDL |

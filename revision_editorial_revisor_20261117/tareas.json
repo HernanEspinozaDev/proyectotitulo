@@ -1,0 +1,99 @@
+{
+  "revision": "2026-11-17",
+  "fuente": "Informe del revisor aportado por el propietario",
+  "estado_global": "en ejecución",
+  "criterios": [
+    "La evidencia técnica se conserva con denominación académica.",
+    "392/793 corresponden a umbrales de VAN al 12 %, no a demanda observada.",
+    "El esquema físico histórico se documenta sin renombrarlo ficticiamente.",
+    "La planificación contiene 54 actividades y nueve hitos (63 nodos)."
+  ],
+  "tareas": [
+    {
+      "id": "T01",
+      "tarea": "Contrastar el informe del revisor con fuentes y definir alcance",
+      "criterio": "Lectura y matriz de decisiones; diferenciar incidencias vigentes de puntos ya correctos.",
+      "estado": "terminada",
+      "evidencia": "PLAN_Y_TAREAS.md; contraste de fuente y correcciones vigentes"
+    },
+    {
+      "id": "T02",
+      "tarea": "Corregir remisiones de figuras",
+      "criterio": "10.7 remite a 11/12; CU-15 a 14 y M06/M07 a 15, también en PDF.",
+      "estado": "terminada",
+      "evidencia": "VERIFICACION_FINAL.json: correlativos en fuente y PDF"
+    },
+    {
+      "id": "T03",
+      "tarea": "Depurar resumen, abstract y capítulos I, VII y IX",
+      "criterio": "Sin nombres internos, hashes, migraciones ni organización del código; equivalencia bilingüe.",
+      "estado": "terminada",
+      "evidencia": "Control ampliado de referencias académicas: 0 menciones prohibidas"
+    },
+    {
+      "id": "T04",
+      "tarea": "Corregir arquitectura y figura de componentes del capítulo X",
+      "criterio": "Prosa conceptual, imagen regenerada desde PlantUML, operador && y cita contractual íntegros.",
+      "estado": "terminada",
+      "evidencia": "PlantUML editado; PNG insertado idéntico al render; operador y comillas comprobados"
+    },
+    {
+      "id": "T05",
+      "tarea": "Depurar evidencia de XI–XIII y XVI",
+      "criterio": "Preservar resultados y límites con denominaciones académicas, sin identificadores internos.",
+      "estado": "terminada",
+      "evidencia": "Capítulos XI–XIII/XVI; resultados y límites conservados"
+    },
+    {
+      "id": "T06",
+      "tarea": "Revisar planificación y tono de VI/XV",
+      "criterio": "Sin historia del archivo heredado; códigos explicados; conservar 54 actividades, nueve hitos y datos reales de capacidad.",
+      "estado": "terminada",
+      "evidencia": "VI/XV y G depurados; 54 actividades y 9 hitos conservados"
+    },
+    {
+      "id": "T07",
+      "tarea": "Reordenar interpretación económica",
+      "criterio": "Priorizar umbrales 392/793 y piloto controlado de 16 pagos; conservar VAN y aportes, sin afirmar demanda o rentabilidad demostradas.",
+      "estado": "terminada",
+      "evidencia": "XI Tabla 11; XIV 14.8; XVI OE5; 27 tablas financieras iguales"
+    },
+    {
+      "id": "T08",
+      "tarea": "Verificar denominación espaciGo y erratas",
+      "criterio": "Rótulos, índices, RNF y notas correctos; no reemplazar el sustantivo común espacio.",
+      "estado": "terminada",
+      "evidencia": "Rótulos e índices cotejados en VERIFICACION_FINAL.json"
+    },
+    {
+      "id": "T09",
+      "tarea": "Depurar anexos y aclarar auditoría histórica",
+      "criterio": "Encabezado descriptivo B.022; nombres físicos conservados en fichas DDL, sin falsificar esquema.",
+      "estado": "terminada",
+      "evidencia": "110 fichas, cuadrículas y restricciones DDL comparadas con dd62e8c"
+    },
+    {
+      "id": "T10",
+      "tarea": "Corregir presentación de URLs AWS",
+      "criterio": "URLs completas, guiones ASCII y destino íntegro tras exportación; conservar comprobación de los enlaces anteriores.",
+      "estado": "terminada",
+      "evidencia": "verificacion_enlaces_bibliograficos.json: cuatro destinos y URLs completos"
+    },
+    {
+      "id": "T11",
+      "tarea": "Evitar reintroducción desde generadores",
+      "criterio": "Generadores coherentes y control ampliado en fuentes, XML y PDF; preservar finanzas y estructura.",
+      "estado": "terminada",
+      "evidencia": "Generación de G conserva VI/XV; fuentes económicas sincronizadas; guardas ampliadas"
+    },
+    {
+      "id": "T12",
+      "tarea": "Compilar, verificar visualmente y publicar",
+      "criterio": "DocSkill, Word/PDF revisados, tareas cerradas con evidencias y push confirmado a main.",
+      "estado": "verificación terminada; publicación en curso",
+      "evidencia": "Word renderizado; PDF 567 páginas; comprobaciones finales correctas"
+    }
+  ],
+  "baseline": "dd62e8c",
+  "fuente_sha256": "f916bb407a75f4ef72613b951c2b2538d296ebda96c654120e544498361cbdde"
+}

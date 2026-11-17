@@ -40,7 +40,7 @@ Los casos conservan los identificadores PT del plan de pruebas. La matriz actual
 
 ## Registro de evidencia
 
-El Capítulo XII y la Tabla 12 identifican los resultados de LOCAL-1 y F5/F6. LOCAL-1 aporta evidencia del recorrido sintético documentado. Las modalidades externas de PT-03 y PT-06 conservan sus criterios pendientes. El ensayo local V1–V61 aporta evidencia parcial a PT-02 y PT-11. La recuperación conjunta y la carga objetivo requieren registros específicos. El resultado de un paquete o recorrido se asocia con una fila únicamente cuando el registro comprueba su criterio. El expediente de verificación registra entradas, fecha, entorno, versión, resultado y observaciones.
+El Capítulo XII y la Tabla 12 identifican los resultados de LOCAL-1 y F5/F6. LOCAL-1 aporta evidencia del recorrido sintético documentado. Las modalidades externas de PT-03 y PT-06 conservan sus criterios pendientes. El ensayo local basado en las migraciones versionadas del esquema relacional aporta evidencia parcial a PT-02 y PT-11. La recuperación conjunta y la carga objetivo requieren registros específicos. El resultado de un paquete o recorrido se asocia con una fila únicamente cuando el registro comprueba su criterio. El expediente de verificación registra entradas, fecha, entorno, versión, resultado y observaciones.
 
 
 **Tabla F.3**\
@@ -48,7 +48,7 @@ El Capítulo XII y la Tabla 12 identifican los resultados de LOCAL-1 y F5/F6. LO
 
 | Comprobación | Evidencia disponible | Estado del criterio objetivo |
 |---|---|---|
-| PT-02 · Exclusión temporal | Restauración local V1–V61 con un solo ganador ante solapamiento concurrente. | Comprobado para ese escenario y corte. |
+| PT-02 · Exclusión temporal | Restauración local a partir de las migraciones versionadas del esquema relacional con un solo ganador ante solapamiento concurrente. | Comprobado para ese escenario y corte. |
 | PT-09 y PT-10 · Carga | Consulta SQL PostGIS con 200 conexiones sobre 10.000 puntos sintéticos. | Evidencia del componente. Queda pendiente medir la búsqueda de extremo a extremo. |
 | PT-11 · Recuperación | Restauración básica local aprobada. El ensayo histórico del ejecutor anterior se detiene en la restauración de permisos. | Pendiente verificar recuperación conjunta de base y objetos y medir RPO y RTO. |
 | PT-07 · Acceso a evidencias | F5 registra controles documentales y F6 verifica la denegación a un titular ajeno en el recorrido sintético. | Evidencia parcial. El escenario completo conserva sus roles y recursos propios. |
@@ -71,7 +71,7 @@ El Capítulo XII y la Tabla 12 identifican los resultados de LOCAL-1 y F5/F6. LO
 | Carga de extremo a extremo · PT-09 y PT-10 | Flujo de búsqueda listo y entorno objetivo identificado. | Volumen, latencia y errores medidos según RNF-001 y el escenario del ensayo. |
 | Acreditación interna de renta · RNF-002 | Flujo de acreditación listo e instrumentación que distingue la espera del proveedor. | Tiempos internos por intento y comprobación del límite de 8 segundos. |
 | Disponibilidad mensual · RNF-009 | Funciones críticas habilitadas e instrumentadas en el entorno objetivo. | Registro mensual de autenticación, búsqueda y reservas y contraste con el 99,9 %. |
-| Adaptadores AWS locales | API y documentos con S3 en aws-emulator y PostgreSQL local. | Carga, lectura y borrado cifrado, acceso por finalidad y resultados identificados por versión. |
+| Adaptadores AWS locales | API y documentos con S3 en entorno local de emulación compatible con AWS y PostgreSQL local. | Carga, lectura y borrado cifrado, acceso por finalidad y resultados identificados por versión. |
 | Despliegue Fargate y borde | Tarea ECS, ECR, TLS, secretos y entrega OIDC completados. | Ingreso restringido, API en loopback, permisos temporales y ausencia de acceso directo indebido. |
 | Recuperación conjunta · PT-11 y PT-16 | RDS, S3, permisos y retención listos para ensayo en la región habilitada. | Restauración compatible de base y versiones de objetos, supresiones y permisos. Medición de RPO y RTO. |
 
@@ -79,6 +79,6 @@ El Capítulo XII y la Tabla 12 identifican los resultados de LOCAL-1 y F5/F6. LO
 
 ## Alcance de las pruebas AWS
 
-La construcción local utiliza aws-emulator y PostgreSQL Docker. Las pruebas locales del adaptador de objetos y la configuración de IaC tienen un corte distinto de F5/F6. Su resultado se registra cuando existe una ejecución identificable por versión, escenario y entorno. El despliegue objetivo requiere comprobar AWS SDK con credenciales temporales, políticas efectivas S3/IAM, autorización de documentos y aislamiento de la base.
+La construcción local utiliza un entorno local de emulación compatible con AWS y PostgreSQL Docker. Las pruebas locales del adaptador de objetos y la configuración de IaC tienen un corte distinto de F5/F6. Su resultado se registra cuando existe una ejecución identificable por versión, escenario y entorno. El despliegue objetivo requiere comprobar AWS SDK con credenciales temporales, políticas efectivas S3/IAM, autorización de documentos y aislamiento de la base.
 
 El procedimiento PT-11 restaura RDS y las versiones de S3 en un destino aislado de la misma región habilitada. PT-16 comprueba finalidades, supresiones y permisos antes de reabrir el servicio. La transición del diseño Single-AZ a Multi-AZ requiere su propia validación. El Capítulo XIII describe el orden de habilitación y el Capítulo XI conserva los umbrales.

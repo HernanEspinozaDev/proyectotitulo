@@ -1,0 +1,14 @@
+{
+  "estado": "verificado",
+  "paginas_pdf": 567,
+  "correlativos": "10.7: 11/12; CU-15: 14; M06/M07:15",
+  "nombre_espacigo": "comprobado en rótulos, índices y subtítulo RNF",
+  "operador_y_comillas": "íntegros en fuente, Word y PDF",
+  "figura_10": "PNG final coincide con el render de la fuente corregida",
+  "diccionario_fisico": "110 fichas, columnas y restricciones físicas preservadas",
+  "tablas_economicas": "27 cuadrículas preservadas",
+  "maquetacion": "Tablas 11 y 13 completas en su página, sin última fila huérfana",
+  "interpretacion": "Umbrales de VAN al 12 % primero; piloto y necesidad de aportes explícitos",
+  "docx_sha256": "190fb0a94e556a012ff25470c9ab7a7809ea9719a222d90bf18aab400a1d1220",
+  "pdf_sha256": "48b7b94ebf8d8c826a26910c21c59db440432ef76df695d45352dde2d2b19f6a"
+}

@@ -1,4 +1,4 @@
-"""Verifica texto y destino reales de los dos enlaces señalados por el revisor."""
+"""Verifica texto y destino reales de los enlaces señalados por los revisores."""
 from pathlib import Path
 from lxml import etree as E
 from pypdf import PdfReader
@@ -41,5 +41,5 @@ for url in URLS:
             matches.append(i+1)
     assert len(matches)==1,(url,matches)
     found[url].update(pagina_pdf=matches[0],url_completo_en_una_linea=True,destino_pdf_correcto=True)
-result={'estado':'verificado','alcance':'dos referencias bibliográficas señaladas en la revisión de la versión 9; comprobación sobre la tesis actual','enlaces':found}
+result={'estado':'verificado','alcance':'referencias de Ley 21.719, PostGIS y AWS; comprobación sobre la tesis actual','enlaces':found}
 target=ROOT/'context/01_auditorias_y_rubricas/verificacion_enlaces_bibliograficos.json';target.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');print(json.dumps(result,ensure_ascii=False))

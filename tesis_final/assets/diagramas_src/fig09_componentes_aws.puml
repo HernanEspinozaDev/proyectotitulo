@@ -12,7 +12,7 @@ package "Presentación · Next.js" {
   views --> bff
 }
 package "Aplicación · Go" {
-  component "cmd/api\nSesión y autorización por recurso" as api
+  component "Entrada HTTP de la API\nSesión y autorización por recurso" as api
   component "Dominio\nEspacios · ocupación · reservas\nContratos · documentos" as domain
   component "Puertos de datos, objetos y servicios" as ports
   api --> domain
@@ -20,13 +20,13 @@ package "Aplicación · Go" {
 }
 package "Adaptadores construidos" {
   database "PostgreSQL y PostGIS\nDocker en desarrollo" as db
-  component "s3storage y documents3\nAWS SDK para Go v2" as s3
-  component "Correo SMTP\nMailpit en desarrollo" as mail
+  component "Persistencia de objetos y documentos S3\nAWS SDK para Go v2" as s3
+  component "Correo SMTP\nServidor SMTP local de pruebas" as mail
 }
 bff --> api : HTTP por loopback
 ports --> db
 ports --> s3
 ports --> mail
-cloud "aws-emulator\nS3 local por HTTPS" as emulator
+cloud "Entorno local compatible con AWS\nAlmacenamiento S3 por HTTPS" as emulator
 s3 --> emulator
 @enduml

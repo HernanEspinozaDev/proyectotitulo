@@ -30,7 +30,7 @@ La matriz compara el ajuste de tres enfoques a las restricciones de este proyect
 
 #### 6.1.3. Fases e incrementos
 
-La Figura 3 representa las actividades que se repiten y revisan en el ciclo de construcción. La secuencia se concreta en cinco incrementos: identidad y cuenta; catálogo y búsqueda; aceptación y cobros; documentos y avisos; administración y auditoría. Cada incremento integra componentes y una revisión identificada Q01–Q05 antes del hito M01–M05. Las revisiones locales de rendimiento y recuperación pueden ejecutarse sobre componentes disponibles; la aceptación del sistema integrado conserva su evidencia propia.
+La Figura 3 representa las actividades que se repiten y revisan en el ciclo de construcción. La secuencia se concreta en cinco incrementos: identidad y cuenta; catálogo y búsqueda; aceptación y cobros; documentos y avisos; administración y auditoría. Cada incremento integra componentes y una verificación de integración antes de su compuerta de aceptación. Las revisiones locales de rendimiento y recuperación pueden ejecutarse sobre componentes disponibles; la aceptación del sistema integrado conserva su evidencia propia.
 
 **Figura 3**\
 *Ciclo de construcción y revisión por incremento*
@@ -81,7 +81,7 @@ La evaluación utiliza probabilidad de 1 (muy baja) a 5 (muy alta) e impacto de 
 
 #### 6.1.6. Gobierno, integración y control
 
-El propósito académico consiste en entregar el informe institucional, el repositorio identificable, la demostración del corte y sus evidencias de ingeniería. El equipo decide los ajustes técnicos dentro del alcance documentado; la evaluación y cualquier cambio de fecha institucional corresponden a la autoridad académica. La ficha de gobierno del Anexo G no sustituye un acta institucional firmada. El acuerdo de funcionamiento del proyecto y la futura constitución de la empresa tienen finalidades diferentes.
+El propósito académico consiste en entregar el informe institucional, el código fuente verificable de la plataforma, la demostración del corte y sus evidencias de ingeniería. El equipo decide los ajustes técnicos dentro del alcance documentado; la evaluación y cualquier cambio de fecha institucional corresponden a la autoridad académica. La ficha de gobierno del Anexo G no sustituye un acta institucional firmada. El acuerdo de funcionamiento del proyecto y la futura constitución de la empresa tienen finalidades diferentes.
 
 La adaptación integra las diez áreas de gestión: integración mediante control de versiones y cambios; alcance mediante EDT y requisitos; cronograma mediante dependencias y recursos; costos mediante conciliación de G/H; calidad mediante criterios del Anexo F; recursos mediante responsables y calendario; comunicaciones e interesados mediante G.9; riesgos mediante la Tabla 6; y adquisiciones mediante los criterios de habilitación y presupuesto. Esta aplicación evita atribuir cumplimiento integral o certificación PMI al proyecto.
 
@@ -99,9 +99,9 @@ El esfuerzo se estima por juicio técnico y desglose de entregables, en bloques 
 
 #### 6.2.2. Programación, dependencias y recursos
 
-El registro maestro contiene 63 nodos, con actividades y hitos de duración cero. La red utiliza relaciones fin a comienzo. La revisión de arquitectura puede comenzar con el alcance preliminar y se concilia después con requisitos; la documentación progresa durante los incrementos. Las compuertas reúnen frontend, backend y revisión. Las tareas W01/W02 conservan una liberación el 16 de noviembre para conciliar la decisión AWS documentada en el corte, sin trasladarla ficticiamente a agosto.
+El registro maestro contiene 63 nodos, con actividades y hitos de duración cero. La red utiliza relaciones fin a comienzo. La revisión de arquitectura puede comenzar con el alcance preliminar y se concilia después con requisitos; la documentación progresa durante los incrementos. Las compuertas reúnen frontend, backend y revisión. Las actividades de adecuación de infraestructura AWS se programan desde el 16 de noviembre, fecha del corte técnico que sustenta su revisión.
 
-El cálculo determina fechas tempranas y tardías y holgura; después reproduce la secuencia de cada persona mediante vínculos de disponibilidad. El Anexo G distingue predecesoras lógicas y de recurso, verifica ausencia de ciclos y comprueba que ninguna persona supera cuatro horas diarias o veinte semanales. La selección de esta secuencia factible no demuestra que sea la única ni la óptima [@pmbok6, pp. 210–215].
+El cálculo determina fechas tempranas y tardías y holgura; después reproduce la secuencia de cada persona mediante vínculos de disponibilidad. El Anexo G distingue predecesoras lógicas y de recurso, verifica ausencia de ciclos y comprueba que ninguna persona supera cuatro horas diarias o veinte semanales. La programación constituye una secuencia factible nivelada dentro de las restricciones académicas [@pmbok6, pp. 210–215].
 
 **Figura 6**\
 *Cronograma maestro del desarrollo, defensa y transición*
@@ -112,9 +112,9 @@ El cálculo determina fechas tempranas y tardías y holgura; después reproduce 
 
 #### 6.2.3. Ruta crítica y límites de factibilidad
 
-El cierre del desarrollo se calcula para el 30 de noviembre de 2026 a las 13:00. La entrega se mantiene el 1 de diciembre. La holgura disponible en jornadas completas antes de esa entrega es cero. El tramo crítico del cierre reúne W01, W02, Q08, las ramas Q09 y R03, R04 y el hito C0. El Anexo G.5 presenta la red y la holgura de todas las actividades académicas. Las fechas de defensa e inicio comercial se tratan como hitos fijos; no se utilizan para inflar la holgura del trabajo académico.
+El cierre del desarrollo se calcula para el 30 de noviembre de 2026 a las 13:00. La entrega se mantiene el 1 de diciembre. La holgura disponible en jornadas completas antes de esa entrega es cero. El tramo crítico reúne la adecuación de infraestructura AWS, la revisión de permisos y regresión, las revisiones paralelas de aceptación y cronograma, la integración del informe y el hito de cierre del desarrollo. El Anexo G.5 presenta la red y la holgura de todas las actividades académicas. Las fechas de defensa e inicio comercial se tratan como hitos fijos; se distinguen del cálculo de holgura del trabajo académico.
 
-La factibilidad es condicionada: una jornada adicional en W01 o W02 desplaza el cierre al 1 de diciembre y compromete la preparación previa a la entrega. La capacidad sin asignar no constituye reserva temporal en la ruta crítica y la reserva presupuestaria no compra automáticamente disponibilidad especializada. El control prioriza ese tramo, limita nuevas funciones y recalcula ante una ausencia o cambio. Las pruebas externas no terminadas se conservan como condiciones de habilitación; sus resultados no se sustituyen con un hito de calendario.
+La factibilidad es condicionada: una jornada adicional en las actividades críticas de adecuación de infraestructura desplaza el cierre al 1 de diciembre y compromete la preparación previa a la entrega. La reserva temporal depende de la posición de las actividades y de la especialidad requerida en la ruta crítica; se evalúa separadamente de la capacidad sin asignar y de la reserva presupuestaria. El control prioriza ese tramo, limita nuevas funciones y recalcula ante una ausencia o cambio. Las pruebas externas no terminadas se conservan como condiciones de habilitación; sus resultados no se sustituyen con un hito de calendario.
 
 ### 6.3. Equipo de trabajo
 
@@ -140,13 +140,13 @@ El equipo está formado por Hernán Espinoza Castillo, Anita Marchant Pacheco y 
 
 #### 6.3.2. Esfuerzo y seguimiento
 
-La programación asigna 228 horas académicas a Hernán Espinoza, 240 a Anita Marchant y 164 a Erick Silva: 632 en total. La preparación de defensa asigna doce horas a cada integrante, y la transición agrega doce, doce y dieciséis, respectivamente. El total del programa es 708 horas estimadas. El Anexo G.6 verifica carga y distribución semanal. Estas cifras no se presentan como horas reales ni como remuneraciones.
+La programación asigna 228 horas académicas a Hernán Espinoza, 240 a Anita Marchant y 164 a Erick Silva: 632 en total. La preparación de defensa asigna doce horas a cada integrante, y la transición agrega doce, doce y dieciséis, respectivamente. El total del programa es 708 horas estimadas. El Anexo G.6 verifica carga y distribución semanal. Estas cifras corresponden a la estimación técnica de esfuerzo académico y preoperativo del programa.
 
 El registro de seguimiento identifica actividad, fecha de estado, esfuerzo real, esfuerzo restante, evidencia, revisión y fecha prevista de cierre. El avance se reconoce por entregable comprobado; una fecha pasada no acredita terminación. Sin línea base aprobada y medidas reales comparables, SPI, CPI y variaciones de ejecución se informan como no calculables. Los indicadores operativos del Capítulo XI mantienen su finalidad propia.
 
 ### 6.4. Plan de recursos
 
-El trabajo utiliza equipos personales compartidos, repositorio, herramientas de desarrollo y entornos de ensayo. La capacidad nominal académica de 960 horas deja 328 horas sin asignar en esa etapa. El presupuesto de trabajo valorizado conserva 960 horas a CLP 6.500: CLP 6.240.000. Al asignar expresamente 76 horas a defensa y transición, el programa completo consume 708 horas valorizadas en CLP 4.602.000 y conserva una reserva presupuestaria de 252 horas, CLP 1.638.000. La capacidad libre académica y la reserva de todo el programa tienen bases temporales diferentes.
+El trabajo utiliza equipos personales compartidos, sistema de control de versiones, herramientas de desarrollo y entornos de ensayo. La capacidad nominal académica de 960 horas deja 328 horas sin asignar en esa etapa. El presupuesto de trabajo valorizado conserva 960 horas a CLP 6.500: CLP 6.240.000. Al asignar expresamente 76 horas a defensa y transición, el programa completo consume 708 horas valorizadas en CLP 4.602.000 y conserva una reserva presupuestaria de 252 horas, CLP 1.638.000. La capacidad libre académica y la reserva de todo el programa tienen bases temporales diferentes.
 
 La valorización mide recursos del proyecto y se separa de pagos al equipo y del flujo de caja comercial. El Capítulo XIV y el Anexo H mantienen la inversión monetaria y los costos comerciales desde enero de 2027. La conciliación no modifica el flujo por convertir horas disponibles en egresos ficticios.
 

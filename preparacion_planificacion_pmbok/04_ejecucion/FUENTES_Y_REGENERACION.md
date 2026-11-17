@@ -4,7 +4,7 @@ La fuente única es `tesis_final/assets/diagramas_src/cronograma_espacigo.json`.
 
 1. Ejecutar `python3 tesis_final/scripts/calcular_cronograma.py` para recalcular y exportar JSON, CSV y Project XML.
 2. Ejecutar `python3 tesis_final/scripts/render_planificacion.py` para regenerar Gantt, red, EDT y riesgos en PNG y SVG. Requiere Matplotlib. Los antiguos EDT PlantUML/mapa Mermaid se sustituyen para evitar dos fuentes divergentes.
-3. Ejecutar `python3 tesis_final/scripts/integrar_planificacion.py` para regenerar VI, XV y G. Revisar cualquier nueva edición académica antes de sustituir el texto; no se renumeran otros capítulos con este generador.
+3. Ejecutar `python3 tesis_final/scripts/integrar_planificacion.py` para regenerar las fichas y las tablas de actividades de G. La narrativa académica de VI/XV y el resto del anexo se conserva. Si cambia el modelo, se revisan expresamente las fechas, síntesis y tablas restantes antes de compilar.
 4. Ejecutar `python3 tesis_final/scripts/verificar_planificacion.py` y compilar `python3 build_thesis.py` con el Python del runtime documental; verificar Word y PDF.
 
 La nueva Figura 6 desplaza por una sola vez las figuras posteriores a 7–19. Las tablas financieras conservan los números 14–24 y H. El XML incorpora 28 resúmenes EDT y 63 nodos de actividad/hito; las 54 asignaciones suman 708 h, sin duplicar el trabajo de los resúmenes. El MPP original se preserva. La lectura con MPXJ verifica interoperabilidad de estructura; no acredita un recálculo nativo de Microsoft Project.

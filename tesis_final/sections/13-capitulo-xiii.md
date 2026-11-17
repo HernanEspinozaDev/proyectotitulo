@@ -4,7 +4,7 @@
 
 ### 13.1. Gestión de Disponibilidad
 
-El repositorio espacigo-aws declara controles de construcción y calidad mediante GitHub Actions y módulos Terraform para red, RDS, S3, IAM, SSM y logs [@espacigoaws2026]. La entrega objetivo publica imágenes en ECR y actualiza una tarea ECS Fargate con autenticación temporal OIDC. La configuración inspeccionada requiere completar recursos ECS/ECR, permisos de entrega e inyección segura de secretos. El procedimiento registra revisión de aplicación, digest de imágenes, región, versión del esquema y resultado de aceptación.
+La configuración de infraestructura de la plataforma declara controles de construcción y calidad mediante GitHub Actions y módulos Terraform para red, RDS, S3, IAM, SSM y logs [@espacigoaws2026]. La entrega objetivo publica imágenes en ECR y actualiza una tarea ECS Fargate con autenticación temporal OIDC. La configuración inspeccionada requiere completar recursos ECS/ECR, permisos de entrega e inyección segura de secretos. El procedimiento registra revisión de aplicación, digest de imágenes, región, versión del esquema y resultado de aceptación.
 
 El diseño establece mínimo privilegio para aplicación, migraciones y operación. Como criterio de diseño, cada solicitud debe verificar el vínculo del actor con el recurso y las capacidades exigidas por la acción. La evidencia privada utiliza almacenamiento separado, y su acceso y retención dependen de su finalidad. Las revisiones documentales incluyen pruebas de denegación y comprobación de permisos efectivos.
 
@@ -58,4 +58,4 @@ La política de retención identifica finalidad, evento inicial, excepción, res
 
 La configuración inicial Single-AZ exige valorar el efecto de una interrupción zonal en el objetivo de disponibilidad. El paso a Multi-AZ conserva su condición de compuerta del diseño para la operación comercial. La configuración de respaldo, por sí sola, requiere un ensayo para acreditar RPO y RTO.
 
-La programación W01/W02 del Anexo G relaciona esta secuencia con la revisión del diseño y los artefactos de infraestructura; la transición TPH/TPA/TPE identifica responsables de preparación técnica, legal y de proveedores. La frontera comercial del 1 de enero de 2027 corresponde al estudio económico. La puesta en servicio efectiva exige acreditar los controles de este capítulo y no se presume por llegar a esa fecha.
+La planificación del Anexo G relaciona esta secuencia con las actividades de adecuación del diseño y revisión de infraestructura AWS. La transición preoperativa identifica responsables de preparación técnica, legal y de proveedores. La frontera comercial del 1 de enero de 2027 corresponde al estudio económico. La puesta en servicio efectiva exige acreditar los controles de este capítulo mediante sus evidencias de aceptación.

@@ -4,7 +4,9 @@ import json,re,zipfile
 from lxml import etree as E
 ROOT=Path(__file__).resolve().parents[1]
 PATTERNS=[r'/home/',r'\btesis_final/',r'\bcontext/',r'\bassets/',r'\bplanning/',r'\bdiagramas_src/',r'\b(?:[\w.-]+/)+[\w.-]+\.(?:md|py|json|ya?ml|csv|docx|xlsx|puml|mmd)\b',r'github\.com/HernanEspinozaDev/(?:espaciGo|espacigo-aws)',r'\bDocSkill\b',r'\brender_planificacion\.py\b',r'\bCronograma_espaciGo_Project\.xml\b']
+PATTERNS += [r'\b(?:aws-emulator|Mailpit|aws-main|local-emulator|espacigo-aws|s3storage|documents3|Dockerfile)\b', r'\bcmd/api\b', r'\binternal/adapters/postgres\b', r'\brepositorio(?:s)?\b', r'\bcommits?\b', r'\b(?:3dc1c18|b1b38d1|8d33dcf|cc2fdc3|93b59c8|4e26d52b57d9687c4b6b7a778e89dbbb5be855e5)\b']
 def check(text,origin):
+    assert not re.search(r'\bV[0-9]{1,6}\b',text),(origin,'código de migración visible')
     for pattern in PATTERNS:
         hit=re.search(pattern,text,re.I)
         assert not hit,(origin,hit.group() if hit else '')

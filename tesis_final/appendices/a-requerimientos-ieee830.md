@@ -4,7 +4,7 @@
 
 El catálogo especifica el diseño objetivo y conserva identificadores de las iteraciones previas. La condición de implementación se registra por versión y entorno en los capítulos XII y XI. Los cambios históricos se conservan en el registro de contexto de la memoria.
 
-## Sistema EspaciGo
+## Sistema espaciGo
 
 | ID | Descripción del Requerimiento Funcional |
 | :--- | :--- |
@@ -265,7 +265,7 @@ El catálogo especifica el diseño objetivo y conserva identificadores de las it
 | RQF-235 | El sistema debe calcular el promedio de calificaciones del espacio. |
 | RQF-236 | El sistema debe permitir al administrador consultar el listado de espacios publicados. |
 
-## Requerimientos No Funcionales (RNF) — Sistema EspaciGo
+## Requerimientos No Funcionales (RNF) — Sistema espaciGo
 
 > **Versión corregida (19-09-2026).** Catálogo de **43 requerimientos no funcionales (RNF-001 a RNF-043)**, clasificados según categorías y subcategorías del estándar **ISO/IEC 25010** y del modelo de Sommerville.
 
@@ -299,7 +299,7 @@ El catálogo especifica el diseño objetivo y conserva identificadores de las it
 | RNF-014 | Cifrado de datos en reposo | Seguridad / Confidencialidad | El sistema debe aplicar cifrado en reposo mediante el algoritmo AES-256 a los datos bancarios y a los documentos PDF finales almacenados. |
 | RNF-015 | Protección de comunicaciones y credenciales | Seguridad / Confidencialidad | El sistema debe transmitir credenciales y datos sensibles exclusivamente mediante HTTPS con protocolo TLS 1.2 o superior, impidiendo que los tokens viajen por URL. |
 | RNF-016 | Invalidación automática de sesión por inactividad | Seguridad / Autenticidad | El sistema debe invalidar automáticamente el token de sesión tras 30 minutos de inactividad del usuario, con un límite de caducidad absoluta de 8 horas. |
-| RNF-017 | Inmutabilidad de los registros de auditoría | Seguridad / Integridad | El sistema debe preservar los logs de auditoría transaccional en un repositorio inmutable, bloqueando a nivel de infraestructura cualquier intento de modificación o eliminación de los registros. |
+| RNF-017 | Inmutabilidad de los registros de auditoría | Seguridad / Integridad | El sistema debe preservar los logs de auditoría transaccional en un almacén inmutable, bloqueando a nivel de infraestructura cualquier intento de modificación o eliminación de los registros. |
 | RNF-018 | Eliminación irreversible de datos personales | Seguridad / Privacidad | El sistema debe aplicar la acción autorizada de supresión o restricción según la finalidad y las obligaciones de conservación identificadas. |
 | RNF-019 | Escalabilidad horizontal del servicio | Flexibilidad / Escalabilidad | El sistema debe soportar un escalamiento horizontal automático para absorber incrementos del 200% de carga, desplegando nuevas instancias en un tiempo máximo de 10 minutos. |
 | RNF-020 | Modificación de parámetros sin redespliegue | Flexibilidad / Modificabilidad | El sistema debe permitir la modificación de parámetros de negocio (como el porcentaje de comisión) aplicando los cambios en máximo 60 segundos sin requerir reinicio del servidor. |
@@ -321,7 +321,7 @@ El catálogo especifica el diseño objetivo y conserva identificadores de las it
 | RNF-036 | Reemplazabilidad del proveedor de nube | Portabilidad / Reemplazabilidad | El sistema debe poder desplegarse en al menos dos proveedores de nube compatibles con contenedores, sin modificar el código fuente. |
 | RNF-037 | Implementación en contenedores | Implementación / Empaquetado | El sistema debe estar implementado en contenedores Docker, garantizando la consistencia entre los entornos de desarrollo, pruebas y producción. |
 | RNF-038 | Motor de base de datos relacional | Implementación / Base de datos | El sistema debe utilizar un motor de base de datos relacional (PostgreSQL) con soporte de transacciones ACID y extensiones geoespaciales. |
-| RNF-039 | Control de versiones del código fuente | Implementación / Gestión de configuración | El código fuente debe almacenarse en un repositorio Git corporativo (GitHub o equivalente), con control de versiones y revisión de cambios. |
+| RNF-039 | Control de versiones del código fuente | Implementación / Gestión de configuración | El código fuente debe almacenarse en un sistema de control de versiones Git corporativo (GitHub o equivalente), con control de versiones y revisión de cambios. |
 | RNF-040 | Integración y despliegue continuos | Implementación / Despliegue | El sistema debe contar con un pipeline de integración y despliegue continuos (CI/CD) que ejecute las pruebas automatizadas antes de cada despliegue. |
 | RNF-041 | Capacidad de almacenamiento por publicación | Almacenamiento / Capacidad | El sistema debe controlar la capacidad de la galería según RQF-075 y el límite de entrada del procesador multimedia del corte. |
 | RNF-042 | Retención de contratos y evidencias | Almacenamiento / Retención | El sistema debe conservar emisiones y evidencias operativas según las reglas de retención por finalidad, modalidad y estado. |

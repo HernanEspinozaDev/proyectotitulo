@@ -37,13 +37,13 @@ La Figura 10 detalla la vista de aplicaciones y el enlace entre la interfaz, el 
 **Figura 10**\
 *Componentes de aplicación y adaptadores de espaciGo*
 
-![](assets/imagenes/fig09_componentes_aws.png){height=15.5cm}
+![](assets/imagenes/fig09_componentes_aws.png){height=15cm}
 
-*Nota.* Elaboración propia a partir de la estructura del repositorio y el contrato de desarrollo. La autorización se aplica por recurso y el control If-Match se utiliza en operaciones de galería. La habilitación de proveedores externos sigue pendiente.
+*Nota.* Elaboración propia a partir de la estructura de componentes de la plataforma y el contrato de desarrollo. La autorización se aplica por recurso y el control If-Match se utiliza en operaciones de galería. La habilitación de proveedores externos sigue pendiente.
 
 ### 10.4. Modelo de datos
 
-La persistencia utiliza PostgreSQL 18 y PostGIS 3.6. El diseño distingue el modelo lógico ratificado, el catálogo derivado de migraciones y el estado observado en cada entorno. La línea base del diseño de oferta, contratación y cobros corresponde al ADR de espaciGo ratificado el 4 de noviembre de 2026, cuya aplicación al modelo de datos se detalla en el Anexo D. La copia de trabajo del ADR incorpora explícitamente la novena categoría. Su incorporación al catálogo físico se registra por separado en V000067, commit `b1b38d1`. El Anexo D distingue esta decisión del perfil físico sembrado por la migración.
+La persistencia utiliza PostgreSQL 18 y PostGIS 3.6. El diseño distingue el modelo lógico ratificado, el catálogo derivado de migraciones y el estado observado en cada entorno. La línea base del diseño de oferta, contratación y cobros corresponde al ADR de espaciGo ratificado el 4 de noviembre de 2026, cuya aplicación al modelo de datos se detalla en el Anexo D. La especificación de diseño ratificada incorpora explícitamente la novena categoría. Su incorporación al catálogo físico se documenta mediante las actualizaciones versionadas del esquema. El Anexo D distingue esta decisión del perfil físico sembrado por la migración.
 
 #### 10.4.1. Modelo lógico
 
@@ -71,7 +71,7 @@ La Figura 11 relaciona las entidades lógicas. La Figura 12 presenta un recorte 
 
 *Nota.* Elaboración propia a partir del DDL y el Anexo D. Se muestran columnas y relaciones seleccionadas del esquema public. La geografía del ejemplo pertenece a la ubicación sintética. La bandeja de eventos identifica agregados mediante tipo e identificador y carece de una clave foránea polimórfica.
 
-La Tabla D.1 vincula las entidades lógicas con sus relaciones físicas de referencia. El Anexo D distingue las 110 tablas de aplicación derivadas del DDL de las 104 tablas de aplicación de la captura local V000075. Las seis relaciones adicionales corresponden a la verificación documental declarada en V000079. La evolución física del modelo objetivo parte del mapeo de entidades a tablas vigentes y del análisis de las restricciones que exige cada incremento.
+La Tabla D.1 vincula las entidades lógicas con sus relaciones físicas de referencia. El Anexo D distingue las 110 tablas de aplicación derivadas del DDL de las 104 tablas de aplicación de la captura local del esquema de desarrollo. Las seis relaciones adicionales corresponden a la verificación documental declarada en la revisión versionada del esquema. La evolución física del modelo objetivo parte del mapeo de entidades a tablas vigentes y del análisis de las restricciones que exige cada incremento.
 
 #### 10.4.3. Diccionario de datos
 
@@ -79,7 +79,7 @@ El Anexo D registra tipos, nulabilidad, claves y restricciones, con la procedenc
 
 #### 10.4.4. Integridad temporal y concurrencia
 
-La migración V000009 de espaciGo declara en `public.ocupacion` la columna `intervalo` de tipo `tstzrange`. La restricción `EXCLUDE USING gist` compara la igualdad de `espacio_id` y el solapamiento de `intervalo` mediante el operador de rangos `&&`, con un predicado que limita la comparación a las filas activas. El operador temporal pertenece a PostgreSQL. PostGIS se utiliza para las consultas geoespaciales.
+El esquema relacional de espaciGo declara un intervalo de ocupación de tipo `tstzrange`. La restricción de exclusión compara la identidad del espacio y el solapamiento del intervalo temporal mediante el operador de rangos `&&`, con un predicado que limita la comparación a las filas activas. El operador temporal pertenece a PostgreSQL. PostGIS se utiliza para las consultas geoespaciales.
 
 El criterio objetivo utiliza una autoridad de ocupación y un bloqueo activo por reserva. La verificación contempla solapamientos, intervalos adyacentes, vencimiento atómico, duplicados y pagos tardíos que ingresan a conciliación. Los resultados se registran por versión y entorno en el Capítulo XII y el Anexo F.
 
@@ -96,14 +96,14 @@ La topología objetivo adopta la región inicial us-east-2, sujeta a la selecci�
 
 ![](assets/imagenes/fig12_topologia_aws.png){height=16cm}
 
-*Nota.* Elaboración propia a partir de los ADR-AWS-01 a ADR-AWS-05 y Terraform del corte 3dc1c18 [@espacigoaws2026]. La figura describe el destino de despliegue. La preparación de ECS/ECR, ingreso, TLS y entrega OIDC conserva comprobaciones pendientes.
+*Nota.* Elaboración propia a partir de los ADR-AWS-01 a ADR-AWS-05 y Terraform del corte técnico verificado [@espacigoaws2026]. La figura describe el destino de despliegue. La preparación de ECS/ECR, ingreso, TLS y entrega OIDC conserva comprobaciones pendientes.
 
 #### 10.6.1. Segmentación de red y comunicaciones privadas
 La VPC declara dos subredes públicas y dos privadas, con zonas descubiertas desde la región configurada. La base acepta conexiones desde el grupo de seguridad de la tarea. El diseño restringe el origen web al borde autorizado y conserva la API en loopback. El Terraform inspeccionado aún declara ingreso amplio en el puerto 4000. Su endurecimiento y la prueba de acceso directo al origen constituyen condiciones previas de habilitación. Dos subredes para RDS permiten definir su grupo de subredes y conservan una instancia Single-AZ en el corte inicial.
 
 ### 10.7. Diagrama de Arquitectura
 
-La arquitectura integrada se lee en tres vistas complementarias. La Figura 10 muestra la interacción de componentes, las figuras 10 y 11 describen persistencia y la Figura 13 sitúa la solución en su infraestructura. Las figuras siguientes precisan el comportamiento que conecta estas vistas.
+La arquitectura integrada se lee en tres vistas complementarias. La Figura 10 muestra la interacción de componentes, las figuras 11 y 12 describen persistencia y la Figura 13 sitúa la solución en su infraestructura. Las figuras siguientes precisan el comportamiento que conecta estas vistas.
 
 El catálogo versionado utiliza OpenAPI 3.1. La galería admite hasta 30 posiciones por espacio, incluidas las cargas reservadas. La selección de portada exige enviar en `If-Match` el ETag fuerte de la revisión que leyó el editor. Si otra operación cambia el espacio antes de guardar, la revisión queda desactualizada y la solicitud se rechaza. Esto evita que una elección basada en una galería anterior sobrescriba una actualización posterior. El Anexo E identifica la versión del contrato y el alcance de la evidencia.
 
@@ -139,7 +139,7 @@ Para hora, bloque o sesión, la ruta principal guarda el contrato sin firma y of
 
 Si ambas partes eligen SimpleFirma, la plataforma muestra el desglose. El aporte se divide por mitades o se asigna íntegramente al arrendador si ofreció firma gratis. El peso impar queda a cargo del arrendador. Para la renta, el objetivo integra Mercado Pago Checkout Pro mediante Preferences y vinculación OAuth del arrendador. Split distribuye la renta y la comisión. La garantía queda fuera del primer corte y requiere verificar su operación antes de habilitarse.
 
-El registro local `outbox_evento_local` permite separar la confirmación de un cambio de estado del envío posterior de eventos. El patrón de bandeja transaccional registra el cambio y su evento en la misma transacción, de modo que un fallo durante el envío deje trabajo recuperable. La clave de deduplicación y el registro de intentos respaldan los reintentos del trabajador. El efecto externo requiere idempotencia propia y conciliación, en especial para los cobros. El Anexo D documenta la estructura del registro.
+El registro transaccional de eventos de salida (patrón Transactional Outbox) permite separar la confirmación de un cambio de estado del envío posterior de eventos. El patrón de bandeja transaccional registra el cambio y su evento en la misma transacción, de modo que un fallo durante el envío deje trabajo recuperable. La clave de deduplicación y el registro de intentos respaldan los reintentos del trabajador. El efecto externo requiere idempotencia propia y conciliación, en especial para los cobros. El Anexo D documenta la estructura del registro.
 
 El vencimiento libera el bloqueo mediante una transición atómica. Un pago tardío ingresa a conciliación sin reactivar la reserva. La operación registra evidencia de ingreso y de entrega conforme a HU35 y los casos CU-33, CU-34 y CU-48. Tras la entrega del arrendatario, el titular confirma la desocupación y puede republicar el espacio. El sistema conserva el contrato y los demás intervalos vigentes.
 
@@ -167,6 +167,6 @@ La Figura 17 representa el tratamiento objetivo de una solicitud de privacidad.
 
 ### 10.8. Construcción local y transición al destino
 
-El entorno local ejecuta Next.js en el puerto 3000, la API Go en 8080, PostgreSQL en Docker y aws-emulator en un endpoint HTTPS propio. Mailpit recibe correo de pruebas mediante SMTP y permite inspeccionar los mensajes. El emulador expone interfaces para S3, SSM, logs e IAM. Terraform separa cinco buckets de medios, evidencias, identidad, documentos del espacio y registro de supresiones, con versionado y SSE-S3. El almacenamiento documental conserva cifrado en la aplicación y autorización por finalidad.
+El entorno local ejecuta Next.js en el puerto 3000, la API Go en 8080, PostgreSQL en Docker y un entorno local de emulación compatible con AWS mediante un endpoint HTTPS propio. Un servidor SMTP local de pruebas recibe los mensajes de ensayo y permite inspeccionar los mensajes. El emulador expone interfaces para S3, SSM, logs e IAM. Terraform separa cinco buckets de medios, evidencias, identidad, documentos del espacio y registro de supresiones, con versionado y SSE-S3. El almacenamiento documental conserva cifrado en la aplicación y autorización por finalidad.
 
 El diseño de operación utiliza CloudWatch para logs, SSM para parámetros y roles de ejecución y tarea con permisos delimitados. Zoho conserva el correo del destino. La preparación para Chile parametriza la región y descubre sus zonas. La decisión de traslado requiere confirmar habilitación del proyecto, catálogo de servicios, versión de PostgreSQL y PostGIS y una nueva validación de carga y recuperación. El acceso anticipado anunciado por Amazon fundamenta esa posibilidad, mientras la región inicial conserva el corte declarado [@awschile2026].

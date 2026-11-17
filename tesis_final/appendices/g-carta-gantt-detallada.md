@@ -21,175 +21,175 @@ El calendario nominal considera cuatro horas diarias de lunes a viernes y veinte
 
 ## G.2. Diccionario de los 28 paquetes de la EDT
 
-Cada ficha identifica el producto del paquete, su coordinación y las tareas que lo materializan. La revisión corresponde al equipo con contraste del criterio; la evaluación institucional conserva su autoridad propia. Los recursos comunes comprenden equipo personal compartido, repositorio y entorno pertinente. La evidencia consiste en versión de artefacto y registro de revisión o prueba del corte. Estos campos describen el criterio de aceptación y no afirman su realización futura.
+Cada ficha identifica el producto del paquete, su coordinación y las tareas que lo materializan. La revisión corresponde al equipo con contraste del criterio; la evaluación institucional conserva su autoridad propia. Los recursos comunes comprenden equipo personal compartido, sistema de control de versiones y entorno pertinente. La evidencia consiste en versión de artefacto y registro de revisión o prueba del corte. Estos campos describen el criterio de aceptación y no afirman su realización futura.
 
 **EDT 1.1.1. Acuerdo de gobierno y equipo**
 
 Responsable de coordinación: Anita Marchant Pacheco. Entregable: acuerdo de gobierno y equipo. Criterio de aceptación: Propósito, responsables, restricciones y decisiones identificados.
 
-Actividades: G01. Esfuerzo: 8 h; valorización: CLP 52.000, diferenciada del pago. Referencia de producto y evidencia: VI 6.1.6. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R04. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: G01. Esfuerzo: 8 h; valorización: CLP 52.000, diferenciada del pago. Referencia de producto y evidencia: VI 6.1.6. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R04. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 **EDT 1.1.2. Enunciado de alcance y EDT**
 
 Responsable de coordinación: Anita Marchant Pacheco. Entregable: enunciado de alcance y edt. Criterio de aceptación: 28 paquetes identificados y relacionados con los objetivos.
 
-Actividades: G02. Esfuerzo: 8 h; valorización: CLP 52.000, diferenciada del pago. Referencia de producto y evidencia: V; VI 6.1.4. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R04. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: G02. Esfuerzo: 8 h; valorización: CLP 52.000, diferenciada del pago. Referencia de producto y evidencia: V; VI 6.1.4. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R04. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 **EDT 1.1.3. Modelo del cronograma**
 
 Responsable de coordinación: Erick Silva Quezada. Entregable: modelo del cronograma. Criterio de aceptación: Calendarios, dependencias, hitos, holguras y recursos comprobados.
 
-Actividades: G03, R03. Esfuerzo: 20 h; valorización: CLP 130.000, diferenciada del pago. Referencia de producto y evidencia: VI 6.2; G. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R04. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: G03, R03. Esfuerzo: 20 h; valorización: CLP 130.000, diferenciada del pago. Referencia de producto y evidencia: VI 6.2; G. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R04. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 **EDT 1.1.4. Presupuesto y criterios de adquisición**
 
 Responsable de coordinación: Anita Marchant Pacheco. Entregable: presupuesto y criterios de adquisición. Criterio de aceptación: Partidas y servicios diferenciados sin duplicar valor y caja.
 
-Actividades: G04. Esfuerzo: 8 h; valorización: CLP 52.000, diferenciada del pago. Referencia de producto y evidencia: XIV; H. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R04. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: G04. Esfuerzo: 8 h; valorización: CLP 52.000, diferenciada del pago. Referencia de producto y evidencia: XIV; H. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R04. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 **EDT 1.1.5. Registro de riesgos y cambios**
 
 Responsable de coordinación: Erick Silva Quezada. Entregable: registro de riesgos y cambios. Criterio de aceptación: Dueño, disparador, respuesta y versión de cada cambio registrados.
 
-Actividades: G05. Esfuerzo: 8 h; valorización: CLP 52.000, diferenciada del pago. Referencia de producto y evidencia: VI 6.1.5–6.1.6; G. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R04. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: G05. Esfuerzo: 8 h; valorización: CLP 52.000, diferenciada del pago. Referencia de producto y evidencia: VI 6.1.5–6.1.6; G. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R04. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 **EDT 1.2.1. Diagnóstico y procesos de referencia**
 
 Responsable de coordinación: Anita Marchant Pacheco. Entregable: diagnóstico y procesos de referencia. Criterio de aceptación: Problema, segmentos y BPMN vinculados con la solución.
 
-Actividades: A01. Esfuerzo: 12 h; valorización: CLP 78.000, diferenciada del pago. Referencia de producto y evidencia: I–II. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: A01. Esfuerzo: 12 h; valorización: CLP 78.000, diferenciada del pago. Referencia de producto y evidencia: I–II. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 **EDT 1.2.2. Especificación funcional**
 
 Responsable de coordinación: Anita Marchant Pacheco. Entregable: especificación funcional. Criterio de aceptación: 236 RQF identificados con alcance verificable y trazabilidad.
 
-Actividades: A02. Esfuerzo: 20 h; valorización: CLP 130.000, diferenciada del pago. Referencia de producto y evidencia: III; A. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: A02. Esfuerzo: 20 h; valorización: CLP 130.000, diferenciada del pago. Referencia de producto y evidencia: III; A. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 **EDT 1.2.3. Especificación de calidad**
 
 Responsable de coordinación: Erick Silva Quezada. Entregable: especificación de calidad. Criterio de aceptación: 43 RNF relacionados con medición, escenario y aceptación.
 
-Actividades: A03. Esfuerzo: 12 h; valorización: CLP 78.000, diferenciada del pago. Referencia de producto y evidencia: III; XI; A. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: A03. Esfuerzo: 12 h; valorización: CLP 78.000, diferenciada del pago. Referencia de producto y evidencia: III; XI; A. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 **EDT 1.2.4. Historias y casos de uso**
 
 Responsable de coordinación: Anita Marchant Pacheco. Entregable: historias y casos de uso. Criterio de aceptación: 35 HU y 52 CU identificados, con escenarios y aceptación.
 
-Actividades: A04. Esfuerzo: 20 h; valorización: CLP 130.000, diferenciada del pago. Referencia de producto y evidencia: III; B–C. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: A04. Esfuerzo: 20 h; valorización: CLP 130.000, diferenciada del pago. Referencia de producto y evidencia: III; B–C. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 **EDT 1.2.5. Matriz de trazabilidad**
 
 Responsable de coordinación: Anita Marchant Pacheco. Entregable: matriz de trazabilidad. Criterio de aceptación: Objetivo, requisito, caso, componente y prueba relacionados.
 
-Actividades: A05. Esfuerzo: 8 h; valorización: CLP 52.000, diferenciada del pago. Referencia de producto y evidencia: XI–XII; A–F. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: A05. Esfuerzo: 8 h; valorización: CLP 52.000, diferenciada del pago. Referencia de producto y evidencia: XI–XII; A–F. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 **EDT 1.3.1. Vistas de arquitectura empresarial**
 
 Responsable de coordinación: Hernán Espinoza Castillo. Entregable: vistas de arquitectura empresarial. Criterio de aceptación: Procesos, aplicaciones, datos e infraestructura diferenciados.
 
-Actividades: D01. Esfuerzo: 8 h; valorización: CLP 52.000, diferenciada del pago. Referencia de producto y evidencia: VIII. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: D01. Esfuerzo: 8 h; valorización: CLP 52.000, diferenciada del pago. Referencia de producto y evidencia: VIII. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 **EDT 1.3.2. Arquitectura de software**
 
 Responsable de coordinación: Hernán Espinoza Castillo. Entregable: arquitectura de software. Criterio de aceptación: Dominio y adaptadores identificados en Go y Next.js.
 
-Actividades: D02. Esfuerzo: 12 h; valorización: CLP 78.000, diferenciada del pago. Referencia de producto y evidencia: VII; IX–X. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: D02. Esfuerzo: 12 h; valorización: CLP 78.000, diferenciada del pago. Referencia de producto y evidencia: VII; IX–X. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 **EDT 1.3.3. Modelo relacional y geoespacial**
 
 Responsable de coordinación: Hernán Espinoza Castillo. Entregable: modelo relacional y geoespacial. Criterio de aceptación: DDL, restricciones e inventario documentados por versión.
 
-Actividades: D03. Esfuerzo: 20 h; valorización: CLP 130.000, diferenciada del pago. Referencia de producto y evidencia: X; D. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: D03. Esfuerzo: 20 h; valorización: CLP 130.000, diferenciada del pago. Referencia de producto y evidencia: X; D. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 **EDT 1.3.4. Diseño de seguridad y privacidad**
 
 Responsable de coordinación: Erick Silva Quezada. Entregable: diseño de seguridad y privacidad. Criterio de aceptación: Sesiones, autorización por recurso y finalidad especificadas.
 
-Actividades: D04. Esfuerzo: 12 h; valorización: CLP 78.000, diferenciada del pago. Referencia de producto y evidencia: X; XII–XIII; F. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: D04. Esfuerzo: 12 h; valorización: CLP 78.000, diferenciada del pago. Referencia de producto y evidencia: X; XII–XIII; F. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 **EDT 1.3.5. Contratos de interfaz**
 
 Responsable de coordinación: Hernán Espinoza Castillo. Entregable: contratos de interfaz. Criterio de aceptación: Operaciones, errores y controles asociados al corte OpenAPI.
 
-Actividades: D05. Esfuerzo: 12 h; valorización: CLP 78.000, diferenciada del pago. Referencia de producto y evidencia: IX; E. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: D05. Esfuerzo: 12 h; valorización: CLP 78.000, diferenciada del pago. Referencia de producto y evidencia: IX; E. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 **EDT 1.4.1. Incremento de identidad y acceso**
 
 Responsable de coordinación: Hernán Espinoza Castillo. Entregable: incremento de identidad y acceso. Criterio de aceptación: Recorrido local de cuenta, perfil y controles de identidad comprobable.
 
-Actividades: I1H, I1A, I1E. Esfuerzo: 64 h; valorización: CLP 416.000, diferenciada del pago. Referencia de producto y evidencia: X; XII; E–F. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R07. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: I1H, I1A, I1E. Esfuerzo: 64 h; valorización: CLP 416.000, diferenciada del pago. Referencia de producto y evidencia: X; XII; E–F. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R07. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 **EDT 1.4.2. Incremento de catálogo y búsqueda**
 
 Responsable de coordinación: Hernán Espinoza Castillo. Entregable: incremento de catálogo y búsqueda. Criterio de aceptación: Publicación, categorías, disponibilidad y búsqueda verificables por corte.
 
-Actividades: I2H, I2B, I2A. Esfuerzo: 64 h; valorización: CLP 416.000, diferenciada del pago. Referencia de producto y evidencia: X; XII; E–F. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R07. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: I2H, I2B, I2A. Esfuerzo: 64 h; valorización: CLP 416.000, diferenciada del pago. Referencia de producto y evidencia: X; XII; E–F. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R07. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 **EDT 1.4.3. Incremento de contratación y cobros**
 
 Responsable de coordinación: Hernán Espinoza Castillo. Entregable: incremento de contratación y cobros. Criterio de aceptación: Aceptación bilateral y conciliación controlada separan renta y comisión.
 
-Actividades: I3H, I3B, I3A. Esfuerzo: 56 h; valorización: CLP 364.000, diferenciada del pago. Referencia de producto y evidencia: X; XII; E–F. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R07. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: I3H, I3B, I3A. Esfuerzo: 56 h; valorización: CLP 364.000, diferenciada del pago. Referencia de producto y evidencia: X; XII; E–F. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R07. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 **EDT 1.4.4. Incremento documental y avisos**
 
 Responsable de coordinación: Hernán Espinoza Castillo. Entregable: incremento documental y avisos. Criterio de aceptación: Documentos, permisos y eventos conservan su evidencia; firma externa separada.
 
-Actividades: I4H, I4A, I4E. Esfuerzo: 52 h; valorización: CLP 338.000, diferenciada del pago. Referencia de producto y evidencia: X; XII; E–F. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R07. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: I4H, I4A, I4E. Esfuerzo: 52 h; valorización: CLP 338.000, diferenciada del pago. Referencia de producto y evidencia: X; XII; E–F. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R07. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 **EDT 1.4.5. Incremento de administración y auditoría**
 
 Responsable de coordinación: Hernán Espinoza Castillo. Entregable: incremento de administración y auditoría. Criterio de aceptación: Acciones privilegiadas y consulta de incidencias autorizadas por recurso.
 
-Actividades: I5H, I5A, I5E. Esfuerzo: 44 h; valorización: CLP 286.000, diferenciada del pago. Referencia de producto y evidencia: X; XII; E–F. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R07. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: I5H, I5A, I5E. Esfuerzo: 44 h; valorización: CLP 286.000, diferenciada del pago. Referencia de producto y evidencia: X; XII; E–F. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R07. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 **EDT 1.5.1. Verificación de incrementos**
 
 Responsable de coordinación: Erick Silva Quezada. Entregable: verificación de incrementos. Criterio de aceptación: Cada incremento cierra con registro de alcance, versión y pruebas.
 
-Actividades: Q01, Q02, Q03, Q04, Q05, Q09. Esfuerzo: 48 h; valorización: CLP 312.000, diferenciada del pago. Referencia de producto y evidencia: XII; F. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: Q01, Q02, Q03, Q04, Q05, Q09. Esfuerzo: 48 h; valorización: CLP 312.000, diferenciada del pago. Referencia de producto y evidencia: XII; F. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 **EDT 1.5.2. Evaluación de rendimiento**
 
 Responsable de coordinación: Erick Silva Quezada. Entregable: evaluación de rendimiento. Criterio de aceptación: Ensayo local y plan de carga integrada distinguen población y entorno.
 
-Actividades: Q06. Esfuerzo: 8 h; valorización: CLP 52.000, diferenciada del pago. Referencia de producto y evidencia: XII; F. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: Q06. Esfuerzo: 8 h; valorización: CLP 52.000, diferenciada del pago. Referencia de producto y evidencia: XII; F. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 **EDT 1.5.3. Evaluación de recuperación**
 
 Responsable de coordinación: Erick Silva Quezada. Entregable: evaluación de recuperación. Criterio de aceptación: Restauración local y criterios de recuperación conjunta documentados.
 
-Actividades: Q07. Esfuerzo: 8 h; valorización: CLP 52.000, diferenciada del pago. Referencia de producto y evidencia: XII–XIII; F. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: Q07. Esfuerzo: 8 h; valorización: CLP 52.000, diferenciada del pago. Referencia de producto y evidencia: XII–XIII; F. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 **EDT 1.5.4. Verificación de ciberseguridad**
 
 Responsable de coordinación: Erick Silva Quezada. Entregable: verificación de ciberseguridad. Criterio de aceptación: Permisos y escenarios de denegación conservan resultados y límites.
 
-Actividades: Q08. Esfuerzo: 8 h; valorización: CLP 52.000, diferenciada del pago. Referencia de producto y evidencia: XII–XIII; F. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: Q08. Esfuerzo: 8 h; valorización: CLP 52.000, diferenciada del pago. Referencia de producto y evidencia: XII–XIII; F. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R01. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 **EDT 1.6.1. Configuración y entrega técnica**
 
 Responsable de coordinación: Erick Silva Quezada. Entregable: configuración y entrega técnica. Criterio de aceptación: Entorno y automatización documentados por corte; destino AWS validado aparte.
 
-Actividades: L01, W01, W02, TPH, TPE. Esfuerzo: 60 h; valorización: CLP 390.000, diferenciada del pago. Referencia de producto y evidencia: XIII; F. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R04. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: L01, W01, W02, TPH, TPE. Esfuerzo: 60 h; valorización: CLP 390.000, diferenciada del pago. Referencia de producto y evidencia: XIII; F. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R04. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 **EDT 1.6.2. Evaluación económica**
 
 Responsable de coordinación: Anita Marchant Pacheco. Entregable: evaluación económica. Criterio de aceptación: Flujos, VAN, TIR interpretables y sensibilidad conciliados con G/H.
 
-Actividades: F01. Esfuerzo: 16 h; valorización: CLP 104.000, diferenciada del pago. Referencia de producto y evidencia: XIV; H. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R04. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: F01. Esfuerzo: 16 h; valorización: CLP 104.000, diferenciada del pago. Referencia de producto y evidencia: XIV; H. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R04. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 **EDT 1.6.3. Preparación societaria y tributaria**
 
 Responsable de coordinación: Anita Marchant Pacheco. Entregable: preparación societaria y tributaria. Criterio de aceptación: Actividades y presupuesto identificados; no equivale a sociedad constituida.
 
-Actividades: F02, TPA. Esfuerzo: 16 h; valorización: CLP 104.000, diferenciada del pago. Referencia de producto y evidencia: XIV; G–H. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R04. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: F02, TPA. Esfuerzo: 16 h; valorización: CLP 104.000, diferenciada del pago. Referencia de producto y evidencia: XIV; G–H. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R04. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 **EDT 1.6.4. Informe, demostración y defensa**
 
 Responsable de coordinación: Anita Marchant Pacheco. Entregable: informe, demostración y defensa. Criterio de aceptación: Cortes del 01-12 y 09-12 identifican entregables, evidencia y cambios.
 
-Actividades: R01, R02, R04, DFH, DFA, DFE. Esfuerzo: 76 h; valorización: CLP 494.000, diferenciada del pago. Referencia de producto y evidencia: XV–XVI; G. Recursos: equipo personal, repositorio y entorno del componente. Riesgo principal: R04. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
+Actividades: R01, R02, R04, DFH, DFA, DFE. Esfuerzo: 76 h; valorización: CLP 494.000, diferenciada del pago. Referencia de producto y evidencia: XV–XVI; G. Recursos: equipo personal, sistema de control de versiones y entorno del componente. Riesgo principal: R04. Límite: Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.
 
 La revisión de nombres conserva los 28 identificadores: el paquete 1.1.1 expresa gobierno del proyecto, y 1.6.3 expresa preparación legal, sin afirmar constitución societaria realizada. Los hitos de compuerta reúnen evidencia y tienen esfuerzo cero; las tareas asignadas a cada paquete evitan sumar horas nuevamente por el hito.
 
@@ -473,7 +473,7 @@ El esfuerzo de 708 horas del programa completo incluye 36 de defensa y 40 de tra
 | Campo o control | Regla de aplicación |
 | --- | --- |
 | Fecha de estado | Registrar el corte de medición; no utilizar la fecha del sistema como evidencia de término. |
-| ID, versión y entorno | Relacionar paquete, actividad, commit o documento, entorno y registro de ensayo. |
+| ID, versión y entorno | Relacionar paquete, actividad, versión de código o documento, entorno y registro de ensayo. |
 | Real y restante | Registrar inicio/fin efectivos, horas reales y estimación restante; conservar sin dato cuando no existe evidencia. |
 | Aceptación | Revisión conforme, conforme dentro del alcance del ensayo, requiere ajuste o no comprobado; identificar revisor y fecha. |
 | Avance de entregables | Reconocer terminación comprobada del criterio; presentar cobertura parcial con sus límites. |
@@ -483,7 +483,7 @@ El esfuerzo de 708 horas del programa completo incluye 36 de defensa y 40 de tra
 
 *Nota.* Elaboración propia a partir del registro maestro del cronograma, corte 16-11-2026.
 
-Las revisiones de integración M01–M05 requieren componentes relacionados y ensayo Q01–Q05. El hito C0 identifica una versión reproducible del informe y repositorio, resultados con sus límites y lista de condiciones pendientes. La aceptación del corte sintético o local no sustituye aceptación de todas las categorías ni de proveedores. El Anexo F mantiene la fuente de resultados realmente observados; las actas futuras se completan cuando ocurren.
+Las revisiones de integración M01–M05 requieren componentes relacionados y ensayo Q01–Q05. El hito C0 identifica una versión reproducible del informe y sistema de control de versiones, resultados con sus límites y lista de condiciones pendientes. La aceptación del corte sintético o local no sustituye aceptación de todas las categorías ni de proveedores. El Anexo F mantiene la fuente de resultados realmente observados; las actas futuras se completan cuando ocurren.
 
 ## G.8. Conciliación económica y temporal
 
@@ -501,7 +501,7 @@ Las revisiones de integración M01–M05 requieren componentes relacionados y en
 
 *Nota.* Elaboración propia a partir del registro maestro del cronograma, corte 16-11-2026.
 
-Las filas de actividades y reserva concilian el presupuesto, sin duplicar los subtotales de etapas. La cifra original de 1.320 horas del MPP corresponde a asignaciones de un recurso sin nombre y no concilia con el trabajo de tarea registrado en cero; no se adopta como esfuerzo medido. La ventana anterior de 360 horas hasta diciembre se reemplaza por la separación explícita de etapas.
+Las actividades programadas y la reserva concilian el presupuesto global de trabajo valorizado. Los subtotales de desarrollo, defensa y transición se presentan por separado para evitar duplicaciones y distinguir la capacidad académica de la asignación total.
 
 La valoración de trabajo se diferencia del efectivo de preparación y lanzamiento y de las remuneraciones comerciales. La conciliación conserva el presupuesto valorizado de CLP 6.240.000 y no modifica por sí sola la caja, VAN, TIR o recuperación del Capítulo XIV. El Año 0 comprende preparación y el Año 1 comienza el 1 de enero de 2027; la entrega del 1 de diciembre no inicia ingresos comerciales ficticios.
 
@@ -563,7 +563,7 @@ La valoración de trabajo se diferencia del efectivo de preparación y lanzamien
 
 ## G.10. Cierre y transferencia
 
-El cierre académico conserva informe y PDF, manifiesto de fuentes, commit del código, migraciones, ensayos, limitaciones, demostración y registro de cambios. La entrega ENT fija su corte; la versión de defensa identifica mejoras posteriores sin reescribir la entrega. El control comprueba accesibilidad y correspondencia entre repositorio, anexos y demostración.
+El cierre académico conserva informe y PDF, manifiesto de fuentes, versión verificada del código, migraciones, ensayos, limitaciones, demostración y registro de cambios. La entrega ENT fija su corte; la versión de defensa identifica mejoras posteriores sin reescribir la entrega. El control comprueba accesibilidad y correspondencia entre sistema de control de versiones, anexos y demostración.
 
 La transferencia posterior revisa condiciones legales, proveedores, despliegue y recuperación; no declara clientes, ingresos ni servicios habilitados por el transcurso del calendario. Los pendientes técnicos se transfieren con dueño y criterio del Anexo F. El inicio comercial de enero de 2027 constituye la frontera del escenario económico y requiere que la habilitación efectiva se evalúe con sus evidencias.
 

@@ -14,7 +14,7 @@ Los casos de uso se numeran de forma correlativa **CU-01 a CU-52**. Los casos co
 
 | Convención | Regla aplicada |
 |---|---|
-| **Actores** | Solo entidades externas: roles humanos y sistemas/servicios de terceros. No se representan componentes internos (frontend Next.js, API Go, contenedores, controladores, repositorios). |
+| **Actores** | Solo entidades externas: roles humanos y sistemas/servicios de terceros. No se representan componentes internos (frontend Next.js, API Go, contenedores, controladores, adaptadores de persistencia). |
 | **Casos de uso** | Representan objetivos observables desde un actor. No se modelan detalles de implementación ni tablas/endpoints/clases. |
 | **Límite del sistema** | Cada diagrama tiene un rectángulo con el nombre del sistema y, dentro, un paquete con el nombre del módulo. Los actores quedan fuera del límite. |
 | **Asociaciones** | Se trazan solo entre actores y casos de uso en los que el actor participa directamente. Sin flechas ni direcciones inventadas. |
@@ -29,10 +29,10 @@ Los casos de uso se numeran de forma correlativa **CU-01 a CU-52**. Los casos co
 | Elemento | Tipo real | Motivo |
 |---|---|---|
 | Cifrado/hash de contraseñas | `RNF-013` | Condición de calidad (confidencialidad), no funcionalidad observable. |
-| Inmutabilidad de logs en el repositorio analítico | `RNF-017` | Condición de integridad de infraestructura. |
+| Inmutabilidad de logs en el sistema de control de versiones analítico | `RNF-017` | Condición de integridad de infraestructura. |
 | Tokenización de tarjetas (PCI-DSS) | `RNF-025` | Restricción externa de cumplimiento. |
 | Envío asíncrono de eventos a BigQuery | Detalle de implementación | No existe RF que lo observe un actor; se cubre con RNF-017. |
-| Repositorio analítico interno | Repositorio interno | No es actor: no hay interacción iniciada por él con un objetivo observable. |
+| Almacén analítico interno | Componente interno | No es actor: no hay interacción iniciada por él con un objetivo observable. |
 
 ---
 
@@ -981,7 +981,7 @@ El reclamo y la conciliación conservan trazas independientes. La confirmación 
 
 | Relación | Tipo | Justificación |
 |---|---|---|
-| CU-43 a CU-46, CU-52 | Sin relaciones | Son objetivos administrativos independientes. No existen RF que establezcan obligatoriedad o extensión condicional entre ellos. La inmutabilidad del repositorio de auditoría que respalda CU-46 es un RNF (RNF-017) y no genera caso de uso. |
+| CU-43 a CU-46, CU-52 | Sin relaciones | Son objetivos administrativos independientes. No existen RF que establezcan obligatoriedad o extensión condicional entre ellos. La inmutabilidad del sistema de control de versiones de auditoría que respalda CU-46 es un RNF (RNF-017) y no genera caso de uso. |
 
 ### CU-43: Gestionar Bloqueo de Cuentas de Usuario
 
@@ -1037,7 +1037,7 @@ El reclamo y la conciliación conservan trazas independientes. La confirmación 
 | **Flujo Principal** | 1. El operador selecciona los filtros autorizados para la consulta. 2. El sistema consulta y despliega el historial de auditoría asociado. 3. El administrador exporta los registros de auditoría consultados. |
 | **Flujos Alternativos** | **A1. Filtros sin coincidencias (Paso 2):** 1. El sistema informa que no existen trazas de auditoría para el identificador ingresado. **A2. Sin consulta previa (Paso 3):** 1. El sistema no habilita la exportación hasta ejecutar una consulta. |
 | **Postcondiciones** | Historial de auditoría consultado y, si corresponde, exportado. |
-| **Referencias Cruzadas** | RQF-184, RQF-185 · RNF-017 (inmutabilidad del repositorio) |
+| **Referencias Cruzadas** | RQF-184, RQF-185 · RNF-017 (inmutabilidad del sistema de control de versiones) |
 
 > **Caso de uso complementario (2.ª revisión, derivada de las Historias de Usuario):** CU-52 se incorpora al módulo M11 sin alterar la numeración de los casos existentes.
 
