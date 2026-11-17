@@ -1,0 +1,41 @@
+{
+  "estado": "verificado",
+  "titulo": "Diseño de una plataforma web transaccional para la intermediación y gestión del arriendo flexible de espacios en Chile: espaciGo",
+  "portadas": "Título completo en las dos páginas; firma y calificación en la segunda; dedicatoria en la tercera.",
+  "rotulos_e_indices": {
+    "Tabla 4": {
+      "titulo": "Lienzo del modelo de negocio de espaciGo",
+      "indice_correcto": true,
+      "pagina_pdf_cuerpo": 43,
+      "destino_enlazado": true
+    },
+    "Tabla H.2.1": {
+      "titulo": "Categorías de espacios de espaciGo",
+      "indice_correcto": true,
+      "pagina_pdf_cuerpo": 558,
+      "destino_enlazado": true
+    },
+    "Tabla H.10.2": {
+      "titulo": "Escenarios de volumen y ticket de espaciGo",
+      "indice_correcto": true,
+      "pagina_pdf_cuerpo": 563,
+      "destino_enlazado": true
+    },
+    "Figura 10": {
+      "titulo": "Componentes de aplicación y adaptadores de espaciGo",
+      "indice_correcto": true,
+      "pagina_pdf_cuerpo": 68,
+      "destino_enlazado": true
+    },
+    "Figura 13": {
+      "titulo": "Topología objetivo y ruta de entrega de espaciGo en AWS",
+      "indice_correcto": true,
+      "pagina_pdf_cuerpo": 73,
+      "destino_enlazado": true
+    }
+  },
+  "contenido_rnf": "espaciGo comprobado dentro del índice",
+  "paginas_pdf": 567,
+  "docx_sha256": "ae4c6cd5e767edb29930d0562d84a71afb9f5ef07e8b0bfbf2f06b0a442212ea",
+  "pdf_sha256": "bcd47cce070310fe277219838279e781835310df4ea3a31828ba3aad79ade5ef"
+}

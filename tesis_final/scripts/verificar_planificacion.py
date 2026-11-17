@@ -61,6 +61,11 @@ for rel in ['sections/14-capitulo-xiv.md','appendices/h-evaluacion-economica-det
 # El marco institucional es idéntico al corte autorizado.
 for rel in ['document.json','templates/reference-tihi84.docx','templates/style-profile-inacap.json']:
     previous=subprocess.check_output(['git','show','b252b62:tesis_final/'+rel],cwd=ROOT)
-    assert previous==(T/rel).read_bytes(),rel
+    if rel=='document.json':
+        before,after=json.loads(previous),json.loads((T/rel).read_text())
+        assert after['metadata']['title']=='Diseño de una plataforma web transaccional para la intermediación y gestión del arriendo flexible de espacios en Chile: espaciGo'
+        before['metadata']['title']=after['metadata']['title'];assert before==after,rel
+    else:
+        assert previous==(T/rel).read_bytes(),rel
 result={'estado':'verificado','paquetes_edt':28,'actividades':54,'hitos':9,'horas':708,'sobrecargas':0,'horas_reales_inferidas':False,'margen_entrega_jornadas':0,'tablas_financieras_preservadas':27,'tablas_fuente':len(tables),'figuras_fuente':len(figs),'plantilla_institucional':'preservada','xml':'fechas, 63 hojas, 54 asignaciones y 708 horas comprobadas','limitacion':'Calendario nominal de dedicación sin excepciones personales acreditadas; cero margen de entrega; no implica producción habilitada.'}
 (OUT/'verificacion_integracion_planificacion.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');print(json.dumps(result,ensure_ascii=False))

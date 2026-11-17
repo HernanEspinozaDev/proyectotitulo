@@ -74,7 +74,7 @@ def apply_frontmatter(body, package, reference, metadata):
                     if key in (f'{R}id', f'{R}embed'):
                         child.set(key, copy_relationship(value))
 
-        replacement = {'Subtítulo: Nombre del proyecto': 'espaciGo — Arriendo flexible de espacios',
+        replacement = {'Subtítulo: Nombre del proyecto': metadata['title'],
                        'Diciembre, 2025': metadata['date'],
                        'Autor(a)(es)(as)': 'Autores'}
         replacement.update({f'APELLIDOS, NOMBRES AUTOR {i}': author
@@ -93,6 +93,29 @@ def apply_frontmatter(body, package, reference, metadata):
                     node.text = ''
             remap(item)
             cover.append(item)
+
+        # El título extendido conserva la página de aprobación completa.
+        # Reducir solo los separadores vacíos de la segunda portada, sin
+        # alterar fuente, márgenes, autores ni tabla de firma de la plantilla.
+        titles = [i for i, item in enumerate(cover)
+                  if paragraph_text(item) == metadata['title']]
+        if len(titles) == 2:
+            second_start = next(i for i in range(titles[0]+1, titles[1])
+                                if cover[i].find('.//'+W+'drawing') is not None)
+            for item in cover[second_start:]:
+                if (item.tag != W+'p' or paragraph_text(item)
+                    or item.find('.//'+W+'drawing') is not None
+                    or item.find('.//'+W+'br') is not None
+                    or item.find('.//'+W+'sectPr') is not None):
+                    continue
+                props = item.find(W+'pPr')
+                if props is None:
+                    props = ET.Element(W+'pPr'); item.insert(0, props)
+                spacing = props.find(W+'spacing')
+                if spacing is None:
+                    spacing = ET.SubElement(props, W+'spacing')
+                for name, value in {'before':'0', 'after':'0', 'line':'80', 'lineRule':'exact'}.items():
+                    spacing.set(W+name, value)
 
         toc = next(item for item in body.findall(f'{W}sdt')
                    if any((n.text or '').lstrip().startswith('TOC') for n in item.iter(f'{W}instrText')))

@@ -55,7 +55,13 @@ def main():
     for name in protected:
         before = subprocess.check_output(['git', 'show', baseline+':'+name], cwd=ROOT)
         after = (ROOT/name).read_bytes()
-        assert before == after, name
+        if name.endswith('document.json'):
+            previous,current=json.loads(before),json.loads(after)
+            assert current['metadata']['title']=='Diseño de una plataforma web transaccional para la intermediación y gestión del arriendo flexible de espacios en Chile: espaciGo'
+            previous['metadata']['title']=current['metadata']['title']
+            assert previous==current,name
+        else:
+            assert before == after, name
         preserved[name] = hashlib.sha256(after).hexdigest()
     docx = TESIS/'build/Tesis_Final_espaciGo.docx'
     with zipfile.ZipFile(docx) as z:

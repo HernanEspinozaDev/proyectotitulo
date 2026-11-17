@@ -38,7 +38,7 @@
   "indices_enlazados": true,
   "figuras_con_imagen_en_pagina": true,
   "fichas_edt_sin_titulo_huerfano": true,
-  "docx_sha256": "2c45db039f7737555cfcaba1574c123bbb2f3c2e9c626544f9986aad6a9486ed",
-  "pdf_sha256": "0950817c25c430427bc23dabb28cd7fb02e783738444884f123ef058864b340b",
+  "docx_sha256": "ae4c6cd5e767edb29930d0562d84a71afb9f5ef07e8b0bfbf2f06b0a442212ea",
+  "pdf_sha256": "bcd47cce070310fe277219838279e781835310df4ea3a31828ba3aad79ade5ef",
   "revision_visual": "Word renderizado con render_docx.py; PDF completo renderizado y páginas modificadas inspeccionadas en paneles y figuras ampliadas."
 }

@@ -25,6 +25,7 @@ from format_planning_tables import format_planning_tables
 from format_reference_links import format_reference_links
 from format_review_tables import format_review_tables
 from format_final_typography import format_final_typography
+from canonical_academic_labels import canonical_academic_labels
 
 ROOT = Path(__file__).resolve().parent.parent
 DOCX_PATH = ROOT / 'build/Tesis_Final_espaciGo.docx'
@@ -292,6 +293,8 @@ def postprocess():
         print(f"Postprocesamiento: {reference_links} enlaces bibliográficos preservados en una línea propia.")
         pci_cells = format_final_typography(body)
         print(f"Postprocesamiento: {pci_cells} celdas con PCI-DSS íntegro.")
+        canonical_labels = canonical_academic_labels(body)
+        print(f"Postprocesamiento: {canonical_labels} rótulos reconstruidos con espaciGo canónico.")
         insert_caption_indexes(body)
         extra_parts['word/document.xml'] = ET.tostring(root, encoding='utf-8', xml_declaration=True)
 

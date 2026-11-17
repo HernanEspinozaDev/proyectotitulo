@@ -8,11 +8,11 @@
   "cifras_iguales_edicion_aprobada": true,
   "referencias_y_notas_verificadas": true,
   "archivos_protegidos_sha256": {
-    "tesis_final/document.json": "6ccd1826ad870b39a4e9020707f0fe2926417895b0d08b54a763d606a3c46239",
+    "tesis_final/document.json": "6a50d9606730835bac7764af2138140484e8ae5af96e80411c93c62363c44ca4",
     "tesis_final/templates/reference-tihi84.docx": "b804dddcb37e4563ec7276765ae96c681c8d9a7e267e9eb6e1f87e5622b8a43a",
     "tesis_final/templates/style-profile-inacap.json": "b5bb7ab296acd9bff16d68a1bf4da654a1113556ced1f922e7c8fc707fd7f453"
   },
-  "docx_sha256": "2c45db039f7737555cfcaba1574c123bbb2f3c2e9c626544f9986aad6a9486ed",
+  "docx_sha256": "ae4c6cd5e767edb29930d0562d84a71afb9f5ef07e8b0bfbf2f06b0a442212ea",
   "paginas_pdf": 567,
   "paginas_tablas": {
     "14": 93,
@@ -46,5 +46,5 @@
   "flujos_completos_en_una_pagina": true,
   "destinos_indice_tablas_verificados": true,
   "total_tablas_word": 256,
-  "pdf_sha256": "0950817c25c430427bc23dabb28cd7fb02e783738444884f123ef058864b340b"
+  "pdf_sha256": "bcd47cce070310fe277219838279e781835310df4ea3a31828ba3aad79ade5ef"
 }
