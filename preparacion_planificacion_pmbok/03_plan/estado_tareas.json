@@ -1,6 +1,6 @@
 {
   "objetivo": "corregir planificación y Gantt conforme a la adaptación PMBOK, manteniendo la plantilla y sincronización económica",
-  "alcance_actual": "análisis y plan completados; ejecución posterior desde P03",
+  "alcance_actual": "ejecución del plan iniciada desde P03",
   "fuente_metodologica": "PMBOK 6.ª edición, PMI 2017",
   "fechas_y_dedicacion": "confirmadas; ver cronologia_rectora.json",
   "tareas": [
@@ -26,8 +26,9 @@
       "depende_de": [
         "P02"
       ],
-      "estado": "pendiente",
-      "criterio_finalizacion": "Cuadro de prácticas aplicadas, ficha de gobierno, alcance de entrega/defensa y arquitectura documental. Diferencia entre acta del proyecto y constitución societaria."
+      "estado": "terminada",
+      "criterio_finalizacion": "Cuadro de prácticas aplicadas, ficha de gobierno, alcance de entrega/defensa y arquitectura documental. Diferencia entre acta del proyecto y constitución societaria.",
+      "evidencia": "04_ejecucion/GOBIERNO_Y_ADAPTACION.md"
     },
     {
       "id": "P04",
@@ -35,8 +36,9 @@
       "depende_de": [
         "P03"
       ],
-      "estado": "pendiente",
-      "criterio_finalizacion": "Los 28 paquetes quedan descritos y vinculados a actividades, responsables, aceptación y evidencia. Si se revisa un paquete, se registra el motivo y su relación con el alcance anterior."
+      "estado": "terminada",
+      "criterio_finalizacion": "Los 28 paquetes quedan descritos y vinculados a actividades, responsables, aceptación y evidencia. Si se revisa un paquete, se registra el motivo y su relación con el alcance anterior.",
+      "evidencia": "04_ejecucion/DICCIONARIO_EDT.md; assets/diagramas_src/cronograma_espacigo.json"
     },
     {
       "id": "P05",
@@ -44,7 +46,7 @@
       "depende_de": [
         "P04"
       ],
-      "estado": "pendiente",
+      "estado": "en curso",
       "criterio_finalizacion": "Fechas 11-08, 01-12, 09-12 y 01-01; recursos con nombre y disponibilidad; actividades con ID estable, esfuerzo, duración, tipo y criterio de aceptación. Evidencia histórica separada de estimaciones."
     },
     {
@@ -120,7 +122,7 @@
   "criterio_estado": "marcar terminada solo con entregable verificable y comprobación de aceptación",
   "autorizacion": "el propietario autoriza elaborar la planificación previamente reservada, sin esperar material adicional de Erick",
   "proximas_entradas": "evidencia histórica por entregable y estimaciones del trabajo restante; no bloquean la definición del plan",
-  "siguiente_tarea": "P03",
+  "siguiente_tarea": "P05",
   "tesis_modificada_en_este_corte": false,
   "mpp_original_modificado": false
 }

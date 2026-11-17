@@ -1,0 +1,1924 @@
+{
+  "version": 1,
+  "fecha_corte": "2026-11-16",
+  "nombre": "espaciGo — programa académico y transición comercial",
+  "naturaleza": "Programa de referencia consolidado; no línea base histórica aprobada ni registro de horas reales.",
+  "inicio": "2026-08-11",
+  "fin_base": "2026-11-30",
+  "hitos_fijos": {
+    "ENT": "2026-12-01",
+    "DEF": "2026-12-09",
+    "COM": "2027-01-01"
+  },
+  "calendario": {
+    "nombre": "Académico nominal 20 h",
+    "dias_semana": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "horas_dia": 4,
+    "inicio_hora": "09:00",
+    "fin_hora": "13:00",
+    "excepciones": [],
+    "criterio": "Calendario de referencia de dedicación personal, no calendario contractual. Las excepciones de disponibilidad se registran y activan recálculo; no se presume que los feriados se hayan trabajado."
+  },
+  "personas": {
+    "H": {
+      "nombre": "Hernán Espinoza Castillo",
+      "rol": "Arquitectura, backend y datos"
+    },
+    "A": {
+      "nombre": "Anita Marchant Pacheco",
+      "rol": "Análisis, frontend y negocio"
+    },
+    "E": {
+      "nombre": "Erick Silva Quezada",
+      "rol": "Seguridad, infraestructura y calidad"
+    }
+  },
+  "paquetes": [
+    {
+      "id": "1.1.1",
+      "nombre": "Acuerdo de gobierno y equipo",
+      "responsable": "A",
+      "aceptacion": "Propósito, responsables, restricciones y decisiones identificados.",
+      "referencia": "VI 6.1.6",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R04",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "G01"
+      ],
+      "horas": 8
+    },
+    {
+      "id": "1.1.2",
+      "nombre": "Enunciado de alcance y EDT",
+      "responsable": "A",
+      "aceptacion": "28 paquetes identificados y relacionados con los objetivos.",
+      "referencia": "V; VI 6.1.4",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R04",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "G02"
+      ],
+      "horas": 8
+    },
+    {
+      "id": "1.1.3",
+      "nombre": "Modelo del cronograma",
+      "responsable": "E",
+      "aceptacion": "Calendarios, dependencias, hitos, holguras y recursos comprobados.",
+      "referencia": "VI 6.2; G",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R04",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "G03",
+        "R03"
+      ],
+      "horas": 20
+    },
+    {
+      "id": "1.1.4",
+      "nombre": "Presupuesto y criterios de adquisición",
+      "responsable": "A",
+      "aceptacion": "Partidas y servicios diferenciados sin duplicar valor y caja.",
+      "referencia": "XIV; H",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R04",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "G04"
+      ],
+      "horas": 8
+    },
+    {
+      "id": "1.1.5",
+      "nombre": "Registro de riesgos y cambios",
+      "responsable": "E",
+      "aceptacion": "Dueño, disparador, respuesta y versión de cada cambio registrados.",
+      "referencia": "VI 6.1.5–6.1.6; G",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R04",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "G05"
+      ],
+      "horas": 8
+    },
+    {
+      "id": "1.2.1",
+      "nombre": "Diagnóstico y procesos de referencia",
+      "responsable": "A",
+      "aceptacion": "Problema, segmentos y BPMN vinculados con la solución.",
+      "referencia": "I–II",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R01",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "A01"
+      ],
+      "horas": 12
+    },
+    {
+      "id": "1.2.2",
+      "nombre": "Especificación funcional",
+      "responsable": "A",
+      "aceptacion": "236 RQF identificados con alcance verificable y trazabilidad.",
+      "referencia": "III; A",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R01",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "A02"
+      ],
+      "horas": 20
+    },
+    {
+      "id": "1.2.3",
+      "nombre": "Especificación de calidad",
+      "responsable": "E",
+      "aceptacion": "43 RNF relacionados con medición, escenario y aceptación.",
+      "referencia": "III; XI; A",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R01",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "A03"
+      ],
+      "horas": 12
+    },
+    {
+      "id": "1.2.4",
+      "nombre": "Historias y casos de uso",
+      "responsable": "A",
+      "aceptacion": "35 HU y 52 CU identificados, con escenarios y aceptación.",
+      "referencia": "III; B–C",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R01",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "A04"
+      ],
+      "horas": 20
+    },
+    {
+      "id": "1.2.5",
+      "nombre": "Matriz de trazabilidad",
+      "responsable": "A",
+      "aceptacion": "Objetivo, requisito, caso, componente y prueba relacionados.",
+      "referencia": "XI–XII; A–F",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R01",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "A05"
+      ],
+      "horas": 8
+    },
+    {
+      "id": "1.3.1",
+      "nombre": "Vistas de arquitectura empresarial",
+      "responsable": "H",
+      "aceptacion": "Procesos, aplicaciones, datos e infraestructura diferenciados.",
+      "referencia": "VIII",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R01",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "D01"
+      ],
+      "horas": 8
+    },
+    {
+      "id": "1.3.2",
+      "nombre": "Arquitectura de software",
+      "responsable": "H",
+      "aceptacion": "Dominio y adaptadores identificados en Go y Next.js.",
+      "referencia": "VII; IX–X",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R01",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "D02"
+      ],
+      "horas": 12
+    },
+    {
+      "id": "1.3.3",
+      "nombre": "Modelo relacional y geoespacial",
+      "responsable": "H",
+      "aceptacion": "DDL, restricciones e inventario documentados por versión.",
+      "referencia": "X; D",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R01",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "D03"
+      ],
+      "horas": 20
+    },
+    {
+      "id": "1.3.4",
+      "nombre": "Diseño de seguridad y privacidad",
+      "responsable": "E",
+      "aceptacion": "Sesiones, autorización por recurso y finalidad especificadas.",
+      "referencia": "X; XII–XIII; F",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R01",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "D04"
+      ],
+      "horas": 12
+    },
+    {
+      "id": "1.3.5",
+      "nombre": "Contratos de interfaz",
+      "responsable": "H",
+      "aceptacion": "Operaciones, errores y controles asociados al corte OpenAPI.",
+      "referencia": "IX; E",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R01",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "D05"
+      ],
+      "horas": 12
+    },
+    {
+      "id": "1.4.1",
+      "nombre": "Incremento de identidad y acceso",
+      "responsable": "H",
+      "aceptacion": "Recorrido local de cuenta, perfil y controles de identidad comprobable.",
+      "referencia": "X; XII; E–F",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R07",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "I1H",
+        "I1A",
+        "I1E"
+      ],
+      "horas": 64
+    },
+    {
+      "id": "1.4.2",
+      "nombre": "Incremento de catálogo y búsqueda",
+      "responsable": "H",
+      "aceptacion": "Publicación, categorías, disponibilidad y búsqueda verificables por corte.",
+      "referencia": "X; XII; E–F",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R07",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "I2H",
+        "I2B",
+        "I2A"
+      ],
+      "horas": 64
+    },
+    {
+      "id": "1.4.3",
+      "nombre": "Incremento de contratación y cobros",
+      "responsable": "H",
+      "aceptacion": "Aceptación bilateral y conciliación controlada separan renta y comisión.",
+      "referencia": "X; XII; E–F",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R07",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "I3H",
+        "I3B",
+        "I3A"
+      ],
+      "horas": 56
+    },
+    {
+      "id": "1.4.4",
+      "nombre": "Incremento documental y avisos",
+      "responsable": "H",
+      "aceptacion": "Documentos, permisos y eventos conservan su evidencia; firma externa separada.",
+      "referencia": "X; XII; E–F",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R07",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "I4H",
+        "I4A",
+        "I4E"
+      ],
+      "horas": 52
+    },
+    {
+      "id": "1.4.5",
+      "nombre": "Incremento de administración y auditoría",
+      "responsable": "H",
+      "aceptacion": "Acciones privilegiadas y consulta de incidencias autorizadas por recurso.",
+      "referencia": "X; XII; E–F",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R07",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "I5H",
+        "I5A",
+        "I5E"
+      ],
+      "horas": 44
+    },
+    {
+      "id": "1.5.1",
+      "nombre": "Verificación de incrementos",
+      "responsable": "E",
+      "aceptacion": "Cada incremento cierra con registro de alcance, versión y pruebas.",
+      "referencia": "XII; F",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R01",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "Q01",
+        "Q02",
+        "Q03",
+        "Q04",
+        "Q05",
+        "Q09"
+      ],
+      "horas": 48
+    },
+    {
+      "id": "1.5.2",
+      "nombre": "Evaluación de rendimiento",
+      "responsable": "E",
+      "aceptacion": "Ensayo local y plan de carga integrada distinguen población y entorno.",
+      "referencia": "XII; F",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R01",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "Q06"
+      ],
+      "horas": 8
+    },
+    {
+      "id": "1.5.3",
+      "nombre": "Evaluación de recuperación",
+      "responsable": "E",
+      "aceptacion": "Restauración local y criterios de recuperación conjunta documentados.",
+      "referencia": "XII–XIII; F",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R01",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "Q07"
+      ],
+      "horas": 8
+    },
+    {
+      "id": "1.5.4",
+      "nombre": "Verificación de ciberseguridad",
+      "responsable": "E",
+      "aceptacion": "Permisos y escenarios de denegación conservan resultados y límites.",
+      "referencia": "XII–XIII; F",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R01",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "Q08"
+      ],
+      "horas": 8
+    },
+    {
+      "id": "1.6.1",
+      "nombre": "Configuración y entrega técnica",
+      "responsable": "E",
+      "aceptacion": "Entorno y automatización documentados por corte; destino AWS validado aparte.",
+      "referencia": "XIII; F",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R04",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "L01",
+        "W01",
+        "W02",
+        "TPH",
+        "TPE"
+      ],
+      "horas": 60
+    },
+    {
+      "id": "1.6.2",
+      "nombre": "Evaluación económica",
+      "responsable": "A",
+      "aceptacion": "Flujos, VAN, TIR interpretables y sensibilidad conciliados con G/H.",
+      "referencia": "XIV; H",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R04",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "F01"
+      ],
+      "horas": 16
+    },
+    {
+      "id": "1.6.3",
+      "nombre": "Preparación societaria y tributaria",
+      "responsable": "A",
+      "aceptacion": "Actividades y presupuesto identificados; no equivale a sociedad constituida.",
+      "referencia": "XIV; G–H",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R04",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "F02",
+        "TPA"
+      ],
+      "horas": 16
+    },
+    {
+      "id": "1.6.4",
+      "nombre": "Informe, demostración y defensa",
+      "responsable": "A",
+      "aceptacion": "Cortes del 01-12 y 09-12 identifican entregables, evidencia y cambios.",
+      "referencia": "XV–XVI; G",
+      "limite": "Aceptación por corte y entorno; las funciones externas requieren su comprobación propia.",
+      "riesgo": "R04",
+      "revision": "Equipo del proyecto",
+      "evidencia": "Versión de artefacto y registro de revisión o prueba asociado al corte.",
+      "presupuesto": "Esfuerzo estimado de sus actividades; trabajo valorizado separado del pago.",
+      "actividades": [
+        "R01",
+        "R02",
+        "R04",
+        "DFH",
+        "DFA",
+        "DFE"
+      ],
+      "horas": 76
+    }
+  ],
+  "actividades": [
+    {
+      "id": "G01",
+      "edt": "1.1.1",
+      "nombre": "Definir gobierno y acuerdo del equipo",
+      "responsable": "A",
+      "horas": 8,
+      "predecesoras": [],
+      "grupo": "Gestión y alcance",
+      "mpp_ids": [],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Propósito, responsables, restricciones y decisiones identificados."
+    },
+    {
+      "id": "G02",
+      "edt": "1.1.2",
+      "nombre": "Delimitar alcance y descomponer EDT",
+      "responsable": "A",
+      "horas": 8,
+      "predecesoras": [
+        "G01"
+      ],
+      "grupo": "Gestión y alcance",
+      "mpp_ids": [],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "28 paquetes identificados y relacionados con los objetivos."
+    },
+    {
+      "id": "G03",
+      "edt": "1.1.3",
+      "nombre": "Preparar calendario y modelo de cronograma",
+      "responsable": "E",
+      "horas": 12,
+      "predecesoras": [
+        "G01"
+      ],
+      "grupo": "Gestión y alcance",
+      "mpp_ids": [],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Calendarios, dependencias, hitos, holguras y recursos comprobados."
+    },
+    {
+      "id": "G04",
+      "edt": "1.1.4",
+      "nombre": "Identificar presupuesto y adquisiciones",
+      "responsable": "A",
+      "horas": 8,
+      "predecesoras": [
+        "G02"
+      ],
+      "grupo": "Gestión y alcance",
+      "mpp_ids": [],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Partidas y servicios diferenciados sin duplicar valor y caja."
+    },
+    {
+      "id": "G05",
+      "edt": "1.1.5",
+      "nombre": "Definir riesgos y control de cambios",
+      "responsable": "E",
+      "horas": 8,
+      "predecesoras": [
+        "G03"
+      ],
+      "grupo": "Gestión y alcance",
+      "mpp_ids": [],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Dueño, disparador, respuesta y versión de cada cambio registrados."
+    },
+    {
+      "id": "A01",
+      "edt": "1.2.1",
+      "nombre": "Caracterizar el problema y los procesos",
+      "responsable": "A",
+      "horas": 12,
+      "predecesoras": [
+        "G02"
+      ],
+      "grupo": "Análisis y diseño",
+      "mpp_ids": [
+        2
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Problema, segmentos y BPMN vinculados con la solución."
+    },
+    {
+      "id": "A02",
+      "edt": "1.2.2",
+      "nombre": "Especificar requisitos funcionales",
+      "responsable": "A",
+      "horas": 20,
+      "predecesoras": [
+        "A01"
+      ],
+      "grupo": "Análisis y diseño",
+      "mpp_ids": [
+        2
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "236 RQF identificados con alcance verificable y trazabilidad."
+    },
+    {
+      "id": "A03",
+      "edt": "1.2.3",
+      "nombre": "Especificar requisitos de calidad",
+      "responsable": "E",
+      "horas": 12,
+      "predecesoras": [
+        "A01",
+        "G05"
+      ],
+      "grupo": "Análisis y diseño",
+      "mpp_ids": [
+        2
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "43 RNF relacionados con medición, escenario y aceptación."
+    },
+    {
+      "id": "A04",
+      "edt": "1.2.4",
+      "nombre": "Modelar historias y casos de uso",
+      "responsable": "A",
+      "horas": 20,
+      "predecesoras": [
+        "A02"
+      ],
+      "grupo": "Análisis y diseño",
+      "mpp_ids": [
+        2
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "35 HU y 52 CU identificados, con escenarios y aceptación."
+    },
+    {
+      "id": "A05",
+      "edt": "1.2.5",
+      "nombre": "Relacionar requisitos, casos y pruebas",
+      "responsable": "A",
+      "horas": 8,
+      "predecesoras": [
+        "A04",
+        "A03"
+      ],
+      "grupo": "Análisis y diseño",
+      "mpp_ids": [],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Objetivo, requisito, caso, componente y prueba relacionados."
+    },
+    {
+      "id": "D01",
+      "edt": "1.3.1",
+      "nombre": "Definir vistas de arquitectura empresarial",
+      "responsable": "H",
+      "horas": 8,
+      "predecesoras": [
+        "A02",
+        "A03"
+      ],
+      "grupo": "Análisis y diseño",
+      "mpp_ids": [
+        3
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Procesos, aplicaciones, datos e infraestructura diferenciados."
+    },
+    {
+      "id": "D02",
+      "edt": "1.3.2",
+      "nombre": "Diseñar dominio y adaptadores",
+      "responsable": "H",
+      "horas": 12,
+      "predecesoras": [
+        "D01"
+      ],
+      "grupo": "Análisis y diseño",
+      "mpp_ids": [
+        3
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Dominio y adaptadores identificados en Go y Next.js."
+    },
+    {
+      "id": "D03",
+      "edt": "1.3.3",
+      "nombre": "Modelar datos y restricciones geoespaciales",
+      "responsable": "H",
+      "horas": 20,
+      "predecesoras": [
+        "D02"
+      ],
+      "grupo": "Análisis y diseño",
+      "mpp_ids": [
+        3
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "DDL, restricciones e inventario documentados por versión."
+    },
+    {
+      "id": "D04",
+      "edt": "1.3.4",
+      "nombre": "Diseñar sesiones, permisos y privacidad",
+      "responsable": "E",
+      "horas": 12,
+      "predecesoras": [
+        "D02",
+        "A03"
+      ],
+      "grupo": "Análisis y diseño",
+      "mpp_ids": [
+        3
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Sesiones, autorización por recurso y finalidad especificadas."
+    },
+    {
+      "id": "D05",
+      "edt": "1.3.5",
+      "nombre": "Especificar operaciones de interfaz",
+      "responsable": "H",
+      "horas": 12,
+      "predecesoras": [
+        "D03",
+        "D04"
+      ],
+      "grupo": "Análisis y diseño",
+      "mpp_ids": [
+        3
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Operaciones, errores y controles asociados al corte OpenAPI."
+    },
+    {
+      "id": "L01",
+      "edt": "1.6.1",
+      "nombre": "Preparar contenedores y calidad local",
+      "responsable": "E",
+      "horas": 12,
+      "predecesoras": [
+        "G03",
+        "D02"
+      ],
+      "grupo": "Análisis y diseño",
+      "mpp_ids": [
+        4
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Entorno y automatización documentados por corte; destino AWS validado aparte."
+    },
+    {
+      "id": "I1H",
+      "edt": "1.4.1",
+      "nombre": "Construir cuenta, perfil y control de acceso",
+      "responsable": "H",
+      "horas": 32,
+      "predecesoras": [
+        "D05",
+        "L01"
+      ],
+      "grupo": "Identidad y acceso",
+      "mpp_ids": [
+        6,
+        7
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Recorrido local de cuenta, perfil y controles de identidad comprobable."
+    },
+    {
+      "id": "I1A",
+      "edt": "1.4.1",
+      "nombre": "Construir pantallas de cuenta y perfil",
+      "responsable": "A",
+      "horas": 24,
+      "predecesoras": [
+        "D05",
+        "A04"
+      ],
+      "grupo": "Identidad y acceso",
+      "mpp_ids": [
+        9
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Recorrido local de cuenta, perfil y controles de identidad comprobable."
+    },
+    {
+      "id": "I1E",
+      "edt": "1.4.1",
+      "nombre": "Definir verificación de identidad controlada",
+      "responsable": "E",
+      "horas": 8,
+      "predecesoras": [
+        "D04"
+      ],
+      "grupo": "Identidad y acceso",
+      "mpp_ids": [
+        8
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Recorrido local de cuenta, perfil y controles de identidad comprobable."
+    },
+    {
+      "id": "Q01",
+      "edt": "1.5.1",
+      "nombre": "Verificar integración de identidad",
+      "responsable": "E",
+      "horas": 8,
+      "predecesoras": [
+        "I1H",
+        "I1A",
+        "I1E"
+      ],
+      "grupo": "Identidad y acceso",
+      "mpp_ids": [],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Cada incremento cierra con registro de alcance, versión y pruebas."
+    },
+    {
+      "id": "M01",
+      "edt": "1.5.1",
+      "nombre": "Incremento 1 integrado",
+      "responsable": null,
+      "horas": 0,
+      "predecesoras": [
+        "Q01"
+      ],
+      "grupo": "Identidad y acceso",
+      "mpp_ids": [],
+      "liberacion": null,
+      "fecha_compromiso": null,
+      "etapa": "base",
+      "tipo": "hito",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Hito programado; aceptación real documentada por separado.",
+      "criterio": "Cierre de las predecesoras y registro de versión y evidencia."
+    },
+    {
+      "id": "I2H",
+      "edt": "1.4.2",
+      "nombre": "Construir publicación y disponibilidad",
+      "responsable": "H",
+      "horas": 24,
+      "predecesoras": [
+        "M01"
+      ],
+      "grupo": "Catálogo y búsqueda",
+      "mpp_ids": [
+        11
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Publicación, categorías, disponibilidad y búsqueda verificables por corte."
+    },
+    {
+      "id": "I2B",
+      "edt": "1.4.2",
+      "nombre": "Construir búsqueda y cotización PostGIS",
+      "responsable": "H",
+      "horas": 16,
+      "predecesoras": [
+        "I2H"
+      ],
+      "grupo": "Catálogo y búsqueda",
+      "mpp_ids": [
+        12
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Publicación, categorías, disponibilidad y búsqueda verificables por corte."
+    },
+    {
+      "id": "I2A",
+      "edt": "1.4.2",
+      "nombre": "Construir catálogo, mapa y detalle",
+      "responsable": "A",
+      "horas": 24,
+      "predecesoras": [
+        "M01"
+      ],
+      "grupo": "Catálogo y búsqueda",
+      "mpp_ids": [
+        13
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Publicación, categorías, disponibilidad y búsqueda verificables por corte."
+    },
+    {
+      "id": "Q02",
+      "edt": "1.5.1",
+      "nombre": "Verificar catálogo y búsqueda integrada",
+      "responsable": "E",
+      "horas": 8,
+      "predecesoras": [
+        "I2B",
+        "I2A"
+      ],
+      "grupo": "Catálogo y búsqueda",
+      "mpp_ids": [],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Cada incremento cierra con registro de alcance, versión y pruebas."
+    },
+    {
+      "id": "M02",
+      "edt": "1.5.1",
+      "nombre": "Incremento 2 integrado",
+      "responsable": null,
+      "horas": 0,
+      "predecesoras": [
+        "Q02"
+      ],
+      "grupo": "Catálogo y búsqueda",
+      "mpp_ids": [],
+      "liberacion": null,
+      "fecha_compromiso": null,
+      "etapa": "base",
+      "tipo": "hito",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Hito programado; aceptación real documentada por separado.",
+      "criterio": "Cierre de las predecesoras y registro de versión y evidencia."
+    },
+    {
+      "id": "I3H",
+      "edt": "1.4.3",
+      "nombre": "Construir aceptación y ocupación exclusiva",
+      "responsable": "H",
+      "horas": 24,
+      "predecesoras": [
+        "M02"
+      ],
+      "grupo": "Contratación y cobros",
+      "mpp_ids": [
+        16
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Aceptación bilateral y conciliación controlada separan renta y comisión."
+    },
+    {
+      "id": "I3B",
+      "edt": "1.4.3",
+      "nombre": "Construir conciliación y pagos controlados",
+      "responsable": "H",
+      "horas": 12,
+      "predecesoras": [
+        "I3H"
+      ],
+      "grupo": "Contratación y cobros",
+      "mpp_ids": [
+        17
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Aceptación bilateral y conciliación controlada separan renta y comisión."
+    },
+    {
+      "id": "I3A",
+      "edt": "1.4.3",
+      "nombre": "Construir recorrido de acuerdo y cobro",
+      "responsable": "A",
+      "horas": 20,
+      "predecesoras": [
+        "M02"
+      ],
+      "grupo": "Contratación y cobros",
+      "mpp_ids": [
+        18
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Aceptación bilateral y conciliación controlada separan renta y comisión."
+    },
+    {
+      "id": "Q03",
+      "edt": "1.5.1",
+      "nombre": "Verificar renta y comisión por separado",
+      "responsable": "E",
+      "horas": 8,
+      "predecesoras": [
+        "I3B",
+        "I3A"
+      ],
+      "grupo": "Contratación y cobros",
+      "mpp_ids": [],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Cada incremento cierra con registro de alcance, versión y pruebas."
+    },
+    {
+      "id": "M03",
+      "edt": "1.5.1",
+      "nombre": "Incremento 3 integrado",
+      "responsable": null,
+      "horas": 0,
+      "predecesoras": [
+        "Q03"
+      ],
+      "grupo": "Contratación y cobros",
+      "mpp_ids": [],
+      "liberacion": null,
+      "fecha_compromiso": null,
+      "etapa": "base",
+      "tipo": "hito",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Hito programado; aceptación real documentada por separado.",
+      "criterio": "Cierre de las predecesoras y registro de versión y evidencia."
+    },
+    {
+      "id": "I4H",
+      "edt": "1.4.4",
+      "nombre": "Construir documentos, avisos y evidencias",
+      "responsable": "H",
+      "horas": 24,
+      "predecesoras": [
+        "M03"
+      ],
+      "grupo": "Documentos y operación",
+      "mpp_ids": [
+        20,
+        21
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Documentos, permisos y eventos conservan su evidencia; firma externa separada."
+    },
+    {
+      "id": "I4A",
+      "edt": "1.4.4",
+      "nombre": "Construir vistas documentales y entrega",
+      "responsable": "A",
+      "horas": 20,
+      "predecesoras": [
+        "M03"
+      ],
+      "grupo": "Documentos y operación",
+      "mpp_ids": [
+        22
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Documentos, permisos y eventos conservan su evidencia; firma externa separada."
+    },
+    {
+      "id": "I4E",
+      "edt": "1.4.4",
+      "nombre": "Definir aceptación de firma opcional",
+      "responsable": "E",
+      "horas": 8,
+      "predecesoras": [
+        "M03"
+      ],
+      "grupo": "Documentos y operación",
+      "mpp_ids": [
+        20
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Documentos, permisos y eventos conservan su evidencia; firma externa separada."
+    },
+    {
+      "id": "Q04",
+      "edt": "1.5.1",
+      "nombre": "Verificar documentos y entrega controlada",
+      "responsable": "E",
+      "horas": 8,
+      "predecesoras": [
+        "I4H",
+        "I4A",
+        "I4E"
+      ],
+      "grupo": "Documentos y operación",
+      "mpp_ids": [],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Cada incremento cierra con registro de alcance, versión y pruebas."
+    },
+    {
+      "id": "M04",
+      "edt": "1.5.1",
+      "nombre": "Incremento 4 integrado",
+      "responsable": null,
+      "horas": 0,
+      "predecesoras": [
+        "Q04"
+      ],
+      "grupo": "Documentos y operación",
+      "mpp_ids": [],
+      "liberacion": null,
+      "fecha_compromiso": null,
+      "etapa": "base",
+      "tipo": "hito",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Hito programado; aceptación real documentada por separado.",
+      "criterio": "Cierre de las predecesoras y registro de versión y evidencia."
+    },
+    {
+      "id": "I5H",
+      "edt": "1.4.5",
+      "nombre": "Construir administración e incidencias",
+      "responsable": "H",
+      "horas": 20,
+      "predecesoras": [
+        "M04"
+      ],
+      "grupo": "Administración y auditoría",
+      "mpp_ids": [
+        25,
+        26,
+        30
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Acciones privilegiadas y consulta de incidencias autorizadas por recurso."
+    },
+    {
+      "id": "I5A",
+      "edt": "1.4.5",
+      "nombre": "Construir vistas de administración",
+      "responsable": "A",
+      "horas": 16,
+      "predecesoras": [
+        "M04"
+      ],
+      "grupo": "Administración y auditoría",
+      "mpp_ids": [
+        27,
+        30
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Acciones privilegiadas y consulta de incidencias autorizadas por recurso."
+    },
+    {
+      "id": "I5E",
+      "edt": "1.4.5",
+      "nombre": "Revisar autorización y registro de auditoría",
+      "responsable": "E",
+      "horas": 8,
+      "predecesoras": [
+        "I5H"
+      ],
+      "grupo": "Administración y auditoría",
+      "mpp_ids": [
+        30
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Acciones privilegiadas y consulta de incidencias autorizadas por recurso."
+    },
+    {
+      "id": "Q05",
+      "edt": "1.5.1",
+      "nombre": "Verificar incremento de administración",
+      "responsable": "E",
+      "horas": 8,
+      "predecesoras": [
+        "I5E",
+        "I5A"
+      ],
+      "grupo": "Administración y auditoría",
+      "mpp_ids": [],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Cada incremento cierra con registro de alcance, versión y pruebas."
+    },
+    {
+      "id": "M05",
+      "edt": "1.5.1",
+      "nombre": "Incremento 5 integrado",
+      "responsable": null,
+      "horas": 0,
+      "predecesoras": [
+        "Q05"
+      ],
+      "grupo": "Administración y auditoría",
+      "mpp_ids": [],
+      "liberacion": null,
+      "fecha_compromiso": null,
+      "etapa": "base",
+      "tipo": "hito",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Hito programado; aceptación real documentada por separado.",
+      "criterio": "Cierre de las predecesoras y registro de versión y evidencia."
+    },
+    {
+      "id": "W01",
+      "edt": "1.6.1",
+      "nombre": "Conciliar diseño con decisión AWS",
+      "responsable": "H",
+      "horas": 8,
+      "predecesoras": [
+        "D05"
+      ],
+      "grupo": "AWS y aceptación",
+      "mpp_ids": [
+        4
+      ],
+      "liberacion": "2026-11-16",
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Entorno y automatización documentados por corte; destino AWS validado aparte."
+    },
+    {
+      "id": "W02",
+      "edt": "1.6.1",
+      "nombre": "Revisar adaptadores e IaC del corte AWS",
+      "responsable": "E",
+      "horas": 12,
+      "predecesoras": [
+        "W01",
+        "L01"
+      ],
+      "grupo": "AWS y aceptación",
+      "mpp_ids": [
+        4
+      ],
+      "liberacion": "2026-11-16",
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Entorno y automatización documentados por corte; destino AWS validado aparte."
+    },
+    {
+      "id": "Q06",
+      "edt": "1.5.2",
+      "nombre": "Revisar rendimiento local y plan integrado",
+      "responsable": "E",
+      "horas": 8,
+      "predecesoras": [
+        "M05"
+      ],
+      "grupo": "AWS y aceptación",
+      "mpp_ids": [
+        31
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Ensayo local y plan de carga integrada distinguen población y entorno."
+    },
+    {
+      "id": "Q07",
+      "edt": "1.5.3",
+      "nombre": "Revisar recuperación local y criterios RPO/RTO",
+      "responsable": "E",
+      "horas": 8,
+      "predecesoras": [
+        "Q06"
+      ],
+      "grupo": "AWS y aceptación",
+      "mpp_ids": [
+        31
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Restauración local y criterios de recuperación conjunta documentados."
+    },
+    {
+      "id": "Q08",
+      "edt": "1.5.4",
+      "nombre": "Revisar permisos, regresión y hallazgos",
+      "responsable": "E",
+      "horas": 8,
+      "predecesoras": [
+        "Q07",
+        "W02"
+      ],
+      "grupo": "AWS y aceptación",
+      "mpp_ids": [
+        31
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Permisos y escenarios de denegación conservan resultados y límites."
+    },
+    {
+      "id": "Q09",
+      "edt": "1.5.1",
+      "nombre": "Conciliar aceptación del corte académico",
+      "responsable": "H",
+      "horas": 8,
+      "predecesoras": [
+        "Q08",
+        "M05"
+      ],
+      "grupo": "AWS y aceptación",
+      "mpp_ids": [
+        31
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Cada incremento cierra con registro de alcance, versión y pruebas."
+    },
+    {
+      "id": "F01",
+      "edt": "1.6.2",
+      "nombre": "Conciliar flujos y sensibilidad financiera",
+      "responsable": "A",
+      "horas": 16,
+      "predecesoras": [
+        "G04",
+        "A05"
+      ],
+      "grupo": "Informe y evaluación",
+      "mpp_ids": [],
+      "liberacion": "2026-11-16",
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Flujos, VAN, TIR interpretables y sensibilidad conciliados con G/H."
+    },
+    {
+      "id": "F02",
+      "edt": "1.6.3",
+      "nombre": "Definir preparación societaria y presupuesto",
+      "responsable": "A",
+      "horas": 4,
+      "predecesoras": [
+        "G04"
+      ],
+      "grupo": "Informe y evaluación",
+      "mpp_ids": [],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Actividades y presupuesto identificados; no equivale a sociedad constituida."
+    },
+    {
+      "id": "R01",
+      "edt": "1.6.4",
+      "nombre": "Redactar y revisar capítulos y anexos",
+      "responsable": "A",
+      "horas": 24,
+      "predecesoras": [
+        "M03",
+        "A05"
+      ],
+      "grupo": "Informe y evaluación",
+      "mpp_ids": [
+        32
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Cortes del 01-12 y 09-12 identifican entregables, evidencia y cambios."
+    },
+    {
+      "id": "R02",
+      "edt": "1.6.4",
+      "nombre": "Revisar trazabilidad de arquitectura y datos",
+      "responsable": "H",
+      "horas": 8,
+      "predecesoras": [
+        "M05",
+        "W01"
+      ],
+      "grupo": "Informe y evaluación",
+      "mpp_ids": [
+        32
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Cortes del 01-12 y 09-12 identifican entregables, evidencia y cambios."
+    },
+    {
+      "id": "R03",
+      "edt": "1.1.3",
+      "nombre": "Revisar red, recursos e hitos del plan",
+      "responsable": "E",
+      "horas": 8,
+      "predecesoras": [
+        "Q08"
+      ],
+      "grupo": "Informe y evaluación",
+      "mpp_ids": [
+        32
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Calendarios, dependencias, hitos, holguras y recursos comprobados."
+    },
+    {
+      "id": "R04",
+      "edt": "1.6.4",
+      "nombre": "Integrar informe y evidencia de entrega",
+      "responsable": "A",
+      "horas": 8,
+      "predecesoras": [
+        "F01",
+        "F02",
+        "R01",
+        "R02",
+        "R03",
+        "Q09"
+      ],
+      "grupo": "Informe y evaluación",
+      "mpp_ids": [
+        32
+      ],
+      "liberacion": null,
+      "etapa": "base",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Cortes del 01-12 y 09-12 identifican entregables, evidencia y cambios."
+    },
+    {
+      "id": "C0",
+      "edt": "1.5.1",
+      "nombre": "Corte académico preparado",
+      "responsable": null,
+      "horas": 0,
+      "predecesoras": [
+        "R04"
+      ],
+      "grupo": "Informe y evaluación",
+      "mpp_ids": [],
+      "liberacion": null,
+      "fecha_compromiso": null,
+      "etapa": "base",
+      "tipo": "hito",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Hito programado; aceptación real documentada por separado.",
+      "criterio": "Cierre de las predecesoras y registro de versión y evidencia."
+    },
+    {
+      "id": "ENT",
+      "edt": "1.6.4",
+      "nombre": "Entrega de proyecto e informe",
+      "responsable": null,
+      "horas": 0,
+      "predecesoras": [
+        "C0"
+      ],
+      "grupo": "Entrega y defensa",
+      "mpp_ids": [],
+      "liberacion": "2026-12-01",
+      "fecha_compromiso": "2026-12-01",
+      "etapa": "base",
+      "tipo": "hito",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Hito programado; aceptación real documentada por separado.",
+      "criterio": "Cierre de las predecesoras y registro de versión y evidencia."
+    },
+    {
+      "id": "DFH",
+      "edt": "1.6.4",
+      "nombre": "Estabilizar demostración técnica",
+      "responsable": "H",
+      "horas": 12,
+      "predecesoras": [
+        "ENT"
+      ],
+      "grupo": "Entrega y defensa",
+      "mpp_ids": [
+        33
+      ],
+      "liberacion": "2026-12-02",
+      "etapa": "defensa",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Cortes del 01-12 y 09-12 identifican entregables, evidencia y cambios."
+    },
+    {
+      "id": "DFA",
+      "edt": "1.6.4",
+      "nombre": "Preparar presentación y revisión de informe",
+      "responsable": "A",
+      "horas": 12,
+      "predecesoras": [
+        "ENT"
+      ],
+      "grupo": "Entrega y defensa",
+      "mpp_ids": [
+        33
+      ],
+      "liberacion": "2026-12-02",
+      "etapa": "defensa",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Cortes del 01-12 y 09-12 identifican entregables, evidencia y cambios."
+    },
+    {
+      "id": "DFE",
+      "edt": "1.6.4",
+      "nombre": "Revisar entorno de demostración y contingencias",
+      "responsable": "E",
+      "horas": 12,
+      "predecesoras": [
+        "ENT"
+      ],
+      "grupo": "Entrega y defensa",
+      "mpp_ids": [
+        33
+      ],
+      "liberacion": "2026-12-02",
+      "etapa": "defensa",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Cortes del 01-12 y 09-12 identifican entregables, evidencia y cambios."
+    },
+    {
+      "id": "DEF",
+      "edt": "1.6.4",
+      "nombre": "Defensa de título",
+      "responsable": null,
+      "horas": 0,
+      "predecesoras": [
+        "DFH",
+        "DFA",
+        "DFE"
+      ],
+      "grupo": "Entrega y defensa",
+      "mpp_ids": [],
+      "liberacion": "2026-12-09",
+      "fecha_compromiso": "2026-12-09",
+      "etapa": "defensa",
+      "tipo": "hito",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Hito programado; aceptación real documentada por separado.",
+      "criterio": "Cierre de las predecesoras y registro de versión y evidencia."
+    },
+    {
+      "id": "TPH",
+      "edt": "1.6.1",
+      "nombre": "Verificar condiciones técnicas del piloto",
+      "responsable": "H",
+      "horas": 12,
+      "predecesoras": [
+        "DEF"
+      ],
+      "grupo": "Transición comercial",
+      "mpp_ids": [],
+      "liberacion": "2026-12-10",
+      "etapa": "transicion",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Entorno y automatización documentados por corte; destino AWS validado aparte."
+    },
+    {
+      "id": "TPA",
+      "edt": "1.6.3",
+      "nombre": "Preparar formalización y captación inicial",
+      "responsable": "A",
+      "horas": 12,
+      "predecesoras": [
+        "DEF"
+      ],
+      "grupo": "Transición comercial",
+      "mpp_ids": [],
+      "liberacion": "2026-12-10",
+      "etapa": "transicion",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Actividades y presupuesto identificados; no equivale a sociedad constituida."
+    },
+    {
+      "id": "TPE",
+      "edt": "1.6.1",
+      "nombre": "Preparar ensayo de despliegue y proveedores",
+      "responsable": "E",
+      "horas": 16,
+      "predecesoras": [
+        "DEF"
+      ],
+      "grupo": "Transición comercial",
+      "mpp_ids": [],
+      "liberacion": "2026-12-10",
+      "etapa": "transicion",
+      "tipo": "actividad",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Programación de referencia; ejecución no deducida de las fechas.",
+      "criterio": "Entorno y automatización documentados por corte; destino AWS validado aparte."
+    },
+    {
+      "id": "COM",
+      "edt": "1.6.4",
+      "nombre": "Inicio de fase comercial",
+      "responsable": null,
+      "horas": 0,
+      "predecesoras": [
+        "TPH",
+        "TPA",
+        "TPE"
+      ],
+      "grupo": "Transición comercial",
+      "mpp_ids": [],
+      "liberacion": "2027-01-01",
+      "fecha_compromiso": "2027-01-01",
+      "etapa": "comercial",
+      "tipo": "hito",
+      "inicio_real": null,
+      "fin_real": null,
+      "avance_real": null,
+      "estado": "Hito programado; aceptación real documentada por separado.",
+      "criterio": "Cierre de las predecesoras y registro de versión y evidencia."
+    }
+  ],
+  "tarifa_valoracion_clp": 6500,
+  "presupuesto_valorizado_horas": 960,
+  "origen_mpp": {
+    "sha256": "5140243dc56e6c7555ef9e7b0899b7e2ee11f9f12ac7b067d3116191ed5ba2a3",
+    "filas": 33,
+    "horas_asignaciones": 1320
+  },
+  "evidencias_corte": [
+    {
+      "fecha": "2026-11-04",
+      "hecho": "Registro F5: 86 pruebas de primer nivel del paquete documental; F6: dos pruebas de borrador y cuatro de perfil documental.",
+      "fuente": "XII y Tabla F.3; corte técnico registrado, no aceptación productiva global."
+    },
+    {
+      "fecha": "2026-11-15",
+      "hecho": "Decisión de arquitectura objetivo AWS.",
+      "fuente": "context/02_arquitectura_y_diseno/ARQUITECTURA_AWS_CORTE_20261116.md"
+    },
+    {
+      "fecha": "2026-11-16",
+      "hecho": "Evaluación económica integrada en XIV/H.",
+      "fuente": "Commit 0a1bad6 del repositorio de tesis."
+    }
+  ],
+  "criterio_proveedores": "Los ensayos controlados del corte académico se distinguen de habilitación y prueba productiva; las tareas programadas no acreditan ejecución.",
+  "estado_transicion": "Preparación propuesta del 10–31 de diciembre, con aceptación propia y comienzo comercial financiero el 01-01-2027."
+}
