@@ -101,6 +101,11 @@ def main():
             if line.startswith("Pages:"):
                 print(f"📄 Total de páginas: {line.split()[-1]}")
 
+    if not args.no_pdf:
+        academic_check = TESIS_DIR / "scripts" / "verificar_referencias_academicas.py"
+        if academic_check.is_file():
+            subprocess.run([sys.executable, str(academic_check)], cwd=ROOT, check=True)
+
     print("\n🎉 Compilación completada con éxito.")
     return 0
 

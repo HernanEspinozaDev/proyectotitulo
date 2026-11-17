@@ -1,7 +1,8 @@
 # ANEXO C: FICHAS TÉCNICAS DE CASOS DE USO
 
-> **Versión sincronizada con `actores_y_modulos.md` (11 módulos) y con el catálogo vigente de 236 requerimientos funcionales (RQF-001 – RQF-236 = 185 base + 51 complementarios).**
-> Los casos de uso se renumeraron de forma correlativa **CU-01 a CU-52**. Los casos complementarios (**CU-47 a CU-52**) se anexan al final del módulo correspondiente para no renumerar los casos existentes.
+El catálogo organiza los casos de uso en once módulos y mantiene su correspondencia con los 236 requerimientos funcionales del Anexo A (RQF-001–RQF-236: 185 base y 51 complementarios).
+
+Los casos de uso se numeran de forma correlativa **CU-01 a CU-52**. Los casos complementarios (**CU-47 a CU-52**) se anexan al final del módulo correspondiente para no renumerar los casos existentes.
 
 **Sistema:** espaciGo — Plataforma de publicación y arriendo flexible de espacios
 **Notación:** UML 2.5 — diagramas de casos de uso

@@ -1,5 +1,5 @@
 ## Material Complementario (Apéndices)
 
-El repositorio conserva las fuentes editables de las figuras en `tesis_final/assets/diagramas_src/` y sus imágenes en `tesis_final/assets/figuras/`. El manifiesto de DocSkill establece la secuencia de compilación y los registros citados identifican la versión y el alcance de cada evidencia.
+Los anexos A–C desarrollan los requerimientos, las historias de usuario y los casos de uso. Los anexos D y E presentan el modelo de datos y los contratos de interfaz; el Anexo F reúne los escenarios de prueba, sus resultados y sus límites. Los anexos G y H complementan la planificación y la evaluación económica.
 
-El corte de arquitectura AWS se conserva en context/02_arquitectura_y_diseno/ARQUITECTURA_AWS_CORTE_20261116.md. El plan de actualización y las comprobaciones de la memoria identifican los artefactos reemplazados. Las fuentes históricas retiradas de compilación se conservan en el contexto de arquitectura para trazabilidad.
+La arquitectura, la infraestructura y la topología se presentan en el Capítulo X. Los capítulos XII y XIII distinguen la evidencia técnica disponible de las condiciones de habilitación del entorno objetivo. Las referencias a cortes de verificación identifican el alcance y la versión de los resultados, de modo que cada afirmación se interpreta dentro del escenario documentado.

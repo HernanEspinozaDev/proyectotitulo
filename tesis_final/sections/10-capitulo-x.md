@@ -43,7 +43,7 @@ La Figura 10 detalla la vista de aplicaciones y el enlace entre la interfaz, el 
 
 ### 10.4. Modelo de datos
 
-La persistencia utiliza PostgreSQL 18 y PostGIS 3.6. El diseño distingue el modelo lógico ratificado, el catálogo derivado de migraciones y el estado observado en cada entorno. La línea base del diseño de oferta, contratación y cobros corresponde al ADR de espaciGo ratificado el 4 de noviembre de 2026, registrado en `planning/decisiones/adr_objetivo_espacios_contratacion_cobros.md` en el commit `4e26d52b57d9687c4b6b7a778e89dbbb5be855e5`. La copia de trabajo del ADR incorpora explícitamente la novena categoría. Su incorporación al catálogo físico se registra por separado en V000067, commit `b1b38d1`. El Anexo D distingue esta decisión del perfil físico sembrado por la migración.
+La persistencia utiliza PostgreSQL 18 y PostGIS 3.6. El diseño distingue el modelo lógico ratificado, el catálogo derivado de migraciones y el estado observado en cada entorno. La línea base del diseño de oferta, contratación y cobros corresponde al ADR de espaciGo ratificado el 4 de noviembre de 2026, cuya aplicación al modelo de datos se detalla en el Anexo D. La copia de trabajo del ADR incorpora explícitamente la novena categoría. Su incorporación al catálogo físico se registra por separado en V000067, commit `b1b38d1`. El Anexo D distingue esta decisión del perfil físico sembrado por la migración.
 
 #### 10.4.1. Modelo lógico
 

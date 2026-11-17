@@ -39,3 +39,7 @@ Asistir al equipo de desarrollo (Hernán Espinoza, Anita Marchant, Erick Silva) 
 - Consulta toda la información histórica, rúbricas e insumos para Anita y Erick en la carpeta `context/`.
 
 
+
+## 4. Presentación académica sin rutas de trabajo
+
+Por instrucción del propietario, el texto visible de la tesis, sus notas y sus referencias no incluye rutas locales, rutas del repositorio, nombres de scripts de compilación ni enlaces a archivos del repositorio del proyecto. Se reemplazan por descripciones académicas, citas formales y remisiones a capítulos, anexos, tablas o figuras. Las rutas necesarias para insertar imágenes permanecen únicamente en el Markdown y no se imprimen. Las direcciones de la API se conservan cuando constituyen parte de su especificación técnica. Los detalles de generación y ubicación de archivos pertenecen a la documentación de trabajo, fuera de la tesis compilada.
