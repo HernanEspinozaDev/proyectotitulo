@@ -1,0 +1,22 @@
+{
+  "estado": "verificado",
+  "alcance": "dos referencias bibliográficas señaladas en la revisión de la versión 9; comprobación sobre la tesis actual",
+  "enlaces": {
+    "https://www.bcn.cl/leychile/navegar?idNorma=1209272": {
+      "xml_texto_integro": true,
+      "destino_correcto": true,
+      "referencia_sin_division_de_pagina": true,
+      "pagina_pdf": 113,
+      "url_completo_en_una_linea": true,
+      "destino_pdf_correcto": true
+    },
+    "https://postgis.net/docs/ST_DWithin.html": {
+      "xml_texto_integro": true,
+      "destino_correcto": true,
+      "referencia_sin_division_de_pagina": true,
+      "pagina_pdf": 114,
+      "url_completo_en_una_linea": true,
+      "destino_pdf_correcto": true
+    }
+  }
+}
