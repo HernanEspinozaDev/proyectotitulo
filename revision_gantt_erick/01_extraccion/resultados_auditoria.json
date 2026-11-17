@@ -1,0 +1,51 @@
+{
+  "archivo_sha256": "5140243dc56e6c7555ef9e7b0899b7e2ee11f9f12ac7b067d3116191ed5ba2a3",
+  "tareas_con_resumen_proyecto": 34,
+  "filas_sin_resumen_proyecto": 33,
+  "fases_resumen": 7,
+  "actividades_operativas": 22,
+  "hitos": 4,
+  "dependencias": 24,
+  "red_sin_ciclos": true,
+  "violaciones_fecha_en_vinculos_fs_existentes": [],
+  "ids_ruta_critica_almacenada": [
+    2,
+    4,
+    6,
+    9,
+    11,
+    13,
+    14,
+    16,
+    18,
+    20,
+    22,
+    23,
+    25,
+    27,
+    28,
+    30,
+    31,
+    32
+  ],
+  "duracion_ruta_critica_almacenada_dias": 117.0,
+  "trabajo_asignaciones_horas": 1320.0,
+  "recursos_con_nombre": 0,
+  "actividades_sin_sucesora_excluido_cierre_documental": [
+    3,
+    8,
+    12,
+    17,
+    21,
+    26
+  ],
+  "lineas_base_con_fecha_inicio": 0,
+  "tareas_con_inicio_real": 0,
+  "tareas_con_fin_real": 0,
+  "porcentajes_registrados": [
+    "0.0"
+  ],
+  "fecha_estado": null,
+  "moneda": "€",
+  "alcance": "Lectura de la planificación almacenada; no certifica avance, esfuerzo real ni un cronograma actualizado."
+}

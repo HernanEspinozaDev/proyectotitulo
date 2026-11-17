@@ -1,0 +1,1331 @@
+{
+  "archivo": "/home/nandev/Descargas/espacigo.mpp",
+  "sha256": "5140243dc56e6c7555ef9e7b0899b7e2ee11f9f12ac7b067d3116191ed5ba2a3",
+  "lector": "MPXJ 16.10.0",
+  "propiedades": {
+    "ProjectTitle": "msproj11",
+    "StartDate": "2009-08-11T08:00",
+    "FinishDate": "2010-01-20T19:00",
+    "StatusDate": null,
+    "MinutesPerDay": "480",
+    "MinutesPerWeek": "2400",
+    "DaysPerMonth": "20",
+    "CurrencySymbol": "€"
+  },
+  "tareas": [
+    {
+      "id": 0,
+      "uid": 0,
+      "nombre": "msproj11",
+      "wbs": "0",
+      "padre_id": null,
+      "resumen": true,
+      "hito": false,
+      "inicio": "2009-08-11T08:00",
+      "fin": "2010-01-20T19:00",
+      "duracion": "117.0d",
+      "critica": true,
+      "holgura": "0.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [],
+      "sucesoras": []
+    },
+    {
+      "id": 1,
+      "uid": 3,
+      "nombre": "1 Fase 0: Inicio y configuracion del proyecto",
+      "wbs": "1",
+      "padre_id": 0,
+      "resumen": true,
+      "hito": false,
+      "inicio": "2009-08-11T09:00",
+      "fin": "2009-08-24T19:00",
+      "duracion": "10.0d",
+      "critica": true,
+      "holgura": "0.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [],
+      "sucesoras": []
+    },
+    {
+      "id": 2,
+      "uid": 4,
+      "nombre": "1.1 Levantamiento y validacion de requerimeintos(catálogos RF/RNF)",
+      "wbs": "1.1",
+      "padre_id": 1,
+      "resumen": false,
+      "hito": false,
+      "inicio": "2009-08-11T09:00",
+      "fin": "2009-08-17T19:00",
+      "duracion": "5.0d",
+      "critica": true,
+      "holgura": "0.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [],
+      "sucesoras": [
+        3,
+        4
+      ]
+    },
+    {
+      "id": 3,
+      "uid": 5,
+      "nombre": "1.2 Definición de arquitectura TI y matriz de decisiones (ADR)",
+      "wbs": "1.2",
+      "padre_id": 1,
+      "resumen": false,
+      "hito": false,
+      "inicio": "2009-08-18T09:00",
+      "fin": "2009-08-24T19:00",
+      "duracion": "5.0d",
+      "critica": false,
+      "holgura": "107.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [
+        {
+          "id": 2,
+          "tipo": "FS",
+          "desfase": "0.0d"
+        }
+      ],
+      "sucesoras": []
+    },
+    {
+      "id": 4,
+      "uid": 6,
+      "nombre": "1.3 Configuración del entorno de contenedores (Docker) y pipeline CI/CD en GCP",
+      "wbs": "1.3",
+      "padre_id": 1,
+      "resumen": false,
+      "hito": false,
+      "inicio": "2009-08-18T09:00",
+      "fin": "2009-08-24T19:00",
+      "duracion": "5.0d",
+      "critica": true,
+      "holgura": "0.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [
+        {
+          "id": 2,
+          "tipo": "FS",
+          "desfase": "0.0d"
+        }
+      ],
+      "sucesoras": [
+        6
+      ]
+    },
+    {
+      "id": 5,
+      "uid": 7,
+      "nombre": "2 Fase 1: Incremento1- Identidad y acceso",
+      "wbs": "2",
+      "padre_id": 0,
+      "resumen": true,
+      "hito": false,
+      "inicio": "2009-08-25T09:00",
+      "fin": "2009-09-14T19:00",
+      "duracion": "15.0d",
+      "critica": true,
+      "holgura": "0.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [],
+      "sucesoras": []
+    },
+    {
+      "id": 6,
+      "uid": 8,
+      "nombre": "2.1 Desarrollo Backend(Go) - M01: Autenticacion y gestion de cuenta",
+      "wbs": "2.1",
+      "padre_id": 5,
+      "resumen": false,
+      "hito": false,
+      "inicio": "2009-08-25T09:00",
+      "fin": "2009-08-31T19:00",
+      "duracion": "5.0d",
+      "critica": true,
+      "holgura": "0.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [
+        {
+          "id": 4,
+          "tipo": "FS",
+          "desfase": "0.0d"
+        }
+      ],
+      "sucesoras": [
+        7,
+        9
+      ]
+    },
+    {
+      "id": 7,
+      "uid": 10,
+      "nombre": "2.2 Desarrollo Backend (Go) - M02: Perfil y privacidad del usuario",
+      "wbs": "2.2",
+      "padre_id": 5,
+      "resumen": false,
+      "hito": false,
+      "inicio": "2009-09-01T09:00",
+      "fin": "2009-09-07T19:00",
+      "duracion": "5.0d",
+      "critica": false,
+      "holgura": "92.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [
+        {
+          "id": 6,
+          "tipo": "FS",
+          "desfase": "0.0d"
+        }
+      ],
+      "sucesoras": [
+        8
+      ]
+    },
+    {
+      "id": 8,
+      "uid": 14,
+      "nombre": "2.3 Desarrollo Backend (Go) - M03: Verificación de identidad (KYC / KYB con Registro Civil y SII)",
+      "wbs": "2.3",
+      "padre_id": 5,
+      "resumen": false,
+      "hito": false,
+      "inicio": "2009-09-08T09:00",
+      "fin": "2009-09-14T19:00",
+      "duracion": "5.0d",
+      "critica": false,
+      "holgura": "92.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [
+        {
+          "id": 7,
+          "tipo": "FS",
+          "desfase": "0.0d"
+        }
+      ],
+      "sucesoras": []
+    },
+    {
+      "id": 9,
+      "uid": 16,
+      "nombre": "2.4 Desarrollo Frontend (Next.js) - Pantallas de autenticación, perfil y verificación",
+      "wbs": "2.4",
+      "padre_id": 5,
+      "resumen": false,
+      "hito": false,
+      "inicio": "2009-09-01T09:00",
+      "fin": "2009-09-14T19:00",
+      "duracion": "10.0d",
+      "critica": true,
+      "holgura": "0.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [
+        {
+          "id": 6,
+          "tipo": "FS",
+          "desfase": "0.0d"
+        }
+      ],
+      "sucesoras": [
+        11
+      ]
+    },
+    {
+      "id": 10,
+      "uid": 19,
+      "nombre": "3 Fase 2: Incremento 2 - Oferta y Búsqueda",
+      "wbs": "3",
+      "padre_id": 0,
+      "resumen": true,
+      "hito": false,
+      "inicio": "2009-09-15T09:00",
+      "fin": "2009-10-19T19:00",
+      "duracion": "25.0d",
+      "critica": true,
+      "holgura": "0.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [],
+      "sucesoras": []
+    },
+    {
+      "id": 11,
+      "uid": 21,
+      "nombre": "3.1 Desarrollo Backend (Go) - M04: Gestión de publicaciones y calendario de disponibilidad",
+      "wbs": "3.1",
+      "padre_id": 10,
+      "resumen": false,
+      "hito": false,
+      "inicio": "2009-09-15T09:00",
+      "fin": "2009-09-28T19:00",
+      "duracion": "10.0d",
+      "critica": true,
+      "holgura": "0.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [
+        {
+          "id": 9,
+          "tipo": "FS",
+          "desfase": "0.0d"
+        }
+      ],
+      "sucesoras": [
+        12,
+        13
+      ]
+    },
+    {
+      "id": 12,
+      "uid": 23,
+      "nombre": "3.2  Desarrollo Backend (Go) - M05: Búsqueda, filtros y cotización con PostGIS",
+      "wbs": "3.2",
+      "padre_id": 10,
+      "resumen": false,
+      "hito": false,
+      "inicio": "2009-09-29T09:00",
+      "fin": "2009-10-12T19:00",
+      "duracion": "10.0d",
+      "critica": false,
+      "holgura": "72.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [
+        {
+          "id": 11,
+          "tipo": "FS",
+          "desfase": "0.0d"
+        }
+      ],
+      "sucesoras": []
+    },
+    {
+      "id": 13,
+      "uid": 25,
+      "nombre": "3.3 Desarrollo Frontend (Next.js) - Catálogo geolocalizado, mapa y detalle de espacios",
+      "wbs": "3.3",
+      "padre_id": 10,
+      "resumen": false,
+      "hito": false,
+      "inicio": "2009-09-29T09:00",
+      "fin": "2009-10-19T19:00",
+      "duracion": "15.0d",
+      "critica": true,
+      "holgura": "0.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [
+        {
+          "id": 11,
+          "tipo": "FS",
+          "desfase": "0.0d"
+        }
+      ],
+      "sucesoras": [
+        14
+      ]
+    },
+    {
+      "id": 14,
+      "uid": 27,
+      "nombre": "4 Hito 1: Primera Entrega / Evaluación (3 de Noviembre)",
+      "wbs": "4",
+      "padre_id": 0,
+      "resumen": false,
+      "hito": true,
+      "inicio": "2009-10-19T19:00",
+      "fin": "2009-10-19T19:00",
+      "duracion": "0.0d",
+      "critica": true,
+      "holgura": "0.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [
+        {
+          "id": 13,
+          "tipo": "FS",
+          "desfase": "0.0d"
+        }
+      ],
+      "sucesoras": [
+        16
+      ]
+    },
+    {
+      "id": 15,
+      "uid": 28,
+      "nombre": "5 Fase 3: Incremento 3 - Reservas y Pagos (Escrow)",
+      "wbs": "5",
+      "padre_id": 0,
+      "resumen": true,
+      "hito": false,
+      "inicio": "2009-10-20T09:00",
+      "fin": "2009-11-12T19:00",
+      "duracion": "18.0d",
+      "critica": true,
+      "holgura": "0.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [],
+      "sucesoras": []
+    },
+    {
+      "id": 16,
+      "uid": 29,
+      "nombre": "5.1 Desarrollo Backend (Go) - M06: Motor de reservas y prevención de dobles reservas (ACID)",
+      "wbs": "5.1",
+      "padre_id": 15,
+      "resumen": false,
+      "hito": false,
+      "inicio": "2009-10-20T09:00",
+      "fin": "2009-10-29T19:00",
+      "duracion": "8.0d",
+      "critica": true,
+      "holgura": "0.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [
+        {
+          "id": 14,
+          "tipo": "FS",
+          "desfase": "0.0d"
+        }
+      ],
+      "sucesoras": [
+        17,
+        18
+      ]
+    },
+    {
+      "id": 17,
+      "uid": 30,
+      "nombre": "5.2 Integración API Mercado Pago - Pasarela de pago, tokenización y retención de fondos (Escrow)",
+      "wbs": "5.2",
+      "padre_id": 15,
+      "resumen": false,
+      "hito": false,
+      "inicio": "2009-10-30T09:00",
+      "fin": "2009-11-09T19:00",
+      "duracion": "7.0d",
+      "critica": false,
+      "holgura": "52.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [
+        {
+          "id": 16,
+          "tipo": "FS",
+          "desfase": "0.0d"
+        }
+      ],
+      "sucesoras": []
+    },
+    {
+      "id": 18,
+      "uid": 31,
+      "nombre": "5.3 Desarrollo Frontend (Next.js) - Flujo de reserva, cotización y pasarela de pagos",
+      "wbs": "5.3",
+      "padre_id": 15,
+      "resumen": false,
+      "hito": false,
+      "inicio": "2009-10-30T09:00",
+      "fin": "2009-11-12T19:00",
+      "duracion": "10.0d",
+      "critica": true,
+      "holgura": "0.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [
+        {
+          "id": 16,
+          "tipo": "FS",
+          "desfase": "0.0d"
+        }
+      ],
+      "sucesoras": [
+        20
+      ]
+    },
+    {
+      "id": 19,
+      "uid": 32,
+      "nombre": "6 Fase 4: Incremento 4 - Contratación y Operación",
+      "wbs": "6",
+      "padre_id": 0,
+      "resumen": true,
+      "hito": false,
+      "inicio": "2009-11-13T09:00",
+      "fin": "2009-12-07T19:00",
+      "duracion": "17.0d",
+      "critica": true,
+      "holgura": "0.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [],
+      "sucesoras": []
+    },
+    {
+      "id": 20,
+      "uid": 33,
+      "nombre": "6.1 Integración API FirmaVirtual - Generación y firma electrónica avanzada de contratos",
+      "wbs": "6.1",
+      "padre_id": 19,
+      "resumen": false,
+      "hito": false,
+      "inicio": "2009-11-13T09:00",
+      "fin": "2009-11-23T19:00",
+      "duracion": "7.0d",
+      "critica": true,
+      "holgura": "0.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [
+        {
+          "id": 18,
+          "tipo": "FS",
+          "desfase": "0.0d"
+        }
+      ],
+      "sucesoras": [
+        21,
+        22
+      ]
+    },
+    {
+      "id": 21,
+      "uid": 34,
+      "nombre": "6.2 Desarrollo Backend (Go) - M08: Check-in y Check-out con evidencia fotográfica (Cloud Storage)",
+      "wbs": "6.2",
+      "padre_id": 19,
+      "resumen": false,
+      "hito": false,
+      "inicio": "2009-11-24T09:00",
+      "fin": "2009-12-03T19:00",
+      "duracion": "8.0d",
+      "critica": false,
+      "holgura": "34.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [
+        {
+          "id": 20,
+          "tipo": "FS",
+          "desfase": "0.0d"
+        }
+      ],
+      "sucesoras": []
+    },
+    {
+      "id": 22,
+      "uid": 35,
+      "nombre": "6.3 Desarrollo Frontend (Next.js) - Módulos de contrato y flujos de check-in/out",
+      "wbs": "6.3",
+      "padre_id": 19,
+      "resumen": false,
+      "hito": false,
+      "inicio": "2009-11-24T09:00",
+      "fin": "2009-12-07T19:00",
+      "duracion": "10.0d",
+      "critica": true,
+      "holgura": "0.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [
+        {
+          "id": 20,
+          "tipo": "FS",
+          "desfase": "0.0d"
+        }
+      ],
+      "sucesoras": [
+        23
+      ]
+    },
+    {
+      "id": 23,
+      "uid": 37,
+      "nombre": "7 Hito 2: Segunda Entrega / Evaluación (17 de Noviembre)",
+      "wbs": "7",
+      "padre_id": 0,
+      "resumen": false,
+      "hito": true,
+      "inicio": "2009-12-07T19:00",
+      "fin": "2009-12-07T19:00",
+      "duracion": "0.0d",
+      "critica": true,
+      "holgura": "0.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [
+        {
+          "id": 22,
+          "tipo": "FS",
+          "desfase": "0.0d"
+        }
+      ],
+      "sucesoras": [
+        25
+      ]
+    },
+    {
+      "id": 24,
+      "uid": 39,
+      "nombre": "8 Fase 5: Incremento 5 - Reputación, Disputas y Liquidación",
+      "wbs": "8",
+      "padre_id": 0,
+      "resumen": true,
+      "hito": false,
+      "inicio": "2009-12-08T09:00",
+      "fin": "2009-12-30T19:00",
+      "duracion": "17.0d",
+      "critica": true,
+      "holgura": "0.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [],
+      "sucesoras": []
+    },
+    {
+      "id": 25,
+      "uid": 40,
+      "nombre": "8.1 Desarrollo Backend (Go) - M09: Comunicación por chat y sistema de reputación/reseñas",
+      "wbs": "8.1",
+      "padre_id": 24,
+      "resumen": false,
+      "hito": false,
+      "inicio": "2009-12-08T09:00",
+      "fin": "2009-12-16T19:00",
+      "duracion": "7.0d",
+      "critica": true,
+      "holgura": "0.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [
+        {
+          "id": 23,
+          "tipo": "FS",
+          "desfase": "0.0d"
+        }
+      ],
+      "sucesoras": [
+        26,
+        27
+      ]
+    },
+    {
+      "id": 26,
+      "uid": 41,
+      "nombre": "8.2 Desarrollo Backend (Go) - M10: Gestión de disputas, arbitraje de garantía, Payout y boleta de comisión",
+      "wbs": "8.2",
+      "padre_id": 24,
+      "resumen": false,
+      "hito": false,
+      "inicio": "2009-12-17T09:00",
+      "fin": "2009-12-28T19:00",
+      "duracion": "8.0d",
+      "critica": false,
+      "holgura": "17.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [
+        {
+          "id": 25,
+          "tipo": "FS",
+          "desfase": "0.0d"
+        }
+      ],
+      "sucesoras": []
+    },
+    {
+      "id": 27,
+      "uid": 42,
+      "nombre": "8.3 Desarrollo Frontend (Next.js) - Vistas de reseñas, centro de disputas y paneles de liquidación",
+      "wbs": "8.3",
+      "padre_id": 24,
+      "resumen": false,
+      "hito": false,
+      "inicio": "2009-12-17T09:00",
+      "fin": "2009-12-30T19:00",
+      "duracion": "10.0d",
+      "critica": true,
+      "holgura": "0.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [
+        {
+          "id": 25,
+          "tipo": "FS",
+          "desfase": "0.0d"
+        }
+      ],
+      "sucesoras": [
+        28
+      ]
+    },
+    {
+      "id": 28,
+      "uid": 43,
+      "nombre": "9 Hito 3: Tercera Entrega / Evaluación (1 de Diciembre)",
+      "wbs": "9",
+      "padre_id": 0,
+      "resumen": false,
+      "hito": true,
+      "inicio": "2009-12-30T19:00",
+      "fin": "2009-12-30T19:00",
+      "duracion": "0.0d",
+      "critica": true,
+      "holgura": "0.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [
+        {
+          "id": 27,
+          "tipo": "FS",
+          "desfase": "0.0d"
+        }
+      ],
+      "sucesoras": [
+        30
+      ]
+    },
+    {
+      "id": 29,
+      "uid": 44,
+      "nombre": "10 Fase 6: Cierre, Administración, Pruebas y Despliegue Final",
+      "wbs": "10",
+      "padre_id": 0,
+      "resumen": true,
+      "hito": false,
+      "inicio": "2009-08-11T08:00",
+      "fin": "2010-01-20T19:00",
+      "duracion": "117.0d",
+      "critica": true,
+      "holgura": "0.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [],
+      "sucesoras": []
+    },
+    {
+      "id": 30,
+      "uid": 45,
+      "nombre": "10.1 Desarrollo Backend y Frontend - M11: Panel de administración, backoffice y auditoría inmutable (BigQuery)",
+      "wbs": "10.1",
+      "padre_id": 29,
+      "resumen": false,
+      "hito": false,
+      "inicio": "2009-12-31T09:00",
+      "fin": "2010-01-07T19:00",
+      "duracion": "6.0d",
+      "critica": true,
+      "holgura": "0.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [
+        {
+          "id": 28,
+          "tipo": "FS",
+          "desfase": "0.0d"
+        }
+      ],
+      "sucesoras": [
+        31
+      ]
+    },
+    {
+      "id": 31,
+      "uid": 47,
+      "nombre": "10.2 Pruebas de aceptación de usuario (UAT), pruebas de estrés y corrección de hallazgos",
+      "wbs": "10.2",
+      "padre_id": 29,
+      "resumen": false,
+      "hito": false,
+      "inicio": "2010-01-08T09:00",
+      "fin": "2010-01-14T19:00",
+      "duracion": "5.0d",
+      "critica": true,
+      "holgura": "0.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [
+        {
+          "id": 30,
+          "tipo": "FS",
+          "desfase": "0.0d"
+        }
+      ],
+      "sucesoras": [
+        32
+      ]
+    },
+    {
+      "id": 32,
+      "uid": 48,
+      "nombre": "10.3 Ajustes finales de documentación técnica e informe de cierre del proyecto",
+      "wbs": "10.3",
+      "padre_id": 29,
+      "resumen": false,
+      "hito": false,
+      "inicio": "2010-01-15T09:00",
+      "fin": "2010-01-20T19:00",
+      "duracion": "4.0d",
+      "critica": true,
+      "holgura": "0.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [
+        {
+          "id": 31,
+          "tipo": "FS",
+          "desfase": "0.0d"
+        }
+      ],
+      "sucesoras": []
+    },
+    {
+      "id": 33,
+      "uid": 49,
+      "nombre": "11 Hito Final: Entrega y Defensa del Proyecto (Semana del 15 de Diciembre)",
+      "wbs": "10.4",
+      "padre_id": 29,
+      "resumen": false,
+      "hito": true,
+      "inicio": "2009-08-11T08:00",
+      "fin": "2009-08-11T08:00",
+      "duracion": "0.0d",
+      "critica": false,
+      "holgura": "117.0d",
+      "porcentaje_completo": "0.0",
+      "trabajo_tarea": "0.0h",
+      "inicio_real": null,
+      "fin_real": null,
+      "inicio_linea_base": null,
+      "fin_linea_base": null,
+      "modo": "AUTO_SCHEDULED",
+      "restriccion": "AS_SOON_AS_POSSIBLE",
+      "fecha_restriccion": null,
+      "fecha_limite": null,
+      "predecesoras": [],
+      "sucesoras": []
+    }
+  ],
+  "asignaciones": [
+    {
+      "tarea_id": 3,
+      "recurso_uid": null,
+      "recurso_nombre": null,
+      "unidades": "100.0",
+      "trabajo": "40.0h",
+      "inicio": "2009-08-18T09:00",
+      "fin": "2009-08-24T19:00"
+    },
+    {
+      "tarea_id": 2,
+      "recurso_uid": null,
+      "recurso_nombre": null,
+      "unidades": "100.0",
+      "trabajo": "40.0h",
+      "inicio": "2009-08-11T09:00",
+      "fin": "2009-08-17T19:00"
+    },
+    {
+      "tarea_id": 4,
+      "recurso_uid": null,
+      "recurso_nombre": null,
+      "unidades": "100.0",
+      "trabajo": "40.0h",
+      "inicio": "2009-08-18T09:00",
+      "fin": "2009-08-24T19:00"
+    },
+    {
+      "tarea_id": 6,
+      "recurso_uid": null,
+      "recurso_nombre": null,
+      "unidades": "100.0",
+      "trabajo": "40.0h",
+      "inicio": "2009-08-25T09:00",
+      "fin": "2009-08-31T19:00"
+    },
+    {
+      "tarea_id": 7,
+      "recurso_uid": null,
+      "recurso_nombre": null,
+      "unidades": "100.0",
+      "trabajo": "40.0h",
+      "inicio": "2009-09-01T09:00",
+      "fin": "2009-09-07T19:00"
+    },
+    {
+      "tarea_id": 8,
+      "recurso_uid": null,
+      "recurso_nombre": null,
+      "unidades": "100.0",
+      "trabajo": "40.0h",
+      "inicio": "2009-09-08T09:00",
+      "fin": "2009-09-14T19:00"
+    },
+    {
+      "tarea_id": 9,
+      "recurso_uid": null,
+      "recurso_nombre": null,
+      "unidades": "100.0",
+      "trabajo": "80.0h",
+      "inicio": "2009-09-01T09:00",
+      "fin": "2009-09-14T19:00"
+    },
+    {
+      "tarea_id": 11,
+      "recurso_uid": null,
+      "recurso_nombre": null,
+      "unidades": "100.0",
+      "trabajo": "80.0h",
+      "inicio": "2009-09-15T09:00",
+      "fin": "2009-09-28T19:00"
+    },
+    {
+      "tarea_id": 12,
+      "recurso_uid": null,
+      "recurso_nombre": null,
+      "unidades": "100.0",
+      "trabajo": "80.0h",
+      "inicio": "2009-09-29T09:00",
+      "fin": "2009-10-12T19:00"
+    },
+    {
+      "tarea_id": 13,
+      "recurso_uid": null,
+      "recurso_nombre": null,
+      "unidades": "100.0",
+      "trabajo": "120.0h",
+      "inicio": "2009-09-29T09:00",
+      "fin": "2009-10-19T19:00"
+    },
+    {
+      "tarea_id": 14,
+      "recurso_uid": null,
+      "recurso_nombre": null,
+      "unidades": "100.0",
+      "trabajo": "0.0h",
+      "inicio": "2009-10-19T19:00",
+      "fin": "2009-10-19T19:00"
+    },
+    {
+      "tarea_id": 16,
+      "recurso_uid": null,
+      "recurso_nombre": null,
+      "unidades": "100.0",
+      "trabajo": "64.0h",
+      "inicio": "2009-10-20T09:00",
+      "fin": "2009-10-29T19:00"
+    },
+    {
+      "tarea_id": 17,
+      "recurso_uid": null,
+      "recurso_nombre": null,
+      "unidades": "100.0",
+      "trabajo": "56.0h",
+      "inicio": "2009-10-30T09:00",
+      "fin": "2009-11-09T19:00"
+    },
+    {
+      "tarea_id": 18,
+      "recurso_uid": null,
+      "recurso_nombre": null,
+      "unidades": "100.0",
+      "trabajo": "80.0h",
+      "inicio": "2009-10-30T09:00",
+      "fin": "2009-11-12T19:00"
+    },
+    {
+      "tarea_id": 20,
+      "recurso_uid": null,
+      "recurso_nombre": null,
+      "unidades": "100.0",
+      "trabajo": "56.0h",
+      "inicio": "2009-11-13T09:00",
+      "fin": "2009-11-23T19:00"
+    },
+    {
+      "tarea_id": 21,
+      "recurso_uid": null,
+      "recurso_nombre": null,
+      "unidades": "100.0",
+      "trabajo": "64.0h",
+      "inicio": "2009-11-24T09:00",
+      "fin": "2009-12-03T19:00"
+    },
+    {
+      "tarea_id": 22,
+      "recurso_uid": null,
+      "recurso_nombre": null,
+      "unidades": "100.0",
+      "trabajo": "80.0h",
+      "inicio": "2009-11-24T09:00",
+      "fin": "2009-12-07T19:00"
+    },
+    {
+      "tarea_id": 23,
+      "recurso_uid": null,
+      "recurso_nombre": null,
+      "unidades": "100.0",
+      "trabajo": "0.0h",
+      "inicio": "2009-12-07T19:00",
+      "fin": "2009-12-07T19:00"
+    },
+    {
+      "tarea_id": 25,
+      "recurso_uid": null,
+      "recurso_nombre": null,
+      "unidades": "100.0",
+      "trabajo": "56.0h",
+      "inicio": "2009-12-08T09:00",
+      "fin": "2009-12-16T19:00"
+    },
+    {
+      "tarea_id": 26,
+      "recurso_uid": null,
+      "recurso_nombre": null,
+      "unidades": "100.0",
+      "trabajo": "64.0h",
+      "inicio": "2009-12-17T09:00",
+      "fin": "2009-12-28T19:00"
+    },
+    {
+      "tarea_id": 27,
+      "recurso_uid": null,
+      "recurso_nombre": null,
+      "unidades": "100.0",
+      "trabajo": "80.0h",
+      "inicio": "2009-12-17T09:00",
+      "fin": "2009-12-30T19:00"
+    },
+    {
+      "tarea_id": 28,
+      "recurso_uid": null,
+      "recurso_nombre": null,
+      "unidades": "100.0",
+      "trabajo": "0.0h",
+      "inicio": "2009-12-30T19:00",
+      "fin": "2009-12-30T19:00"
+    },
+    {
+      "tarea_id": 30,
+      "recurso_uid": null,
+      "recurso_nombre": null,
+      "unidades": "100.0",
+      "trabajo": "48.0h",
+      "inicio": "2009-12-31T09:00",
+      "fin": "2010-01-07T19:00"
+    },
+    {
+      "tarea_id": 31,
+      "recurso_uid": null,
+      "recurso_nombre": null,
+      "unidades": "100.0",
+      "trabajo": "40.0h",
+      "inicio": "2010-01-08T09:00",
+      "fin": "2010-01-14T19:00"
+    },
+    {
+      "tarea_id": 32,
+      "recurso_uid": null,
+      "recurso_nombre": null,
+      "unidades": "100.0",
+      "trabajo": "32.0h",
+      "inicio": "2010-01-15T09:00",
+      "fin": "2010-01-20T19:00"
+    },
+    {
+      "tarea_id": 33,
+      "recurso_uid": null,
+      "recurso_nombre": null,
+      "unidades": "100.0",
+      "trabajo": "0.0h",
+      "inicio": "2009-08-11T08:00",
+      "fin": "2009-08-11T08:00"
+    }
+  ],
+  "recursos": [
+    {
+      "uid": 0,
+      "nombre": null,
+      "capacidad": "100.0"
+    }
+  ],
+  "archivo_original_sin_cambios": true
+}
